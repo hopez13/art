@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b6a1f18_bc862ed1",
+        "filename": "libartbase/base/unix_file/fd_file.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-09T11:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a9e2bfd7_1b89f491",
+      "range": {
+        "startLine": 121,
+        "startChar": 91,
+        "endLine": 121,
+        "endChar": 94
+      },
+      "revId": "ac1e97453cf06ffd3746a4ffdcd4bef3e07bf7e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cd13fa75_62094962",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-08T13:03:39Z",
       "side": 1,
       "message": "Super nit: No need for parentheses.\n```suggestion\n  for (size_t i \u003d 0; i \u003c kNumChunks - 1; i++) {\n```",
+      "range": {
+        "startLine": 205,
+        "startChar": 25,
+        "endLine": 205,
+        "endChar": 26
+      },
+      "revId": "ac1e97453cf06ffd3746a4ffdcd4bef3e07bf7e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9cc9bcc6_035bb497",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-09T11:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cd13fa75_62094962",
       "range": {
         "startLine": 205,
         "startChar": 25,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fd66c0b8_d1f2726f",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 389,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-09T11:40:42Z",
+      "side": 1,
+      "message": "Ah, missed that one. Thanks. Done.",
+      "parentUuid": "8b601802_9864454d",
+      "range": {
+        "startLine": 389,
+        "startChar": 70,
+        "endLine": 389,
+        "endChar": 71
+      },
+      "revId": "ac1e97453cf06ffd3746a4ffdcd4bef3e07bf7e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "261635c9_fc411b28",
@@ -110,6 +182,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af70a035_5274144d",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 391,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-09T11:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "261635c9_fc411b28",
+      "range": {
+        "startLine": 391,
+        "startChar": 44,
+        "endLine": 391,
+        "endChar": 61
+      },
+      "revId": "ac1e97453cf06ffd3746a4ffdcd4bef3e07bf7e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f587f61f_9489b30f",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-04-08T13:03:39Z",
       "side": 1,
       "message": "Argument comments here too.",
+      "range": {
+        "startLine": 480,
+        "startChar": 49,
+        "endLine": 480,
+        "endChar": 70
+      },
+      "revId": "ac1e97453cf06ffd3746a4ffdcd4bef3e07bf7e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b11c4f03_443dcb72",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 480,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-09T11:40:42Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f587f61f_9489b30f",
       "range": {
         "startLine": 480,
         "startChar": 49,
