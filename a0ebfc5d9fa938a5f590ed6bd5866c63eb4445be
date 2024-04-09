@@ -22,6 +22,30 @@
       },
       "revId": "a0ebfc5d9fa938a5f590ed6bd5866c63eb4445be",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2fc8c17_7d320aef",
+        "filename": "libnativebridge/README.md",
+        "patchSetId": 4
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-09T14:49:31Z",
+      "side": 1,
+      "message": "It does happen in plenty of places already if you look in CodeSearch (in ART). My personal opinion is that when actually publishing the source isn\u0027t an option, it\u0027s better than nothing. We also have to consider our own maintenance and discoverability cost if we are to put this single piece of info on some internal landing page.",
+      "parentUuid": "086041f3_aaec7cf2",
+      "range": {
+        "startLine": 24,
+        "startChar": 22,
+        "endLine": 24,
+        "endChar": 45
+      },
+      "revId": "a0ebfc5d9fa938a5f590ed6bd5866c63eb4445be",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
