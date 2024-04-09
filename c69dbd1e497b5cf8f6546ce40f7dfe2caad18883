@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "21b39fc2_c9eb1c6b",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-09T21:21:31Z",
+      "side": 1,
+      "message": "@jiakaiz@google.com, apparently some instrumentation is added at build time for hwasan. Guess I was mistaken then, apropos an offline discussion.",
+      "range": {
+        "startLine": 46,
+        "startChar": 4,
+        "endLine": 46,
+        "endChar": 43
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
