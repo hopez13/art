@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b82c54e_4bf21be8",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1337,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-09T08:09:27Z",
+      "side": 1,
+      "message": "Is profman the only parser for these generated profiles? If not, should we ignore any entries that have dex pcs that are higher than the number of code units in the current method here? That way other parsers don\u0027t need to change.",
+      "range": {
+        "startLine": 1337,
+        "startChar": 8,
+        "endLine": 1337,
+        "endChar": 60
+      },
+      "revId": "355f844adaeaf4d4f4d20f0fae44da203ec7d386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5267d855_961b96d7",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1339,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-09T08:09:27Z",
+      "side": 1,
+      "message": "Should we add a TODO here saying we want to support them for AOT code as well in future?",
+      "range": {
+        "startLine": 1339,
+        "startChar": 9,
+        "endLine": 1339,
+        "endChar": 31
+      },
+      "revId": "355f844adaeaf4d4f4d20f0fae44da203ec7d386",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
