@@ -16,6 +16,29 @@
       "message": "I\u0027m holding on this CL because I need a change (https://github.com/compiler-explorer/compiler-explorer/pull/6334) to be merged into upstream to make this work, but this CL is ready for review.\n\nI\u0027m bypassing lint because it generates a false positive. There is a mention of GPL in the config template, but that\u0027s for configuring the Java compiler, and it doesn\u0027t mean that my code is under GPL.",
       "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1e30011a_001caac3",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-10T10:34:16Z",
+      "side": 1,
+      "message": "can use any ? What difference will it make?",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
