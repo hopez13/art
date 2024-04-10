@@ -3,6 +3,115 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "036b64bc_1aa26f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "Very cool!",
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd509fbe_baee67c2",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "I wonder if we can make this a build-time check rather than a test. Is it possible through a `genrule`?",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a4f9940_9f2e76e8",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "Fully qualify them. go/totw/151\n```suggestion\nusing ::android::base::ErrnoError;\nusing ::android::base::Error;\nusing ::android::base::Result;\nusing ::android::base::testing::Ok;\nusing ::testing::IsEmpty;\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f85d2c0d_be9803b6",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "The destruction is not safe. go/totw/110\n\nConsider `constexpr const char*[]`. You can still use `std::find` with it, with the help of `std::begin` and `std::end`, and the string comparison will work fine because the other operand is an `std::string`.\n\nOr, at least, use `android::base::NoDestructor\u003cstd::vector\u003cstd::string\u003e\u003e`.",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c6cbf32a_cf7f021d",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "I wonder if there is a smarter way to determine whether a library is an NDK library, instead of using a hardcoded list.\n\nOr, at the very least, add a comment to state what the purpose of this list is and what kind of libraries are allowed here.",
+      "range": {
+        "startLine": 44,
+        "startChar": 31,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "21b39fc2_c9eb1c6b",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
@@ -19,6 +128,167 @@
         "startChar": 4,
         "endLine": 46,
         "endChar": 43
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20bdb5ac_1eaeea33",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "android::base::Realpath is more C++ idomatic.\n\nhttps://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:system/libbase/include/android-base/file.h;l\u003d113;drc\u003d2902e107c0f16ab23ab2779deaf79417f23e028d",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 41
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7a47abb_667b57e9",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "I think it\u0027s better to use `Errorf`. Here and below.",
+      "range": {
+        "startLine": 84,
+        "startChar": 11,
+        "endLine": 84,
+        "endChar": 16
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "301800d4_fe6294d9",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "Consider [`OS::OpenFileForReading`](https://cs.android.com/android/platform/superproject/main/+/main:art/libartbase/base/os_linux.cc;l\u003d32;drc\u003d3d19fbcc09b1b44928639b06cd0b88f735cd988d) wrapped by an `std::unique_ptr`, or [`android::base:unique_fd`](https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/unique_fd.h;l\u003d184;drc\u003d7bc8db18d96e9c76d72aefe16826981fbf44fba4).",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a026d39_200593aa",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "Add argument comments. Here and below.",
+      "range": {
+        "startLine": 92,
+        "startChar": 39,
+        "endLine": 92,
+        "endChar": 46
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8139f3f8_122d1a69",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "[`android::base::ScopeGuard`](https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/scopeguard.h;l\u003d27;drc\u003d6fe6a1d1fb7e7b1b6e8ba14994237038a683a036)?",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 15
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08dcfbaf_d21e07d5",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "ASSERT_* is more appropriate there. go/totw/113\n\nIn addition, you can use ASSERT_RESULT_OK https://cs.android.com/android/platform/superproject/main/+/main:system/libbase/include/android-base/result.h;l\u003d440;drc\u003d3fd3cd36ff90079d3aeeb5b8cebf8d69a712ac19\n\nOr, you may consider moving [`OR_FAIL`](https://cs.android.com/android/platform/superproject/main/+/main:art/artd/testing.h;l\u003d33;drc\u003d851b3f82129bcb95a5208e8bd211f6eb2f881584) from artd test to somewhere like common_art_test.h or libartbase-testing and use it here.\n\nHere and below.",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 13
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3f54ef7c_be09b1c9",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:42:08Z",
+      "side": 1,
+      "message": "Also print `disallowed_libs`?\n```suggestion\n      \u003c\u003c path_to_self.value() \u003c\u003c \" has disallowed shared library dependencies: \"\n      \u003c\u003c android::base::Join(disallowed_libs, \", \");\n```",
+      "range": {
+        "startLine": 153,
+        "startChar": 78,
+        "endLine": 153,
+        "endChar": 79
       },
       "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
