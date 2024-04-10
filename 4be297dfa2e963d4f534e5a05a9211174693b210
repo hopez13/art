@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37a59140_775e974e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T11:40:06Z",
+      "side": 1,
+      "message": "No, I think we can only wait for Kevin to fix it. And I don\u0027t even expect things to compile unless you have locally patched https://github.com/compiler-explorer/compiler-explorer/pull/6334",
+      "parentUuid": "3c6ae4b7_49235360",
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "443bc7ee_33ab4c6c",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-04-10T11:28:40Z",
       "side": 1,
       "message": "e.g.:\n \n```suggestion\n1. Go to a full Android source tree, and initialize the environment as usual\n   (e.g. `lunch aosp_cf_x86_64_phone-trunk_staging-userdebug`).\n```",
+      "range": {
+        "startLine": 34,
+        "startChar": 76,
+        "endLine": 34,
+        "endChar": 77
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "373e1c58_8b114a97",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T11:40:06Z",
+      "side": 1,
+      "message": "The lunch command is already there below. Is that what you are asking for?",
+      "parentUuid": "443bc7ee_33ab4c6c",
       "range": {
         "startLine": 34,
         "startChar": 76,
@@ -128,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0515bf1_d240ca09",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T11:40:06Z",
+      "side": 1,
+      "message": "I\u0027m not sure about that. We need to build host binaries in the steps below. Maybe some lunch target can\u0027t build them.",
+      "parentUuid": "915c2059_f6fa0045",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 70
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "882bdf94_cb5b01e4",
@@ -141,6 +207,30 @@
       "writtenOn": "2024-04-10T11:28:40Z",
       "side": 1,
       "message": "Maybe add a comment here just to explain what we are trying to achieve\n```suggestion\n    # Replace {{compilersDir}} in the config files with the actual path.\n    find $COMPILER_EXPLORER_DIR/compiler-explorer/etc/config -type f -name \u0027*local*\u0027 | \\\n      xargs sed -i \u0027s?{{compilersDir}}?\u0027$COMPILER_EXPLORER_DIR/compilers\u0027?\u0027\n    ```\n```",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 0
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f3203e2_747308b7",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T11:40:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "882bdf94_cb5b01e4",
       "range": {
         "startLine": 48,
         "startChar": 0,
