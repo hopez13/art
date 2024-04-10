@@ -18,6 +18,46 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c6ae4b7_49235360",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T11:28:40Z",
+      "side": 1,
+      "message": "I tried the instructions but I am not getting the native code output (in the same manner that public godbolt is not showing it). Could you see native code on your local instance?",
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "443bc7ee_33ab4c6c",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T11:28:40Z",
+      "side": 1,
+      "message": "e.g.:\n \n```suggestion\n1. Go to a full Android source tree, and initialize the environment as usual\n   (e.g. `lunch aosp_cf_x86_64_phone-trunk_staging-userdebug`).\n```",
+      "range": {
+        "startLine": 34,
+        "startChar": 76,
+        "endLine": 34,
+        "endChar": 77
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1e30011a_001caac3",
@@ -60,6 +100,52 @@
         "startChar": 14,
         "endLine": 42,
         "endChar": 34
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "915c2059_f6fa0045",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T11:28:40Z",
+      "side": 1,
+      "message": "Suggestion: `You may use any valid lunch target`\n\n```suggestion\n    Note: You may use any valid `lunch` target.\n```",
+      "range": {
+        "startLine": 42,
+        "startChar": 4,
+        "endLine": 42,
+        "endChar": 70
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "882bdf94_cb5b01e4",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T11:28:40Z",
+      "side": 1,
+      "message": "Maybe add a comment here just to explain what we are trying to achieve\n```suggestion\n    # Replace {{compilersDir}} in the config files with the actual path.\n    find $COMPILER_EXPLORER_DIR/compiler-explorer/etc/config -type f -name \u0027*local*\u0027 | \\\n      xargs sed -i \u0027s?{{compilersDir}}?\u0027$COMPILER_EXPLORER_DIR/compilers\u0027?\u0027\n    ```\n```",
+      "range": {
+        "startLine": 48,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 0
       },
       "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
