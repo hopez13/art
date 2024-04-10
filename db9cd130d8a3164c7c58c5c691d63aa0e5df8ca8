@@ -22,6 +22,30 @@
       },
       "revId": "db9cd130d8a3164c7c58c5c691d63aa0e5df8ca8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2848c2_eb81d094",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 650,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T13:31:51Z",
+      "side": 0,
+      "message": "Exactly. That\u0027s the point of that change. (But otherwise this clause would\u0027ve moved into art_libunwindstack_static_defaults.)",
+      "parentUuid": "166e0b4d_ca129122",
+      "range": {
+        "startLine": 646,
+        "startChar": 0,
+        "endLine": 650,
+        "endChar": 10
+      },
+      "revId": "db9cd130d8a3164c7c58c5c691d63aa0e5df8ca8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
