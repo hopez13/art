@@ -1,0 +1,216 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccf8d1b1_0250115d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 11
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "Some preliminary comments. I haven\u0027t reviewed the tests yet.",
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a69ef192_18850100",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "Also following on the comment in the AIDL file, I suggest making this a small function so it can be used in more places as the API grows, and also introduce a small function that does the opposite check.\n\nThe latter I suggest adding to most current entry points, except maybe those we\u0027ll obviously need in the chroot instance (like `dexopt` itself). If it turns out some of those entry points are later needed inside the chroot then it\u0027s good to remove the checks at that point.",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1574,
+        "endChar": 3
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22570254_bb458f97",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "`.txt`, just to make it more clear that it\u0027s a file in text format one can easily take a look at?\n```suggestion\n   std::string classpath_file \u003d tmp_dir + \"/classpath.txt\";\n```",
+      "range": {
+        "startLine": 1578,
+        "startChar": 51,
+        "endLine": 1578,
+        "endChar": 52
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bfaff76b_3cd2bc51",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "Suggest `export_line_pattern`.",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ac3b18_53a26330",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "The init file syntax is a little more complicated than this. In particular, there may be backslashed line endings. I suggest splitting lines based on a regex instead.",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7194203_a042109f",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "This leaks environment variables from the current version into the chroot that\u0027s supposed to correspond to the upgraded version. What about using a separate environment variable collection that\u0027s passed to the subprocesses? If some environment variables need to be propagated from our own environment it\u0027d be good if that\u0027s done explicitly instead.",
+      "range": {
+        "startLine": 1631,
+        "startChar": 4,
+        "endLine": 1631,
+        "endChar": 10
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c78e45a7_d970fb97",
+        "filename": "artd/artd.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "Following on the comment in the AIDL file, having the same three sections in this header would be helpful.",
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "36d66c5a_4a0d0ec8",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "I think it\u0027d be helpful to establish some conventions to make it clear which APIs are applicable to which artd instance. I.e. partition them into three sections, one with those that will be called on the normal artd outside the chroot, one for artd inside the chroot, and one for both.\n\nThe main purpose is to make it more clear in what context a function may be used when reading the code.",
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2bb44f29_8ce59cf6",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "With the caveat that I haven\u0027t yet looked at the java level code, this seems unnecessarily complex. Afaics this state consists of the `setenv` calls. Have I missed something?\n\nAs mentioned elsewhere I think the environment should be separated for the forked subprocesses. With that in mind, it seems fairly straightforward to read it in before each subprocess when running in chroot mode. A simple memoized cache can still be used to save repeated file reads as long as the artd process remains alive.",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 245,
+        "endChar": 68
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1008f1_5a1e26e5",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T21:09:03Z",
+      "side": 1,
+      "message": "For mount operations? Anything else?",
+      "range": {
+        "startLine": 36,
+        "startChar": 70,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
