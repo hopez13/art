@@ -226,6 +226,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f50becee_52a47de7",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-10T13:17:49Z",
+      "side": 1,
+      "message": "Looking at `ArtMethod::GetDeclaringClassMayBeDead()`, I think it should be `ReadBarrier::IsMarked()`.",
+      "parentUuid": "975ca928_e5e35baf",
+      "range": {
+        "startLine": 60,
+        "startChar": 15,
+        "endLine": 60,
+        "endChar": 88
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcf3ddb1_84ea4c59",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 15
@@ -355,6 +379,30 @@
       "side": 1,
       "message": "`extract()` invalidates passes iterator. Is keeping copies the right way to use these APIs? Is it safe?\n\n```\n    auto it_copy \u003d it;\n    it_copy++;\n    auto node \u003d method_code_map_reversed_.extract(it);\n    node.key() \u003d new_method;\n    method_code_map_reversed_.insert(std::move(node));\n    it \u003d it_copy;\n```",
       "parentUuid": "69dda9ce_36606805",
+      "range": {
+        "startLine": 933,
+        "startChar": 4,
+        "endLine": 934,
+        "endChar": 60
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4da02bd9_ae536a18",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-10T13:17:49Z",
+      "side": 1,
+      "message": "Iterators to elements that remain in the map (and `end()`) are never invalidated by insertion/removal of other elements (using `extract()` or any other function).\n\nNote: You can use `auto next \u003d std::advance(it, 1)` to merge the first two lines. (I don\u0027t like the post-increment operator and this is a convenient way to avoid it.)",
+      "parentUuid": "e6019f8e_5d5855ca",
       "range": {
         "startLine": 933,
         "startChar": 4,
