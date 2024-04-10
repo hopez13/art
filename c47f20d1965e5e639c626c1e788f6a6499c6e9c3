@@ -22,6 +22,30 @@
       },
       "revId": "c47f20d1965e5e639c626c1e788f6a6499c6e9c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20b8bfac_35510953",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-10T07:37:59Z",
+      "side": 1,
+      "message": "Should we instead change `PreCompile()` to call `Resolve()` when verification is enabled?",
+      "parentUuid": "198e4a5e_2955d27b",
+      "range": {
+        "startLine": 1732,
+        "startChar": 0,
+        "endLine": 1734,
+        "endChar": 0
+      },
+      "revId": "c47f20d1965e5e639c626c1e788f6a6499c6e9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
