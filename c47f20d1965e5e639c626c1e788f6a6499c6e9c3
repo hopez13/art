@@ -70,6 +70,30 @@
       },
       "revId": "c47f20d1965e5e639c626c1e788f6a6499c6e9c3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "31f6f836_509a78e1",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1734,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-10T08:49:16Z",
+      "side": 1,
+      "message": "If we take the early exit from `FastvVerify()`, we shall perform a proper verification in `Verify()`, so I guess the `Resolve()` would not be useless.",
+      "parentUuid": "9e88545a_4b853868",
+      "range": {
+        "startLine": 1732,
+        "startChar": 0,
+        "endLine": 1734,
+        "endChar": 0
+      },
+      "revId": "c47f20d1965e5e639c626c1e788f6a6499c6e9c3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
