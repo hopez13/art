@@ -39,6 +39,30 @@
       },
       "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "44530c5c_4e2eb06d",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T10:45:14Z",
+      "side": 1,
+      "message": "We only need to build host binaries in the steps below. As long as a lunch target can build those host binaries, I don\u0027t see a difference it will make.",
+      "parentUuid": "1e30011a_001caac3",
+      "range": {
+        "startLine": 42,
+        "startChar": 14,
+        "endLine": 42,
+        "endChar": 34
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
