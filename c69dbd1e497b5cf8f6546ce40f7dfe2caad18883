@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d2a23513_7ff81ffd",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-10T13:36:56Z",
+      "side": 1,
+      "message": "That\u0027d be nicer, but I don\u0027t know how. If you have some idea I could try it out.\n\n(Let\u0027s start here, since the other code comments will be moot if we can do it this way instead.)",
+      "parentUuid": "dd509fbe_baee67c2",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a4f9940_9f2e76e8",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
