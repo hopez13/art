@@ -53,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "198ce647_af090096",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T12:45:51Z",
+      "side": 1,
+      "message": "Ok, README looks good to me but I\u0027d like to wait to check the instructions myself before submitting.",
+      "parentUuid": "37a59140_775e974e",
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "443bc7ee_33ab4c6c",
@@ -90,6 +108,30 @@
       "side": 1,
       "message": "The lunch command is already there below. Is that what you are asking for?",
       "parentUuid": "443bc7ee_33ab4c6c",
+      "range": {
+        "startLine": 34,
+        "startChar": 76,
+        "endLine": 34,
+        "endChar": 77
+      },
+      "revId": "4be297dfa2e963d4f534e5a05a9211174693b210",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fc9f68b5_3fe4729f",
+        "filename": "tools/compiler-explorer/compiler-explorer.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-10T12:45:51Z",
+      "side": 1,
+      "message": "The new note addresses what I was trying to achieve",
+      "parentUuid": "373e1c58_8b114a97",
       "range": {
         "startLine": 34,
         "startChar": 76,
