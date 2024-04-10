@@ -107,12 +107,13 @@ TEST_F(LoadStoreAnalysisTest, ArrayHeapLocations) {
   size_t vec = HeapLocation::kScalar;
   size_t class_def = HeapLocation::kDeclaringClassDefIndexForArrays;
   const bool is_vec_op = false;
+  HInstruction* predicate = nullptr;
   size_t loc1 = heap_location_collector.FindHeapLocationIndex(
-      ref, type, field, c1, vec, class_def, is_vec_op);
+      ref, type, field, c1, vec, class_def, is_vec_op, predicate);
   size_t loc2 = heap_location_collector.FindHeapLocationIndex(
-      ref, type, field, c2, vec, class_def, is_vec_op);
+      ref, type, field, c2, vec, class_def, is_vec_op, predicate);
   size_t loc3 = heap_location_collector.FindHeapLocationIndex(
-      ref, type, field, index, vec, class_def, is_vec_op);
+      ref, type, field, index, vec, class_def, is_vec_op, predicate);
   // must find this reference info for array in HeapLocationCollector.
   ASSERT_TRUE(ref != nullptr);
   // must find these heap locations;
@@ -521,6 +522,133 @@ TEST_F(LoadStoreAnalysisTest, ArrayAliasingTest) {
   loc1 = heap_location_collector.GetArrayHeapLocation(vstore_i_add6_vlen2);
   loc2 = heap_location_collector.GetArrayHeapLocation(vstore_i_add8);
   ASSERT_FALSE(heap_location_collector.MayAlias(loc1, loc2));
+}
+
+TEST_F(LoadStoreAnalysisTest, PredicatedVectorInstructions) {
+  CreateGraph();
+  HBasicBlock* entry = new (GetAllocator()) HBasicBlock(graph_);
+  graph_->AddBlock(entry);
+  graph_->SetEntryBlock(entry);
+  graph_->BuildDominatorTree();
+
+  HInstruction* array = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(0), 0, DataType::Type::kReference);
+  HInstruction* index = new (GetAllocator())
+      HParameterValue(graph_->GetDexFile(), dex::TypeIndex(1), 1, DataType::Type::kInt32);
+
+  HInstruction* c0 = graph_->GetIntConstant(0);
+  HInstruction* c1 = graph_->GetIntConstant(1);
+  HInstruction* c6 = graph_->GetIntConstant(6);
+  HInstruction* c8 = graph_->GetIntConstant(8);
+
+  constexpr size_t kTestVecLength = 4;
+
+  HVecOperation* v1 = new (GetAllocator())
+      HVecReplicateScalar(GetAllocator(), c1, DataType::Type::kInt32, kTestVecLength, kNoDexPc);
+
+  HInstruction* pred1 = new (GetAllocator()) HVecPredWhile(GetAllocator(),
+                                                           index,
+                                                           c6,
+                                                           HVecPredWhile::CondKind::kLE,
+                                                           DataType::Type::kInt32,
+                                                           kTestVecLength,
+                                                           kNoDexPc);
+
+  HInstruction* pred2 = new (GetAllocator()) HVecPredWhile(GetAllocator(),
+                                                           index,
+                                                           c8,
+                                                           HVecPredWhile::CondKind::kLE,
+                                                           DataType::Type::kInt32,
+                                                           kTestVecLength,
+                                                           kNoDexPc);
+
+  HInstruction* vstore =
+      new (GetAllocator()) HVecStore(GetAllocator(),
+                                     array,
+                                     c0,
+                                     v1,
+                                     DataType::Type::kInt32,
+                                     SideEffects::ArrayWriteOfType(DataType::Type::kInt32),
+                                     kTestVecLength,
+                                     kNoDexPc);
+
+  HVecOperation* pred_vstore1 =
+      new (GetAllocator()) HVecStore(GetAllocator(),
+                                     array,
+                                     c0,
+                                     v1,
+                                     DataType::Type::kInt32,
+                                     SideEffects::ArrayWriteOfType(DataType::Type::kInt32),
+                                     kTestVecLength,
+                                     kNoDexPc);
+
+  HVecOperation* pred_vstore2 =
+      new (GetAllocator()) HVecStore(GetAllocator(),
+                                     array,
+                                     c0,
+                                     v1,
+                                     DataType::Type::kInt32,
+                                     SideEffects::ArrayWriteOfType(DataType::Type::kInt32),
+                                     kTestVecLength,
+                                     kNoDexPc);
+
+  HVecOperation* pred_vload =
+      new (GetAllocator()) HVecLoad(GetAllocator(),
+                                    array,
+                                    c0,
+                                    DataType::Type::kInt32,
+                                    SideEffects::ArrayReadOfType(DataType::Type::kInt32),
+                                    kTestVecLength,
+                                    false,
+                                    kNoDexPc);
+
+  entry->AddInstruction(array);
+  entry->AddInstruction(pred1);
+  entry->AddInstruction(pred2);
+  entry->AddInstruction(vstore);
+  entry->AddInstruction(pred_vstore1);
+  entry->AddInstruction(pred_vstore2);
+  entry->AddInstruction(pred_vload);
+
+  // Predication kind doesn't affect loads and stores so choose zeroing one here.
+  pred_vstore1->SetZeroingGoverningPredicate(pred1);
+  pred_vstore2->SetZeroingGoverningPredicate(pred2);
+  pred_vload->SetZeroingGoverningPredicate(pred1);
+
+  ScopedArenaAllocator allocator(graph_->GetArenaStack());
+  LoadStoreAnalysis lsa(graph_, nullptr, &allocator);
+  lsa.Run();
+  const HeapLocationCollector& heap_location_collector = lsa.GetHeapLocationCollector();
+
+  ASSERT_EQ(heap_location_collector.GetNumberOfHeapLocations(), 3U);
+  ASSERT_TRUE(heap_location_collector.HasHeapStores());
+
+  // Test that vector operations that refer to the same memory region but have different
+  // predicates (including non-predicated ones) also have different heap locations that
+  // may alias.
+  size_t loc1 = heap_location_collector.GetArrayHeapLocation(vstore);
+  size_t loc2 = heap_location_collector.GetArrayHeapLocation(pred_vstore1);
+  size_t loc3 = heap_location_collector.GetArrayHeapLocation(pred_vstore2);
+
+  ASSERT_NE(loc1, HeapLocationCollector::kHeapLocationNotFound);
+  ASSERT_NE(loc2, HeapLocationCollector::kHeapLocationNotFound);
+  ASSERT_NE(loc3, HeapLocationCollector::kHeapLocationNotFound);
+  ASSERT_NE(loc1, loc2);
+  ASSERT_NE(loc1, loc3);
+  ASSERT_NE(loc2, loc3);
+  ASSERT_TRUE(heap_location_collector.MayAlias(loc1, loc2));
+  ASSERT_TRUE(heap_location_collector.MayAlias(loc1, loc3));
+  ASSERT_TRUE(heap_location_collector.MayAlias(loc2, loc3));
+
+  // Test that vector operations that refer to the same memory region and have same predicates
+  // also have same heap locations.
+  // Also test that both vector stores and loads are supported.
+  loc1 = heap_location_collector.GetArrayHeapLocation(pred_vstore1);
+  loc2 = heap_location_collector.GetArrayHeapLocation(pred_vload);
+
+  ASSERT_NE(loc1, HeapLocationCollector::kHeapLocationNotFound);
+  ASSERT_NE(loc2, HeapLocationCollector::kHeapLocationNotFound);
+  ASSERT_EQ(loc1, loc2);
 }
 
 TEST_F(LoadStoreAnalysisTest, ArrayIndexCalculationOverflowTest) {

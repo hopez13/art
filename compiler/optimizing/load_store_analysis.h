@@ -106,7 +106,8 @@ class HeapLocation : public ArenaObject<kArenaAllocLSA> {
                HInstruction* index,
                size_t vector_length,
                int16_t declaring_class_def_index,
-               bool is_vec_op)
+               bool is_vec_op,
+               HVecPredSetOperation* predicate)
       : ref_info_(ref_info),
         type_(DataType::ToSigned(type)),
         offset_(offset),
@@ -114,10 +115,12 @@ class HeapLocation : public ArenaObject<kArenaAllocLSA> {
         vector_length_(vector_length),
         declaring_class_def_index_(declaring_class_def_index),
         has_aliased_locations_(false),
-        is_vec_op_(is_vec_op) {
+        is_vec_op_(is_vec_op),
+        predicate_(predicate) {
     DCHECK(ref_info != nullptr);
     DCHECK((offset == kInvalidFieldOffset && index != nullptr) ||
            (offset != kInvalidFieldOffset && index == nullptr));
+    DCHECK_IMPLIES(!is_vec_op_, predicate == nullptr);
   }
 
   ReferenceInfo* GetReferenceInfo() const { return ref_info_; }
@@ -126,6 +129,7 @@ class HeapLocation : public ArenaObject<kArenaAllocLSA> {
   HInstruction* GetIndex() const { return index_; }
   size_t GetVectorLength() const { return vector_length_; }
   bool IsVecOp() const { return is_vec_op_; }
+  HVecPredSetOperation* GetVecPredicate() const { return predicate_; }
 
   // Returns the definition of declaring class' dex index.
   // It's kDeclaringClassDefIndexForArrays for an array element.
@@ -170,6 +174,17 @@ class HeapLocation : public ArenaObject<kArenaAllocLSA> {
   bool has_aliased_locations_;
   // Whether this HeapLocation represents a vector operation.
   bool is_vec_op_;
+  // Governing predicate for vector operation.
+  //
+  // The governing predicate of a predicated vector-load or vector-store instruction
+  // controls which elements of the vector are active (will be loaded or stored).
+  // We therefore include predicate_ here in order to distinguish HeapLocation
+  // references that use the same index_ and vector_length_ but target different
+  // active elements.
+  //
+  // predicate_ is nullptr if HeapLocation doesn't represent a vector operation,
+  // or it is a traditional (unpredicated) vector operation.
+  HVecPredSetOperation* predicate_;
 
   DISALLOW_COPY_AND_ASSIGN(HeapLocation);
 };
@@ -246,7 +261,8 @@ class HeapLocationCollector : public HGraphVisitor {
                                  nullptr,
                                  HeapLocation::kScalar,
                                  field->GetDeclaringClassDefIndex(),
-                                 /*is_vec_op=*/false);
+                                 /*is_vec_op=*/false,
+                                 /*predicate=*/nullptr);
   }
 
   size_t GetArrayHeapLocation(HInstruction* instruction) const {
@@ -256,12 +272,16 @@ class HeapLocationCollector : public HGraphVisitor {
     DataType::Type type = instruction->GetType();
     size_t vector_length = HeapLocation::kScalar;
     const bool is_vec_op = instruction->IsVecStore() || instruction->IsVecLoad();
+    HInstruction* predicate = nullptr;
     if (instruction->IsArraySet()) {
       type = instruction->AsArraySet()->GetComponentType();
     } else if (is_vec_op) {
       HVecOperation* vec_op = instruction->AsVecOperation();
       type = vec_op->GetPackedType();
       vector_length = vec_op->GetVectorLength();
+      if (vec_op->IsPredicated()) {
+        predicate = vec_op->GetGoverningPredicate();
+      }
     } else {
       DCHECK(instruction->IsArrayGet());
     }
@@ -271,7 +291,8 @@ class HeapLocationCollector : public HGraphVisitor {
                                  index,
                                  vector_length,
                                  HeapLocation::kDeclaringClassDefIndexForArrays,
-                                 is_vec_op);
+                                 is_vec_op,
+                                 predicate);
   }
 
   bool HasHeapStores() const {
@@ -294,7 +315,8 @@ class HeapLocationCollector : public HGraphVisitor {
                                HInstruction* index,
                                size_t vector_length,
                                int16_t declaring_class_def_index,
-                               bool is_vec_op) const {
+                               bool is_vec_op,
+                               HInstruction* predicate) const {
     DataType::Type lookup_type = DataType::ToSigned(type);
     for (size_t i = 0; i < heap_locations_.size(); i++) {
       HeapLocation* loc = heap_locations_[i];
@@ -304,7 +326,8 @@ class HeapLocationCollector : public HGraphVisitor {
           loc->GetIndex() == index &&
           loc->GetVectorLength() == vector_length &&
           loc->GetDeclaringClassDefIndex() == declaring_class_def_index &&
-          loc->IsVecOp() == is_vec_op) {
+          loc->IsVecOp() == is_vec_op &&
+          loc->GetVecPredicate() == predicate) {
         return i;
       }
     }
@@ -450,14 +473,27 @@ class HeapLocationCollector : public HGraphVisitor {
                                HInstruction* index,
                                size_t vector_length,
                                int16_t declaring_class_def_index,
-                               bool is_vec_op) {
+                               bool is_vec_op,
+                               HVecPredSetOperation* predicate) {
     HInstruction* original_ref = HuntForOriginalReference(ref);
     ReferenceInfo* ref_info = GetOrCreateReferenceInfo(original_ref);
-    size_t heap_location_idx = FindHeapLocationIndex(
-        ref_info, type, offset, index, vector_length, declaring_class_def_index, is_vec_op);
+    size_t heap_location_idx = FindHeapLocationIndex(ref_info,
+                                                     type,
+                                                     offset,
+                                                     index,
+                                                     vector_length,
+                                                     declaring_class_def_index,
+                                                     is_vec_op,
+                                                     predicate);
     if (heap_location_idx == kHeapLocationNotFound) {
-      HeapLocation* heap_loc = new (allocator_) HeapLocation(
-          ref_info, type, offset, index, vector_length, declaring_class_def_index, is_vec_op);
+      HeapLocation* heap_loc = new (allocator_) HeapLocation(ref_info,
+                                                             type,
+                                                             offset,
+                                                             index,
+                                                             vector_length,
+                                                             declaring_class_def_index,
+                                                             is_vec_op,
+                                                             predicate);
       heap_locations_.push_back(heap_loc);
     }
   }
@@ -472,21 +508,24 @@ class HeapLocationCollector : public HGraphVisitor {
                             nullptr,
                             HeapLocation::kScalar,
                             declaring_class_def_index,
-                            /*is_vec_op=*/false);
+                            /*is_vec_op=*/false,
+                            /*predicate=*/nullptr);
   }
 
   void VisitArrayAccess(HInstruction* array,
                         HInstruction* index,
                         DataType::Type type,
                         size_t vector_length,
-                        bool is_vec_op) {
+                        bool is_vec_op,
+                        HVecPredSetOperation* predicate) {
     MaybeCreateHeapLocation(array,
                             type,
                             HeapLocation::kInvalidFieldOffset,
                             index,
                             vector_length,
                             HeapLocation::kDeclaringClassDefIndexForArrays,
-                            is_vec_op);
+                            is_vec_op,
+                            predicate);
   }
 
   void VisitInstanceFieldGet(HInstanceFieldGet* instruction) override {
@@ -516,7 +555,8 @@ class HeapLocationCollector : public HGraphVisitor {
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     DataType::Type type = instruction->GetType();
-    VisitArrayAccess(array, index, type, HeapLocation::kScalar, /*is_vec_op=*/false);
+    VisitArrayAccess(
+        array, index, type, HeapLocation::kScalar, /*is_vec_op=*/false, /*predicate=*/nullptr);
     CreateReferenceInfoForReferenceType(instruction);
   }
 
@@ -524,25 +564,38 @@ class HeapLocationCollector : public HGraphVisitor {
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     DataType::Type type = instruction->GetComponentType();
-    VisitArrayAccess(array, index, type, HeapLocation::kScalar, /*is_vec_op=*/false);
+    VisitArrayAccess(
+        array, index, type, HeapLocation::kScalar, /*is_vec_op=*/false, /*predicate=*/nullptr);
     has_heap_stores_ = true;
   }
 
   void VisitVecLoad(HVecLoad* instruction) override {
-    DCHECK(!instruction->IsPredicated());
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     DataType::Type type = instruction->GetPackedType();
-    VisitArrayAccess(array, index, type, instruction->GetVectorLength(), /*is_vec_op=*/true);
+    HVecPredSetOperation* predicate =
+        instruction->IsPredicated() ? instruction->GetGoverningPredicate() : nullptr;
+    VisitArrayAccess(array,
+                     index,
+                     type,
+                     instruction->GetVectorLength(),
+                     /*is_vec_op=*/true,
+                     predicate);
     CreateReferenceInfoForReferenceType(instruction);
   }
 
   void VisitVecStore(HVecStore* instruction) override {
-    DCHECK(!instruction->IsPredicated());
     HInstruction* array = instruction->InputAt(0);
     HInstruction* index = instruction->InputAt(1);
     DataType::Type type = instruction->GetPackedType();
-    VisitArrayAccess(array, index, type, instruction->GetVectorLength(), /*is_vec_op=*/true);
+    HVecPredSetOperation* predicate =
+        instruction->IsPredicated() ? instruction->GetGoverningPredicate() : nullptr;
+    VisitArrayAccess(array,
+                     index,
+                     type,
+                     instruction->GetVectorLength(),
+                     /*is_vec_op=*/true,
+                     predicate);
     has_heap_stores_ = true;
   }
 

@@ -20,34 +20,28 @@ public class Main {
     }
 
     // Before loop optimization we only had an array get. After it, we optimized to also have
-    // VecLoad operations. This happens consistently only for Arm64 when using traditional
-    // vectorization (NEON). Arm32 vectorizes consistently but it also removes the ArrayGet, as does
-    // Arm64 predicated vectorization (SVE) because the scalar tail loop is eliminated. X86/X86_64
-    // doesn't vectorize consistently (other vectorization tests also ignore x86/x86_64).
-    // TODO: Create equivalent ArrayGet-replacement regression test for SVE, when SVE supports LSE.
+    // VecLoad operations. This happens consistently only for Arm64. Arm32 vectorizes consistently
+    // but it also removes the ArrayGet. X86/X86_64 doesn't vectorize consistently (other
+    // vectorization tests also ignore x86/x86_64).
 
     /// CHECK-START-ARM64: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
-    /// CHECK-IF:      not (hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
-    ///   CHECK-DAG:     ArrayGet
-    ///   CHECK-NOT:     VecLoad
-    /// CHECK-FI:
+    /// CHECK-DAG:     ArrayGet
+
+    /// CHECK-START-ARM64: void Main.$noinline$testVectorAndNonVector() loop_optimization (before)
+    /// CHECK-NOT:     VecLoad
 
     /// CHECK-START-ARM64: void Main.$noinline$testVectorAndNonVector() loop_optimization (after)
-    /// CHECK-IF:      not (hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
-    ///   CHECK-DAG:     ArrayGet
-    ///   CHECK-DAG:     VecLoad
-    /// CHECK-FI:
+    /// CHECK-DAG:     VecLoad
+    /// CHECK-DAG:     ArrayGet
 
     // In LoadStoreElimination both ArrayGet and VecLoad have the same heap location. We will try to
     // replace the ArrayGet with the constant 0. The crash happens when we want to do the same with
     // the vector operation, changing the vector operation to a scalar.
 
     /// CHECK-START-ARM64: void Main.$noinline$testVectorAndNonVector() load_store_elimination (before)
-    /// CHECK-IF:      not (hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
-    ///   CHECK-DAG:     VecLoad outer_loop:<<VecBlock:B\d+>>
-    ///   CHECK-DAG:     ArrayGet outer_loop:<<ScalarBlock:B\d+>>
-    ///   CHECK-EVAL:    "<<VecBlock>>" == "<<ScalarBlock>>"
-    /// CHECK-FI:
+    /// CHECK-DAG:     VecLoad outer_loop:<<VecBlock:B\d+>>
+    /// CHECK-DAG:     ArrayGet outer_loop:<<ScalarBlock:B\d+>>
+    /// CHECK-EVAL:    "<<VecBlock>>" == "<<ScalarBlock>>"
 
     private static void $noinline$testVectorAndNonVector() {
         int[] result = new int[2];
@@ -58,11 +52,26 @@ public class Main {
             int value = 0;
             // Always true but needed to repro a crash since we need Phis.
             if (i + 10 < source.length) {
-                for (int j = 0; j < 10; j++) {
+                int j = 0;
+                // Should be vectorized without scalar tail loop in both traditional (NEON) and
+                // predicated (SVE) simd modes.
+                for (; j < 8; j++) {
                     value += Math.abs(source[i + j]);
+                }
+                // Should not be vectorized nor unrolled.
+                for (; j < 10; j++) {
+                    value += Math.abs(source[i + j]);
+                    // This loop has trip count == 2 so we need to increase loop body to prevent
+                    // full unrolling.
+                    $noinline$f();
+                    $noinline$f();
+                    $noinline$f();
+                    $noinline$f();
                 }
             }
             result[i] = value;
         }
     }
+
+    private static void $noinline$f() {}
 }

@@ -39,6 +39,7 @@
 namespace art HIDDEN {
 
 static constexpr bool kDebugLseTests = false;
+static constexpr size_t kTestVecLength = 4;
 
 #define CHECK_SUBROUTINE_FAILURE() \
   do {                             \
@@ -190,20 +191,27 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
   // Add a HVecLoad instruction to the end of the provided basic block.
   //
   // Return: the created HVecLoad instruction.
-  HInstruction* AddVecLoad(HBasicBlock* block, HInstruction* array, HInstruction* index) {
+  HInstruction* AddVecLoad(HBasicBlock* block,
+                           HInstruction* array,
+                           HInstruction* index,
+                           HInstruction* predicate = nullptr) {
     DCHECK(block != nullptr);
     DCHECK(array != nullptr);
     DCHECK(index != nullptr);
-    HInstruction* vload =
+    HVecLoad* vload =
         new (GetAllocator()) HVecLoad(GetAllocator(),
                                       array,
                                       index,
                                       DataType::Type::kInt32,
                                       SideEffects::ArrayReadOfType(DataType::Type::kInt32),
-                                      4,
+                                      kTestVecLength,
                                       /*is_string_char_at*/ false,
                                       kNoDexPc);
     block->InsertInstructionBefore(vload, block->GetLastInstruction());
+    if (predicate != nullptr) {
+      // Predication kind doesn't affect loads so choose zeroing one here.
+      vload->SetZeroingGoverningPredicate(predicate);
+    }
     return vload;
   }
 
@@ -214,27 +222,57 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
   HInstruction* AddVecStore(HBasicBlock* block,
                             HInstruction* array,
                             HInstruction* index,
-                            HInstruction* vdata = nullptr) {
+                            HInstruction* vdata = nullptr,
+                            HInstruction* predicate = nullptr) {
     DCHECK(block != nullptr);
     DCHECK(array != nullptr);
     DCHECK(index != nullptr);
     if (vdata == nullptr) {
       HInstruction* c1 = graph_->GetIntConstant(1);
       vdata = new (GetAllocator())
-          HVecReplicateScalar(GetAllocator(), c1, DataType::Type::kInt32, 4, kNoDexPc);
+          HVecReplicateScalar(GetAllocator(), c1, DataType::Type::kInt32, kTestVecLength, kNoDexPc);
       block->InsertInstructionBefore(vdata, block->GetLastInstruction());
     }
-    HInstruction* vstore =
+    HVecStore* vstore =
         new (GetAllocator()) HVecStore(GetAllocator(),
                                        array,
                                        index,
                                        vdata,
                                        DataType::Type::kInt32,
                                        SideEffects::ArrayWriteOfType(DataType::Type::kInt32),
-                                       4,
+                                       kTestVecLength,
                                        kNoDexPc);
     block->InsertInstructionBefore(vstore, block->GetLastInstruction());
+    if (predicate != nullptr) {
+      // Predication kind doesn't affect loads so choose zeroing one here.
+      vstore->SetZeroingGoverningPredicate(predicate);
+    }
     return vstore;
+  }
+
+  // Add a HVecPredWhile (with LE condition and constant inputs 0 and 2)
+  // to the end of the provided basic block.
+  //
+  // NOTE: It doesn't matter what predicate we use for testing purposes.
+  // The only thing that is important for LSE is whether loads and stores
+  // are predicated by the same instruction or not. So we choose a more
+  // general one (in comparison to HVecPredSetAll, for example, that
+  // corresponds to "all true" and "all false" edge cases).
+  //
+  // Return: the created HVecPredWhile instruction.
+  HInstruction* AddPredicate(HBasicBlock* block) {
+    DCHECK(block != nullptr);
+    HInstruction* c0 = graph_->GetIntConstant(0);
+    HInstruction* c2 = graph_->GetIntConstant(2);
+    HInstruction* predicate = new (GetAllocator()) HVecPredWhile(GetAllocator(),
+                                                                 c0,
+                                                                 c2,
+                                                                 HVecPredWhile::CondKind::kLE,
+                                                                 DataType::Type::kInt32,
+                                                                 kTestVecLength,
+                                                                 kNoDexPc);
+    block->InsertInstructionBefore(predicate, block->GetLastInstruction());
+    return predicate;
   }
 
   // Add a HArrayGet instruction to the end of the provided basic block.
@@ -297,6 +335,50 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
 
 class LoadStoreEliminationTest : public LoadStoreEliminationTestBase<CommonCompilerTest> {};
 
+// Separate class to perform testing in both traditional and predicated SIMD cases.
+// In the case of predicated SIMD all vector loads and stores are predicated by
+// different HVecPredWhile instructions.
+class LoadStoreEliminationSIMDTest : public LoadStoreEliminationTest,
+                                     public testing::WithParamInterface<bool> {
+ public:
+  void CreateTestControlFlowGraph() {
+    LoadStoreEliminationTest::CreateTestControlFlowGraph();
+    predicate_ = IsPredicatedSIMD() ? AddPredicate(entry_block_) : nullptr;
+    SetHasSIMD();
+  }
+
+  HInstruction* AddVecStore(HBasicBlock* block,
+                            HInstruction* array,
+                            HInstruction* index,
+                            HInstruction* vdata = nullptr,
+                            HInstruction* predicate = nullptr) {
+    return LoadStoreEliminationTest::AddVecStore(
+        block, array, index, vdata, predicate != nullptr ? predicate : predicate_);
+  }
+
+  HInstruction* AddVecLoad(HBasicBlock* block,
+                           HInstruction* array,
+                           HInstruction* index,
+                           HInstruction* predicate = nullptr) {
+    return LoadStoreEliminationTest::AddVecLoad(
+        block, array, index, predicate != nullptr ? predicate : predicate_);
+  }
+
+  void SetHasSIMD() const {
+    DCHECK(graph_ != nullptr);
+    if (predicate_ == nullptr) {
+      graph_->SetHasTraditionalSIMD(true);
+    } else {
+      graph_->SetHasPredicatedSIMD(true);
+    }
+  }
+
+  bool IsPredicatedSIMD() const { return GetParam(); }
+
+ private:
+  HInstruction* predicate_;
+};
+
 enum class TestOrder { kSameAsAlloc, kReverseOfAlloc };
 std::ostream& operator<<(std::ostream& os, const TestOrder& ord) {
   switch (ord) {
@@ -305,6 +387,55 @@ std::ostream& operator<<(std::ostream& os, const TestOrder& ord) {
     case TestOrder::kReverseOfAlloc:
       return os << "ReverseOfAlloc";
   }
+}
+
+TEST_P(LoadStoreEliminationSIMDTest, VecLoadStoreWithDifferentPredicates) {
+  if (!IsPredicatedSIMD()) {
+    GTEST_SKIP() << "Test does not apply to traditional vectorization";
+  }
+
+  CreateTestControlFlowGraph();
+
+  // Test LSE handling vector loads and stores with different predicates.
+  // pred1: a[i,i+1,i+2,i+3] = data
+  // pred2: ... = a[i,i+1,i+2,i+3]   <--- Cannot remove.
+  // pred3: a[i,i+1,i+2,i+3] = data  <--- Cannot remove.
+  //
+  // NOTE: pred1, pred2 and pred3 are different instructions in the graph.
+  // It doesn't matter whether they represent the same predicate or not as
+  // LSE pass currently doesn't check equivalence of different predicate
+  // instructions.
+  HInstruction* vstore1 =
+      AddVecStore(entry_block_, array_, i_, /*vdata=*/nullptr, AddPredicate(entry_block_));
+  HInstruction* vload = AddVecLoad(entry_block_, array_, i_, AddPredicate(entry_block_));
+  HInstruction* vstore2 = AddVecStore(
+      entry_block_, array_, i_, vstore1->AsVecStore()->GetValue(), AddPredicate(entry_block_));
+
+  PerformLSE();
+
+  ASSERT_FALSE(IsRemoved(vload));
+  ASSERT_FALSE(IsRemoved(vstore2));
+}
+
+TEST_P(LoadStoreEliminationSIMDTest, VecLoadStoreWithSamePredicates) {
+  if (!IsPredicatedSIMD()) {
+    GTEST_SKIP() << "Test does not apply to traditional vectorization";
+  }
+
+  CreateTestControlFlowGraph();
+
+  // Test LSE handling vector loads and stores with the same predicates.
+  // pred: a[i,i+1,i+2,i+3] = data
+  // pred: ... = a[i,i+1,i+2,i+3]   <--- Remove.
+  // pred: a[i,i+1,i+2,i+3] = data  <--- Remove.
+  HInstruction* vstore1 = AddVecStore(entry_block_, array_, i_);
+  HInstruction* vload = AddVecLoad(entry_block_, array_, i_);
+  HInstruction* vstore2 = AddVecStore(entry_block_, array_, i_, vstore1->AsVecStore()->GetValue());
+
+  PerformLSE();
+
+  ASSERT_TRUE(IsRemoved(vload));
+  ASSERT_TRUE(IsRemoved(vstore2));
 }
 
 TEST_F(LoadStoreEliminationTest, ArrayGetSetElimination) {
@@ -357,7 +488,7 @@ TEST_F(LoadStoreEliminationTest, SameHeapValue1) {
   ASSERT_FALSE(IsRemoved(store2));
 }
 
-TEST_F(LoadStoreEliminationTest, SameHeapValue2) {
+TEST_P(LoadStoreEliminationSIMDTest, SameHeapValue2) {
   CreateTestControlFlowGraph();
 
   // Test LSE handling same value stores on vector.
@@ -369,14 +500,12 @@ TEST_F(LoadStoreEliminationTest, SameHeapValue2) {
   AddVecStore(entry_block_, array_, j_);
   HInstruction* vstore = AddVecStore(entry_block_, array_, i_);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vstore));
 }
 
-TEST_F(LoadStoreEliminationTest, SameHeapValue3) {
+TEST_P(LoadStoreEliminationSIMDTest, SameHeapValue3) {
   CreateTestControlFlowGraph();
 
   // VecStore array[i...] = vdata;
@@ -386,14 +515,12 @@ TEST_F(LoadStoreEliminationTest, SameHeapValue3) {
   AddVecStore(entry_block_, array_, i_add1_);
   HInstruction* vstore = AddVecStore(entry_block_, array_, i_);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vstore));
 }
 
-TEST_F(LoadStoreEliminationTest, OverlappingLoadStore) {
+TEST_P(LoadStoreEliminationSIMDTest, OverlappingLoadStore) {
   CreateTestControlFlowGraph();
 
   HInstruction* c1 = graph_->GetIntConstant(1);
@@ -432,8 +559,6 @@ TEST_F(LoadStoreEliminationTest, OverlappingLoadStore) {
   AddArraySet(entry_block_, array_, i_, c1);
   HInstruction* vload5 = AddVecLoad(entry_block_, array_, i_);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_TRUE(IsRemoved(load1));
@@ -452,7 +577,7 @@ TEST_F(LoadStoreEliminationTest, OverlappingLoadStore) {
 //    /* doesn't do any write */
 // }
 // a[j] = 1;
-TEST_F(LoadStoreEliminationTest, StoreAfterLoopWithoutSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, StoreAfterLoopWithoutSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c1 = graph_->GetIntConstant(1);
@@ -467,8 +592,6 @@ TEST_F(LoadStoreEliminationTest, StoreAfterLoopWithoutSideEffects) {
   // a[j] = 1;
   HInstruction* array_set = AddArraySet(return_block_, array_, j_, c1);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_TRUE(IsRemoved(array_set));
@@ -483,7 +606,7 @@ TEST_F(LoadStoreEliminationTest, StoreAfterLoopWithoutSideEffects) {
 //   }
 //   a[j] = 0;
 // }
-TEST_F(LoadStoreEliminationTest, StoreAfterSIMDLoopWithSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, StoreAfterSIMDLoopWithSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -506,8 +629,6 @@ TEST_F(LoadStoreEliminationTest, StoreAfterSIMDLoopWithSideEffects) {
   // a[j] = 0;
   HInstruction* a_set = AddArraySet(return_block_, array_, j_, c0);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_TRUE(IsRemoved(vload));
@@ -523,7 +644,7 @@ TEST_F(LoadStoreEliminationTest, StoreAfterSIMDLoopWithSideEffects) {
 //   }
 //   x = a[j];
 // }
-TEST_F(LoadStoreEliminationTest, LoadAfterSIMDLoopWithSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, LoadAfterSIMDLoopWithSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -546,8 +667,6 @@ TEST_F(LoadStoreEliminationTest, LoadAfterSIMDLoopWithSideEffects) {
   // x = a[j];
   HInstruction* load = AddArrayGet(return_block_, array_, j_);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_TRUE(IsRemoved(vload));
@@ -568,7 +687,7 @@ TEST_F(LoadStoreEliminationTest, LoadAfterSIMDLoopWithSideEffects) {
 //   'vstore2' is removed.
 //   'vstore3' is not removed.
 //   'vstore4' is not removed. Such cases are not supported at the moment.
-TEST_F(LoadStoreEliminationTest, MergePredecessorVecStores) {
+TEST_P(LoadStoreEliminationSIMDTest, MergePredecessorVecStores) {
   HBasicBlock* upper;
   HBasicBlock* left;
   HBasicBlock* right;
@@ -588,8 +707,7 @@ TEST_F(LoadStoreEliminationTest, MergePredecessorVecStores) {
   // down: a[i,... i + 3] = [1,...1]
   HInstruction* vstore4 = AddVecStore(down, array_, i_, vdata);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
+  SetHasSIMD();
   PerformLSE();
 
   ASSERT_TRUE(IsRemoved(vstore2));
@@ -652,7 +770,7 @@ TEST_F(LoadStoreEliminationTest, MergePredecessorStores) {
 //   'vload' is removed.
 //   'vstore2' is removed because 'b' does not escape.
 //   'vstore3' is removed.
-TEST_F(LoadStoreEliminationTest, RedundantVStoreVLoadInLoop) {
+TEST_P(LoadStoreEliminationSIMDTest, RedundantVStoreVLoadInLoop) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -680,8 +798,6 @@ TEST_F(LoadStoreEliminationTest, RedundantVStoreVLoadInLoop) {
   HInstruction* vstore2 = AddVecStore(loop_, array_b, phi_, vload);
   HInstruction* vstore3 = AddVecStore(loop_, array_a, phi_, vstore1->InputAt(2));
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vstore1));
@@ -753,7 +869,7 @@ TEST_F(LoadStoreEliminationTest, StoreAfterLoopWithSideEffects2) {
 
 // As it is not allowed to use defaults for VecLoads, check if there is a new created array
 // a VecLoad used in a loop and after it is not replaced with a default.
-TEST_F(LoadStoreEliminationTest, VLoadDefaultValueInLoopWithoutWriteSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadDefaultValueInLoopWithoutWriteSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -769,8 +885,6 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValueInLoopWithoutWriteSideEffects)
   HInstruction* vload = AddVecLoad(loop_, array_a, phi_);
   HInstruction* vstore = AddVecStore(return_block_, array_, c0, vload);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload));
@@ -779,7 +893,7 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValueInLoopWithoutWriteSideEffects)
 
 // As it is not allowed to use defaults for VecLoads, check if there is a new created array
 // a VecLoad is not replaced with a default.
-TEST_F(LoadStoreEliminationTest, VLoadDefaultValue) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadDefaultValue) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -794,8 +908,6 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValue) {
   HInstruction* vload = AddVecLoad(pre_header_, array_a, c0);
   HInstruction* vstore = AddVecStore(return_block_, array_, c0, vload);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload));
@@ -852,7 +964,7 @@ TEST_F(LoadStoreEliminationTest, LoadDefaultValue) {
 // As it is not allowed to use defaults for VecLoads but allowed for regular loads,
 // check if there is a new created array, a VecLoad and a load used in a loop and after it,
 // VecLoad is not replaced with a default but the load is.
-TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValueInLoopWithoutWriteSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadAndLoadDefaultValueInLoopWithoutWriteSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -872,8 +984,6 @@ TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValueInLoopWithoutWriteSideE
   HInstruction* vstore = AddVecStore(return_block_, array_, c0, vload);
   HInstruction* store = AddArraySet(return_block_, array_, c0, load);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload));
@@ -885,7 +995,7 @@ TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValueInLoopWithoutWriteSideE
 // As it is not allowed to use defaults for VecLoads but allowed for regular loads,
 // check if there is a new created array, a VecLoad and a load,
 // VecLoad is not replaced with a default but the load is.
-TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValue) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadAndLoadDefaultValue) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -904,8 +1014,6 @@ TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValue) {
   HInstruction* vstore = AddVecStore(return_block_, array_, c0, vload);
   HInstruction* store = AddArraySet(return_block_, array_, c0, load);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload));
@@ -917,7 +1025,7 @@ TEST_F(LoadStoreEliminationTest, VLoadAndLoadDefaultValue) {
 // It is not allowed to use defaults for VecLoads. However it should not prevent from removing
 // loads getting the same value.
 // Check a load getting a known value is eliminated (a loop test case).
-TEST_F(LoadStoreEliminationTest, VLoadDefaultValueAndVLoadInLoopWithoutWriteSideEffects) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadDefaultValueAndVLoadInLoopWithoutWriteSideEffects) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -937,8 +1045,6 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValueAndVLoadInLoopWithoutWriteSide
   HInstruction* vstore1 = AddVecStore(return_block_, array_, c0, vload1);
   HInstruction* vstore2 = AddVecStore(return_block_, array_, c128, vload2);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload1));
@@ -950,7 +1056,7 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValueAndVLoadInLoopWithoutWriteSide
 // It is not allowed to use defaults for VecLoads. However it should not prevent from removing
 // loads getting the same value.
 // Check a load getting a known value is eliminated.
-TEST_F(LoadStoreEliminationTest, VLoadDefaultValueAndVLoad) {
+TEST_P(LoadStoreEliminationSIMDTest, VLoadDefaultValueAndVLoad) {
   CreateTestControlFlowGraph();
 
   HInstruction* c0 = graph_->GetIntConstant(0);
@@ -969,8 +1075,6 @@ TEST_F(LoadStoreEliminationTest, VLoadDefaultValueAndVLoad) {
   HInstruction* vstore1 = AddVecStore(return_block_, array_, c0, vload1);
   HInstruction* vstore2 = AddVecStore(return_block_, array_, c128, vload2);
 
-  // TODO: enable LSE for graphs with predicated SIMD.
-  graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
   ASSERT_FALSE(IsRemoved(vload1));
@@ -2428,4 +2532,9 @@ TEST_F(LoadStoreEliminationTest, DISABLED_PartialLoadPreserved6) {
   EXPECT_INS_RETAINED(call_left);
   EXPECT_INS_RETAINED(call_entry);
 }
+
+INSTANTIATE_TEST_SUITE_P(All,
+                         LoadStoreEliminationSIMDTest,
+                         /*is_predicated_simd=*/testing::Values(true, false));
+
 }  // namespace art
