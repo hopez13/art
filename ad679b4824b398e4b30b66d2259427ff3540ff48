@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "934f3c2b_e460e2ea",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T13:51:08Z",
+      "side": 1,
+      "message": "Sorry, I must be missing something. We use [many things from libbase](https://cs.android.com/android/platform/superproject/main/+/main:art/artd/artd.cc;l\u003d50-55;drc\u003de9c64c9f13093589c6a4d3b0bc66c744a7e44f9d). How does it compile without the dependency?",
+      "parentUuid": "85cddf8a_d0f29d07",
+      "range": {
+        "startLine": 92,
+        "startChar": 11,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "ad679b4824b398e4b30b66d2259427ff3540ff48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "91916727_f96b610d",
         "filename": "dexoptanalyzer/Android.bp",
         "patchSetId": 3
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "My approach was this: It works to link statically into non-standalone tests, so it\u0027s not necessary to split between the two. If it can be done without too much extra fuss I did that (i.e. if there already are static/dynamic splits between them), but otherwise I prefer to keep it simple by static linking into both.",
       "parentUuid": "91916727_f96b610d",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 6
+      },
+      "revId": "ad679b4824b398e4b30b66d2259427ff3540ff48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "581c36c0_efbe3973",
+        "filename": "dexoptanalyzer/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T13:51:08Z",
+      "side": 1,
+      "message": "Got it.",
+      "parentUuid": "262a42c8_bd3b5e96",
       "range": {
         "startLine": 86,
         "startChar": 0,
