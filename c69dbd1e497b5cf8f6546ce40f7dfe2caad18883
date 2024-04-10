@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d18ffcb3_3d60fa48",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-10T13:57:39Z",
+      "side": 1,
+      "message": "What I have in mind is something like:\n\n`Android.bp`:\n\n```\ncc_binary {\n    name: \"standalone_test_lib_check\",\n     srcs: [\"standalone_test_lib_check.cc\"],\n    ...\n}\n\ngenrule {\n    name: \"standalone_test_lib_check_gen\",\n    srcs: [\n        \":art_standalone_foo_tests\",\n        \":art_standalone_bar_tests\",\n        ...\n    ],\n    tools: [\"standalone_test_lib_check\"],\n    cmd: \"$(location standalone_test_lib_check) $(in)\",\n}\n```\n\n`standalone_test_lib_check.cc`:\n\n```\nint main(int argc, char** argv) {\n  for (char* prog : argv) {\n    test(prog);\n  }\n}\n```\n\nI didn\u0027t test it though.",
+      "parentUuid": "d2a23513_7ff81ffd",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a4f9940_9f2e76e8",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
