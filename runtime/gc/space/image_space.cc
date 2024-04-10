@@ -737,9 +737,9 @@ class ImageSpace::Loader {
     const size_t end_of_bitmap = image_bitmap_offset + bitmap_section.Size();
     if (end_of_bitmap != image_file_size) {
       *error_msg = StringPrintf(
-          "Image file size does not equal end of bitmap: size=%" PRIu64 " vs. %zu.",
+          "Image file size does not equal end of bitmap: size=%" PRIu64 " vs. %zu. Filename %s",
           image_file_size,
-          end_of_bitmap);
+          end_of_bitmap, image_filename);
       return nullptr;
     }
 
