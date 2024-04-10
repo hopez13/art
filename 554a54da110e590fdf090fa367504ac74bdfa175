@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f475b0e6_e7372a04",
+        "filename": "compiler/optimizing/instruction_builder.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2700,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c061cdc0_4ecf2ad8",
+      "range": {
+        "startLine": 2700,
+        "startChar": 2,
+        "endLine": 2700,
+        "endChar": 44
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6a3a3a4b_1b9e1bfa",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-04-10T10:35:25Z",
       "side": 1,
       "message": "Either explicitly set the kind to `kRuntimeCall`, or `DCHECK()` that it is already set. Keep in sync with the \"test configuration\" code below.",
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31855978_032e46ec",
+        "filename": "compiler/optimizing/sharpening.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 491,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6a3a3a4b_1b9e1bfa",
       "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53627f60_d66d856a",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9a67ef45_9a9e8b80",
+      "range": {
+        "startLine": 54,
+        "startChar": 12,
+        "endLine": 55,
+        "endChar": 94
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "602cd9f7_f2a23050",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-04-10T10:35:25Z",
       "side": 1,
       "message": "Add \"to\".",
+      "range": {
+        "startLine": 56,
+        "startChar": 24,
+        "endLine": 56,
+        "endChar": 25
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "63b95557_2d345be7",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "602cd9f7_f2a23050",
       "range": {
         "startLine": 56,
         "startChar": 24,
@@ -112,6 +202,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "975ca928_e5e35baf",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Do you mean `visitor.IsMarked`? `visitor` can be `CountInternedStringReferencesVisitor`.",
+      "parentUuid": "6f665171_a273d8d3",
+      "range": {
+        "startLine": 60,
+        "startChar": 15,
+        "endLine": 60,
+        "endChar": 88
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dcf3ddb1_84ea4c59",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 15
@@ -123,6 +237,30 @@
       "writtenOn": "2024-04-10T10:35:25Z",
       "side": 1,
       "message": "Check for reference equality, the `MethodType` is `final`.\n\nI think this check should be OK because by the time we\u0027re sweeping weak references the declaring class reference in `*WellKnownClasses::java_lang_invoke_MethodType_makeImpl` (and any other live method) should be updated to the to-space reference by the CC GC.",
+      "range": {
+        "startLine": 439,
+        "startChar": 14,
+        "endLine": 439,
+        "endChar": 96
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ad6dd40_cabccb52",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dcf3ddb1_84ea4c59",
       "range": {
         "startLine": 439,
         "startChar": 14,
@@ -156,6 +294,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0719c6b3_5b48f4c1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f22fe456_7b14d4ba",
+      "range": {
+        "startLine": 558,
+        "startChar": 10,
+        "endLine": 558,
+        "endChar": 58
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "69dda9ce_36606805",
@@ -169,6 +331,30 @@
       "writtenOn": "2024-04-10T10:35:25Z",
       "side": 1,
       "message": "We could use `extract()`, then modify and reinsert the node.",
+      "range": {
+        "startLine": 933,
+        "startChar": 4,
+        "endLine": 934,
+        "endChar": 60
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6019f8e_5d5855ca",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-10T12:59:03Z",
+      "side": 1,
+      "message": "`extract()` invalidates passes iterator. Is keeping copies the right way to use these APIs? Is it safe?\n\n```\n    auto it_copy \u003d it;\n    it_copy++;\n    auto node \u003d method_code_map_reversed_.extract(it);\n    node.key() \u003d new_method;\n    method_code_map_reversed_.insert(std::move(node));\n    it \u003d it_copy;\n```",
+      "parentUuid": "69dda9ce_36606805",
       "range": {
         "startLine": 933,
         "startChar": 4,
