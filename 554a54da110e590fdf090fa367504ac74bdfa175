@@ -248,6 +248,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "faf4ea77_62bbbeda",
+        "filename": "runtime/jit/jit_code_cache-inl.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-11T08:05:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f50becee_52a47de7",
+      "range": {
+        "startLine": 60,
+        "startChar": 15,
+        "endLine": 60,
+        "endChar": 88
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dcf3ddb1_84ea4c59",
@@ -413,6 +437,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1b3a108_2045e2e6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 934,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-11T08:05:21Z",
+      "side": 1,
+      "message": "Separated iteration and modification.",
+      "parentUuid": "4da02bd9_ae536a18",
+      "range": {
+        "startLine": 933,
+        "startChar": 4,
+        "endLine": 934,
+        "endChar": 60
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5085c457_2f019f82",
@@ -426,6 +474,30 @@
       "writtenOn": "2024-04-10T10:35:25Z",
       "side": 1,
       "message": "This can be reverted if we do class reference comparisons for `MethodType`.",
+      "range": {
+        "startLine": 133,
+        "startChar": 11,
+        "endLine": 133,
+        "endChar": 66
+      },
+      "revId": "554a54da110e590fdf090fa367504ac74bdfa175",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2499bc71_c2de04ec",
+        "filename": "runtime/mirror/object.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 133,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-04-11T08:05:21Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5085c457_2f019f82",
       "range": {
         "startLine": 133,
         "startChar": 11,
