@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c53ad66e_3ea86d6b",
+        "filename": "artd/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T12:41:44Z",
+      "side": 1,
+      "message": "I\u0027m not sure where it comes from, but the tests do build and run fine without a direct dependency, and there\u0027s no NEEDED on libbase.so in either of them so it\u0027s getting linked statically. But I\u0027ll add it back for the sake of exposition then.",
+      "parentUuid": "934f3c2b_e460e2ea",
+      "range": {
+        "startLine": 92,
+        "startChar": 11,
+        "endLine": 92,
+        "endChar": 25
+      },
+      "revId": "ad679b4824b398e4b30b66d2259427ff3540ff48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "91916727_f96b610d",
