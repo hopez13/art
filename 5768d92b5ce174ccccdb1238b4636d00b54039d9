@@ -16,6 +16,24 @@
       "message": "Hi Christopher, is this the CL Artem mentioned in yesterday\u0027s meeting about simulator build system changes? Is it ready for a review or do you just want us to take a quick look to see everything is okay.",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1997e0e_45c7e8dc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-11T14:18:47Z",
+      "side": 1,
+      "message": "Yes this patch along with https://android-review.googlesource.com/c/platform/art/+/2680024 and https://android-review.googlesource.com/c/platform/art/+/2680026 were the ones referenced.\n\nFor now a quick look to check the design is okay, would be greatly appreciated while a full review can wait while some of the earlier patches are addressed.",
+      "parentUuid": "5ac1d608_bdb56f77",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
