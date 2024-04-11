@@ -115,6 +115,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "aeb8083b_2d9ef375",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-11T15:55:15Z",
+      "side": 1,
+      "message": "Yeah, I realized that drawback too, but I think it\u0027s acceptable because, when one adds a standalone test, they always have to remember to add it to somewhere (e.g., `regen-test-files`, or the test won\u0027t even be continuously run), so adding it to one more place isn\u0027t too much. You can even add a check to check the consistency between `regen-test-files` and this genrule if you really want to be sure we don\u0027t miss any test.\n\nI still prefer surfacing such error earlier than later.",
+      "parentUuid": "f602e662_d47f8772",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a4f9940_9f2e76e8",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
@@ -596,6 +620,30 @@
       "side": 1,
       "message": "It\u0027s already printed through EXPECT_THAT. E.g:\n\n```\nart/test/standalone_test_lib_check.cc:(157) Failure in test StandaloneTestAllowedLibDeps.test\nValue of: disallowed_libs\nExpected: is empty\n  Actual: { \"libc.so\" }, whose size is 1\n/data/local/tmp/art_standalone_libarttools_tests/art_standalone_libarttools_tests has disallowed shared library dependencies.\n```",
       "parentUuid": "3f54ef7c_be09b1c9",
+      "range": {
+        "startLine": 153,
+        "startChar": 78,
+        "endLine": 153,
+        "endChar": 79
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fdba4eca_b5c73748",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-11T15:55:15Z",
+      "side": 1,
+      "message": "Ah, right.",
+      "parentUuid": "a17c3451_c1142be7",
       "range": {
         "startLine": 153,
         "startChar": 78,

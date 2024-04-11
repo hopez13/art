@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d75c61a4_f39e5fed",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-11T15:55:15Z",
+      "side": 1,
+      "message": "I\u0027m not sure about this one. For example, `libbase` is in the ART APEX, but we need to statically link against it, right?",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45b8ade6_d623d4af",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-11T15:55:15Z",
+      "side": 1,
+      "message": "For my education, what does this include?",
+      "range": {
+        "startLine": 50,
+        "startChar": 0,
+        "endLine": 50,
+        "endChar": 56
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4fbf7c0a_46923fcd",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-11T15:55:15Z",
+      "side": 1,
+      "message": "`Errorf` expects `{}` rather than those C-style format specifiers. It\u0027s a pity that there isn\u0027t a compile-time check for missing `{}`s. (There is a compile-time check for the other way around though.)\n```suggestion\n    return Errorf(\"libelf initialization failed: {}\", elf_errmsg(-1));\n```",
+      "range": {
+        "startLine": 90,
+        "startChar": 49,
+        "endLine": 90,
+        "endChar": 51
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
