@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f602e662_d47f8772",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Aha. It has the drawback that one needs to remember to add new tests to it, and we won\u0027t notice if that\u0027s missed. This way it comes with `art_standalone_test_defaults`. I think that\u0027s more robust, even though the check itself gets pushed from build time to test time.",
+      "parentUuid": "d18ffcb3_3d60fa48",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a4f9940_9f2e76e8",
@@ -102,6 +126,30 @@
       "writtenOn": "2024-04-10T10:42:08Z",
       "side": 1,
       "message": "Fully qualify them. go/totw/151\n```suggestion\nusing ::android::base::ErrnoError;\nusing ::android::base::Error;\nusing ::android::base::Result;\nusing ::android::base::testing::Ok;\nusing ::testing::IsEmpty;\n```",
+      "range": {
+        "startLine": 38,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 23
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9eee6498_d23dea44",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a4f9940_9f2e76e8",
       "range": {
         "startLine": 38,
         "startChar": 0,
@@ -160,6 +208,54 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "f21a0f81_3f52572c",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "I\u0027m not aware of any such list, at least not that would be accessible here. It also wouldn\u0027t be enough to just list the NDK - there are several other reasons too. Added docs.",
+      "parentUuid": "c6cbf32a_cf7f021d",
+      "range": {
+        "startLine": 44,
+        "startChar": 31,
+        "endLine": 44,
+        "endChar": 53
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7913bb2_f05f54cb",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f85d2c0d_be9803b6",
+      "range": {
+        "startLine": 44,
+        "startChar": 0,
+        "endLine": 44,
+        "endChar": 30
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "21b39fc2_c9eb1c6b",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
@@ -204,6 +300,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eec95da_1bda9ce5",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Actually I don\u0027t think this is necessary at all. Removed.",
+      "parentUuid": "20bdb5ac_1eaeea33",
+      "range": {
+        "startLine": 77,
+        "startChar": 0,
+        "endLine": 78,
+        "endChar": 41
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c7a47abb_667b57e9",
@@ -217,6 +337,30 @@
       "writtenOn": "2024-04-10T10:42:08Z",
       "side": 1,
       "message": "I think it\u0027s better to use `Errorf`. Here and below.",
+      "range": {
+        "startLine": 84,
+        "startChar": 11,
+        "endLine": 84,
+        "endChar": 16
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d9ec104_243b4357",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c7a47abb_667b57e9",
       "range": {
         "startLine": 84,
         "startChar": 11,
@@ -250,6 +394,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8942d88c_26ef315f",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "I rather avoid a dependency on libartbase here, considering it all needs to be linked statically with whole_static_libs etc. Besides, the value of the `FdFile` wrapper here isn\u0027t clear to me.\n\nFixed unique_fd.",
+      "parentUuid": "301800d4_fe6294d9",
+      "range": {
+        "startLine": 87,
+        "startChar": 6,
+        "endLine": 87,
+        "endChar": 8
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a026d39_200593aa",
@@ -263,6 +431,30 @@
       "writtenOn": "2024-04-10T10:42:08Z",
       "side": 1,
       "message": "Add argument comments. Here and below.",
+      "range": {
+        "startLine": 92,
+        "startChar": 39,
+        "endLine": 92,
+        "endChar": 46
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b755de30_3cd72350",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a026d39_200593aa",
       "range": {
         "startLine": 92,
         "startChar": 39,
@@ -296,6 +488,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae31fa09_75d7e5aa",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8139f3f8_122d1a69",
+      "range": {
+        "startLine": 131,
+        "startChar": 0,
+        "endLine": 131,
+        "endChar": 15
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "08dcfbaf_d21e07d5",
@@ -319,6 +535,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "808fc2ab_6703febf",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "Thanks, I looked for something like that, but I didn\u0027t expect to find it in the non-test specific header result.h.\n\n\u003e Or, you may consider moving OR_FAIL\n\nIn that case I think it should move to android-base. For now I\u0027ll stick to `ASSERT_RESULT_OK`.",
+      "parentUuid": "08dcfbaf_d21e07d5",
+      "range": {
+        "startLine": 140,
+        "startChar": 2,
+        "endLine": 140,
+        "endChar": 13
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3f54ef7c_be09b1c9",
@@ -332,6 +572,30 @@
       "writtenOn": "2024-04-10T10:42:08Z",
       "side": 1,
       "message": "Also print `disallowed_libs`?\n```suggestion\n      \u003c\u003c path_to_self.value() \u003c\u003c \" has disallowed shared library dependencies: \"\n      \u003c\u003c android::base::Join(disallowed_libs, \", \");\n```",
+      "range": {
+        "startLine": 153,
+        "startChar": 78,
+        "endLine": 153,
+        "endChar": 79
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a17c3451_c1142be7",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T13:12:28Z",
+      "side": 1,
+      "message": "It\u0027s already printed through EXPECT_THAT. E.g:\n\n```\nart/test/standalone_test_lib_check.cc:(157) Failure in test StandaloneTestAllowedLibDeps.test\nValue of: disallowed_libs\nExpected: is empty\n  Actual: { \"libc.so\" }, whose size is 1\n/data/local/tmp/art_standalone_libarttools_tests/art_standalone_libarttools_tests has disallowed shared library dependencies.\n```",
+      "parentUuid": "3f54ef7c_be09b1c9",
       "range": {
         "startLine": 153,
         "startChar": 78,
