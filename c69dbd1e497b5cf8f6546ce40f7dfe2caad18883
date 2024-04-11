@@ -139,6 +139,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5807299d_0c6d3907",
+        "filename": "test/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 182,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T17:03:53Z",
+      "side": 1,
+      "message": "That it needs to go into a bunch of lists doesn\u0027t really motivate adding even more such lists. Each one is a potential source of inconsistency. It\u0027d be a different matter if they were all one and the same list that we\u0027d access here. (That may be possible to accomplish with a Soong variable, but I\u0027m not sure, and in any case I\u0027m not taking that on now.)\n\n\u003e You can even add a check to check the consistency between regen-test-files and this genrule if you really want to be sure we don\u0027t miss any test.\n\nThat logic would have a maintenance cost in itself, which I don\u0027t think is offset by the benefit.\n\n\u003e I still prefer surfacing such error earlier than later.\n\nNoted, but you\u0027ll need to quantify this more to convince me.",
+      "parentUuid": "aeb8083b_2d9ef375",
+      "range": {
+        "startLine": 182,
+        "startChar": 11,
+        "endLine": 182,
+        "endChar": 36
+      },
+      "revId": "c69dbd1e497b5cf8f6546ce40f7dfe2caad18883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7a4f9940_9f2e76e8",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 3
