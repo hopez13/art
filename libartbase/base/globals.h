@@ -46,7 +46,7 @@ static constexpr size_t kMaxPageSize = 16384;
 #else
 static constexpr bool kPageSizeAgnostic = false;
 // Maximum supported page size.
-static constexpr size_t kMaxPageSize = kMinPageSize;
+static constexpr size_t kMaxPageSize = 16384;
 #endif
 
 // Targets can have different page size (eg. 4kB or 16kB). Because Art can crosscompile, it needs

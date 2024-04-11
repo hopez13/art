@@ -543,19 +543,24 @@ std::string CommonArtTestImpl::GetImageDirectory() {
   // In a standalone test, the boot image is located next to the gtest binary itself.
   std::string path = android::base::GetExecutableDirectory() + "/art_boot_images";
   if (OS::DirectoryExists(path.c_str())) {
-    return path;
+    LOG(WARNING) << "VILAS: Path is: " << path;
+	return path;
   }
   // In a chroot environment prepared by scripts, the boot image is located in a predefined
   // location on /system.
   path = "/system/framework/art_boot_images";
   if (OS::DirectoryExists(path.c_str())) {
-    return path;
+  LOG(WARNING) << "VILAS: Path is: " << path;
+ 
+	  return path;
   }
   // In art-target-gtest-chroot, the boot image is located in a predefined location on /data because
   // /system is a mount point that replicates the real one on device.
   path = "/data/local/tmp/art_boot_images";
   if (OS::DirectoryExists(path.c_str())) {
-    return path;
+ LOG(WARNING) << "VILAS: Path is: " << path;
+ 
+       	  return path;
   }
   LOG(FATAL) << "Boot image not found";
   UNREACHABLE();

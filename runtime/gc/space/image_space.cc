@@ -735,6 +735,7 @@ class ImageSpace::Loader {
     const size_t image_bitmap_offset =
         RoundUp(sizeof(ImageHeader) + image_header.GetDataSize(), kElfSegmentAlignment);
     const size_t end_of_bitmap = image_bitmap_offset + bitmap_section.Size();
+	LOG(INFO) << "File name: "<< image_filename << " File  size " << image_file_size << " bitmap offset: " << image_bitmap_offset << "bitmap end: " << end_of_bitmap << " image header data size: " << image_header.GetDataSize();
     if (end_of_bitmap != image_file_size) {
       *error_msg = StringPrintf(
           "Image file size does not equal end of bitmap: size=%" PRIu64 " vs. %zu.",
