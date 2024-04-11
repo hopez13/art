@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aabd41e8_765846c5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-11T14:10:27Z",
+      "side": 1,
+      "message": "Thanks for taking a look!",
+      "revId": "713c4c02ef36b160de20d7fb93329f0fbceaea66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "724ae4ac_98de6902",
@@ -31,6 +48,30 @@
       "writtenOn": "2024-04-11T11:01:55Z",
       "side": 1,
       "message": "Why was this change needed? It seems to have the same behavior as the previous code.",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 31
+      },
+      "revId": "713c4c02ef36b160de20d7fb93329f0fbceaea66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e8261947_e9692ce2",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-11T14:10:27Z",
+      "side": 1,
+      "message": "Now that `art_jni_dlsym_lookup_stub` is located in another file it is too far away for `tbnz` to reach as `tbnz` and `tbz` only have a range of +/-32KB while `b` has a much larger range of  +/-128MB",
+      "parentUuid": "724ae4ac_98de6902",
       "range": {
         "startLine": 68,
         "startChar": 4,
