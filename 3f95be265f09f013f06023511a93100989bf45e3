@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52031050_50f56d4d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-11T10:51:55Z",
+      "side": 1,
+      "message": "Remove.",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 25,
+        "endChar": 23
+      },
+      "revId": "3f95be265f09f013f06023511a93100989bf45e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82e5332d_f6b64926",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 938,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-11T10:51:55Z",
+      "side": 1,
+      "message": "I\u0027d prefer moving the nodes from one container to the other while updating the key.",
+      "range": {
+        "startLine": 938,
+        "startChar": 4,
+        "endLine": 938,
+        "endChar": 54
+      },
+      "revId": "3f95be265f09f013f06023511a93100989bf45e3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
