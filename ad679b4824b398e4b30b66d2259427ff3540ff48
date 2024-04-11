@@ -189,6 +189,30 @@
       },
       "revId": "ad679b4824b398e4b30b66d2259427ff3540ff48",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2cb89e3_7082cdde",
+        "filename": "dexoptanalyzer/Android.bp",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-11T16:22:05Z",
+      "side": 1,
+      "message": "I didn\u0027t follow this approach in libarttools/Android.bp, fixed now.",
+      "parentUuid": "581c36c0_efbe3973",
+      "range": {
+        "startLine": 86,
+        "startChar": 0,
+        "endLine": 88,
+        "endChar": 6
+      },
+      "revId": "ad679b4824b398e4b30b66d2259427ff3540ff48",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
