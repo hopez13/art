@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84b490d_aba3b468",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-11T10:29:15Z",
+      "side": 1,
+      "message": "Seems reasonable to me but I will let Vladimir look at this one. Thanks!",
+      "revId": "b4e4d9addd572373096ff19c6165550dd86d4757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f3763c_fbfd8345",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-11T10:29:15Z",
+      "side": 1,
+      "message": "I guess this will change with the simulator patches and we would use kQuickISA or something similar right? Could we just add a TODO here?",
+      "range": {
+        "startLine": 634,
+        "startChar": 49,
+        "endLine": 634,
+        "endChar": 60
+      },
+      "revId": "b4e4d9addd572373096ff19c6165550dd86d4757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
