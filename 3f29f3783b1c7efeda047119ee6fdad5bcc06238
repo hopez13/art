@@ -70,6 +70,30 @@
       },
       "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ad44c652_fb8dab17",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T17:38:01Z",
+      "side": 1,
+      "message": "Let\u0027s hope you\u0027re right. I see in the postsubmit tests that there are always two runs, and exactly one of them fails while the other succeeds. However in your Forrest invocation there\u0027s only one run, so it doesn\u0027t run it in exactly the same way. It\u0027s not clear to me how close to the test the reboot is in these cases.",
+      "parentUuid": "dff75224_808cd5f6",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
