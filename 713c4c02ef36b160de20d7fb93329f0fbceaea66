@@ -80,6 +80,30 @@
       },
       "revId": "713c4c02ef36b160de20d7fb93329f0fbceaea66",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "220d96e9_e3f06662",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 69,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-12T09:00:10Z",
+      "side": 1,
+      "message": "Thanks! Maybe a comment about it might be helpful.",
+      "parentUuid": "e8261947_e9692ce2",
+      "range": {
+        "startLine": 68,
+        "startChar": 4,
+        "endLine": 69,
+        "endChar": 31
+      },
+      "revId": "713c4c02ef36b160de20d7fb93329f0fbceaea66",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
