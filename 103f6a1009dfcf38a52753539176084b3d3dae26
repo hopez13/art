@@ -46,6 +46,30 @@
       },
       "revId": "103f6a1009dfcf38a52753539176084b3d3dae26",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "920118b1_4ce24c12",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T14:42:35Z",
+      "side": 1,
+      "message": "Can you please try it with a heavy presubmit run then? As I mentioned on the ticket the system image is userdebug, so `RootTargetPreparer` may actually be successful and the problem is something else.\n\nIf this works as a stop-gap measure then please add a ticket and a TODO to clean it up, because this skip could mask a test setup error and cause a test gap.",
+      "parentUuid": "94fef2b4_4063193d",
+      "range": {
+        "startLine": 43,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 5
+      },
+      "revId": "103f6a1009dfcf38a52753539176084b3d3dae26",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
