@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fbccf085_82e57f75",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T16:30:29Z",
+      "side": 1,
+      "message": "The scope of this only needs to last past the `if` just below?",
+      "range": {
+        "startLine": 58,
+        "startChar": 9,
+        "endLine": 58,
+        "endChar": 16
+      },
+      "revId": "d563881b103ba9ed5ce94372cc8f955da6cb9600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d49dc182_26d1e4f8",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T16:30:29Z",
+      "side": 1,
+      "message": "Once the SDK version bump happens we can delete this again, right? Please add a TODO here about that too.",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 63,
+        "endChar": 5
+      },
+      "revId": "d563881b103ba9ed5ce94372cc8f955da6cb9600",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
