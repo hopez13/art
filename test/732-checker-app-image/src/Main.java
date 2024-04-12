@@ -25,7 +25,7 @@ public class Main {
     }
 
     /// CHECK-START: java.lang.Class Main.$noinline$getAppImageClass() builder (after)
-    /// CHECK:            LoadClass load_kind:BssEntry in_image:true
+    /// CHECK:            LoadClass load_kind:AppImageRelRo in_image:true
     public static Class<?> $noinline$getAppImageClass() {
         return AppImageClass.class;
     }
@@ -52,12 +52,12 @@ public class Main {
     }
 
     /// CHECK-START: void Main.$noinline$callAppImageClassWithClinitNop() builder (after)
-    /// CHECK:            LoadClass load_kind:BssEntry in_image:true
+    /// CHECK:            LoadClass load_kind:AppImageRelRo in_image:true
     /// CHECK:            ClinitCheck
     /// CHECK:            InvokeStaticOrDirect clinit_check:explicit
 
     /// CHECK-START: void Main.$noinline$callAppImageClassWithClinitNop() inliner (after)
-    /// CHECK:            LoadClass load_kind:BssEntry in_image:true
+    /// CHECK:            LoadClass load_kind:AppImageRelRo in_image:true
     /// CHECK:            ClinitCheck
 
     /// CHECK-START: void Main.$noinline$callAppImageClassWithClinitNop() inliner (after)
