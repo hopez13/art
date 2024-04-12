@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "afe02909_0483c7bb",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T15:54:09Z",
+      "side": 1,
+      "message": "\u003e What does this include in practice?\n\nThe 4 libs under \"ART exported\" below.\n\n\u003e The problem is, I\u0027m not sure how often the assumption on line 43 holds.\n\nYou mean \"standalone tests can assume that the ART module is from the same build as the test\"? That better hold - it\u0027s exceedingly annoying when CI test configs mix that up, and library loading problems is just one of many it can cause. Indeed it happens all too often, but I argue that\u0027s invariably a bug in test run setup, not with the assumption.\n\nThe exception is CTS tests - they have an additional restriction on this. Once we\u0027re fully migrated to MCTS that exception will disappear, but I guess I should call it out until then. Done.",
+      "parentUuid": "23922e68_2818d1cb",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45b8ade6_d623d4af",
