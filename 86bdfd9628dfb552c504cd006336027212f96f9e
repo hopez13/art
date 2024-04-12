@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "23922e68_2818d1cb",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-12T10:16:19Z",
+      "side": 1,
+      "message": "What does this include in practice?\n\nThe problem is, I\u0027m not sure how often the assumption on line 43 holds. It\u0027s too easy to break the assumption with a new test config. It will be great to remove this type of libraries so that we can eliminate that assumption.",
+      "parentUuid": "c73ce2f0_729fd099",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45b8ade6_d623d4af",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 4
