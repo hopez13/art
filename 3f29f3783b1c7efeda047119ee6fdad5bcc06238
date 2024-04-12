@@ -94,6 +94,30 @@
       },
       "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b50c7290_53e1edd6",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-12T17:46:16Z",
+      "side": 1,
+      "message": "In the postsubmit tests, there are always two runs because the first run fails. In my Forrest invocation, the first run succeeds, so there is no need for the second run. My theory is that, in the postsubmit tests, the first run is too early and the device is still booting, while the second run is just in time.",
+      "parentUuid": "ad44c652_fb8dab17",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
