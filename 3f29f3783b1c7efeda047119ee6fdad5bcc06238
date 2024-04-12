@@ -118,6 +118,30 @@
       },
       "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae564577_1c91c847",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T17:59:29Z",
+      "side": 1,
+      "message": "Yes, that could be the reason. I\u0027m still not convinced this fixes the problem, but let\u0027s get it in and see.\n\nI\u0027m also a bit surprised no preparer waits for this already. Makes me wonder what they actually do wait for before considering the device ready for testing.",
+      "parentUuid": "b50c7290_53e1edd6",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
