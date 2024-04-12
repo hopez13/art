@@ -40,6 +40,10 @@ class DexoptChrootSetupTest : public CommonArtTest {
     CommonArtTest::SetUp();
     dexopt_chroot_setup_ = ndk::SharedRefBase::make<DexoptChrootSetup>();
 
+    if (getuid() != kRootUid) {
+      GTEST_SKIP() << "This test requires root access";
+    }
+
     // Note that if a real Pre-reboot Dexopt is kicked off after this check, the test will still
     // fail, but that should be very rare.
     if (std::filesystem::exists(DexoptChrootSetup::CHROOT_DIR)) {
