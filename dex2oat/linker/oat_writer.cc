@@ -869,31 +869,6 @@ class OatWriter::InitOatClassesMethodVisitor : public DexMethodVisitor {
   size_t compiled_methods_with_code_;
 };
 
-// .bss mapping offsets used for BCP DexFiles.
-struct OatWriter::BssMappingInfo {
-  // Offsets set in PrepareLayout.
-  uint32_t method_bss_mapping_offset = 0u;
-  uint32_t type_bss_mapping_offset = 0u;
-  uint32_t public_type_bss_mapping_offset = 0u;
-  uint32_t package_type_bss_mapping_offset = 0u;
-  uint32_t string_bss_mapping_offset = 0u;
-  uint32_t method_type_bss_mapping_offset = 0u;
-
-  // Offset of the BSSInfo start from beginning of OatHeader. It is used to validate file position
-  // when writing.
-  size_t offset_ = 0u;
-
-  static size_t SizeOf() {
-    return sizeof(method_bss_mapping_offset) +
-           sizeof(type_bss_mapping_offset) +
-           sizeof(public_type_bss_mapping_offset) +
-           sizeof(package_type_bss_mapping_offset) +
-           sizeof(string_bss_mapping_offset) +
-           sizeof(method_type_bss_mapping_offset);
-  }
-  bool Write(OatWriter* oat_writer, OutputStream* out) const;
-};
-
 // CompiledMethod + metadata required to do ordered method layout.
 //
 // See also OrderedMethodVisitor.
