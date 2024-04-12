@@ -22,6 +22,30 @@
       },
       "revId": "558e95446d126add2e15404ebbbfe30018f701af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a00fb15_e44bfb26",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2290,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-12T12:21:25Z",
+      "side": 0,
+      "message": "Yes, this comment was wrong. The immediate here is an offset from a register value rather than a PC-relative offset.",
+      "parentUuid": "f1c53ae1_796b7a29",
+      "range": {
+        "startLine": 2290,
+        "startChar": 0,
+        "endLine": 2290,
+        "endChar": 75
+      },
+      "revId": "558e95446d126add2e15404ebbbfe30018f701af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
