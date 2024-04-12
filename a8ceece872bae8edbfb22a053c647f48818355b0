@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d414186c_aaa1274a",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-12T13:26:46Z",
+      "side": 1,
+      "message": "If we `#include \"base/base.h\"`, we can use `enum_cast\u003c\u003e` to cast to the underlying type.",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 48
+      },
+      "revId": "a8ceece872bae8edbfb22a053c647f48818355b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da7bb611_ccab6464",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-12T13:26:46Z",
+      "side": 1,
+      "message": "We should also use `enum_cast\u003cExperimentalFlags\u003e` instead of this \"constructor call\".",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "a8ceece872bae8edbfb22a053c647f48818355b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
