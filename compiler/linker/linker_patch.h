@@ -25,6 +25,9 @@
 #include "base/bit_utils.h"
 #include "base/macros.h"
 #include "dex/method_reference.h"
+#include "dex/proto_reference.h"
+#include "dex/string_reference.h"
+#include "dex/type_reference.h"
 
 namespace art HIDDEN {
 
@@ -51,6 +54,7 @@ class LinkerPatch {
     kJniEntrypointRelative,
     kCallRelative,
     kTypeRelative,
+    kTypeAppImageRelRo,
     kTypeBssEntry,
     kPublicTypeBssEntry,
     kPackageTypeBssEntry,
@@ -122,6 +126,16 @@ class LinkerPatch {
                                        uint32_t pc_insn_offset,
                                        uint32_t target_type_idx) {
     LinkerPatch patch(literal_offset, Type::kTypeRelative, target_dex_file);
+    patch.type_idx_ = target_type_idx;
+    patch.pc_insn_offset_ = pc_insn_offset;
+    return patch;
+  }
+
+  static LinkerPatch TypeAppImageRelRoPatch(size_t literal_offset,
+                                            const DexFile* target_dex_file,
+                                            uint32_t pc_insn_offset,
+                                            uint32_t target_type_idx) {
+    LinkerPatch patch(literal_offset, Type::kTypeAppImageRelRo, target_dex_file);
     patch.type_idx_ = target_type_idx;
     patch.pc_insn_offset_ = pc_insn_offset;
     return patch;
@@ -236,42 +250,24 @@ class LinkerPatch {
     return MethodReference(target_dex_file_, method_idx_);
   }
 
-  const DexFile* TargetTypeDexFile() const {
+  TypeReference TargetType() const {
     DCHECK(patch_type_ == Type::kTypeRelative ||
+           patch_type_ == Type::kTypeAppImageRelRo ||
            patch_type_ == Type::kTypeBssEntry ||
            patch_type_ == Type::kPublicTypeBssEntry ||
            patch_type_ == Type::kPackageTypeBssEntry);
-    return target_dex_file_;
+    return TypeReference(target_dex_file_, dex::TypeIndex(type_idx_));
   }
 
-  dex::TypeIndex TargetTypeIndex() const {
-    DCHECK(patch_type_ == Type::kTypeRelative ||
-           patch_type_ == Type::kTypeBssEntry ||
-           patch_type_ == Type::kPublicTypeBssEntry ||
-           patch_type_ == Type::kPackageTypeBssEntry);
-    return dex::TypeIndex(type_idx_);
-  }
-
-  const DexFile* TargetStringDexFile() const {
+  StringReference TargetString() const {
     DCHECK(patch_type_ == Type::kStringRelative ||
            patch_type_ == Type::kStringBssEntry);
-    return target_dex_file_;
+    return StringReference(target_dex_file_, dex::StringIndex(string_idx_));
   }
 
-  dex::StringIndex TargetStringIndex() const {
-    DCHECK(patch_type_ == Type::kStringRelative ||
-           patch_type_ == Type::kStringBssEntry);
-    return dex::StringIndex(string_idx_);
-  }
-
-  const DexFile* TargetProtoDexFile() const {
+  ProtoReference TargetProto() const {
     DCHECK(patch_type_ == Type::kMethodTypeBssEntry);
-    return target_dex_file_;
-  }
-
-  dex::ProtoIndex TargetProtoIndex() const {
-    DCHECK(patch_type_ == Type::kMethodTypeBssEntry);
-    return dex::ProtoIndex(proto_idx_);
+    return ProtoReference(target_dex_file_, dex::ProtoIndex(proto_idx_));
   }
 
   uint32_t PcInsnOffset() const {

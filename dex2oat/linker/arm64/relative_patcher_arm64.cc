@@ -66,6 +66,7 @@ inline bool IsAdrpPatch(const LinkerPatch& patch) {
     case LinkerPatch::Type::kMethodBssEntry:
     case LinkerPatch::Type::kJniEntrypointRelative:
     case LinkerPatch::Type::kTypeRelative:
+    case LinkerPatch::Type::kTypeAppImageRelRo:
     case LinkerPatch::Type::kTypeBssEntry:
     case LinkerPatch::Type::kPublicTypeBssEntry:
     case LinkerPatch::Type::kPackageTypeBssEntry:
