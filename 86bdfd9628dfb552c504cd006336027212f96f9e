@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cc6e8fa_03210d00",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-12T16:46:14Z",
+      "side": 1,
+      "message": "Correct. Fair enough, added that.\n\n(Another interesting detail is that as long as the library is exported, the API that the test accesses in it doesn\u0027t need to be stable (with the exception of CTS). So in theory we could export a test API through libdexfile or something.)",
+      "parentUuid": "108c95c1_a3f76da3",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "45b8ade6_d623d4af",
