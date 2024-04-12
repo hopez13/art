@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66788776_5a10c73a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2304,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-12T09:06:03Z",
+      "side": 1,
+      "message": "Can we add which one we are using?\n\nThe suggestion was the machine learning one. Did it get it right?\n```suggestion\n// The clang assembler we\u0027re currently using for testing (clang 11.0.0) does\n// not auto-forward `beq zero, rs2, offset` to `c.beqz` but newer clang\n// assembler versions do.\n```",
+      "range": {
+        "startLine": 2304,
+        "startChar": 39,
+        "endLine": 2304,
+        "endChar": 44
+      },
+      "revId": "a91822ec8bf2f7e523189b2be74383c44feeaee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4cee82c_afe5bd4a",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2305,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-12T09:06:03Z",
+      "side": 1,
+      "message": "Can we add which one we are waiting for?",
+      "range": {
+        "startLine": 2305,
+        "startChar": 43,
+        "endLine": 2305,
+        "endChar": 73
+      },
+      "revId": "a91822ec8bf2f7e523189b2be74383c44feeaee7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
