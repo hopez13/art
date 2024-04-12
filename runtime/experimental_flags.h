@@ -24,50 +24,22 @@
 namespace art HIDDEN {
 
 // Possible experimental features that might be enabled.
-struct ExperimentalFlags {
-  // The actual flag values.
-  enum {
-    kNone           = 0x0000,
-    kMethodHandles  = 0x0004,  // 0b00000100
-  };
-
-  constexpr ExperimentalFlags() : value_(0x0000) {}
-  constexpr ExperimentalFlags(decltype(kNone) t)  // NOLINT [runtime/explicit]
-      : value_(static_cast<uint32_t>(t)) {}
-
-  constexpr operator decltype(kNone)() const {
-    return static_cast<decltype(kNone)>(value_);
-  }
-
-  constexpr explicit operator bool() const {
-    return value_ != kNone;
-  }
-
-  constexpr ExperimentalFlags operator|(const decltype(kNone)& b) const {
-    return static_cast<decltype(kNone)>(value_ | static_cast<uint32_t>(b));
-  }
-  constexpr ExperimentalFlags operator|(const ExperimentalFlags& b) const {
-    return static_cast<decltype(kNone)>(value_ | b.value_);
-  }
-
-  constexpr ExperimentalFlags operator&(const ExperimentalFlags& b) const {
-    return static_cast<decltype(kNone)>(value_ & b.value_);
-  }
-  constexpr ExperimentalFlags operator&(const decltype(kNone)& b) const {
-    return static_cast<decltype(kNone)>(value_ & static_cast<uint32_t>(b));
-  }
-
-  constexpr bool operator==(const ExperimentalFlags& b) const {
-    return value_ == b.value_;
-  }
-
- private:
-  uint32_t value_;
+enum class ExperimentalFlags : uint32_t {
+  kNone           = 0x0000,
+  kMethodHandles  = 0x0004,  // 0b00000100
 };
 
-inline std::ostream& operator<<(std::ostream& stream, const ExperimentalFlags& e) {
+constexpr ExperimentalFlags operator|(ExperimentalFlags a, ExperimentalFlags b) {
+  return ExperimentalFlags(static_cast<uint32_t>(a) | static_cast<uint32_t>(b));
+}
+
+constexpr ExperimentalFlags operator&(ExperimentalFlags a, ExperimentalFlags b) {
+  return ExperimentalFlags(static_cast<uint32_t>(a) & static_cast<uint32_t>(b));
+}
+
+inline std::ostream& operator<<(std::ostream& stream, ExperimentalFlags e) {
   bool started = false;
-  if (e & ExperimentalFlags::kMethodHandles) {
+  if ((e & ExperimentalFlags::kMethodHandles) != ExperimentalFlags::kNone) {
     stream << (started ? "|" : "") << "kMethodHandles";
     started = true;
   }
@@ -75,10 +47,6 @@ inline std::ostream& operator<<(std::ostream& stream, const ExperimentalFlags& e
     stream << "kNone";
   }
   return stream;
-}
-
-inline std::ostream& operator<<(std::ostream& stream, const decltype(ExperimentalFlags::kNone)& e) {
-  return stream << ExperimentalFlags(e);
 }
 
 }  // namespace art
