@@ -46,6 +46,30 @@
       },
       "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dff75224_808cd5f6",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 77,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-12T17:21:42Z",
+      "side": 1,
+      "message": "Test passed with the fix. https://android-build.corp.google.com/abtd/run/L14400030003130086/\n\nI don\u0027t have a good theory, but this test interacts with the system quite a lot, so a lot of things during boot can affect it.",
+      "parentUuid": "553ca713_44f40e5a",
+      "range": {
+        "startLine": 77,
+        "startChar": 4,
+        "endLine": 77,
+        "endChar": 95
+      },
+      "revId": "3f29f3783b1c7efeda047119ee6fdad5bcc06238",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
