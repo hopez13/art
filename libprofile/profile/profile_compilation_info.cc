@@ -57,6 +57,7 @@
 #include "base/unix_file/fd_file.h"
 #include "base/utils.h"
 #include "base/zip_archive.h"
+#include "dex/code_item_accessors-inl.h"
 #include "dex/descriptors_names.h"
 #include "dex/dex_file_loader.h"
 
@@ -1333,10 +1334,24 @@ bool ProfileCompilationInfo::AddMethod(const ProfileMethodInfo& pmi,
   InlineCacheMap* inline_cache = data->FindOrAddHotMethod(pmi.ref.index);
   DCHECK(inline_cache != nullptr);
 
+  const dex::MethodId& mid = pmi.ref.GetMethodId();
+  const DexFile& dex_file = *pmi.ref.dex_file;
+  const dex::ClassDef* class_def = dex_file.FindClassDef(mid.class_idx_);
+  std::optional<uint32_t> offset = dex_file.GetCodeItemOffset(*class_def, pmi.ref.index);
+  if (!offset.has_value()) {
+    return true;
+  }
+  CodeItemInstructionAccessor accessor(dex_file, dex_file.GetCodeItem(offset.value()));
+
   for (const ProfileMethodInfo::ProfileInlineCache& cache : pmi.inline_caches) {
     if (cache.dex_pc >= std::numeric_limits<uint16_t>::max()) {
       // Discard entries that don't fit the encoding. This should only apply to
       // inlined inline caches. See also `HInliner::GetInlineCacheAOT`.
+      continue;
+    }
+    if (cache.dex_pc >= accessor.InsnsSizeInCodeUnits()) {
+      // Discard entries for inlined inline caches. We don't support them in
+      // profiles yet.
       continue;
     }
     if (cache.is_missing_types) {
