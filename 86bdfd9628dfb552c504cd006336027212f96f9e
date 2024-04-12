@@ -98,6 +98,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "108c95c1_a3f76da3",
+        "filename": "test/standalone_test_lib_check.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-12T16:25:43Z",
+      "side": 1,
+      "message": "Sorry. Do I understand it correctly that the problem with `libbase` is that there isn\u0027t a proper linker config that links the test against `libbase` in the ART APEX? And that\u0027s the motivation of aosp/3027746? This is not very clear to me. I think it\u0027s worth another note (**) to explain that how \"be loaded from\" is different from \"be in\".",
+      "parentUuid": "afe02909_0483c7bb",
+      "range": {
+        "startLine": 49,
+        "startChar": 0,
+        "endLine": 49,
+        "endChar": 32
+      },
+      "revId": "86bdfd9628dfb552c504cd006336027212f96f9e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "45b8ade6_d623d4af",
         "filename": "test/standalone_test_lib_check.cc",
         "patchSetId": 4
