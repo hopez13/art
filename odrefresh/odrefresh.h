@@ -75,20 +75,28 @@ struct CompilationResult {
   static CompilationResult Ok() { return {}; }
 
   static CompilationResult Dex2oatOk(int64_t elapsed_time_ms, const ExecResult& dex2oat_result) {
-    return {.elapsed_time_ms = elapsed_time_ms, .dex2oat_result = dex2oat_result};
+    CompilationResult result{};
+    result.elapsed_time_ms = elapsed_time_ms;
+    result.dex2oat_result = dex2oat_result;
+    return result;
   }
 
   static CompilationResult Error(OdrMetrics::Status status, const std::string& error_msg) {
-    return {.status = status, .error_msg = error_msg};
+    CompilationResult result{};
+    result.status = status;
+    result.error_msg = error_msg;
+    return result;
   }
 
   static CompilationResult Dex2oatError(const std::string& error_msg,
                                         int64_t elapsed_time_ms,
                                         const ExecResult& dex2oat_result) {
-    return {.status = OdrMetrics::Status::kDex2OatError,
-            .error_msg = error_msg,
-            .elapsed_time_ms = elapsed_time_ms,
-            .dex2oat_result = dex2oat_result};
+    CompilationResult result{};
+    result.status = OdrMetrics::Status::kDex2OatError;
+    result.error_msg = error_msg;
+    result.elapsed_time_ms = elapsed_time_ms;
+    result.dex2oat_result = dex2oat_result;
+    return result;
   }
 
   bool IsOk() { return status == OdrMetrics::Status::kOK; }
