@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c34863e3_026e6fcf",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-13T02:10:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d414186c_aaa1274a",
+      "range": {
+        "startLine": 33,
+        "startChar": 27,
+        "endLine": 33,
+        "endChar": 48
+      },
+      "revId": "a8ceece872bae8edbfb22a053c647f48818355b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da7bb611_ccab6464",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-12T13:26:46Z",
       "side": 1,
       "message": "We should also use `enum_cast\u003cExperimentalFlags\u003e` instead of this \"constructor call\".",
+      "range": {
+        "startLine": 37,
+        "startChar": 9,
+        "endLine": 37,
+        "endChar": 26
+      },
+      "revId": "a8ceece872bae8edbfb22a053c647f48818355b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eaf10d47_d6fc778f",
+        "filename": "runtime/experimental_flags.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-13T02:10:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da7bb611_ccab6464",
       "range": {
         "startLine": 37,
         "startChar": 9,
