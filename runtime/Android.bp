@@ -624,18 +624,9 @@ cc_defaults {
 // where all non-NDK dependencies are static as well.
 cc_defaults {
     name: "art_libunwindstack_static_defaults",
-    whole_static_libs: [
-        "libunwindstack",
-        "libbase",
-        "liblzma",
-    ],
-    exclude_static_libs: [
-        // This library comes from the static version of libunwindstack.
-        "libz",
-    ],
+    // TODO(b/247108425): Fix the ODR problem and go back to static linking.
     shared_libs: [
-        "liblog",
-        "libz",
+        "libunwindstack",
     ],
 }
 
