@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "771f1e6f_bd65dfd7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-15T08:22:09Z",
+      "side": 1,
+      "message": "For reference, here\u0027s one of the complete Clang errors. It outputs six source locations to help with finding the source of the problem:\n\n```\nprebuilts/clang/host/linux-x86/clang-r510928/include/c++/v1/__memory/allocator.h:130:58: error: invalid application of \u0027sizeof\u0027 to an incomplete type \u0027art::linker::OatWriter::BssMappingInfo\u0027\n  130 |             _VSTD::__libcpp_deallocate((void*)__p, __n * sizeof(_Tp), _LIBCPP_ALIGNOF(_Tp));\n      |                                                          ^~~~~~~~~~~\nprebuilts/clang/host/linux-x86/clang-r510928/include/c++/v1/__memory/allocator_traits.h:288:13: note: in instantiation of member function \u0027std::allocator\u003cart::linker::OatWriter::BssMappingInfo\u003e::deallocate\u0027 requested here\n  288 |         __a.deallocate(__p, __n);\n      |             ^\nprebuilts/clang/host/linux-x86/clang-r510928/include/c++/v1/vector:491:29: note: in instantiation of member function \u0027std::allocator_traits\u003cstd::allocator\u003cart::linker::OatWriter::BssMappingInfo\u003e\u003e::deallocate\u0027 requested here\n  491 |             __alloc_traits::deallocate(__vec_.__alloc(), __vec_.__begin_, __vec_.capacity());\n      |                             ^\nprebuilts/clang/host/linux-x86/clang-r510928/include/c++/v1/vector:500:67: note: in instantiation of member function \u0027std::vector\u003cart::linker::OatWriter::BssMappingInfo\u003e::__destroy_vector::operator()\u0027 requested here\n  500 |   _LIBCPP_CONSTEXPR_SINCE_CXX20 _LIBCPP_HIDE_FROM_ABI ~vector() { __destroy_vector(*this)(); }\n      |                                                                   ^\nart/dex2oat/linker/oat_writer.cc:326:12: note: in instantiation of member function \u0027std::vector\u003cart::linker::OatWriter::BssMappingInfo\u003e::~vector\u0027 requested here\n  326 | OatWriter::OatWriter(const CompilerOptions\u0026 compiler_options,\n      |            ^\nart/dex2oat/linker/oat_writer.h:251:10: note: forward declaration of \u0027art::linker::OatWriter::BssMappingInfo\u0027\n  251 |   struct BssMappingInfo;\n      |          ^\n```",
+      "revId": "b11cae93e6e4dd0d5b277439d6bb8932ef6e7f52",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
