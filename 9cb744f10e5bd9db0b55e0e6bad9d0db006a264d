@@ -46,6 +46,30 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a2e0cfb_67238c29",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-15T18:50:07Z",
+      "side": 1,
+      "message": "Aha, so the alternative would be to introduce something like `PRODUCT_ART_PAGE_SIZE_AGNOSTIC` instead, provided there\u0027s any value in controlling this from product .mk\u0027s. I\u0027ve no opinion if we need that or if we\u0027re happy hardcoding it. I see the flag morphed from a generic to Bionic-specific spelling in https://r.android.com/2860348, so I\u0027ll leave it to the people there to review this too.\n\n\u003e If odex/etc.. files are built differently on different devices, wouldn\u0027t that mess up profiling, or no?\n\nI\u0027m not sure I follow what profiling you\u0027re talking about. The ART profiles for odex files are based on method call counts, and hence are architecture agnostic in that regard.",
+      "parentUuid": "dea35a81_39c9a9ae",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 64
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
