@@ -39,6 +39,46 @@
       "message": "Friendly ping",
       "revId": "b84a3ab59a1e88d024168c847741f862bbe18493",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03ca4a0b_8f10627d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2096,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-15T09:54:57Z",
+      "side": 1,
+      "message": "For boot image extension, the `boot_class_path` ends with `*dex_files_`. This is checked by `dex2oat` and we can `DCHECK()` it here. Then we can just truncate the `boot_class_path` and work with that without most of the changes below.",
+      "range": {
+        "startLine": 2096,
+        "startChar": 35,
+        "endLine": 2096,
+        "endChar": 50
+      },
+      "revId": "b84a3ab59a1e88d024168c847741f862bbe18493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "88097fb1_4cd839f7",
+        "filename": "runtime/oat/oat.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-15T09:54:57Z",
+      "side": 1,
+      "message": "I\u0027d prefer o stick to a single-line tag. (Someone could try to update it while keeping the second line unmodified and then we would not get a conflict on rebasing and could lose a version bump without noticing.)",
+      "revId": "b84a3ab59a1e88d024168c847741f862bbe18493",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
