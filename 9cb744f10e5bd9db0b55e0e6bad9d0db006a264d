@@ -37,6 +37,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8f66bf7e_204acd02",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-04-15T21:31:23Z",
+      "side": 1,
+      "message": "(art/host-gtests appears to be real configuration issue. Other tests failing with \u0027Test failed to allocate devices.\u0027)",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb1cec_4f8d30b6",
         "filename": "build/art.go",
         "patchSetId": 2
