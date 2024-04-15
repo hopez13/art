@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "af390158_436d9b74",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-15T16:30:12Z",
+      "side": 1,
+      "message": "Yes, I\u0027m currently calling it `TypeAppImageRelRo` and I\u0027m planning to upload my half-done WIP CL soon.",
+      "parentUuid": "387813c2_cf2a22a1",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "e64f01676675aa2401510e359c5f42f6f6505c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9722b943_5024fb04",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-15T16:10:52Z",
       "side": 1,
       "message": "why is it optional now? Or was the comment outdated?",
+      "range": {
+        "startLine": 416,
+        "startChar": 22,
+        "endLine": 416,
+        "endChar": 30
+      },
+      "revId": "e64f01676675aa2401510e359c5f42f6f6505c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99bae57b_4fc5da3f",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 416,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-15T16:30:12Z",
+      "side": 1,
+      "message": "The word \"required\" is ambiguous here. It could be interpreted to mean that the section is always in the oat file (wrong) or to mean that \"if we require this section, this is the start/size\".\n\nI decided to replace this with the \"optional\" which corrects the first meaning and steers clear of the second one. I guess we could try to improve these comments further but I don\u0027t have a better idea right now.\n\n(Both `.bss` and `.data.bimg.rel.ro` have always been created only if they were needed. If there are no entries to put there, the section is not created.)",
+      "parentUuid": "9722b943_5024fb04",
       "range": {
         "startLine": 416,
         "startChar": 22,
