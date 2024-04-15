@@ -22,6 +22,30 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dea35a81_39c9a9ae",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-04-15T18:24:09Z",
+      "side": 1,
+      "message": "Btw - I\u0027m not 100% convinced this is the right thing, but I think maybe it is, so hear me out, let me know what you think.\n\nThe bionic flag is exactly set on some targets with PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO, but I think the Art setting should be decoupled from that and set globally. The thing is PRODUCT_NO_BIONIC_PAGE_SIZE_MACRO is about BIONIC, but Art doesn\u0027t use that macro at all, and instead it has a 4096 mode and a 16384 mode. It\u0027s not backwards compatible, it\u0027s written so Art can move to the larger page size and run in both modes.\n\nAnyway, forget the test coupling issue (which made me realize this oversight).\n\nIf odex/etc.. files are built differently on different devices, wouldn\u0027t that mess up profiling, or no? Like we don\u0027t want to split the arm32 population from 32-bit-only apps on arm64 devices running that as a secondary ABI? arm32 should be the same everywhere.",
+      "parentUuid": "8fbb1cec_4f8d30b6",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 64
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
