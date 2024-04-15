@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6754dd00_62646c26",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 565,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-15T09:38:10Z",
+      "side": 1,
+      "message": "Let\u0027s not add this map, I think I have a better idea: we can keep track of which ArtMethod (even inlined) references MethodType in compiled code. So I think a simple:\n\n```\nSafeMap\u003cArtMethod*, MethodType**\u003e\n```\n\nShould do.",
+      "range": {
+        "startLine": 565,
+        "startChar": 0,
+        "endLine": 565,
+        "endChar": 96
+      },
+      "revId": "f1c91338ced1f08c64246a4f457aa450fa244d9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
