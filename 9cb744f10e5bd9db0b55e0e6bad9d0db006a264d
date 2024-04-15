@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8fbb1cec_4f8d30b6",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-15T18:10:30Z",
+      "side": 1,
+      "message": "I haven\u0027t investigated exactly what controls the value of this, but ignoring build settings seems a bit of a hack. Shouldn\u0027t we ensure that the ART build config is the same at the product settings level instead, i.e. in some `PRODUCT_*` in the mk files?",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 64
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
