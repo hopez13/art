@@ -22,6 +22,30 @@
       },
       "revId": "97bca6030431e3ab8c5bbfd0461961e7d3cc1bd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42faa58b_4493f98b",
+        "filename": "dex2oat/linker/oat_writer.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 252,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-15T08:19:18Z",
+      "side": 1,
+      "message": "Yeah, that does seem like a better place to put it.\n\nWe have these forward declarations in the .h file:\n\n```\n  struct BssMappingInfo;\n  class ChecksumUpdatingOutputStream;\n  class OatClassHeader;\n  class OatClass;\n  class OatDexFile;\n```\n\nThe four classes are all defined before the OatWriter constructor, in the same order as the forward declarations, so I moved the BssMappingInfo definition to just before ChecksumUpdatingOutputStream.",
+      "parentUuid": "2e36aa81_94a12d16",
+      "range": {
+        "startLine": 252,
+        "startChar": 9,
+        "endLine": 252,
+        "endChar": 23
+      },
+      "revId": "97bca6030431e3ab8c5bbfd0461961e7d3cc1bd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
