@@ -87,6 +87,30 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2504f7b7_9862bc45",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-04-15T20:00:35Z",
+      "side": 1,
+      "message": "That is good to know, although I guess we still have the population difference just in terms of the incoming bugs.\n\nSo, we could set PRODUCT_ART_PAGE_SIZE_AGNOSTIC (maybe temporarily), but if we aren\u0027t going to set it on specific devices, it can also remain coupled.\n\nHowever, this bug also didn\u0027t fix the x86-abi art_oatdump_test failure - so there\u0027s no real rush splitting it up, and we can wait for others to weigh in.",
+      "parentUuid": "4a2e0cfb_67238c29",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 64
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
