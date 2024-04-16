@@ -275,9 +275,7 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
 
       if (len > 0) {
         size_t pos = error_buf.size();
-        if (pos < MB) {
-          error_buf.insert(error_buf.end(), buf, buf + len);
-        }
+        error_buf.insert(error_buf.end(), buf, buf + len);
       }
 
       while (len > 0) {
