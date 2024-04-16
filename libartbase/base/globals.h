@@ -39,6 +39,11 @@ static constexpr size_t kStackAlignment = 16;
 // Minimum supported page size.
 static constexpr size_t kMinPageSize = 4096;
 
+// Page size is only supported on 64-bit targets.
+#if defined(ART_PAGE_SIZE_AGNOSTIC_PRODUCT) && !defined(__arm__) && !defined(__i386__)
+#define ART_PAGE_SIZE_AGNOSTIC 1
+#endif
+
 #if defined(ART_PAGE_SIZE_AGNOSTIC)
 static constexpr bool kPageSizeAgnostic = true;
 // Maximum supported page size.
