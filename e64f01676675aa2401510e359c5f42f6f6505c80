@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "76f55e2a_650ed089",
+        "filename": "compiler/linker/linker_patch.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-16T09:25:36Z",
+      "side": 1,
+      "message": "We could have `MethodAppImageRelRo` as well to avoid method resolution on first call, so I\u0027ll keep the `Type` in the name. I\u0027m doing the `Type` first because the benefits are higher as we can avoid the read barrier (for CC GC), null check and slow path in the compiled code.",
+      "parentUuid": "b37ea5e3_bf26fd1d",
+      "range": {
+        "startLine": 48,
+        "startChar": 4,
+        "endLine": 48,
+        "endChar": 19
+      },
+      "revId": "e64f01676675aa2401510e359c5f42f6f6505c80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9722b943_5024fb04",
