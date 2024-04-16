@@ -639,8 +639,15 @@ CommonArtTestImpl::ForkAndExecResult CommonArtTestImpl::ForkAndExec(
   link[1].reset();
 
   char buffer[128] = { 0 };
-  ssize_t bytes_read = 0;
-  while (TEMP_FAILURE_RETRY(bytes_read = read(link[0].get(), buffer, 128)) > 0) {
+  while (true) {
+    ssize_t bytes_read = TEMP_FAILURE_RETRY(read(link[0].get(), buffer, 128));
+    // b/334200225
+    if (errno == EAGAIN) {
+      usleep(1000);
+      continue;
+    }
+    if (bytes_read == 0)
+      break;
     handler(buffer, bytes_read);
   }
   handler(buffer, 0u);  // End with a virtual write of zero length to simplify clients.
