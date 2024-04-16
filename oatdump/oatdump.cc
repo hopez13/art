@@ -103,21 +103,21 @@ namespace art {
 using android::base::StringPrintf;
 
 const char* image_methods_descriptions_[] = {
-  "kResolutionMethod",
-  "kImtConflictMethod",
-  "kImtUnimplementedMethod",
-  "kSaveAllCalleeSavesMethod",
-  "kSaveRefsOnlyMethod",
-  "kSaveRefsAndArgsMethod",
-  "kSaveEverythingMethod",
-  "kSaveEverythingMethodForClinit",
-  "kSaveEverythingMethodForSuspendCheck",
+    "kResolutionMethod",
+    "kImtConflictMethod",
+    "kImtUnimplementedMethod",
+    "kSaveAllCalleeSavesMethod",
+    "kSaveRefsOnlyMethod",
+    "kSaveRefsAndArgsMethod",
+    "kSaveEverythingMethod",
+    "kSaveEverythingMethodForClinit",
+    "kSaveEverythingMethodForSuspendCheck",
 };
 
 const char* image_roots_descriptions_[] = {
-  "kDexCaches",
-  "kClassRoots",
-  "kSpecialRoots",
+    "kDexCaches",
+    "kClassRoots",
+    "kSpecialRoots",
 };
 
 // Map is so that we don't allocate multiple dex files for the same OatDexFile.
@@ -137,12 +137,11 @@ const DexFile* OpenDexFile(const OatDexFile* oat_dex_file, std::string* error_ms
 template <typename ElfTypes>
 class OatSymbolizer final {
  public:
-  OatSymbolizer(const OatFile* oat_file, const std::string& output_name, bool no_bits) :
-      oat_file_(oat_file),
-      builder_(nullptr),
-      output_name_(output_name.empty() ? "symbolized.oat" : output_name),
-      no_bits_(no_bits) {
-  }
+  OatSymbolizer(const OatFile* oat_file, const std::string& output_name, bool no_bits)
+      : oat_file_(oat_file),
+        builder_(nullptr),
+        output_name_(output_name.empty() ? "symbolized.oat" : output_name),
+        no_bits_(no_bits) {}
 
   bool Symbolize() {
     const InstructionSet isa = oat_file_->GetOatHeader().GetInstructionSet();
@@ -154,8 +153,7 @@ class OatSymbolizer final {
       return false;
     }
     std::unique_ptr<BufferedOutputStream> output_stream =
-        std::make_unique<BufferedOutputStream>(
-            std::make_unique<FileOutputStream>(elf_file.get()));
+        std::make_unique<BufferedOutputStream>(std::make_unique<FileOutputStream>(elf_file.get()));
     builder_.reset(new ElfBuilder<ElfTypes>(isa, output_stream.get()));
 
     builder_->Start();
@@ -190,18 +188,18 @@ class OatSymbolizer final {
     builder_->WriteDynamicSection();
 
     const OatHeader& oat_header = oat_file_->GetOatHeader();
-    #define DO_TRAMPOLINE(fn_name)                                                            \
-      if (oat_header.Get ## fn_name ## Offset() != 0) {                                       \
-        debug::MethodDebugInfo info = {};                                                     \
-        info.custom_name = #fn_name;                                                          \
-        info.isa = oat_header.GetInstructionSet();                                            \
-        info.is_code_address_text_relative = true;                                            \
-        size_t code_offset = oat_header.Get ## fn_name ## Offset();                           \
-        code_offset -= GetInstructionSetEntryPointAdjustment(oat_header.GetInstructionSet()); \
-        info.code_address = code_offset - oat_header.GetExecutableOffset();                   \
-        info.code_size = 0;  /* The symbol lasts until the next symbol. */                    \
-        method_debug_infos_.push_back(std::move(info));                                       \
-      }
+#define DO_TRAMPOLINE(fn_name)                                                            \
+  if (oat_header.Get##fn_name##Offset() != 0) {                                           \
+    debug::MethodDebugInfo info = {};                                                     \
+    info.custom_name = #fn_name;                                                          \
+    info.isa = oat_header.GetInstructionSet();                                            \
+    info.is_code_address_text_relative = true;                                            \
+    size_t code_offset = oat_header.Get##fn_name##Offset();                               \
+    code_offset -= GetInstructionSetEntryPointAdjustment(oat_header.GetInstructionSet()); \
+    info.code_address = code_offset - oat_header.GetExecutableOffset();                   \
+    info.code_size = 0; /* The symbol lasts until the next symbol. */                     \
+    method_debug_infos_.push_back(std::move(info));                                       \
+  }
     DO_TRAMPOLINE(JniDlsymLookupTrampoline);
     DO_TRAMPOLINE(JniDlsymLookupCriticalTrampoline);
     DO_TRAMPOLINE(QuickGenericJniTrampoline);
@@ -209,7 +207,7 @@ class OatSymbolizer final {
     DO_TRAMPOLINE(QuickResolutionTrampoline);
     DO_TRAMPOLINE(QuickToInterpreterBridge);
     DO_TRAMPOLINE(NterpTrampoline);
-    #undef DO_TRAMPOLINE
+#undef DO_TRAMPOLINE
 
     Walk();
 
@@ -253,9 +251,8 @@ class OatSymbolizer final {
     if (dex_file == nullptr) {
       return;
     }
-    for (size_t class_def_index = 0;
-        class_def_index < dex_file->NumClassDefs();
-        class_def_index++) {
+    for (size_t class_def_index = 0; class_def_index < dex_file->NumClassDefs();
+         class_def_index++) {
       const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(class_def_index);
       OatClassType type = oat_class.GetType();
       switch (type) {
@@ -413,13 +410,9 @@ class OatDumper {
     AddAllOffsets();
   }
 
-  ~OatDumper() {
-    delete disassembler_;
-  }
+  ~OatDumper() { delete disassembler_; }
 
-  InstructionSet GetInstructionSet() {
-    return instruction_set_;
-  }
+  InstructionSet GetInstructionSet() { return instruction_set_; }
 
   using DexFileUniqV = std::vector<std::unique_ptr<const DexFile>>;
 
@@ -444,9 +437,8 @@ class OatDumper {
     os << oat_header.GetInstructionSet() << "\n\n";
 
     {
-      std::unique_ptr<const InstructionSetFeatures> features(
-          InstructionSetFeatures::FromBitmap(oat_header.GetInstructionSet(),
-                                             oat_header.GetInstructionSetFeaturesBitmap()));
+      std::unique_ptr<const InstructionSetFeatures> features(InstructionSetFeatures::FromBitmap(
+          oat_header.GetInstructionSet(), oat_header.GetInstructionSetFeaturesBitmap()));
       os << "INSTRUCTION SET FEATURES:\n";
       os << features->GetFeatureString() << "\n\n";
     }
@@ -454,29 +446,23 @@ class OatDumper {
     os << "DEX FILE COUNT:\n";
     os << oat_header.GetDexFileCount() << "\n\n";
 
-#define DUMP_OAT_HEADER_OFFSET(label, offset) \
-    os << label " OFFSET:\n"; \
-    os << StringPrintf("0x%08x", oat_header.offset()); \
-    if (oat_header.offset() != 0 && options_.absolute_addresses_) { \
-      os << StringPrintf(" (%p)", oat_file_.Begin() + oat_header.offset()); \
-    } \
-    os << StringPrintf("\n\n");
+#define DUMP_OAT_HEADER_OFFSET(label, offset)                             \
+  os << label " OFFSET:\n";                                               \
+  os << StringPrintf("0x%08x", oat_header.offset());                      \
+  if (oat_header.offset() != 0 && options_.absolute_addresses_) {         \
+    os << StringPrintf(" (%p)", oat_file_.Begin() + oat_header.offset()); \
+  }                                                                       \
+  os << StringPrintf("\n\n");
 
     DUMP_OAT_HEADER_OFFSET("EXECUTABLE", GetExecutableOffset);
-    DUMP_OAT_HEADER_OFFSET("JNI DLSYM LOOKUP TRAMPOLINE",
-                           GetJniDlsymLookupTrampolineOffset);
+    DUMP_OAT_HEADER_OFFSET("JNI DLSYM LOOKUP TRAMPOLINE", GetJniDlsymLookupTrampolineOffset);
     DUMP_OAT_HEADER_OFFSET("JNI DLSYM LOOKUP CRITICAL TRAMPOLINE",
                            GetJniDlsymLookupCriticalTrampolineOffset);
-    DUMP_OAT_HEADER_OFFSET("QUICK GENERIC JNI TRAMPOLINE",
-                           GetQuickGenericJniTrampolineOffset);
-    DUMP_OAT_HEADER_OFFSET("QUICK IMT CONFLICT TRAMPOLINE",
-                           GetQuickImtConflictTrampolineOffset);
-    DUMP_OAT_HEADER_OFFSET("QUICK RESOLUTION TRAMPOLINE",
-                           GetQuickResolutionTrampolineOffset);
-    DUMP_OAT_HEADER_OFFSET("QUICK TO INTERPRETER BRIDGE",
-                           GetQuickToInterpreterBridgeOffset);
-    DUMP_OAT_HEADER_OFFSET("NTERP_TRAMPOLINE",
-                           GetNterpTrampolineOffset);
+    DUMP_OAT_HEADER_OFFSET("QUICK GENERIC JNI TRAMPOLINE", GetQuickGenericJniTrampolineOffset);
+    DUMP_OAT_HEADER_OFFSET("QUICK IMT CONFLICT TRAMPOLINE", GetQuickImtConflictTrampolineOffset);
+    DUMP_OAT_HEADER_OFFSET("QUICK RESOLUTION TRAMPOLINE", GetQuickResolutionTrampolineOffset);
+    DUMP_OAT_HEADER_OFFSET("QUICK TO INTERPRETER BRIDGE", GetQuickToInterpreterBridgeOffset);
+    DUMP_OAT_HEADER_OFFSET("NTERP_TRAMPOLINE", GetNterpTrampolineOffset);
 #undef DUMP_OAT_HEADER_OFFSET
 
     // Print the key-value store.
@@ -531,8 +517,8 @@ class OatDumper {
       std::string error_msg;
       const DexFile* const dex_file = OpenDexFile(oat_dex_file, &error_msg);
       if (dex_file == nullptr) {
-        os << "Failed to open dex file '" << oat_dex_file->GetDexFileLocation() << "': "
-           << error_msg;
+        os << "Failed to open dex file '" << oat_dex_file->GetDexFileLocation()
+           << "': " << error_msg;
         continue;
       }
 
@@ -603,18 +589,15 @@ class OatDumper {
           }
           dex_files.push_back(dex_file);
         }
-        verifier::VerifierDeps deps(dex_files, /*output_only=*/ false);
+        verifier::VerifierDeps deps(dex_files, /*output_only=*/false);
         if (!deps.ParseStoredData(dex_files, oat_file_.GetVdexFile()->GetVerifierDepsData())) {
           os << "Error parsing verifier dependencies." << std::endl;
           return false;
         }
         deps.Dump(&vios);
       } else {
-        os << "UNRECOGNIZED vdex file, magic "
-           << vdex_header.GetMagic()
-           << ", version "
-           << vdex_header.GetVdexVersion()
-           << "\n";
+        os << "UNRECOGNIZED vdex file, magic " << vdex_header.GetMagic() << ", version "
+           << vdex_header.GetVdexVersion() << "\n";
       }
       for (size_t i = 0; i < oat_dex_files_.size(); i++) {
         const OatDexFile* oat_dex_file = oat_dex_files_[i];
@@ -634,9 +617,8 @@ class OatDumper {
       }
 
       DexFileUniqV vdex_dex_files;
-      std::unique_ptr<const VdexFile> vdex_file = OpenVdex(vdex_filename,
-                                                           &vdex_dex_files,
-                                                           &error_msg);
+      std::unique_ptr<const VdexFile> vdex_file =
+          OpenVdex(vdex_filename, &vdex_dex_files, &error_msg);
       if (vdex_file.get() == nullptr) {
         os << "Failed to open vdex file: " << error_msg << "\n";
         return false;
@@ -667,7 +649,7 @@ class OatDumper {
           Options options;
           options.compact_dex_level_ = CompactDexLevel::kCompactDexLevelNone;
           options.update_checksum_ = true;
-          DexLayout dex_layout(options, /*info=*/ nullptr, /*out_file=*/ nullptr, /*header=*/ nullptr);
+          DexLayout dex_layout(options, /*info=*/nullptr, /*out_file=*/nullptr, /*header=*/nullptr);
           std::unique_ptr<art::DexContainer> dex_container;
           bool result = dex_layout.ProcessDexFile(vdex_dex_file->GetLocation().c_str(),
                                                   vdex_dex_file.get(),
@@ -695,17 +677,17 @@ class OatDumper {
             break;
           }
           if (dex->IsCompactDexFile()) {
-            os <<"CompactDex conversion to StandardDex failed";
+            os << "CompactDex conversion to StandardDex failed";
             success = false;
             break;
           }
 
-          if (!ExportDexFile(os, *oat_dex_file, dex.get(), /*used_dexlayout=*/ true)) {
+          if (!ExportDexFile(os, *oat_dex_file, dex.get(), /*used_dexlayout=*/true)) {
             success = false;
             break;
           }
         } else {
-          if (!ExportDexFile(os, *oat_dex_file, vdex_dex_file.get(), /*used_dexlayout=*/ false)) {
+          if (!ExportDexFile(os, *oat_dex_file, vdex_dex_file.get(), /*used_dexlayout=*/false)) {
             success = false;
             break;
           }
@@ -772,17 +754,15 @@ class OatDumper {
         reinterpret_cast<const uint8_t*>(oat_data) > oat_file_.End()) {
       return 0;  // Address not in oat file
     }
-    uintptr_t begin_offset = reinterpret_cast<uintptr_t>(oat_data) -
-                             reinterpret_cast<uintptr_t>(oat_file_.Begin());
+    uintptr_t begin_offset =
+        reinterpret_cast<uintptr_t>(oat_data) - reinterpret_cast<uintptr_t>(oat_file_.Begin());
     auto it = offsets_.upper_bound(begin_offset);
     CHECK(it != offsets_.end());
     uintptr_t end_offset = *it;
     return end_offset - begin_offset;
   }
 
-  InstructionSet GetOatInstructionSet() {
-    return oat_file_.GetOatHeader().GetInstructionSet();
-  }
+  InstructionSet GetOatInstructionSet() { return oat_file_.GetOatHeader().GetInstructionSet(); }
 
   const void* GetQuickOatCode(ArtMethod* m) REQUIRES_SHARED(Locks::mutator_lock_) {
     for (size_t i = 0; i < oat_dex_files_.size(); i++) {
@@ -792,7 +772,7 @@ class OatDumper {
       const DexFile* const dex_file = OpenDexFile(oat_dex_file, &error_msg);
       if (dex_file == nullptr) {
         LOG(WARNING) << "Failed to open dex file '" << oat_dex_file->GetDexFileLocation()
-            << "': " << error_msg;
+                     << "': " << error_msg;
       } else {
         const char* descriptor = m->GetDeclaringClassDescriptor();
         const dex::ClassDef* class_def =
@@ -844,15 +824,14 @@ class OatDumper {
       return nullptr;
     }
 
-    MemMap mmap = MemMap::MapFile(
-        file->GetLength(),
-        PROT_READ | PROT_WRITE,
-        MAP_PRIVATE,
-        file->Fd(),
-        /* start offset= */ 0,
-        /* low_4gb= */ false,
-        vdex_filename.c_str(),
-        error_msg);
+    MemMap mmap = MemMap::MapFile(file->GetLength(),
+                                  PROT_READ | PROT_WRITE,
+                                  MAP_PRIVATE,
+                                  file->Fd(),
+                                  /* start offset= */ 0,
+                                  /* low_4gb= */ false,
+                                  vdex_filename.c_str(),
+                                  error_msg);
     if (!mmap.IsValid()) {
       *error_msg = "Failed to mmap file " + vdex_filename + ": " + *error_msg;
       return nullptr;
@@ -891,15 +870,14 @@ class OatDumper {
       const DexFile* const dex_file = OpenDexFile(oat_dex_file, &error_msg);
       if (dex_file == nullptr) {
         LOG(WARNING) << "Failed to open dex file '" << oat_dex_file->GetDexFileLocation()
-            << "': " << error_msg;
+                     << "': " << error_msg;
         continue;
       }
       offsets_.insert(reinterpret_cast<uintptr_t>(&dex_file->GetHeader()));
       for (ClassAccessor accessor : dex_file->GetClasses()) {
         const OatFile::OatClass oat_class = oat_dex_file->GetOatClass(accessor.GetClassDefIndex());
-        for (uint32_t class_method_index = 0;
-            class_method_index < accessor.NumMethods();
-            ++class_method_index) {
+        for (uint32_t class_method_index = 0; class_method_index < accessor.NumMethods();
+             ++class_method_index) {
           AddOffsets(oat_class.GetOatMethod(class_method_index));
         }
       }
@@ -959,9 +937,8 @@ class OatDumper {
       uint32_t table_offset = dchecked_integral_cast<uint32_t>(
           oat_dex_file.GetLookupTableData() - oat_dex_file.GetOatFile()->DexBegin());
       uint32_t table_size = TypeLookupTable::RawDataLength(dex_file->NumClassDefs());
-      os << StringPrintf("type-table: 0x%08x..0x%08x\n",
-                         table_offset,
-                         table_offset + table_size - 1);
+      os << StringPrintf(
+          "type-table: 0x%08x..0x%08x\n", table_offset, table_offset + table_size - 1);
       const TypeLookupTable& lookup = oat_dex_file.GetTypeLookupTable();
       lookup.Dump(os);
     }
@@ -983,8 +960,7 @@ class OatDumper {
                          descriptor,
                          oat_class_offset,
                          accessor.GetClassIdx().index_)
-         << " (" << oat_class.GetStatus() << ")"
-         << " (" << oat_class.GetType() << ")\n";
+         << " (" << oat_class.GetStatus() << ")" << " (" << oat_class.GetType() << ")\n";
       // TODO: include bitmap here if type is kOatClassSomeCompiled?
       if (options_.list_classes_) {
         continue;
@@ -1071,8 +1047,7 @@ class OatDumper {
       dex_orig_name = dex_file_location.substr(dex_orig_pos + 1);
 
     // A more elegant approach to efficiently name user installed apps is welcome
-    if (dex_orig_name.size() == 8 &&
-        dex_orig_name.compare("base.apk") == 0 &&
+    if (dex_orig_name.size() == 8 && dex_orig_name.compare("base.apk") == 0 &&
         dex_orig_pos != std::string::npos) {
       dex_file_location.erase(dex_orig_pos, strlen("base.apk") + 1);
       size_t apk_orig_pos = dex_file_location.rfind('/');
@@ -1170,9 +1145,8 @@ class OatDumper {
     }
 
     std::string pretty_method = dex_file.PrettyMethod(dex_method_idx, true);
-    vios->Stream() << StringPrintf("%d: %s (dex_method_idx=%d)\n",
-                                   class_method_index, pretty_method.c_str(),
-                                   dex_method_idx);
+    vios->Stream() << StringPrintf(
+        "%d: %s (dex_method_idx=%d)\n", class_method_index, pretty_method.c_str(), dex_method_idx);
     if (options_.list_methods_) {
       return success;
     }
@@ -1236,7 +1210,8 @@ class OatDumper {
       if (oat_method_offsets_offset > oat_file_.Size()) {
         vios->Stream() << StringPrintf(
             "WARNING: oat method offsets offset 0x%08x is past end of file 0x%08zx.\n",
-            oat_method_offsets_offset, oat_file_.Size());
+            oat_method_offsets_offset,
+            oat_file_.Size());
         // If we can't read OatMethodOffsets, the rest of the data is dangerous to read.
         vios->Stream() << std::flush;
         return false;
@@ -1246,9 +1221,11 @@ class OatDumper {
       vios->Stream() << StringPrintf("code_offset: 0x%08x ", code_offset);
       uint32_t aligned_code_begin = AlignCodeOffset(oat_method.GetCodeOffset());
       if (aligned_code_begin > oat_file_.Size()) {
-        vios->Stream() << StringPrintf("WARNING: "
-                                       "code offset 0x%08x is past end of file 0x%08zx.\n",
-                                       aligned_code_begin, oat_file_.Size());
+        vios->Stream() << StringPrintf(
+            "WARNING: "
+            "code offset 0x%08x is past end of file 0x%08zx.\n",
+            aligned_code_begin,
+            oat_file_.Size());
         success = false;
       }
       vios->Stream() << "\n";
@@ -1268,7 +1245,8 @@ class OatDumper {
           sizeof(OatQuickMethodHeader) > oat_file_.Size() - method_header_offset) {
         vios->Stream() << StringPrintf(
             "WARNING: oat quick method header at offset 0x%08x is past end of file 0x%08zx.\n",
-            method_header_offset, oat_file_.Size());
+            method_header_offset,
+            oat_file_.Size());
         // If we can't read the OatQuickMethodHeader, the rest of the data is dangerous to read.
         vios->Stream() << std::flush;
         return false;
@@ -1285,10 +1263,11 @@ class OatDumper {
 
       size_t vmap_table_offset_limit = method_header->GetCode() - oat_file_.Begin();
       if (vmap_table_offset >= vmap_table_offset_limit) {
-        vios->Stream() << StringPrintf("WARNING: "
-                                       "vmap table offset 0x%08x is past end of file 0x%08zx. ",
-                                       vmap_table_offset,
-                                       vmap_table_offset_limit);
+        vios->Stream() << StringPrintf(
+            "WARNING: "
+            "vmap table offset 0x%08x is past end of file 0x%08zx. ",
+            vmap_table_offset,
+            vmap_table_offset_limit);
         success = false;
       } else if (options_.dump_vmap_) {
         DumpVmapData(vios, oat_method, code_item_accessor);
@@ -1298,8 +1277,8 @@ class OatDumper {
       vios->Stream() << "QuickMethodFrameInfo\n";
 
       ScopedIndentation indent2(vios);
-      vios->Stream()
-          << StringPrintf("frame_size_in_bytes: %zd\n", oat_method.GetFrameSizeInBytes());
+      vios->Stream() << StringPrintf("frame_size_in_bytes: %zd\n",
+                                     oat_method.GetFrameSizeInBytes());
       vios->Stream() << StringPrintf("core_spill_mask: 0x%08x ", oat_method.GetCoreSpillMask());
       DumpSpillMask(vios->Stream(), oat_method.GetCoreSpillMask(), false);
       vios->Stream() << "\n";
@@ -1334,14 +1313,17 @@ class OatDumper {
 
         ScopedIndentation indent2(vios);
         if (aligned_code_begin > oat_file_.Size()) {
-          vios->Stream() << StringPrintf("WARNING: "
-                                         "start of code at 0x%08x is past end of file 0x%08zx.",
-                                         aligned_code_begin, oat_file_.Size());
+          vios->Stream() << StringPrintf(
+              "WARNING: "
+              "start of code at 0x%08x is past end of file 0x%08zx.",
+              aligned_code_begin,
+              oat_file_.Size());
           success = false;
         } else if (aligned_code_end > oat_file_.Size()) {
           vios->Stream() << StringPrintf(
               "WARNING: "
-              "end of code at 0x%08" PRIx64 " is past end of file 0x%08zx. "
+              "end of code at 0x%08" PRIx64
+              " is past end of file 0x%08zx. "
               "code size is 0x%08x.\n",
               aligned_code_end,
               oat_file_.Size(),
@@ -1420,10 +1402,8 @@ class OatDumper {
   void DumpCodeInfo(VariableIndentationOutputStream* vios,
                     const CodeInfo& code_info,
                     const OatFile::OatMethod& oat_method) {
-    code_info.Dump(vios,
-                   oat_method.GetCodeOffset(),
-                   options_.dump_code_info_stack_maps_,
-                   instruction_set_);
+    code_info.Dump(
+        vios, oat_method.GetCodeOffset(), options_.dump_code_info_stack_maps_, instruction_set_);
   }
 
   static int GetOutVROffset(uint16_t out_num, InstructionSet isa) {
@@ -1446,9 +1426,9 @@ class OatDumper {
     }
     DCHECK_ALIGNED(frame_size, kStackAlignment);
     DCHECK_NE(reg, -1);
-    int spill_size = POPCOUNT(core_spills) * GetBytesPerGprSpillLocation(isa)
-        + POPCOUNT(fp_spills) * GetBytesPerFprSpillLocation(isa)
-        + sizeof(uint32_t);  // Filler.
+    int spill_size = POPCOUNT(core_spills) * GetBytesPerGprSpillLocation(isa) +
+                     POPCOUNT(fp_spills) * GetBytesPerFprSpillLocation(isa) +
+                     sizeof(uint32_t);  // Filler.
     int num_regs = code_item_accessor.RegistersSize() - code_item_accessor.InsSize();
     int temp_threshold = code_item_accessor.RegistersSize();
     const int max_num_special_temps = 1;
@@ -1460,8 +1440,8 @@ class OatDumper {
        * Special temporaries may have custom locations and the logic above deals with that.
        * However, non-special temporaries are placed relative to the outs.
        */
-      int temps_start = code_item_accessor.OutsSize() * sizeof(uint32_t)
-          + static_cast<size_t>(pointer_size) /* art method */;
+      int temps_start = code_item_accessor.OutsSize() * sizeof(uint32_t) +
+                        static_cast<size_t>(pointer_size) /* art method */;
       int relative_offset = (reg - (temp_threshold + max_num_special_temps)) * sizeof(uint32_t);
       return temps_start + relative_offset;
     } else if (reg < num_regs) {
@@ -1469,12 +1449,13 @@ class OatDumper {
       return locals_start + (reg * sizeof(uint32_t));
     } else {
       // Handle ins.
-      return frame_size + ((reg - num_regs) * sizeof(uint32_t))
-          + static_cast<size_t>(pointer_size) /* art method */;
+      return frame_size + ((reg - num_regs) * sizeof(uint32_t)) +
+             static_cast<size_t>(pointer_size) /* art method */;
     }
   }
 
-  void DumpVregLocations(std::ostream& os, const OatFile::OatMethod& oat_method,
+  void DumpVregLocations(std::ostream& os,
+                         const OatFile::OatMethod& oat_method,
                          const CodeItemDataAccessor& code_item_accessor) {
     if (code_item_accessor.HasCodeItem()) {
       size_t num_locals_ins = code_item_accessor.RegistersSize();
@@ -1518,13 +1499,11 @@ class OatDumper {
   // Has `oat_method` -- corresponding to the Dex `code_item` -- been compiled by
   // the optimizing compiler?
   static bool IsMethodGeneratedByOptimizingCompiler(
-      const OatFile::OatMethod& oat_method,
-      const CodeItemDataAccessor& code_item_accessor) {
+      const OatFile::OatMethod& oat_method, const CodeItemDataAccessor& code_item_accessor) {
     // If the native GC map is null and the Dex `code_item` is not
     // null, then this method has been compiled with the optimizing
     // compiler.
-    return oat_method.GetQuickCode() != nullptr &&
-           oat_method.GetVmapTable() != nullptr &&
+    return oat_method.GetQuickCode() != nullptr && oat_method.GetVmapTable() != nullptr &&
            code_item_accessor.HasCodeItem();
   }
 
@@ -1549,17 +1528,16 @@ class OatDumper {
         soa.Self()->ClearException();
         return nullptr;
       }
-      return verifier::MethodVerifier::VerifyMethodAndDump(
-          soa.Self(),
-          vios,
-          dex_method_idx,
-          dex_file,
-          dex_cache,
-          *options_.class_loader_,
-          class_def,
-          code_item,
-          method_access_flags,
-          /* api_level= */ 0);
+      return verifier::MethodVerifier::VerifyMethodAndDump(soa.Self(),
+                                                           vios,
+                                                           dex_method_idx,
+                                                           dex_file,
+                                                           dex_cache,
+                                                           *options_.class_loader_,
+                                                           class_def,
+                                                           code_item,
+                                                           method_access_flags,
+                                                           /* api_level= */ 0);
     }
 
     return nullptr;
@@ -1568,7 +1546,8 @@ class OatDumper {
   void DumpCode(VariableIndentationOutputStream* vios,
                 const OatFile::OatMethod& oat_method,
                 const CodeItemDataAccessor& code_item_accessor,
-                bool bad_input, size_t code_size) {
+                bool bad_input,
+                size_t code_size) {
     const void* quick_code = oat_method.GetQuickCode();
 
     if (code_size == 0) {
@@ -1577,8 +1556,8 @@ class OatDumper {
     if (code_size == 0 || quick_code == nullptr) {
       vios->Stream() << "NO CODE!\n";
       return;
-    } else if (!bad_input && IsMethodGeneratedByOptimizingCompiler(oat_method,
-                                                                   code_item_accessor)) {
+    } else if (!bad_input &&
+               IsMethodGeneratedByOptimizingCompiler(oat_method, code_item_accessor)) {
       // The optimizing compiler outputs its CodeInfo data in the vmap table.
       CodeInfo code_info(oat_method.GetVmapTable());
       if (AddStatsObject(oat_method.GetVmapTable())) {
@@ -1624,8 +1603,9 @@ class OatDumper {
     const uint8_t* boot_image_live_objects_address =
         reinterpret_cast<const uint8_t*>(boot_image_live_objects.Ptr());
     uint32_t begin_offset = mirror::ObjectArray<mirror::Object>::OffsetOfElement(0).Uint32Value();
-    uint32_t end_offset = mirror::ObjectArray<mirror::Object>::OffsetOfElement(
-        boot_image_live_objects->GetLength()).Uint32Value();
+    uint32_t end_offset =
+        mirror::ObjectArray<mirror::Object>::OffsetOfElement(boot_image_live_objects->GetLength())
+            .Uint32Value();
     return std::make_pair(boot_image_live_objects_address + begin_offset,
                           boot_image_live_objects_address + end_offset);
   }
@@ -1659,9 +1639,7 @@ class OatDumper {
               if (address >= live_objects_begin && address < live_objects_end) {
                 size_t index =
                     (address - live_objects_begin) / sizeof(mirror::HeapReference<mirror::Object>);
-                os << StringPrintf("   0x%08x BootImageLiveObject[%zu]",
-                                   object_offset,
-                                   index);
+                os << StringPrintf("   0x%08x BootImageLiveObject[%zu]", object_offset, index);
               } else {
                 ObjPtr<mirror::Object> o = reinterpret_cast<mirror::Object*>(address);
                 if (o->IsString()) {
@@ -1669,9 +1647,8 @@ class OatDumper {
                 } else if (o->IsClass()) {
                   os << "   Class: " << o->AsClass()->PrettyDescriptor();
                 } else {
-                  os << StringPrintf("   0x%08x %s",
-                                     object_offset,
-                                     o->GetClass()->PrettyDescriptor().c_str());
+                  os << StringPrintf(
+                      "   0x%08x %s", object_offset, o->GetClass()->PrettyDescriptor().c_str());
                 }
               }
             } else if (space->GetImageHeader().GetMethodsSection().Contains(local_offset)) {
@@ -1784,10 +1761,8 @@ class OatDumper {
 
     os << "Mapping size: " << mapping->size() << "\n";
     for (size_t i = 0; i < mapping->size(); ++i) {
-      os << "Entry[" << i << "]: index_and_mask: "
-         << mapping->At(i).index_and_mask
-         << ", bss_offset: "
-         << mapping->At(i).bss_offset << "\n";
+      os << "Entry[" << i << "]: index_and_mask: " << mapping->At(i).index_and_mask
+         << ", bss_offset: " << mapping->At(i).bss_offset << "\n";
     }
 
     // TODO(solanes, 154012332): We are dumping the raw values but we could make assumptions about
@@ -1843,7 +1818,7 @@ class ImageDumper {
     os << "OAT FILE END:" << reinterpret_cast<void*>(image_header_.GetOatFileEnd()) << "\n\n";
 
     os << "BOOT IMAGE BEGIN: " << reinterpret_cast<void*>(image_header_.GetBootImageBegin())
-        << "\n";
+       << "\n";
     os << "BOOT IMAGE SIZE: " << image_header_.GetBootImageSize() << "\n\n";
 
     for (size_t i = 0; i < ImageHeader::kSectionCount; ++i) {
@@ -1853,8 +1828,9 @@ class ImageDumper {
 
     {
       os << "ROOTS: " << reinterpret_cast<void*>(image_header_.GetImageRoots().Ptr()) << "\n";
-      static_assert(arraysize(image_roots_descriptions_) ==
-          static_cast<size_t>(ImageHeader::kImageRootsMax), "sizes must match");
+      static_assert(
+          arraysize(image_roots_descriptions_) == static_cast<size_t>(ImageHeader::kImageRootsMax),
+          "sizes must match");
       DCHECK_LE(image_header_.GetImageRoots()->GetLength(), ImageHeader::kImageRootsMax);
       for (int32_t i = 0, size = image_header_.GetImageRoots()->GetLength(); i != size; ++i) {
         ImageHeader::ImageRoot image_root = static_cast<ImageHeader::ImageRoot>(i);
@@ -1862,8 +1838,8 @@ class ImageDumper {
         ObjPtr<mirror::Object> image_root_object = image_header_.GetImageRoot(image_root);
         indent_os << StringPrintf("%s: %p\n", image_root_description, image_root_object.Ptr());
         if (image_root_object != nullptr && image_root_object->IsObjectArray()) {
-          ObjPtr<mirror::ObjectArray<mirror::Object>> image_root_object_array
-              = image_root_object->AsObjectArray<mirror::Object>();
+          ObjPtr<mirror::ObjectArray<mirror::Object>> image_root_object_array =
+              image_root_object->AsObjectArray<mirror::Object>();
           ScopedIndentation indent2(&vios_);
           for (int j = 0; j < image_root_object_array->GetLength(); j++) {
             ObjPtr<mirror::Object> value = image_root_object_array->Get(j);
@@ -1894,7 +1870,8 @@ class ImageDumper {
     {
       os << "METHOD ROOTS\n";
       static_assert(arraysize(image_methods_descriptions_) ==
-          static_cast<size_t>(ImageHeader::kImageMethodsCount), "sizes must match");
+                        static_cast<size_t>(ImageHeader::kImageMethodsCount),
+                    "sizes must match");
       for (int i = 0; i < ImageHeader::kImageMethodsCount; i++) {
         auto image_root = static_cast<ImageHeader::ImageMethod>(i);
         const char* description = image_methods_descriptions_[i];
@@ -1915,11 +1892,11 @@ class ImageDumper {
       oat_file = runtime->GetOatFileManager().FindOpenedOatFileFromOatLocation(oat_location);
     }
     if (oat_file == nullptr) {
-      oat_file = OatFile::Open(/*zip_fd=*/ -1,
+      oat_file = OatFile::Open(/*zip_fd=*/-1,
                                oat_location,
                                oat_location,
-                               /*executable=*/ false,
-                               /*low_4gb=*/ false,
+                               /*executable=*/false,
+                               /*low_4gb=*/false,
                                &error_msg);
     }
     if (oat_file == nullptr) {
@@ -1935,8 +1912,8 @@ class ImageDumper {
 
     for (const OatDexFile* oat_dex_file : oat_file->GetOatDexFiles()) {
       CHECK(oat_dex_file != nullptr);
-      stats_.oat_dex_file_sizes.push_back(std::make_pair(oat_dex_file->GetDexFileLocation(),
-                                                         oat_dex_file->FileSize()));
+      stats_.oat_dex_file_sizes.push_back(
+          std::make_pair(oat_dex_file->GetDexFileLocation(), oat_dex_file->FileSize()));
     }
 
     os << "OBJECTS:\n" << std::flush;
@@ -1957,22 +1934,23 @@ class ImageDumper {
       heap->RevokeAllThreadLocalAllocationStacks(self);
     }
     {
-      auto dump_visitor = [&](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
-        DumpObject(obj);
-      };
+      auto dump_visitor = [&](mirror::Object* obj)
+                              REQUIRES_SHARED(Locks::mutator_lock_) { DumpObject(obj); };
       ReaderMutexLock mu(self, *Locks::heap_bitmap_lock_);
       // Dump the normal objects before ArtMethods.
       image_space_.GetLiveBitmap()->Walk(dump_visitor);
       indent_os << "\n";
       // TODO: Dump fields.
       // Dump methods after.
-      image_header_.VisitPackedArtMethods([&](ArtMethod& method)
-          REQUIRES_SHARED(Locks::mutator_lock_) {
-        std::ostream& indent_os = vios_.Stream();
-        indent_os << &method << " " << " ArtMethod: " << method.PrettyMethod() << "\n";
-        DumpMethod(&method, indent_os);
-        indent_os << "\n";
-      },  image_space_.Begin(), image_header_.GetPointerSize());
+      image_header_.VisitPackedArtMethods(
+          [&](ArtMethod& method) REQUIRES_SHARED(Locks::mutator_lock_) {
+            std::ostream& indent_os = vios_.Stream();
+            indent_os << &method << " " << " ArtMethod: " << method.PrettyMethod() << "\n";
+            DumpMethod(&method, indent_os);
+            indent_os << "\n";
+          },
+          image_space_.Begin(),
+          image_header_.GetPointerSize());
       // Dump the large objects separately.
       heap->GetLargeObjectsSpace()->GetLiveBitmap()->Walk(dump_visitor);
       indent_os << "\n";
@@ -2030,9 +2008,8 @@ class ImageDumper {
                          PrintableString(string->ToModifiedUtf8().c_str()).c_str());
     } else if (type->IsClassClass()) {
       ObjPtr<mirror::Class> klass = value->AsClass();
-      os << StringPrintf("%p   Class: %s\n",
-                         klass.Ptr(),
-                         mirror::Class::PrettyDescriptor(klass).c_str());
+      os << StringPrintf(
+          "%p   Class: %s\n", klass.Ptr(), mirror::Class::PrettyDescriptor(klass).c_str());
     } else {
       os << StringPrintf("%p   %s\n", value.Ptr(), type->PrettyDescriptor().c_str());
     }
@@ -2061,8 +2038,8 @@ class ImageDumper {
         os << StringPrintf("%d (0x%x)\n", field->GetShort(obj), field->GetShort(obj));
         break;
       case Primitive::kPrimBoolean:
-        os << StringPrintf("%s (0x%x)\n", field->GetBoolean(obj) ? "true" : "false",
-            field->GetBoolean(obj));
+        os << StringPrintf(
+            "%s (0x%x)\n", field->GetBoolean(obj) ? "true" : "false", field->GetBoolean(obj));
         break;
       case Primitive::kPrimByte:
         os << StringPrintf("%d (0x%x)\n", field->GetByte(obj), field->GetByte(obj));
@@ -2079,9 +2056,8 @@ class ImageDumper {
           if (field_type != nullptr) {
             PrettyObjectValue(os, field_type, value);
           } else {
-            os << StringPrintf("%p   %s\n",
-                               value.Ptr(),
-                               PrettyDescriptor(field->GetTypeDescriptor()).c_str());
+            os << StringPrintf(
+                "%p   %s\n", value.Ptr(), PrettyDescriptor(field->GetTypeDescriptor()).c_str());
           }
         }
         break;
@@ -2103,13 +2079,11 @@ class ImageDumper {
     }
   }
 
-  bool InDumpSpace(const mirror::Object* object) {
-    return image_space_.Contains(object);
-  }
+  bool InDumpSpace(const mirror::Object* object) { return image_space_.Contains(object); }
 
   const void* GetQuickOatCodeBegin(ArtMethod* m) REQUIRES_SHARED(Locks::mutator_lock_) {
-    const void* quick_code = m->GetEntryPointFromQuickCompiledCodePtrSize(
-        image_header_.GetPointerSize());
+    const void* quick_code =
+        m->GetEntryPointFromQuickCompiledCodePtrSize(image_header_.GetPointerSize());
     ClassLinker* class_linker = Runtime::Current()->GetClassLinker();
     if (class_linker->IsQuickResolutionStub(quick_code) ||
         class_linker->IsQuickToInterpreterBridge(quick_code) ||
@@ -2125,8 +2099,7 @@ class ImageDumper {
     return quick_code;
   }
 
-  uint32_t GetQuickOatCodeSize(ArtMethod* m)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+  uint32_t GetQuickOatCodeSize(ArtMethod* m) REQUIRES_SHARED(Locks::mutator_lock_) {
     const uint32_t* oat_code_begin = reinterpret_cast<const uint32_t*>(GetQuickOatCodeBegin(m));
     if (oat_code_begin == nullptr) {
       return 0;
@@ -2136,8 +2109,7 @@ class ImageDumper {
     return method_header->GetCodeSize();
   }
 
-  const void* GetQuickOatCodeEnd(ArtMethod* m)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+  const void* GetQuickOatCodeEnd(ArtMethod* m) REQUIRES_SHARED(Locks::mutator_lock_) {
     const uint8_t* oat_code_begin = reinterpret_cast<const uint8_t*>(GetQuickOatCodeBegin(m));
     if (oat_code_begin == nullptr) {
       return nullptr;
@@ -2155,13 +2127,14 @@ class ImageDumper {
 
     ObjPtr<mirror::Class> obj_class = obj->GetClass();
     if (obj_class->IsArrayClass()) {
-      os << StringPrintf("%p: %s length:%d\n", obj, obj_class->PrettyDescriptor().c_str(),
+      os << StringPrintf("%p: %s length:%d\n",
+                         obj,
+                         obj_class->PrettyDescriptor().c_str(),
                          obj->AsArray()->GetLength());
     } else if (obj_class->IsClassClass()) {
       ObjPtr<mirror::Class> klass = obj->AsClass();
-      os << StringPrintf("%p: java.lang.Class \"%s\" (",
-                         obj,
-                         mirror::Class::PrettyDescriptor(klass).c_str())
+      os << StringPrintf(
+                "%p: java.lang.Class \"%s\" (", obj, mirror::Class::PrettyDescriptor(klass).c_str())
          << klass->GetStatus() << ")\n";
     } else if (obj_class->IsStringClass()) {
       os << StringPrintf("%p: java.lang.String %s\n",
@@ -2208,8 +2181,8 @@ class ImageDumper {
         ScopedIndentation indent2(&vios_);
         const PointerSize pointer_size = image_header_.GetPointerSize();
         for (size_t i = 0, length = klass->GetEmbeddedVTableLength(); i != length; ++i) {
-          os << i << ": "
-             << ArtMethod::PrettyMethod(klass->GetEmbeddedVTableEntry(i, pointer_size)) << '\n';
+          os << i << ": " << ArtMethod::PrettyMethod(klass->GetEmbeddedVTableEntry(i, pointer_size))
+             << '\n';
         }
       }
 
@@ -2239,8 +2212,8 @@ class ImageDumper {
       if (first_occurrence) {
         stats_.oat_file_stats["native_code"].AddBytes(quick_oat_code_size);
       }
-      if (quick_oat_code_begin != method->GetEntryPointFromQuickCompiledCodePtrSize(
-          image_header_.GetPointerSize())) {
+      if (quick_oat_code_begin !=
+          method->GetEntryPointFromQuickCompiledCodePtrSize(image_header_.GetPointerSize())) {
         indent_os << StringPrintf("OAT CODE: %p\n", quick_oat_code_begin);
       }
     } else if (method->IsAbstract() || method->IsClassInitializer()) {
@@ -2277,8 +2250,8 @@ class ImageDumper {
       if (quick_oat_code_begin != nullptr) {
         OatQuickMethodHeader* method_header = reinterpret_cast<OatQuickMethodHeader*>(
             reinterpret_cast<uintptr_t>(quick_oat_code_begin) - sizeof(OatQuickMethodHeader));
-        vmap_table_bytes = ComputeOatSize(method_header->GetOptimizedCodeInfoPtr(),
-                                          &first_occurrence);
+        vmap_table_bytes =
+            ComputeOatSize(method_header->GetOptimizedCodeInfoPtr(), &first_occurrence);
         if (first_occurrence) {
           stats_.vmap_table_bytes += vmap_table_bytes;
         }
@@ -2310,11 +2283,11 @@ class ImageDumper {
                                 vmap_table_bytes,
                                 method_access_flags);
 
-      size_t total_size = dex_instruction_bytes +
-          vmap_table_bytes + quick_oat_code_size + ArtMethod::Size(image_header_.GetPointerSize());
+      size_t total_size = dex_instruction_bytes + vmap_table_bytes + quick_oat_code_size +
+                          ArtMethod::Size(image_header_.GetPointerSize());
 
       double expansion =
-      static_cast<double>(quick_oat_code_size) / static_cast<double>(dex_instruction_bytes);
+          static_cast<double>(quick_oat_code_size) / static_cast<double>(dex_instruction_bytes);
       stats_.ComputeOutliers(total_size, expansion, method);
     }
   }
@@ -2364,8 +2337,7 @@ class ImageDumper {
       method_outlier.push_back(method);
     }
 
-    void DumpOutliers(std::ostream& os)
-        REQUIRES_SHARED(Locks::mutator_lock_) {
+    void DumpOutliers(std::ostream& os) REQUIRES_SHARED(Locks::mutator_lock_) {
       size_t sum_of_sizes = 0;
       size_t sum_of_sizes_squared = 0;
       size_t sum_of_expansion = 0;
@@ -2413,7 +2385,7 @@ class ImageDumper {
                   first = false;
                 }
                 os << ArtMethod::PrettyMethod(method_outlier[j]) << " requires storage of "
-                    << PrettySize(cur_size) << "\n";
+                   << PrettySize(cur_size) << "\n";
                 method_outlier_size[j] = 0;  // don't consider this method again
                 dumped_values++;
               }
@@ -2449,7 +2421,7 @@ class ImageDumper {
               } else {
                 if (first) {
                   os << "\nLarge expansion methods (size > " << i
-                      << " standard deviations the norm):\n";
+                     << " standard deviations the norm):\n";
                   first = false;
                 }
                 os << ArtMethod::PrettyMethod(method_outlier[j]) << " expanded code by "
@@ -2468,8 +2440,7 @@ class ImageDumper {
       os << "\n" << std::flush;
     }
 
-    void Dump(std::ostream& os)
-        REQUIRES_SHARED(Locks::mutator_lock_) {
+    void Dump(std::ostream& os) REQUIRES_SHARED(Locks::mutator_lock_) {
       VariableIndentationOutputStream vios(&os);
       art_file_stats.DumpSizes(vios, "ArtFile");
       os << "\n" << std::flush;
@@ -2480,12 +2451,15 @@ class ImageDumper {
 
       for (const std::pair<std::string, size_t>& oat_dex_file_size : oat_dex_file_sizes) {
         os << StringPrintf("%s = %zd (%2.0f%% of oat file bytes)\n",
-                           oat_dex_file_size.first.c_str(), oat_dex_file_size.second,
+                           oat_dex_file_size.first.c_str(),
+                           oat_dex_file_size.second,
                            PercentOfOatBytes(oat_dex_file_size.second));
       }
 
-      os << "\n" << StringPrintf("vmap_table_bytes       = %7zd (%2.0f%% of oat file bytes)\n\n",
-                                 vmap_table_bytes, PercentOfOatBytes(vmap_table_bytes))
+      os << "\n"
+         << StringPrintf("vmap_table_bytes       = %7zd (%2.0f%% of oat file bytes)\n\n",
+                         vmap_table_bytes,
+                         PercentOfOatBytes(vmap_table_bytes))
          << std::flush;
 
       os << StringPrintf("dex_instruction_bytes = %zd\n", dex_instruction_bytes)
@@ -2664,8 +2638,8 @@ static int DumpOatWithRuntime(Runtime* runtime,
 
   // Use the class loader while dumping.
   StackHandleScope<1> scope(soa.Self());
-  Handle<mirror::ClassLoader> loader_handle = scope.NewHandle(
-      soa.Decode<mirror::ClassLoader>(class_loader));
+  Handle<mirror::ClassLoader> loader_handle =
+      scope.NewHandle(soa.Decode<mirror::ClassLoader>(class_loader));
   options->class_loader_ = &loader_handle;
 
   OatDumper oat_dumper(*oat_file_ptr, *options);
@@ -2686,14 +2660,18 @@ static int DumpOatWithoutRuntime(OatFile* oat_file, OatDumperOptions* options, s
 
 static int DumpOat(Runtime* runtime, OatDumperOptions* options, std::ostream* os) {
   std::string error_msg;
+  os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
   std::unique_ptr<OatFile> oat_file =
       OpenOat(*options->oat_filename_, options->dex_filename_, &error_msg);
+
   if (oat_file == nullptr) {
     LOG(ERROR) << "Failed to open oat file from '" << *options->oat_filename_ << "': " << error_msg;
     return EXIT_FAILURE;
   }
 
   if (runtime != nullptr) {
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
     return DumpOatWithRuntime(runtime, std::move(oat_file), options, os);
   } else {
     return DumpOatWithoutRuntime(oat_file.get(), options, os);
@@ -2821,8 +2799,7 @@ class IMTDumper {
     MutableHandle<mirror::Class> h_klass(scope.NewHandle<mirror::Class>(nullptr));
 
     for (const DexFile* dex_file : dex_files) {
-      for (uint32_t class_def_index = 0;
-           class_def_index != dex_file->NumClassDefs();
+      for (uint32_t class_def_index = 0; class_def_index != dex_file->NumClassDefs();
            ++class_def_index) {
         const dex::ClassDef& class_def = dex_file->GetClassDef(class_def_index);
         const char* descriptor = dex_file->GetClassDescriptor(class_def);
@@ -2861,13 +2838,11 @@ class IMTDumper {
       }
     }
 
-    std::cerr << "IMT stats:"
-              << std::endl << std::endl;
+    std::cerr << "IMT stats:" << std::endl << std::endl;
 
-    std::cerr << "  " << with_imt << " classes with IMT."
-              << std::endl << std::endl;
-    std::cerr << "  " << without_imt << " classes without IMT (or copy from Object)."
-              << std::endl << std::endl;
+    std::cerr << "  " << with_imt << " classes with IMT." << std::endl << std::endl;
+    std::cerr << "  " << without_imt << " classes without IMT (or copy from Object)." << std::endl
+              << std::endl;
 
     double sum_one = 0;
     size_t count_one = 0;
@@ -2956,7 +2931,7 @@ class IMTDumper {
 
     if (klass == nullptr) {
       self->ClearException();
-      std::cerr << "Did not find " <<  class_name << std::endl;
+      std::cerr << "Did not find " << class_name << std::endl;
       *klass_out = nullptr;
       return nullptr;
     }
@@ -2985,13 +2960,8 @@ class IMTDumper {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const PointerSize pointer_size = runtime->GetClassLinker()->GetImagePointerSize();
     ObjPtr<mirror::Class> klass;
-    ImTable* imt = PrepareAndGetImTable(runtime,
-                                        Thread::Current(),
-                                        h_loader,
-                                        class_name,
-                                        pointer_size,
-                                        &klass,
-                                        prepared);
+    ImTable* imt = PrepareAndGetImTable(
+        runtime, Thread::Current(), h_loader, class_name, pointer_size, &klass, prepared);
     if (imt == nullptr) {
       return;
     }
@@ -3024,14 +2994,9 @@ class IMTDumper {
         uint32_t class_hash, name_hash, signature_hash;
         ImTable::GetImtHashComponents(&iface_method, &class_hash, &name_hash, &signature_hash);
         uint32_t imt_slot = ImTable::GetImtIndex(&iface_method);
-        std::cerr << "    " << iface_method.PrettyMethod(true)
-            << " slot=" << imt_slot
-            << std::hex
-            << " class_hash=0x" << class_hash
-            << " name_hash=0x" << name_hash
-            << " signature_hash=0x" << signature_hash
-            << std::dec
-            << std::endl;
+        std::cerr << "    " << iface_method.PrettyMethod(true) << " slot=" << imt_slot << std::hex
+                  << " class_hash=0x" << class_hash << " name_hash=0x" << name_hash
+                  << " signature_hash=0x" << signature_hash << std::dec << std::endl;
       }
     }
   }
@@ -3044,13 +3009,8 @@ class IMTDumper {
       REQUIRES_SHARED(Locks::mutator_lock_) {
     const PointerSize pointer_size = runtime->GetClassLinker()->GetImagePointerSize();
     ObjPtr<mirror::Class> klass;
-    ImTable* imt = PrepareAndGetImTable(runtime,
-                                        Thread::Current(),
-                                        h_loader,
-                                        class_name,
-                                        pointer_size,
-                                        &klass,
-                                        prepared);
+    ImTable* imt = PrepareAndGetImTable(
+        runtime, Thread::Current(), h_loader, class_name, pointer_size, &klass, prepared);
     if (imt == nullptr) {
       return;
     }
@@ -3078,12 +3038,8 @@ class IMTDumper {
 
           std::string p_name = ptr2->PrettyMethod(true);
           if (android::base::StartsWith(p_name, method)) {
-            std::cerr << "  Slot "
-                      << index
-                      << " ("
-                      << current_table->NumEntries(pointer_size)
-                      << ")"
-                      << std::endl;
+            std::cerr << "  Slot " << index << " (" << current_table->NumEntries(pointer_size)
+                      << ")" << std::endl;
             PrintTable(current_table, pointer_size);
             return;
           }
@@ -3202,11 +3158,11 @@ struct OatdumpArgs : public CmdlineArgs {
       image_location_ = raw_option + strlen("--image=");
     } else if (option == "--no-dump:vmap") {
       dump_vmap_ = false;
-    } else if (option =="--dump:code_info_stack_maps") {
+    } else if (option == "--dump:code_info_stack_maps") {
       dump_code_info_stack_maps_ = true;
     } else if (option == "--no-disassemble") {
       disassemble_code_ = false;
-    } else if (option =="--header-only") {
+    } else if (option == "--header-only") {
       dump_header_only_ = true;
     } else if (StartsWith(option, "--symbolize=")) {
       oat_filename_ = raw_option + strlen("--symbolize=");
@@ -3492,13 +3448,19 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
   }
 
   bool ExecuteWithoutRuntime() override {
+    auto os = args_->os_;
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
     CHECK(args_ != nullptr);
+
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
 
     OatDumpMode mode = args_->GetMode();
     CHECK(mode == OatDumpMode::kSymbolize || mode == OatDumpMode::kDumpOat);
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
 
     MemMap::Init();
 
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
     if (mode == OatDumpMode::kSymbolize) {
       // ELF has special kind of section called SHT_NOBITS which allows us to create
       // sections which exist but their data is omitted from the ELF file to save space.
@@ -3510,16 +3472,26 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
              EXIT_SUCCESS;
     }
 
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
     return DumpOat(nullptr, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
   }
 
   bool ExecuteWithRuntime(Runtime* runtime) override {
+    auto os = args_->os_;
+
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
     CHECK(args_ != nullptr);
     OatDumpMode mode = args_->GetMode();
     CHECK(mode == OatDumpMode::kDumpImt || mode == OatDumpMode::kDumpImage ||
           mode == OatDumpMode::kDumpOat);
 
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
     if (mode == OatDumpMode::kDumpImt) {
+      os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
       return IMTDumper::Dump(runtime,
                              args_->imt_dump_,
                              args_->imt_stat_dump_,
@@ -3528,8 +3500,12 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
     }
 
     if (mode == OatDumpMode::kDumpOat) {
+      os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
+
       return DumpOat(runtime, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
     }
+
+    os << "VILAS: " << __FILE__ << " " << __LINE__ << "\n\n";
 
     return DumpImages(runtime, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
   }
