@@ -2686,14 +2686,20 @@ static int DumpOatWithoutRuntime(OatFile* oat_file, OatDumperOptions* options, s
 
 static int DumpOat(Runtime* runtime, OatDumperOptions* options, std::ostream* os) {
   std::string error_msg;
-  std::unique_ptr<OatFile> oat_file =
+  LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
+	  std::unique_ptr<OatFile> oat_file =
       OpenOat(*options->oat_filename_, options->dex_filename_, &error_msg);
-  if (oat_file == nullptr) {
+ LOG(INFO) << "VILAS: " <<  __LINE__;
+
+	  if (oat_file == nullptr) {
     LOG(ERROR) << "Failed to open oat file from '" << *options->oat_filename_ << "': " << error_msg;
     return EXIT_FAILURE;
   }
 
   if (runtime != nullptr) {
+ LOG(INFO) << "VILAS: " <<  __LINE__;
+
     return DumpOatWithRuntime(runtime, std::move(oat_file), options, os);
   } else {
     return DumpOatWithoutRuntime(oat_file.get(), options, os);
@@ -3492,12 +3498,17 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
   }
 
   bool ExecuteWithoutRuntime() override {
+    LOG(INFO) << "VILAS: " <<  __LINE__;
     CHECK(args_ != nullptr);
+    LOG(INFO) << "VILAS: " <<  __LINE__;
 
     OatDumpMode mode = args_->GetMode();
     CHECK(mode == OatDumpMode::kSymbolize || mode == OatDumpMode::kDumpOat);
-
+    LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
     MemMap::Init();
+
+    LOG(INFO) << "VILAS: " <<  __LINE__;
 
     if (mode == OatDumpMode::kSymbolize) {
       // ELF has special kind of section called SHT_NOBITS which allows us to create
@@ -3510,17 +3521,25 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
              EXIT_SUCCESS;
     }
 
+    LOG(INFO) << "VILAS: " <<  __LINE__;
+
     return DumpOat(nullptr, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
   }
 
   bool ExecuteWithRuntime(Runtime* runtime) override {
-    CHECK(args_ != nullptr);
+    LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
+	  CHECK(args_ != nullptr);
     OatDumpMode mode = args_->GetMode();
     CHECK(mode == OatDumpMode::kDumpImt || mode == OatDumpMode::kDumpImage ||
           mode == OatDumpMode::kDumpOat);
 
+ LOG(INFO) << "VILAS: " <<  __LINE__;
+
     if (mode == OatDumpMode::kDumpImt) {
-      return IMTDumper::Dump(runtime,
+      LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
+	      return IMTDumper::Dump(runtime,
                              args_->imt_dump_,
                              args_->imt_stat_dump_,
                              args_->oat_filename_,
@@ -3528,8 +3547,12 @@ struct OatdumpMain : public CmdlineMain<OatdumpArgs> {
     }
 
     if (mode == OatDumpMode::kDumpOat) {
+      LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
       return DumpOat(runtime, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
     }
+
+ LOG(INFO) << "VILAS: " <<  __LINE__;
 
     return DumpImages(runtime, oat_dumper_options_.get(), args_->os_) == EXIT_SUCCESS;
   }
