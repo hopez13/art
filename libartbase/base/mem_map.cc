@@ -1017,7 +1017,10 @@ void MemMap::Init() {
   std::lock_guard<std::mutex> mu(*mem_maps_lock_);
 #ifdef ART_PAGE_SIZE_AGNOSTIC
   page_size_ = GetPageSizeSlow();
+  LOG(INFO) << "VILAS: MemMap " <<  __LINE__ << "page size " << page_size_;
 #endif
+ LOG(INFO) << "VILAS: " <<  __LINE__;
+
   CHECK_GE(GetPageSize(), kMinPageSize);
   CHECK_LE(GetPageSize(), kMaxPageSize);
 #if USE_ART_LOW_4G_ALLOCATOR
@@ -1025,8 +1028,11 @@ void MemMap::Init() {
   CHECK_EQ(next_mem_pos_, 0u);
   next_mem_pos_ = GenerateNextMemPos(GetPageSize());
 #endif
+  LOG(INFO) << "VILAS: " <<  __LINE__;
+ 
   DCHECK(gMaps == nullptr);
   gMaps = new Maps;
+ LOG(INFO) << "VILAS: " <<  __LINE__;
 
   TargetMMapInit();
 }
