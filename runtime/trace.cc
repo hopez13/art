@@ -1656,13 +1656,15 @@ void Trace::LogMethodTraceEvent(Thread* thread,
   // method is only called by the sampling thread. In method tracing mode, it can be called
   // concurrently.
 
-  // In non-streaming modes, we stop recoding events once the buffer is full.
+  uintptr_t* method_trace_buffer = thread->GetMethodTraceBuffer();
+  size_t* current_index = thread->GetMethodTraceIndexPtr();
   if (trace_writer_->HasOverflow()) {
+    // In non-streaming modes, we stop recoding events once the buffer is full. Just reset the
+    // index, so we don't miss to runtime for each method.
+    *current_index = kPerThreadBufSize;
     return;
   }
 
-  uintptr_t* method_trace_buffer = thread->GetMethodTraceBuffer();
-  size_t* current_index = thread->GetMethodTraceIndexPtr();
   // Initialize the buffer lazily. It's just simpler to keep the creation at one place.
   if (method_trace_buffer == nullptr) {
     method_trace_buffer = trace_writer_->AcquireTraceBuffer(thread->GetTid());
@@ -1678,6 +1680,7 @@ void Trace::LogMethodTraceEvent(Thread* thread,
     // more entries. In streaming mode, it returns nullptr if it fails to allocate a new buffer.
     method_trace_buffer = trace_writer_->PrepareBufferForNewEntries(thread);
     if (method_trace_buffer == nullptr) {
+      *current_index = kPerThreadBufSize;
       return;
     }
   }
