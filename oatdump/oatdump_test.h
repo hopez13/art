@@ -355,7 +355,9 @@ class OatDumpTest : public CommonRuntimeTest, public testing::WithParamInterface
       std::copy(exec_argv.begin(), exec_argv.end(), std::ostream_iterator<std::string>(cmd, " "));
       LOG(ERROR) << "Output: " << error_buf.data();  // Output first as it might be extremely  long.
       LOG(ERROR) << "Failed command: " << cmd.str();  // Useful to reproduce the failure separately.
-      return ::testing::AssertionFailure() << "Did not terminate successfully: " << res.status_code;
+      return ::testing::AssertionFailure()
+             << "Did not terminate successfully, status: " << res.status_code << " ("
+             << strerror(res.status_code) << ")";
     } else if (expect_failure) {
       return ::testing::AssertionFailure() << "Expected failure";
     }
