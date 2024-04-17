@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d94953b2_56a257fc",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-17T14:21:18Z",
+      "side": 1,
+      "message": "Use `std::equal` for this:\n\n    DCHECK_GE(boot_class_path.size(), dex_files_-\u003esize());`\n    DCHECK(std::equal(dex_files_-\u003erbegin(), dex_files_-\u003erend(), boot_class_path.rbegin()));",
+      "range": {
+        "startLine": 2102,
+        "startChar": 6,
+        "endLine": 2111,
+        "endChar": 7
+      },
+      "revId": "8986d0bffb2eb1010c9c837dc28a579715983371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
