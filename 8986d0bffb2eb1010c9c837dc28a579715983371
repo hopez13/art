@@ -22,6 +22,30 @@
       },
       "revId": "8986d0bffb2eb1010c9c837dc28a579715983371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81365174_cc13357d",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-17T16:24:19Z",
+      "side": 1,
+      "message": "Done\n\nI don\u0027t think the assumption holds though. I am investigating the failure on patchset 3 and the dex files you are mentioning are dex2oat\u0027s dex files, but the ones in this file are OatWriter\u0027s. We may have several OatWriters (each for an individual dex file) and so the dex file of a particular oat writer is not necessarily at the end of the list.",
+      "parentUuid": "d94953b2_56a257fc",
+      "range": {
+        "startLine": 2102,
+        "startChar": 6,
+        "endLine": 2111,
+        "endChar": 7
+      },
+      "revId": "8986d0bffb2eb1010c9c837dc28a579715983371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
