@@ -141,6 +141,7 @@ cc_defaults {
         "-Wl,--export-dynamic-symbol=android_*",
         "-Wl,--export-dynamic-symbol=NativeBridge*",
     ],
+    version_script: "libnativeloader_test.map.txt",
 
     header_libs: [
         "libnativebridge-headers",
