@@ -1,0 +1,130 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ad8c7bd_fc56fdbb",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "I\u0027m curious, is this a technical term?",
+      "range": {
+        "startLine": 18,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b9acf7_bbac4868",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "Please add b/333438055.",
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "660803d2_ac164f75",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "Thanks for doing this. Having to use version scripts is clumsy, but I don\u0027t see any better way. It\u0027s rather unfortunate that the defaults are to export everything.",
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "059b484e_5a8097ce",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "Please change to `.map` - the `.map.txt` extension is for NDK stubbed APIs and adds the NDK-API-Review condition.",
+      "range": {
+        "startLine": 144,
+        "startChar": 41,
+        "endLine": 144,
+        "endChar": 49
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "494daf4e_65ed7389",
+        "filename": "libnativeloader/libnativeloader_test.map.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "Do we need both? I thought listing symbols in a version script would be all that\u0027s required to export them (as far as the linking step is concerned).",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 62
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d08c262c_27a7ddd0",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 1,
+      "message": "Can you please add a comment here why we combine the static STL with a version script?",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 51
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

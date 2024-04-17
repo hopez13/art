@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "287cb861_70b8d149",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-17T12:40:51Z",
+      "side": 0,
+      "message": "Don\u0027t we need this exclusion in the version scripts? Please check with the art-asan, art-gtest-asan32, and art-gtest-asan64 targets on git_master-art-host.",
+      "range": {
+        "startLine": 357,
+        "startChar": 37,
+        "endLine": 357,
+        "endChar": 97
+      },
+      "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
