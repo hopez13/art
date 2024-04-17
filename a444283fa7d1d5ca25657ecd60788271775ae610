@@ -22,6 +22,30 @@
       },
       "revId": "a444283fa7d1d5ca25657ecd60788271775ae610",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d753c0c_62f15654",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 11
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 0,
+      "message": "Discussed offline. art_exec has its own domain now. https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/art_exec.te",
+      "parentUuid": "ae7e7c6d_57528243",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 24
+      },
+      "revId": "a444283fa7d1d5ca25657ecd60788271775ae610",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "73f114f5_97ce5692",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1574,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Added a macro for this. I\u0027ll add another macro for the opposite in the subseqent CL.",
+      "parentUuid": "a69ef192_18850100",
+      "range": {
+        "startLine": 1572,
+        "startChar": 0,
+        "endLine": 1574,
+        "endChar": 3
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "22570254_bb458f97",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-10T21:09:03Z",
       "side": 1,
       "message": "`.txt`, just to make it more clear that it\u0027s a file in text format one can easily take a look at?\n```suggestion\n   std::string classpath_file \u003d tmp_dir + \"/classpath.txt\";\n```",
+      "range": {
+        "startLine": 1578,
+        "startChar": 51,
+        "endLine": 1578,
+        "endChar": 52
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6689d838_f998fa0d",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1578,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "22570254_bb458f97",
       "range": {
         "startLine": 1578,
         "startChar": 51,
@@ -110,6 +158,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "487b3fa0_b8776184",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "I don\u0027t think a regex can do the trick. According to the doc, there can also be backslashes within a token and quotes surrounding a token. If we really want to be thorough, we\u0027ll have a complex parser for this, but I don\u0027t want to go this far. As long as the current `init.environ.rc` file doesn\u0027t have backslashes, I think we can keep the implementation simple. I added a check to fail the preRebootInit call when the file contains backslashes, to surface the unsupported backslashes. We can catch this with the E2E test.",
+      "parentUuid": "60ac3b18_53a26330",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7582fba4_e89c0705",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bfaff76b_3cd2bc51",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7194203_a042109f",
@@ -123,6 +219,30 @@
       "writtenOn": "2024-04-10T21:09:03Z",
       "side": 1,
       "message": "This leaks environment variables from the current version into the chroot that\u0027s supposed to correspond to the upgraded version. What about using a separate environment variable collection that\u0027s passed to the subprocesses? If some environment variables need to be propagated from our own environment it\u0027d be good if that\u0027s done explicitly instead.",
+      "range": {
+        "startLine": 1631,
+        "startChar": 4,
+        "endLine": 1631,
+        "endChar": 10
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e28dbd51_5f5e1732",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1631,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Discussed offline.\n\n1. I updated `preRebootInit` to clear all existing env vars, to avoid the leak.\n1. We do need to set environment variables here because artd uses libart in many methods, which may use those environment variables.",
+      "parentUuid": "f7194203_a042109f",
       "range": {
         "startLine": 1631,
         "startChar": 4,
@@ -150,6 +270,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b85590b_e1e31746",
+        "filename": "artd/artd.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Discussed offline. I\u0027m only using two sections instead.",
+      "parentUuid": "c78e45a7_d970fb97",
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "36d66c5a_4a0d0ec8",
@@ -163,6 +301,24 @@
       "writtenOn": "2024-04-10T21:09:03Z",
       "side": 1,
       "message": "I think it\u0027d be helpful to establish some conventions to make it clear which APIs are applicable to which artd instance. I.e. partition them into three sections, one with those that will be called on the normal artd outside the chroot, one for artd inside the chroot, and one for both.\n\nThe main purpose is to make it more clear in what context a function may be used when reading the code.",
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c8273d9_82d9e9b5",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 238,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "Discussed offline. I\u0027m only using two sections instead. In the next CL, I\u0027ll add comments to the methods that are disabled in Pre-reboot Dexopt mode.",
+      "parentUuid": "36d66c5a_4a0d0ec8",
       "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -192,6 +348,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "928f6cca_58c15bbd",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "You can take a look at the Java code at aosp/3037612. This only means 5 lines in `PreRebootGlobalInjector.getArtd` because that\u0027s the only place where we obtain a new instance of artd.\n\nWe do need `setenv` as mentioned elsewhere.",
+      "parentUuid": "2bb44f29_8ce59cf6",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 245,
+        "endChar": 68
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "4d1008f1_5a1e26e5",
         "filename": "build/apex/art.rc",
         "patchSetId": 11
@@ -203,6 +383,30 @@
       "writtenOn": "2024-04-10T21:09:03Z",
       "side": 1,
       "message": "For mount operations? Anything else?",
+      "range": {
+        "startLine": 36,
+        "startChar": 70,
+        "endLine": 36,
+        "endChar": 79
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c70b9f7_6dc3ca92",
+        "filename": "build/apex/art.rc",
+        "patchSetId": 11
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-17T17:41:26Z",
+      "side": 1,
+      "message": "The explanation is in the [sepolicy file](https://cs.android.com/android/platform/superproject/main/+/main:system/sepolicy/private/artd.te;l\u003d156;drc\u003d4acd07323ee401fcb03e3c4d9d58bfada64ea9de) and has passed the security review.",
+      "parentUuid": "4d1008f1_5a1e26e5",
       "range": {
         "startLine": 36,
         "startChar": 70,
