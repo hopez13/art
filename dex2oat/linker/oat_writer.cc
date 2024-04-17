@@ -2089,13 +2089,29 @@ size_t OatWriter::InitIndexBssMappings(size_t offset) {
                                         oat_dex_files_[i].method_type_bss_mapping_offset_);
   }
 
-  if (!(compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension())) {
+  if (!compiler_options_.IsBootImage()) {
     ArrayRef<const DexFile* const> boot_class_path(
         Runtime::Current()->GetClassLinker()->GetBootClassPath());
-    // We initialize bcp_bss_info for single image and purposively leave it empty for the multi
-    // image case.
+    // We initialize bcp_bss_info except for the boot image case.
     // Note that we have an early break at the beginning of the method, so `bcp_bss_info_` will also
     // be empty in the case of having no mappings at all.
+
+    if (compiler_options_.IsBootImageExtension()) {
+      // For boot image extension, the boot_class_path ends with *dex_files_ (DCHECKed below).
+      // Remove them to have the correct number of references.
+      if (kIsDebugBuild) {
+        CHECK_GE(boot_class_path.size(), dex_files_->size());
+        auto reverse_bcp = boot_class_path.rbegin();
+        auto reverse_dex_files = dex_files_->rbegin();
+        while (reverse_dex_files != dex_files_->rend()) {
+          CHECK(*reverse_bcp == *reverse_dex_files);
+          ++reverse_bcp;
+          ++reverse_dex_files;
+        }
+      }
+      boot_class_path = boot_class_path.SubArray(0, boot_class_path.size() - dex_files_->size());
+    }
+
     DCHECK(bcp_bss_info_.empty());
     bcp_bss_info_.resize(boot_class_path.size());
     for (size_t i = 0, size = bcp_bss_info_.size(); i != size; ++i) {
@@ -3010,7 +3026,7 @@ size_t OatWriter::WriteIndexBssMappings(OutputStream* out,
     }
   }
 
-  if (!(compiler_options_.IsBootImage() || compiler_options_.IsBootImageExtension())) {
+  if (!compiler_options_.IsBootImage()) {
     ArrayRef<const DexFile* const> boot_class_path(
         Runtime::Current()->GetClassLinker()->GetBootClassPath());
     for (size_t i = 0, size = bcp_bss_info_.size(); i != size; ++i) {
