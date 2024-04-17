@@ -621,7 +621,111 @@ size_t ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
     Thread::resume_cond_->Broadcast(self);
   }
 
+<<<<<<< HEAD   (a97abe [automerger skipped] Fix ART MTS exclusion filter for `JniCo)
   return runnable_thread_count + other_threads.size() + 1;  // +1 for self.
+=======
+  Thread::DCheckUnregisteredEverywhere(&exit_flags[0], &exit_flags[thread_count - 1]);
+
+  Locks::mutator_lock_->SharedUnlock(self);
+}
+
+// True only for debugging suspend timeout code. The resulting timeouts are short enough that
+// failures are expected.
+static constexpr bool kShortSuspendTimeouts = false;
+
+static constexpr unsigned kSuspendBarrierIters = kShortSuspendTimeouts ? 5 : 20;
+
+#if ART_USE_FUTEXES
+
+// Returns true if it timed out.
+static bool WaitOnceForSuspendBarrier(AtomicInteger* barrier,
+                                      int32_t cur_val,
+                                      uint64_t timeout_ns) {
+  timespec wait_timeout;
+  if (kShortSuspendTimeouts) {
+    timeout_ns = MsToNs(kSuspendBarrierIters);
+    CHECK_GE(NsToMs(timeout_ns / kSuspendBarrierIters), 1ul);
+  } else {
+    DCHECK_GE(NsToMs(timeout_ns / kSuspendBarrierIters), 10ul);
+  }
+  InitTimeSpec(false, CLOCK_MONOTONIC, NsToMs(timeout_ns / kSuspendBarrierIters), 0, &wait_timeout);
+  if (futex(barrier->Address(), FUTEX_WAIT_PRIVATE, cur_val, &wait_timeout, nullptr, 0) != 0) {
+    if (errno == ETIMEDOUT) {
+      return true;
+    } else if (errno != EAGAIN && errno != EINTR) {
+      PLOG(FATAL) << "futex wait for suspend barrier failed";
+    }
+  }
+  return false;
+}
+
+#else
+
+static bool WaitOnceForSuspendBarrier(AtomicInteger* barrier,
+                                      int32_t cur_val,
+                                      uint64_t timeout_ns) {
+  // In the normal case, aim for a couple of hundred milliseconds.
+  static constexpr unsigned kInnerIters =
+      kShortSuspendTimeouts ? 1'000 : (timeout_ns / 1000) / kSuspendBarrierIters;
+  DCHECK_GE(kInnerIters, 1'000u);
+  for (int i = 0; i < kInnerIters; ++i) {
+    sched_yield();
+    if (barrier->load(std::memory_order_acquire) == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+#endif  // ART_USE_FUTEXES
+
+std::optional<std::string> ThreadList::WaitForSuspendBarrier(AtomicInteger* barrier,
+                                                             pid_t t,
+                                                             int attempt_of_4) {
+  // Only fail after kIter timeouts, to make us robust against app freezing.
+#if ART_USE_FUTEXES
+  const uint64_t start_time = NanoTime();
+#endif
+  uint64_t timeout_ns =
+      attempt_of_4 == 0 ? thread_suspend_timeout_ns_ : thread_suspend_timeout_ns_ / 4;
+  bool collect_state = (t != 0 && (attempt_of_4 == 0 || attempt_of_4 == 4));
+  int32_t cur_val = barrier->load(std::memory_order_acquire);
+  if (cur_val <= 0) {
+    DCHECK_EQ(cur_val, 0);
+    return std::nullopt;
+  }
+  unsigned i = 0;
+  if (WaitOnceForSuspendBarrier(barrier, cur_val, timeout_ns)) {
+    i = 1;
+  }
+  cur_val = barrier->load(std::memory_order_acquire);
+  if (cur_val <= 0) {
+    DCHECK_EQ(cur_val, 0);
+    return std::nullopt;
+  }
+
+  // Long wait; gather information in case of timeout.
+  std::string sampled_state = collect_state ? GetOsThreadStatQuick(t) : "";
+  while (i < kSuspendBarrierIters) {
+    if (WaitOnceForSuspendBarrier(barrier, cur_val, timeout_ns)) {
+      ++i;
+#if ART_USE_FUTEXES
+      if (!kShortSuspendTimeouts) {
+        CHECK_GE(NanoTime() - start_time, i * timeout_ns / kSuspendBarrierIters - 1'000'000);
+      }
+#endif
+    }
+    cur_val = barrier->load(std::memory_order_acquire);
+    if (cur_val <= 0) {
+      DCHECK_EQ(cur_val, 0);
+      return std::nullopt;
+    }
+  }
+  return collect_state ? "Target states: [" + sampled_state + ", " + GetOsThreadStatQuick(t) + "]" +
+                             std::to_string(cur_val) + "@" + std::to_string((uintptr_t)barrier) +
+                             " Final wait time: " + PrettyDuration(NanoTime() - start_time) :
+                         "";
+>>>>>>> CHANGE (55e99b Add debug info for failure to become 1-threaded)
 }
 
 void ThreadList::SuspendAll(const char* cause, bool long_suspend) {

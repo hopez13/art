@@ -744,6 +744,58 @@ class UpdateMethodsPreFirstForkVisitor : public ClassVisitor {
   DISALLOW_COPY_AND_ASSIGN(UpdateMethodsPreFirstForkVisitor);
 };
 
+<<<<<<< HEAD   (a97abe [automerger skipped] Fix ART MTS exclusion filter for `JniCo)
+=======
+// Wait until the kernel thinks we are single-threaded again.
+static void WaitUntilSingleThreaded() {
+#if defined(__linux__)
+  // Read num_threads field from /proc/self/stat, avoiding higher-level IO libraries that may
+  // break atomicity of the read.
+  static constexpr size_t kNumTries = 1000;
+  static constexpr size_t kNumThreadsIndex = 20;
+  static constexpr size_t BUF_SIZE = 500;
+  static constexpr size_t BUF_PRINT_SIZE = 150;  // Only log this much on failure to limit length.
+  static_assert(BUF_SIZE > BUF_PRINT_SIZE);
+  char buf[BUF_SIZE];
+  size_t bytes_read = 0;
+
+  for (size_t tries = 0; tries < kNumTries; ++tries) {
+    bytes_read = GetOsThreadStat(getpid(), buf, BUF_SIZE);
+    CHECK_NE(bytes_read, 0u);
+    size_t pos = 0;
+    while (pos < bytes_read && buf[pos++] != ')') {}
+    ++pos;
+    // We're now positioned at the beginning of the third field. Don't count blanks embedded in
+    // second (command) field.
+    size_t blanks_seen = 2;
+    while (pos < bytes_read && blanks_seen < kNumThreadsIndex - 1) {
+      if (buf[pos++] == ' ') {
+        ++blanks_seen;
+      }
+    }
+    CHECK(pos < bytes_read - 2);
+    // pos is first character of num_threads field.
+    CHECK_EQ(buf[pos + 1], ' ');  // We never have more than single-digit threads here.
+    if (buf[pos] == '1') {
+      return;  //  num_threads == 1; success.
+    }
+    usleep(1000);
+  }
+  buf[std::min(BUF_PRINT_SIZE, bytes_read)] = '\0';  // Truncate buf before printing.
+  LOG(ERROR) << "Not single threaded: bytes_read = " << bytes_read << " stat contents = \"" << buf
+             << "...\"";
+  LOG(ERROR) << "Other threads' abbreviated stats: " << GetOtherThreadOsStats();
+  bytes_read = GetOsThreadStat(getpid(), buf, BUF_PRINT_SIZE);
+  CHECK_NE(bytes_read, 0u);
+  LOG(ERROR) << "After re-read: bytes_read = " << bytes_read << " stat contents = \"" << buf
+             << "...\"";
+  LOG(FATAL) << "Failed to reach single-threaded state";
+#else  // Not Linux; shouldn't matter, but this has a high probability of working slowly.
+  usleep(20'000);
+#endif
+}
+
+>>>>>>> CHANGE (55e99b Add debug info for failure to become 1-threaded)
 void Runtime::PreZygoteFork() {
   if (GetJit() != nullptr) {
     GetJit()->PreZygoteFork();
