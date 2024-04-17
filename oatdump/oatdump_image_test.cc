@@ -25,7 +25,6 @@ namespace art {
 
 TEST_P(OatDumpTest, TestDumpImage) {
   TEST_DISABLED_FOR_RISCV64();
-  TEST_DISABLED_FOR_ARM_AND_ARM64();
   std::string error_msg;
   ASSERT_TRUE(
       Exec(GetParam(), kArgImage | kArgBcp | kArgIsa, {}, kExpectImage | kExpectOat | kExpectCode));
@@ -33,7 +32,6 @@ TEST_P(OatDumpTest, TestDumpImage) {
 
 TEST_P(OatDumpTest, TestDumpOatBcp) {
   TEST_DISABLED_FOR_RISCV64();
-  TEST_DISABLED_FOR_ARM_AND_ARM64();
   std::string error_msg;
   ASSERT_TRUE(Exec(GetParam(), kArgOatBcp | kArgDexBcp, {}, kExpectOat | kExpectCode));
 }
