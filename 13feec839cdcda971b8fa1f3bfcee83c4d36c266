@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ae16c56_af08c311",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-17T15:09:45Z",
+      "side": 1,
+      "message": "Thanks!",
+      "revId": "13feec839cdcda971b8fa1f3bfcee83c4d36c266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20adc8c9_fd4583c3",
+        "filename": "libprofile/profile/profile_compilation_info.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1365,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-17T15:09:45Z",
+      "side": 1,
+      "message": "I guess this isn\u0027t required since we set dex_pc_max to uint32_t::max.",
+      "range": {
+        "startLine": 1365,
+        "startChar": 38,
+        "endLine": 1365,
+        "endChar": 46
+      },
+      "revId": "13feec839cdcda971b8fa1f3bfcee83c4d36c266",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
