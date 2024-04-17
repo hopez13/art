@@ -178,6 +178,7 @@ inline void ForceRead(const T* pointer) {
 // there is an I/O error.
 std::string GetProcessStatus(const char* key);
 
+<<<<<<< HEAD   (a97abe [automerger skipped] Fix ART MTS exclusion filter for `JniCo)
 // Return whether the address is guaranteed to be backed by a file or is shared.
 // This information can be used to know whether MADV_DONTNEED will make
 // following accesses repopulate the memory or return zero.
@@ -185,6 +186,20 @@ bool IsAddressKnownBackedByFileOrShared(const void* addr);
 
 // Returns the number of threads running.
 int GetTaskCount();
+=======
+// Copy a prefix of /proc/tid/stat of the given length into buf. Return the number of bytes
+// actually read, 0 on error.
+size_t GetOsThreadStat(pid_t tid, char* buf, size_t len);
+
+// Return a short prefix of /proc/tid/stat as quickly and robustly as possible. Used for debugging
+// timing issues and possibly issues with /proc itself. Always atomic.
+std::string GetOsThreadStatQuick(pid_t tid);
+
+// Return a concatenation of the output of GetOsThreadStatQuick(tid) for all other tids.
+// Less robust against concurrent change, but individual stat strings should still always
+// be consistent. Called only when we are nearly certain to crash anyway.
+std::string GetOtherThreadOsStats();
+>>>>>>> CHANGE (55e99b Add debug info for failure to become 1-threaded)
 
 }  // namespace art
 
