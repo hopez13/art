@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cba64342_e7e99892",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-18T08:08:05Z",
+      "side": 1,
+      "message": "This should still be valid right? IIUC, We still call DoCollection only from background thread and shouldn\u0027t hold a mutator lock. Maybe a comment on when we may hold mutator lock could help.",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 44
+      },
+      "revId": "f272c8cf88fe727e5edcc53522f295aee44d2f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
