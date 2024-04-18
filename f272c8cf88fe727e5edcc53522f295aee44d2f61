@@ -22,6 +22,30 @@
       },
       "revId": "f272c8cf88fe727e5edcc53522f295aee44d2f61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dca790d7_f694a5a7",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 430,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-18T10:23:46Z",
+      "side": 1,
+      "message": "Yes, but it somehow confuses the compiler which complains when taking the lock shared in the method. I guess that\u0027s why we don\u0027t use `REQUIRES_SHARED(!Locks::mutator_lock_);` anywhere.",
+      "parentUuid": "cba64342_e7e99892",
+      "range": {
+        "startLine": 430,
+        "startChar": 6,
+        "endLine": 430,
+        "endChar": 44
+      },
+      "revId": "f272c8cf88fe727e5edcc53522f295aee44d2f61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
