@@ -46,6 +46,30 @@
       },
       "revId": "8986d0bffb2eb1010c9c837dc28a579715983371",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "03f4004f_6d4d2ab6",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2111,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T06:35:59Z",
+      "side": 1,
+      "message": "As you said through another channel, the `dex_files_` here can be a subset of the dex files we\u0027re compiling (for `--multi-image`).\n\nIn that case, we should actually get the tail that we want to exclude from `compiler_options_.GetDexFilesForOatFile()`.",
+      "parentUuid": "81365174_cc13357d",
+      "range": {
+        "startLine": 2102,
+        "startChar": 6,
+        "endLine": 2111,
+        "endChar": 7
+      },
+      "revId": "8986d0bffb2eb1010c9c837dc28a579715983371",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
