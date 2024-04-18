@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ef055bc_02a5185f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-18T16:25:34Z",
+      "side": 1,
+      "message": "Aha, thanks.",
+      "parentUuid": "5bf6e5e6_4ccfdb32",
+      "range": {
+        "startLine": 18,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68b9acf7_bbac4868",
@@ -196,6 +220,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "45ae115b_3b0c52ef",
+        "filename": "libnativeloader/libnativeloader_test.map.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-18T16:25:34Z",
+      "side": 1,
+      "message": "SGTM. Can you simplify the flags in `libnativeloader-test-defaults` then, please? Then the comment there and here ought to more or less swap places as well.",
+      "parentUuid": "c967a1a2_9d2c5300",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 62
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d08c262c_27a7ddd0",
         "filename": "test/Android.bp",
         "patchSetId": 1
@@ -207,6 +255,30 @@
       "writtenOn": "2024-04-17T12:40:51Z",
       "side": 1,
       "message": "Can you please add a comment here why we combine the static STL with a version script?",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 51
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68b63b3b_754a78fd",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-18T16:25:34Z",
+      "side": 1,
+      "message": "Still TBD. I think it\u0027s useful to have a comment directly in the file because this is anything but obvious, but it doesn\u0027t need to be as detailed as the description.",
+      "parentUuid": "d08c262c_27a7ddd0",
       "range": {
         "startLine": 240,
         "startChar": 0,

@@ -46,6 +46,30 @@
       },
       "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35b04d29_6f7fd41d",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-18T16:25:34Z",
+      "side": 0,
+      "message": "Indeed, the ones I mentioned are only host. We run hwasan on device, but I see some successful runs on PS1 so apparently nothing is needed there.\n\n@ishcheikin@google.com, you added this in https://r.android.com/2623410, and `art_standalone_*` were device-only then too. Did you notice any problems for those tests, and if so in which test configs?\n\nOtherwise it\u0027s fine to ignore host - if we extend these defaults to apply there we\u0027ll figure something out then.",
+      "parentUuid": "39d8aaaa_c53bc65f",
+      "range": {
+        "startLine": 357,
+        "startChar": 37,
+        "endLine": 357,
+        "endChar": 97
+      },
+      "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
