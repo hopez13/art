@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c252943c_c8579425",
+        "filename": "libartservice/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-18T17:34:32Z",
+      "side": 1,
+      "message": "We don\u0027t have anything other than `service`, and we probably won\u0027t add any, so maybe just put the team id in `service`?",
+      "revId": "934b6194365ff8b02b1387d1cc6d4af5bff84ae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "21671348_28e435b0",
+        "filename": "profman/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-18T17:34:32Z",
+      "side": 1,
+      "message": "I think it\u0027s better to put `trendy_team_art_performance` here. I know I touched profman quite a lot, but I\u0027m not sure I want to officially be an owner of it. If there is any test failure related to my change, the ART performance team can reassign the bug to me.",
+      "range": {
+        "startLine": 24,
+        "startChar": 19,
+        "endLine": 24,
+        "endChar": 43
+      },
+      "revId": "934b6194365ff8b02b1387d1cc6d4af5bff84ae4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
