@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "aaa5ee4e_d1afeec3",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 966,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T16:14:29Z",
+      "side": 1,
+      "message": "Yes, we shall not try to process the same class more than once, see `DexFileRecord::processed_classes_`.",
+      "parentUuid": "de5fbfc0_7203b470",
+      "range": {
+        "startLine": 963,
+        "startChar": 0,
+        "endLine": 966,
+        "endChar": 3
+      },
+      "revId": "9ff64fbdee8b3d6484b2c5fc456d4de887c1bbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3838f86_047ec2c9",
@@ -41,6 +65,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2fc5bbbe_07821000",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1088,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T16:14:29Z",
+      "side": 1,
+      "message": "Done (updated the moved code)",
+      "parentUuid": "b3838f86_047ec2c9",
+      "revId": "9ff64fbdee8b3d6484b2c5fc456d4de887c1bbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "74d526b2_dfcc6af0",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-18T15:23:44Z",
       "side": 1,
       "message": "nit: Start the sentence with upper case. Same for comment below",
+      "range": {
+        "startLine": 1106,
+        "startChar": 0,
+        "endLine": 1106,
+        "endChar": 57
+      },
+      "revId": "9ff64fbdee8b3d6484b2c5fc456d4de887c1bbdc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8045baf5_eac1be35",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1106,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T16:14:29Z",
+      "side": 1,
+      "message": "Comment removed when working on the `CatchHandlerIterator` change.",
+      "parentUuid": "74d526b2_dfcc6af0",
       "range": {
         "startLine": 1106,
         "startChar": 0,
