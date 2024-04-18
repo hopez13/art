@@ -70,6 +70,30 @@
       },
       "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8529841d_fcf1320e",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-04-18T18:50:07Z",
+      "side": 0,
+      "message": "I wasn\u0027t sure if art_standalone_*tests can be built with ASAN or not. If they are not supposed to have ASAN support, then it should be safe to hide all symbols.\n\nThe test config that was failing was on git_master-art-host, so no examples of device-only failures.",
+      "parentUuid": "35b04d29_6f7fd41d",
+      "range": {
+        "startLine": 357,
+        "startChar": 37,
+        "endLine": 357,
+        "endChar": 97
+      },
+      "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
