@@ -22,6 +22,30 @@
       },
       "revId": "cabfc7506c0fb25c0d5199c44612206d2c9b82c6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cedbffbb_544627bb",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 393,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-04-18T14:08:45Z",
+      "side": 0,
+      "message": "Yes, it used to be correct in aosp/2623410, but then I forgot to update/remove this in aosp/2723681",
+      "parentUuid": "0bb82187_4ed416a8",
+      "range": {
+        "startLine": 393,
+        "startChar": 3,
+        "endLine": 393,
+        "endChar": 40
+      },
+      "revId": "cabfc7506c0fb25c0d5199c44612206d2c9b82c6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
