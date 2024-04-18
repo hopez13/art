@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9a06e793_4dcba530",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 7110,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T11:23:01Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 7110,
+        "startChar": 17,
+        "endLine": 7110,
+        "endChar": 21
+      },
+      "revId": "c223ab2ace1893a275ed69771aed89afe9ee9cb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "84752a77_58bc0f10",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 2084,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-18T11:23:01Z",
+      "side": 1,
+      "message": "\"bound\"\n\nMaybe we should add that the id of the next branch is encoded the same way as a position in a linked `Label`, namely `id + sizeof(void*)`. (Note that a linked `Label` is used to hold the \"head\" pointer of the singly-linked list.)",
+      "range": {
+        "startLine": 2084,
+        "startChar": 29,
+        "endLine": 2084,
+        "endChar": 35
+      },
+      "revId": "c223ab2ace1893a275ed69771aed89afe9ee9cb3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
