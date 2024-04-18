@@ -134,8 +134,6 @@ art_cc_test {
     ],
     host_supported: false,
 
-    cflags: ["-DANDROID"],
-
     // The tests mock libdl_android and libnativebridge symbols, so export them
     // to override the ones loaded from their libs.
     ldflags: [
