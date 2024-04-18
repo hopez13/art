@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22a45a17_5320320e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1327199
+      },
+      "writtenOn": "2024-04-18T05:01:31Z",
+      "side": 1,
+      "message": "This fixes presubmit errors when rolling the latest R8 to platform. I filed b/335418838 to fix the fact that we are using profiles that do not match the dex when running dex preopt.",
+      "revId": "680e7679b657c7319b580a9b493477c11f775660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
