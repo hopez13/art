@@ -22,6 +22,30 @@
       },
       "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39d8aaaa_c53bc65f",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 357,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-18T05:25:45Z",
+      "side": 0,
+      "message": "At the moment, I only have the version script added to device tests. (`art_standalone_test_defaults` and `libnativeloader-test-defaults` set `host_supported: false`.)\n\nIt sounds like the tests you\u0027re referencing are for the host instead? We don\u0027t seem to have the same issues with the host testing, but maybe it\u0027s good to use version scripts there too for consistency.\n\nEven with this CL, we still have an instance of `-Wl,--exclude-libs\u003dlibartd-gtest.a` in `art_gtest_defaults`, which is hiding some symbols via a different mechanism.",
+      "parentUuid": "287cb861_70b8d149",
+      "range": {
+        "startLine": 357,
+        "startChar": 37,
+        "endLine": 357,
+        "endChar": 97
+      },
+      "revId": "366d45a8b5ccfe390258c5baf6a72a51aa0c7062",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

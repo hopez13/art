@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bf6e5e6_4ccfdb32",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-18T05:25:45Z",
+      "side": 1,
+      "message": "Yes:\n\nhttps://itanium-cxx-abi.github.io/cxx-abi/abi.html#vague\n\nhttps://gcc.gnu.org/onlinedocs/gcc/Vague-Linkage.html",
+      "parentUuid": "5ad8c7bd_fc56fdbb",
+      "range": {
+        "startLine": 18,
+        "startChar": 34,
+        "endLine": 18,
+        "endChar": 48
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68b9acf7_bbac4868",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-04-17T12:40:51Z",
       "side": 1,
       "message": "Please add b/333438055.",
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f479d52_5fcf1850",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-18T05:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "68b9acf7_bbac4868",
       "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -81,6 +123,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de18cc93_0786ba2a",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 144,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-18T05:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "059b484e_5a8097ce",
+      "range": {
+        "startLine": 144,
+        "startChar": 41,
+        "endLine": 144,
+        "endChar": 49
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "494daf4e_65ed7389",
@@ -94,6 +160,30 @@
       "writtenOn": "2024-04-17T12:40:51Z",
       "side": 1,
       "message": "Do we need both? I thought listing symbols in a version script would be all that\u0027s required to export them (as far as the linking step is concerned).",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 62
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c967a1a2_9d2c5300",
+        "filename": "libnativeloader/libnativeloader_test.map.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-18T05:25:45Z",
+      "side": 1,
+      "message": "For a while, I thought that too, but when I tested it, it was necessary to have both. It seems that the linker decides what to export first, then restricts the exports using `local:` in the version script.\n\nI think we could simplify things by using just `--export-dynamic` though, relying on the version script to select what is actually exported. That\u0027s already how `art_gtest_common_defaults` works.",
+      "parentUuid": "494daf4e_65ed7389",
       "range": {
         "startLine": 19,
         "startChar": 39,
