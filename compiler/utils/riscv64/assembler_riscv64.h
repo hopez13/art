@@ -2030,6 +2030,8 @@ class Riscv64Assembler final : public Assembler {
     bool IsBare() const;
     bool IsResolved() const;
 
+    uint32_t NextBranchId() const;
+
     // Returns the bit size of the signed offset that the branch instruction can handle.
     OffsetBits GetOffsetSize() const;
 
@@ -2057,6 +2059,9 @@ class Riscv64Assembler final : public Assembler {
     // Calculates and returns the offset ready for encoding in the branch instruction(s).
     int32_t GetOffset() const;
 
+    // Link with the next branch
+    void LinkToList(uint32_t next_branch_id);
+
    private:
     // Completes branch construction by determining and recording its type.
     void InitializeType(Type initial_type);
@@ -2075,6 +2080,9 @@ class Riscv64Assembler final : public Assembler {
 
     Type type_;      // Current type of the branch.
     Type old_type_;  // Initial type of the branch.
+
+    // Id of the next branch binded to the same label in singly-linked zero-terminated list
+    uint32_t next_branch_id_;
   };
 
   // Branch and literal fixup.
