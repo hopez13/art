@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "972b267d_a6563d3d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:23:03Z",
+      "side": 1,
+      "message": "This `Foo` does not have a class initializer, so we should be able to eliminate the `HClinitCheck` from `new-instance`. The new `$noinline$callAppImageClassNop()` checker test I added should cover a similar case with `invoke-static` instead of `new-instance`.\n\n(I wrote \"mostly dormant\" but the `IsInitialized()` improvements are apparently not completely dormant. The `VarHandle` improvements are completely dormant because putting a `VarHandle` to a static final field really requires a `\u003cclinit\u003e`.)",
+      "parentUuid": "bae831a4_a807b235",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 37
+      },
+      "revId": "8e6197aebb787639645bddd263c7ed9d9ffcc19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "631805cb_67896993",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-19T08:21:26Z",
       "side": 1,
       "message": "Can we add a test for this where e.g. we show that an app image class gets the ClinitCheck eliminted? We would need to explicitly pass `initialize-app-image-classes` as true in the run.py test config.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 4
+      },
+      "revId": "8e6197aebb787639645bddd263c7ed9d9ffcc19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "67925d73_883bfa66",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:23:03Z",
+      "side": 1,
+      "message": "I pulled the new run-test 732 from the next CL to this one and extended it with additional tests.",
+      "parentUuid": "631805cb_67896993",
       "range": {
         "startLine": 20,
         "startChar": 0,
