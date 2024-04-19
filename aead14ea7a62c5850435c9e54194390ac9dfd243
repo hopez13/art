@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7f27b824_5fa5185e",
+        "filename": "test/732-checker-app-image/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 45,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-19T13:42:28Z",
+      "side": 1,
+      "message": "Would this mean that we are checking that neither exist? I thought we needed separate `CHECK-START` for that",
+      "parentUuid": "458be122_68e716a2",
+      "range": {
+        "startLine": 42,
+        "startChar": 0,
+        "endLine": 45,
+        "endChar": 0
+      },
+      "revId": "aead14ea7a62c5850435c9e54194390ac9dfd243",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7a6c842e_9d887715",
