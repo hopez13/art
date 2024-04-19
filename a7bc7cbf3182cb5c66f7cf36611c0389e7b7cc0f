@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7404dacc_81c089dc",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1439,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-04-19T22:53:44Z",
+      "side": 1,
+      "message": "Ran into this while dealing with a merge conflict:\n\nWe\u0027re waiting for the GC in a runnable state here, right? I think we kind of need that, since otherwise the next GC cycle could start while we\u0027re blocked here. (Maybe with some future GC, there might be some risk of that anyway.) OTOH, blocking for the GC in runnable state seems problematic form a suspend timeout perspective.\n\nI also wonder whether this can deadlock if we catch this early in the GC, and the GC needs to pause us. We\u0027re waiting for the GC, but it won\u0027t be ab;e to suspend us if needed.\n\nIs it possible to replace this with some alternate synchronization mechanism? This may require some thought. I haven\u0027t actually seen this cause problems, so it may be OK for now.",
+      "range": {
+        "startLine": 1439,
+        "startChar": 2,
+        "endLine": 1439,
+        "endChar": 85
+      },
+      "revId": "a7bc7cbf3182cb5c66f7cf36611c0389e7b7cc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
