@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "815cea6c_37e0d1b0",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4893,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Comment removed in PS2. (While PS2 did not start using the remaining scratch register explicitly, I consider that OK.)",
+      "parentUuid": "36acdf3d_6a93c9b8",
+      "range": {
+        "startLine": 4889,
+        "startChar": 2,
+        "endLine": 4893,
+        "endChar": 29
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fd6da5a8_3f19d45a",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-03-25T13:58:14Z",
       "side": 1,
       "message": "These can be merged to `Sh1Add()`.\n\n(I think the comments marked 1.-3. here do not add much value and can be removed. But if you find them useful, feel free to keep them.)",
+      "range": {
+        "startLine": 4913,
+        "startChar": 2,
+        "endLine": 4915,
+        "endChar": 48
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c91a12_3674db96",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4915,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2. (Most comments kept.)",
+      "parentUuid": "fd6da5a8_3f19d45a",
       "range": {
         "startLine": 4913,
         "startChar": 2,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84d5484e_f7549136",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4948,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "2e7a29f1_213c1307",
+      "range": {
+        "startLine": 4947,
+        "startChar": 2,
+        "endLine": 4948,
+        "endChar": 38
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2a8bbaeb_fa7fcdb7",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-03-25T13:58:14Z",
       "side": 1,
       "message": "Please remove these exclamation marks. You can add \"Note:\" if you want to visibly separate this from the text above.",
+      "range": {
+        "startLine": 4954,
+        "startChar": 5,
+        "endLine": 4954,
+        "endChar": 6
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef5ab8fe_baef54a1",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 4954,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "2a8bbaeb_fa7fcdb7",
       "range": {
         "startLine": 4954,
         "startChar": 5,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f694d4b_d70dee3e",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 5003,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "5b9c2951_9d2654b8",
+      "range": {
+        "startLine": 5002,
+        "startChar": 4,
+        "endLine": 5003,
+        "endChar": 40
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4419ec5b_5a2da10e",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "14d7001a_092272dc",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "4419ec5b_5a2da10e",
+      "range": {
+        "startLine": 22,
+        "startChar": 28,
+        "endLine": 22,
+        "endChar": 34
+      },
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ce393990_4e065054",
@@ -169,6 +313,24 @@
       "writtenOn": "2024-03-25T13:58:14Z",
       "side": 1,
       "message": "Line too long. Also 4x below.",
+      "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f4afe11_97f34f98",
+        "filename": "test/536-checker-intrinsic-optimization/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-19T12:10:39Z",
+      "side": 1,
+      "message": "Done in PS2.",
+      "parentUuid": "ce393990_4e065054",
       "revId": "e74af9dd12ee90e672b861e203faabf81aea4107",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
