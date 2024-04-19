@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bae831a4_a807b235",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-19T08:21:26Z",
+      "side": 1,
+      "message": "What do you mean by this? We saw clinit checks with Jiakai using\n\n```\nclass Foo {\n    int[] s \u003d new int[]{1};\n}\n\nclass Test {\n    static int test(int num) {\n        Foo foo \u003d new Foo();\n        return foo.s[0];\n    }\n}\n```\n\nwhen `Foo` was an app image class. More context in b/335449133",
+      "range": {
+        "startLine": 15,
+        "startChar": 36,
+        "endLine": 16,
+        "endChar": 37
+      },
+      "revId": "8e6197aebb787639645bddd263c7ed9d9ffcc19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "631805cb_67896993",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-19T08:21:26Z",
+      "side": 1,
+      "message": "Can we add a test for this where e.g. we show that an app image class gets the ClinitCheck eliminted? We would need to explicitly pass `initialize-app-image-classes` as true in the run.py test config.",
+      "range": {
+        "startLine": 20,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 4
+      },
+      "revId": "8e6197aebb787639645bddd263c7ed9d9ffcc19f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
