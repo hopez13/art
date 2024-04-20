@@ -242,6 +242,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d205232b_e217541f",
+        "filename": "libnativeloader/libnativeloader_test.map.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-20T06:36:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "45ae115b_3b0c52ef",
+      "range": {
+        "startLine": 19,
+        "startChar": 39,
+        "endLine": 19,
+        "endChar": 62
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d08c262c_27a7ddd0",
@@ -279,6 +303,30 @@
       "side": 1,
       "message": "Still TBD. I think it\u0027s useful to have a comment directly in the file because this is anything but obvious, but it doesn\u0027t need to be as detailed as the description.",
       "parentUuid": "d08c262c_27a7ddd0",
+      "range": {
+        "startLine": 240,
+        "startChar": 0,
+        "endLine": 241,
+        "endChar": 51
+      },
+      "revId": "6c4da88f066970f7faae3c072d0cffe92c5b9412",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28290f0c_35f2ce20",
+        "filename": "test/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-04-20T06:36:18Z",
+      "side": 1,
+      "message": "Let me know if this is too much detail. I tried to be concise but it ended up at 6 lines anyway.",
+      "parentUuid": "68b63b3b_754a78fd",
       "range": {
         "startLine": 240,
         "startChar": 0,
