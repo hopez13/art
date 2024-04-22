@@ -58,12 +58,17 @@
 #include "mirror/object_array-alloc-inl.h"
 #include "native/dalvik_system_DexFile.h"
 #include "noop_compiler_callbacks.h"
+#include "oat/elf_file.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime-inl.h"
 #include "runtime_intrinsics.h"
 #include "scoped_thread_state_change-inl.h"
 #include "thread.h"
 #include "well_known_classes-inl.h"
+
+#ifdef ART_TARGET_ANDROID
+#include "android-base/properties.h"
+#endif
 
 namespace art HIDDEN {
 
@@ -642,6 +647,39 @@ void CheckJniAbortCatcher::Check(const char* expected_text) {
 void CheckJniAbortCatcher::Hook(void* data, const std::string& reason) {
   // We use += because when we're hooking the aborts like this, multiple problems can be found.
   *reinterpret_cast<std::string*>(data) += reason;
+}
+
+// It is possible to run tests that validate an existing deployed on-device ART APEX ('standalone'
+// tests). If these tests expect to load ELF files with a particular alignment, but those ELF files
+// were created with a different alignment, there will be many difficult-to-debug failures. This
+// test aims to identify this mismatch, related to whether or not the runtimes were built to be
+// page-size agnostic.
+// As this mismatch check is not specific to any one test suite but can impact all runtime tests
+// that are able to run 'standalone', it should be included as a check when running any of those
+// suites. Therefore, add the test as part of CommonRuntimeTest which gets inherited into every
+// runtime test suite. This means the check is repeated when running multiple runtime test suites.
+TEST_F(CommonRuntimeTest, ElfAlignmentMismatch) {
+#ifdef ART_TARGET_ANDROID
+  bool platform_pga = android::base::GetBoolProperty("ro.product.build.no_bionic_page_size_macro",
+                                                     false);
+  if (kPageSizeAgnostic != platform_pga) {
+    LOG(WARNING) << "Test configured with kPageSizeAgnostic=" << kPageSizeAgnostic << ", but "
+                 << "platform ro.product.build.no_bionic_page_size_macro=" << platform_pga << ".";
+  }
+#endif
+  // Determine the alignment of the ART APEX by reading the alignment of boot.oat.
+  std::string core_oat_location = GetSystemImageFilename(GetCoreOatLocation().c_str(), kRuntimeISA);
+  std::unique_ptr<File> core_oat_file(OS::OpenFileForReading(core_oat_location.c_str()));
+  ASSERT_TRUE(core_oat_file.get() != nullptr) << core_oat_location;
+
+  std::string error_msg;
+  std::unique_ptr<ElfFile> elf_file(ElfFile::Open(core_oat_file.get(),
+                                                  /*writable=*/false,
+                                                  /*program_header_only=*/true,
+                                                  /*low_4gb=*/false,
+                                                  &error_msg));
+  ASSERT_TRUE(elf_file != nullptr) << error_msg;
+  EXPECT_EQ(kElfSegmentAlignment, elf_file->GetElfSegmentAlignmentFromFile());
 }
 
 }  // namespace art
