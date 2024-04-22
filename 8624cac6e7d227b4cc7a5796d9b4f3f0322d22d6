@@ -1,0 +1,113 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "035fccef_55c47ec5",
+        "filename": "artd/artd.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "Maybe replace all this with clearenv(3)?\n\nIf not: Since we don\u0027t know what OEMs may have in their environments, I suggest treating the whole entry as the name in this case. Even if `unsetenv` doesn\u0027t like it, it should still succeed.\n```suggestion\n    if (pos \u003d\u003d std::string_view::npos) {\n      keys.emplace_back(entry);\n    } else {\n      keys.emplace_back(entry.substr(0, pos));\n    }\n```",
+      "range": {
+        "startLine": 1628,
+        "startChar": 4,
+        "endLine": 1628,
+        "endChar": 42
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39c2e700_0fe9a04a",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2456,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "Why an `EXPECT_CALL` instead of `ON_CALL` here? Afaics it\u0027s not adding any restricting expectation.\n\nBtw, what properties get queried here?",
+      "range": {
+        "startLine": 2456,
+        "startChar": 42,
+        "endLine": 2456,
+        "endChar": 61
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f5f5017_c4eb9773",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2537,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "Please check that no other env vars are set. Here and below.",
+      "range": {
+        "startLine": 2536,
+        "startChar": 0,
+        "endLine": 2537,
+        "endChar": 53
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e9ddc8b_94b46c37",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2553,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "Although the filename doesn\u0027t actually matter, I suggest `classpath.txt` just to avoid pondering that.",
+      "range": {
+        "startLine": 2553,
+        "startChar": 60,
+        "endLine": 2553,
+        "endChar": 69
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3bfe29af_af888898",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "There are lots of error exits in `preRebootInit`. The line coverage tells me most of them are exercised, but I don\u0027t see how. Maybe it\u0027ll get clear in later CLs?\n\nJust in case it\u0027s not addressed later, I think we could test that a bit better. Adding a test for every error return is perhaps a bit much, but one to test an `odrefresh` failure would be good, at least.",
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

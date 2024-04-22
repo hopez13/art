@@ -208,6 +208,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b6ff22e_38a06eea",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "I\u0027d agree if it\u0027s complex, but I think a regex would handle that sort of thing easily. What about something like `([^\"\\\\\\n]|\"([^\"\\\\]|\\\\.)*\"|\\\\.)*` with an `std::regex_token_iterator`? (Untested, but you get the idea.)\n\nIf it\u0027s that simple I think it\u0027s preferable to potentially having to troubleshoot a change done by some other team. And worse, OEMs may be doing it.",
+      "parentUuid": "487b3fa0_b8776184",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7194203_a042109f",
         "filename": "artd/artd.cc",
         "patchSetId": 11
@@ -360,6 +384,30 @@
       "side": 1,
       "message": "You can take a look at the Java code at aosp/3037612. This only means 5 lines in `PreRebootGlobalInjector.getArtd` because that\u0027s the only place where we obtain a new instance of artd.\n\nWe do need `setenv` as mentioned elsewhere.",
       "parentUuid": "2bb44f29_8ce59cf6",
+      "range": {
+        "startLine": 244,
+        "startChar": 7,
+        "endLine": 245,
+        "endChar": 68
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f95ddd1_28b90b46",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 11
+      },
+      "lineNbr": 245,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T15:40:11Z",
+      "side": 1,
+      "message": "I see, and I gather it\u0027s the same if `ArtdRefCache` is used.\n\nWhat\u0027d be useful then is a consistency check that `preRebootInit` has been called in the process before (applicable) other calls. But that\u0027s for later CLs.",
+      "parentUuid": "928f6cca_58c15bbd",
       "range": {
         "startLine": 244,
         "startChar": 7,
