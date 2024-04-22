@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a7894654_82008225",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 7771,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-22T11:45:04Z",
+      "side": 1,
+      "message": "For boot image, we place the oat file code right after the heap snapshot from the .art file, so we can construct the address from the PC. For app images, we load the art and oat files to independent memory ranges, so we need to load the address from a patched section in the oat file.",
+      "parentUuid": "2b993b15_f1695ebe",
+      "range": {
+        "startLine": 7771,
+        "startChar": 6,
+        "endLine": 7771,
+        "endChar": 50
+      },
+      "revId": "5c3f6d6df8acca00e6628d5bfc4f8f6c0ffd06c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1cb0644e_fb67d7c6",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "35a1751b_45462641",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 9876,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-22T11:45:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cb0644e_fb67d7c6",
+      "range": {
+        "startLine": 9876,
+        "startChar": 4,
+        "endLine": 9876,
+        "endChar": 88
+      },
+      "revId": "5c3f6d6df8acca00e6628d5bfc4f8f6c0ffd06c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c391e2f8_9964b660",
@@ -60,6 +108,24 @@
       "writtenOn": "2024-04-19T15:50:02Z",
       "side": 1,
       "message": "Why the change in this line? Isn\u0027t the older if guard still valid?",
+      "revId": "5c3f6d6df8acca00e6628d5bfc4f8f6c0ffd06c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "289cd46c_f93d9eed",
+        "filename": "runtime/oat/oat_file.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 2559,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-22T11:45:04Z",
+      "side": 1,
+      "message": "No, it\u0027s not. The straightforward update would be `if (!GetBootImageRelocations().empty() || !GetAppImageRelocations().empty())` and I decided to go with the full range check instead of two partial checks.",
+      "parentUuid": "c391e2f8_9964b660",
       "revId": "5c3f6d6df8acca00e6628d5bfc4f8f6c0ffd06c4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
