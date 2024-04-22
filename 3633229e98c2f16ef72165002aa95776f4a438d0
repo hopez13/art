@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6741976_8ad64252",
+        "filename": "libnativeloader/native_loader_test.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:54:12Z",
+      "side": 1,
+      "message": "NB: The code below is moved verbatim from native_loader_test.h, with the sole exception of the `JniObject_getParent` mock.",
+      "revId": "3633229e98c2f16ef72165002aa95776f4a438d0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
