@@ -26,6 +26,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "769b7e27_372b1159",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1439,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-22T17:36:25Z",
+      "side": 1,
+      "message": "It should be fine to be in non-runnable state before calling `WaitForGcToComplete` here. But shouldn\u0027t we always enforce that then in `WaitForGcToComplete`? Like you said, it doesn\u0027t really make sense to wait in runnable if the GC needs to suspend us.",
+      "parentUuid": "7404dacc_81c089dc",
+      "range": {
+        "startLine": 1439,
+        "startChar": 2,
+        "endLine": 1439,
+        "endChar": 85
+      },
+      "revId": "a7bc7cbf3182cb5c66f7cf36611c0389e7b7cc0f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "092d4da0_89386f4d",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 3
