@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db41464_54c0f6d8",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Just stick to the implementations in android-base/strings.h? I\u0027m sure they\u0027ll get inlined when C++20 is a thing.\n\nActually, I can\u0027t see that this is used anywhere.",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa64558b_4a95a236",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Grammar: \"supported in non-Pre-reboot\"\n```suggestion\n    return Fatal(\"This method is only supported in non-Pre-reboot Dexopt mode\"); \\\n```",
+      "range": {
+        "startLine": 488,
+        "startChar": 38,
+        "endLine": 488,
+        "endChar": 65
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e59648b1_79400ca5",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Please add a brace block around this to limit visibility (or maybe even use the venerable old `#define FOO do { ... } while (0)` trick to make the macro consume an ending `;` correctly).",
+      "range": {
+        "startLine": 497,
+        "startChar": 9,
+        "endLine": 497,
+        "endChar": 27
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "044672ac_504f198f",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "I didn\u0027t think of this for output artifact paths, so thanks for that.\n\nHowever, adding it in structs that are also used for input paths extends the problem - what does it mean if this is set for an input path? We get the same issue there as I pointed out before - artd may in some way do what one can expect from it but the end result doesn\u0027t make sense, which introduces uncertainty when reading the code.\n\nFirst off, I wonder if this flag really has to be here - isn\u0027t it enough that it\u0027s in `OutputArtifacts`? If it can move there then other (input) paths based on `ArtifactsPath` would be inherently identical in both cases and there\u0027s less room for uncertainty.\n\nThe same argument applies to the profile paths - the flag cannot stay in `TmpProfilePath`, so that other instances of `PrimaryRefProfilePath` and `SecondaryRefProfilePath` inherently avoids the uncertainty?\n\nIf either of those two would work then that\u0027d be great. The  downside of it is that the structs become context dependent, but that\u0027s a smaller problem that can be adequately addressed by a comment here saying something along the lines of:\n\n\u003e Note that the ArtifactsPath in OutputArtifacts is subject to OutputArtifacts.isPreReboot, to designate staged artifacts in the Pre-reboot Dexopt case.\n\n(And correspondingly for `PrimaryRefProfilePath` and `SecondaryRefProfilePath`.)\n\nIf that doesn\u0027t work then we need to make the rules very clear around this flag in input cases as well:\n\n-  Comment that the flag is always false for input paths.\n-  Add checks somewhere in artd (possibly at a lower level in path_utils) that verifies it for input paths.\n\n(Even if the flags can be moved I don\u0027t mind the changes to `...AsInput` on the java level - it helps drive the point home, given that input and output paths aren\u0027t clearly separated by typing.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4132f8f7_4bb505db",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Just checking, this gets used in pre-reboot dexopt?",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c5ddd9e_08b29b83",
+        "filename": "artd/path_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Iiuc, all this gobbly-gook is to make it return by value if it\u0027s const, else by reference. But why do we need to return a bool by reference?\n\nIf it\u0027s actually necessary then I\u0027d prefer the duplication of having one const and one non-const function to this. But if you really need to go this way then please add a comment explaining the function (including the type it actually takes), because this takes too much effort to sort through. go/cstyle#Template_metaprogramming",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "817e56fa_083538f9",
+        "filename": "libartservice/service/java/com/android/server/art/AidlUtils.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Can this be private now? Same question for `buildPrimaryRefProfilePath` and `buildSecondaryRefProfilePath` below.",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5d23f0_de4d4658",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Please mention why this is skipped for pre-reboot.",
+      "range": {
+        "startLine": 296,
+        "startChar": 41,
+        "endLine": 296,
+        "endChar": 65
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ca91ee_ac1af375",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Same here.",
+      "range": {
+        "startLine": 531,
+        "startChar": 33,
+        "endLine": 531,
+        "endChar": 57
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "706157bb_50bbdc19",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T22:48:21Z",
+      "side": 1,
+      "message": "Guess I haven\u0027t thought about this before, but why have an injector that calls another injector?\n\n(Consider it optional since it\u0027s already an established pattern, but I\u0027m still curious.)",
+      "range": {
+        "startLine": 780,
+        "startChar": 19,
+        "endLine": 780,
+        "endChar": 61
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
