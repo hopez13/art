@@ -1,0 +1,182 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38266a79_7de40b41",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "Thanks Fabien!",
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e645b35c_efde0180",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "Should this be DCHECK? We only startDebuggerThreads and add the AppInfoCallback if the process was DebuggableOrProfileable. We shouldn\u0027t be receiving these events otherwise right?",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 36
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "061ab62a_680dff99",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "What does it mean if control_ctx_ is null? Does it mean adb connection was somehow dropped? Or maybe the process is shutting down for some reason?",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 449,
+        "endChar": 20
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "682f83c6_b51f702a",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "This is a little confusing to me. IIUC, we need to read contents on this socket so we would be notified again right? Maybe we could rephrase the comment?",
+      "range": {
+        "startLine": 820,
+        "startChar": 42,
+        "endLine": 820,
+        "endChar": 79
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e204de4_fb00291e",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "We don\u0027t need private on each method. We can just have private once.\n\nAlso don\u0027t they have to be public? We are calling them from Runtime::Callbacks right?",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "488e300f_e2027c7d",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "cleared?",
+      "range": {
+        "startLine": 110,
+        "startChar": 75,
+        "endLine": 110,
+        "endChar": 84
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ae6f808_d7018d98",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "Also add that this is required so that we will be woken up for any future writes.",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dbed5f35_9ff3bee0",
+        "filename": "runtime/native/android_os_Debug.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-22T14:19:06Z",
+      "side": 1,
+      "message": "We can\u0027t have android.os.Debug here. We should move these to dalvik_system_VMDebug",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
