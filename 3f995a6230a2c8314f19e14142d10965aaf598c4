@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf6c683d_20807384",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-22T19:14:50Z",
+      "side": 1,
+      "message": "I assume this new argument will get its explanation in a later CL. The benefit with adding it there is that it makes it clear why it\u0027s getting added (both in terms of review and later code archeology). But nvm.",
+      "range": {
+        "startLine": 204,
+        "startChar": 28,
+        "endLine": 207,
+        "endChar": 44
+      },
+      "revId": "3f995a6230a2c8314f19e14142d10965aaf598c4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
