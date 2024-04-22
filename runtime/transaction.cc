@@ -150,7 +150,7 @@ bool Transaction::WriteValueConstraint(ObjPtr<mirror::Object> value) const {
   } else {
     // Boot image extension.
     ObjPtr<mirror::Class> klass = value->IsClass() ? value->AsClass() : value->GetClass();
-    return !AotClassLinker::CanReferenceInBootImageExtensionOrAppImage(klass, heap);
+    return !AotClassLinker::CanReferenceInBootImageExtension(klass, heap);
   }
 }
 

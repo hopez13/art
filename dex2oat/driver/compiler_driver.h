@@ -222,9 +222,7 @@ class CompilerDriver {
   }
 
  private:
-  void LoadImageClasses(TimingLogger* timings,
-                        jobject class_loader,
-                        /*inout*/ HashSet<std::string>* image_classes)
+  void LoadImageClasses(TimingLogger* timings, /*inout*/ HashSet<std::string>* image_classes)
       REQUIRES(!Locks::mutator_lock_);
 
   // Attempt to resolve all type, methods, fields, and strings
