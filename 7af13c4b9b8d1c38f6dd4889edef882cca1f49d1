@@ -34,6 +34,23 @@
       "parentUuid": "e9865a43_967f72de",
       "revId": "7af13c4b9b8d1c38f6dd4889edef882cca1f49d1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9117bd0b_6d7ca63e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-04-22T08:41:19Z",
+      "side": 1,
+      "message": "FYI b/321695156 has been fixed without this CL. I think we can abandon it.",
+      "revId": "7af13c4b9b8d1c38f6dd4889edef882cca1f49d1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
