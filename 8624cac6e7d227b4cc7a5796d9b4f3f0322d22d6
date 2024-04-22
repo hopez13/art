@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9b63348_fd8eb559",
+        "filename": "artd/artd.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1628,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "Nice find! I wasn\u0027t aware of clearenv(3). It works!",
+      "parentUuid": "035fccef_55c47ec5",
+      "range": {
+        "startLine": 1628,
+        "startChar": 4,
+        "endLine": 1628,
+        "endChar": 42
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "39c2e700_0fe9a04a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-22T15:40:11Z",
       "side": 1,
       "message": "Why an `EXPECT_CALL` instead of `ON_CALL` here? Afaics it\u0027s not adding any restricting expectation.\n\nBtw, what properties get queried here?",
+      "range": {
+        "startLine": 2456,
+        "startChar": 42,
+        "endLine": 2456,
+        "endChar": 61
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8950213_d6f7b8fa",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2456,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "`ON_CALL` generates a lot of \"interesting call\" spams in the logs, but I can change this to `ON_CALL` since it\u0027s the canonical way.\n\nI don\u0027t think properties are queried during these tests, but I think it\u0027s good to set up the mock here for completeness, since I need the mock when constructing the `Artd` instance. I\u0027m adding more tests in aosp/3031231, one of which exercises `dexopt()`, which queries many `dalvik.vm.*` properties.",
+      "parentUuid": "39c2e700_0fe9a04a",
       "range": {
         "startLine": 2456,
         "startChar": 42,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fcee84c_d84d04fa",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2537,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7f5f5017_c4eb9773",
+      "range": {
+        "startLine": 2536,
+        "startChar": 0,
+        "endLine": 2537,
+        "endChar": 53
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7e9ddc8b_94b46c37",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c86230e9_d7a1ae2b",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2553,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7e9ddc8b_94b46c37",
+      "range": {
+        "startLine": 2553,
+        "startChar": 60,
+        "endLine": 2553,
+        "endChar": 69
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3bfe29af_af888898",
@@ -106,6 +202,24 @@
       "writtenOn": "2024-04-22T15:40:11Z",
       "side": 1,
       "message": "There are lots of error exits in `preRebootInit`. The line coverage tells me most of them are exercised, but I don\u0027t see how. Maybe it\u0027ll get clear in later CLs?\n\nJust in case it\u0027s not addressed later, I think we could test that a bit better. Adding a test for every error return is perhaps a bit much, but one to test an `odrefresh` failure would be good, at least.",
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "220fedfa_5ca3547b",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "I don\u0027t see the line coverage showing that the error cases are exercised. I see the opposite: some methods such as `PreRebootInitBootImages` are apparently exercised, but the line coverage shows that they are not covered at all.\n\nAdded a test for the `odrefresh` failure.",
+      "parentUuid": "3bfe29af_af888898",
       "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

@@ -230,6 +230,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8f4dfba_38bdde6a",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-22T17:29:55Z",
+      "side": 1,
+      "message": "\u003e What about something like ([^\"\\\\\\n]|\"([^\"\\\\]|\\\\.)*\"|\\\\.)* with an std::regex_token_iterator?\n\nI knew what you meant. I was saying that it\u0027s not solving the problem.\n\nConsider the following example:\n\n```\nexport FOO \\\n  bar\n```\n\nWith your regex, the lines will be split correctly, but we still can\u0027t get the right value of `FOO`. When processing the line, we will get\n\n```\n\\\n  bar\n```\n\nas the value, which is not what we want. Of course, there is a way to handle this correctly, but that requires a rather complex implementation, and I\u0027d like to avoid it.",
+      "parentUuid": "6b6ff22e_38a06eea",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7194203_a042109f",
