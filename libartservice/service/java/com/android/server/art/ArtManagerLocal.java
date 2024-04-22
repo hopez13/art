@@ -924,6 +924,8 @@ public final class ArtManagerLocal {
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
     public void onApexStaged(@NonNull String[] stagedApexModuleNames) {
         // TODO(b/311377497): Check system requirements.
+        mInjector.getPreRebootDexoptJob().unschedule();
+        mInjector.getPreRebootDexoptJob().updateOtaSlot(null);
         mInjector.getPreRebootDexoptJob().schedule();
     }
 
