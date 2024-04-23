@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8a5299f_442b721a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T10:06:58Z",
+      "side": 1,
+      "message": "Interesting. Then why were the mocks used before?",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 11
+      },
+      "revId": "78900455b2c40ae662e61527850301f48cdaf515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e33b3ca9_1df7612b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T10:06:58Z",
+      "side": 1,
+      "message": "I\u0027m not sure I have enough context to review this CL. I\u0027m probably asking dumb questions here. Please forgive my ignorance.",
+      "revId": "78900455b2c40ae662e61527850301f48cdaf515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "be407612_562d13c4",
+        "filename": "libnativeloader/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T10:06:58Z",
+      "side": 1,
+      "message": "This defaults contains `libnativeloader` as a shared lib. Will it conflict with the static `libnativeloader_lazy` below? I think it\u0027s better to have `libnativeloader` in `art_libnativeloader_cts_test` instead of having it in the defaults, just for peace of mind.",
+      "range": {
+        "startLine": 207,
+        "startChar": 16,
+        "endLine": 207,
+        "endChar": 49
+      },
+      "revId": "78900455b2c40ae662e61527850301f48cdaf515",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
