@@ -302,6 +302,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed33c93d_77734074",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T17:42:55Z",
+      "side": 1,
+      "message": "Sure, the early return will put an error message in the log, but it won\u0027t stop an OTA from being applied, so it may very well slip by in OEM OTA tests, and that\u0027s assuming they get done with full device coverage.",
+      "parentUuid": "09d68f28_ce88561c",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7194203_a042109f",
