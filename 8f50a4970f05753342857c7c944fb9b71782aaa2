@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "cea6745e_58f65990",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T15:03:25Z",
+      "side": 1,
+      "message": "Actually, this doesn\u0027t treat quotes like the real parser does either, e.g.\n\n```\nexport FOO \"BAR\"\n```\n\nwould set the value `BAR` in init, but it\u0027ll set `\"BAR\"` here, won\u0027t it? So you should at least check for quotes as well.",
+      "range": {
+        "startLine": 1637,
+        "startChar": 8,
+        "endLine": 1637,
+        "endChar": 23
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d1d81dff_16c2b727",
         "filename": "artd/artd.cc",
         "patchSetId": 15
