@@ -985,6 +985,24 @@ class ImageSpace::Loader {
     return true;
   }
 
+  // Utility method for madvise'ing the image file into memory, accelerating either decompression
+  // (for the compressed case), or fixup (for the uncompressed case).
+  static void MaybeMadviseImageMap(const MemMap& image_map, const char* image_filename) {
+    if (!image_map.IsValid()) {
+      return;
+    }
+
+    Runtime* runtime = Runtime::Current();
+    // The runtime might not be available at this point if we're running dex2oat or oatdump.
+    if (runtime == nullptr) {
+      return;
+    }
+
+    size_t madvise_size_limit = runtime->GetMadviseWillNeedSizeArt();
+    Runtime::MadviseFileForRange(
+        madvise_size_limit, image_map.Size(), image_map.Begin(), image_map.End(), image_filename);
+  }
+
   static MemMap LoadImageFile(const char* image_filename,
                               const char* image_location,
                               const ImageHeader& image_header,
@@ -995,24 +1013,25 @@ class ImageSpace::Loader {
                               /*out*/std::string* error_msg)
         REQUIRES_SHARED(Locks::mutator_lock_) {
     TimingLogger::ScopedTiming timing("MapImageFile", logger);
-    std::string temp_error_msg;
     const bool is_compressed = image_header.HasCompressedBlock();
     if (!is_compressed && allow_direct_mapping) {
       uint8_t* address = (image_reservation != nullptr) ? image_reservation->Begin() : nullptr;
       // The reserved memory size is aligned up to kElfSegmentAlignment to ensure
       // that the next reserved area will be aligned to the value.
-      return MemMap::MapFileAtAddress(address,
-                                      CondRoundUp<kPageSizeAgnostic>(image_header.GetImageSize(),
-                                                                     kElfSegmentAlignment),
-                                      PROT_READ | PROT_WRITE,
-                                      MAP_PRIVATE,
-                                      fd,
-                                      /*start=*/ 0,
-                                      /*low_4gb=*/ true,
-                                      image_filename,
-                                      /*reuse=*/ false,
-                                      image_reservation,
-                                      error_msg);
+      MemMap map = MemMap::MapFileAtAddress(
+          address,
+          CondRoundUp<kPageSizeAgnostic>(image_header.GetImageSize(), kElfSegmentAlignment),
+          PROT_READ | PROT_WRITE,
+          MAP_PRIVATE,
+          fd,
+          /*start=*/0,
+          /*low_4gb=*/true,
+          image_filename,
+          /*reuse=*/false,
+          image_reservation,
+          error_msg);
+      MaybeMadviseImageMap(map, image_filename);
+      return map;
     }
 
     // Reserve output and copy/decompress into it.
@@ -1040,17 +1059,7 @@ class ImageSpace::Loader {
         return MemMap::Invalid();
       }
 
-      Runtime* runtime = Runtime::Current();
-      // The runtime might not be available at this point if we're running
-      // dex2oat or oatdump.
-      if (runtime != nullptr) {
-        size_t madvise_size_limit = runtime->GetMadviseWillNeedSizeArt();
-        Runtime::MadviseFileForRange(madvise_size_limit,
-                                     temp_map.Size(),
-                                     temp_map.Begin(),
-                                     temp_map.End(),
-                                     image_filename);
-      }
+      MaybeMadviseImageMap(temp_map, image_filename);
 
       if (is_compressed) {
         memcpy(map.Begin(), &image_header, sizeof(ImageHeader));
