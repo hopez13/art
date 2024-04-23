@@ -16,6 +16,29 @@
       "message": "PTAL. Thanks!",
       "revId": "4f018c0e397a3491cc35690b5b71814b0fcabdac",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "638e6498_918d9261",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 815,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-23T15:11:45Z",
+      "side": 1,
+      "message": "I think you can check that this thread holds the mutator lock exclusively?",
+      "range": {
+        "startLine": 815,
+        "startChar": 0,
+        "endLine": 815,
+        "endChar": 55
+      },
+      "revId": "4f018c0e397a3491cc35690b5b71814b0fcabdac",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
