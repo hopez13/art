@@ -73,16 +73,7 @@ module build on `master-art` above (b/172480617).
 1.  Check out a full Android platform tree and lunch the appropriate product the
     normal way.
 
-2.  Ensure the ART Module is built from source:
-
-    ```
-    export ART_MODULE_BUILD_FROM_SOURCE=true
-    ```
-
-    If this isn't set then the build may use prebuilts of the ART Module that
-    may be older than the sources.
-
-3.  Build the system image the normal way, for example:
+2.  Build the system image the normal way, for example:
 
     ```
     m droid
