@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78d94809_0c5f4bf3",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Removed. Not sure why I added it.",
+      "parentUuid": "1db41464_54c0f6d8",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 35
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa64558b_4a95a236",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-22T22:48:21Z",
       "side": 1,
       "message": "Grammar: \"supported in non-Pre-reboot\"\n```suggestion\n    return Fatal(\"This method is only supported in non-Pre-reboot Dexopt mode\"); \\\n```",
+      "range": {
+        "startLine": 488,
+        "startChar": 38,
+        "endLine": 488,
+        "endChar": 65
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f6be02d_b19d04e6",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "It was a typo. I fixed it and PTAL again.",
+      "parentUuid": "fa64558b_4a95a236",
       "range": {
         "startLine": 488,
         "startChar": 38,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "47e6c691_53021c01",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 497,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e59648b1_79400ca5",
+      "range": {
+        "startLine": 497,
+        "startChar": 9,
+        "endLine": 497,
+        "endChar": 27
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044672ac_504f198f",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-04-22T22:48:21Z",
       "side": 1,
       "message": "I didn\u0027t think of this for output artifact paths, so thanks for that.\n\nHowever, adding it in structs that are also used for input paths extends the problem - what does it mean if this is set for an input path? We get the same issue there as I pointed out before - artd may in some way do what one can expect from it but the end result doesn\u0027t make sense, which introduces uncertainty when reading the code.\n\nFirst off, I wonder if this flag really has to be here - isn\u0027t it enough that it\u0027s in `OutputArtifacts`? If it can move there then other (input) paths based on `ArtifactsPath` would be inherently identical in both cases and there\u0027s less room for uncertainty.\n\nThe same argument applies to the profile paths - the flag cannot stay in `TmpProfilePath`, so that other instances of `PrimaryRefProfilePath` and `SecondaryRefProfilePath` inherently avoids the uncertainty?\n\nIf either of those two would work then that\u0027d be great. The  downside of it is that the structs become context dependent, but that\u0027s a smaller problem that can be adequately addressed by a comment here saying something along the lines of:\n\n\u003e Note that the ArtifactsPath in OutputArtifacts is subject to OutputArtifacts.isPreReboot, to designate staged artifacts in the Pre-reboot Dexopt case.\n\n(And correspondingly for `PrimaryRefProfilePath` and `SecondaryRefProfilePath`.)\n\nIf that doesn\u0027t work then we need to make the rules very clear around this flag in input cases as well:\n\n-  Comment that the flag is always false for input paths.\n-  Add checks somewhere in artd (possibly at a lower level in path_utils) that verifies it for input paths.\n\n(Even if the flags can be moved I don\u0027t mind the changes to `...AsInput` on the java level - it helps drive the point home, given that input and output paths aren\u0027t clearly separated by typing.)",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4cc422d1_e858d2bb",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Thanks for your thoughts. I can see a value in disallowing Pre-reboot artifacts as inputs, but I don\u0027t think we should twist the data structure just for the sake of it. By design, `ArtifactsPath` is a data structure that contains everything we need to construct the paths to the artifacts. I strongly feel that we should keep it in this way as it\u0027s straightforward. Any exception to this adds complexity that one needs to comprehend and can be a source of errors. A piece of comment may mitigate the confusion, but doesn\u0027t reduce the complexity or prevent errors. Without the `isPreReboot` field, one may use `ArtifactsPath` to refer to something they want but actually get something else that they don\u0027t expect, due to some logic elsewhere that augments the paths. Besides, if we removed the `isPreReboot` field from here, then when we need to use Pre-reboot artifacts as inputs for some reason in the future, it wouldn\u0027t be possible unless we do a tedious refactoring to add it back.\n\nAdded comments and checks. I puts the checks in `Artd` rather than `path_utils` because the methods in `path_utils.cc` are general ones for both inputs and outputs and I want to keep them simple, and I want `Artd` authors to check case-by-case whether the `isPreReboot` is really unexpected for a method or not.",
+      "parentUuid": "044672ac_504f198f",
       "range": {
         "startLine": 31,
         "startChar": 0,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3d203d2c_057c2300",
+        "filename": "artd/binder/com/android/server/art/IArtd.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "It does, to delete the temp profile when dexopt fails.",
+      "parentUuid": "4132f8f7_4bb505db",
+      "range": {
+        "startLine": 89,
+        "startChar": 9,
+        "endLine": 89,
+        "endChar": 22
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4c5ddd9e_08b29b83",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-04-22T22:48:21Z",
       "side": 1,
       "message": "Iiuc, all this gobbly-gook is to make it return by value if it\u0027s const, else by reference. But why do we need to return a bool by reference?\n\nIf it\u0027s actually necessary then I\u0027d prefer the duplication of having one const and one non-const function to this. But if you really need to go this way then please add a comment explaining the function (including the type it actually takes), because this takes too much effort to sort through. go/cstyle#Template_metaprogramming",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a52d4cf_b40da909",
+        "filename": "artd/path_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "I need it to return a bool by reference because I need to assign the bool in aosp/3048698.\n\nThis function has many lines, so I\u0027d like to avoid duplicating it.\n\nI don\u0027t think this is \"complicated template programming\". It\u0027s just a function with a conditional return type (plus an std::enable_if_t that spells out the expected argument type).\n\nSimplified it a little bit.",
+      "parentUuid": "4c5ddd9e_08b29b83",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -162,6 +306,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99063fb2_9adf436d",
+        "filename": "libartservice/service/java/com/android/server/art/AidlUtils.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Good point! Done.",
+      "parentUuid": "817e56fa_083538f9",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fe5d23f0_de4d4658",
@@ -175,6 +343,30 @@
       "writtenOn": "2024-04-22T22:48:21Z",
       "side": 1,
       "message": "Please mention why this is skipped for pre-reboot.",
+      "range": {
+        "startLine": 296,
+        "startChar": 41,
+        "endLine": 296,
+        "endChar": 65
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "921a6b84_c1bf034e",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fe5d23f0_de4d4658",
       "range": {
         "startLine": 296,
         "startChar": 41,
@@ -210,6 +402,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "7793459d_fa64b566",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 531,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20ca91ee_ac1af375",
+      "range": {
+        "startLine": 531,
+        "startChar": 33,
+        "endLine": 531,
+        "endChar": 57
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "706157bb_50bbdc19",
         "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
         "patchSetId": 15
@@ -221,6 +437,30 @@
       "writtenOn": "2024-04-22T22:48:21Z",
       "side": 1,
       "message": "Guess I haven\u0027t thought about this before, but why have an injector that calls another injector?\n\n(Consider it optional since it\u0027s already an established pattern, but I\u0027m still curious.)",
+      "range": {
+        "startLine": 780,
+        "startChar": 19,
+        "endLine": 780,
+        "endChar": 61
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9aaecdcd_84e6c938",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T13:51:38Z",
+      "side": 1,
+      "message": "The global injector is for production, not for testing, and we don\u0027t mock it in tests. In contrast, the local injector is solely for testing. We can mock two injectors in tests, but it\u0027s a bit more tedious than mocking just one.",
+      "parentUuid": "706157bb_50bbdc19",
       "range": {
         "startLine": 780,
         "startChar": 19,
