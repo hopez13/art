@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "501307c8_20af16aa",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T16:00:17Z",
+      "side": 1,
+      "message": "It got nonfunctional only with the parent CL, when `libnativeloader_lazy_test` stopped being linked with exported symbols to override NEEDED dependencies.",
+      "parentUuid": "eabe71a4_ea92e96e",
+      "range": {
+        "startLine": 10,
+        "startChar": 32,
+        "endLine": 10,
+        "endChar": 60
+      },
+      "revId": "32dd692bc1e68db594f885d4e76921f2e44f7b6e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "910bb494_7c9155d0",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
