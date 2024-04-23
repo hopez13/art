@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "398525f3_346b67f1",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1637,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cea6745e_58f65990",
+      "range": {
+        "startLine": 1637,
+        "startChar": 8,
+        "endLine": 1637,
+        "endChar": 23
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1d81dff_16c2b727",
@@ -64,6 +88,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a11e502d_443d1fb2",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "This only prints logs once per job run, so it\u0027s not too noisy.",
+      "parentUuid": "d1d81dff_16c2b727",
+      "range": {
+        "startLine": 1646,
+        "startChar": 4,
+        "endLine": 1646,
+        "endChar": 85
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "60ec2227_5dd4782f",
@@ -77,6 +125,30 @@
       "writtenOn": "2024-04-23T14:39:46Z",
       "side": 1,
       "message": "Good. Can you please also add one that doesn\u0027t get overridden, to check that `clearenv` removes it?",
+      "range": {
+        "startLine": 2493,
+        "startChar": 27,
+        "endLine": 2494,
+        "endChar": 28
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d568105_8e096d48",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2494,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "60ec2227_5dd4782f",
       "range": {
         "startLine": 2493,
         "startChar": 27,

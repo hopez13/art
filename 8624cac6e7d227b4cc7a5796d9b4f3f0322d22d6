@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2087a1af_76adcc8e",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2456,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "Done. Thanks for the suggestion!",
+      "parentUuid": "f3ae3268_f6fbef8f",
+      "range": {
+        "startLine": 2456,
+        "startChar": 42,
+        "endLine": 2456,
+        "endChar": 61
+      },
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f5f5017_c4eb9773",
@@ -262,6 +286,24 @@
       "side": 1,
       "message": "\u003e  don\u0027t see the line coverage showing that the error cases are exercised.\n\nNot specifically for odrefresh, but I was referring to cases like these: http://screen/B6Qg75efufgdmKM\n\nBut I agree, the coverage annotations don\u0027t make an awful lot of sense. Some errors are attributed as non-code rather than uncovered, and closing braces show a mix of all three for no apparent reason. It looks much more believable now in PS15 actually.",
       "parentUuid": "220fedfa_5ca3547b",
+      "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "85fedfe5_2475ccc8",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 2560,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "Yeah, it\u0027s makes more sense now. There must be something wrong before.",
+      "parentUuid": "bed7bb21_8160c8c9",
       "revId": "8624cac6e7d227b4cc7a5796d9b4f3f0322d22d6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

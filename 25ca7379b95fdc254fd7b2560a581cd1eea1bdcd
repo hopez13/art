@@ -278,6 +278,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09d68f28_ce88561c",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-23T15:54:35Z",
+      "side": 1,
+      "message": "I know OEMs can have their own init rc files, which may contain backslashes. The early return will surface that. OEMs will see it, and we\u0027ll see it through telemetry.",
+      "parentUuid": "acf0b7a6_5b841735",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7194203_a042109f",
