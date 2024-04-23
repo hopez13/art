@@ -46,6 +46,30 @@
       },
       "revId": "7673133926894be2407984d21779d32722997c2e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3454df4d_539b1f11",
+        "filename": "libartservice/service/java/com/android/server/art/ArtFileManager.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 300,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T14:43:40Z",
+      "side": 1,
+      "message": "Right, that\u0027s a pity. It\u0027s possible to have a builder for a record too, but sure, I take it there\u0027s no autogeneration so it\u0027d be a lot of boilerplate.",
+      "parentUuid": "2b1dc6a4_5cc8382c",
+      "range": {
+        "startLine": 300,
+        "startChar": 5,
+        "endLine": 300,
+        "endChar": 14
+      },
+      "revId": "7673133926894be2407984d21779d32722997c2e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
