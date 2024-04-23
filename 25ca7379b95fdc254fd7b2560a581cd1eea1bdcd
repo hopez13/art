@@ -254,6 +254,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "acf0b7a6_5b841735",
+        "filename": "artd/artd.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1618,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T14:39:46Z",
+      "side": 1,
+      "message": "I was about to say that it\u0027s still pretty simple to deal with escaped newlines with a `regex_replace` but then I realised the lack of backslash parsing isn\u0027t limited to them, so that makes the problem both larger and indeed a correct parser more complex.\n\nIf it was just our own integration tests I wouldn\u0027t mind this cop-out, but it can affect OEMs as well, and we don\u0027t have any visibility there. So I\u0027m not entirely happy with this, but very well then.",
+      "parentUuid": "a8f4dfba_38bdde6a",
+      "range": {
+        "startLine": 1618,
+        "startChar": 13,
+        "endLine": 1618,
+        "endChar": 20
+      },
+      "revId": "25ca7379b95fdc254fd7b2560a581cd1eea1bdcd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7194203_a042109f",

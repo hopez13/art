@@ -16,6 +16,52 @@
       "message": "Thanks for the review!",
       "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1d81dff_16c2b727",
+        "filename": "artd/artd.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1646,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T14:39:46Z",
+      "side": 1,
+      "message": "Doesn\u0027t this belong better on the `DEBUG` level?",
+      "range": {
+        "startLine": 1646,
+        "startChar": 4,
+        "endLine": 1646,
+        "endChar": 85
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60ec2227_5dd4782f",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 2494,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-23T14:39:46Z",
+      "side": 1,
+      "message": "Good. Can you please also add one that doesn\u0027t get overridden, to check that `clearenv` removes it?",
+      "range": {
+        "startLine": 2493,
+        "startChar": 27,
+        "endLine": 2494,
+        "endChar": 28
+      },
+      "revId": "8f50a4970f05753342857c7c944fb9b71782aaa2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
