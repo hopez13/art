@@ -1089,8 +1089,8 @@ public final class ArtManagerLocal {
                     runtimeArtifactsToKeep.addAll(artifactLists.runtimeArtifacts());
                 }
             }
-            return mInjector.getArtd().cleanup(
-                    profilesToKeep, artifactsToKeep, vdexFilesToKeep, runtimeArtifactsToKeep);
+            return mInjector.getArtd().cleanup(profilesToKeep, artifactsToKeep, vdexFilesToKeep,
+                    runtimeArtifactsToKeep, false);
         } catch (RemoteException e) {
             Utils.logArtdException(e);
             return 0;

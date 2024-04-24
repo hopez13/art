@@ -69,6 +69,15 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     /** The slot that contains the OTA update, "_a" or "_b", or null for a Mainline update. */
     @GuardedBy("this") @Nullable private String mOtaSlot = null;
 
+    /**
+     * Whether the job has run, meaning the device is expected to have staged files.
+     *
+     * Note that this flag is not persisted across system server restarts. It's possible that the
+     * value is lost due to a system server restart caused by a crash, but this is a minor case, so
+     * we don't handle it here for simplicity.
+     */
+    @GuardedBy("this") private boolean mHasRun = false;
+
     public PreRebootDexoptJob(@NonNull Context context) {
         this(new Injector(context));
     }
