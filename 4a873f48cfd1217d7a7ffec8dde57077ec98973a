@@ -165,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "32ec6d91_27b50e49",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1948,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "This can\u0027t affect the test behavior because `reference_profile_path` is only used in `output_profile`, where the content and even the existence of the file don\u0027t matter.\n\nI deleted it because it\u0027s not necessary but a copy-paste leftover. (It\u0027s used as `in_referenceProfile` in other tests, which I copied from, but not in this test.)\n\nIt\u0027s related to this CL because I need to make sure `tmp_profile_path_` is no longer used as an input profile after adding the checks.",
+      "parentUuid": "7b06861f_8484f2c6",
+      "range": {
+        "startLine": 1948,
+        "startChar": 2,
+        "endLine": 1948,
+        "endChar": 44
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "044672ac_504f198f",
@@ -344,6 +368,30 @@
       "side": 1,
       "message": "\u003e I don\u0027t think this is \"complicated template programming\".\n\nI do. This required me to look up `enable_if_t`, SFINAE, and other things in the standard that I rarely need to be concerned with and hence don\u0027t have fresh. If template metaprogramming was already widely deployed in our code base then you\u0027d have a point, but that\u0027s not the case. So lots of the wisdom in go/cstyle#Template_metaprogramming applies here.\n\nTurning the question around, do we need to make it return-by-value in the const case? Doesn\u0027t a const reference work then? (It\u0027s all inlined anyway.)",
       "parentUuid": "0a52d4cf_b40da909",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "462a816d_cc415147",
+        "filename": "artd/path_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "Discussed offline. This is the best we can do other than duplicating the whole function body. Added a comment to mitigate the confusion.\n\nI also realized that I can spell out the specializations below. Does that help improve readability?",
+      "parentUuid": "b0e1c03f_145b1955",
       "range": {
         "startLine": 95,
         "startChar": 0,
@@ -580,6 +628,30 @@
       "side": 1,
       "message": "Otoh it means less risk of confusing two different points of mocking. As long as `GlobalInjector` isn\u0027t mocked at all then I agree, but if that changes I think it\u0027d be cleaner if things like this were cleaned up.",
       "parentUuid": "9aaecdcd_84e6c938",
+      "range": {
+        "startLine": 780,
+        "startChar": 19,
+        "endLine": 780,
+        "endChar": 61
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c73fc2ca_c669c0ee",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "Agreed.",
+      "parentUuid": "96e6298f_77d78c60",
       "range": {
         "startLine": 780,
         "startChar": 19,

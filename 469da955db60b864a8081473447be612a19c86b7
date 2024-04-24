@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5bd536c8_33f30b4b",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "No, this can be both cases. If the reference profile is copied from a DM file or an embedded profile, it is a Pre-reboot one. Otherwise, it\u0027s a non-Pre-reboot one.",
+      "parentUuid": "e861c889_9a823f78",
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2076dc78_f443fdfd",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7bfb3b0d_414cc0af",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "No, this can be both cases. If a profile merge or a copying took place, this is a Pre-reboot one. Otherwise, it\u0027s a non-Pre-reboot one.",
+      "parentUuid": "2076dc78_f443fdfd",
+      "range": {
+        "startLine": 985,
+        "startChar": 38,
+        "endLine": 985,
+        "endChar": 48
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "895e9521_9e4723db",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-04-24T16:08:55Z",
       "side": 1,
       "message": "It\u0027s really helpful to be very clear here. Are there any exceptions? If not, please strengthen to \"Always `false` for inputs.\". If it changes we can and should clarify it then.\n\n(Same for the flags in ProfilePath.aidl.)",
+      "range": {
+        "startLine": 32,
+        "startChar": 63,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa0c5d24_b27343a6",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-24T19:05:51Z",
+      "side": 1,
+      "message": "I didn\u0027t make this statement absolute because I don\u0027t want a future author to think that this is something that cannot be changed. But I guess I can phrase it better. PTAL again.",
+      "parentUuid": "895e9521_9e4723db",
       "range": {
         "startLine": 32,
         "startChar": 63,
