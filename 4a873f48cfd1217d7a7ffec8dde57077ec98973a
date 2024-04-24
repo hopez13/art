@@ -212,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c7b7ea2d_ebaea848",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 15
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:59:46Z",
+      "side": 1,
+      "message": "(Missed following up on this.) Just to round it off I wanted to say that those are valid points. There are pros and cons either way - the drawback with your approach is mainly that the data structures get \"hidden variables\" that are error prone and require more consistency checks etc. In any case it\u0027s thorough now, which is good.",
+      "parentUuid": "4cc422d1_e858d2bb",
+      "range": {
+        "startLine": 31,
+        "startChar": 0,
+        "endLine": 32,
+        "endChar": 24
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4132f8f7_4bb505db",
