@@ -17,6 +17,7 @@
 #include "loop_analysis.h"
 
 #include "base/bit_vector-inl.h"
+#include "base/casts.h"
 #include "code_generator.h"
 #include "induction_var_range.h"
 
@@ -81,7 +82,7 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
   // Scalar loop unrolling parameters and heuristics.
   //
   // Maximum possible unrolling factor.
-  static constexpr uint32_t kScalarMaxUnrollFactor = 2;
+  static constexpr uint32_t kScalarMaxUnrollFactor = 8;
   // Loop's maximum instruction count. Loops with higher count will not be peeled/unrolled.
   static constexpr uint32_t kScalarHeuristicMaxBodySizeInstr = 17;
   // Loop's maximum basic block count. Loops with higher count will not be peeled/unrolled.
@@ -102,12 +103,7 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
     if (trip_count == LoopAnalysisInfo::kUnknownTripCount) {
       return LoopAnalysisInfo::kNoUnrollingFactor;
     }
-    uint32_t desired_unrolling_factor = kScalarMaxUnrollFactor;
-    if (trip_count < desired_unrolling_factor || trip_count % desired_unrolling_factor != 0) {
-      return LoopAnalysisInfo::kNoUnrollingFactor;
-    }
-
-    return desired_unrolling_factor;
+    return std::min(kScalarMaxUnrollFactor, dchecked_integral_cast<uint32_t>(1 << CTZ(trip_count)));
   }
 
   bool IsLoopPeelingEnabled() const override { return true; }
