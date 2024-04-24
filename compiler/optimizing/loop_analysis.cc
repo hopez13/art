@@ -81,7 +81,7 @@ class ArchDefaultLoopHelper : public ArchNoOptsLoopHelper {
   // Scalar loop unrolling parameters and heuristics.
   //
   // Maximum possible unrolling factor.
-  static constexpr uint32_t kScalarMaxUnrollFactor = 2;
+  static constexpr uint32_t kScalarMaxUnrollFactor = 8;
   // Loop's maximum instruction count. Loops with higher count will not be peeled/unrolled.
   static constexpr uint32_t kScalarHeuristicMaxBodySizeInstr = 17;
   // Loop's maximum basic block count. Loops with higher count will not be peeled/unrolled.

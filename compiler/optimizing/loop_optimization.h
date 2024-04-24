@@ -519,6 +519,9 @@ class HLoopOptimization : public HOptimization {
   // Whether to use predicated loop vectorization (e.g. for arm64 SVE target).
   bool predicated_vectorization_mode_;
 
+  // True if we unrolled and we need to rerun loop dominance.
+  bool recompute_dominator_tree_;
+
   // Number of "lanes" for selected packed type.
   uint32_t vector_length_;
 
