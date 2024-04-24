@@ -16,6 +16,29 @@
       "message": "Still waiting on the benchmark service results, but this showed a marked reduction in uncompressed image faulting during fixup in local testing.",
       "revId": "3aa1b5f1c8e8bae28ad752211bc35c3d4cd4a9e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f1d64119_4fc753a8",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-24T10:04:20Z",
+      "side": 1,
+      "message": "Maybe move this check to the caller that needs it?",
+      "range": {
+        "startLine": 991,
+        "startChar": 4,
+        "endLine": 993,
+        "endChar": 5
+      },
+      "revId": "3aa1b5f1c8e8bae28ad752211bc35c3d4cd4a9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
