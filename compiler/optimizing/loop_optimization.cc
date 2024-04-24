@@ -26,6 +26,7 @@
 #include "linear_order.h"
 #include "mirror/array-inl.h"
 #include "mirror/string.h"
+#include "optimizing/nodes.h"
 
 namespace art HIDDEN {
 
@@ -522,6 +523,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       reductions_(nullptr),
       simplified_(false),
       predicated_vectorization_mode_(codegen.SupportsPredicatedSIMD()),
+      recompute_dominator_tree_(false),
       vector_length_(0),
       vector_refs_(nullptr),
       vector_static_peeling_factor_(0),
@@ -558,6 +560,10 @@ bool HLoopOptimization::Run() {
 
   // Detach allocator.
   loop_allocator_ = nullptr;
+
+  if (recompute_dominator_tree_) {
+    graph_->RecomputeDominatorTree();
+  }
 
   return did_loop_opt;
 }
@@ -1006,19 +1012,28 @@ bool HLoopOptimization::TryUnrollingForBranchPenaltyReduction(LoopAnalysisInfo* 
   }
 
   if (generate_code) {
-    // TODO: support other unrolling factors.
-    DCHECK_EQ(unrolling_factor, 2u);
-
     // Perform unrolling.
     HLoopInformation* loop_info = analysis_info->GetLoopInfo();
-    LoopClonerSimpleHelper helper(loop_info, &induction_range_);
-    helper.DoUnrolling();
+    DCHECK(IsPowerOfTwo(unrolling_factor));
+    for (uint32_t i = 1; i < unrolling_factor; i <<= 1) {
+      LoopClonerSimpleHelper helper(loop_info, &induction_range_);
+      helper.DoUnrolling();
 
-    // Remove the redundant loop check after unrolling.
-    HIf* copy_hif =
-        helper.GetBasicBlockMap()->Get(loop_info->GetHeader())->GetLastInstruction()->AsIf();
-    int32_t constant = loop_info->Contains(*copy_hif->IfTrueSuccessor()) ? 1 : 0;
-    copy_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+      // Remove the redundant loop check after unrolling. To do that, we disconnect the extra blocks
+      // and change the If into a Goto.
+      HBasicBlock* new_header = helper.GetBasicBlockMap()->Get(loop_info->GetHeader());
+      HIf* hif = new_header->GetLastInstruction()->AsIf();
+      const bool true_branch_in_loop = loop_info->Contains(*hif->IfTrueSuccessor());
+      HBasicBlock* to_remove =
+          true_branch_in_loop ? hif->IfFalseSuccessor() : hif->IfTrueSuccessor();
+      new_header->RemoveSuccessor(to_remove);
+      to_remove->RemovePredecessor(new_header);
+
+      hif->GetBlock()->ReplaceAndRemoveInstructionWith(
+          hif, new (graph_->GetAllocator()) HGoto(hif->GetDexPc()));
+
+      recompute_dominator_tree_ = true;
+    }
   }
   return true;
 }

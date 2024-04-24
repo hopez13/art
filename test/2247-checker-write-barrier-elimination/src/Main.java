@@ -54,7 +54,7 @@ public class Main {
         $noinline$testArraySetsSameRTIBlocked(new Main());
     }
 
-    /// CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)
+    /// CHECK-START: Main Main.$noinline$testInstanceFieldSets(Main, java.lang.Object, java.lang.Object, java.lang.Object) disassembly (after)a
     /// CHECK: InstanceFieldSet field_name:Main.inner field_type:Reference write_barrier_kind:EmitBeingReliedOn
     /// CHECK: ; card_table
     /// CHECK: InstanceFieldSet field_name:Main.inner2 field_type:Reference write_barrier_kind:DontEmit
