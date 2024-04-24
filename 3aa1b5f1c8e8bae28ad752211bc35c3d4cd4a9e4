@@ -39,6 +39,30 @@
       },
       "revId": "3aa1b5f1c8e8bae28ad752211bc35c3d4cd4a9e4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "87439b17_4ba34e28",
+        "filename": "runtime/gc/space/image_space.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 993,
+      "author": {
+        "id": 1064003
+      },
+      "writtenOn": "2024-04-24T22:13:31Z",
+      "side": 1,
+      "message": "Done. I went ahead and just inlined the call and removed this helper method.",
+      "parentUuid": "f1d64119_4fc753a8",
+      "range": {
+        "startLine": 991,
+        "startChar": 4,
+        "endLine": 993,
+        "endChar": 5
+      },
+      "revId": "3aa1b5f1c8e8bae28ad752211bc35c3d4cd4a9e4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
