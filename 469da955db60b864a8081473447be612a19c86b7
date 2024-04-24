@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e861c889_9a823f78",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "Check on `in_referenceProfile` missing here?",
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2076dc78_f443fdfd",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "Check on this?",
+      "range": {
+        "startLine": 985,
+        "startChar": 38,
+        "endLine": 985,
+        "endChar": 48
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "895e9521_9e4723db",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "It\u0027s really helpful to be very clear here. Are there any exceptions? If not, please strengthen to \"Always `false` for inputs.\". If it changes we can and should clarify it then.\n\n(Same for the flags in ProfilePath.aidl.)",
+      "range": {
+        "startLine": 32,
+        "startChar": 63,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

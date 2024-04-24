@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "73389e78_f691179b",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "`-\u003eget()` is more obvious (throughout).",
+      "range": {
+        "startLine": 462,
+        "startChar": 37,
+        "endLine": 462,
+        "endChar": 38
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bc56a4c_4c4d27f7",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "It\u0027s not obvious that this refactoring is a win, since `profile_path_` is optional while `tmp_profile_path_` isn\u0027t.\n\nIs this refactoring necessary in this CL? If not, then I suggest doing changes like this in separate CLs. Partly because this CL is already large and in a stack, so e.g. if a revert becomes necessary it\u0027s good to limit it. Also because doing changes like this later in the review (PS15..PS19) doesn\u0027t help with review speed.\n\nAnyway, now that I\u0027ve reviewed it there\u0027s no need to back it out.",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82b8be16_a4c62b1d",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1858,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "With `reference_profile_path_` in the previous code it was obvious that lines 1845 and 1858 were referring to the same file, but now one needs to look at SetUp to figure that out, which makes this less readable. If you want to stick with this then please get the `TmpProfilePath` out of `profile_path_` here. (Same goes for the other tests where `reference_profile_path` is deleted.)\n\n(Another step that\u0027d simplify this would be to remove `tmp_profile_path_` completely in favour if `profile_path_`, if that\u0027s possible. However, that\u0027d be for another time.)",
+      "range": {
+        "startLine": 1858,
+        "startChar": 46,
+        "endLine": 1858,
+        "endChar": 63
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

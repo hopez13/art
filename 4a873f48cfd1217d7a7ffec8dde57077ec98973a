@@ -144,6 +144,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7b06861f_8484f2c6",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 1948,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "This looks like it can affect the test behaviour. Why is it deleted? Is it related to this CL?",
+      "range": {
+        "startLine": 1948,
+        "startChar": 2,
+        "endLine": 1948,
+        "endChar": 44
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "044672ac_504f198f",
         "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
         "patchSetId": 15
@@ -285,6 +308,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b0e1c03f_145b1955",
+        "filename": "artd/path_utils.h",
+        "patchSetId": 15
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "\u003e I don\u0027t think this is \"complicated template programming\".\n\nI do. This required me to look up `enable_if_t`, SFINAE, and other things in the standard that I rarely need to be concerned with and hence don\u0027t have fresh. If template metaprogramming was already widely deployed in our code base then you\u0027d have a point, but that\u0027s not the case. So lots of the wisdom in go/cstyle#Template_metaprogramming applies here.\n\nTurning the question around, do we need to make it return-by-value in the const case? Doesn\u0027t a const reference work then? (It\u0027s all inlined anyway.)",
+      "parentUuid": "0a52d4cf_b40da909",
+      "range": {
+        "startLine": 95,
+        "startChar": 0,
+        "endLine": 99,
+        "endChar": 51
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "817e56fa_083538f9",
         "filename": "libartservice/service/java/com/android/server/art/AidlUtils.java",
         "patchSetId": 15
@@ -320,6 +367,30 @@
       "side": 1,
       "message": "Good point! Done.",
       "parentUuid": "817e56fa_083538f9",
+      "range": {
+        "startLine": 37,
+        "startChar": 4,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "53e44949_19bf0a70",
+        "filename": "libartservice/service/java/com/android/server/art/AidlUtils.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "Thanks. That\u0027s actually quite helpful.",
+      "parentUuid": "99063fb2_9adf436d",
       "range": {
         "startLine": 37,
         "startChar": 4,
@@ -461,6 +532,30 @@
       "side": 1,
       "message": "The global injector is for production, not for testing, and we don\u0027t mock it in tests. In contrast, the local injector is solely for testing. We can mock two injectors in tests, but it\u0027s a bit more tedious than mocking just one.",
       "parentUuid": "706157bb_50bbdc19",
+      "range": {
+        "startLine": 780,
+        "startChar": 19,
+        "endLine": 780,
+        "endChar": 61
+      },
+      "revId": "4a873f48cfd1217d7a7ffec8dde57077ec98973a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96e6298f_77d78c60",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 780,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T16:08:55Z",
+      "side": 1,
+      "message": "Otoh it means less risk of confusing two different points of mocking. As long as `GlobalInjector` isn\u0027t mocked at all then I agree, but if that changes I think it\u0027d be cleaner if things like this were cleaned up.",
+      "parentUuid": "9aaecdcd_84e6c938",
       "range": {
         "startLine": 780,
         "startChar": 19,
