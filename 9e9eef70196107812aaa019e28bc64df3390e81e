@@ -22,6 +22,30 @@
       },
       "revId": "9e9eef70196107812aaa019e28bc64df3390e81e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0b23422_f52b6ae7",
+        "filename": "build/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-04-24T21:15:05Z",
+      "side": 0,
+      "message": "Would my understanding be correct that post trunk stable and the different release configurations available, we do not have sufficient documentation on how developers should build art module from source. As more concrete examples\n\n1. internal: ap2a.scl uses [prebuilt art](https://source.corp.google.com/h/googleplex-android/platform/superproject/main/+/main:vendor/google/release/build_config/ap2a.scl;l\u003d21?q\u003dart.google.contributions.prebuilt\u0026ct\u003dos\u0026sq\u003drepo:googleplex-android%2Fplatform%2Fsuperproject%2Fmain%20b:main)\nFor this release configuration, what is the recommended approach for google engineers to build art module from source?\n\n2. partners: ap31.scl uses [prebuilt art](https://partner-android.googlesource.com/platform/vendor/partner_modules/build/+/refs/heads/v-aml-prebuilt-release/release/build_config/ap31.scl#30)\nFor this release configuration, what is the recommended approach for partner engineers to build art module from source?\n\nTill now, the \"uncodified\" recommendation has been to unset the `RELEASE_APEX_CONTIRBUTIONS_ART` build flag manually from the .scl file\n\nSince most active development happens in `trunk_staging`, would manually modifying the .scl for troubleshooting/development be an acceptable workflow? Alternatively, we could try to have a convenient command line argument (`ART_MODULE_BUILD_FROM_SOURCE` for consistency) override the build flag under the hood, but it might be a little complicated to implement.",
+      "parentUuid": "a9219f60_f333489b",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 46
+      },
+      "revId": "9e9eef70196107812aaa019e28bc64df3390e81e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
