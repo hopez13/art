@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a50b25ca_5d16af5f",
+        "filename": "compiler/optimizing/code_generator_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-24T13:09:29Z",
+      "side": 1,
+      "message": "Please rebase. The `StringCompareTo` intrinsic implementation has been merged and it\u0027s causing a conflict.",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 74,
+        "endChar": 20
+      },
+      "revId": "7711ec7a5fe11596d7af5d4472ad691f4dc4d0c5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
