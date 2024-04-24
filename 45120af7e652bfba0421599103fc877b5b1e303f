@@ -16,6 +16,29 @@
       "message": "PTAL",
       "revId": "45120af7e652bfba0421599103fc877b5b1e303f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e18f6c54_b99a4ab3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1140,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-24T10:31:07Z",
+      "side": 1,
+      "message": "I am sorry I missed this in the original CL, but wouldn\u0027t we at least have one entry in the data.GetMethods()? We also have a check in line 1132 that we have the current method in the list right. So, we should never take this if right? \n\nAlso for the next check, ``if (ContainsElement(data.GetMethods(), method))``, we should have the method in the list right? So should we just check ``if (data.GetMethods().size() \u003d\u003d 1)`` here?",
+      "range": {
+        "startLine": 1140,
+        "startChar": 12,
+        "endLine": 1140,
+        "endChar": 37
+      },
+      "revId": "45120af7e652bfba0421599103fc877b5b1e303f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
