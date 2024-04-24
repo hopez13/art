@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9219f60_f333489b",
+        "filename": "build/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-24T18:57:52Z",
+      "side": 0,
+      "message": "The intention here is to give the reader enough information to ensure the ART module gets built from source, also in cases like partners taking a preload train (they may still need to build from source for debugging and internal testing). Even though the SDK may always be taken from source, the module may not, right?\n\nSo what would one need to do to build it completely from source, no matter what?",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 46
+      },
+      "revId": "9e9eef70196107812aaa019e28bc64df3390e81e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
