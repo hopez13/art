@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c299902f_6000dddd",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-25T13:22:40Z",
+      "side": 1,
+      "message": "Because I would then need to run the tests for this CL on one more architecture and I didn\u0027t want to run those tests right now.",
+      "parentUuid": "a99b45e9_e7ef657a",
+      "range": {
+        "startLine": 10,
+        "startChar": 46,
+        "endLine": 10,
+        "endChar": 51
+      },
+      "revId": "588750fc31da7a756f13429affd277e9357baad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d2753e91_8a3aaba7",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-04-25T10:26:29Z",
       "side": 1,
       "message": "Why the special case? In line 8366 we sometimes go to the slow path for baker read barriers",
+      "revId": "588750fc31da7a756f13429affd277e9357baad8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05f41aa3_3d02e05c",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 8100,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-25T13:22:40Z",
+      "side": 1,
+      "message": "Because, unlike the baker RB slow path, the `TypeCheckSlowPathARMVIXL` (and similar slow paths on other architectures) does not save all registers. The `SetCustomSlowPathCallerSaves()` below is therefore not applicable. Even if we made the entrypoint a `kSaveEverything`, we\u0027d still need to mark its two input registers as clobbered anyway.",
+      "parentUuid": "d2753e91_8a3aaba7",
       "revId": "588750fc31da7a756f13429affd277e9357baad8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
