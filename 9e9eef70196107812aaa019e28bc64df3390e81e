@@ -46,6 +46,30 @@
       },
       "revId": "9e9eef70196107812aaa019e28bc64df3390e81e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b6dd949_626506c9",
+        "filename": "build/README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-25T18:50:49Z",
+      "side": 0,
+      "message": "Google engineers mostly work on release configs where prebuilts aren\u0027t enabled,  and switching ART to source on e.g. `ap2a` would rarely do what one would want. If someone is on such a release config where prebuilts are enabled, the right approach is probably to switch to a different one. We know with certainty that `trunk_staging` always will use sources, right? Then it seems appropriate that the instructions here should just instructs the reader to lunch that config.\n\nHowever, partners may need to do it for troubleshooting, as mentioned. In that case switching release config is probably not the right thing to do, among other things because it\u0027d switch all modules to source, not just ART. I think for this case we\u0027d like to provide instructions for them, but it should be rare enough that it\u0027s ok to change a file to do it.\n\nHence step #2 here could have two variants: The first for switching everything to source by lunching `trunk_staging`, and the second (if keeping the release config is a must) to just switch ART to source through file modification.\n\nBtw, is there a convenient way to check ART is using prebuilts or not, like dumping the current release config to stdout? An instruction for how to do that would be nice too.",
+      "parentUuid": "b0b23422_f52b6ae7",
+      "range": {
+        "startLine": 76,
+        "startChar": 4,
+        "endLine": 76,
+        "endChar": 46
+      },
+      "revId": "9e9eef70196107812aaa019e28bc64df3390e81e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
