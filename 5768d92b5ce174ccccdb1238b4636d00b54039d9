@@ -34,6 +34,24 @@
       "parentUuid": "5ac1d608_bdb56f77",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5471ffa2_44b78c59",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-25T14:04:08Z",
+      "side": 1,
+      "message": "Thanks for the patches! We had a few discussions with Martin and Jiakai who know build system much better than I do. I will add them to the three CLs. They will be happy to provide high level feedback now. They are busy with Android release currently and can do a in-depth review maybe in June. Hope that\u0027s okay with you. \n\nOne more question here, I was looking at an old doc on how to build and test simulator and that refers to a art/test/README.simulator.md. I couldn\u0027t find it any of the patches or already checked in to the repo. Could you please point me to the Readme please?",
+      "parentUuid": "e1997e0e_45c7e8dc",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
