@@ -214,6 +214,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4e3e6b03_118ff320",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T16:54:55Z",
+      "side": 1,
+      "message": "Discussed offline again. It has been the behavior for years that we override the compiler filter specified by `-m` for debuggable, useEmbeddedDex, etc. It\u0027s an approximation of the runtime behavior, which is unideal, but it helps app developers realize their problems with their script like the one in b/336847915 (and many others I\u0027ve seen). If we change the behavior, it will prevent problems being surfaced by that kind of scripts. We\u0027ll stop getting those kind of tickets, and app developers won\u0027t realize that they may not be testing what they think they are testing. Hence, I think it\u0027s better to keep the current behavior.",
+      "parentUuid": "22576328_4f1f2393",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
