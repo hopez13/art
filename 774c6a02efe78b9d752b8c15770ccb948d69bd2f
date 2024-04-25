@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "80b63ebd_b4d6d166",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-25T09:59:45Z",
+      "side": 1,
+      "message": "We\u0027re not getting any SDK stability checks here, right? I wonder if we can add something more to catch any thoughtless API changes. E.g. add an interface class `PreRebootManagerApi` so that any API change needs to be done in an extra file that only contains the API. Or is there a better way?\n\nIt\u0027d also be nice to verify that the classes used in the API are public or system API, but I\u0027ve no idea how to do that.",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cee36e4_8b6ba0a9",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-25T09:59:45Z",
+      "side": 1,
+      "message": "Since this is an unusual kind of stable API it\u0027s worth an explanation, i.e. that it\u0027s stability from one version of the ART module to another, and how much they can differ in time.",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
