@@ -69,6 +69,24 @@
       "message": "Jiakai and Martin, these are the patches we discussed. They aren\u0027t ready for thorough review yet but high-level feedback on the approach would be great.",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6277e5db_df281801",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-25T14:59:35Z",
+      "side": 1,
+      "message": "\u003e They are busy with Android release currently and can do a in-depth review maybe in June. Hope that\u0027s okay with you.\n\nSounds great, thanks!\n\n\u003e Could you please point me to the Readme please?\n\nSure, it\u0027s part of the [Stage 1 simulator support patch](https://android-review.googlesource.com/c/platform/art/+/2680028/3/test/README.simulator.md).\n\nTo give you some more context about building and testing the simulator; the reason we haven\u0027t updated that old document or marked the simulator specific patches (marked \"[Sim]\") ready for review yet, is because [this patch](https://github.com/Linaro/vixl/pull/93) is needed in VIXL to support implicit checks in ART. Once that patch is merged we will update the simulator guide document and the rest of the simulator patches will be available for review and testing.",
+      "parentUuid": "5471ffa2_44b78c59",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
