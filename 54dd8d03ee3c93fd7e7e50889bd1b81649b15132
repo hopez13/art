@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b09a42f3_4ee7b61a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 66,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T14:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b0d7d7d_9bd5cddc",
+      "range": {
+        "startLine": 66,
+        "startChar": 23,
+        "endLine": 66,
+        "endChar": 47
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e04297ba_5a33860b",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-25T09:59:45Z",
       "side": 1,
       "message": "Gosh, is it this hard to shut it down? I\u0027m curious about both the long sleeps and the number of retries.\n\nAs for the chroot teardown, do you expect compilation threads and forked processes to still be running here? I thought we have enough control so that wouldn\u0027t be the case (regardless of outcome), If so we still may have various memory structures around, but nothing that would keep files open in the chroot. So it ought to be enough to just do the teardown of that once right at the start (which is the most important part of the teardown because it\u0027s persistent).\n\nThen I can imagine it\u0027s harder to free everything to get the art-service dexjar unloaded, but by then it\u0027s just dead garbage with no threads or open fd\u0027s etc (except for the mmaps of the jar itself, of course).",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 9
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4c3cdd2d_ebe290a9",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T14:37:05Z",
+      "side": 1,
+      "message": "At the point of tearing down, we are sure there are no compilation threads or forked processes. However, we need to unload the dex jar and kill artd, which we cannot do ourselves because the dex jar the artd are managed by the runtime and the service manager respectively. We can run GC and finalization to trigger the shutdown of artd and unload the dex jar. We are not sure how reliable this is or how long it takes. That\u0027s why we have to sleep and have a retry mechanism.\n\nThis is all mentioned in the design doc http://go/art-service-pre-reboot-dexopt#heading\u003dh.6zxqi9q90c1y.",
+      "parentUuid": "e04297ba_5a33860b",
       "range": {
         "startLine": 88,
         "startChar": 0,
@@ -72,6 +120,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "1ee25959_766789e1",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T14:37:05Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f6a54bbf_af46b4b3",
+      "range": {
+        "startLine": 130,
+        "startChar": 24,
+        "endLine": 130,
+        "endChar": 28
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2b097cbd_02d4bc27",
         "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootGlobalInjector.java",
         "patchSetId": 15
@@ -83,6 +155,30 @@
       "writtenOn": "2024-04-25T09:59:45Z",
       "side": 1,
       "message": "DexUseManagerLocal comes from the new version, so this means the on-disk format is part of the stable API, correct? There\u0027s already [a note]() about stability for, so no need to do anything, just wanted to confirm.",
+      "range": {
+        "startLine": 60,
+        "startChar": 38,
+        "endLine": 60,
+        "endChar": 80
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70c23b10_a1312ba6",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootGlobalInjector.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T14:37:05Z",
+      "side": 1,
+      "message": "Your link is broken but I guess you refer to [this note](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/proto/dex_use.proto;l\u003d26;drc\u003dbd8fdd39353418587f187d29151e9b72978adf8c). You are right. Everything here is from the new version.",
+      "parentUuid": "2b097cbd_02d4bc27",
       "range": {
         "startLine": 60,
         "startChar": 38,
@@ -106,6 +202,30 @@
       "writtenOn": "2024-04-25T09:59:45Z",
       "side": 1,
       "message": "This retrieves the \"old\" instance of PackageManager? Can it be passed as an argument instead, to make it more clear it\u0027s part of the API?",
+      "range": {
+        "startLine": 51,
+        "startChar": 20,
+        "endLine": 51,
+        "endChar": 78
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0b57e38_97c22ea4",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-25T14:37:05Z",
+      "side": 1,
+      "message": "Every API we call during Pre-reboot Dexopt that is defined outside of the ART module is from the \"old\" version. This includes `PackageManagerLocal`, `UserManager`, `AppHibernationManager`, `StorageManager`, ... This is fine because they are stable APIs. I don\u0027t think we should bloat the stable API surface to pass all of them just for the sake of explicitness as it\u0027s against what\u0027s discussed at http://go/art-service-pre-reboot-dexopt#heading\u003dh.halajqbeyd0b.",
+      "parentUuid": "bd17635c_6bb2bc43",
       "range": {
         "startLine": 51,
         "startChar": 20,
