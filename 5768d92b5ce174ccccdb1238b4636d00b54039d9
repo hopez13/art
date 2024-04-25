@@ -105,6 +105,24 @@
       "parentUuid": "6277e5db_df281801",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "16190120_1b3aeeb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-25T15:42:47Z",
+      "side": 1,
+      "message": "\u003e IIUC, we are building both host and target to be able to run the simulator right?\n\nYes both the host and target need to be built to be able to run the simulator.\n\n\u003e Do we need the target build only to get the boot image?\n\nNo, the target build is done to build the ART run tests (images). The target boot image is built separately as part of [[Sim] Build target boot image for simulator](https://android-review.googlesource.com/c/platform/art/+/2680024/3).\n\n\u003e One more question, The boot image should be targeted to arm64 right? We don\u0027t need the x86_64 boot image right?\n\nYes the arm64 boot image is used and the x86_64 boot image is built as part of the host build but ignored.\n\nNote: we intentionally chose to use the existing host and target builds within the ART testing infrastructure to keep the simulator build as close to regular production builds as possible. This way there are only a few small changes specific to the simulator inside the ART test scripts.",
+      "parentUuid": "e9c1039f_7ea6cb8a",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
