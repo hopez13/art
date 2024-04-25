@@ -891,8 +891,6 @@ if True:
         run_checker = "yes"
 
         if os.environ.get("ART_USE_RESTRICTED_MODE") == "true":
-          # TODO(Simulator): support checker runs.
-          run_checker = "no"
           cfg_output_dir = tmp_dir
 
         if simulator_mode == "yes":
