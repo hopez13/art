@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b05bdb51_3a8e1865",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "I don\u0027t think we can use DCHECK here.\n\nWe follow the same pattern as AddDdmCallback. These callbacks are added regardless of the debuggable/Profilable. So we get the events whether the app is debuggable or not.\n\nOther locations can use `DCHEK` because `AdbConnectionDebuggerController::StartDebugger()` only proceed if `IsDebuggableOrProfilable()` return true.",
+      "parentUuid": "e645b35c_efde0180",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 36
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "061ab62a_680dff99",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-22T14:19:06Z",
       "side": 1,
       "message": "What does it mean if control_ctx_ is null? Does it mean adb connection was somehow dropped? Or maybe the process is shutting down for some reason?",
+      "range": {
+        "startLine": 449,
+        "startChar": 2,
+        "endLine": 449,
+        "endChar": 20
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "800c42e3_13b91bbc",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "It means `adbd` connection has not been create yet, or adbd has shutdown or is restarting (e.g.: When user type `adb root`).",
+      "parentUuid": "061ab62a_680dff99",
       "range": {
         "startLine": 449,
         "startChar": 2,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a72f881_573dc1b7",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "Not sure what the rephrase suggestion is.\n\nIf Frameworks sends an update, `WakeupPollLoop` is called which increments fdevent counter. From there, poll will always trigger because fdevent will always trigger. To prevent poll from doing that, we need to call `AcknowledgeWakeup` which decreases `fdevent` counter.\n\nI have rephrased to \n```\n// Poll was awakened via fdevent, we need to decrease fdevent counter to prevent poll from\n// triggering again.which is a bit more explicit.\n```",
+      "parentUuid": "682f83c6_b51f702a",
+      "range": {
+        "startLine": 820,
+        "startChar": 42,
+        "endLine": 820,
+        "endChar": 79
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4e204de4_fb00291e",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-04-22T14:19:06Z",
       "side": 1,
       "message": "We don\u0027t need private on each method. We can just have private once.\n\nAlso don\u0027t they have to be public? We are calling them from Runtime::Callbacks right?",
+      "range": {
+        "startLine": 82,
+        "startChar": 1,
+        "endLine": 82,
+        "endChar": 9
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "18c2c1c3_9f9eb554",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 82,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4e204de4_fb00291e",
       "range": {
         "startLine": 82,
         "startChar": 1,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "00e771b1_b9ca4931",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "`fdevent` has an internal counter which is increased/decreased. I don\u0027t think `cleared` is the best word because that would mean boolean or flag. I changed `buffer` to `counter`.",
+      "parentUuid": "488e300f_e2027c7d",
+      "range": {
+        "startLine": 110,
+        "startChar": 75,
+        "endLine": 110,
+        "endChar": 84
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ae6f808_d7018d98",
@@ -156,6 +276,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2fca488_98c02977",
+        "filename": "adbconnection/adbconnection.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ae6f808_d7018d98",
+      "range": {
+        "startLine": 111,
+        "startChar": 5,
+        "endLine": 111,
+        "endChar": 17
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dbed5f35_9ff3bee0",
@@ -169,6 +313,30 @@
       "writtenOn": "2024-04-22T14:19:06Z",
       "side": 1,
       "message": "We can\u0027t have android.os.Debug here. We should move these to dalvik_system_VMDebug",
+      "range": {
+        "startLine": 17,
+        "startChar": 8,
+        "endLine": 17,
+        "endChar": 46
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "048233ab_13d6f093",
+        "filename": "runtime/native/android_os_Debug.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-04-25T19:16:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dbed5f35_9ff3bee0",
       "range": {
         "startLine": 17,
         "startChar": 8,
