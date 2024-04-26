@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfe48b58_992dfb47",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T16:36:44Z",
+      "side": 1,
+      "message": "\u003e Inheriting ArtdTest only inherits its setup (variables like profile_path_, tmp_profile_path_, etc.), which we don\u0027t want to duplicate here, but not its tests.\n\nAll right, so at least gtest works as I thought. But then I don\u0027t see how using `tmp_profile_path_` for both input and output profile can cause these `ArtdTest` tests to fail. Were the changes made just for consistency with `ArtdPreRebootTest` tests?\n\nAlso, isn\u0027t it a pretty good idea to do parameterise all the tests that should work the same for normal and pre-reboot artd? Not for this CL, but definitely something to consider.",
+      "parentUuid": "83c5fd2e_cb891677",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b8be16_a4c62b1d",

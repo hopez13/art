@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6610633_a3a6a1cd",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T16:36:44Z",
+      "side": 1,
+      "message": "Thanks. Many of the arguments in go/cstyle#Operator_Overloading applies, although it indeed doesn\u0027t prescribe anything about use of already defined operators. One argument I\u0027d like to add is that operators generally don\u0027t result in xref links, which is one more annoying thing with them.",
+      "parentUuid": "de78b538_b0c84658",
+      "range": {
+        "startLine": 1394,
+        "startChar": 55,
+        "endLine": 1394,
+        "endChar": 56
+      },
+      "revId": "1a664fd6f830c3a1d156b724ce55b61b9071111c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cc72041_e017b988",
@@ -85,6 +109,30 @@
       "side": 1,
       "message": "That\u0027s why I don\u0027t like writing comments like this :) It\u0027s too fragile.\n\nI have updated the comment to make it precise, but it looks even more fragile now. I\u0027m not arguing that we should not write comments like this. I just think having such comments is not always a net win, as being more specific means being more fragile.",
       "parentUuid": "7cc72041_e017b988",
+      "range": {
+        "startLine": 42,
+        "startChar": 56,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "1a664fd6f830c3a1d156b724ce55b61b9071111c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4dcc0cf7_35030834",
+        "filename": "artd/binder/com/android/server/art/ProfilePath.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T16:36:44Z",
+      "side": 1,
+      "message": "So the value is in pointing out an invariant that is succinct and hard to tell from the code. Of course, describing something that\u0027s false isn\u0027t good at all, and describing something with a plethora of exceptions and special cases diminishes the value greatly. Had I realised the exceptions existed I wouldn\u0027t have asked for this.\n\nI agree this is fragile now. I\u0027m on the fence whether these comments should be left in or not - if you prefer to delete them again then I don\u0027t mind. But the one in ArtifactsPath.aidl is still clearly valuable.",
+      "parentUuid": "d8cb90ff_cb474133",
       "range": {
         "startLine": 42,
         "startChar": 56,
