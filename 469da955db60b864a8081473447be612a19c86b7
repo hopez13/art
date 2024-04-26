@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a5a7b51_09802f06",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T13:59:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7a4f98b7_e9d327d3",
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2076dc78_f443fdfd",
@@ -125,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a8931ff_9f84c206",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T13:59:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fd1dba2d_e7af7217",
+      "range": {
+        "startLine": 985,
+        "startChar": 38,
+        "endLine": 985,
+        "endChar": 48
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "895e9521_9e4723db",
@@ -186,6 +228,30 @@
       "side": 1,
       "message": "All right. Personally I don\u0027t read \"cannot be changed\" into definitive comments; they only comment on the current state (unless they\u0027re stale). If there\u0027s some reason why it cannot change (like API stability) then that\u0027s well worth spelling out.",
       "parentUuid": "fa0c5d24_b27343a6",
+      "range": {
+        "startLine": 32,
+        "startChar": 63,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2bf4a45_a54dd780",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T13:59:31Z",
+      "side": 1,
+      "message": "OK, I think people read comments differently. Anyway, I think the current comment is clear enough to address both your concerns and mine.",
+      "parentUuid": "9d4801c8_5ddd3e9a",
       "range": {
         "startLine": 32,
         "startChar": 63,

@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de78b538_b0c84658",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T13:59:31Z",
+      "side": 1,
+      "message": "I don\u0027t see much difference really. It\u0027s more of a personal taste. If the * operator was really bad, it should be banned by some style guide. Anyway, done.",
+      "parentUuid": "6ec6b884_92f9abfe",
+      "range": {
+        "startLine": 1394,
+        "startChar": 55,
+        "endLine": 1394,
+        "endChar": 56
+      },
+      "revId": "1a664fd6f830c3a1d156b724ce55b61b9071111c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7cc72041_e017b988",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-26T12:18:30Z",
       "side": 1,
       "message": "Given the comments for the `mergeProfiles` and `dexopt` APIs, is this actually true?",
+      "range": {
+        "startLine": 42,
+        "startChar": 56,
+        "endLine": 43,
+        "endChar": 63
+      },
+      "revId": "1a664fd6f830c3a1d156b724ce55b61b9071111c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d8cb90ff_cb474133",
+        "filename": "artd/binder/com/android/server/art/ProfilePath.aidl",
+        "patchSetId": 21
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T13:59:31Z",
+      "side": 1,
+      "message": "That\u0027s why I don\u0027t like writing comments like this :) It\u0027s too fragile.\n\nI have updated the comment to make it precise, but it looks even more fragile now. I\u0027m not arguing that we should not write comments like this. I just think having such comments is not always a net win, as being more specific means being more fragile.",
+      "parentUuid": "7cc72041_e017b988",
       "range": {
         "startLine": 42,
         "startChar": 56,
