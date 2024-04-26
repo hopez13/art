@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83c5fd2e_cb891677",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T14:03:52Z",
+      "side": 1,
+      "message": "To add more, Inheriting `ArtdTest` also inherits its protected methods, such as `RunCopyAndRewriteProfile`, which we are using in `ArtdPreRebootTest`. That method used to use `tmp_profile_path_` for both the input and the output, and I have to change it in this CL to separate the input and the output, or it won\u0027t work in `ArtdPreRebootTest`.",
+      "parentUuid": "4dd892e8_1be69d66",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b8be16_a4c62b1d",
