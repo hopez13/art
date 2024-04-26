@@ -39,6 +39,30 @@
       },
       "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e74c97a2_0ef3fe10",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T17:16:28Z",
+      "side": 1,
+      "message": "\u003e Isn\u0027t this limited by the \"two or more dessert releases older\" policy?\n\nNo, that policy only applies to OTA, not Mainline. With Mainline, one can potentially update from an V version of ART to a, say, Y version of ART, so we need to keep the interface stable for a longer time. Because a Mainline update doesn\u0027t change the platform, Pre-reboot Dexopt is unlikely to fail even if the update is across many versions, so I don\u0027t want to put a limit on Mainline updates for now unless we see a good reason.\n\n\u003e Btw the two piled \"that\" clauses in this sentence makes it a bit hard to parse.\n\nAny suggestions are welcome!",
+      "parentUuid": "e1a1d850_fe72ebcc",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 78
+      },
+      "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

@@ -141,6 +141,54 @@
       },
       "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "682cb558_353c208a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T17:16:28Z",
+      "side": 1,
+      "message": "I think the goal of my design is to minimize such consideration. The only consideration I can see within the Java code is on this PreRebootDexoptManager interface.\n\nThe consideration for DexUseManager would always be there even if it wasn\u0027t for Pre-reboot Dexopt because we\u0027ll be running a new DexUseManager against an old protobuf after the reboot anyway, and the case in Pre-reboot Dexopt is not different from that.\n\nInteractions with system APIs (PackageManagerLocal, etc.) are not new considerations either because the new version of ART Service needs to talk to the old platform after the reboot anyway.\n\nThose above are mentioned in the design doc. If you see any additional considerations (\"additional considerations\" here means new considerations that weren\u0027t there but introduced by Pre-reboot Dexopt) that I\u0027m missing, please let me know. I\u0027d like to try my best to eliminate those rather than documenting them.",
+      "parentUuid": "e0e72298_b9c85961",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d414dfcc_a8caaf26",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T17:16:28Z",
+      "side": 1,
+      "message": "Alright, added an interface.\n\nI can\u0027t do a check like `isAssignableFrom` with the old interface against the new class. When the classloader loads the new `service-art.jar`, it loads not only the new class but also the new interface. The runtime regards the new class implementing the new interface rather than the old one, so the `isAssignableFrom` check will fail.\n\nHowever, making the method signature change a little bit harder by forcing one to edit two files does have a value.",
+      "parentUuid": "08211a0e_580aee35",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

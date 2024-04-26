@@ -119,6 +119,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "373536f9_5b546713",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T17:16:28Z",
+      "side": 1,
+      "message": "It\u0027s both `artd` and `service-art.jar`. Clarified.",
+      "parentUuid": "9d3af302_bc0bea88",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 9
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f6a54bbf_af46b4b3",
