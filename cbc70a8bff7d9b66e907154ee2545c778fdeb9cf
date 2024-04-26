@@ -191,6 +191,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be9719d5_7703a2ac",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-26T16:59:14Z",
+      "side": 1,
+      "message": "\u003e But then I don\u0027t see how using tmp_profile_path_ for both input and output profile can cause these ArtdTest tests to fail. \n\n`ArtdPreRebootTest.copyAndRewriteProfile` calls `RunCopyAndRewriteProfile`, and it failed because it used the same file for input and output -\u003e I changed `RunCopyAndRewriteProfile` to separate the input and the output -\u003e `ArtdTest.copyAndRewriteProfileSuccess` failed because it also calls `RunCopyAndRewriteProfile`.\n\n\u003e Also, isn\u0027t it a pretty good idea to do parameterise all the tests that should work the same for normal and pre-reboot artd?\n\nI\u0027ll consider it.",
+      "parentUuid": "cfe48b58_992dfb47",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b8be16_a4c62b1d",
