@@ -212,6 +212,16 @@ class NullPointerHandlerSimulator final : public FaultHandler {
   DISALLOW_COPY_AND_ASSIGN(NullPointerHandlerSimulator);
 };
 
+class SuspensionHandlerSimulator final : public FaultHandler {
+ public:
+  explicit SuspensionHandlerSimulator(FaultManager* manager);
+
+  bool Action(int sig, siginfo_t* siginfo, void* context) override;
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(SuspensionHandlerSimulator);
+};
+
 class StackOverflowHandlerSimulator final : public FaultHandler {
  public:
   explicit StackOverflowHandlerSimulator(FaultManager* manager);

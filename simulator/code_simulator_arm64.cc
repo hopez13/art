@@ -22,6 +22,7 @@
 #include "base/utils.h"
 #include "entrypoints/quick/runtime_entrypoints_list.h"
 #include "fault_handler.h"
+#include "thread-current-inl.h"
 
 #include <sys/ucontext.h>
 
@@ -42,6 +43,7 @@ extern "C" const void* GetQuickInvokeStub();
 extern "C" const void* GetQuickInvokeStaticStub();
 extern "C" const void* GetQuickOsrStub();
 extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal();
+extern "C" const void* GetQuickImplicitSuspend();
 extern "C" const void* GetQuickThrowStackOverflow();
 
 extern "C" const char* NterpGetShorty(ArtMethod* method)
@@ -260,6 +262,7 @@ class CustomSimulator final: public Simulator {
     RegisterBranchInterception(artCompileOptimized);
     RegisterBranchInterception(artAllocStringObjectRosAllocInstrumented);
     RegisterBranchInterception(artMethodEntryHook);
+    RegisterBranchInterception(artImplicitSuspendFromCode);
 
     // ART has a number of math entrypoints which operate on double type (see
     // quick_entrypoints_list.h, entrypoints_init_arm64.cc); we need to intercept C functions
@@ -563,6 +566,57 @@ bool CodeSimulatorArm64::HandleNullPointer([[maybe_unused]] int sig,
   return true;
 }
 
+// This handler is based on the Arm64 SuspensionHandler::Action and should remain aligned with
+// that function.
+bool CodeSimulatorArm64::HandleSuspendCheck([[maybe_unused]] int sig,
+                                            [[maybe_unused]] siginfo_t* siginfo,
+                                            void* context) {
+  // A suspend check is done using the following instruction:
+  //      0x...: f94002b5  ldr x21, [x21, #0]
+  // To check for a suspend check, we examine the instruction that caused the fault (at PC).
+  constexpr uint32_t kSuspendCheckRegister = 21;
+  constexpr uint32_t checkinst =
+      0xf9400000 | (kSuspendCheckRegister << 5) | (kSuspendCheckRegister << 0);
+
+  ucontext_t* uc = reinterpret_cast<ucontext_t*>(context);
+  CustomSimulator* sim = GetSimulator();
+
+  // Did the signal come from the simulator?
+  uintptr_t fault_pc = uc->uc_mcontext.gregs[REG_RIP];
+  if (!sim->IsSimulatedMemoryAccess(fault_pc)) {
+    return false;
+  }
+
+  uint32_t inst = sim->ReadPc()->GetInstructionBits();
+  VLOG(signals) << "checking suspend; inst: " << std::hex << inst << " checkinst: " << checkinst;
+  if (inst != checkinst) {
+    // The instruction is not good, not ours.
+    return false;
+  }
+
+  // This is a suspend check.
+  VLOG(signals) << "suspend check match";
+
+  // Return to the VIXL memory access continuation point, which is also the next instruction, after
+  // this handler.
+  uc->uc_mcontext.gregs[REG_RIP] = sim->GetSignalReturnAddress();
+  // Return that the memory access failed.
+  uc->uc_mcontext.gregs[REG_RAX] = static_cast<greg_t>(MemoryAccessResult::Failure);
+
+  // Set LR so that after the suspend check it will resume after the
+  // `ldr x21, [x21,#0]` instruction that triggered the suspend check.
+  sim->WriteLr(reinterpret_cast<int64_t>(sim->ReadPc()->GetNextInstruction()));
+  // Arrange for the signal handler to return to `art_quick_implicit_suspend()`.
+  sim->WritePc(reinterpret_cast<const vixl::aarch64::Instruction*>(
+      GetQuickImplicitSuspend()));
+
+  // Now remove the suspend trigger that caused this fault.
+  Thread::Current()->RemoveSuspendTrigger();
+  VLOG(signals) << "removed suspend trigger invoking test suspend";
+
+  return true;
+}
+
 // This handler is based on the Arm64 StackOverflowHandler::Action and should remain aligned with
 // that function.
 bool CodeSimulatorArm64::HandleStackOverflow([[maybe_unused]] int sig,
@@ -621,6 +675,13 @@ bool CodeSimulatorArm64::HandleStackOverflow([[maybe_unused]] int sig,
 bool CodeSimulatorArm64::HandleNullPointer([[maybe_unused]] int sig,
                                            [[maybe_unused]] siginfo_t* siginfo,
                                            [[maybe_unused]] void* context) {
+  LOG(FATAL) << "Unreachable";
+  UNREACHABLE();
+}
+
+bool CodeSimulatorArm64::HandleSuspendCheck([[maybe_unused]] int sig,
+                                            [[maybe_unused]] siginfo_t* siginfo,
+                                            [[maybe_unused]] void* context) {
   LOG(FATAL) << "Unreachable";
   UNREACHABLE();
 }
