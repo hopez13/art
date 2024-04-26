@@ -22,6 +22,30 @@
       },
       "revId": "9238d2569a888c65a7585be38783148bda50ac81",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7597cef9_5710abe9",
+        "filename": "runtime/oat/aot_class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-26T15:53:54Z",
+      "side": 1,
+      "message": "Because ` AotClassLinker::SetAppImageDexFiles()` that uses it is static. (I don\u0027t want to refactor the code in this CL.)",
+      "parentUuid": "c05431ef_f4e2471a",
+      "range": {
+        "startLine": 134,
+        "startChar": 0,
+        "endLine": 134,
+        "endChar": 70
+      },
+      "revId": "9238d2569a888c65a7585be38783148bda50ac81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
