@@ -16,6 +16,29 @@
       "message": "Thanks for the review!",
       "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1a1d850_fe72ebcc",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "Isn\u0027t this limited by the \"two or more dessert releases older\" policy?\n\nBtw the two piled \"that\" clauses in this sentence makes it a bit hard to parse.",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 78
+      },
+      "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

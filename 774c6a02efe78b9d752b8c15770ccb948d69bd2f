@@ -93,6 +93,54 @@
       },
       "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "08211a0e_580aee35",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "\u003e but Java doesn\u0027t support defining an interface for static methods\n\nYeah, that\u0027s a pity. But the constructor can have strictly no arguments, so its signature consists purely of `PreRebootManager` itself. Sure, it\u0027s one more API, but a very restricted one, so I think it\u0027s worth it to get type checking (through a check like `PreRebootManagerApi.getClass().isAssignableFrom(preRebootManagerClass)` in the reflection code, I gather).\n\n\u003e Sorry, could you elaborate this? What else can this class potentially use?\n\nI was thinking if someone added a call to some internal thing in e.g. Package Manager. But we do get system API checks for V here so that can\u0027t happen.",
+      "parentUuid": "7194edd9_c69e9492",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0e72298_b9c85961",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "Thanks. Since this version mixing is a consideration that needs to be taken into consideration elsewhere in the code as well (e.g. DexUseManager), it\u0027s worth a discussion in a README as well, but not necessarily in this CL.",
+      "parentUuid": "fdfa3fd0_6fd941d8",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

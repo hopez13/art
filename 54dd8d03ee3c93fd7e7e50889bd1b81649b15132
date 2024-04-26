@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9d3af302_bc0bea88",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "Aha, it\u0027s that the `artd` in the chroot ties up the mounts so they cannot be unmounted? Can you please clarify that in the comment?",
+      "parentUuid": "4c3cdd2d_ebe290a9",
+      "range": {
+        "startLine": 88,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 9
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f6a54bbf_af46b4b3",
         "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
         "patchSetId": 15
@@ -189,6 +213,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f414ffbb_e51d4208",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootGlobalInjector.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "Oops, yes that\u0027s the one.",
+      "parentUuid": "70c23b10_a1312ba6",
+      "range": {
+        "startLine": 60,
+        "startChar": 38,
+        "endLine": 60,
+        "endChar": 80
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bd17635c_6bb2bc43",
@@ -226,6 +274,30 @@
       "side": 1,
       "message": "Every API we call during Pre-reboot Dexopt that is defined outside of the ART module is from the \"old\" version. This includes `PackageManagerLocal`, `UserManager`, `AppHibernationManager`, `StorageManager`, ... This is fine because they are stable APIs. I don\u0027t think we should bloat the stable API surface to pass all of them just for the sake of explicitness as it\u0027s against what\u0027s discussed at http://go/art-service-pre-reboot-dexopt#heading\u003dh.halajqbeyd0b.",
       "parentUuid": "bd17635c_6bb2bc43",
+      "range": {
+        "startLine": 51,
+        "startChar": 20,
+        "endLine": 51,
+        "endChar": 78
+      },
+      "revId": "54dd8d03ee3c93fd7e7e50889bd1b81649b15132",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f795103_32dcb85a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T15:35:37Z",
+      "side": 1,
+      "message": "Yes, right. We have system API checks on all of that.",
+      "parentUuid": "d0b57e38_97c22ea4",
       "range": {
         "startLine": 51,
         "startChar": 20,
