@@ -662,6 +662,18 @@ bool NullPointerHandlerSimulator::Action(int sig, siginfo_t* info, void* context
 }
 
 //
+// Suspension fault handler for the simulator.
+//
+SuspensionHandlerSimulator::SuspensionHandlerSimulator(FaultManager* manager)
+    : FaultHandler(manager) {
+  manager_->AddHandler(this, /* generated_code= */ true);
+}
+
+bool SuspensionHandlerSimulator::Action(int sig, siginfo_t* info, void* context) {
+  return Thread::Current()->GetSimExecutor()->HandleSuspendCheck(sig, info, context);
+}
+
+//
 // Stack overflow fault handler for the simulator.
 //
 StackOverflowHandlerSimulator::StackOverflowHandlerSimulator(FaultManager* manager)

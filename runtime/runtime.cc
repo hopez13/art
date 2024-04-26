@@ -1890,7 +1890,11 @@ bool Runtime::Init(RuntimeArgumentMap&& runtime_options_in) {
       // Note: the instances attach themselves to the fault manager and are handled by it. The
       //       manager will delete the instance on Shutdown().
       if (implicit_suspend_checks_) {
+#ifdef ART_USE_SIMULATOR
+        new SuspensionHandlerSimulator(&fault_manager);
+#else
         new SuspensionHandler(&fault_manager);
+#endif
       }
 
       if (implicit_so_checks_) {

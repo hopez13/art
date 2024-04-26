@@ -2246,6 +2246,15 @@ extern "C" const void* GetQuickThrowNullPointerExceptionFromSignal() {
   return reinterpret_cast<void*>(art_quick_throw_null_pointer_exception_from_signal);
 }
 
+// Implicit suspend checks are only defined for Arm platforms.
+#if defined(__arm__) || defined(__aarch64__) || defined(ART_USE_SIMULATOR)
+// Return the address of quick stub code for handling an implicit suspend check.
+extern "C" void art_quick_implicit_suspend();
+extern "C" const void* GetQuickImplicitSuspend() {
+  return reinterpret_cast<void*>(art_quick_implicit_suspend);
+}
+#endif
+
 // Return the address of quick stub code for throwing a stack overflow error.
 extern "C" void art_quick_throw_stack_overflow();
 extern "C" const void* GetQuickThrowStackOverflow() {

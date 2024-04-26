@@ -205,12 +205,7 @@ class CompilerOptions final {
   }
 
   bool GetImplicitSuspendChecks() const {
-#ifdef ART_USE_RESTRICTED_MODE
-    // TODO(Simulator): support signal handling and implicit checks.
-    return false;
-#else
     return implicit_suspend_checks_;
-#endif
   }
 
   bool IsGeneratingImage() const {
