@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "be64b7fb_ae22a987",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T18:21:42Z",
+      "side": 1,
+      "message": "With the removal of the `committed_` flag there\u0027s a small theoretical risk that this deletes another unrelated temporary file that happened to take the same temporary name if this one has been committed, since mkstemps(3) only guarantees that it\u0027s unique among existing files. I don\u0027t think we actually need to bother about it given the [implementation](https://cs.android.com/android/platform/superproject/main/+/main:bionic/libc/upstream-openbsd/lib/libc/stdio/mktemp.c;l\u003d85;drc\u003d9a4b68e20d617b2cb3355071521f16e8c3d538df), but thought it worth a mention.\n\nAnother possible approach to that could be to let an empty `temp_path_` mean that the file has been committed.",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 21
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d7e8075_06853782",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T18:21:42Z",
+      "side": 1,
+      "message": "All the cleanup code shows as uncovered to me. Doesn\u0027t `NewFileCommitAllFailedToCommit` and `NewFileCommitAllFailedToMoveOldFile` trigger this?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
