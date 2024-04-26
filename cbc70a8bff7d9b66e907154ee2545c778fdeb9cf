@@ -215,6 +215,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a0e28f_19495276",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T17:18:21Z",
+      "side": 1,
+      "message": "\u003e ArtdPreRebootTest.copyAndRewriteProfile calls RunCopyAndRewriteProfile, /.../\n\nAha, I see.",
+      "parentUuid": "be9719d5_7703a2ac",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "82b8be16_a4c62b1d",
