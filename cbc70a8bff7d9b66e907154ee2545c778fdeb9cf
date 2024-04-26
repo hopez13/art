@@ -97,6 +97,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "535dc2fc_70750530",
+        "filename": "artd/artd_test.cc",
+        "patchSetId": 19
+      },
+      "lineNbr": 1394,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T12:18:30Z",
+      "side": 1,
+      "message": "Oh, `ArtdPreRebootTest` inherits all the testcases from `ArtdTest`, so all its tests are effectively parameterised? But if that\u0027s the case, how does it work with e.g. the `deleteRuntimeArtifacts` test, which fails in pre-reboot?\n\nExplicit parameterisation has the benefit of making it much more clear, but it\u0027s possible it makes other things too clunky. If you don\u0027t like that approach then this state of affairs needs to be called out:\n\n- Mention for `ArtdPreRebootTest` that it inherits all the `ArtdTest` tests.\n\n- Add `is_pre_reboot` as a flag to `ArtdTest.SetUp` and move all the code that set `ArtdTest` state from `ArtdPreRebootTest.SetUp` into it as conditionals. This is important to get the correct picture for the fixtures and mocks when reading the tests, because one will look there but not in an inheriting class far below.\n\nI\u0027m still confused about what the deal is with the tests that call functions that are invalid for pre-reboot, though.",
+      "parentUuid": "4982cb1d_457cf4a5",
+      "range": {
+        "startLine": 1394,
+        "startChar": 34,
+        "endLine": 1394,
+        "endChar": 70
+      },
+      "revId": "cbc70a8bff7d9b66e907154ee2545c778fdeb9cf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "82b8be16_a4c62b1d",
         "filename": "artd/artd_test.cc",
         "patchSetId": 19

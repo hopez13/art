@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7a4f98b7_e9d327d3",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 865,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T12:18:30Z",
+      "side": 1,
+      "message": "That\u0027s worth a comment. Not necessarily why, but that it needs to handle both variants.\n\nIt\u0027s also worth a test.",
+      "parentUuid": "5bd536c8_33f30b4b",
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2076dc78_f443fdfd",
         "filename": "artd/artd.cc",
         "patchSetId": 18
@@ -85,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd1dba2d_e7af7217",
+        "filename": "artd/artd.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 985,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T12:18:30Z",
+      "side": 1,
+      "message": "This too.",
+      "parentUuid": "7bfb3b0d_414cc0af",
+      "range": {
+        "startLine": 985,
+        "startChar": 38,
+        "endLine": 985,
+        "endChar": 48
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "895e9521_9e4723db",
         "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
         "patchSetId": 18
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "I didn\u0027t make this statement absolute because I don\u0027t want a future author to think that this is something that cannot be changed. But I guess I can phrase it better. PTAL again.",
       "parentUuid": "895e9521_9e4723db",
+      "range": {
+        "startLine": 32,
+        "startChar": 63,
+        "endLine": 32,
+        "endChar": 71
+      },
+      "revId": "469da955db60b864a8081473447be612a19c86b7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9d4801c8_5ddd3e9a",
+        "filename": "artd/binder/com/android/server/art/ArtifactsPath.aidl",
+        "patchSetId": 18
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-26T12:18:30Z",
+      "side": 1,
+      "message": "All right. Personally I don\u0027t read \"cannot be changed\" into definitive comments; they only comment on the current state (unless they\u0027re stale). If there\u0027s some reason why it cannot change (like API stability) then that\u0027s well worth spelling out.",
+      "parentUuid": "fa0c5d24_b27343a6",
       "range": {
         "startLine": 32,
         "startChar": 63,
