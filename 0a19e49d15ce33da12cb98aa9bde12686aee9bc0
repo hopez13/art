@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9fc1201e_9db6a65e",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-28T17:05:11Z",
+      "side": 1,
+      "message": "This cleanup is only for the loop below that calls `Keep` on every file, which doesn\u0027t change the file path but only closes the file.\n\nThe actual move happens in `MoveAllOrAbandon`, and I maintain a set `committed_files` there as an equivalence of the removed `committed_` flag.",
+      "parentUuid": "be64b7fb_ae22a987",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 21
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d7e8075_06853782",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-26T18:21:42Z",
       "side": 1,
       "message": "All the cleanup code shows as uncovered to me. Doesn\u0027t `NewFileCommitAllFailedToCommit` and `NewFileCommitAllFailedToMoveOldFile` trigger this?",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a38b6064_9c7b0c8a",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-28T17:05:11Z",
+      "side": 1,
+      "message": "I see it being covered. https://screenshot.googleplex.com/Bb3ECfqpjfZucLp",
+      "parentUuid": "2d7e8075_06853782",
       "range": {
         "startLine": 149,
         "startChar": 0,
