@@ -6544,8 +6544,12 @@ static ObjPtr<mirror::Class> GetImtOwner(ObjPtr<mirror::Class> klass)
   DCHECK(imt != nullptr);
   while (klass->HasSuperClass()) {
     ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
+    while (super_class->IsAbstract()) {
+      super_class = super_class->GetSuperClass();
+    }
     if (super_class->ShouldHaveImt() && imt != super_class->GetImt(kRuntimePointerSize)) {
       // IMT not shared with the super class, return the current class.
+      DCHECK_EQ(klass->GetImt(kRuntimePointerSize), imt) << klass->PrettyClass();
       return klass;
     }
     klass = super_class;
@@ -6568,6 +6572,13 @@ ArtMethod* ClassLinker::AddMethodToConflictTable(ObjPtr<mirror::Class> klass,
   DCHECK(imt_owner != nullptr);
 
   LinearAlloc* linear_alloc = GetAllocatorForClassLoader(imt_owner->GetClassLoader());
+  if (kIsDebugBuild) {
+    gc::Heap* heap = Runtime::Current()->GetHeap();
+    // If the imt owner is in an image, the imt is also there and not in the
+    // linear alloc.
+    bool is_in_image = (heap->FindSpaceFromObject(imt_owner, /*fail_ok=*/true) != nullptr);
+    DCHECK(is_in_image || linear_alloc->Contains(klass->GetImt(kRuntimePointerSize)));
+  }
 
   // Create a new entry if the existing one is the shared conflict method.
   ArtMethod* new_conflict_method = (conflict_method == runtime->GetImtConflictMethod())
