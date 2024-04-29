@@ -87,6 +87,30 @@
       },
       "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f172d71_bf414a80",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-29T16:04:58Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s the same problem for Mainline. Since it\u0027s pretty common that an Mainline update updates the modules from the pre-installed version to the latest version, I don\u0027t see why Pre-reboot Dexopt won\u0027t work for it. After all, a Mainline update doesn\u0027t change SELinux policy and so on, but only some bootclasspath jars and dex2oat.\n\nWe can test it, with test configurations similar to the Mainline module tests that we currently have (Mainline on S, Mainline on T, Mainline on U, etc.)",
+      "parentUuid": "5304ddc6_567fb86c",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 78
+      },
+      "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

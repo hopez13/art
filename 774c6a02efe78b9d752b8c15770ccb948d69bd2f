@@ -237,6 +237,30 @@
       },
       "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a31eac4a_ecf548be",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-29T16:04:58Z",
+      "side": 1,
+      "message": "I don\u0027t think Java supports duck typing.",
+      "parentUuid": "3bdfa084_94e7d6fa",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
