@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6034e466_f19c76e2",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 296,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "\u003e artContextCopyForLongJump, stores the values from Context onto the stack and then art_quick_do_long_jump copies them from stack onto registers right?\n\nYes that is exactly right.\n\n\u003e Could we just load the values directly to registers here?\n\nTechnically speaking I think this would be possible but practically I don\u0027t think it brings enough value and would be fragile because:\n\n- This is an exception/deopt path so this doesn\u0027t need to be fast.\n- `CopyContextTo` also checks for nullptr and loads a bad value if true. This would need to be replicated in the assembly stub, introducing further complexity.\n- Replicating these copies and above checks would move the maintenance burden from C++ to more complex and less maintainable assembly code.\n- Accessing member variables from `Context`, in assembly, would rely on fragile offsets which are reliant on the layout of the `Context` object and it\u0027s members.",
+      "parentUuid": "9c4d54fa_9d9e7e96",
+      "range": {
+        "startLine": 291,
+        "startChar": 4,
+        "endLine": 296,
+        "endChar": 29
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6db23240_b52d16a4",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "```suggestion\n#define ARM_LONG_JUMP_CONTEXT_SIZE (ARM_LONG_JUMP_GPRS_SIZE + ARM_LONG_JUMP_FPRS_SIZE)\n```",
+      "range": {
+        "startLine": 72,
+        "startChar": 35,
+        "endLine": 72,
+        "endChar": 38
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "05a21f3b_3dc8ef5b",
+        "filename": "runtime/arch/arm/asm_support_arm.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6db23240_b52d16a4",
       "range": {
         "startLine": 72,
         "startChar": 35,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eccd2a3_0c6e3d50",
+        "filename": "runtime/arch/arm/context_arm.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done and added a comment to `artContextCopyForLongJump` to explain this expectation.",
+      "parentUuid": "21ff39e3_d3fecc01",
+      "range": {
+        "startLine": 111,
+        "startChar": 42,
+        "endLine": 111,
+        "endChar": 63
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85293615_15ee93bf",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Nit: Maybe use \n\n```suggestion\n#define ARM64_LONG_JUMP_CONTEXT_SIZE \\\n  (ARM64_LONG_JUMP_GPRS_SIZE + ARM64_LONG_JUMP_FPRS_SIZE)\n```",
+      "range": {
+        "startLine": 62,
+        "startChar": 37,
+        "endLine": 62,
+        "endChar": 40
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e375a2fe_c1b1aa5c",
+        "filename": "runtime/arch/arm64/asm_support_arm64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "85293615_15ee93bf",
       "range": {
         "startLine": 62,
         "startChar": 37,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7bdfb12_11272548",
+        "filename": "runtime/arch/arm64/context_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "588b0ee3_ce84bb76",
+      "range": {
+        "startLine": 170,
+        "startChar": 56,
+        "endLine": 170,
+        "endChar": 59
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d92cd758_701710bb",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Any reason we want to pass context here instead of getting it here from Thread::Current()?  If we can get context here, we may not need the context offset in threads.def. I am fine with the current implementation as well, but please add a comment if there is a reason we want to pass context here.",
+      "range": {
+        "startLine": 25,
+        "startChar": 42,
+        "endLine": 25,
+        "endChar": 58
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e0805ca3_d601e8fa",
+        "filename": "runtime/arch/context.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Good point, I\u0027ve removed the context offset and replaced it with passing in the thread instead.",
+      "parentUuid": "d92cd758_701710bb",
       "range": {
         "startLine": 25,
         "startChar": 42,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "866bc49e_bec7459c",
+        "filename": "runtime/arch/riscv64/asm_support_riscv64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f82a7d5b_df926491",
+      "range": {
+        "startLine": 57,
+        "startChar": 39,
+        "endLine": 57,
+        "endChar": 42
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "024ee6dc_51008d1e",
@@ -192,6 +360,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Update comment here?",
+      "range": {
+        "startLine": 381,
+        "startChar": 54,
+        "endLine": 381,
+        "endChar": 76
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1872df2_921ba617",
+        "filename": "runtime/arch/x86/asm_support_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 381,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "024ee6dc_51008d1e",
       "range": {
         "startLine": 381,
         "startChar": 54,
@@ -225,6 +417,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36d9d429_6ac68f64",
+        "filename": "runtime/arch/x86/asm_support_x86.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af590461_1d72f84c",
+      "range": {
+        "startLine": 37,
+        "startChar": 35,
+        "endLine": 37,
+        "endChar": 38
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c71dfc01_4ce0149a",
@@ -238,6 +454,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Similar to x86_64, maybe compare with 0 and use jne. Here and also below.",
+      "range": {
+        "startLine": 804,
+        "startChar": 2,
+        "endLine": 805,
+        "endChar": 7
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f32915d3_6f6f9603",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c71dfc01_4ce0149a",
       "range": {
         "startLine": 804,
         "startChar": 2,
@@ -271,6 +511,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b0dfa3a_215b7abb",
+        "filename": "runtime/arch/x86/quick_entrypoints_x86.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2217,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2f67d0bc_cc199a4c",
+      "range": {
+        "startLine": 2216,
+        "startChar": 4,
+        "endLine": 2217,
+        "endChar": 28
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da559480_0ca5942f",
@@ -284,6 +548,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Comments need to be updated here?",
+      "range": {
+        "startLine": 468,
+        "startChar": 55,
+        "endLine": 468,
+        "endChar": 77
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8ff86227_f46c0f86",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 468,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da559480_0ca5942f",
       "range": {
         "startLine": 468,
         "startChar": 55,
@@ -317,6 +605,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78f48390_7e3ae071",
+        "filename": "runtime/arch/x86_64/asm_support_x86_64.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "I think `(X86_64_LONG_JUMP_GPRS_SIZE + X86_64_LONG_JUMP_FPRS_SIZE)` makes more sense here and avoids introducing another literal.",
+      "parentUuid": "9b13a850_be4cd93d",
+      "range": {
+        "startLine": 37,
+        "startChar": 38,
+        "endLine": 37,
+        "endChar": 41
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d81e32c2_7c6464d6",
@@ -330,6 +642,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "To keep it same as ARM let\u0027s do: \n```\ncmpq LITERAL(0), %rax\njne 3f\n```",
+      "range": {
+        "startLine": 744,
+        "startChar": 2,
+        "endLine": 745,
+        "endChar": 7
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c77f5ba_a4c01bab",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 745,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d81e32c2_7c6464d6",
       "range": {
         "startLine": 744,
         "startChar": 2,
@@ -363,6 +699,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "537fc937_de4e5454",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 770,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a8fa077_966c9885",
+      "range": {
+        "startLine": 769,
+        "startChar": 2,
+        "endLine": 770,
+        "endChar": 7
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e6c6ef12_58f3388f",
@@ -376,6 +736,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "Same here as well.",
+      "range": {
+        "startLine": 1287,
+        "startChar": 4,
+        "endLine": 1289,
+        "endChar": 0
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fee80d96_33164992",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 1289,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e6c6ef12_58f3388f",
       "range": {
         "startLine": 1287,
         "startChar": 4,
@@ -409,6 +793,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae79de0_2ceb8d19",
+        "filename": "runtime/arch/x86_64/quick_entrypoints_x86_64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2028,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "139074fb_28c32078",
+      "range": {
+        "startLine": 2027,
+        "startChar": 4,
+        "endLine": 2028,
+        "endChar": 28
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acd8263b_5fd1f1f5",
@@ -432,6 +840,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5150dc6f_3dba3594",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2523,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "acd8263b_5fd1f1f5",
+      "range": {
+        "startLine": 2523,
+        "startChar": 2,
+        "endLine": 2523,
+        "endChar": 14
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c159ea9_86856cf6",
@@ -445,6 +877,30 @@
       "writtenOn": "2024-04-05T13:55:18Z",
       "side": 1,
       "message": "I was wondering if we could use the same enum for MethodHooksReturnStatus and DeoptimizeReturnStatus.",
+      "range": {
+        "startLine": 541,
+        "startChar": 2,
+        "endLine": 544,
+        "endChar": 4
+      },
+      "revId": "968e151e31cb5aa63230235d76f3d9aec6930903",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "76b18771_b1daae00",
+        "filename": "runtime/instrumentation.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-04-29T15:36:04Z",
+      "side": 1,
+      "message": "Combined into `EntrypointReturnStatus` and moved to instrumentation.h",
+      "parentUuid": "9c159ea9_86856cf6",
       "range": {
         "startLine": 541,
         "startChar": 2,
