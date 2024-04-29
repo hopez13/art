@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ba50d913_77f60fda",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-29T15:46:40Z",
+      "side": 1,
+      "message": "This is also exercised by `testGetAllAbisUnsupportedTranslation`. In that test, you can see that `Utils.getAllAbis(pkgState)` returns only one ABI. That\u0027s because the secondary ABI is skipped by this if condition.",
+      "parentUuid": "a31a055d_4c00da55",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 30
+      },
+      "revId": "d44e3994a52a04fabf688c2e45d4d36917e08f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "03aa26e7_e4044b43",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-29T15:39:58Z",
       "side": 1,
       "message": "Just to avoid throwing readers off, can this be a little bit closer to reality by swapping the ISAs?\n```suggestion\n        when(pkgState.getPrimaryCpuAbi()).thenReturn(\"armeabi-v7a\");\n        when(pkgState.getSecondaryCpuAbi()).thenReturn(null);\n\n        when(Constants.getPreferredAbi()).thenReturn(\"x86_64\");\n```",
+      "range": {
+        "startLine": 159,
+        "startChar": 52,
+        "endLine": 162,
+        "endChar": 68
+      },
+      "revId": "d44e3994a52a04fabf688c2e45d4d36917e08f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "654ad57f_572d2c13",
+        "filename": "libartservice/service/javatests/com/android/server/art/UtilsTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 162,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-29T15:46:40Z",
+      "side": 1,
+      "message": "I\u0027d like to make it consistent with other tests in this file, where the native ABI is ARM and the foreign ABI is x86, to make make it easier for readers to read through the whole file.",
+      "parentUuid": "03aa26e7_e4044b43",
       "range": {
         "startLine": 159,
         "startChar": 52,
