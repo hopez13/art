@@ -39,6 +39,30 @@
       },
       "revId": "ea6bb7011850e63a9141162ec736d9aba6dc16de",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f4b5d933_dae0cb8d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 1136,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-29T08:53:17Z",
+      "side": 1,
+      "message": "Yeah, I couldn\u0027t really narrow this down and figure out when it was being deleted. There are a few code paths that would delete it, and it wasn\u0027t clear if they were possible in the test that as failing (in other tests, it could have been possible).\n\nSo I decided to not block this CL in understanding how this could happen.",
+      "parentUuid": "7fb82805_00d18b66",
+      "range": {
+        "startLine": 1136,
+        "startChar": 6,
+        "endLine": 1136,
+        "endChar": 39
+      },
+      "revId": "ea6bb7011850e63a9141162ec736d9aba6dc16de",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
