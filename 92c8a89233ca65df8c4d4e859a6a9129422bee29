@@ -77,6 +77,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "44bfecb6_b7f0308b",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-29T11:11:29Z",
+      "side": 1,
+      "message": "In my testing I had been running multiple suites by doing (for example) `atest art_standalone_*_tests` or `test.py --gtest`. I think these evaluate to running each test suite independently, so there\u0027s no problem that the test gets run more than once.\n\nHowever it looks like the `ArtGtestsTargetChroot` target runs all the tests as a single \u0027suite\u0027, which then means we get caught by https://cs.android.com/android/platform/superproject/main/+/main:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTestListener.java;l\u003d60 \n\nI\u0027m currently looking at ways of achieving the goal of having this test appear in any given runtime test-suite, without being inherited multiple times when they are called as `ArtGtestsTargetChroot`, but haven\u0027t yet come up with a solution for this.\n\nI would be very grateful for any ideas to avoid the fallback of just droping that aspect and instead add it to a single test suite.",
+      "parentUuid": "b03e271c_cb91167b",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 47
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18e802c5_286dfd4a",
         "filename": "runtime/oat/elf_file.cc",
         "patchSetId": 1
