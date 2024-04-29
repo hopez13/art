@@ -101,6 +101,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "80d8a032_1d330373",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-04-29T22:46:50Z",
+      "side": 1,
+      "message": "Following up on this, it looks like there is no supported way in the `ArtGtestsTargetChroot` configuration to provide a specific test suite when running `ArtGTest`, as the tests are just picked up via https://cs.android.com/android/platform/superproject/main/+/main:tools/tradefederation/core/test_framework/com/android/tradefed/testtype/GTest.java;drc\u003d074bb2dc367bde42b837a8de4d4e88f26c074c32;l\u003d487 and then whatever `gtest_filter` we define get applied to each one in turn (and importantly, `gtest_filter` cannot filter the binary name, only the test fixture and name). \n\nThis is only a problem if we want to actually run the `ElfAlignmentMismatch` test as part of `ArtGtestsTargetChroot`. But of course as this is in chroot mode, there is no possibility of mismatch and we can just exclude it via the `exclude-filter` option. The test is intended for the standalone modes of the tests.\n\nThinking ahead, if other \u0027common\u0027 test-cases arise that would need to be included, either a specific module for those would need to be used (in which case excluding them from `ArtGtestsTargetChroot` is still required), or an adjustment would be needed in tradefed\u0027s `GTest.java` (e.g. to support specification of a particular binary path so that we could execute the test class twice - once for all suites with the common tests excluded, and once for a single suite with them included). Those are more significant changes that I think are likely unnecessary for this CL. \n\nI intend to update this CL once I\u0027ve ran through the tests locally.",
+      "parentUuid": "44bfecb6_b7f0308b",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 47
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18e802c5_286dfd4a",
         "filename": "runtime/oat/elf_file.cc",
         "patchSetId": 1
