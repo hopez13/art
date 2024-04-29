@@ -189,6 +189,54 @@
       },
       "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3bdfa084_94e7d6fa",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T15:23:58Z",
+      "side": 1,
+      "message": "I see. So we\u0027d need to do duck typing to check it. I don\u0027t know if there\u0027s any reasonably easy way to accomplish that.",
+      "parentUuid": "d414dfcc_a8caaf26",
+      "range": {
+        "startLine": 36,
+        "startChar": 68,
+        "endLine": 37,
+        "endChar": 9
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae1cccaa_bebcb7fc",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T15:23:58Z",
+      "side": 1,
+      "message": "\u003e I think the goal of my design is to minimize such consideration.\n\nThat\u0027s good, but the fact that another version of `service-art.jar` gets loaded will always be there and will need awareness. It has implications and causes uncertainties so it deserves a discussion at the \"root\" level. Even if the existing API boundaries do a lot of the heavy lifting, the code reader needs to know that\u0027s the case, and what the remaining gaps are.\n\nThat they\u0027re discussed in the design doc is imo not enough, for several reasons.",
+      "parentUuid": "682cb558_353c208a",
+      "range": {
+        "startLine": 36,
+        "startChar": 67,
+        "endLine": 37,
+        "endChar": 10
+      },
+      "revId": "774c6a02efe78b9d752b8c15770ccb948d69bd2f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

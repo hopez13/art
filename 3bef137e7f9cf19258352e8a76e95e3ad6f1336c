@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30013b65_2386080a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T15:23:58Z",
+      "side": 1,
+      "message": "Just to connect the dots a bit more explicitly, please add that it\u0027s the open files that keep the mounts busy so the cannot be unmounted.",
+      "range": {
+        "startLine": 93,
+        "startChar": 26,
+        "endLine": 93,
+        "endChar": 62
+      },
+      "revId": "3bef137e7f9cf19258352e8a76e95e3ad6f1336c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ed0a373_7c09d8e1",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManagerInterface.java",
+        "patchSetId": 18
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T15:23:58Z",
+      "side": 1,
+      "message": "```suggestion\n * to another. In principle, a method here should be kept as long as devices that receive Mainline updates call the old version from their factory installed modules,\n```",
+      "range": {
+        "startLine": 30,
+        "startChar": 15,
+        "endLine": 31,
+        "endChar": 94
+      },
+      "revId": "3bef137e7f9cf19258352e8a76e95e3ad6f1336c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

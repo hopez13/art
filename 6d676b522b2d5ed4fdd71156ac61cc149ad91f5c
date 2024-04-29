@@ -63,6 +63,30 @@
       },
       "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5304ddc6_567fb86c",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T15:23:58Z",
+      "side": 1,
+      "message": "\u003e No, that policy only applies to OTA, not Mainline.\n\nWhy not apply it to Mainline too? It\u0027s basically the same problem, afterall - a too big version difference is hard to maintain. Will we test pre-reboot dexopt on devices going from platform image to the latest train?\n\n\u003e Any suggestions are welcome!\n\nI was hoping the AI thing could do it, but it just made a mess. :\\",
+      "parentUuid": "e74c97a2_0ef3fe10",
+      "range": {
+        "startLine": 38,
+        "startChar": 43,
+        "endLine": 39,
+        "endChar": 78
+      },
+      "revId": "6d676b522b2d5ed4fdd71156ac61cc149ad91f5c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
