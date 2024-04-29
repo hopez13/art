@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4279048a_dc7acb8b",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-29T09:48:43Z",
+      "side": 1,
+      "message": "I am not sure I understand this still. \n\nWe are registering the AppInfoCallbacks in ``AdbConnectionState::StartDebuggerThreads``[1] which is only called from ``AdbConnectionDebuggerController::StartDebugger``.  We do create the ``app_info_callbacks_`` object when we create ``AdbConnectionState`` but don\u0027t register it for callbacks until ``StartDebugger`` is called. So I guess we shouldn\u0027t be receiving any of these callbacks if ``IsDebuggableOrProfilable()`` is false.\n\n[1] https://android-review.git.corp.google.com/c/platform/art/+/3038373/comment/ca8531a1_a7c71e65/",
+      "parentUuid": "b05bdb51_3a8e1865",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 36
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "061ab62a_680dff99",
         "filename": "adbconnection/adbconnection.cc",
         "patchSetId": 5
