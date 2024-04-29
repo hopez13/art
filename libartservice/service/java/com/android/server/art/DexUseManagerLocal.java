@@ -321,14 +321,19 @@ public class DexUseManagerLocal {
                     continue;
                 }
 
-                Map<DexLoader, SecondaryDexUseRecord> filteredRecordByLoader;
-                if (visibility == FileVisibility.OTHER_READABLE
-                        || !excludeObsoleteDexesAndLoaders) {
-                    filteredRecordByLoader = secondaryDexUse.mRecordByLoader;
-                } else {
+                Map<DexLoader, SecondaryDexUseRecord> filteredRecordByLoader = new HashMap<>();
+                for (Map.Entry<DexLoader, SecondaryDexUseRecord> recordEntry :
+                        secondaryDexUse.mRecordByLoader.entrySet()) {
+                    // The native ABI set may have changed by an OTA since the ABI names were
+                    // recorded. Only keep the entries whose ABIs are still native.
+                    if (Utils.isNativeAbi(recordEntry.getValue().mAbiName)) {
+                        filteredRecordByLoader.put(recordEntry.getKey(), recordEntry.getValue());
+                    }
+                }
+                if (visibility != FileVisibility.OTHER_READABLE && excludeObsoleteDexesAndLoaders) {
                     // Only keep the entry that belongs to the same app.
                     DexLoader sameApp = DexLoader.create(packageName, false /* isolatedProcess */);
-                    SecondaryDexUseRecord record = secondaryDexUse.mRecordByLoader.get(sameApp);
+                    SecondaryDexUseRecord record = filteredRecordByLoader.get(sameApp);
                     filteredRecordByLoader = record != null ? Map.of(sameApp, record) : Map.of();
                 }
                 if (filteredRecordByLoader.isEmpty()) {
@@ -803,6 +808,15 @@ public class DexUseManagerLocal {
                 it.remove();
                 mRevision++;
                 continue;
+            }
+
+            if (entry.getValue() instanceof SecondaryDexUseRecord record) {
+                if (!Utils.isNativeAbi(record.mAbiName)) {
+                    // The native ABI set have changed by an OTA since the ABI name was recorded.
+                    it.remove();
+                    mRevision++;
+                    continue;
+                }
             }
         }
     }

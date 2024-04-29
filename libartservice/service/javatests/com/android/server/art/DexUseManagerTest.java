@@ -398,6 +398,26 @@ public class DexUseManagerTest {
         assertThat(dexInfoList.get(0).classLoaderContext()).isNull();
     }
 
+    @Test
+    public void testSecondaryDexNativeAbiSetChange() {
+        mDexUseManager.notifyDexContainersLoaded(
+                mSnapshot, OWNING_PKG_NAME, Map.of(mCeDir + "/foo.apk", "CLC"));
+        mDexUseManager.notifyDexContainersLoaded(
+                mSnapshot, LOADING_PKG_NAME, Map.of(mCeDir + "/foo.apk", "CLC2"));
+
+        // Simulate that 32 bit is no longer supported. The info about `LOADING_PKG_NAME` should be
+        // filtered out.
+        when(Constants.getNative32BitAbi()).thenReturn(null);
+
+        List<? extends SecondaryDexInfo> dexInfoList =
+                mDexUseManager.getSecondaryDexInfo(OWNING_PKG_NAME);
+        assertThat(dexInfoList)
+                .containsExactly(CheckedSecondaryDexInfo.create(mCeDir + "/foo.apk", mUserHandle,
+                        "CLC", Set.of("arm64-v8a"),
+                        Set.of(DexLoader.create(OWNING_PKG_NAME, false /* isolatedProcess */)),
+                        false /* isUsedByOtherApps */, FileVisibility.OTHER_READABLE));
+    }
+
     /** Checks that it ignores and dedups things correctly. */
     @Test
     public void testSecondaryDexMultipleEntries() throws Exception {
@@ -612,7 +632,7 @@ public class DexUseManagerTest {
     }
 
     @Test
-    public void testCleanup() throws Exception {
+    public void testCleanupDeletedPackage() throws Exception {
         PackageState pkgState = createPackageState(
                 "com.example.deletedpackage", "arm64-v8a", true /* hasPackage */);
         addPackage("com.example.deletedpackage", pkgState);
@@ -633,6 +653,11 @@ public class DexUseManagerTest {
         // Simulate that the package is then deleted.
         removePackage("com.example.deletedpackage");
 
+        verifyCleanup();
+    }
+
+    @Test
+    public void testCleanupDeletedPrimaryDex() throws Exception {
         // Simulate that a primary dex file is loaded and then deleted.
         lenient()
                 .when(mArtd.getDexFileVisibility(SPLIT_APK))
@@ -643,6 +668,11 @@ public class DexUseManagerTest {
                 mSnapshot, LOADING_PKG_NAME, Map.of(SPLIT_APK, "CLC"));
         lenient().when(mArtd.getDexFileVisibility(SPLIT_APK)).thenReturn(FileVisibility.NOT_FOUND);
 
+        verifyCleanup();
+    }
+
+    @Test
+    public void testCleanupDeletedSecondaryDex() throws Exception {
         // Simulate that a secondary dex file is loaded and then deleted.
         lenient()
                 .when(mArtd.getDexFileVisibility(mCeDir + "/foo.apk"))
@@ -655,13 +685,11 @@ public class DexUseManagerTest {
                 .when(mArtd.getDexFileVisibility(mCeDir + "/foo.apk"))
                 .thenReturn(FileVisibility.NOT_FOUND);
 
-        // Create an entry that should be kept.
-        lenient()
-                .when(mArtd.getDexFileVisibility(mCeDir + "/bar.apk"))
-                .thenReturn(FileVisibility.NOT_OTHER_READABLE);
-        mDexUseManager.notifyDexContainersLoaded(
-                mSnapshot, OWNING_PKG_NAME, Map.of(mCeDir + "/bar.apk", "CLC"));
+        verifyCleanup();
+    }
 
+    @Test
+    public void testCleanupPrivateSecondaryDex() throws Exception {
         // Simulate that a secondary dex file is loaded by another package and then made private.
         lenient()
                 .when(mArtd.getDexFileVisibility(mCeDir + "/baz.apk"))
@@ -672,6 +700,11 @@ public class DexUseManagerTest {
                 .when(mArtd.getDexFileVisibility(mCeDir + "/baz.apk"))
                 .thenReturn(FileVisibility.NOT_OTHER_READABLE);
 
+        verifyCleanup();
+    }
+
+    @Test
+    public void testCleanupDeletedAllDex() throws Exception {
         // Simulate that all the files of a package are deleted. The whole container entry of the
         // package should be cleaned up, though the package still exists.
         lenient()
@@ -684,6 +717,31 @@ public class DexUseManagerTest {
                 .when(mArtd.getDexFileVisibility(
                         "/somewhere/app/" + LOADING_PKG_NAME + "/base.apk"))
                 .thenReturn(FileVisibility.NOT_FOUND);
+
+        verifyCleanup();
+    }
+
+    @Test
+    public void testCleanupAbiSetChange() throws Exception {
+        // Simulate that a secondary dex file is loaded by another package and then the native ABI
+        // set is changed.
+        lenient()
+                .when(mArtd.getDexFileVisibility(mCeDir + "/baz.apk"))
+                .thenReturn(FileVisibility.OTHER_READABLE);
+        mDexUseManager.notifyDexContainersLoaded(
+                mSnapshot, LOADING_PKG_NAME, Map.of(mCeDir + "/baz.apk", "CLC"));
+        when(Constants.getNative32BitAbi()).thenReturn(null);
+
+        verifyCleanup();
+    }
+
+    private void verifyCleanup() throws Exception {
+        // Create an entry that should be kept.
+        lenient()
+                .when(mArtd.getDexFileVisibility(mCeDir + "/bar.apk"))
+                .thenReturn(FileVisibility.NOT_OTHER_READABLE);
+        mDexUseManager.notifyDexContainersLoaded(
+                mSnapshot, OWNING_PKG_NAME, Map.of(mCeDir + "/bar.apk", "CLC"));
 
         // Run cleanup.
         mDexUseManager.cleanup();
