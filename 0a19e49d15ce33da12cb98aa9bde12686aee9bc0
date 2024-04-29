@@ -48,6 +48,64 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "52da2240_b48c0465",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 129,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T12:03:01Z",
+      "side": 1,
+      "message": "Ok, I missed that the cleanup was disabled before the `MoveAllOrAbandon` call.",
+      "parentUuid": "9fc1201e_9db6a65e",
+      "range": {
+        "startLine": 129,
+        "startChar": 6,
+        "endLine": 129,
+        "endChar": 21
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cd60bbe_26f73ef5",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 134,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T12:03:01Z",
+      "side": 1,
+      "message": "I still see no coverage on this line (only), but that must clearly be wrong. It\u0027s not very trustworthy, unfortunately.",
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f914d23_83aeba3b",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 151,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T12:03:01Z",
+      "side": 1,
+      "message": "This branch is still shows as uncovered. If that\u0027s correct then please consider a test for it.",
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2d7e8075_06853782",
@@ -85,6 +143,30 @@
       "side": 1,
       "message": "I see it being covered. https://screenshot.googleplex.com/Bb3ECfqpjfZucLp",
       "parentUuid": "2d7e8075_06853782",
+      "range": {
+        "startLine": 149,
+        "startChar": 0,
+        "endLine": 170,
+        "endChar": 5
+      },
+      "revId": "0a19e49d15ce33da12cb98aa9bde12686aee9bc0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2df163af_c7f3da95",
+        "filename": "artd/file_utils.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T12:03:01Z",
+      "side": 1,
+      "message": "Now I see it too. I wonder if coverage is updated incrementally or something. If so that\u0027s not great. Next time I\u0027ll grab a screenshot and file a ticket.",
+      "parentUuid": "a38b6064_9c7b0c8a",
       "range": {
         "startLine": 149,
         "startChar": 0,
