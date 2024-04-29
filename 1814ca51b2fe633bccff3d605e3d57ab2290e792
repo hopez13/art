@@ -22,6 +22,30 @@
       },
       "revId": "1814ca51b2fe633bccff3d605e3d57ab2290e792",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5cab1898_630cdf18",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-29T12:25:12Z",
+      "side": 1,
+      "message": "Test passed.\n\nKeeping the commit message as is. The `--jit` with `--no-image` is enough to exercise a previously failing test that was fixed in PS2.",
+      "parentUuid": "ec38298f_3a2b6196",
+      "range": {
+        "startLine": 17,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 4
+      },
+      "revId": "1814ca51b2fe633bccff3d605e3d57ab2290e792",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
