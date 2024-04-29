@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "32f843c7_efe1f7c0",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-29T19:29:38Z",
+      "side": 1,
+      "message": "Doesn\u0027t `pkgState.getSecondaryCpuAbi()` return `null`, so that the whole block 112-118 is skipped?",
+      "parentUuid": "ba50d913_77f60fda",
+      "range": {
+        "startLine": 115,
+        "startChar": 12,
+        "endLine": 115,
+        "endChar": 30
+      },
+      "revId": "d44e3994a52a04fabf688c2e45d4d36917e08f02",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "03aa26e7_e4044b43",
         "filename": "libartservice/service/javatests/com/android/server/art/UtilsTest.java",
         "patchSetId": 2
