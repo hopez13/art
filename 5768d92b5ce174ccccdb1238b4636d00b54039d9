@@ -125,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1cea4bf9_a1c525e0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-29T08:50:23Z",
+      "side": 1,
+      "message": "Thanks! I missed the building of tests themselves. I was wondering if we are building target only to get the boot image. This clarifies things now.",
+      "parentUuid": "16190120_1b3aeeb0",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67d867bf_7583e092",
@@ -138,6 +156,24 @@
       "writtenOn": "2024-04-25T15:47:54Z",
       "side": 1,
       "message": "Could you please explore using Soong config variables to avoid having this logic in a go file? https://android.googlesource.com/platform/build/soong/+/refs/heads/main/README.md#soong-config-variables",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f6be024e_b7715b33",
+        "filename": "build/quick_code_arch.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-29T08:50:23Z",
+      "side": 1,
+      "message": "Just to expand on this. The separation of architecture specific files to quick_code_arch is good. We are now using this go file to append quick_code_arch files into the correct arch. Instead if we made quick_code_arch as a Soong config variable which has the same value as the arch by default. In simulator builds we override it the required arch. That way we can avoid this entire go file and we just need to set the quick_code_arch correctly.",
+      "parentUuid": "67d867bf_7583e092",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
