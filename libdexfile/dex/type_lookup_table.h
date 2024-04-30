@@ -70,7 +70,7 @@ class TypeLookupTable {
 
   // Method search class_def_idx by class descriptor and it's hash.
   // If no data found then the method returns dex::kDexNoIndex.
-  uint32_t Lookup(std::string_view str, uint32_t hash) const;
+  uint32_t Lookup(const char* str, uint32_t hash) const;
 
   // Method returns pointer to binary data of lookup table. Used by the oat writer.
   const uint8_t* RawData() const {
