@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40c96437_e43b5378",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-04-30T16:27:59Z",
+      "side": 1,
+      "message": "Same answer as for `gAppImageDexFiles`: \"Because `AotClassLinker::SetAppImageDexFiles()` that uses it is static. (I don\u0027t want to refactor the code in this CL.)\"",
+      "parentUuid": "635b25c9_bb7f2add",
+      "range": {
+        "startLine": 1970,
+        "startChar": 0,
+        "endLine": 1970,
+        "endChar": 87
+      },
+      "revId": "9238d2569a888c65a7585be38783148bda50ac81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c05431ef_f4e2471a",
