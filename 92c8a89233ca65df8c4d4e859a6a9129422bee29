@@ -125,6 +125,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "12cbfef5_dc593b92",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-30T10:12:00Z",
+      "side": 1,
+      "message": "Sorry David is OOO for a few weeks. \n\nThanks for digging into this! I am slightly concerned about special casing ``ArtGtestsTargetChroot`` and excluding this test in that configuration. I am not very familiar with the different configs we use to run the tests so I am concerned that we might hit a similar issue with some other config. \n\nI understand why we want to include the test as a part of each test suite but we generally run all the gtests together on the bots. So what if we only have this test in runtime_tests for example. We will still catch the issue if it happens in the test environment.\n\nIf we are running manually then we may just run one test suite but then we can also run just run one test skipping the ElfAlignment test. So I am not sure if it is worth the effort to include it in each test suite. I would suggest moving the test to runtime_test and I think we will have sufficient coverage on the bots to catch this issue if it happens.",
+      "parentUuid": "80d8a032_1d330373",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 47
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18e802c5_286dfd4a",
         "filename": "runtime/oat/elf_file.cc",
         "patchSetId": 1
