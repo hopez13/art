@@ -1,6 +1,52 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "8890d564_369e1535",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-30T12:18:38Z",
+      "side": 1,
+      "message": "Include `proto.getDexFile()` in the message to give some more context?",
+      "range": {
+        "startLine": 1030,
+        "startChar": 28,
+        "endLine": 1032,
+        "endChar": 52
+      },
+      "revId": "a09490ae58dcc056e7231551421a61a8e99c7c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dccf9bc8_80f1e303",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-30T12:18:38Z",
+      "side": 1,
+      "message": "Just to make it more clear that the test simulates reality correctly, can you save first and then change the `getNative32BitAbi` mock?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 63
+      },
+      "revId": "a09490ae58dcc056e7231551421a61a8e99c7c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "6d31f598_a3135eb0",
@@ -14,6 +60,30 @@
       "writtenOn": "2024-04-30T10:35:18Z",
       "side": 1,
       "message": "In PS3, this change is no longer related to this CL, but since I\u0027m here, I\u0027d like to keep this change because it makes it easier to added more tests for `cleanup` in the future.",
+      "range": {
+        "startLine": 644,
+        "startChar": 4,
+        "endLine": 741,
+        "endChar": 0
+      },
+      "revId": "a09490ae58dcc056e7231551421a61a8e99c7c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3efdff81_0763b5b4",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 741,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-04-30T12:18:38Z",
+      "side": 1,
+      "message": "SGTM, I\u0027ve already reviewed this.",
+      "parentUuid": "6d31f598_a3135eb0",
       "range": {
         "startLine": 644,
         "startChar": 4,
