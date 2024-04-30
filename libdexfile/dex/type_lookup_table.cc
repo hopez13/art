@@ -93,7 +93,7 @@ TypeLookupTable TypeLookupTable::Open(const uint8_t* dex_data_pointer,
   return TypeLookupTable(dex_data_pointer, mask_bits, entries, /* owned_entries= */ nullptr);
 }
 
-uint32_t TypeLookupTable::Lookup(std::string_view str, uint32_t hash) const {
+uint32_t TypeLookupTable::Lookup(const char* str_arg, uint32_t hash) const {
   uint32_t mask = Entry::GetMask(mask_bits_);
   uint32_t pos = hash & mask;
   // Thanks to special insertion algorithm, the element at position pos can be empty
@@ -112,6 +112,9 @@ uint32_t TypeLookupTable::Lookup(std::string_view str, uint32_t hash) const {
     entry = &entries_[pos];
     DCHECK(!entry->IsEmpty());
   }
+  // The vast majority of cases don't get this far.  So we wait until here to
+  // construct our string_view, since it invokes a strlen().
+  const std::string_view str(str_arg);
   // Found partial hash match, compare strings (expecting this to succeed).
   const std::string_view first_checked_str = GetStringData(*entry);
   if (str == first_checked_str) {
