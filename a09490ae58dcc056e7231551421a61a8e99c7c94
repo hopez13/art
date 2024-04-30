@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "301de1e6_0f55adee",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 1032,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-30T15:45:32Z",
+      "side": 1,
+      "message": "Thanks for the suggestion!",
+      "parentUuid": "8890d564_369e1535",
+      "range": {
+        "startLine": 1030,
+        "startChar": 28,
+        "endLine": 1032,
+        "endChar": 52
+      },
+      "revId": "a09490ae58dcc056e7231551421a61a8e99c7c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dccf9bc8_80f1e303",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-04-30T12:18:38Z",
       "side": 1,
       "message": "Just to make it more clear that the test simulates reality correctly, can you save first and then change the `getNative32BitAbi` mock?",
+      "range": {
+        "startLine": 413,
+        "startChar": 0,
+        "endLine": 417,
+        "endChar": 63
+      },
+      "revId": "a09490ae58dcc056e7231551421a61a8e99c7c94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80eea893_4a5ed1f5",
+        "filename": "libartservice/service/javatests/com/android/server/art/DexUseManagerTest.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 417,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-30T15:45:32Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dccf9bc8_80f1e303",
       "range": {
         "startLine": 413,
         "startChar": 0,
