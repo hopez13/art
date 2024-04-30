@@ -16,6 +16,24 @@
       "message": "The loaded structure in `mDexUse` still has potentially invalid ABIs, so if more query functions are added they\u0027ll have to remember to do this. Isn\u0027t it better to filter out the invalid ABIs when the file is loaded instead, i.e. in the vicinity of `SecondaryDexUse.fromProto`?",
       "revId": "5c5ecdf716b7ee4bb57013410bd043bca77672af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36690dfe_59e8daec",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-04-30T10:35:18Z",
+      "side": 1,
+      "message": "This is the impl function for any query functions. If more query functions are added, they will be using this impl function as well. But your suggestion SGTM. Since the ABI set can\u0027t be changed at runtime but only by an OTA, it\u0027s cleaner to filter out the invalid ABIs when loading the protobuf, to avoid them entirely. Done.",
+      "parentUuid": "f14b2174_62e09974",
+      "revId": "5c5ecdf716b7ee4bb57013410bd043bca77672af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
