@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01963eef_b8a83302",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6548,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-04-30T09:58:17Z",
+      "side": 1,
+      "message": "Should this be super_class-\u003eShouldHaveImt()? I just looked at ShouldHaveImt and we have a special case for abstract array classes (``(IsAbstract\u003ckVerifyFlags\u003e() \u0026\u0026 IsArrayClass\u003ckVerifyFlags\u003e())``). Do we miss checking against some abstract array classes if we skip all abstract classes?",
+      "range": {
+        "startLine": 6548,
+        "startChar": 11,
+        "endLine": 6548,
+        "endChar": 36
+      },
+      "revId": "55fbd2347156312a7f4b5afdc1818af699eae831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
