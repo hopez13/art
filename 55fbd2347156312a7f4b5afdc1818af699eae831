@@ -71,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcc27e3e_37976679",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6549,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-30T12:49:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "26304a0e_71fea495",
+      "range": {
+        "startLine": 6549,
+        "startChar": 33,
+        "endLine": 6549,
+        "endChar": 46
+      },
+      "revId": "55fbd2347156312a7f4b5afdc1818af699eae831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "de31e65b_4655dbed",
@@ -84,6 +108,30 @@
       "writtenOn": "2024-04-30T10:10:42Z",
       "side": 1,
       "message": "DCHECK_IMPLIES(runtime-\u003eGetHeap()-\u003eFindSpaceFromObject(imt_owner, /*fail_ok\u003d*/true) \u003d\u003d nullptr,\n                   linear_alloc-\u003eContains(klass-\u003eGetImt(kRuntimePointerSize)));\n\nand drop the `if (kIsDebugBuild)`.",
+      "range": {
+        "startLine": 6581,
+        "startChar": 4,
+        "endLine": 6582,
+        "endChar": 86
+      },
+      "revId": "55fbd2347156312a7f4b5afdc1818af699eae831",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9344cc7_df82c64e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 6582,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-04-30T12:49:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de31e65b_4655dbed",
       "range": {
         "startLine": 6581,
         "startChar": 4,
