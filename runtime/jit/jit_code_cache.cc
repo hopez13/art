@@ -1105,7 +1105,11 @@ bool JitCodeCache::IsAtMaxCapacity() const {
 }
 
 void JitCodeCache::IncreaseCodeCacheCapacity(Thread* self) {
+  ScopedThreadSuspension sts(self, ThreadState::kSuspended);
   MutexLock mu(self, *Locks::jit_lock_);
+  // Wait for a potential collection, as the size of the bitmap used by that collection
+  // is of the current capacity.
+  WaitForPotentialCollectionToComplete(self);
   private_region_.IncreaseCodeCacheCapacity();
 }
 
