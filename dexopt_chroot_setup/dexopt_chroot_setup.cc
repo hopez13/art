@@ -82,6 +82,7 @@ const NoDestructor<std::string> kBindMountTmpDir(
     std::string(DexoptChrootSetup::PRE_REBOOT_DEXOPT_DIR) + "/mount_tmp");
 constexpr mode_t kChrootDefaultMode = 0755;
 constexpr std::chrono::milliseconds kSnapshotCtlTimeout = std::chrono::seconds(60);
+constexpr const char* kProcessNameSuffixArg = "--process-name-suffix=Pre-reboot Dexopt chroot";
 
 bool IsOtaUpdate(const std::optional<std::string> ota_slot) { return ota_slot.has_value(); }
 
@@ -411,6 +412,7 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
   CmdlineBuilder args;
   args.Add(OR_RETURN(GetArtExec()))
       .Add("--chroot=%s", CHROOT_DIR)
+      .Add(kProcessNameSuffixArg)
       .Add("--")
       .Add("/system/bin/apexd")
       .Add("--otachroot-bootstrap")
@@ -420,6 +422,7 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
   args = CmdlineBuilder();
   args.Add(OR_RETURN(GetArtExec()))
       .Add("--chroot=%s", CHROOT_DIR)
+      .Add(kProcessNameSuffixArg)
       .Add("--drop-capabilities")
       .Add("--")
       .Add("/apex/com.android.runtime/bin/linkerconfig")
@@ -435,6 +438,7 @@ Result<void> DexoptChrootSetup::TearDownChroot() const {
     CmdlineBuilder args;
     args.Add(OR_RETURN(GetArtExec()))
         .Add("--chroot=%s", CHROOT_DIR)
+        .Add(kProcessNameSuffixArg)
         .Add("--")
         .Add("/system/bin/apexd")
         .Add("--unmount-all")
