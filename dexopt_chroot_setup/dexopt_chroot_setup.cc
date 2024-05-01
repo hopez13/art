@@ -301,6 +301,11 @@ Result<void> MountTmpfs(const std::string& target, std::string_view se_context) 
   return {};
 }
 
+Result<void> CheckSystemRequirements() {
+  // TODO: implement this.
+  return {};
+}
+
 }  // namespace
 
 ScopedAStatus DexoptChrootSetup::setUp(const std::optional<std::string>& in_otaSlot) {
@@ -379,6 +384,8 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
       OR_RETURN(
           Mount(GetBlockDeviceName(partition, ota_slot.value()), PathInChroot("/" + partition)));
     }
+
+    OR_RETURN(CheckSystemRequirements());
   }
 
   OR_RETURN(MountTmpfs(PathInChroot("/apex"), "u:object_r:apex_mnt_dir:s0"));
