@@ -54,6 +54,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ca844450_b2a13a1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-05-01T12:37:54Z",
+      "side": 1,
+      "message": "This has been resolved by not including it in every test suite. Unfortunately the GTest.java trade-federation class does not expect duplicate tests and there is no nice workaround (see the other comment chain). In light of this I think just having it in runtime_tests is preferable. Thanks!\n\nLeaving comment unresolved to confirm that the test now passes in CI.",
+      "parentUuid": "8c0534c6_a9aa14ad",
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b03e271c_cb91167b",
         "filename": "runtime/common_runtime_test.cc",
         "patchSetId": 1
@@ -149,6 +167,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "20b492a5_352b13aa",
+        "filename": "runtime/common_runtime_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 661,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-05-01T12:37:54Z",
+      "side": 1,
+      "message": "Thanks for the feedback. I tend to agree that changing the current design of one-test-per-feature is a little unnecessary for this relatively simple test, and have moved it to runtime tests as suggested. PTAL, thanks!",
+      "parentUuid": "12cbfef5_dc593b92",
+      "range": {
+        "startLine": 661,
+        "startChar": 0,
+        "endLine": 661,
+        "endChar": 47
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "18e802c5_286dfd4a",
         "filename": "runtime/oat/elf_file.cc",
         "patchSetId": 1
@@ -160,6 +202,30 @@
       "writtenOn": "2024-04-25T18:07:18Z",
       "side": 1,
       "message": "nit: not the least common divisor of all loadable segment alignments?",
+      "range": {
+        "startLine": 1030,
+        "startChar": 33,
+        "endLine": 1030,
+        "endChar": 63
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17b6449f_d5b3ecd3",
+        "filename": "runtime/oat/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-05-01T12:37:54Z",
+      "side": 1,
+      "message": "While not technically required by the standard, to my understanding `PT_LOAD` segments always have the same `p_align` in practice. I don\u0027t know any examples where each segment would require different alignment.\n\nRegardless of whether or not its technically possible, the current use-case is boot.oat which is a file that we generate internally and which we know will always have constant `p_align` values over the loadable segments.\n\nTherefore I think that getting all unique values and doing a lowest-common calculation would be unnecessary. Perhaps if we start to use this function on other files not under our control we could revisit the need, what do you think?",
+      "parentUuid": "18e802c5_286dfd4a",
       "range": {
         "startLine": 1030,
         "startChar": 33,
