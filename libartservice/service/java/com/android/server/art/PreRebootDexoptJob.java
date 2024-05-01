@@ -28,7 +28,6 @@ import android.content.Context;
 import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.SystemProperties;
-import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
@@ -50,8 +49,6 @@ import java.util.concurrent.CompletableFuture;
  */
 @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
 public class PreRebootDexoptJob implements ArtServiceJobInterface {
-    private static final String TAG = ArtManagerLocal.TAG;
-
     /**
      * "android" is the package name for a <service> declared in
      * frameworks/base/core/res/AndroidManifest.xml
@@ -116,16 +113,15 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         if (!SystemProperties.getBoolean("dalvik.vm.enable_pr_dexopt", false /* def */)
                 && !SystemProperties.getBoolean(
                         "persist.device_config.runtime.enable_pr_dexopt", false /* def */)) {
-            Log.i(TAG, "Pre-reboot Dexopt Job is not enabled by system property");
+            AsLog.i("Pre-reboot Dexopt Job is not enabled by system property");
             return ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP;
         }
 
         // If `pm.dexopt.disable_bg_dexopt` is set, the user probably means to disable any dexopt
         // jobs in the background.
         if (SystemProperties.getBoolean("pm.dexopt.disable_bg_dexopt", false /* def */)) {
-            Log.i(TAG,
-                    "Pre-reboot Dexopt Job is disabled by system property "
-                            + "'pm.dexopt.disable_bg_dexopt'");
+            AsLog.i("Pre-reboot Dexopt Job is disabled by system property "
+                    + "'pm.dexopt.disable_bg_dexopt'");
             return ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP;
         }
 
@@ -140,10 +136,10 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
         /* @JobScheduler.Result */ int result = mInjector.getJobScheduler().schedule(info);
         if (result == JobScheduler.RESULT_SUCCESS) {
-            Log.i(TAG, "Pre-reboot Dexopt Job scheduled");
+            AsLog.i("Pre-reboot Dexopt Job scheduled");
             return ArtFlags.SCHEDULE_SUCCESS;
         } else {
-            Log.i(TAG, "Failed to schedule Pre-reboot Dexopt Job");
+            AsLog.i("Failed to schedule Pre-reboot Dexopt Job");
             return ArtFlags.SCHEDULE_JOB_SCHEDULER_FAILURE;
         }
     }
@@ -159,7 +155,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     @NonNull
     public synchronized CompletableFuture<Void> start() {
         if (mRunningJob != null) {
-            Log.i(TAG, "Job is already running");
+            AsLog.i("Job is already running");
             return mRunningJob;
         }
 
@@ -171,7 +167,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
                 // TODO(b/336239721): Consume the result and report metrics.
                 mInjector.getPreRebootDriver().run(otaSlot, cancellationSignal);
             } catch (RuntimeException e) {
-                Log.e(TAG, "Fatal error", e);
+                AsLog.e("Fatal error", e);
             } finally {
                 synchronized (this) {
                     mRunningJob = null;
@@ -187,12 +183,12 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         CompletableFuture<Void> runningJob = null;
         synchronized (this) {
             if (mRunningJob == null) {
-                Log.i(TAG, "Job is not running");
+                AsLog.i("Job is not running");
                 return;
             }
 
             mCancellationSignal.cancel();
-            Log.i(TAG, "Job cancelled");
+            AsLog.i("Job cancelled");
             runningJob = mRunningJob;
         }
         // Block until the job exits.
