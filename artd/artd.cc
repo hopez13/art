@@ -135,6 +135,8 @@ constexpr const char* kServiceName = "artd";
 constexpr const char* kPreRebootServiceName = "artd_pre_reboot";
 constexpr const char* kArtdCancellationSignalType = "ArtdCancellationSignal";
 constexpr const char* kDefaultPreRebootTmpDir = "/mnt/artd_tmp";
+constexpr const char* kPreRebootProcessNameSuffixArg =
+    "--process-name-suffix=Pre-reboot Dexopt chroot";
 
 // Timeout for short operations, such as merging profiles.
 constexpr int kShortTimeoutSec = 60;  // 1 minute.
@@ -606,7 +608,9 @@ ndk::ScopedAStatus Artd::isProfileUsable(const ProfilePath& in_profile,
   FdLogger fd_logger;
 
   CmdlineBuilder art_exec_args;
-  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec())).Add("--drop-capabilities");
+  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec()))
+      .Add("--drop-capabilities")
+      .AddIf(options_.is_pre_reboot, kPreRebootProcessNameSuffixArg);
 
   CmdlineBuilder args;
   args.Add(OR_RETURN_FATAL(GetProfman()));
@@ -659,7 +663,9 @@ ndk::ScopedAStatus Artd::CopyAndRewriteProfileImpl(File src,
   FdLogger fd_logger;
 
   CmdlineBuilder art_exec_args;
-  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec())).Add("--drop-capabilities");
+  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec()))
+      .Add("--drop-capabilities")
+      .AddIf(options_.is_pre_reboot, kPreRebootProcessNameSuffixArg);
 
   CmdlineBuilder args;
   args.Add(OR_RETURN_FATAL(GetProfman())).Add("--copy-and-update-profile-key");
@@ -833,7 +839,9 @@ ndk::ScopedAStatus Artd::mergeProfiles(const std::vector<ProfilePath>& in_profil
   FdLogger fd_logger;
 
   CmdlineBuilder art_exec_args;
-  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec())).Add("--drop-capabilities");
+  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec()))
+      .Add("--drop-capabilities")
+      .AddIf(options_.is_pre_reboot, kPreRebootProcessNameSuffixArg);
 
   CmdlineBuilder args;
   args.Add(OR_RETURN_FATAL(GetProfman()));
@@ -1028,7 +1036,9 @@ ndk::ScopedAStatus Artd::dexopt(
   FdLogger fd_logger;
 
   CmdlineBuilder art_exec_args;
-  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec())).Add("--drop-capabilities");
+  art_exec_args.Add(OR_RETURN_FATAL(GetArtExec()))
+      .Add("--drop-capabilities")
+      .AddIf(options_.is_pre_reboot, kPreRebootProcessNameSuffixArg);
 
   CmdlineBuilder args;
   args.Add(OR_RETURN_FATAL(GetDex2Oat()));
@@ -1781,6 +1791,7 @@ Result<void> Artd::PreRebootInitDeriveClasspath(const std::string& path) {
   args.Add(OR_RETURN(GetArtExec()))
       .Add("--drop-capabilities")
       .Add("--keep-fds=%d", output->Fd())
+      .Add(kPreRebootProcessNameSuffixArg)
       .Add("--")
       .Add("/apex/com.android.sdkext/bin/derive_classpath")
       .Add("/proc/self/fd/%d", output->Fd());
@@ -1809,6 +1820,7 @@ Result<void> Artd::PreRebootInitBootImages() {
   CmdlineBuilder args;
   args.Add(OR_RETURN(GetArtExec()))
       .Add("--drop-capabilities")
+      .Add(kPreRebootProcessNameSuffixArg)
       .Add("--")
       .Add(OR_RETURN(BuildArtBinPath("odrefresh")))
       .Add("--only-boot-images")
