@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4eae637e_a864debb",
+        "filename": "artd/artd.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:21:20Z",
+      "side": 1,
+      "message": "Nit: In a short-circuiting `||` this is perhaps slightly more natural to check first.",
+      "range": {
+        "startLine": 1282,
+        "startChar": 41,
+        "endLine": 1282,
+        "endChar": 69
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "34028526_fdc5da9f",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:21:20Z",
+      "side": 1,
+      "message": "I hope you\u0027re right. Do we have any data on how common it is in the field?\n\nAnother approach could be to only clean staged files in the first cleanup after a boot, and use a non-persistent state to track that instead. Then if there are SS restarts it\u0027d err on the side of keeping the staged files around instead. I\u0027m not entirely sure that\u0027s better, but I thought it worth discussing.",
+      "range": {
+        "startLine": 78,
+        "startChar": 71,
+        "endLine": 78,
+        "endChar": 95
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
