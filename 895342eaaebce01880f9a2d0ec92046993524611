@@ -73,6 +73,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "03a2975c_ac3984d8",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T18:51:47Z",
+      "side": 1,
+      "message": "\u003e so that different consumers of the future don\u0027t have to handle errors separately\n\nSorry I don\u0027t follow. If you add an `exceptionally` to the future here it\u0027ll be in play regardless who ends up waiting on it with a `get`, won\u0027t it?\n\nHowever, from the docs it looks like each stage would need its own `exceptionally`, so it has no real benefit to putting a `try`-`catch` inside the stage instead.\n\nSpeaking of that though, the stage below doesn\u0027t catch anything, so if I understand the warning correctly any exception thrown by `jobService.jobFinished` will just disappear without a trace. So please add a `try`-`catch` around it.",
+      "parentUuid": "831e80e7_5711d576",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc43ad75_ff6abc19",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 21
@@ -202,6 +226,30 @@
       "side": 1,
       "message": "A retry always starts over. That\u0027s because we don\u0027t have a way to use OatFileAssistant to check the staged artifacts. Let\u0027s live with this for the MVP.",
       "parentUuid": "5cb82f5d_edd7f530",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "481483b3_1a014ef9",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T18:51:47Z",
+      "side": 1,
+      "message": "Ok, but then the risk with retrying is that devices may get stuck dexopting over and over without progressing. It stops retrying after 5 hours, but we may want to adjust the backoff criteria; I\u0027m thinking that given the size of the job we ought to have a significantly longer minimum backoff time (the default is just 30s). Something like 30 mins but linear may be more appropriate.",
+      "parentUuid": "72d50477_e1f679a7",
       "range": {
         "startLine": 99,
         "startChar": 15,
