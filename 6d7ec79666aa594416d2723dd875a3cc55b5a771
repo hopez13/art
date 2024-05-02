@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0d7c84_905a1028",
+        "filename": "artd/artd.cc",
+        "patchSetId": 17
+      },
+      "lineNbr": 1282,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T16:55:02Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "4eae637e_a864debb",
+      "range": {
+        "startLine": 1282,
+        "startChar": 41,
+        "endLine": 1282,
+        "endChar": 69
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34028526_fdc5da9f",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-02T16:21:20Z",
       "side": 1,
       "message": "I hope you\u0027re right. Do we have any data on how common it is in the field?\n\nAnother approach could be to only clean staged files in the first cleanup after a boot, and use a non-persistent state to track that instead. Then if there are SS restarts it\u0027d err on the side of keeping the staged files around instead. I\u0027m not entirely sure that\u0027s better, but I thought it worth discussing.",
+      "range": {
+        "startLine": 78,
+        "startChar": 71,
+        "endLine": 78,
+        "endChar": 95
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02f89ad9_05ed1634",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T16:55:02Z",
+      "side": 1,
+      "message": "\u003e Do we have any data on how common it is in the field?\n\nThanks for bringing this up. I checked on Pitot, and the data doesn\u0027t look great (https://pitot-autopush.corp.google.com/u/0/metric_detail/67?release\u003dpublic-all\u0026comparison\u003dtarget\u0026device_view\u003dALL_DEVICES\u0026duration\u003d7). Sessions with no system restarts is only 99.3% (where \"session\" means a 24-hour window). Assuming the probability of system restart is independent across sessions, then the probability of no system restarts is only 97.91% for 3 days / 93.22% for 10 days / 81.00% for 30 days. (Is Android that bad????)\n\nAlright, maybe that\u0027s not a minor case as I thought. Let\u0027s discuss other options.\n\n\u003e Another approach could be /.../\n\nI\u0027m not sure I fully understand it. If we use a non-persistent state to track whether it is \"the first cleanup after a boot\", then after the system server crashes, the state will be lost, and the first cleanup after the system server restart will be considered \"the first cleanup after a boot\", and it will not keep staged files, right?\n\nAnother option I can think of is to put the state in a system property (say, `dalvik.vm.has_pr_dexopt_started`). My local experiment showed that system properties survive system server restarts. However, if we go with this approach, we\u0027ll have to make an SELinux policy change to allow system_server to write the property (specifically, define `dalvik.vm.has_pr_dexopt_started` as a `dalvik_dynamic_config_prop`. I\u0027d like to keep this code as is in this CL and do it in a separate CL, to unblock my test ASAP. WDYT?",
+      "parentUuid": "34028526_fdc5da9f",
       "range": {
         "startLine": 78,
         "startChar": 71,
