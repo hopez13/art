@@ -22,6 +22,30 @@
       },
       "revId": "8dd0f48dd7fea06d36b0ad5704f05c45bf83e87f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83f5cea6_01cf229f",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-02T16:23:42Z",
+      "side": 1,
+      "message": "We would need to update the callers, which are mostly calling with `ObjPtr`. Is there a reason we would like to avoid creating handles here? We would still need to create the handles in the caller method and at least here it is in the unlikely path",
+      "parentUuid": "69694db6_5718258c",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 77
+      },
+      "revId": "8dd0f48dd7fea06d36b0ad5704f05c45bf83e87f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
