@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8b807438_cbaeeb20",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-02T08:00:00Z",
+      "side": 1,
+      "message": "This is going in the wrong direction. The appropriate \"fix\" is to use `std::string_view` more, not less.\n\nWe should rewrite the `ClassLinker::FindClass()` to take a `std::string_view` and pass it around. But that requires a significant rewrite in `ClassLinker` and `ClassTable` and I didn\u0027t yet find the time to do this.",
+      "revId": "500275379938a3e462a0467ac87b699ba0329a21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
