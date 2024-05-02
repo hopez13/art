@@ -1825,8 +1825,12 @@ class OatWriter::WriteCodeMethodVisitor : public OrderedMethodVisitor {
     ObjPtr<mirror::DexCache> dex_cache =
         (dex_file_ == ref.dex_file) ? dex_cache_ : class_linker_->FindDexCache(
             Thread::Current(), *ref.dex_file);
-    ArtMethod* method =
-        class_linker_->LookupResolvedMethod(ref.index, dex_cache, class_loader_);
+    StackHandleScope<2> hs(Thread::Current());
+    Handle<mirror::DexCache> h_dex_cache = hs.NewHandle(dex_cache);
+    Handle<mirror::ClassLoader> h_class_loader = hs.NewHandle(class_loader_);
+    ArtMethod* method = class_linker_->LookupResolvedMethod(ref.index, h_dex_cache, h_class_loader);
+    // Update the class loader again, since the ObjPtr might be obsolete
+    class_loader_ = h_class_loader.Get();
     CHECK(method != nullptr);
     return method;
   }
