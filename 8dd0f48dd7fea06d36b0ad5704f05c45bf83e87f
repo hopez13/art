@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69694db6_5718258c",
+        "filename": "runtime/class_linker-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-02T16:20:58Z",
+      "side": 1,
+      "message": "Could we instead change `LookupResolvedMethod` to take handles?",
+      "range": {
+        "startLine": 287,
+        "startChar": 0,
+        "endLine": 289,
+        "endChar": 77
+      },
+      "revId": "8dd0f48dd7fea06d36b0ad5704f05c45bf83e87f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
