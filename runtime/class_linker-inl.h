@@ -279,6 +279,23 @@ inline ArtMethod* ClassLinker::LookupResolvedMethod(uint32_t method_idx,
     const DexFile& dex_file = *dex_cache->GetDexFile();
     const dex::MethodId& method_id = dex_file.GetMethodId(method_idx);
     ObjPtr<mirror::Class> klass = LookupResolvedType(method_id.class_idx_, dex_cache, class_loader);
+
+    if (UNLIKELY(klass == nullptr)) {
+      // We normaly should not end up here. However the verifier currently doesn't guarantee
+      // the invariant of having the klass in the class table. b/73760543 b/336842546
+      StackHandleScope<2> hs(Thread::Current());
+      Handle<mirror::DexCache> h_dex_cache(hs.NewHandle(dex_cache));
+      Handle<mirror::ClassLoader> h_class_loader(hs.NewHandle(class_loader));
+      klass = ResolveType(method_id.class_idx_, h_dex_cache, h_class_loader);
+      if (UNLIKELY(klass == nullptr)) {
+        // This can only happen if the current thread is not allowed to load
+        // classes.
+        DCHECK(!Thread::Current()->CanLoadClasses());
+        DCHECK(Thread::Current()->IsExceptionPending());
+        return nullptr;
+      }
+    }
+
     if (klass != nullptr) {
       resolved = FindResolvedMethod(klass, dex_cache, class_loader, method_idx);
     }
