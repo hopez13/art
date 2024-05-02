@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4944cc5c_bf542d0b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:41:07Z",
+      "side": 1,
+      "message": "It\u0027s enough to show these lines as an example, to keep the commit message short.",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 152
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b87173f_70ca8366",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:41:07Z",
+      "side": 1,
+      "message": "This is repeated a lot. Create a small helper function to initialise a `CmdlineBuilder` for `art_exec` with the common args? `--drop-capabilities` can go in there too if it\u0027s always passed. Perhaps it can even replace `GetArtExec`?",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 69
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a454d8f8_694f766f",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:41:07Z",
+      "side": 1,
+      "message": "Same thing here.",
+      "range": {
+        "startLine": 415,
+        "startChar": 6,
+        "endLine": 415,
+        "endChar": 33
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "93c5e2b2_9195bde6",
+        "filename": "libarttools/art_exec.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T16:41:07Z",
+      "side": 1,
+      "message": "\"in parentheses\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 44,
+        "endLine": 70,
+        "endChar": 45
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
