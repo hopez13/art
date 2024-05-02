@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "831e80e7_5711d576",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. I think the error handling is better in the future itself so that different consumers of the future don\u0027t have to handle errors separately. I added `var unused` to suppress the warning.",
+      "parentUuid": "659a8b91_a56b93c7",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc43ad75_ff6abc19",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-05-02T13:12:07Z",
       "side": 1,
       "message": "Typo: \"likely\"\n```suggestion\n            // it will likely fail again. If it\u0027s cancelled, the job will be rescheduled because the\n```",
+      "range": {
+        "startLine": 87,
+        "startChar": 23,
+        "endLine": 87,
+        "endChar": 27
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f800072_4b21cba3",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc43ad75_ff6abc19",
       "range": {
         "startLine": 87,
         "startChar": 23,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4030007d_a1357e3c",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 97,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Looks like the job scheduler doesn\u0027t block on `onStopJob`, so whether `onStopJob` doesn\u0027t matter, but let\u0027s not rely on this. Made it non-blocking.",
+      "parentUuid": "68836f79_13097fb4",
+      "range": {
+        "startLine": 97,
+        "startChar": 8,
+        "endLine": 97,
+        "endChar": 17
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5cb82f5d_edd7f530",
@@ -106,6 +178,30 @@
       "writtenOn": "2024-05-02T13:12:07Z",
       "side": 1,
       "message": "How do retries work? `dexoptPackages` will start over with a new snapshot, but is the intention that it\u0027ll quickly skip over already dexopted and staged packages? If so, that bears testing.",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72d50477_e1f679a7",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "A retry always starts over. That\u0027s because we don\u0027t have a way to use OatFileAssistant to check the staged artifacts. Let\u0027s live with this for the MVP.",
+      "parentUuid": "5cb82f5d_edd7f530",
       "range": {
         "startLine": 99,
         "startChar": 15,
@@ -139,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "83d2a7e4_5e06bcba",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "e294b889_69cb452e",
+      "range": {
+        "startLine": 175,
+        "startChar": 28,
+        "endLine": 175,
+        "endChar": 32
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e2d96b10_eda99fd4",
@@ -152,6 +272,30 @@
       "writtenOn": "2024-05-02T13:12:07Z",
       "side": 1,
       "message": "If you\u0027d like to keep the wait in this method, I suggest calling it something like `cancelAndWait` to make the difference from `BackgroundDexoptJob.cancel` more clear.",
+      "range": {
+        "startLine": 176,
+        "startChar": 16,
+        "endLine": 176,
+        "endChar": 22
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a8fa827_e8db5fef",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 176,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Added a parameter.",
+      "parentUuid": "e2d96b10_eda99fd4",
       "range": {
         "startLine": 176,
         "startChar": 16,
@@ -185,6 +329,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a1e629f_c8fe11b9",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 180,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "You are right. Removed this log.",
+      "parentUuid": "53bb0347_792f66df",
+      "range": {
+        "startLine": 180,
+        "startChar": 16,
+        "endLine": 180,
+        "endChar": 49
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "53a08e35_f3c3b7b3",
@@ -198,6 +366,30 @@
       "writtenOn": "2024-05-02T13:12:07Z",
       "side": 1,
       "message": "Suggest the `var unused \u003d ...` thing to silence this.\n\n---\n\nPlease fix this WARNING reported by Error Prone: [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.\n\nAnalyzer Description: Warnings generated by errorprone.\nOwner: farivar@google.com\n\n    [FutureReturnValueIgnored] Return value of methods returning Future must be checked. Ignoring returned Futures suppresses exceptions thrown from the code that completes the Future.\n            mPreRebootDexoptJob.start();\n                                     ^\n        (see https://errorprone.info/bugpattern/FutureReturnValueIgnored)\n      Did you mean \u0027var unused \u003d mPreRebootDexoptJob.start();\u0027 or to remove this line?\n\nUse `m RUN_ERROR_PRONE\u003dtrue MyModule` to reproduce locally.\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P74016640/targets/errorprone-trunk_staging, but may also be present on other builds.\n\nThis is a different branch than your cl originated on (it was automerged), and thus might better reflect the state of the code in the git_main branch.",
+      "range": {
+        "startLine": 195,
+        "startChar": 0,
+        "endLine": 195,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8cf3cf3_847d7dc4",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 195,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-02T17:44:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "53a08e35_f3c3b7b3",
       "range": {
         "startLine": 195,
         "startChar": 0,
