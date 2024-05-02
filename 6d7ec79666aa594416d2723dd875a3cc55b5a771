@@ -93,6 +93,30 @@
       },
       "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "60a88a29_f712b156",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-02T18:12:21Z",
+      "side": 1,
+      "message": "\u003e /.../ the first cleanup after the system server restart will be considered \"the first cleanup after a boot\"\n\nI thought we\u0027d be able to tell an actual boot startup from a restart. There\u0027s e.g. the `sys.boot_completed` property that\u0027s set at the time of the `BOOT_COMPLETE` broadcast, so it should still be 0 in `onBoot` in a real boot. However it looks like it gets reset in a [soft restart](https://source.android.com/docs/core/runtime/soft-restart#soft-restart-execution), which isn\u0027t ideal but maybe not a showstopper. I don\u0027t know where and when soft restarts are used these days, though.",
+      "parentUuid": "02f89ad9_05ed1634",
+      "range": {
+        "startLine": 78,
+        "startChar": 71,
+        "endLine": 78,
+        "endChar": 95
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
