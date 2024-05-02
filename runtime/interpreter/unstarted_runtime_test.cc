@@ -25,6 +25,7 @@
 #include "class_linker.h"
 #include "class_root-inl.h"
 #include "common_runtime_test.h"
+#include "common_throws.h"
 #include "dex/descriptors_names.h"
 #include "dex/dex_instruction.h"
 #include "handle.h"
@@ -216,7 +217,7 @@ class UnstartedRuntimeTest : public CommonRuntimeTest {
   void PrepareForAborts() REQUIRES_SHARED(Locks::mutator_lock_) {
     ObjPtr<mirror::Object> result = Runtime::Current()->GetClassLinker()->FindClass(
         Thread::Current(),
-        Transaction::kAbortExceptionDescriptor,
+        kTransactionAbortErrorDescriptor,
         ScopedNullHandle<mirror::ClassLoader>());
     CHECK(result != nullptr);
   }
