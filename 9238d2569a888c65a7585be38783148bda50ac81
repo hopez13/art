@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "db5aa6a6_07366e29",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1970,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-02T07:55:21Z",
+      "side": 1,
+      "message": "Sorry, I previously copy-pasted the wrong function name (and then copy-pasted the comment with the wrong name).\n\nSince `AotClassLinker::CanReferenceInBootImageExtensionOrAppImage()` is `static`, I made everything related to that function also `static`. I\u0027d prefer to keep it that way until a larger refactoring of the AOT code.\n\nI think it would be nice to give the `AotClassLinker` direct access to `CompilerOptions` but that requires moving the `AotClassLinker` (and `Transaction`) do `dex2oat/`. That refactoring is clearly outside the cope of this CL.",
+      "parentUuid": "abb11312_df73bd42",
+      "range": {
+        "startLine": 1970,
+        "startChar": 0,
+        "endLine": 1970,
+        "endChar": 87
+      },
+      "revId": "9238d2569a888c65a7585be38783148bda50ac81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c05431ef_f4e2471a",
