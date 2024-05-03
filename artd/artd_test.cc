@@ -2581,6 +2581,31 @@ TEST_F(ArtdTest, commitPreRebootStagedFilesNoNewFile) {
   EXPECT_FALSE(aidl_return);
 }
 
+TEST_F(ArtdTest, checkPreRebootSystemRequirements) {
+  EXPECT_CALL(*mock_props_, GetProperty("ro.build.version.release")).WillRepeatedly(Return("15"));
+  std::string chroot_dir = scratch_path_ + "/chroot";
+  bool aidl_return;
+
+  constexpr const char* kTemplate = R"(
+    # Comment.
+    unrelated.system.property=abc
+
+    ro.build.version.release={}
+  )";
+
+  CreateFile(chroot_dir + "/system/build.prop", ART_FORMAT(kTemplate, 15));
+  ASSERT_STATUS_OK(artd_->checkPreRebootSystemRequirements(chroot_dir, &aidl_return));
+  EXPECT_TRUE(aidl_return);
+
+  CreateFile(chroot_dir + "/system/build.prop", ART_FORMAT(kTemplate, 16));
+  ASSERT_STATUS_OK(artd_->checkPreRebootSystemRequirements(chroot_dir, &aidl_return));
+  EXPECT_TRUE(aidl_return);
+
+  CreateFile(chroot_dir + "/system/build.prop", ART_FORMAT(kTemplate, 17));
+  ASSERT_STATUS_OK(artd_->checkPreRebootSystemRequirements(chroot_dir, &aidl_return));
+  EXPECT_FALSE(aidl_return);
+}
+
 class ArtdPreRebootTest : public ArtdTest {
  protected:
   void SetUp() override {
