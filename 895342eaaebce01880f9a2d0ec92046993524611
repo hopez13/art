@@ -308,6 +308,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa10594e_4c267709",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T12:24:06Z",
+      "side": 1,
+      "message": "Wait, this is a idle job, so backoff criteria can\u0027t be set. See https://developer.android.com/reference/android/app/job/JobInfo.Builder#setBackoffCriteria(long,%20int).\n\nWe can discuss a solution later. Can we submit this CL to unblock the test for now?",
+      "parentUuid": "5f36346e_1160036c",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e294b889_69cb452e",
