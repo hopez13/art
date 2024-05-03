@@ -121,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f17d71d2_f0bab19e",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T12:24:59Z",
+      "side": 1,
+      "message": "\u003e The one stored at mRunningJob and returned by start() when called by someone else later won\u0027t get this exceptionally.\n\nI didn\u0027t think of that, but then I reckon it\u0027s a matter of just making sure it\u0027s the final `CompletableFuture` that\u0027s stored in `mRunningJob`.\n\nHowever is `exceptionally` any different from `thenRunAsync` in that regard? I don\u0027t see it - they both go \"Returns a new CompletionStage that, when this stage completes /.../\". Iow, do we need to store this return value in `mRunningJob`?\n\n(Only unresolving this for that reason - the error handling is fine now.)",
+      "parentUuid": "eafcf1de_5f0c309d",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc43ad75_ff6abc19",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 21
