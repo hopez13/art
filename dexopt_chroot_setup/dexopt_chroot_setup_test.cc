@@ -103,6 +103,7 @@ TEST_F(DexoptChrootSetupTest, Run) {
   // We only test the Mainline update case here. There isn't an easy way to test the OTA update case
   // in such a unit test. The OTA update case is assumed to be covered by the E2E test.
   ASSERT_STATUS_OK(dexopt_chroot_setup_->setUp(/*in_otaSlot=*/std::nullopt));
+  ASSERT_STATUS_OK(dexopt_chroot_setup_->init());
 
   // Some important dirs that should be the same as outside.
   std::vector<const char*> same_dirs = {
@@ -173,6 +174,7 @@ TEST_F(DexoptChrootSetupTest, Run) {
   // caller (typically system_server) called `setUp` and crashed later, and a new instance called
   // `setUp` again.
   ASSERT_STATUS_OK(dexopt_chroot_setup_->setUp(/*in_otaSlot=*/std::nullopt));
+  ASSERT_STATUS_OK(dexopt_chroot_setup_->init());
 
   ASSERT_STATUS_OK(dexopt_chroot_setup_->tearDown());
 
