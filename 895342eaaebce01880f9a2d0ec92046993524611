@@ -95,6 +95,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "eafcf1de_5f0c309d",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:36:12Z",
+      "side": 1,
+      "message": "\u003e If you add an exceptionally to the future here it\u0027ll be in play regardless who ends up waiting on it with a get, won\u0027t it?\n\nAccording to the doc, `exceptionally` returns a new CompletableFuture, which I think means it doesn\u0027t mutate the existing one. The one stored at `mRunningJob` and returned by `start()` when called by someone else later won\u0027t get this `exceptionally`.\n\n\u003e so if I understand the warning correctly any exception thrown by jobService.jobFinished will just disappear without a trace. So please add a try-catch around it.\n\nDone.",
+      "parentUuid": "03a2975c_ac3984d8",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc43ad75_ff6abc19",
@@ -250,6 +274,30 @@
       "side": 1,
       "message": "Ok, but then the risk with retrying is that devices may get stuck dexopting over and over without progressing. It stops retrying after 5 hours, but we may want to adjust the backoff criteria; I\u0027m thinking that given the size of the job we ought to have a significantly longer minimum backoff time (the default is just 30s). Something like 30 mins but linear may be more appropriate.",
       "parentUuid": "72d50477_e1f679a7",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f36346e_1160036c",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:36:12Z",
+      "side": 1,
+      "message": "Done. Thank you for the suggestion!",
+      "parentUuid": "481483b3_1a014ef9",
       "range": {
         "startLine": 99,
         "startChar": 15,
