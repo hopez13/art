@@ -29,6 +29,11 @@ interface IDexoptChrootSetup {
      */
     void setUp(@nullable @utf8InCpp String otaSlot);
 
+    /**
+     * Initializes the chroot environment. Can only be called after {@link #setUp}.
+     */
+    void init();
+
     /** Tears down the chroot environment. */
     void tearDown();
 }
