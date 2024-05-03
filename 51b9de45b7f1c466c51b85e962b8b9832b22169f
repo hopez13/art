@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c07dc55_964bcb0c",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1832,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-03T13:21:15Z",
+      "side": 1,
+      "message": "We can use `HandleWrapperObjPtr\u003c.\u003e . \u003d hs.NewHandleWrapper(\u0026.)` above to avoid these. But it\u0027s OK to submit as is.",
+      "range": {
+        "startLine": 1831,
+        "startChar": 4,
+        "endLine": 1832,
+        "endChar": 41
+      },
+      "revId": "51b9de45b7f1c466c51b85e962b8b9832b22169f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "46d6fae1_7e585613",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-03T13:21:15Z",
+      "side": 1,
+      "message": "Calling `.Get()` on an invalid handle shall abort and mess up the message we\u0027re trying to print here. We were previously using `nullptr` here.",
+      "range": {
+        "startLine": 152,
+        "startChar": 44,
+        "endLine": 152,
+        "endChar": 61
+      },
+      "revId": "51b9de45b7f1c466c51b85e962b8b9832b22169f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4f03403_89346a63",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 166,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-03T13:21:15Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 166,
+        "startChar": 44,
+        "endLine": 166,
+        "endChar": 61
+      },
+      "revId": "51b9de45b7f1c466c51b85e962b8b9832b22169f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
