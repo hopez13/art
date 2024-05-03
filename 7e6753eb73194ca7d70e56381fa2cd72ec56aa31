@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e97cde_472a73c6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "de24544b_1d66a289",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 6
+      },
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e402475f_3dbcc10d",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-02T12:52:38Z",
       "side": 1,
       "message": "Isn\u0027t it from -20 to 19 ?",
+      "range": {
+        "startLine": 2130,
+        "startChar": 0,
+        "endLine": 2130,
+        "endChar": 49
+      },
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40fecfe0_f8b112f5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2130,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "`GetNativePriority()` returns java\u0027s version which is between 1 and 10.",
+      "parentUuid": "e402475f_3dbcc10d",
       "range": {
         "startLine": 2130,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bb8149af_4a42c6a0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2134,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6c6a7246_83b840ad",
+      "range": {
+        "startLine": 2134,
+        "startChar": 19,
+        "endLine": 2134,
+        "endChar": 20
+      },
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7646985_cdd93a24",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-05-02T12:52:38Z",
       "side": 1,
       "message": "nit: Add a comment?",
+      "range": {
+        "startLine": 2140,
+        "startChar": 0,
+        "endLine": 2140,
+        "endChar": 89
+      },
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb852b83_dc8547e2",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2140,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f7646985_cdd93a24",
       "range": {
         "startLine": 2140,
         "startChar": 0,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d999134_c4e68a0d",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2203,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4bd2a1f8_c7f21313",
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "77bdb2b3_4b3c7150",
@@ -123,6 +237,30 @@
       "writtenOn": "2024-05-02T12:52:38Z",
       "side": 1,
       "message": "I find this hard to read. Should it be `in the following address` ?",
+      "range": {
+        "startLine": 2539,
+        "startChar": 9,
+        "endLine": 2539,
+        "endChar": 45
+      },
+      "revId": "7e6753eb73194ca7d70e56381fa2cd72ec56aa31",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f338700c_1b803eec",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 22
+      },
+      "lineNbr": 2539,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-03T07:11:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "77bdb2b3_4b3c7150",
       "range": {
         "startLine": 2539,
         "startChar": 9,
