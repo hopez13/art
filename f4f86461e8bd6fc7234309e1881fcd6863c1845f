@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f55aeb7_4658cb9a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 6
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:37:18Z",
+      "side": 1,
+      "message": "I think it\u0027s better to show more, to give readers more context that we are talking about tombstone logs. I trimmed it down.",
+      "parentUuid": "4944cc5c_bf542d0b",
+      "range": {
+        "startLine": 16,
+        "startChar": 0,
+        "endLine": 17,
+        "endChar": 152
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7b87173f_70ca8366",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-02T16:41:07Z",
       "side": 1,
       "message": "This is repeated a lot. Create a small helper function to initialise a `CmdlineBuilder` for `art_exec` with the common args? `--drop-capabilities` can go in there too if it\u0027s always passed. Perhaps it can even replace `GetArtExec`?",
+      "range": {
+        "startLine": 613,
+        "startChar": 6,
+        "endLine": 613,
+        "endChar": 69
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1bbfd81c_7bb33f05",
+        "filename": "artd/artd.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 613,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7b87173f_70ca8366",
       "range": {
         "startLine": 613,
         "startChar": 6,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "931bc698_6aa4a8ac",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 415,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a454d8f8_694f766f",
+      "range": {
+        "startLine": 415,
+        "startChar": 6,
+        "endLine": 415,
+        "endChar": 33
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "93c5e2b2_9195bde6",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-05-02T16:41:07Z",
       "side": 1,
       "message": "\"in parentheses\"",
+      "range": {
+        "startLine": 70,
+        "startChar": 44,
+        "endLine": 70,
+        "endChar": 45
+      },
+      "revId": "f4f86461e8bd6fc7234309e1881fcd6863c1845f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90554c6a_c7fe560b",
+        "filename": "libarttools/art_exec.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T11:37:18Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "93c5e2b2_9195bde6",
       "range": {
         "startLine": 70,
         "startChar": 44,
