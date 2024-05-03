@@ -406,6 +406,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c80a19bb_3c9d3ca7",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T12:52:17Z",
+      "side": 1,
+      "message": "[Saw this comment later.]\n\nI don\u0027t understand why backoff criteria \"don\u0027t make sense\" for idle jobs. I reckon it\u0027s exactly the same situation, just with the additional constraint that the device has to be idle.\n\nIow, if this means it\u0027ll keep retrying the job, more or less back-to-back, as long as the device remains idle, then it isn\u0027t great, is it? Presumably it\u0027s smarter than that, but I haven\u0027t managed to find docs about what it actually does for idle jobs.\n\nBut as long as we don\u0027t know what happens then I think we ought to return false here, because we have no reason to believe it\u0027ll progress any further when retried.",
+      "parentUuid": "fa10594e_4c267709",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "e294b889_69cb452e",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 21
