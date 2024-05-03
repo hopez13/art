@@ -1,0 +1,98 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b297f29e_cc198393",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1972,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-03T08:30:11Z",
+      "side": 1,
+      "message": "non-blocker: WDYT about putting this after line 1952? so that we set all \"dex files\" together",
+      "range": {
+        "startLine": 1969,
+        "startChar": 0,
+        "endLine": 1972,
+        "endChar": 0
+      },
+      "revId": "aaa0a21819ecf778d20ff2b2812e9e87a5776d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1eafac9b_22843daf",
+        "filename": "test/732-checker-app-image/src-ex/Secondary.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-03T08:30:11Z",
+      "side": 1,
+      "message": "Typo?",
+      "range": {
+        "startLine": 39,
+        "startChar": 38,
+        "endLine": 39,
+        "endChar": 46
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2350b243_45af7db2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/732-checker-app-image/src-ex/Secondary.java",
+              "range": {
+                "startLine": 21,
+                "startChar": 0,
+                "endLine": 22,
+                "endChar": 0
+              },
+              "replacement": "        System.out.println($noinline$getSecondaryClassWithUnmetDependency().getName());\n"
+            },
+            {
+              "path": "test/732-checker-app-image/src-ex/Secondary.java",
+              "range": {
+                "startLine": 36,
+                "startChar": 0,
+                "endLine": 37,
+                "endChar": 0
+              },
+              "replacement": "    /// CHECK-START: java.lang.Class Secondary.$noinline$getSecondaryClassWithUnmetDependency() builder (after)\n"
+            },
+            {
+              "path": "test/732-checker-app-image/src-ex/Secondary.java",
+              "range": {
+                "startLine": 38,
+                "startChar": 0,
+                "endLine": 40,
+                "endChar": 0
+              },
+              "replacement": "    public static Class\u003c?\u003e $noinline$getSecondaryClassWithUnmetDependency() {\n        return SecondaryClassWithUnmetDependency.class;\n"
+            },
+            {
+              "path": "test/732-checker-app-image/src-ex/Secondary.java",
+              "range": {
+                "startLine": 51,
+                "startChar": 0,
+                "endLine": 52,
+                "endChar": 0
+              },
+              "replacement": "class SecondaryClassWithUnmetDependency implements PrimaryInterface {}\n"
+            }
+          ]
+        }
+      ],
+      "revId": "aaa0a21819ecf778d20ff2b2812e9e87a5776d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
