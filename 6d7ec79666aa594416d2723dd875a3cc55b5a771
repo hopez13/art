@@ -141,6 +141,30 @@
       },
       "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f22d2ef_fd56eb75",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T13:14:05Z",
+      "side": 1,
+      "message": "Yes, a persistent state is preferable. I hope you manage to get that sepolicy change into VIC.\n\nIf not, I still think I\u0027d be slightly in favour of the conservative approach, in spite of the soft restart unknown, because it at least ought to be less common than \"plain\" system_server restarts.\n\nIn any case it\u0027s moot if your system property approach goes in.",
+      "parentUuid": "a5834d53_08ebec56",
+      "range": {
+        "startLine": 78,
+        "startChar": 71,
+        "endLine": 78,
+        "endChar": 95
+      },
+      "revId": "6d7ec79666aa594416d2723dd875a3cc55b5a771",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
