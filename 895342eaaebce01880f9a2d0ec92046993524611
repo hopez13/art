@@ -215,6 +215,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "50faee2c_802e06ef",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T15:53:18Z",
+      "side": 1,
+      "message": "Try/catch blocks can compose. The idea is that the last-ditch do-not-drop-exceptions-on-the-floor catch could go into an `exceptionallyAsync`, to keep that particular aspect covered. Everything else is a separate matter, and it\u0027d also be nice if even the catch code for those things is covered, if it throws.\n\nBut then again, it\u0027s not ideal to leave that uncovered in `start` and depend on the caller to tack it on either, so, meh... It\u0027d be better to somehow create a `CompletableFuture` that has a final exception handler installed, regardless how much it gets extended with more stages.",
+      "parentUuid": "ec71e751_da2c6fcf",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc43ad75_ff6abc19",
@@ -466,6 +490,30 @@
       "side": 1,
       "message": "\u003e I don\u0027t understand why backoff criteria \"don\u0027t make sense\" for idle jobs.\n\nIt\u0027s an unfortunate remnant of the initial API. http://yaqs/4927792312878104576#a1n4\n\n\u003e But as long as we don\u0027t know what happens then I think we ought to return false here, because we have no reason to believe it\u0027ll progress any further when retried.\n\nLet me clarify. Job failures are NOT handled here. Job failures are handled in the `thenRunAsync` callback above, and we pass wantsReschedule\u003dfalse there. Please see the comment above that. \n\nOnly job cancellations are handled here. A job is only cancelled when one of the job constraints no longer holds (e.g., the device is no longer charging or idle). Therefore, to make this job start over and over again, the user has to do unusual things like keeping the phone plugged and using the phone every other minute, or keeping the phone idle and plugging and unplugging the phone every other minute. Yes, this can happen, but I\u0027d say it\u0027s uncommon. As soon as the user keep the phone plugged and leave it for ~8 minutes, the job should either complete or fail, in which case there will be no more retries. Therefore, I don\u0027t think we should block the test by this issue. We can find out a better solution for this uncommon case later. I have put a note in my notebook.",
       "parentUuid": "c80a19bb_3c9d3ca7",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28312ef3_2c677385",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T15:53:18Z",
+      "side": 1,
+      "message": "Ok, I see.\n\n\u003e the user has to do unusual things like keeping the phone plugged and using the phone every other minute\n\nWell, it depends on how long it takes. We don\u0027t have any upper limit, right? So we can\u0027t really assume it\u0027s done in about 8 minutes - on slow devices with lots of apps it could take an hour, and then it\u0027s no longer that unlikely it gets interrupted repeatedly, and every time it\u0027d start over from scratch.\n\nSo even though the problem is smaller than I thought this endless start-over-from-scratch approach can still cause pathological behaviour. I can think of ways to ameliorate the retry policy to address that, but nvm, the proper way is of course be to make it skip already staged packages.",
+      "parentUuid": "ca5bb60a_3f33ffc9",
       "range": {
         "startLine": 99,
         "startChar": 15,
