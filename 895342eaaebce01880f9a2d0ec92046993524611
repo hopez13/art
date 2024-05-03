@@ -143,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "765639f5_a792d9c9",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T12:33:29Z",
+      "side": 1,
+      "message": "All right, the difference is that async runnables get scheduled in an executor, so they\u0027ll run from there. So my suggestion ought to have been to use `exceptionallyAsync`, not `exceptionally`.",
+      "parentUuid": "f17d71d2_f0bab19e",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc43ad75_ff6abc19",
