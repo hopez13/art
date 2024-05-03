@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "654a365f_292c7df6",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 5210,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-03T14:06:02Z",
+      "side": 1,
+      "message": "non-blocking: In a follow-up potentially we could use the vector extension (if it is enabled) and also do 4 characters at a time, right?",
+      "range": {
+        "startLine": 5210,
+        "startChar": 0,
+        "endLine": 5210,
+        "endChar": 93
+      },
+      "revId": "5b1aa89bad690255dfa8a6bff1732230e289d462",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
