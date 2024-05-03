@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06214d3c_afae1188",
+        "filename": "libartservice/service/java/com/android/server/art/AsLog.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T13:32:32Z",
+      "side": 1,
+      "message": "This is fine, but doesn\u0027t it work to assign a static field in a static init block?",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "5835ff5e70d727c1d0cc42098e7b1c469630097e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
