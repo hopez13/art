@@ -167,6 +167,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a61c4e42_11133550",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-03T12:43:03Z",
+      "side": 1,
+      "message": "(And reading the docs about exception handling [here](https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletionStage.html), I now think a single `exceptionallyAsync` at the end of the `CompletionStage` chain would be enough to handle exceptions in all the stages, which makes it a little bit cleaner than these repeated try/catch blocks, but this is ok too.)",
+      "parentUuid": "765639f5_a792d9c9",
+      "range": {
+        "startLine": 85,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 36
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc43ad75_ff6abc19",
