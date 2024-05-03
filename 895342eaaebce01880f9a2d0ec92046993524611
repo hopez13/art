@@ -524,6 +524,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3e2f5e5_fc3c27c8",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 99,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T16:16:20Z",
+      "side": 1,
+      "message": "\u003e on slow devices with lots of apps it could take an hour\n\nHere\u0027s the distribution of the length of a full bg dexopt run (https://screenshot.googleplex.com/64qfn878egf6Lmx). The length of a pr dexopt run will be approximately the same as that. Yes, it can potentially take an hour, but let\u0027s not worry about it for the purpose of \"jiakai-food\" and teamfood. I\u0027ll get this issue addressed before we roll out pr dexopt to dogfood.\n\n\u003e the proper way is of course be to make it skip already staged packages.\n\nWell, it\u0027s not as trivial as that. It\u0027s possible that a package has staged files for a Mainline update, and then an OTA update comes, in which case we do want to start over. Anyway, that\u0027s details. There are ways to sort it out.",
+      "parentUuid": "28312ef3_2c677385",
+      "range": {
+        "startLine": 99,
+        "startChar": 15,
+        "endLine": 99,
+        "endChar": 19
+      },
+      "revId": "895342eaaebce01880f9a2d0ec92046993524611",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e294b889_69cb452e",
