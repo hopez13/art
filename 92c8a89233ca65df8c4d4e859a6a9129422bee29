@@ -70,6 +70,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f9e35125_f2c6a886",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-05-03T09:08:43Z",
+      "side": 1,
+      "message": "Resolving as we have +2 verified so test is passing, thanks!",
+      "parentUuid": "ca844450_b2a13a1a",
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b03e271c_cb91167b",
@@ -250,6 +268,30 @@
       "side": 1,
       "message": "While not technically required by the standard, to my understanding `PT_LOAD` segments always have the same `p_align` in practice. I don\u0027t know any examples where each segment would require different alignment.\n\nRegardless of whether or not its technically possible, the current use-case is boot.oat which is a file that we generate internally and which we know will always have constant `p_align` values over the loadable segments.\n\nTherefore I think that getting all unique values and doing a lowest-common calculation would be unnecessary. Perhaps if we start to use this function on other files not under our control we could revisit the need, what do you think?",
       "parentUuid": "18e802c5_286dfd4a",
+      "range": {
+        "startLine": 1030,
+        "startChar": 33,
+        "endLine": 1030,
+        "endChar": 63
+      },
+      "revId": "92c8a89233ca65df8c4d4e859a6a9129422bee29",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4289c5a7_c183545f",
+        "filename": "runtime/oat/elf_file.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1030,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-05-03T09:08:43Z",
+      "side": 1,
+      "message": "Resolving as assuming this is OK :)",
+      "parentUuid": "17b6449f_d5b3ecd3",
       "range": {
         "startLine": 1030,
         "startChar": 33,
