@@ -22,6 +22,30 @@
       },
       "revId": "5835ff5e70d727c1d0cc42098e7b1c469630097e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b3d37a09_76a1cdce",
+        "filename": "libartservice/service/java/com/android/server/art/AsLog.java",
+        "patchSetId": 13
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-03T14:39:19Z",
+      "side": 1,
+      "message": "The GlobalInjector is not necessarily initialized when the static init block is executed. It\u0027s [initialized by PreRebootManager](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java;l\u003d50;drc\u003dbd45d4629ef5a62baab677ef4e7708a89ff6ec12).",
+      "parentUuid": "06214d3c_afae1188",
+      "range": {
+        "startLine": 37,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 5
+      },
+      "revId": "5835ff5e70d727c1d0cc42098e7b1c469630097e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
