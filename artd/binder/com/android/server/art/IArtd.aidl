@@ -268,6 +268,8 @@ interface IArtd {
             in List<com.android.server.art.ArtifactsPath> artifacts,
             in List<com.android.server.art.ProfilePath.WritableProfilePath> profiles);
 
+    boolean checkPreRebootSystemRequirements(@utf8InCpp String chrootDir);
+
     // The methods below are only for Pre-reboot Dexopt and only supported in Pre-reboot Dexopt
     // mode.
 

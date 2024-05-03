@@ -319,6 +319,19 @@ ScopedAStatus DexoptChrootSetup::setUp(const std::optional<std::string>& in_otaS
   return ScopedAStatus::ok();
 }
 
+ScopedAStatus DexoptChrootSetup::init(const std::optional<std::string>& in_otaSlot) {
+  if (!mu_.try_lock()) {
+    return Fatal("Unexpected concurrent calls");
+  }
+  std::lock_guard<std::mutex> lock(mu_, std::adopt_lock);
+
+  if (in_otaSlot.has_value() && (in_otaSlot.value() != "_a" && in_otaSlot.value() != "_b")) {
+    return Fatal(ART_FORMAT("Invalid OTA slot '{}'", in_otaSlot.value()));
+  }
+  OR_RETURN_NON_FATAL(InitChroot(in_otaSlot));
+  return ScopedAStatus::ok();
+}
+
 ScopedAStatus DexoptChrootSetup::tearDown() {
   if (!mu_.try_lock()) {
     return Fatal("Unexpected concurrent calls");
@@ -407,6 +420,10 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
     OR_RETURN(BindMountRecursive(src, PathInChroot(src)));
   }
 
+  return {};
+}
+
+Result<void> DexoptChrootSetup::InitChroot(const std::optional<std::string>& ota_slot) const {
   // Generate empty linker config to suppress warnings.
   if (!android::base::WriteStringToFile("", PathInChroot("/linkerconfig/ld.config.txt"))) {
     PLOG(WARNING) << "Failed to generate empty linker config to suppress warnings";
