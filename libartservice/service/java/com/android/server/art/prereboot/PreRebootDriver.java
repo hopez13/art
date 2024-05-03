@@ -32,8 +32,10 @@ import androidx.annotation.RequiresApi;
 import com.android.internal.annotations.VisibleForTesting;
 import com.android.server.art.ArtManagerLocal;
 import com.android.server.art.ArtModuleServiceInitializer;
+import com.android.server.art.ArtdRefCache;
 import com.android.server.art.AsLog;
 import com.android.server.art.GlobalInjector;
+import com.android.server.art.IArtd;
 import com.android.server.art.IDexoptChrootSetup;
 import com.android.server.art.Utils;
 
@@ -67,7 +69,9 @@ public class PreRebootDriver {
      */
     public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal) {
         try {
-            setUp(otaSlot);
+            if (!setUp(otaSlot)) {
+                return false;
+            }
             runFromChroot(cancellationSignal);
             return true;
         } catch (RemoteException e) {
@@ -82,8 +86,13 @@ public class PreRebootDriver {
         return false;
     }
 
-    private void setUp(@Nullable String otaSlot) throws RemoteException {
+    private boolean setUp(@Nullable String otaSlot) throws RemoteException {
         mInjector.getDexoptChrootSetup().setUp(otaSlot);
+        if (!mInjector.getArtd().checkPreRebootSystemRequirements(CHROOT_DIR)) {
+            return false;
+        }
+        mInjector.getDexoptChrootSetup().init();
+        return true;
     }
 
     private void tearDown() {
@@ -159,6 +168,11 @@ public class PreRebootDriver {
         @NonNull
         public IDexoptChrootSetup getDexoptChrootSetup() {
             return GlobalInjector.getInstance().getDexoptChrootSetup();
+        }
+
+        @NonNull
+        public IArtd getArtd() {
+            return ArtdRefCache.getInstance().getArtd();
         }
     }
 }
