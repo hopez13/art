@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "468fbec8_4bb7690e",
+        "filename": "dex2oat/dex2oat.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1972,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-03T13:05:51Z",
+      "side": 1,
+      "message": "I\u0027d like to move `AotClassLinker` to `dex2oat/` and give it access to `CompilerOptions`. At that point this can be removed. So I\u0027ll just keep this as is.",
+      "parentUuid": "b297f29e_cc198393",
+      "range": {
+        "startLine": 1969,
+        "startChar": 0,
+        "endLine": 1972,
+        "endChar": 0
+      },
+      "revId": "aaa0a21819ecf778d20ff2b2812e9e87a5776d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1eafac9b_22843daf",
@@ -91,6 +115,30 @@
           ]
         }
       ],
+      "revId": "aaa0a21819ecf778d20ff2b2812e9e87a5776d13",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "72a4f753_557f88f4",
+        "filename": "test/732-checker-app-image/src-ex/Secondary.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-03T13:05:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1eafac9b_22843daf",
+      "range": {
+        "startLine": 39,
+        "startChar": 38,
+        "endLine": 39,
+        "endChar": 46
+      },
       "revId": "aaa0a21819ecf778d20ff2b2812e9e87a5776d13",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
