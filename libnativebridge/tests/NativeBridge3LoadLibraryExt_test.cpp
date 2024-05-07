@@ -31,7 +31,7 @@ TEST_F(NativeBridgeTest, V3_LoadLibraryExt) {
     ASSERT_EQ(nullptr, NativeBridgeLoadLibraryExt(nullptr, 0, nullptr));
 
     // Clean-up code_cache
-    ASSERT_EQ(0, rmdir(kCodeCache));
+    ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android

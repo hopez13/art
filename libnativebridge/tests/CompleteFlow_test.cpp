@@ -41,7 +41,7 @@ TEST_F(NativeBridgeTest, CompleteFlow) {
     ASSERT_FALSE(NativeBridgeError());
 
     // Clean-up code_cache
-    ASSERT_EQ(0, rmdir(kCodeCache));
+    ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android

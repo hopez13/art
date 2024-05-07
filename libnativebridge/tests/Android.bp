@@ -115,17 +115,7 @@ cc_test {
         },
     },
 
-    // native_bridge.cc doesn't support reloading the native bridge after
-    // unloading, so each test needs to be its own process.
-    test_per_src: true,
-
-    // Disable pre-submit host unit-testing for this test module, as
-    // it is not compatible with TradeFed (because of the use of the
-    // `test_per_src` feature above) and meant to be executed with the
-    // `runtests.sh` script instead.
-    test_options: {
-        unit_test: false,
-    },
+    isolated: true,
 
     srcs: [
         "NativeBridgeApi.c",
@@ -153,6 +143,7 @@ cc_test {
     ],
 
     shared_libs: [
+        "libbase",
         "liblog",
         "libnativebridge",
         "libnativebridge-test-case",
@@ -163,7 +154,6 @@ cc_test {
         "libnativebridge6prezygotefork",
         "libnativebridge7criticalnative",
     ],
-    header_libs: ["libbase_headers"],
 }
 
 // Very basic tests in CTS to verify backed-by API coverage of the exported API

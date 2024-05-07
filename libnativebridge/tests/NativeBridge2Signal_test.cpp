@@ -34,7 +34,7 @@ TEST_F(NativeBridgeTest, V2_Signal) {
     ASSERT_NE(nullptr, NativeBridgeGetSignalHandler(SIGSEGV));
 
     // Clean-up code_cache
-    ASSERT_EQ(0, rmdir(kCodeCache));
+    ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android

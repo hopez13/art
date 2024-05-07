@@ -31,7 +31,7 @@ TEST_F(NativeBridgeTest, V3_GetError) {
     ASSERT_EQ(nullptr, NativeBridgeGetError());
 
     // Clean-up code_cache
-    ASSERT_EQ(0, rmdir(kCodeCache));
+    ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android

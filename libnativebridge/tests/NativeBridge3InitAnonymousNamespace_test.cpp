@@ -31,7 +31,7 @@ TEST_F(NativeBridgeTest, V3_InitAnonymousNamespace) {
   ASSERT_EQ(true, NativeBridgeInitAnonymousNamespace(nullptr, nullptr));
 
   // Clean-up code_cache
-  ASSERT_EQ(0, rmdir(kCodeCache));
+  ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android

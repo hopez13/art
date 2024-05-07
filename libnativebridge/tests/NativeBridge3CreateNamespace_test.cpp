@@ -32,7 +32,7 @@ TEST_F(NativeBridgeTest, V3_CreateNamespace) {
                                                    0, nullptr, nullptr));
 
     // Clean-up code_cache
-    ASSERT_EQ(0, rmdir(kCodeCache));
+    ASSERT_EQ(0, rmdir(codeCache()));
 }
 
 }  // namespace android
