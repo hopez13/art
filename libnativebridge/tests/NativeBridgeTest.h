@@ -19,12 +19,13 @@
 
 #define LOG_TAG "NativeBridge_test"
 
-#include <nativebridge/native_bridge.h>
+#include <android-base/file.h>
 #include <gtest/gtest.h>
+#include <nativebridge/native_bridge.h>
+
+#include <string>
 
 constexpr const char* kNativeBridgeLibrary = "libnativebridge-test-case.so";
-constexpr const char* kCodeCache = "./code_cache";
-constexpr const char* kCodeCacheStatFail = "./code_cache/temp";
 constexpr const char* kNativeBridgeLibrary2 = "libnativebridge2-test-case.so";
 constexpr const char* kNativeBridgeLibrary3 = "libnativebridge3-test-case.so";
 constexpr const char* kNativeBridgeLibrary6 = "libnativebridge6-test-case.so";
@@ -33,6 +34,23 @@ constexpr const char* kNativeBridgeLibrary7 = "libnativebridge7-test-case.so";
 namespace android {
 
 class NativeBridgeTest : public testing::Test {
+ protected:
+  NativeBridgeTest() : tempDir() {
+    appDataDirString = std::string(tempDir.path);
+    codeCacheString = appDataDirString + "/code_cache";
+    codeCacheStatFailString = codeCacheString + "/temp";
+  }
+
+  const char* appDataDir() { return appDataDirString.c_str(); }
+
+  const char* codeCache() { return codeCacheString.c_str(); }
+
+  const char* codeCacheStatFail() { return codeCacheStatFailString.c_str(); }
+
+  TemporaryDir tempDir;
+  std::string appDataDirString;
+  std::string codeCacheString;
+  std::string codeCacheStatFailString;
 };
 
 };  // namespace android

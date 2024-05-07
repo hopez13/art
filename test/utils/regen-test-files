@@ -225,6 +225,7 @@ known_failing_tests = frozenset([
 postsubmit_only_tests = frozenset([
   "2247-checker-write-barrier-elimination",
   "2273-checker-unreachable-intrinsics",
+  "libnativebridge_tests",
 ])
 
 known_failing_on_hwasan_tests = frozenset([
