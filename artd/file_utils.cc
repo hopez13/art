@@ -233,8 +233,9 @@ Result<void> MoveAllOrAbandon(
 android::base::Result<void> MoveAllOrAbandon(
     const std::vector<std::pair<std::string, std::string>>& files_to_move,
     const std::vector<std::string>& files_to_remove) {
-  std::vector<std::pair<std::string_view, std::string_view>> files_to_move_view;
-  std::vector<std::string_view> files_to_remove_view;
+  std::vector<std::pair<std::string_view, std::string_view>> files_to_move_view(
+      files_to_move.size());
+  std::vector<std::string_view> files_to_remove_view(files_to_remove.size());
   for (const auto& [src, dst] : files_to_move) {
     files_to_move_view.emplace_back(src, dst);
   }
