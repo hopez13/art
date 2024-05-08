@@ -1782,7 +1782,7 @@ void JitCodeCache::DumpAllCompiledMethods(std::ostream& os) {
        << code_ptr << "-" << reinterpret_cast<uintptr_t>(code_ptr) + header->GetCodeSize() << '\n';
   }
   os << "JNIStubs: \n";
-  for (auto it : jni_stubs_map_) {
+  for (const auto& it : jni_stubs_map_) {
     const void* code_ptr = it.second.GetCode();
     if (code_ptr == nullptr) {
       continue;
