@@ -227,7 +227,7 @@ TEST_F(FdFileTest, Rename) {
 
   // Move the file via a rename.
   art::ScratchFile dest;
-  std::string new_filename = dest.GetFilename();
+  const std::string& new_filename = dest.GetFilename();
   std::string old_filename = src->GetFilename();
   ASSERT_TRUE(src->GetFile()->Rename(new_filename));
 
