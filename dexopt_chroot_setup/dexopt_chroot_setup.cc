@@ -431,7 +431,12 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
 }
 
 Result<void> DexoptChrootSetup::TearDownChroot() const {
-  if (OS::FileExists(PathInChroot("/system/bin/apexd").c_str())) {
+  std::vector<FstabEntry> apex_entries =
+      OR_RETURN(GetProcMountsDescendantsOfPath(PathInChroot("/apex")));
+  // If there is only one entry, it's /apex itself.
+  bool has_apex = apex_entries.size() > 1;
+
+  if (OS::FileExists(PathInChroot("/system/bin/apexd").c_str()) && has_apex) {
     CmdlineBuilder args = OR_RETURN(GetArtExecCmdlineBuilder());
     args.Add("--")
         .Add("/system/bin/apexd")
@@ -445,8 +450,7 @@ Result<void> DexoptChrootSetup::TearDownChroot() const {
     }
   }
 
-  std::vector<FstabEntry> apex_entries =
-      OR_RETURN(GetProcMountsDescendantsOfPath(PathInChroot("/apex")));
+  apex_entries = OR_RETURN(GetProcMountsDescendantsOfPath(PathInChroot("/apex")));
   for (const FstabEntry& entry : apex_entries) {
     if (entry.mount_point != PathInChroot("/apex")) {
       return Errorf("apexd didn't unmount '{}'. See logs for details", entry.mount_point);
