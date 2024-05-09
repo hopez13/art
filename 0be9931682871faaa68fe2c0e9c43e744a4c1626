@@ -1,6 +1,46 @@
 {
   "comments": [
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdad5683_2162240d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-09T00:00:31Z",
+      "side": 1,
+      "message": "A couple of comments, but probably nothing significant.",
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f895d9_68fc3939",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-09T00:00:31Z",
+      "side": 1,
+      "message": "\"cannot merge\"\n\nThis didn\u0027t really change, but all of this seems very dependent on the current kernel implementation, and I\u0027m concerned about breakage down the line, especially given that there seems to be some active kernel development in this general vicinity.\n\nFor the future, is there a way we could test this in a debug configuration? Is there a way to tell from user level whether two pages are in the same vma? Is there a way to tell whether something is backed by a huge page? If so, could we temporarily turn on huge page support and see if pages merge?",
+      "range": {
+        "startLine": 3282,
+        "startChar": 35,
+        "endLine": 3282,
+        "endChar": 48
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8765384c_ca025507",
@@ -19,6 +59,29 @@
         "startChar": 23,
         "endLine": 3289,
         "endChar": 27
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b7deb07d_989af073",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-09T00:00:31Z",
+      "side": 1,
+      "message": "Can you remind me why this isn\u0027t implied by the sigbus_in_progress_count_ wait above? This is only for when we\u0027re not using SIGBUS?",
+      "range": {
+        "startLine": 4096,
+        "startChar": 1,
+        "endLine": 4102,
+        "endChar": 76
       },
       "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
