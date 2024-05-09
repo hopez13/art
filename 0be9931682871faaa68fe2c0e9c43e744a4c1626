@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a5d7c77a_86ed501f",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-09T22:27:12Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s possible to check if the two split vmas have the same anon_vma or not. Also, with THP I don\u0027t thing there is anyway to know in userspace if pages are being merged or not.\n\nBut if we really want to be careful about this, then we can test if the vmas get merged or not at boot-time. And if they don\u0027t then we can fallback to registering/unregistering entire moving-space vma. But vma split/merge is so inherent part of MM that I doubt the logic around will change.\n\nWe will be in trouble only if one day kernel decided that a vma with anon_vma being split (due to different `vm_flags` as a consequence of uffd registration) cannot be merged later (when the `vm_flags` are same again after unregister). And that seems very unlikely to me.",
+      "parentUuid": "01f895d9_68fc3939",
+      "range": {
+        "startLine": 3282,
+        "startChar": 35,
+        "endLine": 3282,
+        "endChar": 48
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8765384c_ca025507",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-08T10:30:45Z",
       "side": 1,
       "message": "vma",
+      "range": {
+        "startLine": 3289,
+        "startChar": 23,
+        "endLine": 3289,
+        "endChar": 27
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "96731bdf_07922da5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3289,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-09T22:27:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8765384c_ca025507",
       "range": {
         "startLine": 3289,
         "startChar": 23,
@@ -77,6 +125,30 @@
       "writtenOn": "2024-05-09T00:00:31Z",
       "side": 1,
       "message": "Can you remind me why this isn\u0027t implied by the sigbus_in_progress_count_ wait above? This is only for when we\u0027re not using SIGBUS?",
+      "range": {
+        "startLine": 4096,
+        "startChar": 1,
+        "endLine": 4102,
+        "endChar": 76
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "748c0314_595a829c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-09T22:27:12Z",
+      "side": 1,
+      "message": "It was definitely required earlier as we were unregistering the moving-space and madvising the from-space *before* disabling sigbus handler as linear-alloc space was not done yet. But now after re-ordering the code in this CL, it seems to me that `sigbus_in_progress_count_` alone should suffice.\n\nIs it ok if I make that change in a separate CL to keep it isolated?",
+      "parentUuid": "b7deb07d_989af073",
       "range": {
         "startLine": 4096,
         "startChar": 1,
