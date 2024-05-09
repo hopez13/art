@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5df467af_738706e6",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-09T23:54:04Z",
+      "side": 1,
+      "message": "I kind of expexted that, I guess they\u0027re call \"transparent\" huge pages for a reason.\n\nHow would you test at boot?\n\nIn any case, this clearly should not hold up this CL.",
+      "parentUuid": "a5d7c77a_86ed501f",
+      "range": {
+        "startLine": 3282,
+        "startChar": 35,
+        "endLine": 3282,
+        "endChar": 48
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8765384c_ca025507",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
@@ -149,6 +173,30 @@
       "side": 1,
       "message": "It was definitely required earlier as we were unregistering the moving-space and madvising the from-space *before* disabling sigbus handler as linear-alloc space was not done yet. But now after re-ordering the code in this CL, it seems to me that `sigbus_in_progress_count_` alone should suffice.\n\nIs it ok if I make that change in a separate CL to keep it isolated?",
       "parentUuid": "b7deb07d_989af073",
+      "range": {
+        "startLine": 4096,
+        "startChar": 1,
+        "endLine": 4102,
+        "endChar": 76
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d89036f2_317ecabb",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 4102,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-09T23:54:04Z",
+      "side": 1,
+      "message": "Sure.",
+      "parentUuid": "748c0314_595a829c",
       "range": {
         "startLine": 4096,
         "startChar": 1,
