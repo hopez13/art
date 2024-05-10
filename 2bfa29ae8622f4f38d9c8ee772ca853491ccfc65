@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4085875d_bb2f9297",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-10T12:01:00Z",
+      "side": 1,
+      "message": "Yes, bug was indeed introduced by that CL.",
+      "parentUuid": "bffb1ee3_33e3d477",
+      "range": {
+        "startLine": 12,
+        "startChar": 9,
+        "endLine": 12,
+        "endChar": 32
+      },
+      "revId": "2bfa29ae8622f4f38d9c8ee772ca853491ccfc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "090d8399_c631ba7c",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-09T14:32:27Z",
       "side": 1,
       "message": "Add the test to `knownfailures` for `jvm`.",
+      "range": {
+        "startLine": 27,
+        "startChar": 31,
+        "endLine": 27,
+        "endChar": 78
+      },
+      "revId": "2bfa29ae8622f4f38d9c8ee772ca853491ccfc65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe6316d_ef1d6aa2",
+        "filename": "test/854-image-inlining/src/Main.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 27,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-10T12:01:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "090d8399_c631ba7c",
       "range": {
         "startLine": 27,
         "startChar": 31,
