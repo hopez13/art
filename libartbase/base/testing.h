@@ -25,6 +25,10 @@
 namespace art {
 namespace testing {
 
+// Path beneath GetAndroidRoot() where the art_common mk module (typically built
+// through "m art-host-tests") installs support files for host tests.
+static constexpr const char kArtCommonHostInstallPath[] = "testcases/art_common/out/host/linux-x86";
+
 // Note: "libcore" here means art + conscrypt + icu.
 
 // Gets the names of the libcore modules.
