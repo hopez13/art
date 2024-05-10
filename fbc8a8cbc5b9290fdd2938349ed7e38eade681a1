@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "806ae923_4995b3b3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 25
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9030781c_795a930c",
+      "range": {
+        "startLine": 20,
+        "startChar": 59,
+        "endLine": 20,
+        "endChar": 70
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "22b84dc8_c194946f",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 25
@@ -37,6 +61,23 @@
       "writtenOn": "2024-05-10T01:20:43Z",
       "side": 1,
       "message": "Just some nits.",
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5b7c20b_1f81171f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Hans, in addition to addressing comments, I have made a small change to `BackOff()` function to take a template parameter for how long to sleep. PTAL.",
       "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +95,30 @@
       "writtenOn": "2024-05-10T01:20:43Z",
       "side": 1,
       "message": "Wouldn\u0027t it be cleaner to use signed values for backoff_count and max_backoff, and use -1 for \"uninitialized\", ideally both here and in the zeropage case?\n\nThe 0-as-uninit convention seems to add extra corner cases.",
+      "range": {
+        "startLine": 2187,
+        "startChar": 0,
+        "endLine": 2190,
+        "endChar": 9
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bc43ed81_cb73683b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9ae4e49d_ef1076e0",
       "range": {
         "startLine": 2187,
         "startChar": 0,
@@ -87,6 +152,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e771a782_83c8e349",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2585,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f0a0a376_cb8e2b14",
+      "range": {
+        "startLine": 2584,
+        "startChar": 22,
+        "endLine": 2585,
+        "endChar": 95
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23bc83cf_509e870b",
@@ -100,6 +189,30 @@
       "writtenOn": "2024-05-10T01:20:43Z",
       "side": 1,
       "message": "Does it make sense to DCHECK_NE(map_len, 0) ?",
+      "range": {
+        "startLine": 3782,
+        "startChar": 6,
+        "endLine": 3785,
+        "endChar": 58
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5eeea957_e5d99ce5",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3785,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23bc83cf_509e870b",
       "range": {
         "startLine": 3782,
         "startChar": 6,
@@ -133,6 +246,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8c8612c_e58a2477",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2c6037c_06f6d8c0",
+      "range": {
+        "startLine": 573,
+        "startChar": 18,
+        "endLine": 575,
+        "endChar": 14
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6ed5180e_9268ed2c",
@@ -146,6 +283,30 @@
       "writtenOn": "2024-05-10T01:20:43Z",
       "side": 1,
       "message": "\"if at least the first page is now mapped\"?",
+      "range": {
+        "startLine": 587,
+        "startChar": 27,
+        "endLine": 588,
+        "endChar": 10
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b532d00_23d29f65",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T21:41:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6ed5180e_9268ed2c",
       "range": {
         "startLine": 587,
         "startChar": 27,
