@@ -264,6 +264,9 @@ class CommonArtTestImpl {
 
   virtual void TearDown();
 
+  // Returns a suitable prefix to pass to art::testing::GetLibCoreDexFileNames().
+  std::string GetLibCoreDexFilePrefix() const;
+
   // Creates the class path string for the given dex files (the list of dex file locations
   // separated by ':').
   std::string CreateClassPath(const std::vector<std::unique_ptr<const DexFile>>& dex_files);
