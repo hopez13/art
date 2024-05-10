@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e14f81ed_0590753b",
+        "filename": "runtime/entrypoints/entrypoint_utils-inl.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 112,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-10T07:50:36Z",
+      "side": 1,
+      "message": "This means we cannot do the resolution after all and will crash on debug mode.",
+      "range": {
+        "startLine": 112,
+        "startChar": 0,
+        "endLine": 112,
+        "endChar": 53
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c8da2b0e_869b63af",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/entrypoints/entrypoint_utils-inl.h",
+              "range": {
+                "startLine": 112,
+                "startChar": 0,
+                "endLine": 113,
+                "endChar": 0
+              },
+              "replacement": "  ScopedAssertNoThreadSuspension sants(__PRETTY_FUNCTION__);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "4782e1ebd675cb354c8a2809aae1c6a8300f9815",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
