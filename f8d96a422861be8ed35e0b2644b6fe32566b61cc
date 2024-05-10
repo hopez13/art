@@ -89,6 +89,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "38ed4dc6_d520699f",
+        "filename": "adbconnection/adbconnection.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 442,
+      "author": {
+        "id": 1083168
+      },
+      "writtenOn": "2024-05-10T01:40:17Z",
+      "side": 1,
+      "message": "Sorry about the confusion. You are right. Moved to `DCHECK`.",
+      "parentUuid": "4279048a_dc7acb8b",
+      "range": {
+        "startLine": 442,
+        "startChar": 2,
+        "endLine": 442,
+        "endChar": 36
+      },
+      "revId": "f8d96a422861be8ed35e0b2644b6fe32566b61cc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "061ab62a_680dff99",
