@@ -91,6 +91,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "e177dd06_06f86278",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 3282,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-10T00:00:22Z",
+      "side": 1,
+      "message": "We can test by doing the same thing that we are doing here and see if mremap succeeds or not. Something like this:\n\n```\n1. mmap a range of at least 2 pages\n2. fault-in one page\n3. Use some operation that causes vma split (uffd-register, mprotect etc.)\n4. undo the operation of (3)\n5. Use mremap on the whole vma, it should succeed. I forgot the exact errno that\u0027s returned in the case when more than one vma span the src range.\n```",
+      "parentUuid": "5df467af_738706e6",
+      "range": {
+        "startLine": 3282,
+        "startChar": 35,
+        "endLine": 3282,
+        "endChar": 48
+      },
+      "revId": "0be9931682871faaa68fe2c0e9c43e744a4c1626",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8765384c_ca025507",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 2
