@@ -22,6 +22,138 @@
       },
       "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22b84dc8_c194946f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 25
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "Just some nits.",
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ae4e49d_ef1076e0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2190,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "Wouldn\u0027t it be cleaner to use signed values for backoff_count and max_backoff, and use -1 for \"uninitialized\", ideally both here and in the zeropage case?\n\nThe 0-as-uninit convention seems to add extra corner cases.",
+      "range": {
+        "startLine": 2187,
+        "startChar": 0,
+        "endLine": 2190,
+        "endChar": 9
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a0a376_cb8e2b14",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2585,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "I suspect that introducing a small inline function for this expression would improve the code around here.\n\nIt could also be used in the cases in which you compare the result to static_cast\u003cuint8_t)(...), i.e. do the cast on the other side.",
+      "range": {
+        "startLine": 2584,
+        "startChar": 22,
+        "endLine": 2585,
+        "endChar": 95
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23bc83cf_509e870b",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3785,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "Does it make sense to DCHECK_NE(map_len, 0) ?",
+      "range": {
+        "startLine": 3782,
+        "startChar": 6,
+        "endLine": 3785,
+        "endChar": 58
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2c6037c_06f6d8c0",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 575,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "This seems like more than a caller would need to know. How about \"May return after mapping fewer pages than requested.\", and maybe put the rest of the comment in the implementation?\n\nThe last sentence should probably be clearer that this may include a page that was already mapped. \"... now known to be mapped\"?",
+      "range": {
+        "startLine": 573,
+        "startChar": 18,
+        "endLine": 575,
+        "endChar": 14
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6ed5180e_9268ed2c",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 588,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-10T01:20:43Z",
+      "side": 1,
+      "message": "\"if at least the first page is now mapped\"?",
+      "range": {
+        "startLine": 587,
+        "startChar": 27,
+        "endLine": 588,
+        "endChar": 10
+      },
+      "revId": "fbc8a8cbc5b9290fdd2938349ed7e38eade681a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
