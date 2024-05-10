@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "58d4d975_b99d6219",
+        "filename": "test/Android.bp",
+        "patchSetId": 6
+      },
+      "lineNbr": 318,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-10T17:21:29Z",
+      "side": 1,
+      "message": "I gave up on trying to get rid of these - it\u0027s just too hard to replicate locally and work out a better way (filed b/339710427). However now they pass for host-gtests in CI (https://android-build.googleplex.com/builds/tests/view?blocking\u003dblocking%2CnonBlocking\u0026invocationId\u003dI77000010275562029).",
+      "range": {
+        "startLine": 318,
+        "startChar": 16,
+        "endLine": 318,
+        "endChar": 79
+      },
+      "revId": "9d87aeb4b9f23c487f188d7ffaaab354c21cbf8c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
