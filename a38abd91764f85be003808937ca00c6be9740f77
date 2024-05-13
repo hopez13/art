@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b790d1fd_c24a2305",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 257,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "I\u0027m not keen on making `kNative` the default stack type because it could potentially hide the difference between the two stacks leading to `kNative` being used where `kQuickStackType` would make more sense. This could result in hard to debug bugs for the simulator making maintenance much more difficult.\n\nI think it is useful for ART developers to think about what kind of stack they want to operate on and appropriately use `kNativeStackType` or `kQuickStackType`. I have tried to improve the comments and naming for `StackType` and `k\u003cNative|Quick\u003eStackType` to make this decision easier and clearer.",
+      "parentUuid": "efa60a00_620cf44d",
+      "range": {
+        "startLine": 257,
+        "startChar": 10,
+        "endLine": 257,
+        "endChar": 30
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cce74895_0df44851",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-04-05T17:01:06Z",
       "side": 1,
       "message": "Maybe a comment here about the QuickStackType is needed for supporting simulator. Maybe also mention it is same as native stack unless we are building for a simulator.",
+      "range": {
+        "startLine": 110,
+        "startChar": 3,
+        "endLine": 110,
+        "endChar": 49
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b481575_0a7ee5be",
+        "filename": "runtime/entrypoints/quick/quick_throw_entrypoints.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cce74895_0df44851",
       "range": {
         "startLine": 110,
         "startChar": 3,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5f83962e_516cd805",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 977,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "When we introduce the simulator later, [it will reuse the stack and guard sizes to create the simulated stack](https://android-review.googlesource.com/c/platform/art/+/2680028/3/runtime/thread.cc#1021). Moving this outside of `InitStack()` means we only need to call `GetThreadStack()` once, plus we keep stack type specific code outside of `InitStack()` as the simulator uses its own stack base.",
+      "parentUuid": "6cf7fa75_1c696384",
+      "range": {
+        "startLine": 977,
+        "startChar": 2,
+        "endLine": 977,
+        "endChar": 16
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4be96fb_01d06f78",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-04-05T17:01:06Z",
       "side": 1,
       "message": "Do we need this for native stack at all?",
+      "range": {
+        "startLine": 2816,
+        "startChar": 6,
+        "endLine": 2816,
+        "endChar": 38
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6ed28ad2_bf5393c2",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2816,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "No, `IsRawObjOnStack()` is only used here and is only used for the quick stack as the JNI transition frame will always be on the quick stack.",
+      "parentUuid": "f4be96fb_01d06f78",
       "range": {
         "startLine": 2816,
         "startChar": 6,
@@ -133,6 +229,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "37c4047a_4e8f947d",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "Leftover from later patches, thanks for the spot!",
+      "parentUuid": "0e8bcada_ca9346d9",
+      "range": {
+        "startLine": 28,
+        "startChar": 0,
+        "endLine": 28,
+        "endChar": 33
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e41a7a5f_d1d59772",
@@ -146,6 +266,30 @@
       "writtenOn": "2024-04-05T17:01:06Z",
       "side": 1,
       "message": "Maybe expand the comment to mention that for quick code we might either use simulator or native depending on whether we are building for a simulator.",
+      "range": {
+        "startLine": 201,
+        "startChar": 3,
+        "endLine": 201,
+        "endChar": 53
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "876f014d_0e8d1353",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "I\u0027ve revised this section to try and provide a much clearer picture of what the stack type is and how it\u0027s used to support multiple stacks when on simulator mode. Do let me know if there\u0027s anything else missing here or anything that isn\u0027t completely clear.",
+      "parentUuid": "e41a7a5f_d1d59772",
       "range": {
         "startLine": 201,
         "startChar": 3,
@@ -179,6 +323,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "679264cc_9079447a",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1111,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "Same comment here as https://android-review.googlesource.com/c/platform/art/+/3016878/comment/efa60a00_620cf44d/",
+      "parentUuid": "dacac590_eec0b449",
+      "range": {
+        "startLine": 1111,
+        "startChar": 12,
+        "endLine": 1111,
+        "endChar": 32
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "342224c1_1e0e96f1",
@@ -192,6 +360,30 @@
       "writtenOn": "2024-04-05T17:01:06Z",
       "side": 1,
       "message": "If we only need this for quick type maybe we could drop the template?",
+      "range": {
+        "startLine": 1178,
+        "startChar": 7,
+        "endLine": 1178,
+        "endChar": 22
+      },
+      "revId": "a38abd91764f85be003808937ca00c6be9740f77",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65623870_823602fa",
+        "filename": "runtime/thread.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1178,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "342224c1_1e0e96f1",
       "range": {
         "startLine": 1178,
         "startChar": 7,
