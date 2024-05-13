@@ -16,6 +16,29 @@
       "message": "Friendly ping.",
       "revId": "42c1b59061a30d8abfb655943b86ef2bab22bd71",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b2bbf98b_04a97cbe",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 439,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-13T13:18:04Z",
+      "side": 1,
+      "message": "(We\u0027re making an assumption here that `apex --otachroot-bootstrap` always adds mounts under /apex, or at least that the work we care about happens there. That seems fair enough. I was contemplating doing the same check at setup too, partially for the sake of symmetry, but otoh we should be able to trust the return status from apexd there.)\n\nSomewhat related, I again wondered why we bother calling apexd at all at teardown. It\u0027d be nice to have a comment here explaining that.\n\nAlso, small nit, I think it\u0027s a little more natural to do this check before the `FileExists` one.",
+      "range": {
+        "startLine": 439,
+        "startChar": 67,
+        "endLine": 439,
+        "endChar": 75
+      },
+      "revId": "42c1b59061a30d8abfb655943b86ef2bab22bd71",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
