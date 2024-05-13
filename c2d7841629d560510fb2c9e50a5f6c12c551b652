@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "519f66e7_d6c302c1",
+        "filename": "runtime/arch/x86_64/jni_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 463,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:28Z",
+      "side": 1,
+      "message": "Yes, this is leaving the padding on the stack for alignment because the new call increases the frame by 8 bytes which it didn\u0027t before this patch. I\u0027ve aligned the comment with the `jni_entrypoints_x86.S` version of this function to clarify this.",
+      "parentUuid": "7279f550_23e9eb2d",
+      "range": {
+        "startLine": 461,
+        "startChar": 82,
+        "endLine": 463,
+        "endChar": 23
+      },
+      "revId": "c2d7841629d560510fb2c9e50a5f6c12c551b652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a53085e2_369f593f",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-01T09:19:38Z",
       "side": 1,
       "message": "minor nit: Missed it last time, this is no longer tail call.",
+      "range": {
+        "startLine": 467,
+        "startChar": 68,
+        "endLine": 467,
+        "endChar": 72
+      },
+      "revId": "c2d7841629d560510fb2c9e50a5f6c12c551b652",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2507420_95525da3",
+        "filename": "runtime/arch/x86_64/jni_entrypoints_x86_64.S",
+        "patchSetId": 4
+      },
+      "lineNbr": 467,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "a53085e2_369f593f",
       "range": {
         "startLine": 467,
         "startChar": 68,
