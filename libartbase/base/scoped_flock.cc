@@ -59,6 +59,7 @@ using android::base::StringPrintf;  // NOLINT - StringPrintf is actually used
     int flock_result = TEMP_FAILURE_RETRY(flock(file->Fd(), operation));
     if (flock_result == EWOULDBLOCK) {
       // File is locked by someone else and we are required not to block;
+      *error_msg = StringPrintf("Failed to get lock '%s': %s", filename, strerror(errno));
       return nullptr;
     }
     if (flock_result != 0) {
