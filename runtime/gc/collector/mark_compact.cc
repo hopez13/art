@@ -479,7 +479,6 @@ MarkCompact::MarkCompact(Heap* heap)
       moving_from_space_fd_(kFdUnused),
       uffd_(kFdUnused),
       sigbus_in_progress_count_(kSigbusCounterCompactionDoneMask),
-      compaction_in_progress_count_(0),
       thread_pool_counter_(0),
       compacting_(false),
       uffd_initialized_(false),
@@ -3293,7 +3292,6 @@ void MarkCompact::CompactionPause() {
     bump_pointer_space_->RecordFree(freed_objects_, freed_bytes);
     RecordFree(ObjectBytePair(freed_objects_, freed_bytes));
   } else {
-    DCHECK_EQ(compaction_in_progress_count_.load(std::memory_order_relaxed), 0u);
     DCHECK_EQ(compaction_buffer_counter_.load(std::memory_order_relaxed), 1);
     if (!use_uffd_sigbus_) {
       // We must start worker threads before resuming mutators to avoid deadlocks.
@@ -3592,23 +3590,6 @@ template <int kMode>
 void MarkCompact::ConcurrentlyProcessMovingPage(uint8_t* fault_page,
                                                 uint8_t* buf,
                                                 size_t nr_moving_space_used_pages) {
-  // TODO: add a class for Scoped dtor to set that a page has already mapped.
-  // This helps in avoiding a zero-page ioctl in gc-thread before unregistering
-  // unused space.
-  class ScopedInProgressCount {
-   public:
-    explicit ScopedInProgressCount(MarkCompact* collector) : collector_(collector) {
-      collector_->compaction_in_progress_count_.fetch_add(1, std::memory_order_relaxed);
-    }
-
-    ~ScopedInProgressCount() {
-      collector_->compaction_in_progress_count_.fetch_sub(1, std::memory_order_relaxed);
-    }
-
-   private:
-    MarkCompact* collector_;
-  };
-
   Thread* self = Thread::Current();
   uint8_t* unused_space_begin =
       bump_pointer_space_->Begin() + nr_moving_space_used_pages * gPageSize;
@@ -3670,20 +3651,13 @@ void MarkCompact::ConcurrentlyProcessMovingPage(uint8_t* fault_page,
       // Nothing to do.
       break;
     } else {
-      // The increment to the in-progress counter must be done before updating
-      // the page's state. Otherwise, we will end up leaving a window wherein
-      // the GC-thread could observe that no worker is working on compaction
-      // and could end up unregistering the moving space from userfaultfd.
-      ScopedInProgressCount spc(this);
-      // Acquire order to ensure we don't start writing to shadow map, which is
-      // shared, before the CAS is successful. Release order to ensure that the
-      // increment to moving_compaction_in_progress above is not re-ordered
-      // after the CAS.
+      // Acquire order to ensure we don't start writing to a page, which could
+      // be shared, before the CAS is successful.
       if (state == PageState::kUnprocessed &&
           moving_pages_status_[page_idx].compare_exchange_strong(
               raw_state,
               static_cast<uint8_t>(PageState::kMutatorProcessing),
-              std::memory_order_acq_rel)) {
+              std::memory_order_acquire)) {
         if (kMode == kMinorFaultMode) {
           DCHECK_EQ(buf, nullptr);
           buf = shadow_to_space_map_.Begin() + page_idx * gPageSize;
@@ -4209,7 +4183,13 @@ void MarkCompact::CompactionPhase() {
       ForceRead(conc_compaction_termination_page_);
     } while (thread_pool_counter_ > 0);
   }
-  // Unregister linear-alloc spaces
+  // Unregister moving-space
+  size_t moving_space_size = bump_pointer_space_->Capacity();
+  size_t used_size = (moving_first_objs_count_ + black_page_count_) * gPageSize;
+  if (used_size > 0) {
+    UnregisterUffd(bump_pointer_space_->Begin(), used_size);
+  }
+  // Unregister and madvise linear-alloc spaces
   for (auto& data : linear_alloc_spaces_data_) {
     DCHECK_EQ(data.end_ - data.begin_, static_cast<ssize_t>(data.shadow_.Size()));
     UnregisterUffd(data.begin_, data.shadow_.Size());
@@ -4223,21 +4203,6 @@ void MarkCompact::CompactionPhase() {
     }
   }
 
-  // Make sure no mutator is reading from the from-space before unregistering
-  // userfaultfd from moving-space and then zapping from-space. The mutator
-  // and GC may race to set a page state to processing or further along. The two
-  // attempts are ordered. If the collector wins, then the mutator will see that
-  // and not access the from-space page. If the muator wins, then the
-  // compaction_in_progress_count_ increment by the mutator happens-before the test
-  // here, and we will not see a zero value until the mutator has completed.
-  for (uint32_t i = 0; compaction_in_progress_count_.load(std::memory_order_acquire) > 0; i++) {
-    BackOff(i);
-  }
-  size_t moving_space_size = bump_pointer_space_->Capacity();
-  size_t used_size = (moving_first_objs_count_ + black_page_count_) * gPageSize;
-  if (used_size > 0) {
-    UnregisterUffd(bump_pointer_space_->Begin(), used_size);
-  }
   // Release all of the memory taken by moving-space's from-map
   if (minor_fault_initialized_) {
     if (IsValidFd(moving_from_space_fd_)) {

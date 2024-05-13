@@ -843,10 +843,6 @@ class MarkCompact final : public GarbageCollector {
   // indicate that. Mutator threads check for the flag when incrementing in the
   // handler.
   std::atomic<SigbusCounterType> sigbus_in_progress_count_;
-  // Number of mutator-threads/uffd-workers working on moving-space page. It
-  // must be 0 before gc-thread can unregister the space after it's done
-  // sequentially compacting all pages of the space.
-  std::atomic<uint16_t> compaction_in_progress_count_;
   // When using SIGBUS feature, this counter is used by mutators to claim a page
   // out of compaction buffers to be used for the entire compaction cycle.
   std::atomic<uint16_t> compaction_buffer_counter_;
