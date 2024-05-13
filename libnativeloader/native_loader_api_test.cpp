@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+<<<<<<< HEAD   (04db54 [automerger skipped] Revert "libnativeloader_test: link non-)
 #include <memory>
 #include <string>
 
@@ -126,3 +127,116 @@ TEST_F(NativeLoaderLazyTest, NativeLoaderFreeErrorMessage) {
 
 }  // namespace nativeloader
 }  // namespace android
+=======
+#if defined(ART_TARGET_ANDROID)
+
+#include "gtest/gtest.h"
+#include "native_loader_test.h"
+#include "nativehelper/scoped_utf_chars.h"
+#include "nativeloader/native_loader.h"
+
+namespace android {
+namespace nativeloader {
+
+using ::testing::Return;
+using ::testing::StrEq;
+
+// Test the exported API in libnativeloader and libnativeloader_lazy. The
+// testing we can do here outside a full VM is limited, but this is only to
+// complement other tests and ensure coverage of the APIs that aren't in the
+// common call paths.
+
+class NativeLoaderLazyTest : public ::testing::Test {
+ protected:
+  void SetUp() override {
+    mock = std::make_unique<testing::NiceMock<MockPlatform>>(false);
+    env = std::make_unique<JNIEnv>();
+    env->functions = CreateJNINativeInterface();
+  }
+
+  void TearDown() override {
+    // ResetNativeLoader isn't accessible through the lazy library, so we cannot
+    // reset libnativeloader internal state. Hence be sure to not reuse the same
+    // class loader/namespace names.
+    delete env->functions;
+    mock.reset();
+  }
+
+  void CallCreateClassLoaderNamespace(const char* class_loader) {
+    ON_CALL(*mock, JniObject_getParent(StrEq(class_loader))).WillByDefault(Return(nullptr));
+
+    jstring err = CreateClassLoaderNamespace(env.get(),
+                                             17,
+                                             env.get()->NewStringUTF(class_loader),
+                                             false,
+                                             env.get()->NewStringUTF("/data/app/foo/classes.dex"),
+                                             env.get()->NewStringUTF("/data/app/foo"),
+                                             /*permitted_path=*/nullptr,
+                                             /*uses_library_list=*/nullptr);
+    EXPECT_EQ(err, nullptr) << "Error is: " << std::string(ScopedUtfChars(env.get(), err).c_str());
+  }
+
+  std::unique_ptr<JNIEnv> env;
+};
+
+TEST_F(NativeLoaderLazyTest, CreateClassLoaderNamespace) {
+  CallCreateClassLoaderNamespace("my_classloader_1");
+  EXPECT_NE(FindNamespaceByClassLoader(env.get(), env.get()->NewStringUTF("my_classloader_1")),
+            nullptr);
+}
+
+TEST_F(NativeLoaderLazyTest, OpenNativeLibrary) {
+  bool needs_native_bridge;
+  char* errmsg = nullptr;
+  EXPECT_EQ(nullptr,
+            OpenNativeLibrary(env.get(),
+                              17,
+                              "libnotfound.so",
+                              env.get()->NewStringUTF("my_classloader"),
+                              /*caller_location=*/nullptr,
+                              /*library_path=*/nullptr,
+                              &needs_native_bridge,
+                              &errmsg));
+  EXPECT_NE(nullptr, errmsg);
+  NativeLoaderFreeErrorMessage(errmsg);
+}
+
+TEST_F(NativeLoaderLazyTest, CloseNativeLibrary) {
+  char* errmsg = nullptr;
+  EXPECT_FALSE(CloseNativeLibrary(nullptr, false, &errmsg));
+  EXPECT_NE(nullptr, errmsg);
+  NativeLoaderFreeErrorMessage(errmsg);
+}
+
+TEST_F(NativeLoaderLazyTest, OpenNativeLibraryInNamespace) {
+  CallCreateClassLoaderNamespace("my_classloader_2");
+  struct NativeLoaderNamespace* ns = FindNativeLoaderNamespaceByClassLoader(
+      env.get(), env.get()->NewStringUTF("my_classloader_2"));
+  ASSERT_NE(nullptr, ns);
+
+  bool needs_native_bridge;
+  char* errmsg = nullptr;
+  EXPECT_FALSE(OpenNativeLibraryInNamespace(ns, "libnotfound.so", &needs_native_bridge, &errmsg));
+  EXPECT_NE(nullptr, errmsg);
+  NativeLoaderFreeErrorMessage(errmsg);
+}
+
+TEST_F(NativeLoaderLazyTest, FindNamespaceByClassLoader) {
+  EXPECT_EQ(nullptr, FindNamespaceByClassLoader(env.get(), env.get()->NewStringUTF("namespace")));
+}
+
+TEST_F(NativeLoaderLazyTest, FindNativeLoaderNamespaceByClassLoader) {
+  EXPECT_EQ(
+      nullptr,
+      FindNativeLoaderNamespaceByClassLoader(env.get(), env.get()->NewStringUTF("namespace")));
+}
+
+TEST_F(NativeLoaderLazyTest, NativeLoaderFreeErrorMessage) {
+  NativeLoaderFreeErrorMessage(nullptr);
+}
+
+}  // namespace nativeloader
+}  // namespace android
+
+#endif  // defined(ART_TARGET_ANDROID)
+>>>>>>> BRANCH (76c8d1 Repurpose libnativeloader_lazy tests as shallow tests for AP)
