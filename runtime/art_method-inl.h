@@ -386,8 +386,16 @@ inline const char* ArtMethod::GetDeclaringClassDescriptor() {
     return "<runtime method>";
   }
   DCHECK(!IsProxyMethod());
-  const DexFile* dex_file = GetDexFile();
-  return dex_file->GetMethodDeclaringClassDescriptor(dex_file->GetMethodId(dex_method_idx));
+  return GetDexFile()->GetMethodDeclaringClassDescriptor(dex_method_idx);
+}
+
+inline std::string_view ArtMethod::GetDeclaringClassDescriptorView() {
+  uint32_t dex_method_idx = GetDexMethodIndex();
+  if (UNLIKELY(dex_method_idx == dex::kDexNoIndex)) {
+    return "<runtime method>";
+  }
+  DCHECK(!IsProxyMethod());
+  return GetDexFile()->GetMethodDeclaringClassDescriptorView(dex_method_idx);
 }
 
 inline const char* ArtMethod::GetShorty() {
@@ -516,8 +524,12 @@ inline size_t ArtMethod::GetNumberOfParameters() {
 
 inline const char* ArtMethod::GetReturnTypeDescriptor() {
   DCHECK(!IsProxyMethod());
-  const DexFile* dex_file = GetDexFile();
-  return dex_file->GetTypeDescriptor(dex_file->GetTypeId(GetReturnTypeIndex()));
+  return GetDexFile()->GetTypeDescriptor(GetReturnTypeIndex());
+}
+
+inline std::string_view ArtMethod::GetReturnTypeDescriptorView() {
+  DCHECK(!IsProxyMethod());
+  return GetDexFile()->GetTypeDescriptorView(GetReturnTypeIndex());
 }
 
 inline Primitive::Type ArtMethod::GetReturnTypePrimitive() {

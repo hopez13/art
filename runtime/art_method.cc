@@ -487,9 +487,8 @@ static const OatFile::OatMethod FindOatMethodFromDexFileFor(ArtMethod* method, b
   const DexFile* dex_file = method->GetDexFile();
 
   // recreate the class_def_index from the descriptor.
-  std::string descriptor_storage;
   const dex::TypeId* declaring_class_type_id =
-      dex_file->FindTypeId(method->GetDeclaringClass()->GetDescriptor(&descriptor_storage));
+      dex_file->FindTypeId(method->GetDeclaringClassDescriptor());
   CHECK(declaring_class_type_id != nullptr);
   dex::TypeIndex declaring_class_type_index = dex_file->GetIndexForTypeId(*declaring_class_type_id);
   const dex::ClassDef* declaring_class_type_def =
