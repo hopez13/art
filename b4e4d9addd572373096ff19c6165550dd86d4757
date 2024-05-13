@@ -39,6 +39,30 @@
       },
       "revId": "b4e4d9addd572373096ff19c6165550dd86d4757",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "29ed1bb2_68031de6",
+        "filename": "runtime/entrypoints/quick/quick_trampoline_entrypoints.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-13T16:08:59Z",
+      "side": 1,
+      "message": "Yes, this is replaced by `kRuntimeQuickCodeISA` in the [next patch](https://android-review.googlesource.com/c/platform/art/+/2680019/3/runtime/entrypoints/quick/quick_trampoline_entrypoints.cc#635).",
+      "parentUuid": "98f3763c_fbfd8345",
+      "range": {
+        "startLine": 634,
+        "startChar": 49,
+        "endLine": 634,
+        "endChar": 60
+      },
+      "revId": "b4e4d9addd572373096ff19c6165550dd86d4757",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
