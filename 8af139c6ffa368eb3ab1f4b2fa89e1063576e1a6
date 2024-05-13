@@ -238,6 +238,30 @@
       },
       "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0875a5d2_154402c5",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 365,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-13T14:12:33Z",
+      "side": 1,
+      "message": "\u003e It has been the behavior for years that we override the compiler filter specified by -m for debuggable, useEmbeddedDex, etc.\n\nTo be clear, this discussion is about when it\u0027s forced, i.e. `-f` as well. But indeed, in the legacy code the force flag didn\u0027t affect the filter overrides in [getRealCompilerFilter](https://source.corp.google.com/h/googleplex-android/platform/superproject/udc/+/udc-dev:frameworks/base/services/core/java/com/android/server/pm/PackageDexOptimizer.java;l\u003d797;drc\u003d678d5087e114fe4c21f3d9c2417dcfd76ea1cfcd) so that\u0027s a point. Guess what I\u0027m going for would require a new flag such as `--force-filter`, but I\u0027m not asking for that.\n\n(Btw, there\u0027s still another open comment on this CL.)",
+      "parentUuid": "4e3e6b03_118ff320",
+      "range": {
+        "startLine": 336,
+        "startChar": 0,
+        "endLine": 365,
+        "endChar": 9
+      },
+      "revId": "8af139c6ffa368eb3ab1f4b2fa89e1063576e1a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
