@@ -2831,9 +2831,11 @@ class ImageSpace::BootImageLoader {
     // ScopedFlock::GetFile to Init the image file. We want the file
     // descriptor (and the associated exclusive lock) to be released when
     // we leave Create.
+    Runtime* runtime = Runtime::Current();
+    bool block = runtime->IsAotCompiler();
     ScopedFlock image = LockedFile::Open(image_filename.c_str(),
                                          /*flags=*/ O_RDONLY,
-                                         /*block=*/ true,
+                                         /*block=*/ !block,
                                          error_msg);
 
     VLOG(startup) << "Using image file " << image_filename.c_str() << " for image location "
