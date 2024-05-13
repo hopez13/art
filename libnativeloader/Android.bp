@@ -32,6 +32,28 @@ cc_library_headers {
     export_header_lib_headers: ["jni_headers"],
 }
 
+cc_library_headers {
+    name: "libnativeloader-headers",
+    defaults: ["art_defaults"],
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.art",
+        "com.android.art.debug",
+        "com.android.media",
+    ],
+    visibility: [
+        "//art:__subpackages__",
+        // TODO(b/133140750): Clean this up.
+        "//frameworks/av/media/libstagefright",
+        "//frameworks/native/libs/graphicsenv",
+        "//frameworks/native/vulkan/libvulkan",
+    ],
+    host_supported: true,
+    export_include_dirs: ["include"],
+    header_libs: ["jni_headers"],
+    export_header_lib_headers: ["jni_headers"],
+}
+
 cc_defaults {
     name: "libnativeloader-defaults",
     defaults: ["art_defaults"],
@@ -123,9 +145,18 @@ cc_library {
     shared_libs: ["liblog"],
 }
 
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
 art_cc_test {
     name: "libnativeloader_test",
+=======
+cc_defaults {
+    name: "libnativeloader-test-defaults",
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
     defaults: [
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
+=======
+        "art_module_source_build_defaults",
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
         // Cannot use art_standalone_gtest_defaults because it makes us link
         // libnativebridge statically through libart-gtest, but we need to mock
         // its symbols here.
@@ -152,6 +183,21 @@ art_cc_test {
         "libgmock",
     ],
 
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
+=======
+    test_for: [
+        "com.android.art",
+        "com.android.art.debug",
+    ],
+    test_suites: ["device-tests"],
+}
+
+art_cc_test {
+    name: "libnativeloader_test",
+    defaults: [
+        "libnativeloader-test-defaults",
+    ],
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
     tidy_timeout_srcs: [
         "native_loader_test.cpp",
     ],
@@ -159,6 +205,7 @@ art_cc_test {
         "library_namespaces_test.cpp",
         "native_loader_api_test.c",
         "native_loader_test.cpp",
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
     ],
 
     test_for: [
@@ -191,11 +238,23 @@ art_cc_test {
     defaults: ["libnativeloader_api_test_defaults"],
     shared_libs: [
         "libnativeloader",
+=======
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
     ],
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
     test_config_template: ":art-gtests-target-standalone-cts-template",
+=======
+    shared_libs: [
+        "libnativeloader",
+    ],
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
     test_suites: [
+<<<<<<< HEAD   (89591d Handle EAGAIN (due to map_lock contention) from uffd ops)
         "cts",
         "mcts-art",
+=======
+        "mts-art",
+>>>>>>> BRANCH (02b9d2 Revert "libnativeloader_test: link non-public libs staticall)
     ],
 }
 
