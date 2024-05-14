@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "14982520_39fce59f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T15:58:32Z",
+      "side": 1,
+      "message": "I\u0027ve disabled the parallelism, but I\u0027ll leave the temporary directory in the tests, as it makes them less sensitive to which directory they are run from.",
+      "parentUuid": "b567cd4d_045faaf9",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "a771d6eb_a05f0e5e",
@@ -89,6 +113,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1b09678e_063d0c5f",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 4
+      },
+      "lineNbr": 4302,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T15:58:32Z",
+      "side": 1,
+      "message": "I ran it, but I think it was in the wrong section (`postsubmit_only_tests` vs `art_gtest_postsubmit_only_module_names`), and maybe it has to be in both the presubmit and postsubmit sections?",
+      "parentUuid": "7d55e90c_efa25a18",
+      "range": {
+        "startLine": 4302,
+        "startChar": 3,
+        "endLine": 4302,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbf3104f_6fad0128",
         "filename": "libnativebridge/tests/Android.bp",
         "patchSetId": 4
@@ -100,6 +148,30 @@
       "writtenOn": "2024-05-14T13:55:13Z",
       "side": 1,
       "message": "Looks like it should be enough to list these as `data_libs`?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 37
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "053698fe_ffa63e0f",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T15:58:32Z",
+      "side": 1,
+      "message": "That\u0027s what I thought too, but it didn\u0027t work.  I think the problem was that the dlopen happens from libnativebridge, and so it\u0027s looking relative to libnativebridge, not to libnativebridge-tests.  Having them linked here effectively preloads them so that dlopen just returns the handle to the existing library, which maintains the existing behavior.",
+      "parentUuid": "bbf3104f_6fad0128",
       "range": {
         "startLine": 150,
         "startChar": 0,
@@ -133,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e42e771d_d011a61d",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T15:58:32Z",
+      "side": 1,
+      "message": "I submitted aosp/3083002 to add them to `DT_RUNPATH`.",
+      "parentUuid": "978f9b1b_0f0b573b",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2f549832_1a9d9199",
@@ -146,6 +242,30 @@
       "writtenOn": "2024-05-14T13:55:13Z",
       "side": 1,
       "message": "Shouldn\u0027t this be a `-`?",
+      "range": {
+        "startLine": 228,
+        "startChar": 18,
+        "endLine": 228,
+        "endChar": 19
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "20ecc315_939527ef",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T15:58:32Z",
+      "side": 1,
+      "message": "Fixed.  This invalidates my device testing on PS3, so I\u0027ll re-add it to presubmit and run it through presubmit again.",
+      "parentUuid": "2f549832_1a9d9199",
       "range": {
         "startLine": 228,
         "startChar": 18,
