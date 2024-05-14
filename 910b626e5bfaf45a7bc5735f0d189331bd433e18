@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4243dbd_4498740f",
+        "filename": "artd/artd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T09:44:49Z",
+      "side": 1,
+      "message": "We omit O_CLOEXEC on purpose. The fd needs to be passed to profman, so we want the fd to keep open when we exec profman. Can we suppress this warning?",
+      "range": {
+        "startLine": 448,
+        "startChar": 52,
+        "endLine": 448,
+        "endChar": 61
+      },
+      "revId": "910b626e5bfaf45a7bc5735f0d189331bd433e18",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
