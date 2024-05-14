@@ -40,6 +40,30 @@
       ],
       "revId": "c79caf95c7eaea15004ea5eec507317464d7a52b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "609a2073_88edf6ab",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-05-14T11:13:07Z",
+      "side": 1,
+      "message": "Actually yes, not sure why clang-tidy did not flag this - fixed in PS5.",
+      "parentUuid": "e113a553_b7512f8b",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 13
+      },
+      "revId": "c79caf95c7eaea15004ea5eec507317464d7a52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
