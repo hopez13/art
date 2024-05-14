@@ -250,9 +250,9 @@ art_cc_library {
 }
 
 art_cc_defaults {
-    name: "libartbase-art-gtest-defaults",
+    name: "libartbase-gtest_defaults",
     srcs: [
-        "base/common_art_test.cc",
+        "libartbase/base/common_art_test.cc",
     ],
     header_libs: [
         "libnativehelper_header_only",
@@ -271,27 +271,6 @@ art_cc_defaults {
             "libcap",
         ],
     },
-}
-
-art_cc_library_static {
-    name: "libartbase-art-gtest",
-    defaults: [
-        "libart-gtest-defaults",
-        "libartbase-art-gtest-defaults",
-        "libartbase_static_defaults",
-        "libdexfile_static_defaults",
-    ],
-}
-
-art_cc_library_static {
-    name: "libartbased-art-gtest",
-    defaults: [
-        "art_debug_defaults",
-        "libart-gtest-defaults",
-        "libartbase-art-gtest-defaults",
-        "libartbased_static_defaults",
-        "libdexfiled_static_defaults",
-    ],
 }
 
 art_cc_library_static {
