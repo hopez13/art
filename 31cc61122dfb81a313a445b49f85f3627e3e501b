@@ -137,6 +137,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "085274ef_5400e812",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 4
+      },
+      "lineNbr": 4302,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-14T20:18:22Z",
+      "side": 1,
+      "message": "The tests passed on the device: https://android-build.corp.google.com/test_investigate/?invocationId\u003dI10100010276775607\u0026testResultId\u003dTR43429302818575087\u0026status\u003dnone, switching back to postsubmit.",
+      "parentUuid": "1b09678e_063d0c5f",
+      "range": {
+        "startLine": 4302,
+        "startChar": 3,
+        "endLine": 4302,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bbf3104f_6fad0128",
         "filename": "libnativebridge/tests/Android.bp",
         "patchSetId": 4
