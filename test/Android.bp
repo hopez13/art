@@ -424,7 +424,7 @@ art_cc_defaults {
     ],
     host_supported: true,
     srcs: [
-        "common/gtest_main.cc",
+        "test/common/gtest_main.cc",
     ],
     whole_static_libs: [
         "libgtest_isolated",
@@ -443,31 +443,6 @@ art_cc_defaults {
             enabled: false,
         },
     },
-}
-
-art_cc_library_static {
-    name: "libart-gtest",
-    defaults: [
-        "libart-gtest-common",
-    ],
-    whole_static_libs: [
-        "libart-compiler-gtest",
-        "libart-runtime-gtest",
-        "libartbase-art-gtest",
-    ],
-}
-
-art_cc_library_static {
-    name: "libartd-gtest",
-    defaults: [
-        "art_debug_defaults",
-        "libart-gtest-common",
-    ],
-    whole_static_libs: [
-        "libartd-compiler-gtest",
-        "libartd-runtime-gtest",
-        "libartbased-art-gtest",
-    ],
 }
 
 // ART run-tests.
