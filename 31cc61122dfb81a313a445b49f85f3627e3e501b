@@ -3,6 +3,52 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ae08a5fb_48d3269a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "This is very nice, thank you! Why did you decide to work on this, if I may ask?",
+      "range": {
+        "startLine": 7,
+        "startChar": 0,
+        "endLine": 7,
+        "endChar": 73
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b567cd4d_045faaf9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "Is it possible to change this? It\u0027s overall easier to work with the test code if we don\u0027t have to worry about parallelism (and running time isn\u0027t an issue in this case).",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a771d6eb_a05f0e5e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -14,6 +60,98 @@
       "writtenOn": "2024-05-14T05:02:48Z",
       "side": 1,
       "message": "PS3 added these tests to presubmit in TEST_MAPPING to verify they pass.  PS4 moves them to postsubmit only for now in order to satisfy the presubmit SLO requirement.",
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7d55e90c_efa25a18",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 4
+      },
+      "lineNbr": 4302,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "Please run `regen-test-files`. It should add an entry to this list.",
+      "range": {
+        "startLine": 4302,
+        "startChar": 3,
+        "endLine": 4302,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bbf3104f_6fad0128",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "Looks like it should be enough to list these as `data_libs`?",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 37
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "978f9b1b_0f0b573b",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 158,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "Interesting, I wasn\u0027t aware of this feature. The doc comment for the property is brief, but I suppose \"installed alongside the test\" should be read as \"installed in the same directory as the test binary\". I also wonder how it configures the linker to find these libs, e.g. through `RUNPATH` or `LD_LIBRARY_PATH`?",
+      "range": {
+        "startLine": 158,
+        "startChar": 4,
+        "endLine": 158,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f549832_1a9d9199",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T13:55:13Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a `-`?",
+      "range": {
+        "startLine": 228,
+        "startChar": 18,
+        "endLine": 228,
+        "endChar": 19
+      },
       "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
