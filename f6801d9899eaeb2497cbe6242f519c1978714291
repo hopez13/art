@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "708a3165_0f015c25",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-14T21:46:37Z",
+      "side": 1,
+      "message": "Seems like a minor code-size benefit at the expensive of maybe some marginal added complexity? I\u0027m neutral on doing this in rarely executed code, which I think this is. I guess the real benefit is that we might someday catch these in hot code?",
+      "revId": "f6801d9899eaeb2497cbe6242f519c1978714291",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
