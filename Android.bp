@@ -16,3 +16,261 @@ license {
         "NOTICE",
     ],
 }
+
+// Common defaults for `libart_defaults` and `libartd_defaults`.
+cc_defaults {
+    name: "libart_common_defaults",
+    defaults: [
+        "art_defaults",
+        "libart_nativeunwind_defaults",
+        "art_hugepage_defaults",
+    ],
+    host_supported: true,
+    runtime_libs: [
+        // Libraries loaded at runtime. Exceptions:
+        // - libart(d)-compiler.so and libopenjdk(d).so cannot be listed here
+        //   due to cyclic dependency.
+        // - libicu_jni.so is only loaded to handle dependency order in VM
+        //   startup (see Runtime::InitNativeMethods), but its API is internal
+        //   to com.android.i18n and not used by ART/libcore. Therefore it's not
+        //   listed here to avoid visibility issues. Instead it's linked from
+        //   the ART module namespace through an entry in requireNativeLibs in
+        //   manifest-art.json.
+        "libjavacore",
+    ],
+}
+
+cc_defaults {
+    name: "libart_defaults",
+    defaults: [
+        "libart_common_defaults",
+
+        "libart-runtime_common_defaults",
+        "libart-runtime_deps",
+
+        "libart-compiler_common_defaults",
+        "libart-compiler_deps",
+    ],
+}
+
+cc_defaults {
+    name: "libartd_defaults",
+    defaults: [
+        "art_debug_defaults",
+        "libart_common_defaults",
+
+        "libart-runtime_common_defaults",
+        "libartd-runtime_deps",
+
+        "libart-compiler_common_defaults",
+        "libartd-compiler_deps",
+    ],
+}
+
+// libart.so variants
+
+// Release version of the ART runtime library, bundled with `libart-compiler` for JIT support.
+art_cc_library {
+    name: "libart",
+    defaults: ["libart_defaults"],
+    apex_available: [
+        "com.android.art.debug",
+        "com.android.art",
+        // This lib doesn't go into test_broken_com.android.art, but the libart-broken
+        // needs to have the same apex_available list as its dependencies in order
+        // to compile against their sources. Then that change comes back up to affect
+        // libart as well, because it also needs to have the same apex_available as its
+        // dependencies.
+        "test_broken_com.android.art",
+    ],
+    afdo: true,
+    target: {
+        android: {
+            lto: {
+                thin: true,
+            },
+        },
+    },
+}
+
+art_cc_library {
+    name: "libart-unstripped",
+    defaults: ["libart_defaults"],
+    apex_available: [
+        "com.android.art",
+        "com.android.art.debug",
+        // This lib doesn't go into test_broken_com.android.art, but the libart-broken
+        // needs to have the same apex_available list as its dependencies in order
+        // to compile against their sources. Then that change comes back up to affect
+        // libart as well, because it also needs to have the same apex_available as its
+        // dependencies.
+        "test_broken_com.android.art",
+    ],
+    strip: {
+        none: true,
+    },
+}
+
+// "Broken" version of the libart, used only for testing.
+art_cc_test_library {
+    name: "libart-broken",
+    defaults: ["libart_defaults"],
+    cflags: ["-DART_CRASH_RUNTIME_DELIBERATELY"],
+    stem: "libart",
+    gtest: false,
+    apex_available: [
+        // libart-broken only goes into test_broken_com.android.art, but the libart-broken
+        // needs to have the same apex_available list as its dependencies in order
+        // to compile against their sources.
+        "com.android.art",
+        "com.android.art.debug",
+        "test_broken_com.android.art",
+    ],
+}
+
+// Debug version of the ART runtime library, bundled with `libartd-compiler` for JIT support.
+art_cc_library {
+    name: "libartd",
+    defaults: ["libartd_defaults"],
+    apex_available: [
+        "com.android.art.debug",
+        // TODO(b/183882457): This lib doesn't go into com.android.art, but
+        // apex_available lists need to be the same for internal libs to avoid
+        // stubs, and this depends on libsigchain.
+        "com.android.art",
+        "test_broken_com.android.art",
+    ],
+}
+
+// libart without libart-compiler, used to check that sources in art/runtime/
+// do not depend on anything in art/compiler/.
+art_cc_library {
+    name: "libart-no-compiler",
+    defaults: [
+        "libart_common_defaults",
+
+        "libart-runtime_common_defaults",
+        "libart-runtime_deps",
+    ],
+    srcs: [
+        // TODO: move to defaults
+        "compiler/jit/jit_create_stub.cc",
+    ],
+    apex_available: [
+        "com.android.art.debug",
+        // TODO(b/183882457): This lib doesn't go into com.android.art, but
+        // apex_available lists need to be the same for internal libs to avoid
+        // stubs, and this depends on libsigchain.
+        "com.android.art",
+        "test_broken_com.android.art",
+    ],
+}
+
+// For static linking with gtests. Same as `libart`, but without LTO.
+// When gtests static link a library with LTO enabled, they are also built with LTO.
+// This makes the build process use a lot of memory. b/277207452
+art_cc_library {
+    name: "libart-for-test",
+    defaults: ["libart_defaults"],
+    apex_available: [
+        "com.android.art.debug",
+        "com.android.art",
+        // This lib doesn't go into test_broken_com.android.art, but the libart-broken
+        // needs to have the same apex_available list as its dependencies in order
+        // to compile against their sources. Then that change comes back up to affect
+        // libart as well, because it also needs to have the same apex_available as its
+        // dependencies.
+        "test_broken_com.android.art",
+    ],
+}
+
+// libart static defaults variants
+
+cc_defaults {
+    name: "libart_static_defaults",
+    defaults: [
+        "libart-runtime_static_defaults",
+        "libart-compiler_static_defaults",
+    ],
+    whole_static_libs: [
+        "libart",
+        "libsigchain_fake",
+        "libnativeloader",
+    ],
+}
+
+// libart_static_defaults for standalone gtests.
+// Doesn't link libsigchain_fake/libnativeloader (see art_gtest_common_defaults
+// in test/Android.bp for explanation).
+// Uses libart-for-test (without LTO) instead of libart.
+cc_defaults {
+    name: "libart-for-test_static_defaults",
+    defaults: [
+        "libart-runtime_static_defaults",
+        "libart-compiler_static_defaults",
+    ],
+    whole_static_libs: [
+        "libart-for-test",
+    ],
+}
+
+cc_defaults {
+    name: "libartd_static_defaults",
+    defaults: [
+        "libartd-runtime_static_defaults",
+        "libartd-compiler_static_defaults",
+    ],
+    whole_static_libs: [
+        "libartd",
+        "libsigchain_fake",
+        "libnativeloader",
+    ],
+}
+
+// libartd_static_defaults for gtests.
+// Doesn't link libsigchain_fake/libnativeloader (see art_gtest_common_defaults
+// in test/Android.bp for explanation).
+// Note that `libartd-for-test` is not required here, because `libartd`
+// doesn't use LTO.
+cc_defaults {
+    name: "libartd-for-test_static_defaults",
+    defaults: [
+        "libartd-runtime_static_defaults",
+        "libartd-compiler_static_defaults",
+    ],
+    whole_static_libs: [
+        "libartd",
+    ],
+}
+
+// libart gtest variants
+
+art_cc_library_static {
+    name: "libart-gtest",
+    defaults: [
+        "libart-gtest-defaults", // from runtime/compiler gtest defaults
+        "libart-gtest-common",
+
+        "libart-runtime-gtest_defaults",
+        "libart-compiler-gtest_defaults",
+        "libartbase-gtest_defaults",
+
+        "libart-for-test_static_defaults",
+    ],
+}
+
+art_cc_library_static {
+    name: "libartd-gtest",
+    defaults: [
+        "art_debug_defaults",
+
+        "libart-gtest-defaults", // from runtime/compiler gtest defaults
+        "libart-gtest-common",
+
+        "libart-runtime-gtest_defaults",
+        "libart-compiler-gtest_defaults",
+        "libartbase-gtest_defaults",
+
+        "libartd-for-test_static_defaults",
+    ],
+}
