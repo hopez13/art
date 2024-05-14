@@ -201,6 +201,7 @@ public class PreRebootDexoptJobTest {
         var unused = mPreRebootDexoptJob.start();
         Future<Void> future = new CompletableFuture().runAsync(
                 () -> { mPreRebootDexoptJob.cancel(true /* blocking */); });
+        mPreRebootDexoptJob.cancel(false /* blocking */);
         dexoptCancelled.release();
         Utils.getFuture(future);
         // Check that `cancel` is really blocking.
