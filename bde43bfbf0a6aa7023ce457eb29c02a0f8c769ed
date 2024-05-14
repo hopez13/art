@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "322473b0_32edb287",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T21:28:48Z",
+      "side": 1,
+      "message": "This is quite ugly, but it gets the job done. The real problem is the inconsistency with how the zip file gets created and/or extracted, but I\u0027m not trying to fix that since it probably has repercussions in many other places (there\u0027s e.g. [this comment](https://cs.android.com/android/platform/superproject/main/+/main:art/build/Android.gtest.mk;l\u003d52-53;drc\u003d69dc24557f951ce2513d0ea77f35a499fa58467b)).",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 3
+      },
+      "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
