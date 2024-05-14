@@ -58,6 +58,7 @@
 #include "mirror/object_array-alloc-inl.h"
 #include "native/dalvik_system_DexFile.h"
 #include "noop_compiler_callbacks.h"
+#include "oat/aot_class_linker.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime-inl.h"
 #include "runtime_intrinsics.h"
@@ -545,21 +546,28 @@ std::string CommonRuntimeTestImpl::GetSystemImageFile() {
 
 void CommonRuntimeTestImpl::EnterTransactionMode() {
   CHECK(!Runtime::Current()->IsActiveTransaction());
-  Runtime::Current()->EnterTransactionMode(/*strict=*/ false, /*root=*/ nullptr);
+  AotClassLinker* class_linker = down_cast<AotClassLinker*>(Runtime::Current()->GetClassLinker());
+  class_linker->EnterTransactionMode(/*strict=*/ false, /*root=*/ nullptr);
 }
 
 void CommonRuntimeTestImpl::ExitTransactionMode() {
-  Runtime::Current()->ExitTransactionMode();
+  AotClassLinker* class_linker = down_cast<AotClassLinker*>(Runtime::Current()->GetClassLinker());
+  class_linker->ExitTransactionMode();
   CHECK(!Runtime::Current()->IsActiveTransaction());
 }
 
 void CommonRuntimeTestImpl::RollbackAndExitTransactionMode() {
-  Runtime::Current()->RollbackAndExitTransactionMode();
+  AotClassLinker* class_linker = down_cast<AotClassLinker*>(Runtime::Current()->GetClassLinker());
+  class_linker->RollbackAndExitTransactionMode();
   CHECK(!Runtime::Current()->IsActiveTransaction());
 }
 
 bool CommonRuntimeTestImpl::IsTransactionAborted() {
-  return Runtime::Current()->IsTransactionAborted();
+  if (!Runtime::Current()->IsActiveTransaction()) {
+    return false;
+  }
+  AotClassLinker* class_linker = down_cast<AotClassLinker*>(Runtime::Current()->GetClassLinker());
+  return class_linker->IsTransactionAborted();
 }
 
 void CommonRuntimeTestImpl::VisitDexes(ArrayRef<const std::string> dexes,

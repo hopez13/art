@@ -898,6 +898,66 @@ class EXPORT ClassLinker {
   virtual bool TransactionAllocationConstraint(Thread* self, ObjPtr<mirror::Class> klass) const
       REQUIRES_SHARED(Locks::mutator_lock_);
 
+  // Transaction bookkeeping for AOT compilation.
+  virtual void RecordWriteFieldBoolean(mirror::Object* obj,
+                                       MemberOffset field_offset,
+                                       uint8_t value,
+                                       bool is_volatile);
+  virtual void RecordWriteFieldByte(mirror::Object* obj,
+                                    MemberOffset field_offset,
+                                    int8_t value,
+                                    bool is_volatile);
+  virtual void RecordWriteFieldChar(mirror::Object* obj,
+                                    MemberOffset field_offset,
+                                    uint16_t value,
+                                    bool is_volatile);
+  virtual void RecordWriteFieldShort(mirror::Object* obj,
+                                     MemberOffset field_offset,
+                                     int16_t value,
+                                     bool is_volatile);
+  virtual void RecordWriteField32(mirror::Object* obj,
+                                  MemberOffset field_offset,
+                                  uint32_t value,
+                                  bool is_volatile);
+  virtual void RecordWriteField64(mirror::Object* obj,
+                                  MemberOffset field_offset,
+                                  uint64_t value,
+                                  bool is_volatile);
+  virtual void RecordWriteFieldReference(mirror::Object* obj,
+                                         MemberOffset field_offset,
+                                         ObjPtr<mirror::Object> value,
+                                         bool is_volatile)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual void RecordWriteArray(mirror::Array* array, size_t index, uint64_t value)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual void RecordStrongStringInsertion(ObjPtr<mirror::String> s)
+      REQUIRES(Locks::intern_table_lock_);
+  virtual void RecordWeakStringInsertion(ObjPtr<mirror::String> s)
+      REQUIRES(Locks::intern_table_lock_);
+  virtual void RecordStrongStringRemoval(ObjPtr<mirror::String> s)
+      REQUIRES(Locks::intern_table_lock_);
+  virtual void RecordWeakStringRemoval(ObjPtr<mirror::String> s)
+      REQUIRES(Locks::intern_table_lock_);
+  virtual void RecordResolveString(ObjPtr<mirror::DexCache> dex_cache, dex::StringIndex string_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual void RecordResolveMethodType(ObjPtr<mirror::DexCache> dex_cache,
+                                       dex::ProtoIndex proto_idx)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
+  // Aborting transactions for AOT compilation.
+  virtual void ThrowTransactionAbortError(Thread* self)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual void AbortTransactionF(Thread* self, const char* fmt, ...)
+      __attribute__((__format__(__printf__, 3, 4)))
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual void AbortTransactionV(Thread* self, const char* fmt, va_list args)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+  virtual bool IsTransactionAborted() const;
+
+  // Vist transaction roots for AOT compilation.
+  virtual void VisitTransactionRoots(RootVisitor* visitor)
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   void RemoveDexFromCaches(const DexFile& dex_file);
   ClassTable* GetBootClassTable() REQUIRES_SHARED(Locks::classlinker_classes_lock_) {
     return boot_class_table_.get();
