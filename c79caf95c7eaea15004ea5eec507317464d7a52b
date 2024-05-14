@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e113a553_b7512f8b",
+        "filename": "libartbase/base/unix_file/fd_file_test.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 231,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T09:50:21Z",
+      "side": 1,
+      "message": "Can this be `const std::string\u0026` too?",
+      "range": {
+        "startLine": 231,
+        "startChar": 2,
+        "endLine": 231,
+        "endChar": 13
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a9a0b699_c22e88fb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "libartbase/base/unix_file/fd_file_test.cc",
+              "range": {
+                "startLine": 231,
+                "startChar": 0,
+                "endLine": 232,
+                "endChar": 0
+              },
+              "replacement": "  const std::string\u0026 old_filename \u003d src-\u003eGetFilename();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c79caf95c7eaea15004ea5eec507317464d7a52b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
