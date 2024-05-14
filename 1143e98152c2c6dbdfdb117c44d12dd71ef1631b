@@ -1,0 +1,147 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "70dfd30c_2a1b58ec",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 448,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:19:53Z",
+      "side": 1,
+      "message": "This too?",
+      "range": {
+        "startLine": 448,
+        "startChar": 7,
+        "endLine": 448,
+        "endChar": 11
+      },
+      "revId": "1143e98152c2c6dbdfdb117c44d12dd71ef1631b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "706e7bef_70a76ede",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 517,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:19:53Z",
+      "side": 1,
+      "message": "This too?",
+      "range": {
+        "startLine": 517,
+        "startChar": 11,
+        "endLine": 517,
+        "endChar": 15
+      },
+      "revId": "1143e98152c2c6dbdfdb117c44d12dd71ef1631b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b8b72ebb_c5341a67",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1777,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:19:53Z",
+      "side": 1,
+      "message": "This too?",
+      "range": {
+        "startLine": 1777,
+        "startChar": 7,
+        "endLine": 1777,
+        "endChar": 11
+      },
+      "revId": "1143e98152c2c6dbdfdb117c44d12dd71ef1631b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "74831d4c_d2c8e708",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1785,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:19:53Z",
+      "side": 1,
+      "message": "The name \"it\" sounds misleading. IIUC, the variable refers to a map entry, not an iterator, and that\u0027s why we need to avoid the copy (an iterator is trivial to copy).",
+      "range": {
+        "startLine": 1785,
+        "startChar": 19,
+        "endLine": 1785,
+        "endChar": 21
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e95e759b_e70bd743",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/jit_code_cache.cc",
+              "range": {
+                "startLine": 1785,
+                "startChar": 0,
+                "endLine": 1787,
+                "endChar": 0
+              },
+              "replacement": "  for (const auto\u0026 entry : jni_stubs_map_) {\n    const void* code_ptr \u003d entry.second.GetCode();\n"
+            },
+            {
+              "path": "runtime/jit/jit_code_cache.cc",
+              "range": {
+                "startLine": 1793,
+                "startChar": 0,
+                "endLine": 1794,
+                "endChar": 0
+              },
+              "replacement": "    for (ArtMethod* m : entry.second.GetMethods()) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "1143e98152c2c6dbdfdb117c44d12dd71ef1631b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5b65ee6c_1c5ba299",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1873,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:19:53Z",
+      "side": 1,
+      "message": "These too?",
+      "range": {
+        "startLine": 1863,
+        "startChar": 0,
+        "endLine": 1873,
+        "endChar": 3
+      },
+      "revId": "1143e98152c2c6dbdfdb117c44d12dd71ef1631b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
