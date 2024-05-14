@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f81bf5_d771bc73",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2783,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-14T10:24:41Z",
+      "side": 1,
+      "message": "We didn\u0027t hold this RAII when performing GC? So is this actually needed? Adding Hans to take a look.",
+      "range": {
+        "startLine": 2783,
+        "startChar": 4,
+        "endLine": 2783,
+        "endChar": 34
+      },
+      "revId": "029a1a958fccb651fb30dd76a5d2701596364c3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
