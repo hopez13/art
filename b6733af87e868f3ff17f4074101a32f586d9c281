@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b67fec95_6256861e",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T12:58:15Z",
+      "side": 1,
+      "message": "Suggest putting these inside the `future` lambda to make the sequencing more obvious.",
+      "range": {
+        "startLine": 204,
+        "startChar": 0,
+        "endLine": 205,
+        "endChar": 34
+      },
+      "revId": "b6733af87e868f3ff17f4074101a32f586d9c281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a931d6e6_3a8f9e6c",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 208,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-14T12:58:15Z",
+      "side": 1,
+      "message": "I noticed this has a race so it may incorrectly succeed if `cancel(true)` doesn\u0027t block. Fixing that I think would require mocking `mRunningJob.get`, which isn\u0027t worth the effort, but it\u0027s worth mentioning.",
+      "range": {
+        "startLine": 207,
+        "startChar": 8,
+        "endLine": 208,
+        "endChar": 52
+      },
+      "revId": "b6733af87e868f3ff17f4074101a32f586d9c281",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
