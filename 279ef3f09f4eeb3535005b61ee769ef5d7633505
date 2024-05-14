@@ -16,6 +16,24 @@
       "message": "Change [this line](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/SecondaryDexopter.java;l\u003d144;drc\u003da3d056ef58b96a995abdb7213c51b9877f3f45f9) too?",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e92d2f41_cbcfbdcf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928851
+      },
+      "writtenOn": "2024-05-14T18:44:41Z",
+      "side": 1,
+      "message": "SdkLibs loaded in SdkSandbox process by passing SDKs `ApplicationInfo.sourceDir` to [PathClassLoader](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/AdServices/sdksandbox/SdkSandbox/src/com/android/sdksandbox/SdkSandboxServiceImpl.java;l\u003d376;drc\u003d4eb30271c338af7ee6abcbd2b7a9a0721db0595b), they never started as separate process that could have secondary dexes.\n\nAll installed SdkLibs stored under `/data/app/`, so should be treated as primary dexes even when loaded in this way.\n\nWith that in mind, should we instead add check into `SecondaryDexopter` constructor (same as was in Dexopter)? (as SdkLibs not expected to be used in any way other than be loaded by SdkSandbox process)",
+      "parentUuid": "df6603b5_1fffb990",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
