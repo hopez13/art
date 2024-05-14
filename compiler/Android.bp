@@ -134,141 +134,141 @@ art_cc_defaults {
     defaults: ["art_defaults"],
     host_supported: true,
     srcs: [
-        "debug/elf_debug_writer.cc",
-        "dex/inline_method_analyser.cc",
-        "driver/compiler_options.cc",
-        "driver/dex_compilation_unit.cc",
-        "jit/jit_compiler.cc",
-        "jit/jit_logger.cc",
-        "jni/quick/calling_convention.cc",
-        "jni/quick/jni_compiler.cc",
-        "optimizing/block_builder.cc",
-        "optimizing/block_namer.cc",
-        "optimizing/bounds_check_elimination.cc",
-        "optimizing/builder.cc",
-        "optimizing/cha_guard_optimization.cc",
-        "optimizing/code_generation_data.cc",
-        "optimizing/code_generator.cc",
-        "optimizing/code_generator_utils.cc",
-        "optimizing/code_sinking.cc",
-        "optimizing/constant_folding.cc",
-        "optimizing/constructor_fence_redundancy_elimination.cc",
-        "optimizing/data_type.cc",
-        "optimizing/dead_code_elimination.cc",
-        "optimizing/escape.cc",
-        "optimizing/graph_checker.cc",
-        "optimizing/graph_visualizer.cc",
-        "optimizing/gvn.cc",
-        "optimizing/induction_var_analysis.cc",
-        "optimizing/induction_var_range.cc",
-        "optimizing/inliner.cc",
-        "optimizing/instruction_builder.cc",
-        "optimizing/instruction_simplifier.cc",
-        "optimizing/intrinsic_objects.cc",
-        "optimizing/intrinsics.cc",
-        "optimizing/licm.cc",
-        "optimizing/linear_order.cc",
-        "optimizing/load_store_analysis.cc",
-        "optimizing/load_store_elimination.cc",
-        "optimizing/locations.cc",
-        "optimizing/loop_analysis.cc",
-        "optimizing/loop_optimization.cc",
-        "optimizing/nodes.cc",
-        "optimizing/optimization.cc",
-        "optimizing/optimizing_compiler.cc",
-        "optimizing/parallel_move_resolver.cc",
-        "optimizing/prepare_for_register_allocation.cc",
-        "optimizing/profiling_info_builder.cc",
-        "optimizing/reference_type_propagation.cc",
-        "optimizing/register_allocation_resolver.cc",
-        "optimizing/register_allocator.cc",
-        "optimizing/register_allocator_linear_scan.cc",
-        "optimizing/select_generator.cc",
-        "optimizing/scheduler.cc",
-        "optimizing/sharpening.cc",
-        "optimizing/side_effects_analysis.cc",
-        "optimizing/ssa_builder.cc",
-        "optimizing/ssa_liveness_analysis.cc",
-        "optimizing/ssa_phi_elimination.cc",
-        "optimizing/stack_map_stream.cc",
-        "optimizing/superblock_cloner.cc",
-        "optimizing/write_barrier_elimination.cc",
-        "trampolines/trampoline_compiler.cc",
-        "utils/assembler.cc",
-        "utils/jni_macro_assembler.cc",
-        "compiler.cc",
+        "compiler/debug/elf_debug_writer.cc",
+        "compiler/dex/inline_method_analyser.cc",
+        "compiler/driver/compiler_options.cc",
+        "compiler/driver/dex_compilation_unit.cc",
+        "compiler/jit/jit_compiler.cc",
+        "compiler/jit/jit_logger.cc",
+        "compiler/jni/quick/calling_convention.cc",
+        "compiler/jni/quick/jni_compiler.cc",
+        "compiler/optimizing/block_builder.cc",
+        "compiler/optimizing/block_namer.cc",
+        "compiler/optimizing/bounds_check_elimination.cc",
+        "compiler/optimizing/builder.cc",
+        "compiler/optimizing/cha_guard_optimization.cc",
+        "compiler/optimizing/code_generation_data.cc",
+        "compiler/optimizing/code_generator.cc",
+        "compiler/optimizing/code_generator_utils.cc",
+        "compiler/optimizing/code_sinking.cc",
+        "compiler/optimizing/constant_folding.cc",
+        "compiler/optimizing/constructor_fence_redundancy_elimination.cc",
+        "compiler/optimizing/data_type.cc",
+        "compiler/optimizing/dead_code_elimination.cc",
+        "compiler/optimizing/escape.cc",
+        "compiler/optimizing/graph_checker.cc",
+        "compiler/optimizing/graph_visualizer.cc",
+        "compiler/optimizing/gvn.cc",
+        "compiler/optimizing/induction_var_analysis.cc",
+        "compiler/optimizing/induction_var_range.cc",
+        "compiler/optimizing/inliner.cc",
+        "compiler/optimizing/instruction_builder.cc",
+        "compiler/optimizing/instruction_simplifier.cc",
+        "compiler/optimizing/intrinsic_objects.cc",
+        "compiler/optimizing/intrinsics.cc",
+        "compiler/optimizing/licm.cc",
+        "compiler/optimizing/linear_order.cc",
+        "compiler/optimizing/load_store_analysis.cc",
+        "compiler/optimizing/load_store_elimination.cc",
+        "compiler/optimizing/locations.cc",
+        "compiler/optimizing/loop_analysis.cc",
+        "compiler/optimizing/loop_optimization.cc",
+        "compiler/optimizing/nodes.cc",
+        "compiler/optimizing/optimization.cc",
+        "compiler/optimizing/optimizing_compiler.cc",
+        "compiler/optimizing/parallel_move_resolver.cc",
+        "compiler/optimizing/prepare_for_register_allocation.cc",
+        "compiler/optimizing/profiling_info_builder.cc",
+        "compiler/optimizing/reference_type_propagation.cc",
+        "compiler/optimizing/register_allocation_resolver.cc",
+        "compiler/optimizing/register_allocator.cc",
+        "compiler/optimizing/register_allocator_linear_scan.cc",
+        "compiler/optimizing/select_generator.cc",
+        "compiler/optimizing/scheduler.cc",
+        "compiler/optimizing/sharpening.cc",
+        "compiler/optimizing/side_effects_analysis.cc",
+        "compiler/optimizing/ssa_builder.cc",
+        "compiler/optimizing/ssa_liveness_analysis.cc",
+        "compiler/optimizing/ssa_phi_elimination.cc",
+        "compiler/optimizing/stack_map_stream.cc",
+        "compiler/optimizing/superblock_cloner.cc",
+        "compiler/optimizing/write_barrier_elimination.cc",
+        "compiler/trampolines/trampoline_compiler.cc",
+        "compiler/utils/assembler.cc",
+        "compiler/utils/jni_macro_assembler.cc",
+        "compiler/compiler.cc",
     ],
 
     codegen: {
         arm: {
             srcs: [
-                "jni/quick/arm/calling_convention_arm.cc",
-                "optimizing/code_generator_arm_vixl.cc",
-                "optimizing/code_generator_vector_arm_vixl.cc",
-                "optimizing/critical_native_abi_fixup_arm.cc",
-                "optimizing/instruction_simplifier_arm.cc",
-                "optimizing/instruction_simplifier_shared.cc",
-                "optimizing/intrinsics_arm_vixl.cc",
-                "optimizing/nodes_shared.cc",
-                "optimizing/scheduler_arm.cc",
-                "utils/arm/assembler_arm_vixl.cc",
-                "utils/arm/constants_arm.cc",
-                "utils/arm/jni_macro_assembler_arm_vixl.cc",
-                "utils/arm/managed_register_arm.cc",
+                "compiler/jni/quick/arm/calling_convention_arm.cc",
+                "compiler/optimizing/code_generator_arm_vixl.cc",
+                "compiler/optimizing/code_generator_vector_arm_vixl.cc",
+                "compiler/optimizing/critical_native_abi_fixup_arm.cc",
+                "compiler/optimizing/instruction_simplifier_arm.cc",
+                "compiler/optimizing/instruction_simplifier_shared.cc",
+                "compiler/optimizing/intrinsics_arm_vixl.cc",
+                "compiler/optimizing/nodes_shared.cc",
+                "compiler/optimizing/scheduler_arm.cc",
+                "compiler/utils/arm/assembler_arm_vixl.cc",
+                "compiler/utils/arm/constants_arm.cc",
+                "compiler/utils/arm/jni_macro_assembler_arm_vixl.cc",
+                "compiler/utils/arm/managed_register_arm.cc",
             ],
         },
         arm64: {
             srcs: [
-                "jni/quick/arm64/calling_convention_arm64.cc",
-                "optimizing/code_generator_arm64.cc",
-                "optimizing/code_generator_vector_arm64_neon.cc",
-                "optimizing/code_generator_vector_arm64_sve.cc",
-                "optimizing/jit_patches_arm64.cc",
-                "optimizing/scheduler_arm64.cc",
-                "optimizing/instruction_simplifier_arm64.cc",
-                "optimizing/intrinsics_arm64.cc",
-                "utils/arm64/assembler_arm64.cc",
-                "utils/arm64/jni_macro_assembler_arm64.cc",
-                "utils/arm64/managed_register_arm64.cc",
+                "compiler/jni/quick/arm64/calling_convention_arm64.cc",
+                "compiler/optimizing/code_generator_arm64.cc",
+                "compiler/optimizing/code_generator_vector_arm64_neon.cc",
+                "compiler/optimizing/code_generator_vector_arm64_sve.cc",
+                "compiler/optimizing/jit_patches_arm64.cc",
+                "compiler/optimizing/scheduler_arm64.cc",
+                "compiler/optimizing/instruction_simplifier_arm64.cc",
+                "compiler/optimizing/intrinsics_arm64.cc",
+                "compiler/utils/arm64/assembler_arm64.cc",
+                "compiler/utils/arm64/jni_macro_assembler_arm64.cc",
+                "compiler/utils/arm64/managed_register_arm64.cc",
             ],
         },
         riscv64: {
             srcs: [
-                "jni/quick/riscv64/calling_convention_riscv64.cc",
-                "optimizing/code_generator_riscv64.cc",
-                "optimizing/critical_native_abi_fixup_riscv64.cc",
-                "optimizing/instruction_simplifier_riscv64.cc",
-                "optimizing/intrinsics_riscv64.cc",
-                "utils/riscv64/assembler_riscv64.cc",
-                "utils/riscv64/jni_macro_assembler_riscv64.cc",
-                "utils/riscv64/managed_register_riscv64.cc",
+                "compiler/jni/quick/riscv64/calling_convention_riscv64.cc",
+                "compiler/optimizing/code_generator_riscv64.cc",
+                "compiler/optimizing/critical_native_abi_fixup_riscv64.cc",
+                "compiler/optimizing/instruction_simplifier_riscv64.cc",
+                "compiler/optimizing/intrinsics_riscv64.cc",
+                "compiler/utils/riscv64/assembler_riscv64.cc",
+                "compiler/utils/riscv64/jni_macro_assembler_riscv64.cc",
+                "compiler/utils/riscv64/managed_register_riscv64.cc",
             ],
         },
         x86: {
             srcs: [
-                "jni/quick/x86/calling_convention_x86.cc",
-                "optimizing/code_generator_x86.cc",
-                "optimizing/code_generator_vector_x86.cc",
-                "optimizing/intrinsics_x86.cc",
-                "optimizing/instruction_simplifier_x86_shared.cc",
-                "optimizing/instruction_simplifier_x86.cc",
-                "optimizing/pc_relative_fixups_x86.cc",
-                "optimizing/x86_memory_gen.cc",
-                "utils/x86/assembler_x86.cc",
-                "utils/x86/jni_macro_assembler_x86.cc",
-                "utils/x86/managed_register_x86.cc",
+                "compiler/jni/quick/x86/calling_convention_x86.cc",
+                "compiler/optimizing/code_generator_x86.cc",
+                "compiler/optimizing/code_generator_vector_x86.cc",
+                "compiler/optimizing/intrinsics_x86.cc",
+                "compiler/optimizing/instruction_simplifier_x86_shared.cc",
+                "compiler/optimizing/instruction_simplifier_x86.cc",
+                "compiler/optimizing/pc_relative_fixups_x86.cc",
+                "compiler/optimizing/x86_memory_gen.cc",
+                "compiler/utils/x86/assembler_x86.cc",
+                "compiler/utils/x86/jni_macro_assembler_x86.cc",
+                "compiler/utils/x86/managed_register_x86.cc",
             ],
         },
         x86_64: {
             srcs: [
-                "jni/quick/x86_64/calling_convention_x86_64.cc",
-                "optimizing/intrinsics_x86_64.cc",
-                "optimizing/instruction_simplifier_x86_64.cc",
-                "optimizing/code_generator_x86_64.cc",
-                "optimizing/code_generator_vector_x86_64.cc",
-                "utils/x86_64/assembler_x86_64.cc",
-                "utils/x86_64/jni_macro_assembler_x86_64.cc",
-                "utils/x86_64/managed_register_x86_64.cc",
+                "compiler/jni/quick/x86_64/calling_convention_x86_64.cc",
+                "compiler/optimizing/intrinsics_x86_64.cc",
+                "compiler/optimizing/instruction_simplifier_x86_64.cc",
+                "compiler/optimizing/code_generator_x86_64.cc",
+                "compiler/optimizing/code_generator_vector_x86_64.cc",
+                "compiler/utils/x86_64/assembler_x86_64.cc",
+                "compiler/utils/x86_64/jni_macro_assembler_x86_64.cc",
+                "compiler/utils/x86_64/managed_register_x86_64.cc",
             ],
         },
     },
@@ -279,7 +279,8 @@ art_cc_defaults {
         "libnativehelper_header_only",
     ],
 
-    export_include_dirs: ["."],
+    // TODO: comment
+    export_include_dirs: ["compiler"],
 }
 
 cc_defaults {
@@ -304,37 +305,6 @@ gensrcs {
     output_extension: "operator_out.cc",
 }
 
-art_cc_library_static {
-    name: "libart-compiler",
-    defaults: [
-        "libart-compiler-defaults",
-        "libart-compiler_deps",
-    ],
-    target: {
-        android: {
-            lto: {
-                thin: true,
-            },
-        },
-    },
-    apex_available: [
-        "com.android.art",
-        "com.android.art.debug",
-        "test_broken_com.android.art",
-    ],
-}
-
-// For static linking with gtests. Same as `libart-compiler`, but without LTO.
-// When gtests static link a library with LTO enabled, they are also built with LTO.
-// This makes the build process use a lot of memory. b/277207452
-art_cc_library_static {
-    name: "libart-compiler-for-test",
-    defaults: [
-        "libart-compiler-defaults",
-        "libart-compiler_deps",
-    ],
-}
-
 cc_defaults {
     name: "libart-compiler_static_defaults",
     defaults: [
@@ -343,37 +313,6 @@ cc_defaults {
         "libartbase_static_defaults",
         "libdexfile_static_defaults",
         "libprofile_static_defaults",
-    ],
-    whole_static_libs: ["libart-compiler"],
-}
-
-// libart-compiler_static_defaults for standalone gtests.
-// Uses libart-compiler-for-test instead of libart-compiler.
-cc_defaults {
-    name: "libart-compiler-for-test_static_defaults",
-    defaults: [
-        "libart-compiler_static_base_defaults",
-        "libart-disassembler_static_defaults",
-        "libartbase_static_defaults",
-        "libdexfile_static_defaults",
-        "libprofile_static_defaults",
-    ],
-    whole_static_libs: ["libart-compiler-for-test"],
-}
-
-art_cc_library_static {
-    name: "libartd-compiler",
-    defaults: [
-        "art_debug_defaults",
-        "libart-compiler-defaults",
-        "libartd-compiler_deps",
-    ],
-    apex_available: [
-        "com.android.art.debug",
-        // TODO(b/183882457): This lib doesn't go into com.android.art, but
-        // apex_available lists need to be the same for internal libs to avoid
-        // stubs, and this depends on libdexfiled.
-        "com.android.art",
     ],
 }
 
@@ -386,7 +325,6 @@ cc_defaults {
         "libdexfiled_static_defaults",
         "libprofiled_static_defaults",
     ],
-    whole_static_libs: ["libartd-compiler"],
 }
 
 // Export headers required by `libart-runtime` to use JIT from `libart-compiler`.
@@ -402,35 +340,11 @@ cc_library_headers {
     ],
 }
 
-// Properties common to `libart-compiler-gtest` and `libartd-compiler-gtest`.
+// Properties common to `libart-gtest` and `libartd-gtest`.
 art_cc_defaults {
-    name: "libart-compiler-gtest-common",
+    name: "libart-compiler-gtest_defaults",
     srcs: [
-        "common_compiler_test.cc",
-    ],
-    header_libs: [
-        "libart_headers",
-    ],
-}
-
-art_cc_library_static {
-    name: "libart-compiler-gtest",
-    defaults: [
-        "libart-gtest-defaults",
-        "libart-compiler-gtest-common",
-        "libart-compiler-for-test_static_defaults",
-    ],
-}
-
-art_cc_library_static {
-    name: "libartd-compiler-gtest",
-    defaults: [
-        "art_debug_defaults",
-        "libart-gtest-defaults",
-        "libart-compiler-gtest-common",
-        // Note that `libartd-compiler-for-test` is not required here, because
-        // `libartd-compiler` doesn't use LTO.
-        "libartd-compiler_static_defaults",
+        "compiler/common_compiler_test.cc",
     ],
 }
 
