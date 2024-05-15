@@ -52,6 +52,24 @@
       "parentUuid": "e92d2f41_cbcfbdcf",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "836f22ff_a7cc7d3c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928851
+      },
+      "writtenOn": "2024-05-15T10:17:24Z",
+      "side": 1,
+      "message": "1. For each app we are starting separate sandbox process. But all sandbox processes are actually same [package/service](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/AdServices/sdksandbox/SdkSandbox/AndroidManifest.xml;l\u003d56) installed on device.\nTo put it simply - on very high level we could say that we are starting dedicated instance of some service for each app, on package/code level this service is same for all apps, but process has different uid for different apps. And this service internally creates contexts/classloaders for SDKLibraries and load them.\n2. We have direct 1:1 mapping between app uid and sandbox process uid - [Process. toSdkSandboxUid](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/os/Process.java;l\u003d1016). Sandbox process have access to SDK Libraries APK/DEX files + also should have access to dexopt artifacts. Before PM changes it used VDEX files of SDK Libraries to load them (see b/324537096#comment5 for more details)\n3. Classpath of SdkSandbox is SdkSandbox app itself. But for loading SDK Libraries it uses its parent classloader as parent classloader for SDK Library - effectively skipping its Sandbox APK classloader from classloader chain (either in [[1]](https://cs.android.com/android/platform/superproject/main/+/main:packages/modules/AdServices/sdksandbox/SdkSandbox/src/com/android/sdksandbox/SdkSandboxServiceImpl.java;l\u003d470;drc\u003d41658e0e867c8cf330febf37084164441f02e06e) or while creating application context for SDK Library package - [[2]](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/java/android/app/ContextImpl.java;l\u003d2649;drc\u003d41658e0e867c8cf330febf37084164441f02e06e;bpv\u003d1;bpt\u003d1)). So from SDK Libraries side it looks like loading with system (BCP) classloader as parent and using DEX optimised as normal app/library should work fine - as it work before PM changes.\n4. Theoretically yes, but from Android system point of view (and probably from ART as well) it will be a secondary DEX for Sandbox App package (with valid app id), not for SDK Library. Because whole SDK Library from Android platform/ART point of view is loaded as secondary dex inside Sandbox App process/package. We never run SDK Library as normal app - on package level it used only as \"storage\" for DEX/Assets/etc files and its DEX loaded only inside Sandbox app process.\n\nWhat we are trying to fix - after PM changes we don\u0027t have dexopt artifacts for SDK Libraries (because primary dexopt not enabled for invalid appId), so when SDK Sandbox tries to load SDK Library APK using PathClassloader - it extracts DEX files from APK in memory causing syshealth regressions (bigger memory footprint, time to extract files instead of memory mapping vdex, etc). If we will have VDEX files PathClassloader will use them instead of extracting DEX inmemory - see b/324537096#comment5 for details how it worked before and after PM changes.",
+      "parentUuid": "25f0f4ca_466b90ab",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
