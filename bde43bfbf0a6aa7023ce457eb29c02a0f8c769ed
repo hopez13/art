@@ -69,6 +69,30 @@
       },
       "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87b4a72_661729d6",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T17:07:50Z",
+      "side": 1,
+      "message": "Returning a `Result` or `std::optional` means handling a new error in the callers, which then propagates upwards. I suspect that\u0027ll result in a bit of refactoring that I don\u0027t want to take on here.\n\nThis way a typical error comes out like this:\n\n```\n05-15 18:04:26.438 2562998 2562998 E art_compiler_tests: image_space.cc:2115 Error reading named image component header for \u003cno boot classpath found\u003e/apex/art_boot_images/javalib/boot.art, error: Unable to open file \"\u003cno boot classpath found\u003e/apex/art_boot_images/javalib/x86_64/boot.art\" for reading image header\n05-15 18:04:26.438 2562998 2562998 E art_compiler_tests: image_space.cc:3359 Could not create image space with image file \u0027\u003cno boot classpath found\u003e/apex/art_boot_images/javalib/boot.art\u0027. Attempting to fall back to imageless running. Error was: Unable to open file \"\u003cno boot classpath found\u003e/apex/art_boot_images/javalib/x86_64/boot.art\" for reading image header\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/core-oj.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/core-oj.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/core-libart.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/core-libart.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/okhttp.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/okhttp.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/bouncycastle.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/bouncycastle.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/apache-xml.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.art/javalib/apache-xml.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.i18n/javalib/core-icu4j.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.i18n/javalib/core-icu4j.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 W art_compiler_tests: runtime.cc:1392 Failed to open .dex from file \u0027\u003cno boot classpath found\u003e/apex/com.android.conscrypt/javalib/conscrypt.jar\u0027 / fd -1: Unable to open \u0027\u003cno boot classpath found\u003e/apex/com.android.conscrypt/javalib/conscrypt.jar\u0027 : No such file or directory\n05-15 18:04:26.442 2562998 2562998 E art_compiler_tests: runtime.cc:2011 Could not initialize without image: Boot classpath is empty.\n05-15 18:04:26.442 2562998 2562998 F art_compiler_tests: common_runtime_test.cc:127 Failed to create runtime\n```\n\nNote that it\u0027s only a warning at runtime.cc:1392, so a fatal here may be too aggressive.\n\nWith the return value below the errors or warnings will fairly clearly show what the problem is, assuming they\u0027ll print out the path. Then it\u0027s simple to code search for the string to find this place (if the error message logged here isn\u0027t visible enough already).",
+      "parentUuid": "3eeca83f_8f461918",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 12
+      },
+      "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
