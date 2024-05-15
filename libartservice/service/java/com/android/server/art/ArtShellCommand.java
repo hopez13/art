@@ -663,7 +663,8 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
         }
 
         try (var signal = new WithCancellationSignal(pw, true /* verbose */)) {
-            if (new PreRebootDriver(mContext).run(otaSlot, signal.get())) {
+            if (new PreRebootDriver(mContext).run(
+                        otaSlot, signal.get(), null /* statsReporter */)) {
                 pw.println("Job finished. See logs for details");
                 return 0;
             } else {

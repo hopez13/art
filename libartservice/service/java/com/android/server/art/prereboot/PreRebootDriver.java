@@ -17,6 +17,7 @@
 package com.android.server.art.prereboot;
 
 import static com.android.server.art.IDexoptChrootSetup.CHROOT_DIR;
+import static com.android.server.art.proto.PreRebootStats.Status;
 
 import android.annotation.NonNull;
 import android.annotation.Nullable;
@@ -65,8 +66,12 @@ public class PreRebootDriver {
      * @param otaSlot The slot that contains the OTA update, "_a" or "_b", or null for a Mainline
      *         update.
      */
-    public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal) {
+    public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal,
+            @Nullable PreRebootStatsReporter statsReporter) {
         try {
+            if (statsReporter != null) {
+                statsReporter.recordJobStarted();
+            }
             setUp(otaSlot);
             runFromChroot(cancellationSignal);
             return true;
@@ -78,6 +83,11 @@ public class PreRebootDriver {
             AsLog.e("Failed to run pre-reboot dexopt", e);
         } finally {
             tearDown();
+        }
+        // Only report the failed case here. The finished and cancelled cases are reported by
+        // PreRebootManager.
+        if (statsReporter != null) {
+            statsReporter.recordJobEnded(Status.STATUS_FAILED);
         }
         return false;
     }
