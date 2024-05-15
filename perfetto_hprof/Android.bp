@@ -72,9 +72,7 @@ cc_defaults {
     ],
     // FIXME: Workaround LTO build breakage
     // http://b/241700157
-    lto: {
-        never: true,
-    },
+    lto_opt: "off",
 
 }
 

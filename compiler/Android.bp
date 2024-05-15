@@ -312,9 +312,7 @@ art_cc_library_static {
     ],
     target: {
         android: {
-            lto: {
-                thin: true,
-            },
+            lto_opt: "2",
         },
     },
     apex_available: [
