@@ -106,6 +106,24 @@
       "parentUuid": "8c195ee6_071e3305",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f08e95ad_27e56875",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-15T13:26:27Z",
+      "side": 1,
+      "message": "ODEX is mapped at the same time when VDEX is mapped. The difference is that VDEX is classloader-context-free, while ODEX is not.",
+      "parentUuid": "40a899d7_f063adb1",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
