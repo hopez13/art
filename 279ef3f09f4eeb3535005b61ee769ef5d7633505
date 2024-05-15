@@ -88,6 +88,24 @@
       "parentUuid": "836f22ff_a7cc7d3c",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40a899d7_f063adb1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1928851
+      },
+      "writtenOn": "2024-05-15T13:15:07Z",
+      "side": 1,
+      "message": "Thank you for looking into it and explaining why it works - you are right about `isLoadableInOtherProcesses` - it definitely should return true for SDKLibraries.\n\nRegarding ODEX usage - I only know that VDEX file was memory mapped during SDK Library loading.\nBut I don\u0027t know how ODEX file used by ART - maybe it could be loaded later / not loaded as memory mapped file / etc.\n\nAgree that we could take a look later on ODEX usage.",
+      "parentUuid": "8c195ee6_071e3305",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
