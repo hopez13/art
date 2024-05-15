@@ -672,13 +672,17 @@ public class DexoptHelperTest {
 
         InOrder inOrder = inOrder(progressCallback);
         inOrder.verify(progressCallback)
-                .accept(eq(OperationProgress.create(0 /* current */, 3 /* total */)));
+                .accept(eq(OperationProgress.create(0 /* current */, 3 /* total */, 0 /* skipped */,
+                        0 /* performed */, 0 /* failed */)));
         inOrder.verify(progressCallback)
-                .accept(eq(OperationProgress.create(1 /* current */, 3 /* total */)));
+                .accept(eq(OperationProgress.create(1 /* current */, 3 /* total */, 0 /* skipped */,
+                        1 /* performed */, 0 /* failed */)));
         inOrder.verify(progressCallback)
-                .accept(eq(OperationProgress.create(2 /* current */, 3 /* total */)));
+                .accept(eq(OperationProgress.create(2 /* current */, 3 /* total */, 0 /* skipped */,
+                        2 /* performed */, 0 /* failed */)));
         inOrder.verify(progressCallback)
-                .accept(eq(OperationProgress.create(3 /* current */, 3 /* total */)));
+                .accept(eq(OperationProgress.create(3 /* current */, 3 /* total */, 0 /* skipped */,
+                        3 /* performed */, 0 /* failed */)));
     }
 
     private AndroidPackage createPackage(boolean multiSplit) {
