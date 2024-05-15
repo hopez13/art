@@ -459,6 +459,10 @@ void Instrumentation::UpdateEntrypointsForDebuggable() {
 
 bool Instrumentation::MethodSupportsExitEvents(ArtMethod* method,
                                                const OatQuickMethodHeader* header) {
+  if (method == nullptr) {
+    return false;
+  }
+
   if (header == nullptr) {
     // Header can be a nullptr for runtime / proxy methods that doesn't support method exit hooks
     // or for native methods that use generic jni stubs. Generic jni stubs support method exit

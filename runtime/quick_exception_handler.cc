@@ -439,6 +439,11 @@ class DeoptimizeStackVisitor final : public StackVisitor {
     ArtMethod* method = GetMethod();
     VLOG(deopt) << "Deoptimizing stack: depth: " << GetFrameDepth()
                 << " at method " << ArtMethod::PrettyMethod(method);
+
+    // Update if method exit event needs to be reported. We should report exit event only if we
+    // have reported an entry event. So tell interpreter if/ an entry event was reported.
+    bool supports_exit_events = Runtime::Current()->GetInstrumentation()->MethodSupportsExitEvents(
+        method, GetCurrentOatQuickMethodHeader());
     if (method == nullptr || single_frame_done_) {
       FinishStackWalk();
       return false;  // End stack walk.
@@ -449,9 +454,18 @@ class DeoptimizeStackVisitor final : public StackVisitor {
     } else if (method->IsNative()) {
       // If we return from JNI with a pending exception and want to deoptimize, we need to skip
       // the native method. The top method is a runtime method, the native method comes next.
-      // We also deoptimize due to method instrumentation reasons from method entry / exit
-      // callbacks. In these cases native method is at the top of stack.
+      // We also deoptimize due to method instrumentation reasons from method exit callbacks.
+      // In these cases native method is at the top of stack.
       CHECK((GetFrameDepth() == 1U) || (GetFrameDepth() == 0U));
+      // We only see a native frame if we are returning from JNI with a pending exception or we
+      // are deopting from method exit callbacks in which case skip_method_exit_callbacks_ is set.
+      DCHECK(GetThread()->IsExceptionPending() || skip_method_exit_callbacks_);
+      if (supports_exit_events && !skip_method_exit_callbacks_) {
+        // An exception has occured in a native method and we are deoptimizing past the native
+        // method. So report method unwind event here.
+        Runtime::Current()->GetInstrumentation()->MethodUnwindEvent(
+            GetThread(), method, dex::kDexNoIndex);
+      }
       callee_method_ = method;
       return true;
     } else if (!single_frame_deopt_ &&
@@ -482,11 +496,6 @@ class DeoptimizeStackVisitor final : public StackVisitor {
       } else {
         HandleOptimizingDeoptimization(method, new_frame, updated_vregs);
       }
-      // Update if method exit event needs to be reported. We should report exit event only if we
-      // have reported an entry event. So tell interpreter if/ an entry event was reported.
-      bool supports_exit_events =
-          Runtime::Current()->GetInstrumentation()->MethodSupportsExitEvents(
-              method, GetCurrentOatQuickMethodHeader());
       new_frame->SetSkipMethodExitEvents(!supports_exit_events);
       // If we are deoptimizing after method exit callback we shouldn't call the method exit
       // callbacks again for the top frame. We may have to deopt after the callback if the callback
