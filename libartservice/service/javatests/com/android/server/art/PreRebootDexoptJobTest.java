@@ -40,6 +40,7 @@ import androidx.test.filters.SmallTest;
 
 import com.android.server.art.model.ArtFlags;
 import com.android.server.art.prereboot.PreRebootDriver;
+import com.android.server.art.prereboot.PreRebootStatsReporter;
 import com.android.server.art.testing.StaticMockitoRule;
 
 import org.junit.Before;
@@ -67,6 +68,7 @@ public class PreRebootDexoptJobTest {
     @Mock private PreRebootDexoptJob.Injector mInjector;
     @Mock private JobScheduler mJobScheduler;
     @Mock private PreRebootDriver mPreRebootDriver;
+    @Mock private PreRebootStatsReporter mPreRebootStatsReporter;
     private PreRebootDexoptJob mPreRebootDexoptJob;
 
     @Before
@@ -85,6 +87,7 @@ public class PreRebootDexoptJobTest {
 
         lenient().when(mInjector.getJobScheduler()).thenReturn(mJobScheduler);
         lenient().when(mInjector.getPreRebootDriver()).thenReturn(mPreRebootDriver);
+        lenient().when(mInjector.getStatsReporter()).thenReturn(mPreRebootStatsReporter);
 
         mPreRebootDexoptJob = new PreRebootDexoptJob(mInjector);
         lenient().when(BackgroundDexoptJobService.getJob(JOB_ID)).thenReturn(mPreRebootDexoptJob);
@@ -148,7 +151,7 @@ public class PreRebootDexoptJobTest {
 
     @Test
     public void testStart() {
-        when(mPreRebootDriver.run(any(), any())).thenReturn(true);
+        when(mPreRebootDriver.run(any(), any(), any())).thenReturn(true);
 
         assertThat(mPreRebootDexoptJob.hasStarted()).isFalse();
         Future<Void> future = mPreRebootDexoptJob.start();
@@ -159,7 +162,7 @@ public class PreRebootDexoptJobTest {
 
     @Test
     public void testStartAnother() {
-        when(mPreRebootDriver.run(any(), any())).thenReturn(true);
+        when(mPreRebootDriver.run(any(), any(), any())).thenReturn(true);
 
         Future<Void> future1 = mPreRebootDexoptJob.start();
         Utils.getFuture(future1);
@@ -172,7 +175,7 @@ public class PreRebootDexoptJobTest {
     public void testCancel() {
         Semaphore dexoptCancelled = new Semaphore(0);
         Semaphore jobExited = new Semaphore(0);
-        when(mPreRebootDriver.run(any(), any())).thenAnswer(invocation -> {
+        when(mPreRebootDriver.run(any(), any(), any())).thenAnswer(invocation -> {
             assertThat(dexoptCancelled.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
             var cancellationSignal = invocation.<CancellationSignal>getArgument(1);
             assertThat(cancellationSignal.isCanceled()).isTrue();
@@ -197,7 +200,7 @@ public class PreRebootDexoptJobTest {
         mPreRebootDexoptJob.updateOtaSlot("_b");
         mPreRebootDexoptJob.updateOtaSlot(null);
 
-        when(mPreRebootDriver.run(eq("_b"), any())).thenReturn(true);
+        when(mPreRebootDriver.run(eq("_b"), any(), any())).thenReturn(true);
 
         Utils.getFuture(mPreRebootDexoptJob.start());
     }
@@ -207,7 +210,7 @@ public class PreRebootDexoptJobTest {
         mPreRebootDexoptJob.updateOtaSlot(null);
         mPreRebootDexoptJob.updateOtaSlot("_a");
 
-        when(mPreRebootDriver.run(eq("_a"), any())).thenReturn(true);
+        when(mPreRebootDriver.run(eq("_a"), any(), any())).thenReturn(true);
 
         Utils.getFuture(mPreRebootDexoptJob.start());
     }
@@ -217,7 +220,7 @@ public class PreRebootDexoptJobTest {
         mPreRebootDexoptJob.updateOtaSlot(null);
         mPreRebootDexoptJob.updateOtaSlot(null);
 
-        when(mPreRebootDriver.run(isNull(), any())).thenReturn(true);
+        when(mPreRebootDriver.run(isNull(), any(), any())).thenReturn(true);
 
         Utils.getFuture(mPreRebootDexoptJob.start());
     }
@@ -227,7 +230,7 @@ public class PreRebootDexoptJobTest {
         mPreRebootDexoptJob.updateOtaSlot("_b");
         mPreRebootDexoptJob.updateOtaSlot("_b");
 
-        when(mPreRebootDriver.run(eq("_b"), any())).thenReturn(true);
+        when(mPreRebootDriver.run(eq("_b"), any(), any())).thenReturn(true);
 
         Utils.getFuture(mPreRebootDexoptJob.start());
     }
@@ -252,7 +255,7 @@ public class PreRebootDexoptJobTest {
         var globalState = new Semaphore(1);
         var jobBlocker = new Semaphore(0);
 
-        when(mPreRebootDriver.run(any(), any())).thenAnswer(invocation -> {
+        when(mPreRebootDriver.run(any(), any(), any())).thenAnswer(invocation -> {
             // Step 2, 5, 8.
 
             // Verify that different runs don't mutate the global state concurrently.
