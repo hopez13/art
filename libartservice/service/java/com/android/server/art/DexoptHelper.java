@@ -147,14 +147,44 @@ public class DexoptHelper {
 
             if (progressCallback != null) {
                 CompletableFuture.runAsync(() -> {
-                    progressCallback.accept(
-                            OperationProgress.create(0 /* current */, futures.size()));
+                    progressCallback.accept(OperationProgress.create(0 /* current */,
+                            futures.size(), 0 /* skipped */, 0 /* performed */, 0 /* failed */));
                 }, progressCallbackExecutor);
-                AtomicInteger current = new AtomicInteger(0);
+
+                // Guards `values`.
+                Object lock = new Object();
+                // Contains four values: current, skipped, performed, failed.
+                List<Integer> values = new ArrayList(List.of(0, 0, 0, 0));
+
                 for (CompletableFuture<PackageDexoptResult> future : futures) {
-                    future.thenRunAsync(() -> {
-                        progressCallback.accept(OperationProgress.create(
-                                current.incrementAndGet(), futures.size()));
+                    future.thenAcceptAsync((result) -> {
+                        List<Integer> valuesNow;
+
+                        synchronized (lock) {
+                            values.set(0, values.get(0) + 1);
+                            switch (result.getStatus()) {
+                                case DexoptResult.DEXOPT_SKIPPED:
+                                    values.set(1, values.get(1) + 1);
+                                    break;
+                                case DexoptResult.DEXOPT_PERFORMED:
+                                    values.set(2, values.get(2) + 1);
+                                    break;
+                                case DexoptResult.DEXOPT_FAILED:
+                                    values.set(3, values.get(3) + 1);
+                                    ;
+                                    break;
+                                case DexoptResult.DEXOPT_CANCELLED:
+                                    break;
+                                default:
+                                    throw new IllegalStateException(
+                                            "Unknown status: " + result.getStatus());
+                            }
+                            valuesNow = new ArrayList(values);
+                        }
+
+                        progressCallback.accept(
+                                OperationProgress.create(valuesNow.get(0), futures.size(),
+                                        valuesNow.get(1), valuesNow.get(2), valuesNow.get(3)));
                     }, progressCallbackExecutor);
                 }
             }
