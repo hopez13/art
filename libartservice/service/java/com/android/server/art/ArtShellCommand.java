@@ -53,6 +53,7 @@ import com.android.server.art.model.DexoptResult;
 import com.android.server.art.model.DexoptStatus;
 import com.android.server.art.model.OperationProgress;
 import com.android.server.art.prereboot.PreRebootDriver;
+import com.android.server.art.prereboot.PreRebootStatsReporter;
 import com.android.server.pm.PackageManagerLocal;
 import com.android.server.pm.pkg.AndroidPackage;
 import com.android.server.pm.pkg.PackageState;
@@ -663,7 +664,8 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
         }
 
         try (var signal = new WithCancellationSignal(pw, true /* verbose */)) {
-            if (new PreRebootDriver(mContext).run(otaSlot, signal.get())) {
+            if (new PreRebootDriver(mContext).run(
+                        otaSlot, signal.get(), new PreRebootStatsReporter())) {
                 pw.println("Job finished. See logs for details");
                 return 0;
             } else {
