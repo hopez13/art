@@ -806,9 +806,7 @@ art_cc_library_static {
     ],
     target: {
         android: {
-            lto: {
-                thin: true,
-            },
+            lto_opt: "2",
         },
     },
 }
@@ -855,9 +853,7 @@ art_cc_library {
     afdo: true,
     target: {
         android: {
-            lto: {
-                thin: true,
-            },
+            lto_opt: "2",
         },
     },
 }
