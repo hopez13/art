@@ -22,6 +22,30 @@
       },
       "revId": "8955bc2160fac96493c9effc59163b9e04d256f4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e16965_217bf2e6",
+        "filename": "libnativebridge/tests/NativeBridgeTest.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1002751
+      },
+      "writtenOn": "2024-05-15T17:49:11Z",
+      "side": 1,
+      "message": "This was to disambiguate the variable vs. the function.  I can use `appDataDir_` for the variable or `getAppDataDir()` for the function if you prefer.",
+      "parentUuid": "4592145d_85d7d648",
+      "range": {
+        "startLine": 51,
+        "startChar": 24,
+        "endLine": 51,
+        "endChar": 30
+      },
+      "revId": "8955bc2160fac96493c9effc59163b9e04d256f4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
