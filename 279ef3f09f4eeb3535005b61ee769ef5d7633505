@@ -34,6 +34,24 @@
       "parentUuid": "df6603b5_1fffb990",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25f0f4ca_466b90ab",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-15T09:21:04Z",
+      "side": 1,
+      "message": "Thanks for pointing me to the code. Now I have many questions.\n\n1. Is there one SdkSandbox process per app or only one SdkSandbox process for the entire device?\n2. What\u0027s the UID of the SdkSandbox process? Does it have access to the dexopt artifacts owned by SYSTEM_UID?\n3. What\u0027s the classpath of the SdkSandbox process itself? I\u0027m asking this because you are using the classloader of the SdkSandbox process as the parent classloader of the SDK library, and this affects how we should dexopt SDK libraries.\n4. Can an SDK library create a classloader to load other dex files? If so, those dex files are secondary dex files. It doesn\u0027t matter they are loaded in a separate process or not.",
+      "parentUuid": "e92d2f41_cbcfbdcf",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
