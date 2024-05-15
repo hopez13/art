@@ -70,6 +70,24 @@
       "parentUuid": "25f0f4ca_466b90ab",
       "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c195ee6_071e3305",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-15T11:38:49Z",
+      "side": 1,
+      "message": "Thanks for the explanations! Regarding access to dexopt artifacts, I guess it works because `isLoadableInOtherProcesses` returns true for SDK libraries and therefore the dexopt artifacts get the \"other readable\" bit. Regarding the classloader, I need to look more into it. You said only VDEX files are used, which I think is unexpected because normally ODEX files should be used too, meaning the classloader context is probably wrong. Anyway, this CL looks fine to me. We can follow up on the classloader context issue.",
+      "parentUuid": "836f22ff_a7cc7d3c",
+      "revId": "279ef3f09f4eeb3535005b61ee769ef5d7633505",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
