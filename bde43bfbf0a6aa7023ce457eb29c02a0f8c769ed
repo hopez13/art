@@ -93,6 +93,30 @@
       },
       "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "11bdf99b_1d27433b",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T17:12:12Z",
+      "side": 1,
+      "message": "Sorry, I snipped away a bit too much - just before the log above there\u0027s this message:\n\n```\n05-15 18:05:02.677 2567954 2567954 E art_runtime_tests: common_art_test.cc:263 Neither location has a boot classpath (forgot \"m art-host-tests\"?): /usr/local/google/home/mast/android/aosp/out/host/linux-x86/testcases/art_common/out/host/linux-x86 or /usr/local/google/home/mast/android/aosp/out/host/linux-x86\n```",
+      "parentUuid": "a87b4a72_661729d6",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 12
+      },
+      "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
