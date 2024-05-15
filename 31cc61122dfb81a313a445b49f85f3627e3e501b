@@ -73,6 +73,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "ce8ef874_f3013001",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T15:25:53Z",
+      "side": 1,
+      "message": "Oh, I thought it was a matter of adding a Soong property. But now that it\u0027s there let\u0027s keep it, thanks.\n\n\u003e I\u0027ll leave the temporary directory in the tests\n\nTrue, that\u0027s good hygiene in any case.",
+      "parentUuid": "14982520_39fce59f",
+      "range": {
+        "startLine": 14,
+        "startChar": 15,
+        "endLine": 14,
+        "endChar": 23
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a771d6eb_a05f0e5e",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 4
@@ -159,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0ef74929_1d7f5511",
+        "filename": "TEST_MAPPING",
+        "patchSetId": 4
+      },
+      "lineNbr": 4302,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T15:25:53Z",
+      "side": 1,
+      "message": "Right, looks good now.",
+      "parentUuid": "085274ef_5400e812",
+      "range": {
+        "startLine": 4302,
+        "startChar": 3,
+        "endLine": 4302,
+        "endChar": 13
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bbf3104f_6fad0128",
@@ -196,6 +244,30 @@
       "side": 1,
       "message": "That\u0027s what I thought too, but it didn\u0027t work.  I think the problem was that the dlopen happens from libnativebridge, and so it\u0027s looking relative to libnativebridge, not to libnativebridge-tests.  Having them linked here effectively preloads them so that dlopen just returns the handle to the existing library, which maintains the existing behavior.",
       "parentUuid": "bbf3104f_6fad0128",
+      "range": {
+        "startLine": 150,
+        "startChar": 0,
+        "endLine": 154,
+        "endChar": 37
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d0403d4d_bba03030",
+        "filename": "libnativebridge/tests/Android.bp",
+        "patchSetId": 4
+      },
+      "lineNbr": 154,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T15:25:53Z",
+      "side": 1,
+      "message": "I see. Then iiuc your fix in aosp/3083002 was also necessary to make this work, right?\n\nThis is a bit intricate, so can you please add a comment about it?",
+      "parentUuid": "053698fe_ffa63e0f",
       "range": {
         "startLine": 150,
         "startChar": 0,
@@ -290,6 +362,30 @@
       "side": 1,
       "message": "Fixed.  This invalidates my device testing on PS3, so I\u0027ll re-add it to presubmit and run it through presubmit again.",
       "parentUuid": "2f549832_1a9d9199",
+      "range": {
+        "startLine": 228,
+        "startChar": 18,
+        "endLine": 228,
+        "endChar": 19
+      },
+      "revId": "31cc61122dfb81a313a445b49f85f3627e3e501b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca51acd3_77bf11c0",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 4
+      },
+      "lineNbr": 228,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-15T15:25:53Z",
+      "side": 1,
+      "message": "👍",
+      "parentUuid": "20ecc315_939527ef",
       "range": {
         "startLine": 228,
         "startChar": 18,
