@@ -632,6 +632,11 @@ class HGraphVisualizerPrinter final : public HGraphDelegateVisitor {
     StartAttributeStream("kind") << instruction->GetOpKind();
   }
 
+  void VisitVecPredSetAll(HVecPredSetAll* instruction) override {
+    VisitVecOperation(instruction);
+    StartAttributeStream("is_nop") << std::boolalpha << instruction->IsNoOp() << std::noboolalpha;
+  }
+
 #if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
   void VisitMultiplyAccumulate(HMultiplyAccumulate* instruction) override {
     StartAttributeStream("kind") << instruction->GetOpKind();

@@ -229,6 +229,13 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   // Returns whether the target supports predicated SIMD instructions.
   virtual bool SupportsPredicatedSIMD() const { return false; }
 
+  // Returns whether instruction from predicated SIMD extension can be unpredicated.
+  virtual bool CanBeUnpredicatedInPredicatedSIMD(
+      [[maybe_unused]] HVecOperation* instruction) const {
+    DCHECK(SupportsPredicatedSIMD());
+    return false;
+  }
+
   // Get FP register width in bytes for spilling/restoring in the slow paths.
   //
   // Note: In SIMD graphs this should return SIMD register width as all FP and SIMD registers

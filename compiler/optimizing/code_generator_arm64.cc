@@ -1038,6 +1038,25 @@ size_t CodeGeneratorARM64::GetPredicatedSIMDRegisterWidth() const {
   return GetInstructionSetFeatures().GetSVEVectorLength() / kBitsPerByte;
 }
 
+bool CodeGeneratorARM64::CanBeUnpredicatedInPredicatedSIMD(HVecOperation* instruction) const {
+  DCHECK(SupportsPredicatedSIMD());
+  switch (instruction->GetKind()) {
+    case HInstruction::kVecSub:
+    case HInstruction::kVecAnd:
+    case HInstruction::kVecOr:
+    case HInstruction::kVecXor:
+    case HInstruction::kVecShl:
+    case HInstruction::kVecShr:
+    case HInstruction::kVecUShr:
+    case HInstruction::kVecAdd:
+    case HInstruction::kVecMul:
+      return true;
+    default:
+      break;
+  }
+  return false;
+}
+
 #define __ GetVIXLAssembler()->
 
 void CodeGeneratorARM64::EmitJumpTables() {
