@@ -38,6 +38,41 @@ using helpers::XRegisterFrom;
 
 #define __ GetVIXLAssembler()->
 
+// Generate the predicated or unpredicated form of an instruction `inst` based on
+// the `needs_predicate` boolean.
+#define GEN_MAYBE_PREDICATED_INST(inst, dst, pred, needs_predicate, lhs, rhs) \
+  do {                                                                        \
+    if (needs_predicate) {                                                    \
+      __ inst(dst, pred, lhs, rhs);                                           \
+    } else {                                                                  \
+      __ inst(dst, lhs, rhs);                                                 \
+    }                                                                         \
+  } while (0)
+
+// Generate the predicated or unpredicated form of an floating point instruction `inst` based
+// on the `needs_predicate` boolean.
+#define GEN_MAYBE_PREDICATED_FP_INST(inst, dst, pred, needs_predicate, lhs, rhs, nan_option) \
+  do {                                                                                       \
+    if (needs_predicate) {                                                                   \
+      __ inst(dst, pred, lhs, rhs, nan_option);                                              \
+    } else {                                                                                 \
+      __ inst(dst, lhs, rhs);                                                                \
+    }                                                                                        \
+  } while (0)
+
+static bool NeedsPredicate(HVecOperation* instruction) {
+  if (!instruction->IsPredicated()) {
+    return false;
+  }
+
+  HInstruction* predicate = instruction->GetGoverningPredicate();
+  if (!predicate->IsVecPredSetAll()) {
+    return true;
+  }
+
+  return !predicate->AsVecPredSetAll()->IsSetTrue();
+}
+
 // Returns whether the value of the constant can be directly encoded into the instruction as
 // immediate.
 static bool SVECanEncodeConstantAsImmediate(HConstant* constant, HInstruction* instr) {
@@ -438,27 +473,30 @@ void InstructionCodeGeneratorARM64::SveVisitVecAdd(HVecAdd* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Add(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(Add, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Add(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(Add, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
-      __ Add(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Add, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
-      __ Add(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Add, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     case DataType::Type::kFloat32:
-      __ Fadd(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS(), StrictNaNPropagation);
+      GEN_MAYBE_PREDICATED_FP_INST(
+          Fadd, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS(), StrictNaNPropagation);
       break;
     case DataType::Type::kFloat64:
-      __ Fadd(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD(), StrictNaNPropagation);
+      GEN_MAYBE_PREDICATED_FP_INST(
+          Fadd, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD(), StrictNaNPropagation);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -493,27 +531,28 @@ void InstructionCodeGeneratorARM64::SveVisitVecSub(HVecSub* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Sub(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(Sub, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Sub(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(Sub, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
-      __ Sub(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Sub, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
-      __ Sub(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Sub, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     case DataType::Type::kFloat32:
-      __ Fsub(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Fsub, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kFloat64:
-      __ Fsub(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Fsub, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -540,27 +579,30 @@ void InstructionCodeGeneratorARM64::SveVisitVecMul(HVecMul* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Mul(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(Mul, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Mul(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(Mul, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
-      __ Mul(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Mul, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
-      __ Mul(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Mul, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     case DataType::Type::kFloat32:
-      __ Fmul(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS(), StrictNaNPropagation);
+      GEN_MAYBE_PREDICATED_FP_INST(
+          Fmul, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS(), StrictNaNPropagation);
       break;
     case DataType::Type::kFloat64:
-      __ Fmul(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD(), StrictNaNPropagation);
+      GEN_MAYBE_PREDICATED_FP_INST(
+          Fmul, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD(), StrictNaNPropagation);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -623,24 +665,25 @@ void InstructionCodeGeneratorARM64::SveVisitVecAnd(HVecAnd* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ And(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(And, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ And(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(And, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
     case DataType::Type::kFloat32:
-      __ And(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(And, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
     case DataType::Type::kFloat64:
-      __ And(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(And, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -668,24 +711,25 @@ void InstructionCodeGeneratorARM64::SveVisitVecOr(HVecOr* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Orr(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(Orr, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Orr(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(Orr, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
     case DataType::Type::kFloat32:
-      __ Orr(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Orr, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
     case DataType::Type::kFloat64:
-      __ Orr(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Orr, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -704,24 +748,25 @@ void InstructionCodeGeneratorARM64::SveVisitVecXor(HVecXor* instruction) {
   const ZRegister rhs = ZRegisterFrom(locations->InAt(1));
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Eor(dst.VnB(), p_reg, lhs.VnB(), rhs.VnB());
+      GEN_MAYBE_PREDICATED_INST(Eor, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), rhs.VnB());
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Eor(dst.VnH(), p_reg, lhs.VnH(), rhs.VnH());
+      GEN_MAYBE_PREDICATED_INST(Eor, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), rhs.VnH());
       break;
     case DataType::Type::kInt32:
     case DataType::Type::kFloat32:
-      __ Eor(dst.VnS(), p_reg, lhs.VnS(), rhs.VnS());
+      GEN_MAYBE_PREDICATED_INST(Eor, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), rhs.VnS());
       break;
     case DataType::Type::kInt64:
     case DataType::Type::kFloat64:
-      __ Eor(dst.VnD(), p_reg, lhs.VnD(), rhs.VnD());
+      GEN_MAYBE_PREDICATED_INST(Eor, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), rhs.VnD());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -760,21 +805,22 @@ void InstructionCodeGeneratorARM64::SveVisitVecShl(HVecShl* instruction) {
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
   int32_t value = locations->InAt(1).GetConstant()->AsIntConstant()->GetValue();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Lsl(dst.VnB(), p_reg, lhs.VnB(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsl, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), value);
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Lsl(dst.VnH(), p_reg, lhs.VnH(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsl, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), value);
       break;
     case DataType::Type::kInt32:
-      __ Lsl(dst.VnS(), p_reg, lhs.VnS(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsl, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), value);
       break;
     case DataType::Type::kInt64:
-      __ Lsl(dst.VnD(), p_reg, lhs.VnD(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsl, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), value);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -793,21 +839,22 @@ void InstructionCodeGeneratorARM64::SveVisitVecShr(HVecShr* instruction) {
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
   int32_t value = locations->InAt(1).GetConstant()->AsIntConstant()->GetValue();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Asr(dst.VnB(), p_reg, lhs.VnB(), value);
+      GEN_MAYBE_PREDICATED_INST(Asr, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), value);
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Asr(dst.VnH(), p_reg, lhs.VnH(), value);
+      GEN_MAYBE_PREDICATED_INST(Asr, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), value);
       break;
     case DataType::Type::kInt32:
-      __ Asr(dst.VnS(), p_reg, lhs.VnS(), value);
+      GEN_MAYBE_PREDICATED_INST(Asr, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), value);
       break;
     case DataType::Type::kInt64:
-      __ Asr(dst.VnD(), p_reg, lhs.VnD(), value);
+      GEN_MAYBE_PREDICATED_INST(Asr, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), value);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -826,21 +873,22 @@ void InstructionCodeGeneratorARM64::SveVisitVecUShr(HVecUShr* instruction) {
   const ZRegister dst = ZRegisterFrom(locations->Out());
   const PRegisterM p_reg = GetVecGoverningPReg(instruction).Merging();
   int32_t value = locations->InAt(1).GetConstant()->AsIntConstant()->GetValue();
+  bool needs_predicate = NeedsPredicate(instruction);
   ValidateVectorLength(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
-      __ Lsr(dst.VnB(), p_reg, lhs.VnB(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsr, dst.VnB(), p_reg, needs_predicate, lhs.VnB(), value);
       break;
     case DataType::Type::kUint16:
     case DataType::Type::kInt16:
-      __ Lsr(dst.VnH(), p_reg, lhs.VnH(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsr, dst.VnH(), p_reg, needs_predicate, lhs.VnH(), value);
       break;
     case DataType::Type::kInt32:
-      __ Lsr(dst.VnS(), p_reg, lhs.VnS(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsr, dst.VnS(), p_reg, needs_predicate, lhs.VnS(), value);
       break;
     case DataType::Type::kInt64:
-      __ Lsr(dst.VnD(), p_reg, lhs.VnD(), value);
+      GEN_MAYBE_PREDICATED_INST(Lsr, dst.VnD(), p_reg, needs_predicate, lhs.VnD(), value);
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();
@@ -1169,6 +1217,18 @@ void LocationsBuilderARM64::SveVisitVecPredSetAll(HVecPredSetAll* instruction) {
 void InstructionCodeGeneratorARM64::SveVisitVecPredSetAll(HVecPredSetAll* instruction) {
   // Instruction is not predicated, see nodes_vector.h
   DCHECK(!instruction->IsPredicated());
+
+  if (instruction->IsNoOp()) {
+    if (kIsDebugBuild) {
+      for (const HUseListNode<HInstruction*>& use : instruction->GetUses()) {
+        HInstruction* user = use.GetUser();
+        CHECK(user->IsVecOperation());
+        CHECK(codegen_->CanBeUnpredicatedInPredicatedSIMD(user->AsVecOperation()));
+      }
+    }
+    return;
+  }
+
   const PRegister output_p_reg = GetVecPredSetFixedOutPReg(instruction);
 
   switch (instruction->GetPackedType()) {

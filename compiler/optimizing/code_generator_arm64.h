@@ -732,6 +732,8 @@ class CodeGeneratorARM64 : public CodeGenerator {
 
   bool SupportsPredicatedSIMD() const override;
 
+  bool CanBeUnpredicatedInPredicatedSIMD(HVecOperation* instruction) const override;
+
   size_t GetSlowPathFPWidth() const override {
     return GetGraph()->HasSIMD()
         ? GetSIMDRegisterWidthFromGraph()

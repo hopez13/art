@@ -36,7 +36,7 @@ class InstructionSimplifierArm64Visitor final : public HGraphVisitor {
  public:
   InstructionSimplifierArm64Visitor(
       HGraph* graph, CodeGenerator* codegen, OptimizingCompilerStats* stats)
-      : HGraphVisitor(graph), codegen_(codegen), stats_(stats) {}
+      : HGraphVisitor(graph), codegen_(codegen), stats_(stats), all_true_predicate_(nullptr) {}
 
  private:
   void RecordSimplification() {
@@ -83,11 +83,44 @@ class InstructionSimplifierArm64Visitor final : public HGraphVisitor {
   void VisitTypeConversion(HTypeConversion* instruction) override;
   void VisitUShr(HUShr* instruction) override;
   void VisitXor(HXor* instruction) override;
+  void VisitVecAdd(HVecAdd* instruction) override;
+  void VisitVecAnd(HVecAnd* instruction) override;
   void VisitVecLoad(HVecLoad* instruction) override;
+  void VisitVecMul(HVecMul* instruction) override;
+  void VisitVecOr(HVecOr* instruction) override;
+  void VisitVecShl(HVecShl* instruction) override;
+  void VisitVecShr(HVecShr* instruction) override;
   void VisitVecStore(HVecStore* instruction) override;
+  void VisitVecSub(HVecSub* instruction) override;
+  void VisitVecUShr(HVecUShr* instruction) override;
+  void VisitVecXor(HVecXor* instruction) override;
+
+  // Get or insert an all true predicate vector node that can be used as a governing
+  // predicate for vector instructions that should be emited without predicate in the
+  // predicated SIMD mode.
+  //
+  // Returned instruction is inserted before the SuspendCheck at the bottom of the
+  // entry block and is a nop (IsNoOp() returns true).
+  HVecPredSetAll* GetOrInsertAllTruePredicate();
+
+  // Try to unpredicate vector operation in the predicated SIMD mode if it is safe
+  // to execute it unconditionally.
+  //
+  // We try to do it here because:
+  // * Currently it relates to arm64 only: we can avoid unnecessary predicate register
+  //   usage.
+  // * Unpredicating instructions can lead to missing optimization opportunities, so
+  //   we do it after non-arch specific instruction_simplifier pass. For example, to
+  //   not prevent VECMUL + VECADD/SUB -> VECMULACC simplification.
+  //
+  // NOTE: It is possible to miss HVecMulAcc simplification because HVecMul cannot be
+  // unpredicated in the case of integral inputs as FEAT_SVE doesn't have corresponding
+  // instruction.
+  bool TryUnpredicateInstruction(HVecOperation* instruction);
 
   CodeGenerator* codegen_;
   OptimizingCompilerStats* stats_;
+  HVecPredSetAll* all_true_predicate_;
 };
 
 bool InstructionSimplifierArm64Visitor::TryMergeIntoShifterOperand(HInstruction* use,
@@ -287,6 +320,18 @@ void InstructionSimplifierArm64Visitor::VisitXor(HXor* instruction) {
   }
 }
 
+void InstructionSimplifierArm64Visitor::VisitVecAdd(HVecAdd* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecAnd(HVecAnd* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
 void InstructionSimplifierArm64Visitor::VisitVecLoad(HVecLoad* instruction) {
   if (!instruction->IsPredicated() && !instruction->IsStringCharAt() &&
       TryExtractVecArrayAccessAddress(instruction, instruction->GetIndex())) {
@@ -298,6 +343,30 @@ void InstructionSimplifierArm64Visitor::VisitVecLoad(HVecLoad* instruction) {
             codegen_, instruction, instruction->GetArray(), instruction->GetIndex(), offset)) {
       RecordSimplification();
     }
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecMul(HVecMul* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecOr(HVecOr* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecShl(HVecShl* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecShr(HVecShr* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
   }
 }
 
@@ -313,6 +382,71 @@ void InstructionSimplifierArm64Visitor::VisitVecStore(HVecStore* instruction) {
       RecordSimplification();
     }
   }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecSub(HVecSub* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecUShr(HVecUShr* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+void InstructionSimplifierArm64Visitor::VisitVecXor(HVecXor* instruction) {
+  if (TryUnpredicateInstruction(instruction)) {
+    RecordSimplification();
+  }
+}
+
+HVecPredSetAll* InstructionSimplifierArm64Visitor::GetOrInsertAllTruePredicate() {
+  if (all_true_predicate_ != nullptr) {
+    return all_true_predicate_;
+  }
+
+  HGraph* graph = GetGraph();
+  ArenaAllocator* allocator = graph->GetAllocator();
+  DataType::Type type = DataType::Type::kInt32;
+  size_t vector_length = codegen_->GetPredicatedSIMDRegisterWidth() / DataType::Size(type);
+  DCHECK_EQ(codegen_->GetPredicatedSIMDRegisterWidth() % DataType::Size(type), 0u);
+
+  all_true_predicate_ =
+      new (allocator) HVecPredSetAll(allocator, graph->GetIntConstant(1), type, vector_length, 0u);
+  all_true_predicate_->SetIsNoOp(true);
+
+  HBasicBlock* entry_block = graph->GetEntryBlock();
+  HInstruction* insert_after = entry_block->GetLastInstruction();
+  DCHECK(insert_after != nullptr);
+
+  if (insert_after->IsGoto()) {
+    insert_after = insert_after->GetPrevious();
+  }
+
+  DCHECK(insert_after != nullptr);
+  if (insert_after->IsSuspendCheck()) {
+    insert_after = insert_after->GetPrevious();
+  }
+
+  DCHECK(insert_after != nullptr);
+  entry_block->InsertInstructionAfter(all_true_predicate_, insert_after);
+
+  return all_true_predicate_;
+}
+
+bool InstructionSimplifierArm64Visitor::TryUnpredicateInstruction(HVecOperation* instruction) {
+  if (!instruction->IsPredicated()) {
+    return false;
+  }
+
+  if (!codegen_->CanBeUnpredicatedInPredicatedSIMD(instruction)) {
+    return false;
+  }
+
+  instruction->ReplaceGoverningPredicate(GetOrInsertAllTruePredicate());
+  return true;
 }
 
 bool InstructionSimplifierArm64::Run() {

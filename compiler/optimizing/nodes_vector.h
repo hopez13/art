@@ -142,10 +142,16 @@ class HVecOperation : public HVariableInputSizeInstruction {
     SetGoverningPredicate(input, PredicationKind::kZeroingForm);
   }
 
+  void ReplaceGoverningPredicate(HInstruction* input) {
+    DCHECK(IsPredicated());
+    DCHECK(input->IsVecPredSetOperation());
+    ReplaceInput(input, GetGoverningPredicateInputIndex());
+  }
+
   // See HVecPredSetOperation.
   HVecPredSetOperation* GetGoverningPredicate() const {
     DCHECK(IsPredicated());
-    HInstruction* pred_input = InputAt(InputCount() - 1);
+    HInstruction* pred_input = InputAt(GetGoverningPredicateInputIndex());
     DCHECK(pred_input->IsVecPredSetOperation());
     return pred_input->AsVecPredSetOperation();
   }
@@ -264,6 +270,11 @@ class HVecOperation : public HVariableInputSizeInstruction {
   DEFAULT_COPY_CONSTRUCTOR(VecOperation);
 
  private:
+  size_t GetGoverningPredicateInputIndex() const {
+    // Governing predicate is always last input.
+    return InputCount() - 1;
+  }
+
   const size_t vector_length_;
 };
 
@@ -1313,6 +1324,7 @@ class HVecPredSetAll final : public HVecPredSetOperation {
     DCHECK(input->IsIntConstant());
     SetRawInputAt(0, input);
     MarkEmittedAtUseSite();
+    SetIsNoOp(false);
   }
 
   // Having governing predicate doesn't make sense for set all TRUE/FALSE instruction.
@@ -1323,10 +1335,32 @@ class HVecPredSetAll final : public HVecPredSetOperation {
   // Vector predicates are not kept alive across vector loop boundaries.
   bool CanBeMoved() const override { return false; }
 
+  // Set a flag to indicate whether we need to generate code for this node.
+  //
+  // In the predicated SIMD mode some instructions have 2 forms: predicated and unpredicated
+  // one. Codegen can choose unpredicated form for vector instructions predicated by set all
+  // TRUE instruction. In this case we don't need to generate code for HVecPredSetAll and set
+  // kFlagIsNoOp for it.
+  //
+  // We cannot omit predicate entirely (set it to nullptr) because we need to distinguish between
+  // unpredicated instruction from the predicated SIMD extension and an instruction from the
+  // traditional one as codegen can generate different target instructions for them.
+  void SetIsNoOp(bool is_no_op) {
+    DCHECK_IMPLIES(is_no_op, IsSetTrue());
+    SetPackedFlag<kFlagIsNoOp>(is_no_op);
+  }
+
+  bool IsNoOp() const { return GetPackedFlag<kFlagIsNoOp>(); }
+
   DECLARE_INSTRUCTION(VecPredSetAll);
 
  protected:
   DEFAULT_COPY_CONSTRUCTOR(VecPredSetAll);
+
+  static constexpr size_t kFlagIsNoOp = HVecOperation::kNumberOfVectorOpPackedBits;
+  static constexpr size_t kNumberOfVecPredSetAllPackedBits = kFlagIsNoOp + 1;
+  static_assert(kNumberOfVecPredSetAllPackedBits <= HInstruction::kMaxNumberOfPackedBits,
+                "Too many packed fields.");
 };
 
 //

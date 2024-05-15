@@ -54,6 +54,8 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      IntermediateAddressIndex is not supported for SVE.
+  ///     CHECK-DAG:             <<Const1:i\d+>>        IntConstant 1
+  ///     CHECK-DAG:             <<TrueP:j\d+>>         VecPredSetAll [<<Const1>>] is_nop:true
   ///     CHECK-DAG:             <<Repl:d\d+>>          VecReplicateScalar [<<Const5>>,{{j\d+}}]
   //      -------------- Loop
   ///     CHECK-DAG:             <<LoopP:j\d+>>         VecPredWhile
@@ -61,7 +63,7 @@ public class Main {
   ///     CHECK-DAG:                                    If
   ///     CHECK-DAG:             <<IntAddr1:i\d+>>      IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:             <<Load:d\d+>>          VecLoad [<<IntAddr1>>,<<Index>>,<<LoopP>>]
-  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<LoopP>>]
+  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<TrueP>>]
   ///     CHECK-DAG:             <<IntAddr2:i\d+>>      IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:                                    VecStore [<<IntAddr2>>,<<Index>>,<<Add>>,<<LoopP>>]
   //
@@ -87,6 +89,8 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      IntermediateAddressIndex is not supported for SVE.
+  ///     CHECK-DAG:             <<Const1:i\d+>>        IntConstant 1
+  ///     CHECK-DAG:             <<TrueP:j\d+>>         VecPredSetAll [<<Const1>>] is_nop:true
   ///     CHECK-DAG:             <<Repl:d\d+>>          VecReplicateScalar [<<Const5>>,{{j\d+}}]
   //      -------------- Loop
   ///     CHECK-DAG:             <<LoopP:j\d+>>         VecPredWhile
@@ -94,7 +98,7 @@ public class Main {
   ///     CHECK-DAG:                                    If
   ///     CHECK-DAG:             <<IntAddr:i\d+>>       IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:             <<Load:d\d+>>          VecLoad [<<IntAddr>>,<<Index>>,<<LoopP>>]
-  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<LoopP>>]
+  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<TrueP>>]
   ///     CHECK-DAG:                                    VecStore [<<IntAddr>>,<<Index>>,<<Add>>,<<LoopP>>]
   //
   /// CHECK-ELSE:
@@ -164,6 +168,8 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      IntermediateAddressIndex is not supported for SVE.
+  ///     CHECK-DAG:             <<Const1:i\d+>>        IntConstant 1
+  ///     CHECK-DAG:             <<TrueP:j\d+>>         VecPredSetAll [<<Const1>>] is_nop:true
   ///     CHECK-DAG:             <<Repl:d\d+>>          VecReplicateScalar [<<Const5>>,{{j\d+}}]
   //      -------------- Loop
   ///     CHECK-DAG:             <<LoopP:j\d+>>         VecPredWhile
@@ -171,7 +177,7 @@ public class Main {
   ///     CHECK-DAG:                                    If
   ///     CHECK-DAG:             <<IntAddr1:i\d+>>      IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:             <<Load:d\d+>>          VecLoad [<<IntAddr1>>,<<Index>>,<<LoopP>>]
-  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<LoopP>>]
+  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<TrueP>>]
   ///     CHECK-DAG:             <<IntAddr2:i\d+>>      IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:                                    VecStore [<<IntAddr2>>,<<Index>>,<<Add>>,<<LoopP>>]
   //
@@ -197,6 +203,8 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      IntermediateAddressIndex is not supported for SVE.
+  ///     CHECK-DAG:             <<Const1:i\d+>>        IntConstant 1
+  ///     CHECK-DAG:             <<TrueP:j\d+>>         VecPredSetAll [<<Const1>>] is_nop:true
   ///     CHECK-DAG:             <<Repl:d\d+>>          VecReplicateScalar [<<Const5>>,{{j\d+}}]
   //      -------------- Loop
   ///     CHECK-DAG:             <<LoopP:j\d+>>         VecPredWhile
@@ -204,7 +212,7 @@ public class Main {
   ///     CHECK-DAG:                                    If
   ///     CHECK-DAG:             <<IntAddr:i\d+>>       IntermediateAddress [<<Array>>,{{i\d+}}]
   ///     CHECK-DAG:             <<Load:d\d+>>          VecLoad [<<IntAddr>>,<<Index>>,<<LoopP>>]
-  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<LoopP>>]
+  ///     CHECK-DAG:             <<Add:d\d+>>           VecAdd [<<Load>>,<<Repl>>,<<TrueP>>]
   ///     CHECK-DAG:                                    VecStore [<<IntAddr>>,<<Index>>,<<Add>>,<<LoopP>>]
   //
   /// CHECK-ELSE:
