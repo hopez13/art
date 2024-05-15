@@ -22,6 +22,53 @@
       },
       "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dfc023c1_d9f530d2",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 262,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-15T16:31:37Z",
+      "side": 1,
+      "message": "Agreed – This looks like a reasonable workaround. Thanks for fixing this!",
+      "parentUuid": "322473b0_32edb287",
+      "range": {
+        "startLine": 250,
+        "startChar": 0,
+        "endLine": 262,
+        "endChar": 3
+      },
+      "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3eeca83f_8f461918",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-15T16:31:37Z",
+      "side": 1,
+      "message": "Should this be `LOG(FATAL)`? Otherwise nothing prevents this function from returning the erroneous `\"\u003cno boot classpath found\u003e\"` line 265. Or maybe use using `android::base::Result` (or `std::optional\u003cstd::string\u003e`) as this function\u0027s return type?",
+      "range": {
+        "startLine": 263,
+        "startChar": 2,
+        "endLine": 263,
+        "endChar": 12
+      },
+      "revId": "bde43bfbf0a6aa7023ce457eb29c02a0f8c769ed",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
