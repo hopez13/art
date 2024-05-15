@@ -263,9 +263,7 @@ art_cc_binary {
                 "libart-dex2oat",
                 "libelffile",
             ],
-            lto: {
-                thin: true,
-            },
+            lto_opt: "2",
         },
         host: {
             // Make the host binary static, except for system libraries. This
