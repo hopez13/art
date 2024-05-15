@@ -23,7 +23,11 @@ import com.android.internal.annotations.Immutable;
 
 import com.google.auto.value.AutoValue;
 
-/** @hide */
+/**
+ * Represents the progress of an operation. Currently, this is only for batch dexopt.
+ *
+ * @hide
+ */
 @SystemApi(client = SystemApi.Client.SYSTEM_SERVER)
 @Immutable
 @AutoValue
@@ -32,8 +36,9 @@ public abstract class OperationProgress {
     protected OperationProgress() {}
 
     /** @hide */
-    public static @NonNull OperationProgress create(int current, int total) {
-        return new AutoValue_OperationProgress(current, total);
+    public static @NonNull OperationProgress create(
+            int current, int total, int skipped, int performed, int failed) {
+        return new AutoValue_OperationProgress(current, total, skipped, performed, failed);
     }
 
     /** The overall progress, in the range of [0, 100]. */
@@ -59,4 +64,28 @@ public abstract class OperationProgress {
      * @hide
      */
     public abstract int getTotal();
+
+    /**
+     * The number of packages, for which dexopt has been skipped. Only applicable if this class
+     * represents batch dexopt progress.
+     *
+     * @hide
+     */
+    public abstract int getSkipped();
+
+    /**
+     * The number of packages, for which dexopt has been successfully performed. Only applicable if
+     * this class represents batch dexopt progress.
+     *
+     * @hide
+     */
+    public abstract int getPerformed();
+
+    /**
+     * The number of packages, for which dexopt has failed. Only applicable if this class represents
+     * batch dexopt progress.
+     *
+     * @hide
+     */
+    public abstract int getFailed();
 }
