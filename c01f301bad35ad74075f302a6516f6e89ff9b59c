@@ -46,6 +46,30 @@
       },
       "revId": "c01f301bad35ad74075f302a6516f6e89ff9b59c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1a7d697b_30b73f1b",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-16T11:47:58Z",
+      "side": 1,
+      "message": "OK, we can warn for specific classes but then we should count the number of warnings and stop spamming after, say, three or five.",
+      "parentUuid": "eed99c69_6247d4fa",
+      "range": {
+        "startLine": 1847,
+        "startChar": 17,
+        "endLine": 1847,
+        "endChar": 52
+      },
+      "revId": "c01f301bad35ad74075f302a6516f6e89ff9b59c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
