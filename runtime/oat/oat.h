@@ -43,9 +43,9 @@ std::ostream& operator<<(std::ostream& stream, StubType stub_type);
 
 class EXPORT PACKED(4) OatHeader {
  public:
-  static constexpr std::array<uint8_t, 4> kOatMagic { { 'o', 'a', 't', '\n' } };
+  static constexpr std::array<uint8_t, 4> kOatMagic{{'o', 'a', 't', '\n'}};
   // Last oat version changed reason: Implement `HLoadClass::LoadKind::kAppImageRelRo`.
-  static constexpr std::array<uint8_t, 4> kOatVersion{{'2', '4', '4', '\0'}};
+  static constexpr std::array<uint8_t, 4> kOatVersion{{'2', '4', '5', '\0'}};
 
   static constexpr const char* kDex2OatCmdLineKey = "dex2oat-cmdline";
   static constexpr const char* kDebuggableKey = "debuggable";
@@ -61,7 +61,6 @@ class EXPORT PACKED(4) OatHeader {
 
   static constexpr const char kTrueValue[] = "true";
   static constexpr const char kFalseValue[] = "false";
-
 
   static OatHeader* Create(InstructionSet instruction_set,
                            const InstructionSetFeatures* instruction_set_features,
@@ -162,6 +161,6 @@ class EXPORT PACKED(4) OatHeader {
   DISALLOW_COPY_AND_ASSIGN(OatHeader);
 };
 
-}  // namespace art
+}  // namespace art HIDDEN
 
 #endif  // ART_RUNTIME_OAT_OAT_H_
