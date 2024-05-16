@@ -22,6 +22,30 @@
       },
       "revId": "c01f301bad35ad74075f302a6516f6e89ff9b59c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "eed99c69_6247d4fa",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-16T10:40:26Z",
+      "side": 1,
+      "message": "We could, but I worry it will confuse folks looking at logcat. I think if we want warnings, I\u0027d rather print the class failing and which check failed (this can help both us and the devs if they\u0027re looking to these warnings). WDYT?",
+      "parentUuid": "11e546b8_aa2fc782",
+      "range": {
+        "startLine": 1847,
+        "startChar": 17,
+        "endLine": 1847,
+        "endChar": 52
+      },
+      "revId": "c01f301bad35ad74075f302a6516f6e89ff9b59c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
