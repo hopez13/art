@@ -2566,10 +2566,12 @@ void ImageWriter::CalculateNewObjectOffsets() {
   // Deflate monitors before we visit roots since deflating acquires the monitor lock. Acquiring
   // this lock while holding other locks may cause lock order violations.
   {
-    auto deflate_monitor = [](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_) {
-      Monitor::Deflate(Thread::Current(), obj);
-    };
+    auto deflate_monitor =
+        // NO_THREAD_SAFETY_ANALYSIS: We don't really hold mutator_lock_ exclusively.
+        [](mirror::Object* obj) REQUIRES_SHARED(Locks::mutator_lock_)
+            NO_THREAD_SAFETY_ANALYSIS { Monitor::Deflate(Thread::Current(), obj); };
     heap->VisitObjects(deflate_monitor);
+    // This does not update the MonitorList, which is thus rendered invalid, and is no longer used.
   }
 
   // From this point on, there shall be no GC anymore and no objects shall be allocated.
