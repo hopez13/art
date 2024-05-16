@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "11e546b8_aa2fc782",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1847,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-16T07:06:34Z",
+      "side": 1,
+      "message": "Log a warning if this returns false? (I guess logging a warning for each class that fails assignability checks could be quite spammy.)",
+      "range": {
+        "startLine": 1847,
+        "startChar": 17,
+        "endLine": 1847,
+        "endChar": 52
+      },
+      "revId": "c01f301bad35ad74075f302a6516f6e89ff9b59c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
