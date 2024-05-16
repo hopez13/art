@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09ab9432_a0465476",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-16T23:57:19Z",
+      "side": 1,
+      "message": "Vladimir or Nicolas - Could you please confirm that what I say about ImageWriter, both near the end of the .md file and elsewhere is correct? When we call Deflate from ImageWriter, we are for all intents and purposes single-threaded? It also looked to me like we clobber the list of all monitors. That\u0027s OK before we no longer GC after that? I\u0027m also open to other suggested reviewers for this. Otherwise it would take some digging for me to understand better.\n\nI\u0027m not yet convinced that either the test or performance regressions are real. The only actual executed code change should be an added DCHECK.",
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
