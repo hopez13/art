@@ -394,19 +394,23 @@ public class ArtManagerLocalTest {
         doReturn(createGetDexoptStatusResult("speed", "compilation-reason-0",
                          "location-debug-string-0", ArtifactsLocation.NEXT_TO_DEX))
                 .when(mArtd)
-                .getDexoptStatus("/somewhere/app/foo/base.apk", "arm64", "PCL[]");
+                .getDexoptStatus("/somewhere/app/foo/base.apk", "arm64",
+                        "PCL[base.apk:split_0.apk:split_1.apk]");
         doReturn(createGetDexoptStatusResult("speed-profile", "compilation-reason-1",
                          "location-debug-string-1", ArtifactsLocation.NEXT_TO_DEX))
                 .when(mArtd)
-                .getDexoptStatus("/somewhere/app/foo/base.apk", "arm", "PCL[]");
+                .getDexoptStatus("/somewhere/app/foo/base.apk", "arm",
+                        "PCL[base.apk:split_0.apk:split_1.apk]");
         doReturn(createGetDexoptStatusResult("verify", "compilation-reason-2",
                          "location-debug-string-2", ArtifactsLocation.NEXT_TO_DEX))
                 .when(mArtd)
-                .getDexoptStatus("/somewhere/app/foo/split_0.apk", "arm64", "PCL[base.apk]");
+                .getDexoptStatus("/somewhere/app/foo/split_0.apk", "arm64",
+                        "PCL[base.apk:split_0.apk:split_1.apk]");
         doReturn(createGetDexoptStatusResult("extract", "compilation-reason-3",
                          "location-debug-string-3", ArtifactsLocation.NEXT_TO_DEX))
                 .when(mArtd)
-                .getDexoptStatus("/somewhere/app/foo/split_0.apk", "arm", "PCL[base.apk]");
+                .getDexoptStatus("/somewhere/app/foo/split_0.apk", "arm",
+                        "PCL[base.apk:split_0.apk:split_1.apk]");
         doReturn(createGetDexoptStatusResult(
                          "run-from-apk", "unknown", "unknown", ArtifactsLocation.NEXT_TO_DEX))
                 .when(mArtd)
