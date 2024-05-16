@@ -266,9 +266,10 @@ inline bool MarkCompact::VerifyRootSingleUpdate(void* root,
                                                 mirror::Object* old_ref,
                                                 const RootInfo& info) {
   // ASAN promotes stack-frames to heap in order to detect
-  // stack-use-after-return issues. So skip using this double-root update
-  // detection on ASAN as well.
-  if (kIsDebugBuild && !kMemoryToolIsAvailable) {
+  // stack-use-after-return issues. And HWASAN has pointers tagged, which makes
+  // it difficult to recognize stack pointers from being checked. So skip using
+  // double-root update detection on ASANs.
+  if (kIsDebugBuild && !kMemoryToolIsAvailable && !kHwAsanEnabled) {
     void* stack_low_addr = stack_low_addr_;
     void* stack_high_addr = stack_high_addr_;
     if (!HasAddress(old_ref)) {
@@ -285,9 +286,15 @@ inline bool MarkCompact::VerifyRootSingleUpdate(void* root,
         MutexLock mu(self, lock_);
         inserted = updated_roots_->insert(root).second;
       }
-      DCHECK(inserted) << "root=" << root << " old_ref=" << old_ref
-                       << " stack_low_addr=" << stack_low_addr
-                       << " stack_high_addr=" << stack_high_addr;
+      if (!inserted) {
+        std::ostringstream oss;
+        heap_->DumpSpaces(oss);
+        MemMap::DumpMaps(oss, /* terse= */ true);
+        DCHECK(inserted) << "root=" << root << " old_ref=" << old_ref
+                         << " stack_low_addr=" << stack_low_addr
+                         << " stack_high_addr=" << stack_high_addr << " maps\n"
+                         << oss.str();
+      }
     }
     DCHECK(reinterpret_cast<uint8_t*>(old_ref) >= black_allocations_begin_ ||
            live_words_bitmap_->Test(old_ref))
