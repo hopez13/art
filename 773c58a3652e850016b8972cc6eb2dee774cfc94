@@ -142,6 +142,30 @@
       },
       "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "67248a08_e5824bd6",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-05-17T08:39:03Z",
+      "side": 1,
+      "message": "I got the point. With the VNDK deprecation, the latest Android version will not have the product vndk version property but must return `true` for this function anyway.\nSo, the change must be:\n```\n      !android::modules::sdklevel::IsAtLeastU() ||\n        !(android::base::GetIntProperty(\"ro.product.first_api_level\", 0) \u003c __ANDROID_API_R__ \u0026\u0026\n```\nThe product vndk version is removed from the new Android release after the Android U. This change may not work for your case because the main branch still has sdk version 34, but the sdk version will be bumped with the next Android release.",
+      "parentUuid": "f266c639_4bd98aea",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
