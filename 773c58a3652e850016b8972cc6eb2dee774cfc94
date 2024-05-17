@@ -22,6 +22,30 @@
       },
       "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bce1a6e9_c830ef06",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1758183
+      },
+      "writtenOn": "2024-05-17T04:37:36Z",
+      "side": 1,
+      "message": "No, it\u0027s a device launched with Q running a build of aosp/main.\nSince this checks for ro.product.first_api_level \u003c 30 and product_vndk_version not being set, it\u0027ll wrongly assume the device\u0027s /product is not treblelized.",
+      "parentUuid": "229142aa_4eb5b72c",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
