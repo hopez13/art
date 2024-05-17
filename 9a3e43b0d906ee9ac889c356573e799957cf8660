@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f32befe_9954d540",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-17T20:10:28Z",
+      "side": 1,
+      "message": "Monitor.h, around line 170, suggests that this isn\u0027t safe. But I\u0027m generally unclear about the context here, and was hoping some else understood this better.\n\nI\u0027d be concerned that temporarily releasing the mutator lock would allow a GC, which I expect, based in part on the comment below, is unsafe.\n\nNote that this CL effectively reduces the scopes of NO_THREAD_SAFETY_ANALYSIS to the Deflate call, which is where we actually cheat. I agree that reducing it to none would be much better.",
+      "parentUuid": "6c745897_1a24e369",
+      "range": {
+        "startLine": 2571,
+        "startChar": 0,
+        "endLine": 2571,
+        "endChar": 93
+      },
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a5c4c71_d7f346ac",
         "filename": "runtime/monitor_inflation.md",
         "patchSetId": 1
@@ -54,6 +78,30 @@
       "writtenOn": "2024-05-17T09:07:28Z",
       "side": 1,
       "message": "Incomplete sentence?",
+      "range": {
+        "startLine": 54,
+        "startChar": 20,
+        "endLine": 54,
+        "endChar": 85
+      },
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fd9fa5c_c0021b5d",
+        "filename": "runtime/monitor_inflation.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-17T20:10:28Z",
+      "side": 1,
+      "message": "Extended to clarify the point I was trying to make.",
+      "parentUuid": "0a5c4c71_d7f346ac",
       "range": {
         "startLine": 54,
         "startChar": 20,
