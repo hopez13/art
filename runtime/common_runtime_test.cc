@@ -58,7 +58,6 @@
 #include "mirror/object_array-alloc-inl.h"
 #include "native/dalvik_system_DexFile.h"
 #include "noop_compiler_callbacks.h"
-#include "oat/aot_class_linker.h"
 #include "profile/profile_compilation_info.h"
 #include "runtime-inl.h"
 #include "runtime_intrinsics.h"
@@ -71,6 +70,46 @@ namespace art HIDDEN {
 using android::base::StringPrintf;
 
 static bool unstarted_initialized_ = false;
+
+class CommonRuntimeTestClassLinker : public ClassLinker {
+ public:
+  explicit CommonRuntimeTestClassLinker(InternTable* intern_table)
+      : ClassLinker(intern_table, /*fast_class_not_found_exceptions=*/ false) {}
+
+  bool DenyAccessBasedOnPublicSdk([[maybe_unused]] ArtMethod* art_method) const override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return false;
+  }
+  bool DenyAccessBasedOnPublicSdk([[maybe_unused]] ArtField* art_field) const override
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    return false;
+  }
+  bool DenyAccessBasedOnPublicSdk(
+      [[maybe_unused]] std::string_view type_descriptor) const override {
+    return false;
+  }
+  void SetEnablePublicSdkChecks([[maybe_unused]] bool enabled) override {}
+};
+
+class CommonRuntimeTestCompilerCallbacks final : public CompilerCallbacks {
+ public:
+  CommonRuntimeTestCompilerCallbacks()
+      : CompilerCallbacks(CompilerCallbacks::CallbackMode::kCompileApp) {}
+  ~CommonRuntimeTestCompilerCallbacks() {}
+
+  ClassLinker* CreateAotClassLinker(InternTable* intern_table) override {
+    return new CommonRuntimeTestClassLinker(intern_table);
+  }
+
+  void AddUncompilableMethod([[maybe_unused]] MethodReference ref) override {}
+  void AddUncompilableClass([[maybe_unused]] ClassReference ref) override {}
+  void ClassRejected([[maybe_unused]] ClassReference ref) override {}
+
+  verifier::VerifierDeps* GetVerifierDeps() const override { return nullptr; }
+
+ private:
+  DISALLOW_COPY_AND_ASSIGN(CommonRuntimeTestCompilerCallbacks);
+};
 
 CommonRuntimeTestImpl::CommonRuntimeTestImpl()
     : class_linker_(nullptr),
@@ -112,7 +151,8 @@ void CommonRuntimeTestImpl::SetUp() {
   static bool gSlowDebugTestFlag = false;
   RegisterRuntimeDebugFlag(&gSlowDebugTestFlag);
 
-  callbacks_.reset(new NoopCompilerCallbacks());
+  // Create default compiler callbacks. `SetUpRuntimeOptions()` can replace or remove this.
+  callbacks_.reset(new CommonRuntimeTestCompilerCallbacks());
 
   SetUpRuntimeOptions(&options);
 

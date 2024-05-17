@@ -27,6 +27,11 @@ class NoopCompilerCallbacks final : public CompilerCallbacks {
   NoopCompilerCallbacks() : CompilerCallbacks(CompilerCallbacks::CallbackMode::kCompileApp) {}
   ~NoopCompilerCallbacks() {}
 
+  ClassLinker* CreateAotClassLinker([[maybe_unused]] InternTable* intern_table) override {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
   void AddUncompilableMethod([[maybe_unused]] MethodReference ref) override {}
   void AddUncompilableClass([[maybe_unused]] ClassReference ref) override {}
   void ClassRejected([[maybe_unused]] ClassReference ref) override {}
