@@ -158,24 +158,6 @@ public class PreRebootDexoptJobTest {
     }
 
     @Test
-    public void testStartAlreadyRunning() {
-        Semaphore dexoptDone = new Semaphore(0);
-        when(mPreRebootDriver.run(any(), any())).thenAnswer(invocation -> {
-            assertThat(dexoptDone.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
-            return true;
-        });
-
-        Future<Void> future1 = mPreRebootDexoptJob.start();
-        Future<Void> future2 = mPreRebootDexoptJob.start();
-        assertThat(future1).isSameInstanceAs(future2);
-
-        dexoptDone.release();
-        Utils.getFuture(future1);
-
-        verify(mPreRebootDriver, times(1)).run(any(), any());
-    }
-
-    @Test
     public void testStartAnother() {
         when(mPreRebootDriver.run(any(), any())).thenReturn(true);
 
@@ -259,5 +241,53 @@ public class PreRebootDexoptJobTest {
     @Test(expected = IllegalStateException.class)
     public void testUpdateOtaSlotOtaBogusSlot() {
         mPreRebootDexoptJob.updateOtaSlot("_bogus");
+    }
+
+    /**
+     * Tests the case where new runs are requested (due to rescheduling on update ready or job
+     * scheduler retries) when old runs haven't exited after cancelled.
+     */
+    @Test
+    public void testFrequentReruns() {
+        var globalState = new Semaphore(1);
+        var jobBlocker = new Semaphore(0);
+
+        when(mPreRebootDriver.run(any(), any())).thenAnswer(invocation -> {
+            // Step 2, 5, 8.
+
+            // Verify that different runs don't mutate the global state concurrently.
+            assertThat(globalState.tryAcquire()).isTrue();
+
+            // Simulates that the job is still blocking for a while after being cancelled.
+            assertThat(jobBlocker.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
+
+            // Step 4, 7, 10.
+
+            // Verify that cancellation signals are properly delivered to each run.
+            var cancellationSignal = invocation.<CancellationSignal>getArgument(1);
+            assertThat(cancellationSignal.isCanceled()).isTrue();
+
+            globalState.release();
+            return true;
+        });
+
+        // Step 1.
+        Future<Void> future1 = mPreRebootDexoptJob.start();
+        mPreRebootDexoptJob.cancel(false /* blocking */);
+        Future<Void> future2 = mPreRebootDexoptJob.start();
+        mPreRebootDexoptJob.cancel(false /* blocking */);
+        Future<Void> future3 = mPreRebootDexoptJob.start();
+        mPreRebootDexoptJob.cancel(false /* blocking */);
+
+        // Step 3.
+        jobBlocker.release();
+        // Step 6.
+        jobBlocker.release();
+        // Step 9.
+        jobBlocker.release();
+
+        Utils.getFuture(future1);
+        Utils.getFuture(future2);
+        Utils.getFuture(future3);
     }
 }

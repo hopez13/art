@@ -40,7 +40,11 @@ import com.android.server.art.prereboot.PreRebootDriver;
 
 import java.time.Duration;
 import java.util.Objects;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * The Pre-reboot Dexopt job.
@@ -60,6 +64,17 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     public static final int JOB_ID = 27873781;
 
     @NonNull private final Injector mInjector;
+
+    @NonNull private final BlockingQueue<Runnable> mWorkQueue = new LinkedBlockingQueue<>();
+
+    /**
+     * Serializes mutations to the global state of Pre-reboot Dexopt, including mounts and staged
+     * files.
+     */
+    @NonNull
+    private final ThreadPoolExecutor mSerializedExecutor =
+            new ThreadPoolExecutor(1 /* corePoolSize */, 1 /* maximumPoolSize */,
+                    60 /* keepAliveTime */, TimeUnit.SECONDS, mWorkQueue);
 
     // Job state variables.
     @GuardedBy("this") @Nullable private CompletableFuture<Void> mRunningJob = null;
@@ -85,6 +100,8 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     @VisibleForTesting
     public PreRebootDexoptJob(@NonNull Injector injector) {
         mInjector = injector;
+        // Recycle the thread if it's not used for `keepAliveTime`.
+        mSerializedExecutor.allowsCoreThreadTimeOut();
     }
 
     @Override
@@ -114,6 +131,19 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         return true;
     }
 
+    /**
+     * Notifies this class that an update (OTA or Mainline) is ready.
+     *
+     * @param otaSlot The slot that contains the OTA update, "_a" or "_b", or null for a Mainline
+     *         update.
+     */
+    public @ScheduleStatus int onUpdateReady(@NonNull String otaSlot) {
+        unschedule();
+        updateOtaSlot(otaSlot);
+        return schedule();
+    }
+
+    @VisibleForTesting
     public @ScheduleStatus int schedule() {
         if (this != BackgroundDexoptJobService.getJob(JOB_ID)) {
             throw new IllegalStateException("This job cannot be scheduled");
@@ -155,6 +185,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         }
     }
 
+    @VisibleForTesting
     public void unschedule() {
         if (this != BackgroundDexoptJobService.getJob(JOB_ID)) {
             throw new IllegalStateException("This job cannot be unscheduled");
@@ -163,11 +194,14 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         mInjector.getJobScheduler().cancel(JOB_ID);
     }
 
+    @VisibleForTesting
     @NonNull
     public synchronized CompletableFuture<Void> start() {
         if (mRunningJob != null) {
-            AsLog.i("Job is already running");
-            return mRunningJob;
+            // We can get here only if the previous run has been cancelled but has not exited yet.
+            // This should be very rare. In this case, just queue the new run, as the previous run
+            // will exit soon.
+            Utils.check(mCancellationSignal.isCanceled());
         }
 
         String otaSlot = mOtaSlot;
@@ -181,11 +215,13 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
                 AsLog.e("Fatal error", e);
             } finally {
                 synchronized (this) {
-                    mRunningJob = null;
-                    mCancellationSignal = null;
+                    if (cancellationSignal == mCancellationSignal) {
+                        mRunningJob = null;
+                        mCancellationSignal = null;
+                    }
                 }
             }
-        });
+        }, mSerializedExecutor);
         return mRunningJob;
     }
 
@@ -194,6 +230,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
      *
      * @param blocking whether to wait for the job to exit.
      */
+    @VisibleForTesting
     public void cancel(boolean blocking) {
         CompletableFuture<Void> runningJob = null;
         synchronized (this) {
@@ -210,6 +247,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         }
     }
 
+    @VisibleForTesting
     public synchronized void updateOtaSlot(@NonNull String value) {
         Utils.check(value == null || value.equals("_a") || value.equals("_b"));
         // It's not possible that this method is called with two different slots.
