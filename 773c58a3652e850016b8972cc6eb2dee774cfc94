@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "229142aa_4eb5b72c",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1413436
+      },
+      "writtenOn": "2024-05-17T04:31:52Z",
+      "side": 1,
+      "message": "Does it mean that the device is launched with S, and value of `ro.product.first_api_level` is not available?",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
