@@ -16,6 +16,52 @@
       "message": "Vladimir or Nicolas - Could you please confirm that what I say about ImageWriter, both near the end of the .md file and elsewhere is correct? When we call Deflate from ImageWriter, we are for all intents and purposes single-threaded? It also looked to me like we clobber the list of all monitors. That\u0027s OK before we no longer GC after that? I\u0027m also open to other suggested reviewers for this. Otherwise it would take some digging for me to understand better.\n\nI\u0027m not yet convinced that either the test or performance regressions are real. The only actual executed code change should be an added DCHECK.",
       "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6c745897_1a24e369",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-17T09:07:28Z",
+      "side": 1,
+      "message": "Can we add eg ScopedSuspendAll line 2568 to hold it?",
+      "range": {
+        "startLine": 2571,
+        "startChar": 0,
+        "endLine": 2571,
+        "endChar": 93
+      },
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a5c4c71_d7f346ac",
+        "filename": "runtime/monitor_inflation.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-17T09:07:28Z",
+      "side": 1,
+      "message": "Incomplete sentence?",
+      "range": {
+        "startLine": 54,
+        "startChar": 20,
+        "endLine": 54,
+        "endChar": 85
+      },
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
