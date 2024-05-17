@@ -118,6 +118,30 @@
       },
       "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f266c639_4bd98aea",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-05-17T06:02:39Z",
+      "side": 1,
+      "message": "Wait, what is the values of your device for following properties?:\n- ro.build.version.sdk\n- ro.product.first_api_level\n- ro.product.vndk.version",
+      "parentUuid": "30f2c07b_bcb6500b",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
