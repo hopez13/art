@@ -166,6 +166,30 @@
       },
       "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8546a5fe_edc3698f",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1758183
+      },
+      "writtenOn": "2024-05-17T11:30:50Z",
+      "side": 1,
+      "message": "Yes, that\u0027s exactly the issue here. Thanks.",
+      "parentUuid": "67248a08_e5824bd6",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
