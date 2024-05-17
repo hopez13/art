@@ -140,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "12d4c266_3ea18457",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2024-05-17T09:00:44Z",
+      "side": 1,
+      "message": "Ah never mind, I missed that this class was a test-only helper.",
+      "parentUuid": "97a17483_3762faf2",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 42
+      },
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bac632c8_12173dc3",
