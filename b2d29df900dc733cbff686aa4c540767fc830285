@@ -3,6 +3,145 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f15f2c1a_d5b9e9bb",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2024-05-17T08:59:46Z",
+      "side": 1,
+      "message": "These can be final too, no?",
+      "fixSuggestions": [
+        {
+          "fixId": "498b1a5b_2731bc52",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 26,
+                "startChar": 0,
+                "endLine": 28,
+                "endChar": 0
+              },
+              "replacement": "  private final int mWidth;\n  private final int mHeight;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15f4262d_bcef84b2",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2024-05-17T08:59:46Z",
+      "side": 1,
+      "message": "All except count can be final",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97a17483_3762faf2",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2024-05-17T08:59:46Z",
+      "side": 1,
+      "message": "Do you not want to log something here?  Or maybe resize the arrays?  Or use Collections that dynamically resize themselves?",
+      "range": {
+        "startLine": 54,
+        "startChar": 0,
+        "endLine": 54,
+        "endChar": 42
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6c8a93a3_7e170b47",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 19,
+                "startChar": 0,
+                "endLine": 19,
+                "endChar": 0
+              },
+              "replacement": "import java.util.ArrayList;\nimport java.util.List;\n\n"
+            },
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 33,
+                "startChar": 0,
+                "endLine": 34,
+                "endChar": 0
+              },
+              "replacement": "    dumpData.add(nativePtr, buffer, width, height);\n"
+            },
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 37,
+                "startChar": 0,
+                "endLine": 42,
+                "endChar": 0
+              },
+              "replacement": "    private final List\u003cLong\u003e natives;\n    private final List\u003cbyte[]\u003e buffers;\n    private final int format;\n    private final int max;\n"
+            },
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 46,
+                "startChar": 0,
+                "endLine": 49,
+                "endChar": 0
+              },
+              "replacement": "      this.natives \u003d new ArrayList\u003c\u003e(max);\n      this.buffers \u003d new ArrayList\u003c\u003e(max);\n"
+            },
+            {
+              "path": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+              "range": {
+                "startLine": 51,
+                "startChar": 0,
+                "endLine": 55,
+                "endChar": 0
+              },
+              "replacement": "    public void add(long nativePtr, byte[] buffer, int width, int height) {\n      if (natives.size() \u003c max) {\n        natives.add(nativePtr);\n        buffers.add(buffer);\n      }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "bac632c8_12173dc3",
         "filename": "tools/ahat/src/test/com/android/ahat/InstanceTest.java",
         "patchSetId": 4
