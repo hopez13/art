@@ -81,6 +81,30 @@
       },
       "revId": "8bb1ad39322d3ada2378bd75ae83907a67aa2e49",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1a8ee100_2d6600b7",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1146974
+      },
+      "writtenOn": "2024-05-17T12:08:30Z",
+      "side": 1,
+      "message": "Oops, you\u0027re right. I thought it was \"less than U\".\nFixed.",
+      "parentUuid": "80c04ad1_ebe2fca4",
+      "range": {
+        "startLine": 432,
+        "startChar": 9,
+        "endLine": 432,
+        "endChar": 50
+      },
+      "revId": "8bb1ad39322d3ada2378bd75ae83907a67aa2e49",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
