@@ -94,6 +94,30 @@
       },
       "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "30f2c07b_bcb6500b",
+        "filename": "libnativeloader/public_libraries.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1758183
+      },
+      "writtenOn": "2024-05-17T05:41:34Z",
+      "side": 1,
+      "message": "That device is not running with a Q vendor image vor anything like that.\nIf this was correct I don\u0027t think apps like LatinIME were supposed to crash.....",
+      "parentUuid": "4369f074_072837d2",
+      "range": {
+        "startLine": 434,
+        "startChar": 39,
+        "endLine": 434,
+        "endChar": 65
+      },
+      "revId": "773c58a3652e850016b8972cc6eb2dee774cfc94",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
