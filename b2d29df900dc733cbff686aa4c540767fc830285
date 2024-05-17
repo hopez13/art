@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0204eb63_247c05b3",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-05-17T23:59:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "f15f2c1a_d5b9e9bb",
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "15f4262d_bcef84b2",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-05-17T08:59:46Z",
       "side": 1,
       "message": "All except count can be final",
+      "range": {
+        "startLine": 38,
+        "startChar": 16,
+        "endLine": 38,
+        "endChar": 22
+      },
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d76d4655_09ffb2e0",
+        "filename": "tools/ahat/src/test-dump/android/graphics/Bitmap.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-05-17T23:59:15Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "15f4262d_bcef84b2",
       "range": {
         "startLine": 38,
         "startChar": 16,
@@ -177,6 +219,24 @@
       "writtenOn": "2024-05-17T08:42:28Z",
       "side": 1,
       "message": "Would you also want to check that data is preserved correctly?",
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa7bc813_3e3fddcf",
+        "filename": "tools/ahat/src/test/com/android/ahat/InstanceTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-05-17T23:59:15Z",
+      "side": 1,
+      "message": "right now, I\u0027m using `bigArray` as the byte buffer for the bitmap(s) in the tests. Do we see any case where data could be altered? If so - do we suggest we do byte-by-byte comparison, or maybe like we could do the same as in `primArrayInstanceToString()`?",
+      "parentUuid": "bac632c8_12173dc3",
       "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
