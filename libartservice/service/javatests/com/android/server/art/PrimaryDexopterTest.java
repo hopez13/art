@@ -140,6 +140,13 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
                 .when(mArtd.createCancellationSignal())
                 .thenReturn(mock(IArtdCancellationSignal.class));
 
+        lenient()
+                .when(mArtd.getDexFileVisibility(mDexPath))
+                .thenReturn(FileVisibility.OTHER_READABLE);
+        lenient()
+                .when(mArtd.getDexFileVisibility(mSplit0DexPath))
+                .thenReturn(FileVisibility.OTHER_READABLE);
+
         mPrimaryDexopter =
                 new PrimaryDexopter(mInjector, mPkgState, mPkg, mDexoptParams, mCancellationSignal);
 
@@ -848,6 +855,19 @@ public class PrimaryDexopterTest extends PrimaryDexopterTestBase {
         assertThat(
                 results.get(3).getExtendedStatusFlags() & DexoptResult.EXTENDED_SKIPPED_NO_DEX_CODE)
                 .isEqualTo(0);
+    }
+
+    @Test
+    public void testDexoptPreRebootDexNotFound() throws Exception {
+        when(mInjector.isPreReboot()).thenReturn(true);
+        doReturn(FileVisibility.NOT_FOUND).when(mArtd).getDexFileVisibility(mDexPath);
+        doReturn(FileVisibility.NOT_FOUND).when(mArtd).getDexFileVisibility(mSplit0DexPath);
+
+        mPrimaryDexopter =
+                new PrimaryDexopter(mInjector, mPkgState, mPkg, mDexoptParams, mCancellationSignal);
+
+        List<DexContainerFileDexoptResult> results = mPrimaryDexopter.dexopt();
+        assertThat(results).hasSize(0);
     }
 
     private void checkDexoptWithProfile(IArtd artd, String dexPath, String isa, ProfilePath profile,
