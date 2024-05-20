@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d267da3_56303536",
+        "filename": "runtime/native_gc_triggering.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-20T21:18:43Z",
+      "side": 1,
+      "message": "`on`",
+      "range": {
+        "startLine": 8,
+        "startChar": 74,
+        "endLine": 8,
+        "endChar": 76
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d5e7c929_90666b75",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/native_gc_triggering.md",
+              "range": {
+                "startLine": 8,
+                "startChar": 0,
+                "endLine": 9,
+                "endChar": 0
+              },
+              "replacement": "for platform code, `NativeAllocationRegistry`. Internally, these all rely on the garbage\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e3ff0c1c62a25baeb162d567e8aa0d1ad88b66e9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
