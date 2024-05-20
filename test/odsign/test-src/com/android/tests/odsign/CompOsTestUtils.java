@@ -122,6 +122,11 @@ public class CompOsTestUtils {
         TestDevice testDevice = (TestDevice) mDevice;
         assumeTrue("Requires VM support", testDevice.supportsMicrodroid());
 
+        String protected_vm_supported =
+            mDevice.getProperty("ro.boot.hypervisor.protected_vm.supported");
+        assumeTrue("Requires protected VM support", !(protected_vm_supported == null
+            || protected_vm_supported.isEmpty()));
+
         // And the CompOS APEX must be present.
         assumeTrue(mDevice.doesFileExist("/apex/com.android.compos/"));
     }
