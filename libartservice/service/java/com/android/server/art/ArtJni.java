@@ -112,9 +112,25 @@ public class ArtJni {
         return getGarbageCollectorNative();
     }
 
+    /**
+     * Sets the system property {@code key} to {@code value}.
+     *
+     * @throws IllegalStateException if the operation fails. This caller should not expect this,
+     *         unless the inputs are invalid (e.g., value too long).
+     */
+    @NonNull
+    public static void setProperty(@NonNull String key, @NonNull String value) {
+        if (GlobalInjector.getInstance().isPreReboot()) {
+            // We don't need this for Pre-reboot Dexopt.
+            throw new UnsupportedOperationException();
+        }
+        setPropertyNative(key, value);
+    }
+
     @Nullable private static native String validateDexPathNative(@NonNull String dexPath);
     @Nullable
     private static native String validateClassLoaderContextNative(
             @NonNull String dexPath, @NonNull String classLoaderContext);
     @NonNull private static native String getGarbageCollectorNative();
+    private static native void setPropertyNative(@NonNull String key, @NonNull String value);
 }
