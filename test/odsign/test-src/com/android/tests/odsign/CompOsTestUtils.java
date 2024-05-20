@@ -136,4 +136,12 @@ public class CompOsTestUtils {
         assertWithMessage(result.toString()).that(result.getExitCode()).isEqualTo(0);
         return result.getStdout().trim();
     }
+
+    public void assumeProtectedVM() throws Exception {
+        TestDevice testDevice = (TestDevice) mDevice;
+        String protected_vm_supported =
+            testDevice.getProperty("ro.boot.hypervisor.protected_vm.supported");
+        assumeTrue("Requires protected VM support", !(protected_vm_supported == null
+            || protected_vm_supported.isEmpty()));
+    }
 }
