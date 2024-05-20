@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e55dc3b7_20812c8f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-20T13:22:47Z",
+      "side": 1,
+      "message": "Thanks for taking care of de-flaking these tests, Vladimír.",
+      "revId": "b5ce8900215995dca4bae2af308ac9bba766dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d77941ac_8deb0289",
+        "filename": "runtime/hidden_api_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-20T13:22:47Z",
+      "side": 1,
+      "message": "This value (`location.length() - suffix.length()`) is used multiple times; maybe put it in a constant (e.g. `prefix_length` or `stem_length`?)",
+      "range": {
+        "startLine": 207,
+        "startChar": 51,
+        "endLine": 207,
+        "endChar": 86
+      },
+      "revId": "b5ce8900215995dca4bae2af308ac9bba766dc21",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
