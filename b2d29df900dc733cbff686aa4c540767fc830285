@@ -239,6 +239,24 @@
       "parentUuid": "bac632c8_12173dc3",
       "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4505684_c81c965c",
+        "filename": "tools/ahat/src/test/com/android/ahat/InstanceTest.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 427,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2024-05-20T11:41:37Z",
+      "side": 1,
+      "message": "I was thinking of all the data found in the bitmap instance, like format, size and buffer. It could be byte-by-byte comparison for the data in the buffer.",
+      "parentUuid": "aa7bc813_3e3fddcf",
+      "revId": "b2d29df900dc733cbff686aa4c540767fc830285",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
