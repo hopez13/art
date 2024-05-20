@@ -62,8 +62,8 @@ public class PreRebootDexoptJobTest {
     private static final long TIMEOUT_SEC = 10;
 
     @Rule
-    public StaticMockitoRule mockitoRule = new StaticMockitoRule(
-            SystemProperties.class, BackgroundDexoptJobService.class, DeviceConfig.class);
+    public StaticMockitoRule mockitoRule = new StaticMockitoRule(SystemProperties.class,
+            BackgroundDexoptJobService.class, DeviceConfig.class, ArtJni.class);
 
     @Mock private PreRebootDexoptJob.Injector mInjector;
     @Mock private JobScheduler mJobScheduler;
@@ -83,6 +83,11 @@ public class PreRebootDexoptJobTest {
         lenient()
                 .when(DeviceConfig.getBoolean(
                         eq(DeviceConfig.NAMESPACE_RUNTIME), eq("enable_pr_dexopt"), anyBoolean()))
+                .thenReturn(false);
+
+        lenient()
+                .when(SystemProperties.getBoolean(
+                        eq("dalvik.vm.pre-reboot.has-started"), anyBoolean()))
                 .thenReturn(false);
 
         lenient().when(mInjector.getJobScheduler()).thenReturn(mJobScheduler);
@@ -152,6 +157,15 @@ public class PreRebootDexoptJobTest {
     @Test
     public void testStart() {
         when(mPreRebootDriver.run(any(), any(), any())).thenReturn(true);
+
+        // This is a hack to mock a method that is both void and static. There is no other way due
+        // to the poor design of Mockito API.
+        ArtJni.setProperty("dalvik.vm.pre-reboot.has-started", "true");
+        when(ArtJni.class).thenAnswer(invocation -> {
+            when(SystemProperties.getBoolean(eq("dalvik.vm.pre-reboot.has-started"), anyBoolean()))
+                    .thenReturn(true);
+            return null;
+        });
 
         assertThat(mPreRebootDexoptJob.hasStarted()).isFalse();
         Future<Boolean> future = mPreRebootDexoptJob.start();
