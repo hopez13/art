@@ -16,6 +16,41 @@
       "message": "PTAL. Thanks!",
       "revId": "36f199b0313bbae1ffa8a41240647f9778548a25",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3568ba0a_aa9d9fde",
+        "filename": "runtime/instrumentation.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-21T12:52:24Z",
+      "side": 1,
+      "message": "nit: add a comment when we enter this case. Alternatively, looks like this case should be handled by the callers?",
+      "fixSuggestions": [
+        {
+          "fixId": "503fd342_006945bb",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/instrumentation.cc",
+              "range": {
+                "startLine": 462,
+                "startChar": 0,
+                "endLine": 462,
+                "endChar": 0
+              },
+              "replacement": "  // This can happen when we are processing a method exit event for a method that\n  // has been deoptimized.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "36f199b0313bbae1ffa8a41240647f9778548a25",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
