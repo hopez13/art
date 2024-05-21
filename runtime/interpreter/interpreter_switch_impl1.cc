@@ -115,6 +115,74 @@ void ActiveTransactionChecker::RecordArrayElementsInTransaction(ObjPtr<mirror::O
   }
 }
 
+class InactiveInstrumentationHandler {
+ public:
+  ALWAYS_INLINE WARN_UNUSED
+  static bool HasFieldReadListeners(const instrumentation::Instrumentation* instrumentation)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!instrumentation->HasFieldReadListeners());
+    return false;
+  }
+
+  ALWAYS_INLINE WARN_UNUSED
+  static bool HasFieldWriteListeners(const instrumentation::Instrumentation* instrumentation)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!instrumentation->HasFieldWriteListeners());
+    return false;
+  }
+
+  ALWAYS_INLINE WARN_UNUSED
+  static bool HasBranchListeners(const instrumentation::Instrumentation* instrumentation)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!instrumentation->HasBranchListeners());
+    return false;
+  }
+
+  ALWAYS_INLINE WARN_UNUSED
+  static bool NeedsDexPcEvents(ShadowFrame& shadow_frame)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!shadow_frame.GetNotifyDexPcMoveEvents());
+    DCHECK(!Runtime::Current()->GetInstrumentation()->HasDexPcListeners());
+    return false;
+  }
+
+  ALWAYS_INLINE WARN_UNUSED
+  static bool NeedsMethodExitEvent(const instrumentation::Instrumentation* instrumentation)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    DCHECK(!interpreter::NeedsMethodExitEvent(instrumentation));
+    return false;
+  }
+
+  static bool GetForcePopFrame(ShadowFrame& shadow_frame) {
+    DCHECK(!shadow_frame.GetForcePopFrame());
+    DCHECK(!Runtime::Current()->AreNonStandardExitsEnabled());
+    return false;
+  }
+
+  NO_INLINE static bool DoDexPcMoveEvent(
+      [[maybe_unused]] Thread* self,
+      [[maybe_unused]] const CodeItemDataAccessor& accessor,
+      [[maybe_unused]] const ShadowFrame& shadow_frame,
+      [[maybe_unused]] uint32_t dex_pc_,
+      [[maybe_unused]] const instrumentation::Instrumentation* instrumentation,
+      [[maybe_unused]] JValue* save_ref)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+
+  template <typename T>
+  static bool SendMethodExitEvents(
+      [[maybe_unused]] Thread* self,
+      [[maybe_unused]] const instrumentation::Instrumentation* instrumentation,
+      [[maybe_unused]] ShadowFrame& frame,
+      [[maybe_unused]] ArtMethod* method,
+      [[maybe_unused]] T& result) REQUIRES_SHARED(Locks::mutator_lock_) {
+    LOG(FATAL) << "UNREACHABLE";
+    UNREACHABLE();
+  }
+};
+
 // Explicit definition of ExecuteSwitchImplCpp.
 template
 void ExecuteSwitchImplCpp<true>(SwitchImplContext* ctx);
