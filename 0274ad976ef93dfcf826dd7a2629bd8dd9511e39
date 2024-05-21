@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f17f45_fa9b03e0",
+        "filename": "libartservice/service/java/com/android/server/art/Dexopter.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 126,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-21T15:06:09Z",
+      "side": 1,
+      "message": "Nit: Maybe combine the two if\u0027s to one and get a little less indentation. Optional.",
+      "range": {
+        "startLine": 126,
+        "startChar": 20,
+        "endLine": 126,
+        "endChar": 49
+      },
+      "revId": "0274ad976ef93dfcf826dd7a2629bd8dd9511e39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23127f53_4b5c7ea4",
+        "filename": "libartservice/service/javatests/com/android/server/art/PrimaryDexopterTest.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 864,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-21T15:06:09Z",
+      "side": 1,
+      "message": "We can have the case that either of these is found and the other isn\u0027t, right? And if so we\u0027ll just dexopt the one that is. Maybe worth exercising that edge case in this test, also to acknowledge to the reader that that\u0027s indeed is how it works?",
+      "range": {
+        "startLine": 863,
+        "startChar": 0,
+        "endLine": 864,
+        "endChar": 92
+      },
+      "revId": "0274ad976ef93dfcf826dd7a2629bd8dd9511e39",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
