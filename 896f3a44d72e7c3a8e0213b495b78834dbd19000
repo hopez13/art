@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba8959c4_0f8a0685",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-21T12:53:46Z",
+      "side": 1,
+      "message": "to recognize?",
+      "range": {
+        "startLine": 270,
+        "startChar": 21,
+        "endLine": 270,
+        "endChar": 28
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "55bfcee0_5eab870b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/gc/collector/mark_compact-inl.h",
+              "range": {
+                "startLine": 270,
+                "startChar": 0,
+                "endLine": 271,
+                "endChar": 0
+              },
+              "replacement": "  // it difficult to recognize stack pointers from being checked. So skip using\n"
+            }
+          ]
+        }
+      ],
+      "revId": "896f3a44d72e7c3a8e0213b495b78834dbd19000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
