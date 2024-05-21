@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3f32b444_9441b29e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-21T21:31:49Z",
+      "side": 1,
+      "message": "I\u0027m OK with either this approach, or attempting to fix the real problem here. But we should probably fix the comparisons at some point either way.\n\nIt may be worth asking the HWASAN folks how they deal with such comparisons and what the best solution really is. I expect they don\u0027t strip tags before pointer comparisons, but I\u0027m not sure.",
+      "revId": "03374abbfbe7f2064d18f8a9fc618d1396ea3556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82464327_895ef589",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-21T21:31:49Z",
+      "side": 1,
+      "message": "I don\u0027t think this turned out as either of you intended. \"recognize and prevent\"?",
+      "range": {
+        "startLine": 270,
+        "startChar": 5,
+        "endLine": 270,
+        "endChar": 65
+      },
+      "revId": "03374abbfbe7f2064d18f8a9fc618d1396ea3556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89e10eb3_c8a81a91",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-21T21:31:49Z",
+      "side": 1,
+      "message": "I suspect the typing here is the real problem. The comparisons should be done on uintptr_t or using std::less(), \u003c comparisons on pointers to unrelated objects like this are UB, and something here may be taking advantage of that.",
+      "range": {
+        "startLine": 273,
+        "startChar": 4,
+        "endLine": 273,
+        "endChar": 9
+      },
+      "revId": "03374abbfbe7f2064d18f8a9fc618d1396ea3556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "77a0e83a_1b1b0007",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 293,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-05-21T21:31:49Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be a CHECK? You\u0027re doing the DumpMaps either way ...",
+      "range": {
+        "startLine": 293,
+        "startChar": 8,
+        "endLine": 293,
+        "endChar": 14
+      },
+      "revId": "03374abbfbe7f2064d18f8a9fc618d1396ea3556",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
