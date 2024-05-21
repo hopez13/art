@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "39f44514_aba9edcc",
+        "filename": "runtime/quick_exception_handler.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 446,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-21T15:14:07Z",
+      "side": 1,
+      "message": "Maybe avoid this check by not making the line 453 an `else if`?",
+      "range": {
+        "startLine": 446,
+        "startChar": 6,
+        "endLine": 446,
+        "endChar": 27
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "38a81371_27d10daa",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/quick_exception_handler.cc",
+              "range": {
+                "startLine": 446,
+                "startChar": 0,
+                "endLine": 449,
+                "endChar": 0
+              },
+              "replacement": "        Runtime::Current()-\u003eGetInstrumentation()-\u003eMethodSupportsExitEvents(\n            method, GetCurrentOatQuickMethodHeader());\n"
+            }
+          ]
+        }
+      ],
+      "revId": "82dc93d1a079621fb3126596bb409bee26ba9271",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
