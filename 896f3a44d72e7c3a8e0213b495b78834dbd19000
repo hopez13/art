@@ -40,6 +40,30 @@
       ],
       "revId": "896f3a44d72e7c3a8e0213b495b78834dbd19000",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc23d87_fdecb479",
+        "filename": "runtime/gc/collector/mark_compact-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-05-21T17:37:59Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "ba8959c4_0f8a0685",
+      "range": {
+        "startLine": 270,
+        "startChar": 21,
+        "endLine": 270,
+        "endChar": 28
+      },
+      "revId": "896f3a44d72e7c3a8e0213b495b78834dbd19000",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
