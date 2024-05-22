@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cfa2cfce_df023a84",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-05-22T15:22:06Z",
+      "side": 1,
+      "message": "This should be moved to CompOsSigningHostTest (not CompOsDenialHostTest, since it\u0027s not part of CTS).",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "c71df71c1e6f3123e283cda39c4841800e3f0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
