@@ -269,7 +269,7 @@ inline bool MarkCompact::VerifyRootSingleUpdate(void* root,
   // stack-use-after-return issues. And HWASAN has pointers tagged, which makes
   // it difficult to recognize and prevent stack pointers from being checked.
   // So skip using double-root update detection on ASANs.
-  if (kIsDebugBuild && !kMemoryToolIsAvailable && !kHwAsanEnabled) {
+  if (kIsDebugBuild && !kMemoryToolIsAvailable) {
     void* stack_low_addr = stack_low_addr_;
     void* stack_high_addr = stack_high_addr_;
     if (!HasAddress(old_ref)) {
