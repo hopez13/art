@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cd6c02c9_43a846a4",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-22T16:19:19Z",
+      "side": 1,
+      "message": "```\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d High-level APEX size diffs \u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\ncom.google.android.art.apex: -2.8 MiB (47.2 MiB -\u003e 44.4 MiB)\n\nModified shared libs:\nlib/libjavacore.so: +53.1 KiB\nlib64/libjavacore.so: +81.3 KiB\nlib64/libopenjdk.so: 0 B\nlib/libopenjdk.so: -24 B\n\nRemoved apks/jars:\nlib/libcrypto.so: -1.4 MiB\nlib64/libcrypto.so: -1.5 MiB\n```\n\n😊",
+      "revId": "a90f980d4250eab3fdaa8c10e92543e93cdd3373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
