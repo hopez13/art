@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "c7089501_7e54575b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 15,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-22T17:26:32Z",
+      "side": 1,
+      "message": "Should we also tag a bug tracking our size reduction efforts, e.g. b/292564972 or one of its children?",
+      "range": {
+        "startLine": 15,
+        "startChar": 0,
+        "endLine": 15,
+        "endChar": 14
+      },
+      "revId": "a90f980d4250eab3fdaa8c10e92543e93cdd3373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "cd6c02c9_43a846a4",
@@ -14,6 +37,41 @@
       "writtenOn": "2024-05-22T16:19:19Z",
       "side": 1,
       "message": "```\n\u003d\u003d\u003d\u003d\u003d\u003d\u003d High-level APEX size diffs \u003d\u003d\u003d\u003d\u003d\u003d\u003d\n\ncom.google.android.art.apex: -2.8 MiB (47.2 MiB -\u003e 44.4 MiB)\n\nModified shared libs:\nlib/libjavacore.so: +53.1 KiB\nlib64/libjavacore.so: +81.3 KiB\nlib64/libopenjdk.so: 0 B\nlib/libopenjdk.so: -24 B\n\nRemoved apks/jars:\nlib/libcrypto.so: -1.4 MiB\nlib64/libcrypto.so: -1.5 MiB\n```\n\n😊",
+      "revId": "a90f980d4250eab3fdaa8c10e92543e93cdd3373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a9a4cbd1_53969b9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-22T17:26:32Z",
+      "side": 1,
+      "message": "Yay! 🎉\n\nMaybe mention this in the commit message as well for visibility?",
+      "parentUuid": "cd6c02c9_43a846a4",
+      "revId": "a90f980d4250eab3fdaa8c10e92543e93cdd3373",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8446c3ba_eebe78ed",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-22T17:26:32Z",
+      "side": 1,
+      "message": "Very nice!😃",
       "revId": "a90f980d4250eab3fdaa8c10e92543e93cdd3373",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
