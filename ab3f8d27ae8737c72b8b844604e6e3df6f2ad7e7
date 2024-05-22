@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9d362bc3_378514a7",
+        "filename": "compiler/optimizing/code_generator.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 64,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T15:23:29Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/3094245 .\n\n(Without moving these to `CodeGenerator` because some users are not in `CodeGenerator*`.)",
+      "parentUuid": "8e369724_19af24d0",
+      "range": {
+        "startLine": 64,
+        "startChar": 17,
+        "endLine": 64,
+        "endChar": 36
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "5b6a6a22_8d66407e",
         "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
         "patchSetId": 4
@@ -117,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a0e085c_e5c7b655",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T15:23:29Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/3094245 .",
+      "parentUuid": "0180fc4c_31e78c2d",
+      "range": {
+        "startLine": 1273,
+        "startChar": 4,
+        "endLine": 1273,
+        "endChar": 18
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "52130aa1_d4ed7561",
@@ -130,6 +178,30 @@
       "writtenOn": "2024-05-22T11:14:44Z",
       "side": 1,
       "message": "This should have been `IsInitialized()`. We\u0027re currently emitting unnecessary class initialization checks on the device. (Prebuilts are OK because we skip \"Initialized\" and go directly to \"VisiblyInitialized\" on x86/x86-64.)\n\nI\u0027ll upload a fix shortly.",
+      "range": {
+        "startLine": 2237,
+        "startChar": 16,
+        "endLine": 2237,
+        "endChar": 38
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01ba44ca_689b85df",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T15:23:29Z",
+      "side": 1,
+      "message": "Fixed in https://android-review.googlesource.com/3094245 .",
+      "parentUuid": "52130aa1_d4ed7561",
       "range": {
         "startLine": 2237,
         "startChar": 16,
@@ -163,6 +235,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "02d5e0f1_7f6f950d",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2239,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T15:23:29Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/3094245 .",
+      "parentUuid": "9bab79d4_00ba1e9d",
+      "range": {
+        "startLine": 2239,
+        "startChar": 26,
+        "endLine": 2239,
+        "endChar": 42
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "210d4359_3fc35b52",
@@ -176,6 +272,30 @@
       "writtenOn": "2022-09-16T13:03:46Z",
       "side": 1,
       "message": "typo",
+      "range": {
+        "startLine": 60,
+        "startChar": 30,
+        "endLine": 60,
+        "endChar": 34
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8c538aa_69fe5a99",
+        "filename": "libdexfile/dex/modifiers.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T15:23:29Z",
+      "side": 1,
+      "message": "Done in https://android-review.googlesource.com/3094245 .",
+      "parentUuid": "210d4359_3fc35b52",
       "range": {
         "startLine": 60,
         "startChar": 30,
