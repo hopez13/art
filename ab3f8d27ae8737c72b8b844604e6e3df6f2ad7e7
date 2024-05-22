@@ -119,6 +119,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "52130aa1_d4ed7561",
+        "filename": "dex2oat/driver/compiler_driver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2237,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-22T11:14:44Z",
+      "side": 1,
+      "message": "This should have been `IsInitialized()`. We\u0027re currently emitting unnecessary class initialization checks on the device. (Prebuilts are OK because we skip \"Initialized\" and go directly to \"VisiblyInitialized\" on x86/x86-64.)\n\nI\u0027ll upload a fix shortly.",
+      "range": {
+        "startLine": 2237,
+        "startChar": 16,
+        "endLine": 2237,
+        "endChar": 38
+      },
+      "revId": "ab3f8d27ae8737c72b8b844604e6e3df6f2ad7e7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "9bab79d4_00ba1e9d",
         "filename": "dex2oat/driver/compiler_driver.cc",
         "patchSetId": 4
