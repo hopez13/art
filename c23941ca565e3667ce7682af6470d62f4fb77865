@@ -118,6 +118,30 @@
       },
       "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73be7185_66feeccd",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-23T13:15:05Z",
+      "side": 1,
+      "message": "No, the `last_no_transaction_checks_cause` can be non-null while running multi-threaded.\n\nWhen executing multi-threaded, the `Runtime::active_transaction_` should be false. But we may still want to assert that we don\u0027t even _look_ at that flag - in some contexts that would be an unnecessary check (unnecessary code bloat and performance hit).",
+      "parentUuid": "c5740974_a2e0e88f",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
