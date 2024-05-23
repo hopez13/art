@@ -6313,10 +6313,18 @@ bool ClassLinker::LinkClass(Thread* self,
   if (!LinkInstanceFields(self, klass)) {
     return false;
   }
+  // TODO: compute the size of reference bitmap we need based on super-class'
+  // bitmap and instance ref-count klass has. Set the first-entry with the right
+  // length so that GetFirstReferenceStaticFieldOffsetDuringLinking correctly
+  // works in LinkStaticFields. That will also take care of correctly computing
+  // class_size.
+  klass->ComputeInstanceReferenceBitmapSizeDuringLinking(image_pointer_size_);
   size_t class_size;
   if (!LinkStaticFields(self, klass, &class_size)) {
     return false;
   }
+  // TODO: convert the following function into something that takes care of the
+  // entire bitmap and will have to be moved down.
   CreateReferenceInstanceOffsets(klass);
   CHECK_EQ(ClassStatus::kLoaded, klass->GetStatus());
 
