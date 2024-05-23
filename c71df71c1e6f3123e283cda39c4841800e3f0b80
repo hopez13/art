@@ -22,6 +22,30 @@
       },
       "revId": "c71df71c1e6f3123e283cda39c4841800e3f0b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa613d4b_0e53953e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-05-23T21:17:53Z",
+      "side": 1,
+      "message": "Sorry, please hold for a little bit.  We\u0027re discussion whether it\u0027s better to skip the test for non-protected VM, or still run it but adjust the expectation to verify the compilation is done during the boot time with a non-protected VM.",
+      "parentUuid": "cfa2cfce_df023a84",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "c71df71c1e6f3123e283cda39c4841800e3f0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
