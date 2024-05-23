@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "9cca661f_feb5e867",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 157,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:15:17Z",
+      "side": 1,
+      "message": "Right, system_server doesn\u0027t fork.",
+      "parentUuid": "db9e20be_db0574fd",
+      "range": {
+        "startLine": 157,
+        "startChar": 76,
+        "endLine": 157,
+        "endChar": 77
+      },
+      "revId": "fdbf372526850099ea29c844cdef77094baf5192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "e10af611_03fa9947",
         "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
         "patchSetId": 4
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-23T17:06:53Z",
       "side": 1,
       "message": "Huh, [this code](https://cs.android.com/android/platform/superproject/main/+/main:libcore/luni/src/main/java/libcore/io/Streams.java;l\u003d263-273;drc\u003dbacbadbc61a48e90cb5976040e7e0695bb75b69a) is ancient and uses a piddly 8 KiB buffer for the copy. Not that it matters for us, but it looks like it could use an update. I\u0027ll mention it to the libcore folks.",
+      "range": {
+        "startLine": 160,
+        "startChar": 20,
+        "endLine": 160,
+        "endChar": 24
+      },
+      "revId": "fdbf372526850099ea29c844cdef77094baf5192",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ae0c42b8_4c02357f",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 160,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:15:17Z",
+      "side": 1,
+      "message": "I think the performance is not a worry here. Otherwise, we can use FileChannel to mmap the file and do memcpy. I just think this `Streams.copy` is handy.",
+      "parentUuid": "e10af611_03fa9947",
       "range": {
         "startLine": 160,
         "startChar": 20,

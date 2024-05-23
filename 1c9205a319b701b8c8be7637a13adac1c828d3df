@@ -22,6 +22,30 @@
       },
       "revId": "1c9205a319b701b8c8be7637a13adac1c828d3df",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6984ff6_60327af7",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:15:17Z",
+      "side": 1,
+      "message": "No, this has nothing to do with how we use artd. It\u0027s how the service manager works. https://yaqs.corp.google.com/eng/q/3021152288895926272#a1",
+      "parentUuid": "b7d952eb_9aec6443",
+      "range": {
+        "startLine": 123,
+        "startChar": 68,
+        "endLine": 123,
+        "endChar": 92
+      },
+      "revId": "1c9205a319b701b8c8be7637a13adac1c828d3df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
