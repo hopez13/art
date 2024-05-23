@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "896f7d29_e8dd275b",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 185,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-23T18:03:09Z",
+      "side": 1,
+      "message": "If a job is already running (and presumably cancelling itself by this point) then the timestamp for this even may be delayed a bit. I\u0027m not sure how much that may matter, but it\u0027s easier to follow if this feeds in the current timestamp at the call to `execute` into `recordJobScheduled`.\n\nBut here too, on the grounds that this will be reworked, no action needed.",
+      "revId": "9e459fed79f459ab9b5f1d0b5eb89cd898826c81",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

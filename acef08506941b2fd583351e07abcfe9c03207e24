@@ -83,6 +83,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2423041a_1683dc54",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 1662,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-23T18:03:09Z",
+      "side": 1,
+      "message": "I\u0027m probably missing something. If it\u0027s not for testing, why go through an injector at all?",
+      "parentUuid": "de40b3e5_9ca3923f",
+      "range": {
+        "startLine": 1658,
+        "startChar": 0,
+        "endLine": 1662,
+        "endChar": 9
+      },
+      "revId": "acef08506941b2fd583351e07abcfe9c03207e24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "cf36861b_d5c08612",
@@ -532,6 +556,30 @@
       "side": 1,
       "message": "Removed the parentheses above. Looks like we almost never add parentheses when there is exactly one parameter.",
       "parentUuid": "384e98df_006f5faf",
+      "range": {
+        "startLine": 152,
+        "startChar": 36,
+        "endLine": 152,
+        "endChar": 42
+      },
+      "revId": "acef08506941b2fd583351e07abcfe9c03207e24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ccc05ea7_d588d97a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 152,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-23T18:03:09Z",
+      "side": 1,
+      "message": "All right. I kinda like the parentheses because it makes it look more like a function, but there\u0027s nothing about it on go/javastyle, so I guess I have to get used to it.",
+      "parentUuid": "dff98645_0b563e5d",
       "range": {
         "startLine": 152,
         "startChar": 36,
