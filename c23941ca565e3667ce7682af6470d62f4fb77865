@@ -94,6 +94,30 @@
       },
       "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5740974_a2e0e88f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-23T13:06:19Z",
+      "side": 1,
+      "message": "\u003e Because these checks are executed also when running multi-threaded.\n\nRight, but then there is no transaction and we expect the char to be empty, no?\n\n\u003e \n\u003e As I wrote above: \"If a transaction is active, we know we\u0027re running single-threaded but this is trying to prevent the very check for active transactions.\" And that check is often done concurrently from multiple threads.\n\u003e \n\u003e (I actually tried to put the flag to `Runtime` first before hitting failures in gtests and realizing that we need a `Thread`-specific check.)",
+      "parentUuid": "d82ebcac_2e729f6c",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
