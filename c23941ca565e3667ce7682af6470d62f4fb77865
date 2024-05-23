@@ -70,6 +70,30 @@
       },
       "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d82ebcac_2e729f6c",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-23T12:31:09Z",
+      "side": 1,
+      "message": "Because these checks are executed also when running multi-threaded.\n\nAs I wrote above: \"If a transaction is active, we know we\u0027re running single-threaded but this is trying to prevent the very check for active transactions.\" And that check is often done concurrently from multiple threads.\n\n(I actually tried to put the flag to `Runtime` first before hitting failures in gtests and realizing that we need a `Thread`-specific check.)",
+      "parentUuid": "3a5b71fc_998cdb39",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
