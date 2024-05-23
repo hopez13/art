@@ -346,6 +346,22 @@ inline int32_t Class::GetEmbeddedVTableLength() {
   return GetField32<kVerifyFlags>(MemberOffset(EmbeddedVTableLengthOffset()));
 }
 
+template <VerifyObjectFlags kVerifyFlags>
+inline uint32_t Class::GetInstanceReferenceBitmapFirstEntry(uint32_t num_vtable_entries,
+                                                            PointerSize pointer_size) {
+  return GetField32<kVerifyFlags>(
+      MemberOffset(EmbeddedReferenceBitmapOffset(num_vtable_entries, pointer_size)));
+}
+
+template <VerifyObjectFlags kVerifyFlags>
+inline uint32_t Class::GetInstanceReferenceBitmapLength(uint32_t num_vtable_entries,
+                                                        PointerSize pointer_size) {
+  uint32_t first_entry = GetInstanceReferenceBitmapFirstEntry(num_vtable_entries, pointer_size);
+  return (first_entry & ~kAdditionalRefBitmapEntriesMask) ?
+             (first_entry & kAdditionalRefBitmapEntriesMask) + 1 :
+             1;
+}
+
 inline void Class::SetEmbeddedVTableLength(int32_t len) {
   SetField32</*kTransactionActive=*/ false, /*kCheckTransaction=*/ false>(
       MemberOffset(EmbeddedVTableLengthOffset()), len);
@@ -657,7 +673,7 @@ inline MemberOffset Class::GetFirstReferenceStaticFieldOffset(PointerSize pointe
   if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
     // Static fields come after the embedded tables.
     base = Class::ComputeClassSize(
-        true, GetEmbeddedVTableLength<kVerifyFlags>(), 0, 0, 0, 0, 0, pointer_size);
+        true, GetEmbeddedVTableLength<kVerifyFlags>(), 0, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
 }
@@ -668,8 +684,8 @@ inline MemberOffset Class::GetFirstReferenceStaticFieldOffsetDuringLinking(
   uint32_t base = sizeof(Class);  // Static fields come after the class.
   if (ShouldHaveEmbeddedVTable()) {
     // Static fields come after the embedded tables.
-    base = Class::ComputeClassSize(true, GetVTableDuringLinking()->GetLength(),
-                                           0, 0, 0, 0, 0, pointer_size);
+    base = Class::ComputeClassSize(
+        true, GetVTableDuringLinking()->GetLength(), 0, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
 }
@@ -764,6 +780,7 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
                                         uint32_t num_32bit_static_fields,
                                         uint32_t num_64bit_static_fields,
                                         uint32_t num_ref_static_fields,
+                                        uint32_t num_ref_bitmap_entries,
                                         PointerSize pointer_size) {
   // Space used by java.lang.Class and its instance fields.
   uint32_t size = sizeof(Class);
@@ -799,6 +816,12 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
   // Space used for primitive static fields.
   size += num_8bit_static_fields * sizeof(uint8_t) + num_16bit_static_fields * sizeof(uint16_t) +
       num_32bit_static_fields * sizeof(uint32_t) + num_64bit_static_fields * sizeof(uint64_t);
+
+  // Space used by reference-offset bitmap.
+  if (num_ref_bitmap_entries > 0) {
+    size = AlignUp(size, sizeof(uint32_t));
+    size += num_ref_bitmap_entries * sizeof(uint32_t);
+  }
   return size;
 }
 
