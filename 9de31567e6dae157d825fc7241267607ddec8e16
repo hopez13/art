@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5cf23f3_c9b75d38",
+        "filename": "artd/artd.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1436,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c1dddc67_6ba0ca96",
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c9b1bedd_7862a768",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-05-23T15:55:08Z",
       "side": 1,
       "message": "I think the main reason for this policy is that we can\u0027t commit to testing them. I\u0027d phrase it as: \"but we cannot test and support those cases.\"",
+      "range": {
+        "startLine": 1453,
+        "startChar": 36,
+        "endLine": 1454,
+        "endChar": 71
+      },
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28971bb2_1e058e3a",
+        "filename": "artd/artd.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1454,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "SGTM, done.",
+      "parentUuid": "c9b1bedd_7862a768",
       "range": {
         "startLine": 1453,
         "startChar": 36,
@@ -75,6 +117,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "13451dca_467b758e",
+        "filename": "artd/artd.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 1912,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81220a94_4881dd8d",
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "19ad710a_7fcf918e",
@@ -88,6 +148,30 @@
       "writtenOn": "2024-05-23T15:55:08Z",
       "side": 1,
       "message": "Now that there also is an `init` it begs the question what\u0027s done here and what\u0027s done there.",
+      "range": {
+        "startLine": 25,
+        "startChar": 7,
+        "endLine": 25,
+        "endChar": 38
+      },
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d5e90943_3088bfc9",
+        "filename": "dexopt_chroot_setup/binder/com/android/server/art/IDexoptChrootSetup.aidl",
+        "patchSetId": 25
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "19ad710a_7fcf918e",
       "range": {
         "startLine": 25,
         "startChar": 7,
@@ -121,6 +205,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7eb5fafa_47e2b5d0",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5b61ec80_ec0e5201",
+      "range": {
+        "startLine": 106,
+        "startChar": 2,
+        "endLine": 106,
+        "endChar": 49
+      },
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "32686908_8ab88380",
@@ -134,6 +242,24 @@
       "writtenOn": "2024-05-23T15:55:08Z",
       "side": 1,
       "message": "It\u0027s not a given that we choose to fail if we cannot compare the versions, so that warrants a comment somewhere, and this is probably the best place.",
+      "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99775a34_9da4ce02",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 25
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-23T17:06:27Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "32686908_8ab88380",
       "revId": "9de31567e6dae157d825fc7241267607ddec8e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
