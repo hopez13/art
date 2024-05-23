@@ -39,6 +39,30 @@
       },
       "revId": "7d1ce24e113a78e40c3f335b17da5eac1bebbb1c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "28db5cef_4acd0496",
+        "filename": "compiler/optimizing/loop_optimization.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 552,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-05-23T16:34:01Z",
+      "side": 1,
+      "message": "Fixed, thanks!",
+      "parentUuid": "a268cfd2_ec26f0ce",
+      "range": {
+        "startLine": 552,
+        "startChar": 32,
+        "endLine": 552,
+        "endChar": 33
+      },
+      "revId": "7d1ce24e113a78e40c3f335b17da5eac1bebbb1c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
