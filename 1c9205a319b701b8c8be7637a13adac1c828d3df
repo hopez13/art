@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7d952eb_9aec6443",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-23T17:06:53Z",
+      "side": 1,
+      "message": "This is because we have it pinned and so on? We ought to be able to control the lifetime of artd to not depend on the GC in any way for that bit, oughtn\u0027t we? But we can discuss that later.",
+      "range": {
+        "startLine": 123,
+        "startChar": 68,
+        "endLine": 123,
+        "endChar": 92
+      },
+      "revId": "1c9205a319b701b8c8be7637a13adac1c828d3df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
