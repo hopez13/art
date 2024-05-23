@@ -16,6 +16,24 @@
       "message": "But we already did this in line 1393. Do we need to do it again?",
       "revId": "96b33a4f666257a3768448ca00ddc6b576d8dd97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "efaf299b_a22198c5",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-23T09:38:06Z",
+      "side": 1,
+      "message": "We need to undo the `__ cfi().AdjustCFAOffset(-4);` from line 1413 for the code paths that jump to `continue_execution`.\n\n(Note that I\u0027m just fixing the CFA here but we could also record the spilled EBP location with `__ cfi().RelOffset(...);`.)",
+      "parentUuid": "175762c0_1e25c988",
+      "revId": "96b33a4f666257a3768448ca00ddc6b576d8dd97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
