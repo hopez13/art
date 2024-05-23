@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aac5954f_b8061f25",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-23T12:14:38Z",
+      "side": 1,
+      "message": "Isn\u0027t the transactional interpreter single-threaded? Could we avoid adding one field in the thread structure for a single compiler-only use?",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
