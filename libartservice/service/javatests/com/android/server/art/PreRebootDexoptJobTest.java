@@ -164,8 +164,12 @@ public class PreRebootDexoptJobTest {
     }
 
     @Test
-    public void testStart() {
-        when(mPreRebootDriver.run(any(), any(), any())).thenReturn(true);
+    public void testStart() throws Exception {
+        var jobStarted = new Semaphore(0);
+        when(mPreRebootDriver.run(any(), any(), any())).thenAnswer(invocation -> {
+            jobStarted.release();
+            return true;
+        });
 
         // This is a hack to mock a method that is both void and static. There is no other way due
         // to the poor design of Mockito API.
@@ -178,6 +182,7 @@ public class PreRebootDexoptJobTest {
 
         assertThat(mPreRebootDexoptJob.hasStarted()).isFalse();
         Future<Boolean> future = mPreRebootDexoptJob.start();
+        assertThat(jobStarted.tryAcquire(TIMEOUT_SEC, TimeUnit.SECONDS)).isTrue();
         assertThat(mPreRebootDexoptJob.hasStarted()).isTrue();
 
         Utils.getFuture(future);
