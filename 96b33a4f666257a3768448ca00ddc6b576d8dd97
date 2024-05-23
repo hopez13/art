@@ -34,6 +34,24 @@
       "parentUuid": "175762c0_1e25c988",
       "revId": "96b33a4f666257a3768448ca00ddc6b576d8dd97",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ca41709_909b1723",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1420,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-23T09:45:33Z",
+      "side": 1,
+      "message": "Ah, the `__ cfi().AdjustCFAOffset(-4);` is not a real instruction. The `__` made me think this is something we were emitting in the code (and therefore wouldn\u0027t be executed with the jumps).\n\nSuggestion: Change the comment to ``Undo the `-4` adjustment above. We get here with EBP pushed.``",
+      "parentUuid": "efaf299b_a22198c5",
+      "revId": "96b33a4f666257a3768448ca00ddc6b576d8dd97",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
