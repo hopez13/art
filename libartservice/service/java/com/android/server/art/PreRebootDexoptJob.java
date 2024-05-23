@@ -27,6 +27,8 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.os.Build;
 import android.os.CancellationSignal;
+import android.os.RemoteException;
+import android.os.ServiceSpecificException;
 import android.os.SystemProperties;
 import android.provider.DeviceConfig;
 
@@ -132,7 +134,17 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
      */
     public @ScheduleStatus int onUpdateReady(@Nullable String otaSlot) {
         unschedule();
-        mSerializedExecutor.execute(() -> mInjector.getStatsReporter().reset());
+        mSerializedExecutor.execute(() -> {
+            mInjector.getStatsReporter().reset();
+            if (hasStarted()) {
+                try {
+                    mInjector.getArtd().cleanUpPreRebootStagedFiles();
+                } catch (ServiceSpecificException | RemoteException e) {
+                    AsLog.e("Failed to clean up obsolete Pre-reboot staged files", e);
+                }
+                markHasStarted(false);
+            }
+        });
         updateOtaSlot(otaSlot);
         return schedule();
     }
@@ -210,8 +222,8 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
         String otaSlot = mOtaSlot;
         var cancellationSignal = mCancellationSignal = new CancellationSignal();
-        markHasStarted();
         mRunningJob = new CompletableFuture().supplyAsync(() -> {
+            markHasStarted(true);
             try {
                 mInjector.getPreRebootDriver().run(
                         otaSlot, cancellationSignal, mInjector.getStatsReporter());
@@ -275,8 +287,8 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         return SystemProperties.getBoolean("dalvik.vm.pre-reboot.has-started", false /* def */);
     }
 
-    private void markHasStarted() {
-        ArtJni.setProperty("dalvik.vm.pre-reboot.has-started", "true");
+    private void markHasStarted(boolean value) {
+        ArtJni.setProperty("dalvik.vm.pre-reboot.has-started", String.valueOf(value));
     }
 
     /**
@@ -307,6 +319,11 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         @NonNull
         public PreRebootStatsReporter getStatsReporter() {
             return mStatsReporter;
+        }
+
+        @NonNull
+        public IArtd getArtd() {
+            return ArtdRefCache.getInstance().getArtd();
         }
     }
 }
