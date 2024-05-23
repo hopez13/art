@@ -450,22 +450,6 @@ void Class::DumpClass(std::ostream& os, int flags) {
   }
 }
 
-void Class::SetReferenceInstanceOffsets(uint32_t new_reference_offsets) {
-  if (kIsDebugBuild && new_reference_offsets != kClassWalkSuper) {
-    // Check that the number of bits set in the reference offset bitmap
-    // agrees with the number of references.
-    uint32_t count = 0;
-    for (ObjPtr<Class> c = this; c != nullptr; c = c->GetSuperClass()) {
-      count += c->NumReferenceInstanceFieldsDuringLinking();
-    }
-    // +1 for the Class in Object.
-    CHECK_EQ(static_cast<uint32_t>(POPCOUNT(new_reference_offsets)) + 1, count);
-  }
-  // Not called within a transaction.
-  SetField32<false>(OFFSET_OF_OBJECT_MEMBER(Class, reference_instance_offsets_),
-                    new_reference_offsets);
-}
-
 bool Class::IsInSamePackage(std::string_view descriptor1, std::string_view descriptor2) {
   size_t i = 0;
   size_t min_length = std::min(descriptor1.size(), descriptor2.size());

@@ -314,6 +314,11 @@ inline bool Class::ShouldHaveEmbeddedVTable() {
   return IsInstantiable<kVerifyFlags>();
 }
 
+template <VerifyObjectFlags kVerifyFlags>
+inline bool Class::ShouldHaveReferenceBitmap() {
+  return IsInstantiableNonArray<kVerifyFlags>() && !IsNoReferenceClass<kVerifyFlags>();
+}
+
 inline bool Class::HasVTable() {
   // No read barrier is needed for comparing with null. See ReadBarrierOption.
   return GetVTable<kDefaultVerifyFlags, kWithoutReadBarrier>() != nullptr ||
@@ -344,6 +349,22 @@ inline ArtMethod* Class::GetVTableEntry(uint32_t i, PointerSize pointer_size) {
 template<VerifyObjectFlags kVerifyFlags>
 inline int32_t Class::GetEmbeddedVTableLength() {
   return GetField32<kVerifyFlags>(MemberOffset(EmbeddedVTableLengthOffset()));
+}
+
+template <VerifyObjectFlags kVerifyFlags>
+inline uint32_t Class::GetInstanceReferenceBitmapFirstEntry(uint32_t num_vtable_entries,
+                                                            PointerSize pointer_size) {
+  return GetField32<kVerifyFlags>(
+      MemberOffset(EmbeddedReferenceBitmapOffset(num_vtable_entries, pointer_size)));
+}
+
+template <VerifyObjectFlags kVerifyFlags>
+inline uint32_t Class::GetInstanceReferenceBitmapLength(uint32_t num_vtable_entries,
+                                                        PointerSize pointer_size) {
+  uint32_t first_entry = GetInstanceReferenceBitmapFirstEntry(num_vtable_entries, pointer_size);
+  return (first_entry & ~kAdditionalRefBitmapEntriesMask) ?
+             (first_entry & kAdditionalRefBitmapEntriesMask) + 1 :
+             1;
 }
 
 inline void Class::SetEmbeddedVTableLength(int32_t len) {
@@ -655,23 +676,50 @@ inline MemberOffset Class::GetFirstReferenceStaticFieldOffset(PointerSize pointe
   DCHECK(IsResolved<kVerifyFlags>());
   uint32_t base = sizeof(Class);  // Static fields come after the class.
   if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
+    uint32_t num_vtable_entries = GetEmbeddedVTableLength<kVerifyFlags>();
+    uint32_t num_ref_bitmap_entries =
+        ShouldHaveReferenceBitmap<kVerifyFlags>() ?
+            GetInstanceReferenceBitmapLength<kVerifyFlags>(num_vtable_entries, pointer_size) :
+            0;
     // Static fields come after the embedded tables.
-    base = Class::ComputeClassSize(
-        true, GetEmbeddedVTableLength<kVerifyFlags>(), 0, 0, 0, 0, 0, pointer_size);
+    base = ComputeClassSize(
+        true, num_vtable_entries, num_ref_bitmap_entries, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
 }
 
+template <VerifyObjectFlags kVerifyFlags>
 inline MemberOffset Class::GetFirstReferenceStaticFieldOffsetDuringLinking(
     PointerSize pointer_size) {
   DCHECK(IsLoaded());
   uint32_t base = sizeof(Class);  // Static fields come after the class.
   if (ShouldHaveEmbeddedVTable()) {
+    // This function is called when we need to compute the bitmap size based on
+    // super-class and number of instance references in this class.
+    uint32_t num_ref_bitmap_entries = 0;
+    if (ShouldHaveReferenceBitmap<kVerifyFlags>()) {
+      Class* super = GetSuperClass<kVerifyFlags>();
+      if (super != nullptr) {
+        uint32_t start_offset =
+            RoundUp(super->GetObjectSize<kVerifyFlags>(), sizeof(HeapReference<Object>));
+        uint32_t num_bits = (start_offset - kObjectHeaderSize) / sizeof(HeapReference<Object>);
+        num_bits += GetNumReferenceInstanceFields();
+        num_ref_bitmap_entries = num_bits < 32 ? 1 : RoundUp(num_bits, 32) / 32 + 1;
+      }
+    }
     // Static fields come after the embedded tables.
-    base = Class::ComputeClassSize(true, GetVTableDuringLinking()->GetLength(),
-                                           0, 0, 0, 0, 0, pointer_size);
+    uint32_t num_vtable_entries = GetVTableDuringLinking()->GetLength();
+    base = ComputeClassSize(
+        true, num_vtable_entries, num_ref_bitmap_entries, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
+}
+
+template <VerifyObjectFlags kVerifyFlags, typename Visitor>
+inline void Class::ScanInstanceReferenceBitmap(Visitor visitor) {
+  DCHECK(ShouldHaveReferenceBitmap<kVerifyFlags>());
+  GetInstanceReferenceBitmapLength<kVerifyFlags>(GetEmbeddedVTableLength<kVerifyFlags>());
+  visitor();
 }
 
 inline void Class::SetIFieldsPtr(LengthPrefixedArray<ArtField>* new_ifields) {
@@ -714,12 +762,6 @@ inline ArtField* Class::GetInstanceField(uint32_t i) {
   return &GetIFieldsPtr()->At(i);
 }
 
-template<VerifyObjectFlags kVerifyFlags>
-inline uint32_t Class::GetReferenceInstanceOffsets() {
-  DCHECK(IsResolved<kVerifyFlags>() || IsErroneous<kVerifyFlags>());
-  return GetField32<kVerifyFlags>(OFFSET_OF_OBJECT_MEMBER(Class, reference_instance_offsets_));
-}
-
 inline void Class::SetClinitThreadId(pid_t new_clinit_thread_id) {
   SetField32Transaction(OFFSET_OF_OBJECT_MEMBER(Class, clinit_thread_id_), new_clinit_thread_id);
 }
@@ -759,6 +801,7 @@ inline size_t Class::GetPrimitiveTypeSizeShift() {
 
 inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
                                         uint32_t num_vtable_entries,
+                                        uint32_t num_ref_bitmap_entries,
                                         uint32_t num_8bit_static_fields,
                                         uint32_t num_16bit_static_fields,
                                         uint32_t num_32bit_static_fields,
@@ -772,6 +815,10 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
     size = RoundUp(size + sizeof(uint32_t), static_cast<size_t>(pointer_size));
     size += static_cast<size_t>(pointer_size);  // size of pointer to IMT
     size += num_vtable_entries * VTableEntrySize(pointer_size);
+    size += num_ref_bitmap_entries * sizeof(uint32_t);
+  } else {
+    DCHECK_EQ(num_ref_bitmap_entries, 0u);
+    DCHECK_EQ(num_vtable_entries, 0u);
   }
 
   // Space used by reference statics.
@@ -1037,8 +1084,10 @@ inline bool Class::IsObjectClass() {
   return !IsPrimitive() && GetSuperClass<kDefaultVerifyFlags, kWithoutReadBarrier>() == nullptr;
 }
 
+template <VerifyObjectFlags kVerifyFlags>
 inline bool Class::IsInstantiableNonArray() {
-  return !IsPrimitive() && !IsInterface() && !IsAbstract() && !IsArrayClass();
+  return !IsPrimitive<kVerifyFlags>() && !IsInterface<kVerifyFlags>() &&
+         !IsAbstract<kVerifyFlags>() && !IsArrayClass<kVerifyFlags>();
 }
 
 template<VerifyObjectFlags kVerifyFlags>

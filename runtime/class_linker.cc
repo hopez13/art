@@ -2815,9 +2815,13 @@ void ClassLinker::FinishArrayClassSetup(ObjPtr<mirror::Class> array_class) {
   array_class->SetVTable(java_lang_Object->GetVTable());
   array_class->SetPrimitiveType(Primitive::kPrimNot);
   ObjPtr<mirror::Class> component_type = array_class->GetComponentType();
-  array_class->SetClassFlags(component_type->IsPrimitive()
-                                 ? mirror::kClassFlagNoReferenceFields
-                                 : mirror::kClassFlagObjectArray);
+  DCHECK_LT(component_type->GetPrimitiveTypeSizeShift(), 4);
+  uint32_t class_flags = component_type->GetPrimitiveTypeSizeShift()
+                         << mirror::kArrayComponentSizeShiftShift;
+  class_flags |= component_type->IsPrimitive() ?
+                     (mirror::kClassFlagNoReferenceFields | kClassFlagPrimitiveArray) :
+                     mirror::kClassFlagObjectArray;
+  array_class->SetClassFlags(class_flags);
   array_class->SetClassLoader(component_type->GetClassLoader());
   array_class->SetStatusForPrimitiveOrArray(ClassStatus::kLoaded);
   array_class->PopulateEmbeddedVTable(image_pointer_size_);
@@ -6313,10 +6317,18 @@ bool ClassLinker::LinkClass(Thread* self,
   if (!LinkInstanceFields(self, klass)) {
     return false;
   }
+  // TODO: compute the size of reference bitmap we need based on super-class'
+  // bitmap and instance ref-count klass has. Set the first-entry with the right
+  // length so that GetFirstReferenceStaticFieldOffsetDuringLinking correctly
+  // works in LinkStaticFields. That will also take care of correctly computing
+  // class_size.
+  klass->ComputeInstanceReferenceBitmapSizeDuringLinking(image_pointer_size_);
   size_t class_size;
   if (!LinkStaticFields(self, klass, &class_size)) {
     return false;
   }
+  // TODO: convert the following function into something that takes care of the
+  // entire bitmap and will have to be moved down.
   CreateReferenceInstanceOffsets(klass);
   CHECK_EQ(ClassStatus::kLoaded, klass->GetStatus());
 
@@ -9869,6 +9881,14 @@ bool ClassLinker::VerifyRecordClass(Handle<mirror::Class> klass, ObjPtr<mirror::
 
 //  Set the bitmap of reference instance field offsets.
 void ClassLinker::CreateReferenceInstanceOffsets(Handle<mirror::Class> klass) {
+  // TODO: Check if the klass deserves the bitmap in the first place. If it
+  // does, then go through all super classes until
+  // 1. we reach a super-class which has its own bitmap, or
+  //    In this case we simply prepend the references coming out of this class
+  // 2. all the way up.
+  // NOTE that we shouldn't have a case where the super class with bitmap is not
+  // the first one. How can we have some classes not having their bitmap and
+  // then we have the bitmap?
   uint32_t reference_offsets = 0;
   ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
   // Leave the reference offsets as 0 for mirror::Object (the class field is handled specially).

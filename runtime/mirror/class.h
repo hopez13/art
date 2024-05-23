@@ -83,11 +83,12 @@ class EXPORT MANAGED Class final : public Object {
  public:
   MIRROR_CLASS("Ljava/lang/Class;");
 
-  // A magic value for reference_instance_offsets_. Ignore the bits and walk the super chain when
-  // this is the value.
-  // [This is an unlikely "natural" value, since it would be 30 non-ref instance fields followed by
-  // 2 ref instance fields.]
-  static constexpr uint32_t kClassWalkSuper = 0xC0000000;
+  // The first reference bitmap entry may contain up to 31 reference offsets.
+  // For more than that, we set the most-significant bit and store the number of
+  // additional bitmap entries.
+  static constexpr uint32_t kAdditionalRefBitmapEntriesShift = 31;
+  static constexpr uint32_t kAdditionalRefBitmapEntriesMask =
+      (1u << kAdditionalRefBitmapEntriesShift) - 1;
 
   // Shift primitive type by kPrimitiveTypeSizeShiftShift to get the component type size shift
   // Used for computing array size as follows:
@@ -293,6 +294,11 @@ class EXPORT MANAGED Class final : public Object {
   }
 
   ALWAYS_INLINE void ClearFinalizable() REQUIRES_SHARED(Locks::mutator_lock_);
+
+  template <VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
+  ALWAYS_INLINE bool IsNoReferenceClass() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return (GetClassFlags<kVerifyFlags>() & kClassFlagNoReferenceFields) != 0;
+  }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   ALWAYS_INLINE bool IsStringClass() REQUIRES_SHARED(Locks::mutator_lock_) {
@@ -569,6 +575,7 @@ class EXPORT MANAGED Class final : public Object {
   // Compute how many bytes would be used a class with the given elements.
   static uint32_t ComputeClassSize(bool has_embedded_vtable,
                                    uint32_t num_vtable_entries,
+                                   uint32_t num_ref_bitmap_entries,
                                    uint32_t num_8bit_static_fields,
                                    uint32_t num_16bit_static_fields,
                                    uint32_t num_32bit_static_fields,
@@ -580,12 +587,12 @@ class EXPORT MANAGED Class final : public Object {
   static uint32_t ClassClassSize(PointerSize pointer_size) {
     // The number of vtable entries in java.lang.Class.
     uint32_t vtable_entries = Object::kVTableLength + 83;
-    return ComputeClassSize(true, vtable_entries, 0, 0, 4, 1, 0, pointer_size);
+    return ComputeClassSize(true, vtable_entries, 1, 0, 0, 4, 1, 0, pointer_size);
   }
 
   // The size of a java.lang.Class representing a primitive such as int.class.
   static uint32_t PrimitiveClassSize(PointerSize pointer_size) {
-    return ComputeClassSize(false, 0, 0, 0, 0, 0, 0, pointer_size);
+    return ComputeClassSize(false, 0, 0, 0, 0, 0, 0, 0, pointer_size);
   }
 
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
@@ -853,6 +860,12 @@ class EXPORT MANAGED Class final : public Object {
         ImtPtrOffset(pointer_size).Uint32Value() + static_cast<size_t>(pointer_size));
   }
 
+  static constexpr MemberOffset EmbeddedInstanceReferenceBitmapOffset(uint32_t num_vtable_entries,
+                                                                      PointerSize pointer_size) {
+    return MemberOffset(EmbeddedVTableOffset(pointer_size).Uint32Value() +
+                        num_vtable_entries * VTableEntrySize(pointer_size));
+  }
+
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
   bool ShouldHaveImt() REQUIRES_SHARED(Locks::mutator_lock_);
 
@@ -1049,12 +1062,6 @@ class EXPORT MANAGED Class final : public Object {
     // Not called within a transaction.
     SetField32<false>(OFFSET_OF_OBJECT_MEMBER(Class, num_reference_instance_fields_), new_num);
   }
-
-  template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags>
-  uint32_t GetReferenceInstanceOffsets() ALWAYS_INLINE REQUIRES_SHARED(Locks::mutator_lock_);
-
-  void SetReferenceInstanceOffsets(uint32_t new_reference_offsets)
-      REQUIRES_SHARED(Locks::mutator_lock_);
 
   // Get the offset of the first reference instance field. Other reference instance fields follow.
   template<VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
@@ -1435,6 +1442,10 @@ class EXPORT MANAGED Class final : public Object {
   // Check that the pointer size matches the one in the class linker.
   ALWAYS_INLINE static void CheckPointerSize(PointerSize pointer_size);
 
+  template <VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags, typename Visitor>
+  void VisitStaticFieldsReferences(const Visitor& visitor) HOT_ATTR
+      REQUIRES_SHARED(Locks::mutator_lock_);
+
   template <bool kVisitNativeRoots,
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
             ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
@@ -1530,13 +1541,6 @@ class EXPORT MANAGED Class final : public Object {
   // Access flags; low 16 bits are defined by VM spec.
   uint32_t access_flags_;
 
-  // Class flags to help speed up visiting object references.
-  uint32_t class_flags_;
-
-  // Total size of the Class instance; used when allocating storage on gc heap.
-  // See also object_size_.
-  uint32_t class_size_;
-
   // Tid used to check for recursive <clinit> invocation.
   pid_t clinit_thread_id_;
   static_assert(sizeof(pid_t) == sizeof(int32_t), "java.lang.Class.clinitThreadId size check");
@@ -1555,11 +1559,6 @@ class EXPORT MANAGED Class final : public Object {
   // Number of static fields that are object refs,
   uint32_t num_reference_static_fields_;
 
-  // Total object size; used when allocating storage on gc heap.
-  // (For interfaces and abstract classes this will be zero.)
-  // See also class_size_.
-  uint32_t object_size_;
-
   // Aligned object size for allocation fast path. The value is max uint32_t if the object is
   // uninitialized or finalizable. Not currently used for variable sized objects.
   uint32_t object_size_alloc_fast_path_;
@@ -1568,12 +1567,21 @@ class EXPORT MANAGED Class final : public Object {
   // bits contains the size shift of the primitive type.
   uint32_t primitive_type_;
 
-  // Bitmap of offsets of ifields.
-  uint32_t reference_instance_offsets_;
-
   // See the real definition in subtype_check_bits_and_status.h
   // typeof(status_) is actually SubtypeCheckBitsAndStatus.
   uint32_t status_;
+
+  // Class flags to help speed up visiting object references.
+  uint32_t class_flags_;
+
+  // Total size of the Class instance; used when allocating storage on gc heap.
+  // See also object_size_.
+  uint32_t class_size_;
+
+  // Total object size; used when allocating storage on gc heap.
+  // (For interfaces and abstract classes this will be zero.)
+  // See also class_size_.
+  uint32_t object_size_;
 
   // The offset of the first virtual method that is copied from an interface. This includes miranda,
   // default, and default-conflict methods. Having a hard limit of ((2 << 16) - 1) for methods
@@ -1583,17 +1591,19 @@ class EXPORT MANAGED Class final : public Object {
   // The offset of the first declared virtual methods in the methods_ array.
   uint16_t virtual_methods_offset_;
 
-  // TODO: ?
-  // initiating class loader list
-  // NOTE: for classes with low serialNumber, these are unused, and the
-  // values are kept in a table in gDvm.
-  // InitiatingLoaderList initiating_loader_list_;
-
   // The following data exist in real class objects.
-  // Embedded Imtable, for class object that's not an interface, fixed size.
-  // ImTableEntry embedded_imtable_[0];
+  // Embedded Vtable length, for class object that's instantiable, fixed size.
+  // uint32_t vtable_length_;
+  // Embedded Imtable pointer, for class object that's not an interface, fixed size.
+  // ImTableEntry embedded_imtable_;
   // Embedded Vtable, for class object that's not an interface, variable size.
   // VTableEntry embedded_vtable_[0];
+  // Embedded bitmap of offsets of ifields, for classes that need it (everything
+  // except interface/abstract/primitive/array/string/no-ref).
+  // The first word holds up to 31 bits. If most-significant bit is set, then
+  // that indicates that the remaining bits store the number of 32-bit words
+  // that hold the entire bitmap, which start from the next word.
+  // uint32_t reference_bitmap_[0];
   // Static fields, variable size.
   // uint32_t fields_[0];
 
