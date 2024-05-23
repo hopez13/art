@@ -858,63 +858,19 @@ inline void Object::UpdateField64ViaAccessor(MemberOffset field_offset,
   accessor->Access(addr);
 }
 
-template<bool kIsStatic,
-         VerifyObjectFlags kVerifyFlags,
-         ReadBarrierOption kReadBarrierOption,
-         typename Visitor>
-inline void Object::VisitFieldsReferences(uint32_t ref_offsets, const Visitor& visitor) {
-  if (!kIsStatic && (ref_offsets != mirror::Class::kClassWalkSuper)) {
-    // Instance fields and not the slow-path.
-    uint32_t field_offset = mirror::kObjectHeaderSize;
-    while (ref_offsets != 0) {
-      if ((ref_offsets & 1) != 0) {
-        visitor(this, MemberOffset(field_offset), kIsStatic);
-      }
-      ref_offsets >>= 1;
-      field_offset += sizeof(mirror::HeapReference<mirror::Object>);
-    }
-  } else {
-    // There is no reference offset bitmap. In the non-static case, walk up the class
-    // inheritance hierarchy and find reference offsets the hard way. In the static case, just
-    // consider this class.
-    for (ObjPtr<Class> klass = kIsStatic
-            ? ObjPtr<Class>::DownCast(this)
-            : GetClass<kVerifyFlags, kReadBarrierOption>();
-        klass != nullptr;
-        klass = kIsStatic ? nullptr : klass->GetSuperClass<kVerifyFlags, kReadBarrierOption>()) {
-      const size_t num_reference_fields =
-          kIsStatic ? klass->NumReferenceStaticFields() : klass->NumReferenceInstanceFields();
-      if (num_reference_fields == 0u) {
-        continue;
-      }
-      // Presumably GC can happen when we are cross compiling, it should not cause performance
-      // problems to do pointer size logic.
-      MemberOffset field_offset = kIsStatic
-          ? klass->GetFirstReferenceStaticFieldOffset<kVerifyFlags>(
-              Runtime::Current()->GetClassLinker()->GetImagePointerSize())
-          : klass->GetFirstReferenceInstanceFieldOffset<kVerifyFlags, kReadBarrierOption>();
-      for (size_t i = 0u; i < num_reference_fields; ++i) {
-        // TODO: Do a simpler check?
-        if (field_offset.Uint32Value() != ClassOffset().Uint32Value()) {
-          visitor(this, field_offset, kIsStatic);
-        }
-        field_offset = MemberOffset(field_offset.Uint32Value() +
-                                    sizeof(mirror::HeapReference<mirror::Object>));
-      }
-    }
-  }
-}
-
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption, typename Visitor>
 inline void Object::VisitInstanceFieldsReferences(ObjPtr<Class> klass, const Visitor& visitor) {
-  VisitFieldsReferences<false, kVerifyFlags, kReadBarrierOption>(
-      klass->GetReferenceInstanceOffsets<kVerifyFlags>(), visitor);
-}
-
-template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption, typename Visitor>
-inline void Object::VisitStaticFieldsReferences(ObjPtr<Class> klass, const Visitor& visitor) {
-  DCHECK(!klass->IsTemp<kVerifyFlags>());
-  klass->VisitFieldsReferences<true, kVerifyFlags, kReadBarrierOption>(0, visitor);
+  uint32_t field_offset = mirror::kObjectHeaderSize;
+  klass->ScanInstanceReferenceBitmap<kVerifyFlags>(
+      [this, field_offset, visitor](uint32_t ref_offsets) {
+        while (ref_offsets != 0) {
+          if ((ref_offsets & 1) != 0) {
+            visitor(this, MemberOffset(field_offset), /*is_static=*/false);
+          }
+          ref_offsets >>= 1;
+          field_offset += sizeof(mirror::HeapReference<mirror::Object>);
+        }
+      });
 }
 
 template<VerifyObjectFlags kVerifyFlags, ReadBarrierOption kReadBarrierOption>
