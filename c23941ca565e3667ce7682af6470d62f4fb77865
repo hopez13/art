@@ -22,6 +22,30 @@
       },
       "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37fa1d2_d3318ce6",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-23T12:24:46Z",
+      "side": 1,
+      "message": "Currently, the only use is to assert that we do not check for transactions in the pre-fence visitor for array class allocation. That code is unrelated to transactions and needs to support per-thread assertions. (If a transaction is active, we know we\u0027re running single-threaded but this is trying to prevent the very check for active transactions.)\n\nI think we could use this assertion more in other parts of the code to help remove some unnecessary code. This is similar to some uses of the `ScopedDebugDisallowReadBarriers` which I used to find and remove read barriers from `ImageWriter` where read barriers would be harmless but unnecessarily bloat the code and slow it down.",
+      "parentUuid": "aac5954f_b8061f25",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
