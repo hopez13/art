@@ -46,6 +46,30 @@
       },
       "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a5b71fc_998cdb39",
+        "filename": "runtime/thread.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 2340,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-23T12:26:27Z",
+      "side": 1,
+      "message": "Not sure I understand. Why not check a global in eg Runtime::Current?",
+      "parentUuid": "a37fa1d2_d3318ce6",
+      "range": {
+        "startLine": 2338,
+        "startChar": 0,
+        "endLine": 2340,
+        "endChar": 49
+      },
+      "revId": "c23941ca565e3667ce7682af6470d62f4fb77865",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
