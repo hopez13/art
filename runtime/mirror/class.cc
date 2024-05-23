@@ -451,7 +451,7 @@ void Class::DumpClass(std::ostream& os, int flags) {
 }
 
 void Class::SetReferenceInstanceOffsets(uint32_t new_reference_offsets) {
-  if (kIsDebugBuild && new_reference_offsets != kClassWalkSuper) {
+  if (kIsDebugBuild && (new_reference_offsets & kVisitReferencesSlowpathMask) == 0) {
     // Check that the number of bits set in the reference offset bitmap
     // agrees with the number of references.
     uint32_t count = 0;
@@ -1607,6 +1607,111 @@ void Class::PopulateEmbeddedVTable(PointerSize pointer_size) {
   }
 }
 
+// Set the bitmap of reference instance field offsets.
+void Class::PopulateReferenceOffsetBitmap() {
+  size_t num_reference_fields;
+  ObjPtr<mirror::Class> super_class;
+  ObjPtr<Class> klass = this;
+  // Find the first class with non-zero instance reference fields.
+  while (klass != nullptr) {
+    super_class = klass->GetSuperClass();
+    num_reference_fields = klass->NumReferenceInstanceFieldsDuringLinking();
+    if (num_reference_fields != 0) {
+      break;
+    }
+    klass = super_class;
+  }
+
+  uint32_t ref_offsets = 0;
+  // Leave the reference offsets as 0 for mirror::Object (the class field is handled specially).
+  if (super_class != nullptr) {
+    // All of the fields that contain object references are guaranteed be grouped in memory
+    // starting at an appropriately aligned address after super class object data.
+    uint32_t start_offset =
+        RoundUp(super_class->GetObjectSize(), sizeof(mirror::HeapReference<mirror::Object>));
+    uint32_t start_bit =
+        (start_offset - mirror::kObjectHeaderSize) / sizeof(mirror::HeapReference<mirror::Object>);
+    uint32_t end_bit = start_bit + num_reference_fields;
+
+    bool overflowing = end_bit > 31;
+    uint32_t* overflow_bitmap;
+    int32_t overflow_bitmap_word_idx;
+    uint32_t overflow_word_to_write;
+    if (overflowing) {
+      // We will write overflow bitmap in reverse.
+      overflow_bitmap =
+          reinterpret_cast<uint32_t*>(reinterpret_cast<uint8_t*>(this) + GetClassSize());
+      overflow_bitmap_word_idx = 0;
+      overflow_word_to_write = RoundUp(end_bit, 32) / 32;
+    }
+    while (true) {
+      if (overflowing) {
+        uint32_t new_word_to_write = RoundUp(end_bit, 32) / 32;
+        while (overflow_word_to_write > new_word_to_write) {
+          overflow_bitmap[--overflow_bitmap_word_idx] = ref_offsets;
+          ref_offsets = 0;
+          overflow_word_to_write--;
+        }
+        if (num_reference_fields != 0u) {
+          uint32_t aligned_end_bit = RoundDown(end_bit, 32);
+          uint32_t aligned_start_bit = RoundUp(start_bit, 32);
+          // Handle the case where a class' references are spanning across multiple 32-bit
+          // words of the overflow bitmap.
+          if (aligned_end_bit >= aligned_start_bit) {
+            // handle the unaligned end first
+            if (aligned_end_bit < end_bit) {
+              ref_offsets |= 0xffffffffu >> (32 - (end_bit - aligned_end_bit));
+              overflow_bitmap[--overflow_bitmap_word_idx] = ref_offsets;
+              overflow_word_to_write--;
+              ref_offsets = 0;
+            }
+            // store all the 32-bit bitmap words in between
+            for (; aligned_end_bit > aligned_start_bit; aligned_end_bit -= 32) {
+              overflow_bitmap[--overflow_bitmap_word_idx] = 0xffffffffu;
+              overflow_word_to_write--;
+            }
+            CHECK_EQ(ref_offsets, 0u);
+            // handle the unaligned start now
+            if (aligned_start_bit > start_bit) {
+              ref_offsets = 0xffffffffu << (32 - (aligned_start_bit - start_bit));
+            }
+          } else {
+            CHECK_EQ(aligned_start_bit - aligned_end_bit, 32u);
+            ref_offsets |= (0xffffffffu << (32 - (aligned_start_bit - start_bit))) &
+                           (0xffffffffu >> (32 - (end_bit - aligned_end_bit)));
+          }
+        }
+      } else if (num_reference_fields != 0u) {
+        ref_offsets |= (0xffffffffu << start_bit) & (0xffffffffu >> (32 - end_bit));
+      }
+
+      klass = super_class;
+      super_class = klass->GetSuperClass();
+      if (super_class != nullptr) {
+        num_reference_fields = klass->NumReferenceInstanceFieldsDuringLinking();
+        start_offset =
+            RoundUp(super_class->GetObjectSize(), sizeof(mirror::HeapReference<mirror::Object>));
+        start_bit = (start_offset - mirror::kObjectHeaderSize) /
+                    sizeof(mirror::HeapReference<mirror::Object>);
+        end_bit = start_bit + num_reference_fields;
+      } else {
+        break;
+      }
+    }
+    if (overflowing) {
+      // We should not have more than one word left to write in the overflow
+      // bitmap.
+      CHECK_LE(overflow_word_to_write, 1u)
+          << "overflow_bitmap_word_idx:" << -overflow_bitmap_word_idx;
+      if (overflow_word_to_write > 0) {
+        overflow_bitmap[--overflow_bitmap_word_idx] = ref_offsets;
+      }
+      ref_offsets = -overflow_bitmap_word_idx | kVisitReferencesSlowpathMask;
+    }
+  }
+  SetReferenceInstanceOffsets(ref_offsets);
+}
+
 class ReadBarrierOnNativeRootsVisitor {
  public:
   void operator()([[maybe_unused]] ObjPtr<Object> obj,
@@ -1657,6 +1762,7 @@ class CopyClassVisitor {
     h_new_class_obj->PopulateEmbeddedVTable(pointer_size_);
     h_new_class_obj->SetImt(imt_, pointer_size_);
     h_new_class_obj->SetClassSize(new_length_);
+    h_new_class_obj->PopulateReferenceOffsetBitmap();
     // Visit all of the references to make sure there is no from space references in the native
     // roots.
     h_new_class_obj->Object::VisitReferences(ReadBarrierOnNativeRootsVisitor(), VoidFunctor());
