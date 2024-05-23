@@ -72,7 +72,7 @@ inline void Object::VisitReferences(const Visitor& visitor,
   const uint32_t class_flags = klass->GetClassFlags<kVerifyNone>();
   if (LIKELY(class_flags == kClassFlagNormal) || class_flags == kClassFlagRecord) {
     CheckNormalClass<kVerifyFlags>(klass);
-    VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
+    VisitInstanceFieldsReferences<kVerifyFlags>(klass, visitor);
     return;
   }
 
@@ -89,14 +89,14 @@ inline void Object::VisitReferences(const Visitor& visitor,
     return;
   }
 
-  if (class_flags == kClassFlagObjectArray) {
+  if ((class_flags & kClassFlagObjectArray) != 0) {
     DCHECK((klass->IsObjectArrayClass<kVerifyFlags, kReadBarrierOption>()));
     AsObjectArray<mirror::Object, kVerifyNone>()->VisitReferences(visitor);
     return;
   }
 
   if ((class_flags & kClassFlagReference) != 0) {
-    VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
+    VisitInstanceFieldsReferences<kVerifyFlags>(klass, visitor);
     ref_visitor(klass, AsReference<kVerifyFlags, kReadBarrierOption>());
     return;
   }
@@ -114,9 +114,7 @@ inline void Object::VisitReferences(const Visitor& visitor,
     DCHECK(klass->IsClassLoaderClass<kVerifyFlags>());
     ObjPtr<mirror::ClassLoader> const class_loader =
         AsClassLoader<kVerifyFlags, kReadBarrierOption>();
-    class_loader->VisitReferences<kVisitNativeRoots,
-                                  kVerifyFlags,
-                                  kReadBarrierOption>(klass, visitor);
+    class_loader->VisitReferences<kVisitNativeRoots, kVerifyFlags>(klass, visitor);
     return;
   }
 
@@ -142,18 +140,16 @@ inline size_t Object::VisitRefsForCompaction(const Visitor& visitor,
   const uint32_t class_flags = klass->GetClassFlags<kVerifyNone>();
   if (LIKELY(class_flags == kClassFlagNormal) || class_flags == kClassFlagRecord) {
     CheckNormalClass<kVerifyFlags>(klass);
-    VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
+    VisitInstanceFieldsReferences<kVerifyFlags>(klass, visitor);
     size = kFetchObjSize ? klass->GetObjectSize<kSizeOfFlags>() : 0;
   } else if ((class_flags & kClassFlagNoReferenceFields) != 0) {
     if ((class_flags & kClassFlagString) != 0) {
       size = kFetchObjSize ? static_cast<String*>(this)->SizeOf<kSizeOfFlags>() : 0;
-    } else if (klass->IsArrayClass<kVerifyFlags>()) {
-      // TODO: We can optimize this by implementing a SizeOf() version which takes
-      // component-size-shift as an argument, thereby avoiding multiple loads of
-      // component_type.
-      size = kFetchObjSize
-             ? static_cast<Array*>(this)->SizeOf<kSizeOfFlags, kReadBarrierOption>()
-             : 0;
+    } else if ((class_flags & kClassFlagPrimitiveArray) != 0) {
+      ObjPtr<Array> arr = ObjPtr<Array>::DownCast(this);
+      size = kFetchObjSize ?
+                 arr->SizeOf<kSizeOfFlags>(class_flags >> kArrayComponentSizeShiftShift) :
+                 0;
     } else {
       // Only possibility left is of a normal klass instance with no references.
       size = kFetchObjSize ? klass->GetObjectSize<kSizeOfFlags>() : 0;
@@ -164,14 +160,14 @@ inline size_t Object::VisitRefsForCompaction(const Visitor& visitor,
     as_klass->VisitReferences<kVisitNativeRoots, kVerifyFlags, kReadBarrierOption>(klass,
                                                                                    visitor);
     size = kFetchObjSize ? as_klass->SizeOf<kSizeOfFlags>() : 0;
-  } else if (class_flags == kClassFlagObjectArray) {
+  } else if ((class_flags & kClassFlagObjectArray) != 0) {
     ObjPtr<ObjectArray<Object>> obj_arr = ObjPtr<ObjectArray<Object>>::DownCast(this);
     obj_arr->VisitReferences(visitor, begin, end);
     size = kFetchObjSize ?
-               obj_arr->SizeOf<kSizeOfFlags, kReadBarrierOption, /*kIsObjArray*/ true>() :
+               obj_arr->SizeOf<kSizeOfFlags>(class_flags >> kArrayComponentSizeShiftShift) :
                0;
   } else if ((class_flags & kClassFlagReference) != 0) {
-    VisitInstanceFieldsReferences<kVerifyFlags, kReadBarrierOption>(klass, visitor);
+    VisitInstanceFieldsReferences<kVerifyFlags>(klass, visitor);
     // Visit referent also as this is about updating the reference only.
     // There is no reference processing happening here.
     visitor(this, mirror::Reference::ReferentOffset(), /* is_static= */ false);
@@ -186,9 +182,7 @@ inline size_t Object::VisitRefsForCompaction(const Visitor& visitor,
   } else if (class_flags == kClassFlagClassLoader) {
     DCHECK(klass->IsClassLoaderClass<kVerifyFlags>());
     ObjPtr<ClassLoader> const class_loader = ObjPtr<ClassLoader>::DownCast(this);
-    class_loader->VisitReferences<kVisitNativeRoots,
-                                  kVerifyFlags,
-                                  kReadBarrierOption>(klass, visitor);
+    class_loader->VisitReferences<kVisitNativeRoots, kVerifyFlags>(klass, visitor);
     size = kFetchObjSize ? klass->GetObjectSize<kSizeOfFlags>() : 0;
   } else {
     LOG(FATAL) << "Unexpected class flags: " << std::hex << class_flags
