@@ -39,6 +39,7 @@
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "oat/stack_map.h"
+#include "optimizing/data_type.h"
 #include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
 #include "side_effects_analysis.h"
@@ -575,6 +576,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   struct ValueRecord {
     Value value;
     Value stored_by;
+    DataType::Type conversion_type_for_loop_phi = DataType::Type::kVoid;
   };
 
   HTypeConversion* FindOrAddTypeConversionIfNecessary(HInstruction* instruction,
@@ -631,13 +633,13 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     return (substitute != nullptr) ? substitute : instruction;
   }
 
-  void AddRemovedLoad(HInstruction* load, HInstruction* heap_value) {
+  void AddRemovedLoad(HInstruction* load, HInstruction* heap_value, DataType::Type type) {
     DCHECK(IsLoad(load));
     DCHECK_EQ(FindSubstitute(load), load);
     DCHECK_EQ(FindSubstitute(heap_value), heap_value) <<
         "Unexpected heap_value that has a substitute " << heap_value->DebugName();
 
-    // The load expects to load the heap value as type load->GetType().
+    // The load expects to load the heap value as type `type`.
     // However the tracked heap value may not be of that type. An explicit
     // type conversion may be needed.
     // There are actually three types involved here:
@@ -649,9 +651,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     // type B and type C will have the same size which is guaranteed in
     // HInstanceFieldGet/HStaticFieldGet/HArrayGet/HVecLoad's SetType().
     // So we only need one type conversion from type A to type C.
-    HTypeConversion* type_conversion = FindOrAddTypeConversionIfNecessary(
-        load, heap_value, load->GetType());
-
+    HTypeConversion* type_conversion = FindOrAddTypeConversionIfNecessary(load, heap_value, type);
     substitute_instructions_for_loads_[load->GetId()] =
         type_conversion != nullptr ? type_conversion : heap_value;
   }
@@ -1715,7 +1715,7 @@ void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
   if (record.value.IsDefault()) {
     KeepStores(record.stored_by);
     HInstruction* constant = GetDefaultValue(instruction->GetType());
-    AddRemovedLoad(instruction, constant);
+    AddRemovedLoad(instruction, constant, instruction->GetType());
     record.value = Value::ForInstruction(constant);
   } else if (record.value.IsUnknown()) {
     // Load isn't eliminated. Put the load as the value into the HeapLocation.
@@ -1739,7 +1739,7 @@ void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
       record.value = Replacement(record.value);
     }
     HInstruction* heap_value = FindSubstitute(record.value.GetInstruction());
-    AddRemovedLoad(instruction, heap_value);
+    AddRemovedLoad(instruction, heap_value, instruction->GetType());
   }
 }
 
@@ -1797,6 +1797,7 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
       loads_requiring_loop_phi_[value->GetId()] != nullptr) {
     // Propapate the Phi placeholder to the record.
     record.value = loads_requiring_loop_phi_[value->GetId()]->value;
+    record.conversion_type_for_loop_phi = value->GetType();
     DCHECK(record.value.NeedsLoopPhi());
   } else {
     record.value = Value::ForInstruction(value);
@@ -2524,7 +2525,7 @@ void LSEVisitor::ProcessLoopPhiWithUnknownInput(PhiPlaceholder loop_phi_with_unk
             HInstruction* heap_value = local_heap_values[idx].IsDefault() ?
                                            GetDefaultValue(load_or_store->GetType()) :
                                            local_heap_values[idx].GetInstruction();
-            AddRemovedLoad(load_or_store, heap_value);
+            AddRemovedLoad(load_or_store, heap_value, load_or_store->GetType());
           }
         }
       }
@@ -2586,7 +2587,21 @@ void LSEVisitor::ProcessLoadsRequiringLoopPhis() {
     if (record->value.NeedsLoopPhi()) {
       record->value = Replacement(record->value);
       HInstruction* heap_value = record->value.GetInstruction();
-      AddRemovedLoad(load, heap_value);
+      DataType::Type expected_type = load->GetType();
+
+      // Override the load type, if necessary.
+      if (record->conversion_type_for_loop_phi != DataType::Type::kVoid) {
+        // The cast from the override to the actual load should be implicit.
+        if (kIsDebugBuild) {
+          CHECK(expected_type == DataType::Type::kBool ||
+                DataType::IsTypeConversionImplicit(record->conversion_type_for_loop_phi,
+                                                   expected_type) ||
+                IsZeroBitPattern(heap_value));
+        }
+        expected_type = record->conversion_type_for_loop_phi;
+      }
+
+      AddRemovedLoad(load, heap_value, expected_type);
     }
   }
 }

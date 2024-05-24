@@ -15,6 +15,9 @@
  */
 
 public class Main {
+  static byte static_byte;
+  static int static_int;
+  static int unrelated_static_int;
 
   public static void assertByteEquals(byte expected, byte result) {
     if (expected != result) {
@@ -231,6 +234,51 @@ public class Main {
     }
   }
 
+  /// CHECK-START: int Main.$noinline$wraparoundValue() load_store_elimination (before)
+  /// CHECK:      <<Get:i\d+>>       StaticFieldGet field_name:Main.static_int field_type:Int32
+  /// CHECK:      Return [<<Get>>]
+
+  // Since the subtraction is done with int values, we have to have a type
+  // conversion into byte to have the correct wraparound.
+
+  /// CHECK-START: int Main.$noinline$wraparoundValue() load_store_elimination (after)
+  /// CHECK:      <<Sub:i\d+>>       Sub
+  /// CHECK:      <<Conv:b\d+>>      TypeConversion [<<Sub>>]
+  /// CHECK:      Return [<<Conv>>]
+  public static int $noinline$wraparoundValue() {
+    // -120 - 24 is equal to 112 in `byte` due to wraparounds.
+    static_byte = -120;
+    static_byte -= 24;
+    // Irrelevant code but needed to repro.
+    for (int q = 1; q < 12; q++) {
+        unrelated_static_int = 24;
+    }
+    static_int = static_byte;
+    return static_int;
+  }
+
+  /// CHECK-START: int Main.$noinline$noWraparoundWithCast() load_store_elimination (before)
+  /// CHECK:      <<Get:i\d+>>       StaticFieldGet field_name:Main.static_int field_type:Int32
+  /// CHECK:      Return [<<Get>>]
+
+  // Since the static_byte calculation is done with int values, we have to have a type
+  // conversion into byte to have the correct value.
+
+  /// CHECK-START: int Main.$noinline$noWraparoundWithCast() load_store_elimination (after)
+  /// CHECK:      <<Add:i\d+>>       Add
+  /// CHECK:      <<Conv:a\d+>>      TypeConversion [<<Add>>]
+  /// CHECK:      Return [<<Conv>>]
+  public static int $noinline$noWraparoundWithCast() {
+    static_byte = -120;
+    static_byte -= 8;
+    // Irrelevant code but needed to repro.
+    for (int q = 1; q < 12; q++) {
+        unrelated_static_int = 24;
+    }
+    static_int = static_byte & 0xFF;
+    return static_int;
+  }
+
   public static void main(String[] args) {
     assertByteEquals(getByte1(), (byte)-5);
     assertByteEquals(getByte2(), (byte)(-201));
@@ -260,5 +308,8 @@ public class Main {
     assertShortEquals(shortArr[0], (short)-1);
     intToChar();
     assertCharEquals(charArr[0], (char)-1);
+
+    assertIntEquals(112, $noinline$wraparoundValue());
+    assertIntEquals(128, $noinline$noWraparoundWithCast());
   }
 }
