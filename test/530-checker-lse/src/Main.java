@@ -2040,6 +2040,8 @@ public class Main {
   /// CHECK-START: int Main.$noinline$testByteArrayDefaultValue() load_store_elimination (after)
   /// CHECK-NOT:                 NewArray
   /// CHECK-NOT:                 ArrayGet
+
+  /// CHECK-START: int Main.$noinline$testByteArrayDefaultValue() constant_folding$before_codegen (after)
   /// CHECK-NOT:                 TypeConversion
   private static int $noinline$testByteArrayDefaultValue() {
     byte[] array = new byte[2];
@@ -2153,16 +2155,16 @@ public class Main {
   /// CHECK-DAG:                 Return [<<Add>>]
   //
   /// CHECK-START: int Main.testLocalArrayMerge4(boolean) load_store_elimination (after)
+  /// CHECK-NOT:                 NewArray
+  /// CHECK-NOT:                 ArraySet
+  /// CHECK-NOT:                 ArrayGet
+  //
+  /// CHECK-START: int Main.testLocalArrayMerge4(boolean) dead_code_elimination$before_codegen (after)
   /// CHECK-DAG: <<Const1:i\d+>> IntConstant 1
   /// CHECK-DAG: <<Cnv1:b\d+>>   TypeConversion [<<Const1>>]
   /// CHECK-DAG: <<Cnv2:a\d+>>   TypeConversion [<<Const1>>]
   /// CHECK-DAG: <<Add:i\d+>>    Add [<<Cnv1>>,<<Cnv2>>]
   /// CHECK-DAG:                 Return [<<Add>>]
-  //
-  /// CHECK-START: int Main.testLocalArrayMerge4(boolean) load_store_elimination (after)
-  /// CHECK-NOT:                 NewArray
-  /// CHECK-NOT:                 ArraySet
-  /// CHECK-NOT:                 ArrayGet
   private static int testLocalArrayMerge4(boolean x) {
     byte[] a = { 0 };
     if (x) {

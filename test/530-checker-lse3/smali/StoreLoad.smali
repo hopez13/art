@@ -50,7 +50,7 @@
 ## CHECK-DAG:                     StaticFieldSet [{{l\d+}},<<Arg>>] field_name:StoreLoad.byteField
 ## CHECK-DAG:                     Return [<<Arg>>]
 
-## CHECK-START: int StoreLoad.test2(int) load_store_elimination (after)
+## CHECK-START: int StoreLoad.test2(int) instruction_simplifier$before_codegen (after)
 ## CHECK-NOT:                     TypeConversion
 .method public static test2(I)I
     .registers 1

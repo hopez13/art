@@ -39,6 +39,7 @@
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "oat/stack_map.h"
+#include "optimizing/data_type.h"
 #include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
 #include "side_effects_analysis.h"
@@ -777,7 +778,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   void MaterializeNonLoopPhis(PhiPlaceholder phi_placeholder, DataType::Type type);
 
   void VisitGetLocation(HInstruction* instruction, size_t idx);
-  void VisitSetLocation(HInstruction* instruction, size_t idx, HInstruction* value);
+  void VisitSetLocation(HInstruction* instruction,
+                        size_t idx,
+                        HInstruction* value,
+                        DataType::Type type);
   void RecordFieldInfo(const FieldInfo* info, size_t heap_loc) {
     field_infos_[heap_loc] = info;
   }
@@ -891,7 +895,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     const FieldInfo& field = instruction->GetFieldInfo();
     HInstruction* value = instruction->InputAt(1);
     size_t idx = heap_location_collector_.GetFieldHeapLocation(object, &field);
-    VisitSetLocation(instruction, idx, value);
+    VisitSetLocation(instruction, idx, value, field.GetFieldType());
   }
 
   void VisitStaticFieldGet(HStaticFieldGet* instruction) override {
@@ -915,7 +919,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     HInstruction* cls = instruction->InputAt(0);
     HInstruction* value = instruction->InputAt(1);
     size_t idx = heap_location_collector_.GetFieldHeapLocation(cls, &field);
-    VisitSetLocation(instruction, idx, value);
+    VisitSetLocation(instruction, idx, value, field.GetFieldType());
   }
 
   void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
@@ -948,7 +952,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
 
   void VisitArraySet(HArraySet* instruction) override {
     size_t idx = heap_location_collector_.GetArrayHeapLocation(instruction);
-    VisitSetLocation(instruction, idx, instruction->GetValue());
+    VisitSetLocation(instruction, idx, instruction->GetValue(), instruction->GetComponentType());
   }
 
   void VisitVecLoad(HVecLoad* instruction) override {
@@ -959,7 +963,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   void VisitVecStore(HVecStore* instruction) override {
     DCHECK(!instruction->IsPredicated());
     size_t idx = heap_location_collector_.GetArrayHeapLocation(instruction);
-    VisitSetLocation(instruction, idx, instruction->GetValue());
+    VisitSetLocation(instruction, idx, instruction->GetValue(), instruction->GetPackedType());
   }
 
   void VisitDeoptimize(HDeoptimize* instruction) override {
@@ -1743,7 +1747,10 @@ void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
   }
 }
 
-void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstruction* value) {
+void LSEVisitor::VisitSetLocation(HInstruction* instruction,
+                                  size_t idx,
+                                  HInstruction* value,
+                                  DataType::Type type) {
   DCHECK_NE(idx, HeapLocationCollector::kHeapLocationNotFound);
   DCHECK(!IsStore(value)) << value->DebugName();
   if (instruction->IsFieldAccess()) {
@@ -1799,7 +1806,12 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
     record.value = loads_requiring_loop_phi_[value->GetId()]->value;
     DCHECK(record.value.NeedsLoopPhi());
   } else {
-    record.value = Value::ForInstruction(value);
+    // We add a type conversion for stores, even in cases where the store itself doesn't need one
+    // (e.g. storing an int value into a byte field). We record this type conversion as the value
+    // stored so that later loads know that the value they have to load is the converted one and not
+    // the original one. If this type conversion is redundant, later passes will eliminate it.
+    HTypeConversion* type_conversion = FindOrAddTypeConversionIfNecessary(instruction, value, type);
+    record.value = Value::ForInstruction(type_conversion != nullptr ? type_conversion : value);
   }
   // Track the store in the value record. If the value is loaded or needed after
   // return/deoptimization later, this store isn't really redundant.
