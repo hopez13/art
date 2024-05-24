@@ -48,6 +48,9 @@ public class Main {
         VMRuntime.registerAppInfo("test.app", sFile.getPath(), sFile.getPath(),
                 new String[] {codePath}, VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
 
+        // Make sure to notify startup completed, since StartupCompletedTask is not started in this scope.
+        VMRuntime.notifyStartupCompleted();
+        
         for (int i = 0; i < 10; i++) {
             try {
                 test();
@@ -215,13 +218,17 @@ public class Main {
 
     private static class VMRuntime {
         public static final int CODE_PATH_TYPE_PRIMARY_APK = 1 << 0;
+        private static final Method getRuntimeMethod;
         private static final Method registerAppInfoMethod;
+        private static final Method notifyStartupCompletedMethod;
 
         static {
             try {
                 Class<? extends Object> c = Class.forName("dalvik.system.VMRuntime");
+                getRuntimeMethod = c.getDeclaredMethod("getRuntime");
                 registerAppInfoMethod = c.getDeclaredMethod("registerAppInfo", String.class,
                         String.class, String.class, String[].class, int.class);
+                notifyStartupCompletedMethod = c.getDeclaredMethod("notifyStartupCompleted");
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -232,6 +239,10 @@ public class Main {
             registerAppInfoMethod.invoke(
                     null, packageName, curProfile, refProfile, codePaths, codePathsType);
         }
+
+        public static void notifyStartupCompleted() throws Exception {
+            notifyStartupCompletedMethod.invoke(getRuntimeMethod.invoke(null));
+          }
     }
 
     // This scope is intended to guard code that doesn't expect GC to take place. Because we can't

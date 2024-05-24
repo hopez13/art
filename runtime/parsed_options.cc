@@ -307,7 +307,6 @@ std::unique_ptr<RuntimeParser> ParsedOptions::MakeParser(bool ignore_unrecognize
       .Define({"-Xps-_",
                "-Xps-min-save-period-ms:_",
                "-Xps-min-first-save-ms:_",
-               "-Xps-save-resolved-classes-delayed-ms:_",
                "-Xps-hot-startup-method-samples:_",
                "-Xps-min-methods-to-save:_",
                "-Xps-min-classes-to-save:_",
