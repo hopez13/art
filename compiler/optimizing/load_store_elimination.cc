@@ -39,6 +39,7 @@
 #include "mirror/dex_cache.h"
 #include "nodes.h"
 #include "oat/stack_map.h"
+#include "optimizing/data_type.h"
 #include "optimizing_compiler_stats.h"
 #include "reference_type_propagation.h"
 #include "side_effects_analysis.h"
@@ -572,9 +573,12 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   // The record of a heap value and instruction(s) that feed that value.
+  // For records that require a loop phi, we also store the type of the value, since we might need
+  // to add type conversions later on.
   struct ValueRecord {
     Value value;
     Value stored_by;
+    DataType::Type type_for_loop_phi = DataType::Type::kVoid;
   };
 
   HTypeConversion* FindOrAddTypeConversionIfNecessary(HInstruction* instruction,
@@ -631,17 +635,29 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     return (substitute != nullptr) ? substitute : instruction;
   }
 
-  void AddRemovedLoad(HInstruction* load, HInstruction* heap_value) {
+  void AddRemovedLoad(HInstruction* load,
+                      HInstruction* heap_value,
+                      DataType::Type extra_conversion_type = DataType::Type::kVoid) {
     DCHECK(IsLoad(load));
     DCHECK_EQ(FindSubstitute(load), load);
-    DCHECK_EQ(FindSubstitute(heap_value), heap_value) <<
-        "Unexpected heap_value that has a substitute " << heap_value->DebugName();
+    DCHECK_EQ(FindSubstitute(heap_value), heap_value)
+        << "Unexpected heap_value that has a substitute " << heap_value->DebugName();
+
+    // Add a type conversion for the materialized loop phi value, if needed.
+    HInstruction* intermediate_value = heap_value;
+    if (extra_conversion_type != DataType::Type::kVoid) {
+      HTypeConversion* type_conversion =
+          FindOrAddTypeConversionIfNecessary(load, heap_value, extra_conversion_type);
+      if (type_conversion != nullptr) {
+        intermediate_value = type_conversion;
+      }
+    }
 
     // The load expects to load the heap value as type load->GetType().
     // However the tracked heap value may not be of that type. An explicit
     // type conversion may be needed.
     // There are actually three types involved here:
-    // (1) tracked heap value's type (type A)
+    // (1) tracked heap value's type with a possible type conversion for loop phi values (type A)
     // (2) heap location (field or element)'s type (type B)
     // (3) load's type (type C)
     // We guarantee that type A stored as type B and then fetched out as
@@ -649,11 +665,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     // type B and type C will have the same size which is guaranteed in
     // HInstanceFieldGet/HStaticFieldGet/HArrayGet/HVecLoad's SetType().
     // So we only need one type conversion from type A to type C.
-    HTypeConversion* type_conversion = FindOrAddTypeConversionIfNecessary(
-        load, heap_value, load->GetType());
-
+    HTypeConversion* type_conversion =
+        FindOrAddTypeConversionIfNecessary(load, intermediate_value, load->GetType());
     substitute_instructions_for_loads_[load->GetId()] =
-        type_conversion != nullptr ? type_conversion : heap_value;
+        type_conversion != nullptr ? type_conversion : intermediate_value;
   }
 
   static bool IsLoad(HInstruction* instruction) {
@@ -777,7 +792,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   void MaterializeNonLoopPhis(PhiPlaceholder phi_placeholder, DataType::Type type);
 
   void VisitGetLocation(HInstruction* instruction, size_t idx);
-  void VisitSetLocation(HInstruction* instruction, size_t idx, HInstruction* value);
+  void VisitSetLocation(HInstruction* instruction,
+                        size_t idx,
+                        HInstruction* value,
+                        DataType::Type type);
   void RecordFieldInfo(const FieldInfo* info, size_t heap_loc) {
     field_infos_[heap_loc] = info;
   }
@@ -891,7 +909,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     const FieldInfo& field = instruction->GetFieldInfo();
     HInstruction* value = instruction->InputAt(1);
     size_t idx = heap_location_collector_.GetFieldHeapLocation(object, &field);
-    VisitSetLocation(instruction, idx, value);
+    VisitSetLocation(instruction, idx, value, field.GetFieldType());
   }
 
   void VisitStaticFieldGet(HStaticFieldGet* instruction) override {
@@ -915,7 +933,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     HInstruction* cls = instruction->InputAt(0);
     HInstruction* value = instruction->InputAt(1);
     size_t idx = heap_location_collector_.GetFieldHeapLocation(cls, &field);
-    VisitSetLocation(instruction, idx, value);
+    VisitSetLocation(instruction, idx, value, field.GetFieldType());
   }
 
   void VisitMonitorOperation(HMonitorOperation* monitor_op) override {
@@ -948,7 +966,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
 
   void VisitArraySet(HArraySet* instruction) override {
     size_t idx = heap_location_collector_.GetArrayHeapLocation(instruction);
-    VisitSetLocation(instruction, idx, instruction->GetValue());
+    VisitSetLocation(instruction, idx, instruction->GetValue(), instruction->GetComponentType());
   }
 
   void VisitVecLoad(HVecLoad* instruction) override {
@@ -959,7 +977,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   void VisitVecStore(HVecStore* instruction) override {
     DCHECK(!instruction->IsPredicated());
     size_t idx = heap_location_collector_.GetArrayHeapLocation(instruction);
-    VisitSetLocation(instruction, idx, instruction->GetValue());
+    VisitSetLocation(instruction, idx, instruction->GetValue(), instruction->GetPackedType());
   }
 
   void VisitDeoptimize(HDeoptimize* instruction) override {
@@ -1743,7 +1761,10 @@ void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
   }
 }
 
-void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstruction* value) {
+void LSEVisitor::VisitSetLocation(HInstruction* instruction,
+                                  size_t idx,
+                                  HInstruction* value,
+                                  DataType::Type type) {
   DCHECK_NE(idx, HeapLocationCollector::kHeapLocationNotFound);
   DCHECK(!IsStore(value)) << value->DebugName();
   if (instruction->IsFieldAccess()) {
@@ -1797,9 +1818,15 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
       loads_requiring_loop_phi_[value->GetId()] != nullptr) {
     // Propapate the Phi placeholder to the record.
     record.value = loads_requiring_loop_phi_[value->GetId()]->value;
+    record.type_for_loop_phi = value->GetType();
     DCHECK(record.value.NeedsLoopPhi());
   } else {
-    record.value = Value::ForInstruction(value);
+    // We add a type conversion for stores, even in cases where the store itself doesn't need one
+    // (e.g. storing an int value into a byte field). We record this type conversion as the value
+    // stored so that later loads know that the value they have to load is the converted one and not
+    // the original one. If this type conversion is redundant, later passes will eliminate it.
+    HTypeConversion* type_conversion = FindOrAddTypeConversionIfNecessary(instruction, value, type);
+    record.value = Value::ForInstruction(type_conversion != nullptr ? type_conversion : value);
   }
   // Track the store in the value record. If the value is loaded or needed after
   // return/deoptimization later, this store isn't really redundant.
@@ -2586,7 +2613,7 @@ void LSEVisitor::ProcessLoadsRequiringLoopPhis() {
     if (record->value.NeedsLoopPhi()) {
       record->value = Replacement(record->value);
       HInstruction* heap_value = record->value.GetInstruction();
-      AddRemovedLoad(load, heap_value);
+      AddRemovedLoad(load, heap_value, record->type_for_loop_phi);
     }
   }
 }

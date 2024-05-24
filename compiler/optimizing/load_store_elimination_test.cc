@@ -648,10 +648,10 @@ TEST_F(LoadStoreEliminationTest, MergePredecessorStores) {
 // Return 'a' from the method to make it escape.
 //
 // Expected:
-//   'vstore1' is not removed.
+//   'vstore1' is removed.
 //   'vload' is removed.
 //   'vstore2' is removed because 'b' does not escape.
-//   'vstore3' is removed.
+//   'vstore3' is not removed.
 TEST_F(LoadStoreEliminationTest, RedundantVStoreVLoadInLoop) {
   CreateTestControlFlowGraph();
 
@@ -684,10 +684,10 @@ TEST_F(LoadStoreEliminationTest, RedundantVStoreVLoadInLoop) {
   graph_->SetHasTraditionalSIMD(true);
   PerformLSE();
 
-  ASSERT_FALSE(IsRemoved(vstore1));
+  ASSERT_TRUE(IsRemoved(vstore1));
   ASSERT_TRUE(IsRemoved(vload));
   ASSERT_TRUE(IsRemoved(vstore2));
-  ASSERT_TRUE(IsRemoved(vstore3));
+  ASSERT_FALSE(IsRemoved(vstore3));
 }
 
 // Loop writes invalidate only possibly aliased heap locations.
