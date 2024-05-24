@@ -89,7 +89,10 @@ public class PreRebootStatsReporter {
     }
 
     public void recordJobStarted() {
-        Utils.check(mStatsBuilder.getStatus() != Status.STATUS_UNKNOWN);
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
 
         JobRun.Builder runBuilder =
                 JobRun.newBuilder().setJobStartedTimestampMillis(System.currentTimeMillis());
@@ -104,6 +107,11 @@ public class PreRebootStatsReporter {
 
     public void recordProgress(int skippedPackageCount, int optimizedPackageCount,
             int failedPackageCount, int totalPackageCount) {
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
+
         mStatsBuilder.setSkippedPackageCount(skippedPackageCount)
                 .setOptimizedPackageCount(optimizedPackageCount)
                 .setFailedPackageCount(failedPackageCount)
@@ -111,17 +119,35 @@ public class PreRebootStatsReporter {
         save();
     }
 
-    public void recordJobEnded(Status status) {
-        Utils.check(status == Status.STATUS_FINISHED || status == Status.STATUS_FAILED
-                || status == Status.STATUS_CANCELLED);
+    public void recordJobEnded(boolean success) {
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
 
         List<JobRun> jobRuns = mStatsBuilder.getJobRunsList();
         Utils.check(jobRuns.size() > 0);
         JobRun lastRun = jobRuns.get(jobRuns.size() - 1);
-        Utils.check(lastRun.getJobEndedTimestampMillis() == 0 || status == Status.STATUS_FAILED);
+        Utils.check(lastRun.getJobEndedTimestampMillis() == 0);
 
         JobRun.Builder runBuilder =
                 JobRun.newBuilder(lastRun).setJobEndedTimestampMillis(System.currentTimeMillis());
+
+        Status status;
+        if (success) {
+            if (mStatsBuilder.getTotalPackageCount() > 0
+                    && (mStatsBuilder.getOptimizedPackageCount()
+                               + mStatsBuilder.getFailedPackageCount()
+                               + mStatsBuilder.getSkippedPackageCount())
+                            == mStatsBuilder.getTotalPackageCount()) {
+                status = Status.STATUS_FINISHED;
+            } else {
+                status = Status.STATUS_CANCELLED;
+            }
+        } else {
+            status = Status.STATUS_FAILED;
+        }
+
         mStatsBuilder.setStatus(status).setJobRuns(jobRuns.size() - 1, runBuilder);
         save();
     }
@@ -215,6 +241,7 @@ public class PreRebootStatsReporter {
     }
 
     public void load() {
+        mStatsBuilder.clear();
         try (InputStream in = new FileInputStream(mInjector.getFilename())) {
             mStatsBuilder.mergeFrom(in);
         } catch (IOException e) {
