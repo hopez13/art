@@ -25,27 +25,25 @@ struct ProfileSaverOptions {
   // Default value for the min save period on first use, indicating that the
   // period is not configured.
   static constexpr uint32_t kMinFirstSaveMsNotSet = 0;
-  static constexpr uint32_t kSaveResolvedClassesDelayMs = 5 * 1000;  // 5 seconds
   static constexpr uint32_t kMinMethodsToSave = 10;
   static constexpr uint32_t kMinClassesToSave = 10;
   static constexpr uint32_t kMinNotificationBeforeWake = 10;
   static constexpr uint32_t kMaxNotificationBeforeWake = 50;
   static constexpr uint16_t kInlineCacheThreshold = 4000;
 
-  ProfileSaverOptions() :
-    enabled_(false),
-    min_save_period_ms_(kMinSavePeriodMs),
-    min_first_save_ms_(kMinFirstSaveMsNotSet),
-    save_resolved_classes_delay_ms_(kSaveResolvedClassesDelayMs),
-    min_methods_to_save_(kMinMethodsToSave),
-    min_classes_to_save_(kMinClassesToSave),
-    min_notification_before_wake_(kMinNotificationBeforeWake),
-    max_notification_before_wake_(kMaxNotificationBeforeWake),
-    inline_cache_threshold_(kInlineCacheThreshold),
-    profile_path_(""),
-    profile_boot_class_path_(false),
-    profile_aot_code_(false),
-    wait_for_jit_notifications_to_save_(true) {}
+  ProfileSaverOptions()
+      : enabled_(false),
+        min_save_period_ms_(kMinSavePeriodMs),
+        min_first_save_ms_(kMinFirstSaveMsNotSet),
+        min_methods_to_save_(kMinMethodsToSave),
+        min_classes_to_save_(kMinClassesToSave),
+        min_notification_before_wake_(kMinNotificationBeforeWake),
+        max_notification_before_wake_(kMaxNotificationBeforeWake),
+        inline_cache_threshold_(kInlineCacheThreshold),
+        profile_path_(""),
+        profile_boot_class_path_(false),
+        profile_aot_code_(false),
+        wait_for_jit_notifications_to_save_(true) {}
 
   ProfileSaverOptions(
       bool enabled,
@@ -85,12 +83,7 @@ struct ProfileSaverOptions {
   uint32_t GetMinSavePeriodMs() const {
     return min_save_period_ms_;
   }
-  uint32_t GetMinFirstSaveMs() const {
-    return min_first_save_ms_;
-  }
-  uint32_t GetSaveResolvedClassesDelayMs() const {
-    return save_resolved_classes_delay_ms_;
-  }
+  uint32_t GetMinFirstSaveMs() const { return min_first_save_ms_; }
   uint32_t GetMinMethodsToSave() const {
     return min_methods_to_save_;
   }
@@ -141,7 +134,6 @@ struct ProfileSaverOptions {
   bool enabled_;
   uint32_t min_save_period_ms_;
   uint32_t min_first_save_ms_;
-  uint32_t save_resolved_classes_delay_ms_;
   uint32_t min_methods_to_save_;
   uint32_t min_classes_to_save_;
   uint32_t min_notification_before_wake_;
