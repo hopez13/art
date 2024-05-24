@@ -74,6 +74,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "37143697_cbb0b931",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:37:41Z",
+      "side": 1,
+      "message": "Done. PTAL.",
+      "parentUuid": "9e336ed6_6be1f81f",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b96cd704_4c930e8d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 5
@@ -112,6 +136,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8f74e56_2dbeafee",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:37:41Z",
+      "side": 1,
+      "message": "\u003e Should this method ever get called in this state?\n\nIt is. This is clearer in the session-based model now.",
+      "parentUuid": "b6e3d745_1322ec53",
+      "range": {
+        "startLine": 110,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 62
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "23c30baa_7e139d8e",
@@ -125,6 +173,30 @@
       "writtenOn": "2024-05-24T15:03:13Z",
       "side": 1,
       "message": "Why does this reflect that jobs haven\u0027t been cancelled? It at least requires an explanation, but the code before this had the advantage that it clearly propagated the cancellation status from the dexopt itself, thereby isolating that logic from how these counters behave.",
+      "range": {
+        "startLine": 138,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 67
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "791c285f_0b20b5c2",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:37:41Z",
+      "side": 1,
+      "message": "Discussed offline. Added a comment.",
+      "parentUuid": "23c30baa_7e139d8e",
       "range": {
         "startLine": 138,
         "startChar": 16,
