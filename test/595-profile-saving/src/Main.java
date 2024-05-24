@@ -66,6 +66,10 @@ public class Main {
       file2.delete();
       file3.delete();
 
+      // Make sure to notify startup completed, since StartupCompletedTask is not started in
+      // this scope.
+      VMRuntime.notifyStartupCompleted();
+
       // Test that the runtime saves the profiling info of an app method in a .jar file.
       Method appMethod = Main.class.getDeclaredMethod("testAddMethodToProfile",
           File.class, Method.class);
@@ -171,13 +175,17 @@ public class Main {
   private static class VMRuntime {
     public static final int CODE_PATH_TYPE_PRIMARY_APK = 1 << 0;
     public static final int CODE_PATH_TYPE_SPLIT_APK = 1 << 1;
+    private static final Method getRuntimeMethod;
     private static final Method registerAppInfoMethod;
+    private static final Method notifyStartupCompletedMethod;
 
     static {
       try {
         Class<? extends Object> c = Class.forName("dalvik.system.VMRuntime");
+        getRuntimeMethod = c.getDeclaredMethod("getRuntime");
         registerAppInfoMethod = c.getDeclaredMethod("registerAppInfo",
             String.class, String.class, String.class, String[].class, int.class);
+        notifyStartupCompletedMethod = c.getDeclaredMethod("notifyStartupCompleted");
       } catch (Exception e) {
         throw new RuntimeException(e);
       }
@@ -196,6 +204,10 @@ public class Main {
           refProfile,
           codePaths,
           codePathsType);
+    }
+
+    public static void notifyStartupCompleted() throws Exception {
+      notifyStartupCompletedMethod.invoke(getRuntimeMethod.invoke(null));
     }
   }
 }
