@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "e2bb6d33_13621f55",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T15:12:18Z",
+      "side": 1,
+      "message": "I sent that a little bit too soon. I see it already is on the stack in `PreRebootManager`, but it\u0027s a class member in `ArtManagerLocal`. If it wasn\u0027t, then would we have these problems?\n\nI may be jumping to the wrong conclusion that this is a problem with overcached RAM state, but in any case that looks like a fragility we better avoid.",
+      "parentUuid": "ecd022e6_29b2293e",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b96cd704_4c930e8d",
