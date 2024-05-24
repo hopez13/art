@@ -101,10 +101,27 @@ public class PreRebootDriver {
         } catch (ReflectiveOperationException | IOException | ErrnoException e) {
             AsLog.e("Failed to run pre-reboot dexopt", e);
         } finally {
-            tearDown();
+            tearDown(false /* throwing */);
         }
         statsReporter.recordJobEnded(success);
         return success;
+    }
+
+    public void test() {
+        boolean teardownAttempted = false;
+        try {
+            if (!setUp(null /* otaSlot */)) {
+                throw new AssertionError("System requirement check failed");
+            }
+            teardownAttempted = true;
+            tearDown(true /* throwing */);
+        } catch (RemoteException e) {
+            throw new AssertionError("Unexpected exception", e);
+        } finally {
+            if (!teardownAttempted) {
+                tearDown(false /* throwing */);
+            }
+        }
     }
 
     private boolean setUp(@Nullable String otaSlot) throws RemoteException {
@@ -116,12 +133,14 @@ public class PreRebootDriver {
         return true;
     }
 
-    private void tearDown() {
+    /** @param throwing Throws {@link RuntimeException} on failure. */
+    private void tearDown(boolean throwing) {
         // In general, the teardown unmounts apexes and partitions, and open files can keep the
         // mounts busy so that they cannot be unmounted. Therefore, a running Pre-reboot artd
         // process can prevent the teardown from succeeding. It's managed by the service manager,
         // and there isn't a reliable API to kill it, so we have to kill it by triggering GC and
         // finalization, with sleep and retry mechanism.
+        Throwable lastThrowable = null;
         for (int numRetries = 3; numRetries > 0;) {
             try {
                 Runtime.getRuntime().gc();
@@ -132,17 +151,23 @@ public class PreRebootDriver {
                 return;
             } catch (RemoteException e) {
                 Utils.logArtdException(e);
+                lastThrowable = e;
             } catch (ServiceSpecificException e) {
                 AsLog.e("Failed to tear down chroot", e);
+                lastThrowable = e;
             } catch (IllegalStateException e) {
                 // Not expected, but we still want retries in such an extreme case.
                 AsLog.wtf("Unexpected exception", e);
+                lastThrowable = e;
             }
 
             if (--numRetries > 0) {
                 AsLog.i("Retrying....");
                 Utils.sleep(30000);
             }
+        }
+        if (throwing) {
+            throw Utils.toRuntimeException(lastThrowable);
         }
     }
 
