@@ -16,6 +16,24 @@
       "message": "Hello! Could you share please which tests are failing? Are they related to these patches? Thank you!",
       "revId": "85deb00b67cd9eafa481d5376d21d06403e57364",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8990138b_82dce8ea",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-24T12:26:50Z",
+      "side": 1,
+      "message": "I have seen these tests fail in other CLs. They look unrelated to the changes.\nSame for the parent CL.",
+      "parentUuid": "a071bbc6_b8eb4299",
+      "revId": "85deb00b67cd9eafa481d5376d21d06403e57364",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
