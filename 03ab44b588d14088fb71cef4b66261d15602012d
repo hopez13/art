@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "68c80003_1fb4aa9a",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 735,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:45:06Z",
+      "side": 1,
+      "message": "Yes, I don\u0027t want anyone to use it.",
+      "parentUuid": "05c202ae_9ad0b73a",
+      "range": {
+        "startLine": 735,
+        "startChar": 23,
+        "endLine": 735,
+        "endChar": 32
+      },
+      "revId": "03ab44b588d14088fb71cef4b66261d15602012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "af785e3d_91aaf45e",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-05-24T16:16:05Z",
       "side": 1,
       "message": "Maybe add a comment here briefly outlining the hurdle to test dexopting some package.",
+      "revId": "03ab44b588d14088fb71cef4b66261d15602012d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d7c2b43_cec1e12c",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:45:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "af785e3d_91aaf45e",
       "revId": "03ab44b588d14088fb71cef4b66261d15602012d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
