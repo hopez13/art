@@ -124,6 +124,8 @@ std::string BuildCommand(const std::vector<std::string>& args) {
     }
     command += '"' + arg + '"';
   }
+
+  command += " 2>&1";
   return command;
 }
 
