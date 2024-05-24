@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e336ed6_6be1f81f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T15:29:17Z",
+      "side": 1,
+      "message": "Thanks for the thoughts. The current situation is that `PreRebootStatsReporter` is on the stack in `PreRebootManager` while being a class member in `ArtManagerLocal` and a class member in `PreRebootDexoptJob.Injector`. The cause is indeed the overcached RAM state (specifically, in `PreRebootDexoptJob.Injector`).\n\nI\u0027ll get rid of the RAM state and make `PreRebootStatsReporter` session-based instead.",
+      "parentUuid": "e2bb6d33_13621f55",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b96cd704_4c930e8d",
