@@ -1097,6 +1097,13 @@ bool HLoopOptimization::TryLoopScalarOpts(LoopNode* node) {
   LoopAnalysisInfo analysis_info(loop_info);
   LoopAnalysis::CalculateLoopBasicProperties(loop_info, &analysis_info, trip_count);
 
+  if (trip_count == 0) {
+    // Mark the loop as dead.
+    HIf* loop_hif = loop_info->GetHeader()->GetLastInstruction()->AsIf();
+    int32_t constant = loop_info->Contains(*loop_hif->IfTrueSuccessor()) ? 0 : 1;
+    loop_hif->ReplaceInput(graph_->GetIntConstant(constant), 0u);
+  }
+
   if (analysis_info.HasInstructionsPreventingScalarOpts() ||
       arch_loop_helper_->IsLoopNonBeneficialForScalarOpts(&analysis_info)) {
     return false;
