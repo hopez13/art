@@ -89,10 +89,12 @@
   V(DoubleIsNaN, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Double;", "isNaN", "(D)Z") \
   V(FloatIsNaN, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Float;", "isNaN", "(F)Z") \
   V(IntegerCompare, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "compare", "(II)I") \
+  V(IntegerCompareUnsigned, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "compareUnsigned", "(II)I") \
   V(IntegerRotateRight, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "rotateRight", "(II)I") \
   V(IntegerRotateLeft, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "rotateLeft", "(II)I") \
   V(IntegerSignum, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Integer;", "signum", "(I)I") \
   V(LongCompare, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "compare", "(JJ)I") \
+  V(LongCompareUnsigned, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "compareUnsigned", "(JJ)I") \
   V(LongRotateRight, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "rotateRight", "(JI)J") \
   V(LongRotateLeft, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "rotateLeft", "(JI)J") \
   V(LongSignum, kStatic, kNeedsEnvironment, kNoSideEffects, kNoThrow, "Ljava/lang/Long;", "signum", "(J)I") \
