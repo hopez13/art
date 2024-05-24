@@ -825,12 +825,6 @@ struct CmdlineType<ProfileSaverOptions> : CmdlineTypeParser<ProfileSaverOptions>
              &ProfileSaverOptions::min_first_save_ms_,
              type_parser.Parse(suffix));
     }
-    if (android::base::StartsWith(option, "save-resolved-classes-delay-ms:")) {
-      CmdlineType<unsigned int> type_parser;
-      return ParseInto(existing,
-             &ProfileSaverOptions::save_resolved_classes_delay_ms_,
-             type_parser.Parse(suffix));
-    }
     if (android::base::StartsWith(option, "hot-startup-method-samples:")) {
       LOG(WARNING) << "-Xps-hot-startup-method-samples option is deprecated";
       return Result::SuccessNoValue();
