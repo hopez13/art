@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "ecd022e6_29b2293e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T15:03:13Z",
+      "side": 1,
+      "message": "How does the chroot boundary matter for this? Do we get two different instances of `PreRebootStatsReporter`? If so, it sounds like we need to be more careful with the cached state in it.\n\nPreferably we adjust the lifetimes so that only one instance is active at any one time. To record the job schedule event we only create one on the stack, and then another when the job finishes. Similarly the job in `PreRebootManager` has its instance on the stack too to cache the proto state so that it can update the proto without loading it every time.\n\nAnother option is to remove all RAM state from it and put it in a nested \"session\" class that have those same limited lifetimes.\n\nA third option is to just remove all RAM state and simply read and write back the proto every single time. That\u0027s the easiest and most robust way, but it causes a bit more I/O.",
+      "range": {
+        "startLine": 13,
+        "startChar": 0,
+        "endLine": 14,
+        "endChar": 58
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "b96cd704_4c930e8d",
@@ -14,6 +37,52 @@
       "writtenOn": "2024-05-24T13:06:39Z",
       "side": 1,
       "message": "This change is now ready for review.",
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6e3d745_1322ec53",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T15:03:13Z",
+      "side": 1,
+      "message": "Should this method ever get called in this state? If not, then can it be a `Utils.check` call instead?",
+      "range": {
+        "startLine": 110,
+        "startChar": 12,
+        "endLine": 110,
+        "endChar": 62
+      },
+      "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23c30baa_7e139d8e",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T15:03:13Z",
+      "side": 1,
+      "message": "Why does this reflect that jobs haven\u0027t been cancelled? It at least requires an explanation, but the code before this had the advantage that it clearly propagated the cancellation status from the dexopt itself, thereby isolating that logic from how these counters behave.",
+      "range": {
+        "startLine": 138,
+        "startChar": 16,
+        "endLine": 142,
+        "endChar": 67
+      },
       "revId": "b75688ac5ea4624a496a2f4550c65c62f33b7dba",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
