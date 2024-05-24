@@ -135,7 +135,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     public @ScheduleStatus int onUpdateReady(@Nullable String otaSlot) {
         unschedule();
         mSerializedExecutor.execute(() -> {
-            mInjector.getStatsReporter().reset();
+            mInjector.getStatsReporter().delete();
             if (hasStarted()) {
                 try {
                     mInjector.getArtd().cleanUpPreRebootStagedFiles();
@@ -225,8 +225,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         mRunningJob = new CompletableFuture().supplyAsync(() -> {
             markHasStarted(true);
             try {
-                mInjector.getPreRebootDriver().run(
-                        otaSlot, cancellationSignal, mInjector.getStatsReporter());
+                mInjector.getPreRebootDriver().run(otaSlot, cancellationSignal);
             } catch (RuntimeException e) {
                 AsLog.e("Fatal error", e);
             } finally {
@@ -299,11 +298,9 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     @VisibleForTesting
     public static class Injector {
         @NonNull private final Context mContext;
-        @NonNull private final PreRebootStatsReporter mStatsReporter;
 
         Injector(@NonNull Context context) {
             mContext = context;
-            mStatsReporter = new PreRebootStatsReporter();
         }
 
         @NonNull
@@ -318,7 +315,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
         @NonNull
         public PreRebootStatsReporter getStatsReporter() {
-            return mStatsReporter;
+            return new PreRebootStatsReporter();
         }
 
         @NonNull
