@@ -62,6 +62,24 @@
       "message": "Add a test in ArtManagerLocalTest.java that starts a job with one `mPreRebootDexoptJob` instance, replaces it with another, and checks that a call to `cleanup` leaves the staged files alone?",
       "revId": "537e05ab6776918412b74258450f869f6f7a9232",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "95f05853_c85ac0b3",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T18:17:18Z",
+      "side": 1,
+      "message": "Discussed offline. `PreRebootDexoptJob` is mocked in `ArtManagerLocalTest`, so fixing this is quite a bit of work. Although I think there\u0027s some merit to the test let\u0027s table it.",
+      "parentUuid": "4c25c8b4_fcfa3760",
+      "revId": "537e05ab6776918412b74258450f869f6f7a9232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
