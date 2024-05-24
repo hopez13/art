@@ -69,6 +69,11 @@ int64_t LoopAnalysis::GetLoopTripCount(HLoopInformation* loop_info,
   int64_t trip_count;
   if (!induction_range->HasKnownTripCount(loop_info, &trip_count)) {
     trip_count = LoopAnalysisInfo::kUnknownTripCount;
+  } else {
+    // Known never taken loop.
+    if (trip_count < 0) {
+      trip_count = 0;
+    }
   }
   return trip_count;
 }

@@ -104,7 +104,8 @@ class LoopAnalysis : public ValueObject {
                                            LoopAnalysisInfo* analysis_results,
                                            int64_t trip_count);
 
-  // Returns the trip count of the loop if it is known and kUnknownTripCount otherwise.
+  // Returns the trip count of the loop if it is known and kUnknownTripCount otherwise. For loop
+  // counts with known negative values, it returns 0 to signal that these loops are never taken.
   static int64_t GetLoopTripCount(HLoopInformation* loop_info,
                                   const InductionVarRange* induction_range);
 
