@@ -1885,7 +1885,9 @@ bool HInstructionBuilder::BuildSimpleIntrinsic(ArtMethod* method,
   Intrinsics intrinsic = static_cast<Intrinsics>(method->GetIntrinsic());
   DCHECK_NE(intrinsic, Intrinsics::kNone);
   constexpr DataType::Type kInt32 = DataType::Type::kInt32;
+  constexpr DataType::Type kUint32 = DataType::Type::kUint32;
   constexpr DataType::Type kInt64 = DataType::Type::kInt64;
+  constexpr DataType::Type kUint64 = DataType::Type::kUint64;
   constexpr DataType::Type kFloat32 = DataType::Type::kFloat32;
   constexpr DataType::Type kFloat64 = DataType::Type::kFloat64;
   ReceiverArg receiver_arg = method->IsStatic() ? ReceiverArg::kNone : ReceiverArg::kNullCheckedArg;
@@ -1905,9 +1907,17 @@ bool HInstructionBuilder::BuildSimpleIntrinsic(ArtMethod* method,
       instruction = new (allocator_) HCompare(
           kInt32, /*first=*/ nullptr, /*second=*/ nullptr, ComparisonBias::kNoBias, dex_pc);
       break;
+    case Intrinsics::kIntegerCompareUnsigned:
+      instruction = new (allocator_) HCompare(
+          kUint32, /*first=*/ nullptr, /*second=*/ nullptr, ComparisonBias::kNoBias, dex_pc);
+      break;
     case Intrinsics::kLongCompare:
       instruction = new (allocator_) HCompare(
           kInt64, /*first=*/ nullptr, /*second=*/ nullptr, ComparisonBias::kNoBias, dex_pc);
+      break;
+    case Intrinsics::kLongCompareUnsigned:
+      instruction = new (allocator_) HCompare(
+          kUint64, /*first=*/ nullptr, /*second=*/ nullptr, ComparisonBias::kNoBias, dex_pc);
       break;
     case Intrinsics::kIntegerSignum:
       instruction = new (allocator_) HCompare(
