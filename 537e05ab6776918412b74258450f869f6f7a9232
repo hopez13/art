@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "04e35de9_f07e72b1",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T18:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "01915969_4b48c265",
+      "range": {
+        "startLine": 35,
+        "startChar": 21,
+        "endLine": 35,
+        "endChar": 47
+      },
+      "revId": "537e05ab6776918412b74258450f869f6f7a9232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "759fe59b_393a5267",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-24T16:26:27Z",
       "side": 1,
       "message": "Is this correct, considering that it does in fact return null? It at least looks confusing, so if nothing else it may be better to just skip a nullness annotation altogether?",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 12
+      },
+      "revId": "537e05ab6776918412b74258450f869f6f7a9232",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0630f27a_239e51ae",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 15
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T18:21:14Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "759fe59b_393a5267",
       "range": {
         "startLine": 121,
         "startChar": 4,
