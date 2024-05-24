@@ -85,14 +85,15 @@ public class PreRebootDriver {
      */
     public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal,
             @NonNull PreRebootStatsReporter statsReporter) {
+        boolean success = false;
         try {
             statsReporter.recordJobStarted();
             if (!setUp(otaSlot)) {
-                statsReporter.recordJobEnded(Status.STATUS_FAILED);
+                statsReporter.recordJobEnded(false /* success */);
                 return false;
             }
             runFromChroot(cancellationSignal);
-            return true;
+            success = true;
         } catch (RemoteException e) {
             Utils.logArtdException(e);
         } catch (ServiceSpecificException e) {
@@ -102,10 +103,9 @@ public class PreRebootDriver {
         } finally {
             tearDown();
         }
-        // Only report the failed case here. The finished and cancelled cases are reported by
-        // PreRebootManager.
-        statsReporter.recordJobEnded(Status.STATUS_FAILED);
-        return false;
+        statsReporter.load(); // Load the progress.
+        statsReporter.recordJobEnded(success);
+        return success;
     }
 
     private boolean setUp(@Nullable String otaSlot) throws RemoteException {
