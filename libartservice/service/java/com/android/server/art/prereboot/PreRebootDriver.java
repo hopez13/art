@@ -83,16 +83,17 @@ public class PreRebootDriver {
      * @param otaSlot The slot that contains the OTA update, "_a" or "_b", or null for a Mainline
      *         update.
      */
-    public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal,
-            @NonNull PreRebootStatsReporter statsReporter) {
+    public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal) {
+        var statsReporter = new PreRebootStatsReporter();
+        boolean success = false;
         try {
             statsReporter.recordJobStarted();
             if (!setUp(otaSlot)) {
-                statsReporter.recordJobEnded(Status.STATUS_FAILED);
+                statsReporter.recordJobEnded(false /* success */);
                 return false;
             }
             runFromChroot(cancellationSignal);
-            return true;
+            success = true;
         } catch (RemoteException e) {
             Utils.logArtdException(e);
         } catch (ServiceSpecificException e) {
@@ -102,10 +103,8 @@ public class PreRebootDriver {
         } finally {
             tearDown(false /* throwing */);
         }
-        // Only report the failed case here. The finished and cancelled cases are reported by
-        // PreRebootManager.
-        statsReporter.recordJobEnded(Status.STATUS_FAILED);
-        return false;
+        statsReporter.recordJobEnded(success);
+        return success;
     }
 
     public void test() {
