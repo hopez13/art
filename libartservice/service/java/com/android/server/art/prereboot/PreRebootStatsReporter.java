@@ -89,7 +89,10 @@ public class PreRebootStatsReporter {
     }
 
     public void recordJobStarted() {
-        Utils.check(mStatsBuilder.getStatus() != Status.STATUS_UNKNOWN);
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
 
         JobRun.Builder runBuilder =
                 JobRun.newBuilder().setJobStartedTimestampMillis(System.currentTimeMillis());
@@ -104,6 +107,11 @@ public class PreRebootStatsReporter {
 
     public void recordProgress(int skippedPackageCount, int optimizedPackageCount,
             int failedPackageCount, int totalPackageCount) {
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
+
         mStatsBuilder.setSkippedPackageCount(skippedPackageCount)
                 .setOptimizedPackageCount(optimizedPackageCount)
                 .setFailedPackageCount(failedPackageCount)
@@ -114,6 +122,11 @@ public class PreRebootStatsReporter {
     public void recordJobEnded(Status status) {
         Utils.check(status == Status.STATUS_FINISHED || status == Status.STATUS_FAILED
                 || status == Status.STATUS_CANCELLED);
+
+        if (mStatsBuilder.getStatus() == Status.STATUS_UNKNOWN) {
+            // Failed to load, the error is already logged.
+            return;
+        }
 
         List<JobRun> jobRuns = mStatsBuilder.getJobRunsList();
         Utils.check(jobRuns.size() > 0);
@@ -215,6 +228,7 @@ public class PreRebootStatsReporter {
     }
 
     public void load() {
+        mStatsBuilder.clear();
         try (InputStream in = new FileInputStream(mInjector.getFilename())) {
             mStatsBuilder.mergeFrom(in);
         } catch (IOException e) {
