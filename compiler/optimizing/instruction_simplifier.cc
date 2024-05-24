@@ -1794,6 +1794,36 @@ static bool RecognizeAndSimplifyClassCheck(HCondition* condition) {
   }
 }
 
+static bool IsUnsignedCondition(IfCondition cond) {
+  switch (cond) {
+    case kCondB:   // <
+    case kCondBE:  // <=
+    case kCondA:   // >
+    case kCondAE:  // >=
+      return true;
+    default:
+      return false;
+  }
+}
+
+static HCondition* GetUnsignedCondition(ArenaAllocator* allocator, HInstruction* cond) {
+  HInstruction* lhs = cond->InputAt(0);
+  HInstruction* rhs = cond->InputAt(1);
+  switch (cond->GetKind()) {
+    case HInstruction::kLessThan:
+      return new (allocator) HBelow(rhs, lhs);
+    case HInstruction::kLessThanOrEqual:
+      return new (allocator) HBelowOrEqual(rhs, lhs);
+    case HInstruction::kGreaterThan:
+      return new (allocator) HAbove(rhs, lhs);
+    case HInstruction::kGreaterThanOrEqual:
+      return new (allocator) HAboveOrEqual(rhs, lhs);
+    default:
+      LOG(FATAL) << "Unknown ConditionType " << cond->GetKind();
+      UNREACHABLE();
+  }
+}
+
 void InstructionSimplifierVisitor::VisitCondition(HCondition* condition) {
   if (condition->IsEqual() || condition->IsNotEqual()) {
     if (RecognizeAndSimplifyClassCheck(condition)) {
@@ -1803,8 +1833,8 @@ void InstructionSimplifierVisitor::VisitCondition(HCondition* condition) {
 
   // Reverse condition if left is constant. Our code generators prefer constant
   // on the right hand side.
+  HBasicBlock* block = condition->GetBlock();
   if (condition->GetLeft()->IsConstant() && !condition->GetRight()->IsConstant()) {
-    HBasicBlock* block = condition->GetBlock();
     HCondition* replacement =
         GetOppositeConditionSwapOps(block->GetGraph()->GetAllocator(), condition);
     // If it is a fp we must set the opposite bias.
@@ -1854,6 +1884,18 @@ void InstructionSimplifierVisitor::VisitCondition(HCondition* condition) {
 
   // Clean up any environment uses from the HCompare, if any.
   left->RemoveEnvironmentUsers();
+
+  // If we have unsigned comparison make sure the resulting node will also be unsigned-typed
+  DataType::Type compareType = left->AsCompare()->GetComparisonType();
+  if (DataType::IsUnsignedType(compareType) && !IsUnsignedCondition(condition->GetCondition())) {
+    HCondition* unsignedCondition =
+        GetUnsignedCondition(block->GetGraph()->GetAllocator(), condition);
+    DCHECK_EQ(condition->GetBias(), ComparisonBias::kNoBias);
+    block->ReplaceAndRemoveInstructionWith(condition, unsignedCondition);
+    RecordSimplification();
+
+    condition = unsignedCondition;
+  }
 
   // We have decided to fold the HCompare into the HCondition. Transfer the information.
   condition->SetBias(left->AsCompare()->GetBias());
