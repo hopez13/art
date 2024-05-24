@@ -22,6 +22,30 @@
       },
       "revId": "e6cd019a0c08c55890450c29ccd71b2954f9ef98",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e8a70fd4_c98db76e",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-24T16:51:40Z",
+      "side": 1,
+      "message": "`snapshotctl map` may fail in the middle, leaving some snapshots mapped. I think it\u0027s better to write the file beforehand.",
+      "parentUuid": "e3e32cea_2b27d917",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 5
+      },
+      "revId": "e6cd019a0c08c55890450c29ccd71b2954f9ef98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
