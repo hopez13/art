@@ -136,12 +136,10 @@ void ProfileSaver::Run() {
   {
     MutexLock mu(self, wait_lock_);
 
-    const uint64_t sleep_time = MsToNs(force_early_first_save
-      ? options_.GetMinFirstSaveMs()
-      : options_.GetSaveResolvedClassesDelayMs());
+    const uint64_t sleep_time = MsToNs(options_.GetSaveResolvedClassesDelayMs());
     const uint64_t start_time = NanoTime();
     const uint64_t end_time = start_time + sleep_time;
-    while (!Runtime::Current()->GetStartupCompleted() || force_early_first_save) {
+    while (!Runtime::Current()->GetStartupCompleted()) {
       const uint64_t current_time = NanoTime();
       if (current_time >= end_time) {
         break;
@@ -160,24 +158,34 @@ void ProfileSaver::Run() {
 
   // Loop for the profiled methods.
   while (!ShuttingDown(self)) {
-    // Sleep only if we don't have to force an early first save configured
-    // with GetMinFirstSaveMs().
-    // If we do have to save early, move directly to the processing part
-    // since we already slept before fetching and resolving the startup
-    // classes.
-    if (!force_early_first_save) {
-      uint64_t sleep_start = NanoTime();
-      uint64_t sleep_time = 0;
+    uint64_t sleep_start = NanoTime();
+    uint64_t sleep_time = 0;
+    {
+      MutexLock mu(self, wait_lock_);
+      if (options_.GetWaitForJitNotificationsToSave()) {
+        period_condition_.Wait(self);
+      } else {
+        period_condition_.TimedWait(self, cur_wait_without_jit, 0);
+        if (cur_wait_without_jit < max_wait_without_jit) {
+          cur_wait_without_jit *= 2;
+        }
+      }
+      sleep_time = NanoTime() - sleep_start;
+    }
+    // Check if the thread was woken up for shutdown.
+    if (ShuttingDown(self)) {
+      break;
+    }
+    total_number_of_wake_ups_++;
+    // We might have been woken up by a huge number of notifications to guarantee saving.
+    // If we didn't meet the minimum saving period go back to sleep (only if missed by
+    // a reasonable margin).
+    uint64_t min_save_period_ns = MsToNs(force_early_first_save ? options_.GetMinFirstSaveMs() :
+                                                                  options_.GetMinSavePeriodMs());
+    while (min_save_period_ns * 0.9 > sleep_time) {
       {
         MutexLock mu(self, wait_lock_);
-        if (options_.GetWaitForJitNotificationsToSave()) {
-          period_condition_.Wait(self);
-        } else {
-          period_condition_.TimedWait(self, cur_wait_without_jit, 0);
-          if (cur_wait_without_jit < max_wait_without_jit) {
-            cur_wait_without_jit *= 2;
-          }
-        }
+        period_condition_.TimedWait(self, NsToMs(min_save_period_ns - sleep_time), 0);
         sleep_time = NanoTime() - sleep_start;
       }
       // Check if the thread was woken up for shutdown.
@@ -185,24 +193,8 @@ void ProfileSaver::Run() {
         break;
       }
       total_number_of_wake_ups_++;
-      // We might have been woken up by a huge number of notifications to guarantee saving.
-      // If we didn't meet the minimum saving period go back to sleep (only if missed by
-      // a reasonable margin).
-      uint64_t min_save_period_ns = MsToNs(options_.GetMinSavePeriodMs());
-      while (min_save_period_ns * 0.9 > sleep_time) {
-        {
-          MutexLock mu(self, wait_lock_);
-          period_condition_.TimedWait(self, NsToMs(min_save_period_ns - sleep_time), 0);
-          sleep_time = NanoTime() - sleep_start;
-        }
-        // Check if the thread was woken up for shutdown.
-        if (ShuttingDown(self)) {
-          break;
-        }
-        total_number_of_wake_ups_++;
-      }
-      total_ms_of_sleep_ += NsToMs(NanoTime() - sleep_start);
     }
+    total_ms_of_sleep_ += NsToMs(NanoTime() - sleep_start);
 
     if (ShuttingDown(self)) {
       break;
