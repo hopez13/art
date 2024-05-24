@@ -86,6 +86,9 @@ public class PreRebootDriver {
     public boolean run(@Nullable String otaSlot, @NonNull CancellationSignal cancellationSignal,
             @NonNull PreRebootStatsReporter statsReporter) {
         try {
+            // Reload the proto because it may have been changed by a previous run.
+            statsReporter.load();
+
             statsReporter.recordJobStarted();
             if (!setUp(otaSlot)) {
                 statsReporter.recordJobEnded(Status.STATUS_FAILED);
