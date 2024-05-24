@@ -48,6 +48,9 @@ public class Main {
         VMRuntime.registerAppInfo("test.app", sFile.getPath(), sFile.getPath(),
                 new String[] {codePath}, VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
 
+        // Make sure to notify startup completed, since StartupCompletedTask is not started in this scope.
+        dalvik.system.VMRuntime.getRuntime().notifyStartupCompleted();
+        
         for (int i = 0; i < 10; i++) {
             try {
                 test();

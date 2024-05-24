@@ -66,6 +66,9 @@ public class Main {
       file2.delete();
       file3.delete();
 
+      // Make sure to notify startup completed, since StartupCompletedTask is not started in this scope.
+      dalvik.system.VMRuntime.getRuntime().notifyStartupCompleted();
+
       // Test that the runtime saves the profiling info of an app method in a .jar file.
       Method appMethod = Main.class.getDeclaredMethod("testAddMethodToProfile",
           File.class, Method.class);
