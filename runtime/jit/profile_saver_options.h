@@ -25,10 +25,13 @@ struct ProfileSaverOptions {
   // Default value for the min save period on first use, indicating that the
   // period is not configured.
   static constexpr uint32_t kMinFirstSaveMsNotSet = 0;
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+=======
   static constexpr uint32_t kSaveResolvedClassesDelayMs = 5 * 1000;  // 5 seconds
   // Minimum number of JIT samples during launch to mark a method as hot in the profile.
   static constexpr uint32_t kHotStartupMethodSamples = 1;
   static constexpr uint32_t kHotStartupMethodSamplesLowRam = 256;
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
   static constexpr uint32_t kMinMethodsToSave = 10;
   static constexpr uint32_t kMinClassesToSave = 10;
   static constexpr uint32_t kMinNotificationBeforeWake = 10;
@@ -36,6 +39,21 @@ struct ProfileSaverOptions {
   static constexpr uint32_t kHotStartupMethodSamplesNotSet = std::numeric_limits<uint32_t>::max();
   static constexpr uint16_t kInlineCacheThreshold = 4000;
 
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+  ProfileSaverOptions()
+      : enabled_(false),
+        min_save_period_ms_(kMinSavePeriodMs),
+        min_first_save_ms_(kMinFirstSaveMsNotSet),
+        min_methods_to_save_(kMinMethodsToSave),
+        min_classes_to_save_(kMinClassesToSave),
+        min_notification_before_wake_(kMinNotificationBeforeWake),
+        max_notification_before_wake_(kMaxNotificationBeforeWake),
+        inline_cache_threshold_(kInlineCacheThreshold),
+        profile_path_(""),
+        profile_boot_class_path_(false),
+        profile_aot_code_(false),
+        wait_for_jit_notifications_to_save_(true) {}
+=======
   ProfileSaverOptions() :
     enabled_(false),
     min_save_period_ms_(kMinSavePeriodMs),
@@ -51,7 +69,34 @@ struct ProfileSaverOptions {
     profile_boot_class_path_(false),
     profile_aot_code_(false),
     wait_for_jit_notifications_to_save_(true) {}
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
 
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+  ProfileSaverOptions(bool enabled,
+                      uint32_t min_save_period_ms,
+                      uint32_t min_first_save_ms,
+                      uint32_t min_methods_to_save,
+                      uint32_t min_classes_to_save,
+                      uint32_t min_notification_before_wake,
+                      uint32_t max_notification_before_wake,
+                      uint16_t inline_cache_threshold,
+                      const std::string& profile_path,
+                      bool profile_boot_class_path,
+                      bool profile_aot_code = false,
+                      bool wait_for_jit_notifications_to_save = true)
+      : enabled_(enabled),
+        min_save_period_ms_(min_save_period_ms),
+        min_first_save_ms_(min_first_save_ms),
+        min_methods_to_save_(min_methods_to_save),
+        min_classes_to_save_(min_classes_to_save),
+        min_notification_before_wake_(min_notification_before_wake),
+        max_notification_before_wake_(max_notification_before_wake),
+        inline_cache_threshold_(inline_cache_threshold),
+        profile_path_(profile_path),
+        profile_boot_class_path_(profile_boot_class_path),
+        profile_aot_code_(profile_aot_code),
+        wait_for_jit_notifications_to_save_(wait_for_jit_notifications_to_save) {}
+=======
   ProfileSaverOptions(
       bool enabled,
       uint32_t min_save_period_ms,
@@ -81,6 +126,7 @@ struct ProfileSaverOptions {
     profile_boot_class_path_(profile_boot_class_path),
     profile_aot_code_(profile_aot_code),
     wait_for_jit_notifications_to_save_(wait_for_jit_notifications_to_save) {}
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
 
   bool IsEnabled() const {
     return enabled_;
@@ -92,6 +138,9 @@ struct ProfileSaverOptions {
   uint32_t GetMinSavePeriodMs() const {
     return min_save_period_ms_;
   }
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+  uint32_t GetMinFirstSaveMs() const { return min_first_save_ms_; }
+=======
   uint32_t GetMinFirstSaveMs() const {
     return min_first_save_ms_;
   }
@@ -105,6 +154,7 @@ struct ProfileSaverOptions {
     }
     return ret;
   }
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
   uint32_t GetMinMethodsToSave() const {
     return min_methods_to_save_;
   }
@@ -137,6 +187,16 @@ struct ProfileSaverOptions {
   }
 
   friend std::ostream & operator<<(std::ostream &os, const ProfileSaverOptions& pso) {
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+    os << "enabled_" << pso.enabled_ << ", min_save_period_ms_" << pso.min_save_period_ms_
+       << ", min_first_save_ms_" << pso.min_first_save_ms_ << ", min_methods_to_save_"
+       << pso.min_methods_to_save_ << ", min_classes_to_save_" << pso.min_classes_to_save_
+       << ", min_notification_before_wake_" << pso.min_notification_before_wake_
+       << ", max_notification_before_wake_" << pso.max_notification_before_wake_
+       << ", inline_cache_threshold_" << pso.inline_cache_threshold_ << ", profile_boot_class_path_"
+       << pso.profile_boot_class_path_ << ", profile_aot_code_" << pso.profile_aot_code_
+       << ", wait_for_jit_notifications_to_save_" << pso.wait_for_jit_notifications_to_save_;
+=======
     os << "enabled_" << pso.enabled_
         << ", min_save_period_ms_" << pso.min_save_period_ms_
         << ", min_first_save_ms_" << pso.min_first_save_ms_
@@ -150,16 +210,20 @@ struct ProfileSaverOptions {
         << ", profile_boot_class_path_" << pso.profile_boot_class_path_
         << ", profile_aot_code_" << pso.profile_aot_code_
         << ", wait_for_jit_notifications_to_save_" << pso.wait_for_jit_notifications_to_save_;
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
     return os;
   }
 
   bool enabled_;
   uint32_t min_save_period_ms_;
   uint32_t min_first_save_ms_;
+<<<<<<< PATCH SET (ddf610 Make sure to mark classes/methods as startup.)
+=======
   uint32_t save_resolved_classes_delay_ms_;
   // Do not access hot_startup_method_samples_ directly for reading since it may be set to the
   // placeholder default.
   uint32_t hot_startup_method_samples_;
+>>>>>>> BASE      (e5d593 Revert "Rewrite how we identify hot methods.")
   uint32_t min_methods_to_save_;
   uint32_t min_classes_to_save_;
   uint32_t min_notification_before_wake_;
