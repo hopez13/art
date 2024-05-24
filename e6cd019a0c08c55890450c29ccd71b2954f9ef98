@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3e32cea_2b27d917",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 9
+      },
+      "lineNbr": 399,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-24T16:41:26Z",
+      "side": 1,
+      "message": "But it\u0027s not actually mapped yet. Shouldn\u0027t this be done after `snapshotctl map` has succeeded below?\n\nAlso, in that case it ought to unmap inside this error return clause since it failed to write this state file and hence wouldn\u0027t unmap later.",
+      "range": {
+        "startLine": 397,
+        "startChar": 0,
+        "endLine": 399,
+        "endChar": 5
+      },
+      "revId": "e6cd019a0c08c55890450c29ccd71b2954f9ef98",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
