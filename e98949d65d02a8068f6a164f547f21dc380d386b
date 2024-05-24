@@ -57,6 +57,30 @@
       ],
       "revId": "e98949d65d02a8068f6a164f547f21dc380d386b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e467fc5_e5309d0d",
+        "filename": "test/855-native/run.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-24T09:32:39Z",
+      "side": 1,
+      "message": "That, but also if there is any oat file, we take a different path in ArtMethod::GetOatQuickMethodHeader because we have found an OatMethod (even if it doesn\u0027t contain any compiled code).",
+      "parentUuid": "f1b41761_ef39dc2c",
+      "range": {
+        "startLine": 20,
+        "startChar": 24,
+        "endLine": 20,
+        "endChar": 38
+      },
+      "revId": "e98949d65d02a8068f6a164f547f21dc380d386b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
