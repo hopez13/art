@@ -46,6 +46,30 @@
       },
       "revId": "c71df71c1e6f3123e283cda39c4841800e3f0b80",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acad6b49_929dd14e",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1042276
+      },
+      "writtenOn": "2024-05-24T16:13:25Z",
+      "side": 1,
+      "message": "On second thought, adjusting the expectation doesn\u0027t make sense since the compilation shouldn\u0027t be scheduled anyway with a non-protected VM.\n\nPlease go ahead and simply move this to CompOsSigningHostTest.",
+      "parentUuid": "aa613d4b_0e53953e",
+      "range": {
+        "startLine": 125,
+        "startChar": 8,
+        "endLine": 125,
+        "endChar": 25
+      },
+      "revId": "c71df71c1e6f3123e283cda39c4841800e3f0b80",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
