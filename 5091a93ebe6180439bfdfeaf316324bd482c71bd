@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b0acc20_a08bd390",
+        "filename": "libartbase/base/common_art_test.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 250,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-05-28T10:35:05Z",
+      "side": 1,
+      "message": "I expect this to break on Arm host machines, but I\u0027m not sure what is the status of the project to run Android host tests on Arm hosts, so maybe it\u0027s fine to ignore. Adding Dan as CC as we discussed this topic some time ago.",
+      "range": {
+        "startLine": 250,
+        "startChar": 89,
+        "endLine": 250,
+        "endChar": 98
+      },
+      "revId": "5091a93ebe6180439bfdfeaf316324bd482c71bd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
