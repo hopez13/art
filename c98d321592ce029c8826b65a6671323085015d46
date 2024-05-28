@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4df3a9f_07db0567",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-28T16:01:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8a837661_e5f05a55",
+      "range": {
+        "startLine": 9,
+        "startChar": 39,
+        "endLine": 9,
+        "endChar": 47
+      },
+      "revId": "c98d321592ce029c8826b65a6671323085015d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "485f7752_76cc3c86",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-28T15:32:10Z",
       "side": 1,
       "message": "For simple cases, we could replace the loop condition in instruction simplifier or constant folding by trying to evaluate it with the value(s) coming from the loop pre-header instead of the loop Phis. We would not even need the `InductionVarRange` and it would work also for loops where the \"end\" is unknown.",
+      "range": {
+        "startLine": 11,
+        "startChar": 18,
+        "endLine": 13,
+        "endChar": 9
+      },
+      "revId": "c98d321592ce029c8826b65a6671323085015d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7e400205_c07626d1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-28T16:01:01Z",
+      "side": 1,
+      "message": "I think this would be tricky. We would need to call `Evaluate` but when they see a `LoopHeaderPhi` instruction they should take the initial value. Since `Evaluate` is recursive, we would need to either templatize it (with e.g. `forLoopCalculation`) or create a parallel pipeline.\n\nIf we were to perform loop inversion, we would have what you are mentioning for free.",
+      "parentUuid": "485f7752_76cc3c86",
       "range": {
         "startLine": 11,
         "startChar": 18,
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "It returns negative values since it calculates it as `(end - start) / step`. I could do the\n```\nif (trip_count \u003c 0) {\n      trip_count \u003d 0;\n    }\n```\nover `HasKnownTripCount` instead of here too.",
       "parentUuid": "8cc68603_f991ac08",
+      "range": {
+        "startLine": 75,
+        "startChar": 0,
+        "endLine": 75,
+        "endChar": 21
+      },
+      "revId": "c98d321592ce029c8826b65a6671323085015d46",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e64d0c0_7c82a9a7",
+        "filename": "compiler/optimizing/loop_analysis.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-28T16:01:01Z",
+      "side": 1,
+      "message": "Moved to `HasKnownTripCount`",
+      "parentUuid": "ae259ff8_23ee0b59",
       "range": {
         "startLine": 75,
         "startChar": 0,
