@@ -1,0 +1,85 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1ff1f96_e61786f8",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-28T09:52:31Z",
+      "side": 1,
+      "message": "Nit: typo.",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2cfbe16d_026de27d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-28T09:52:31Z",
+      "side": 1,
+      "message": "Thanks for the contribution. The proposal is fine. The implementation can be simplified.",
+      "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbffda84_f3518346",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-28T09:52:31Z",
+      "side": 1,
+      "message": "Change this to `testDevice.supportsMicrodroid(true /* protectedVm */)` and you don\u0027t need the `assumeProtectedVM()` method.",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 123,
+        "endChar": 73
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "9631bf61_d70e4bf0",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+              "range": {
+                "startLine": 123,
+                "startChar": 0,
+                "endLine": 124,
+                "endChar": 0
+              },
+              "replacement": "        assumeTrue(\"Requires VM support\", testDevice.supportsMicrodroid(true /* protectedVm */));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
