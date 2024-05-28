@@ -74,6 +74,22 @@ class Transaction final {
     return strict_;
   }
 
+  // Set the last allocated object.
+  // There is no reason to record old values for newly allocated objects because they become
+  // unreachable when the transaction is rolled back, so their data does not need to be rolled back.
+  // We keep information about the last allocated object to reduce the number of such unnecessary
+  // records but we do not keep track of all objects newly allocated in the transaction.
+  // Note that just keeping the last allocated object avoids all records for a System.arraycopy()
+  // used to copy old data to a newly allocated array, and for `filled-new-array/-range`.
+  void SetLastAllocatedObject(ObjPtr<mirror::Object> last_allocated_object)
+      REQUIRES_SHARED(Locks::mutator_lock_) {
+    last_allocated_object_ = last_allocated_object.Ptr();
+  }
+
+  ObjPtr<mirror::Object> GetLastAllocatedObject() REQUIRES_SHARED(Locks::mutator_lock_) {
+    return last_allocated_object_;
+  }
+
   // Record object field changes.
   void RecordWriteFieldBoolean(mirror::Object* obj,
                                MemberOffset field_offset,
@@ -333,6 +349,7 @@ class Transaction final {
   const bool strict_;
   std::string abort_message_;
   mirror::Class* root_;
+  mirror::Object* last_allocated_object_;  // To reduce the number of kept records.
   const char* assert_no_new_records_reason_;
 
   friend class ScopedAssertNoNewTransactionRecords;
