@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba55cd14_e76f3836",
+        "filename": "runtime/exec_utils.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-28T19:58:44Z",
+      "side": 1,
+      "message": "It\u0027s the thread, not the process. From the man page:\n\n\u003e Warning: the \"parent\" in this case is considered to be the thread that created this process.  In other words, the signal will be sent when that thread terminates (via, for example, pthread_exit(3)), rather than after all of the threads in the parent process terminate.\n\nSo to be safe the caller of this function needs to stay around and wait for the child, which it does in `ExecAndReturnResult`. It\u0027s still worth highlighting in the function comment so that this function doesn\u0027t get used for fire-and-forget exec\u0027s.",
+      "range": {
+        "startLine": 88,
+        "startChar": 39,
+        "endLine": 88,
+        "endChar": 53
+      },
+      "revId": "9f13e770089a66a16f514b1128ac530b9af1c42e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
