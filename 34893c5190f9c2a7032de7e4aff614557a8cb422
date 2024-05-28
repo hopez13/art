@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c19d1949_4e74718a",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-28T14:05:26Z",
+      "side": 1,
+      "message": "Nit: Slightly cleaner if you invert this condition and just have a single `return success` at the end.",
+      "range": {
+        "startLine": 91,
+        "startChar": 16,
+        "endLine": 91,
+        "endChar": 31
+      },
+      "revId": "34893c5190f9c2a7032de7e4aff614557a8cb422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ae61ed37_3d650e9f",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 12
+      },
+      "lineNbr": 229,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-28T14:05:26Z",
+      "side": 1,
+      "message": "Nit: It\u0027s still `@NonNull`, isn\u0027t it?",
+      "range": {
+        "startLine": 229,
+        "startChar": 35,
+        "endLine": 229,
+        "endChar": 41
+      },
+      "revId": "34893c5190f9c2a7032de7e4aff614557a8cb422",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

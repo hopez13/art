@@ -67,6 +67,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ba85270f_f6c011b0",
+        "filename": "libartservice/service/java/com/android/server/art/ArtManagerLocal.java",
+        "patchSetId": 10
+      },
+      "lineNbr": 135,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-28T14:05:26Z",
+      "side": 1,
+      "message": "Ok, pity. I can\u0027t think of any way to improve it significantly, but it\u0027s worth mentioning in the comment here.",
+      "parentUuid": "226d3c19_8bea549d",
+      "range": {
+        "startLine": 135,
+        "startChar": 4,
+        "endLine": 135,
+        "endChar": 96
+      },
+      "revId": "cb5ebb82053f63e4fad5b873b8f0a822ff9dbbc1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "414f3b40_42668774",
         "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
         "patchSetId": 10
