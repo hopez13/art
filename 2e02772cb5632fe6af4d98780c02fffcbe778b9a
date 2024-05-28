@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "fef9eb02_ad6b4cdb",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1814,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-28T13:56:01Z",
+      "side": 1,
+      "message": "This is not a good fix for the issue.\n\nYou\u0027re trying to fix bad handling for `StaticFieldSet#26` (from expression `static_int \u003d static_byte;` where the RHS is `StaticFieldGet#22`) by inserting `TypeConversion` for `StaticFieldSet#12` (from expression `static_byte -\u003d 8;`) but you\u0027re not doing anything about the information we _lose_ for `StaticFieldSet#26` itself, namely the type of `StaticFieldGet#22`. If you replace `static_int \u003d static_byte;` with `static_int \u003d static_byte \u0026 0xff;` you\u0027ll find out that you get wrong results in the cases where the `-\u003d` does _not_ underlow (change `static_byte -\u003d 24;` to `static_byte -\u003d 8;` as well and expect the masked result 128 but you\u0027ll get -128).\n\nThe problem is that the `StaticFieldSet#26` propagates the loop phi placeholder in line 1806 and completely forgets the type of the load. So, even if we later materialized the value for the loop Phi placeholder with the type of the field (`Int8`), the version of the test with `\u0026 0xff` would still be broken.",
+      "range": {
+        "startLine": 1813,
+        "startChar": 4,
+        "endLine": 1814,
+        "endChar": 95
+      },
+      "revId": "2e02772cb5632fe6af4d98780c02fffcbe778b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "19496dbe_09fe7079",
