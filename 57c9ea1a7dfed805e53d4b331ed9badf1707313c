@@ -22,6 +22,30 @@
       },
       "revId": "57c9ea1a7dfed805e53d4b331ed9badf1707313c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9c3bfc4_c1d8fc76",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-29T08:33:18Z",
+      "side": 1,
+      "message": "Thanks for the tips! I think I originally made these changes a while ago and I don\u0027t believe at the time `generate-boot-image` was built for the host. This solution is indeed much cleaner and preferred for us too.\n\nNote: This change required some small tweaks to `generate-boot-image` to use a bootclasspath on the host machine.",
+      "parentUuid": "a2fc8ae0_ea567cdb",
+      "range": {
+        "startLine": 405,
+        "startChar": 21,
+        "endLine": 405,
+        "endChar": 57
+      },
+      "revId": "57c9ea1a7dfed805e53d4b331ed9badf1707313c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
