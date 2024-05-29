@@ -46,6 +46,30 @@
       },
       "revId": "57c9ea1a7dfed805e53d4b331ed9badf1707313c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aafa7ce3_9f4f03e4",
+        "filename": "Android.mk",
+        "patchSetId": 3
+      },
+      "lineNbr": 405,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-29T12:31:26Z",
+      "side": 1,
+      "message": "Thanks. It\u0027s cleaner now.\n\nIt\u0027s okay to tweak `generate-boot-image`, but please guard the tweaks behind a commandline flag so that they don\u0027t break other things.",
+      "parentUuid": "b9c3bfc4_c1d8fc76",
+      "range": {
+        "startLine": 405,
+        "startChar": 21,
+        "endLine": 405,
+        "endChar": 57
+      },
+      "revId": "57c9ea1a7dfed805e53d4b331ed9badf1707313c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
