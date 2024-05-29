@@ -329,9 +329,10 @@ class MetricsCounter : public MetricsBase<T> {
     }
   }
 
+  value_t Value() const { return value_.load(std::memory_order_relaxed); }
+
  protected:
   void Reset() { value_ = 0; }
-  value_t Value() const { return value_.load(std::memory_order_relaxed); }
 
  private:
   bool IsNull() const override { return Value() == 0; }
