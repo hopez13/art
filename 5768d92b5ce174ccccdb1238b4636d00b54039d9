@@ -143,6 +143,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0b32524f_5a194275",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-29T08:33:03Z",
+      "side": 1,
+      "message": "FYI [this change](https://android-review.googlesource.com/c/platform/art/+/2680024/comment/a2fc8ae0_ea567cdb/) to generating the boot image, now means that the target build is also needed to make the files needed to generate the boot image.",
+      "parentUuid": "1cea4bf9_a1c525e0",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "67d867bf_7583e092",
@@ -174,6 +192,24 @@
       "side": 1,
       "message": "Just to expand on this. The separation of architecture specific files to quick_code_arch is good. We are now using this go file to append quick_code_arch files into the correct arch. Instead if we made quick_code_arch as a Soong config variable which has the same value as the arch by default. In simulator builds we override it the required arch. That way we can avoid this entire go file and we just need to set the quick_code_arch correctly.",
       "parentUuid": "67d867bf_7583e092",
+      "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9f681284_5e98dded",
+        "filename": "build/quick_code_arch.go",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-29T08:33:03Z",
+      "side": 1,
+      "message": "Done\n\nNote: the control of this soong config variable is done in https://android-review.googlesource.com/c/platform/build/+/2679183",
+      "parentUuid": "f6be024e_b7715b33",
       "revId": "5768d92b5ce174ccccdb1238b4636d00b54039d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
