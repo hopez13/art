@@ -46,6 +46,30 @@
       },
       "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "992a8112_29479246",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-29T13:03:25Z",
+      "side": 1,
+      "message": "OK. Thanks for the explanation. It\u0027s worth a comment here that \"although the ART simulator runs on host, we put it in the target build because ...\"",
+      "parentUuid": "1ca8b4bc_89d85b0a",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 4
+      },
+      "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
