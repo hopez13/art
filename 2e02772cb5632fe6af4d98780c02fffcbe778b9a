@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "eebaf33a_b7c4f6df",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1814,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-29T16:00:12Z",
+      "side": 1,
+      "message": "You\u0027re right. I changed it so that the store saves the needed type for loop phi records, and later on the loop phi loads will add a type conversion if needed.\n\nAdded a test with your example, as well as keeping the original test.",
+      "parentUuid": "fef9eb02_ad6b4cdb",
+      "range": {
+        "startLine": 1813,
+        "startChar": 4,
+        "endLine": 1814,
+        "endChar": 95
+      },
+      "revId": "2e02772cb5632fe6af4d98780c02fffcbe778b9a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "19496dbe_09fe7079",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 4
