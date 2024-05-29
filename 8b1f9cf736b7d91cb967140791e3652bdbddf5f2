@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "628e8472_cddf25a4",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-29T13:15:54Z",
+      "side": 1,
+      "message": "FYI never used. Not sure if we want to use it in the `Transaction::RecordWriteFieldXXX` below",
+      "range": {
+        "startLine": 188,
+        "startChar": 18,
+        "endLine": 188,
+        "endChar": 47
+      },
+      "revId": "8b1f9cf736b7d91cb967140791e3652bdbddf5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5f2096d_eae12876",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-05-29T13:15:54Z",
+      "side": 1,
+      "message": "Shouldn\u0027t this be `ArrayNeedsTransactionRecords(array)`?\n\nThe `array_log.LogValue` does the `is_new_array_`check but we could do it here instead with `ArrayNeedsTransactionRecords` which would be saving creating the `ArrayLog`.",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "8b1f9cf736b7d91cb967140791e3652bdbddf5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
