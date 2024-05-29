@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8236e5cb_ac1c4885",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-05-29T11:38:27Z",
+      "side": 1,
+      "message": "yes, what I understand from the [document](https://source.android.com/docs/core/runtime/configure#:~:text\u003ddalvik.vm.ps%2Dmin%2Dfirst%2Dsave%2Dms) is that this is the min time to dump a profile to disk, so it has nothing to do with marking classes/methods as Startup (in memory), so the behavioral change here is only to mark classes as Startup once we get a StartupCompletion signal.",
+      "parentUuid": "f41422ad_3470b46b",
+      "revId": "f48f4088be8b56a52e6135586150a9c5b58f2f1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b919eeb4_6e19b1ef",
         "filename": "runtime/jit/profile_saver.cc",
         "patchSetId": 4
@@ -31,6 +49,24 @@
       "writtenOn": "2024-05-29T11:00:47Z",
       "side": 1,
       "message": "As discussed, it\u0027s better to perform a first save before we enter the `while` loop (with a sleep if `force_early_first_save` is true).\n\nThe first save can also make the logic in the `while` loop simpler because we no longer need to deal with `force_early_first_save` in the loop.",
+      "revId": "f48f4088be8b56a52e6135586150a9c5b58f2f1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "952494ba_4bbccbb0",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-05-29T11:38:27Z",
+      "side": 1,
+      "message": "Thinking again. I found that in this case we are completely ignoring the `dalvik.vm.ps-min-first-save-ms`, since we need to wait at least the stated time to dump the profile to disk, so I wanted to keep the same profile dumping behavior, and then we can advice partners to make sure this sys-prop has a proper value",
+      "parentUuid": "b919eeb4_6e19b1ef",
       "revId": "f48f4088be8b56a52e6135586150a9c5b58f2f1f",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
