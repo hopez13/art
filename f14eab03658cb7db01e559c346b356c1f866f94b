@@ -22,6 +22,30 @@
       },
       "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1ca8b4bc_89d85b0a",
+        "filename": "tools/buildbot-build.sh",
+        "patchSetId": 5
+      },
+      "lineNbr": 184,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-05-29T12:53:34Z",
+      "side": 1,
+      "message": "This is answered in more detail [in this comment](https://android-review.googlesource.com/c/platform/art/+/2680025/comments/5ac1d608_bdb56f77) but TLDR no, we also need to build the ART run tests and we want to do it in the same way that `--target` does.",
+      "parentUuid": "7f3d08de_0492cc1c",
+      "range": {
+        "startLine": 182,
+        "startChar": 0,
+        "endLine": 184,
+        "endChar": 4
+      },
+      "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
