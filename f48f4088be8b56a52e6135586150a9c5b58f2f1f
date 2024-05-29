@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f41422ad_3470b46b",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-29T11:00:47Z",
+      "side": 1,
+      "message": "Before this change, if `options_.GetMinFirstSaveMs()` was less than `options_.GetSaveResolvedClassesDelayMs()`, we slept less. After the change, this is no longer the case.\n\nI think the change is expected, as the [document](https://source.android.com/docs/core/runtime/configure#:~:text\u003ddalvik.vm.ps%2Dmin%2Dfirst%2Dsave%2Dms) suggests that `dalvik.vm.ps-min-first-save-ms` is \"the **minimum** time to wait ...\", not guaranteeing that a save must be performed as soon as the time has passed.\n\nHowever, this is still a behavior change, so it\u0027s worth noting in the commit message.",
+      "revId": "f48f4088be8b56a52e6135586150a9c5b58f2f1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b919eeb4_6e19b1ef",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 153,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-29T11:00:47Z",
+      "side": 1,
+      "message": "As discussed, it\u0027s better to perform a first save before we enter the `while` loop (with a sleep if `force_early_first_save` is true).\n\nThe first save can also make the logic in the `while` loop simpler because we no longer need to deal with `force_early_first_save` in the loop.",
+      "revId": "f48f4088be8b56a52e6135586150a9c5b58f2f1f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
