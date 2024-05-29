@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "064140f8_110889d1",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T06:56:52Z",
+      "side": 1,
+      "message": "Maybe we should actually move the lock deflation out of `CalculateNewObjectOffsets()` (before the `CalculateNewObjectOffsets()` call in `PrepareImageAddressSpace()`) and acquire the mutator lock exclusively for this operation.\n\nMaybe we should move it before the GC. The GC would then reclaim the memory, right? (Even though there should be very little to reclaim.)",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3e5d8ea3_4e1e1a35",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T06:56:52Z",
+      "side": 1,
+      "message": "If you move the deflation to `ImageWriter::PrepareImageAddressSpace()`, update this comment and add assertion.",
+      "range": {
+        "startLine": 997,
+        "startChar": 40,
+        "endLine": 998,
+        "endChar": 24
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8cf6079f_a2c18b0e",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T06:56:52Z",
+      "side": 1,
+      "message": "Please add that `ImageWriter` is single-threaded at that point. (Or otherwise update the comment if we move the deflation to `ImageWriter::PrepareImageAddressSpace()`.)",
+      "range": {
+        "startLine": 169,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 88
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a2cf7cd_bccc766d",
+        "filename": "runtime/monitor_inflation.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T06:56:52Z",
+      "side": 1,
+      "message": "Where does `ImageWriter` destroy the `MonitorList`? (The `dex2oat` process shall shut down and destroy it without allowing any mutator threads to resume, but I don\u0027t see any explicit destruction.)",
+      "range": {
+        "startLine": 70,
+        "startChar": 65,
+        "endLine": 70,
+        "endChar": 92
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

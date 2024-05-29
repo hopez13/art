@@ -91,6 +91,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "24c7642a_0b279fba",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2571,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T06:56:52Z",
+      "side": 1,
+      "message": "Can you move this comment before the line 2570?\n\n    // NO_THREAD_SAFETY_ANALYSIS: We don\u0027t really hold mutator_lock_ exclusively.\n\nThen the `NO_THREAD_SAFETY_ANALYSIS` fits on the previous line and we can remove some indentation to align `}` with `[]`.\n\n(I really don\u0027t like this clang-format output.)",
+      "range": {
+        "startLine": 2571,
+        "startChar": 38,
+        "endLine": 2571,
+        "endChar": 91
+      },
+      "revId": "9a3e43b0d906ee9ac889c356573e799957cf8660",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "0a5c4c71_d7f346ac",
         "filename": "runtime/monitor_inflation.md",
         "patchSetId": 1
