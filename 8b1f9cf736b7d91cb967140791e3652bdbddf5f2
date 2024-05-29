@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e465efe_d6fc3420",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 188,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T13:50:51Z",
+      "side": 1,
+      "message": "I\u0027m aware. I provided this for completeness but I expect the linker to GC this.\n\n(We could use this in `UnstartedRuntime::UnstartedSystemArraycopy()` but we would have to expose it with another virtual call in `ClassLinker`. Maybe I\u0027ll do that after I reduce the size of the unreachable `ClassLinker` functions that support the `AotClassLinker`.)",
+      "parentUuid": "628e8472_cddf25a4",
+      "range": {
+        "startLine": 188,
+        "startChar": 18,
+        "endLine": 188,
+        "endChar": 47
+      },
+      "revId": "8b1f9cf736b7d91cb967140791e3652bdbddf5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5f2096d_eae12876",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-29T13:15:54Z",
       "side": 1,
       "message": "Shouldn\u0027t this be `ArrayNeedsTransactionRecords(array)`?\n\nThe `array_log.LogValue` does the `is_new_array_`check but we could do it here instead with `ArrayNeedsTransactionRecords` which would be saving creating the `ArrayLog`.",
+      "range": {
+        "startLine": 299,
+        "startChar": 6,
+        "endLine": 299,
+        "endChar": 37
+      },
+      "revId": "8b1f9cf736b7d91cb967140791e3652bdbddf5f2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0164a79f_451ff1ad",
+        "filename": "runtime/transaction.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 299,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-29T13:50:51Z",
+      "side": 1,
+      "message": "No, that would include an additional lookup in the `array_logs_` that\u0027s unlikely to be eliminated by `clang`. We just check against the `last_allocated_object_` here and check the `is_new_array_` in `ArrayLog::LogValue()`.",
+      "parentUuid": "b5f2096d_eae12876",
       "range": {
         "startLine": 299,
         "startChar": 6,
