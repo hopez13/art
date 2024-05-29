@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fa60d667_f2602dab",
+        "filename": "build/SoongConfig.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-29T14:15:52Z",
+      "side": 1,
+      "message": "Since this is only used in one location I think it can go in just before where it\u0027s used in runtime/Android.bp, to keep it together.",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 1
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
