@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "634a2de8_2e66c17f",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-30T13:47:28Z",
+      "side": 1,
+      "message": "An option is to put the for loop in an `else` clause here, which would make the code flow slightly cleaner. But no strong opinion on it, this is fine too.",
+      "range": {
+        "startLine": 184,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 9
+      },
+      "revId": "ec8755b0e2d6417d5752112ab0e2dbbb8a1a6b11",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
