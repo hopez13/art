@@ -17,11 +17,13 @@
 #include "jit_code_cache.h"
 
 #include <sstream>
+#include <vector>
 
 #include <android-base/logging.h>
 
 #include "arch/context.h"
 #include "art_method-inl.h"
+#include "base/casts.h"
 #include "base/histogram-inl.h"
 #include "base/logging.h"  // For VLOG.
 #include "base/membarrier.h"
@@ -50,15 +52,20 @@
 #include "jit/profiling_info.h"
 #include "jit/jit_scoped_code_cache_write.h"
 #include "linear_alloc.h"
+#include "mirror/class.h"
+#include "mirror/method_type.h"
 #include "oat/oat_file-inl.h"
 #include "oat/oat_quick_method_header.h"
+#include "obj_ptr.h"
 #include "object_callbacks.h"
 #include "profile/profile_compilation_info.h"
+#include "read_barrier_option.h"
 #include "scoped_thread_state_change-inl.h"
 #include "stack.h"
 #include "thread-current-inl.h"
 #include "thread-inl.h"
 #include "thread_list.h"
+#include "well_known_classes.h"
 
 namespace art HIDDEN {
 namespace jit {
@@ -436,16 +443,52 @@ void JitCodeCache::SweepRootTables(IsMarkedVisitor* visitor) {
         if (new_object != object) {
           roots[i] = GcRoot<mirror::Object>(new_object);
         }
-      } else {
+      } else if (object->IsClass<kDefaultVerifyFlags>()) {
         mirror::Object* new_klass = visitor->IsMarked(object);
         if (new_klass == nullptr) {
           roots[i] = GcRoot<mirror::Object>(Runtime::GetWeakClassSentinel());
         } else if (new_klass != object) {
           roots[i] = GcRoot<mirror::Object>(new_klass);
         }
+      } else {
+        mirror::Object* new_method_type = visitor->IsMarked(object);
+        if (new_method_type != nullptr) {
+          ObjPtr<mirror::Class> method_type_class =
+              WellKnownClasses::java_lang_invoke_MethodType.Get<kWithoutReadBarrier>();
+          DCHECK_EQ((new_method_type->GetClass<kVerifyNone, kWithoutReadBarrier>()),
+                     method_type_class.Ptr());
+
+          if (new_method_type != object) {
+            roots[i] = GcRoot<mirror::Object>(new_method_type);
+          }
+        } else {
+          roots[i] = nullptr;
+        }
       }
     }
   }
+
+  for (auto& entry : method_types_) {
+    int length = entry.second.size();
+
+    for (int i = 0; i < length; ++i) {
+      mirror::Object* object = entry.second[i];
+      mirror::Object* new_method_type = visitor->IsMarked(object);
+      if (new_method_type != nullptr) {
+        ObjPtr<mirror::Class> method_type_class =
+            WellKnownClasses::java_lang_invoke_MethodType.Get<kWithoutReadBarrier>();
+        DCHECK_EQ((new_method_type->GetClass<kVerifyNone, kWithoutReadBarrier>()),
+                   method_type_class.Ptr());
+
+        if (new_method_type != object) {
+          entry.second[i] = ObjPtr<mirror::MethodType>::DownCast(new_method_type).Ptr();
+        }
+      } else {
+        entry.second[i] = nullptr;
+      }
+    }
+  }
+
   // Walk over inline caches to clear entries containing unloaded classes.
   for (const auto& [_, info] : profiling_infos_) {
     InlineCache* caches = info->GetInlineCaches();
@@ -567,6 +610,7 @@ void JitCodeCache::RemoveMethodsIn(Thread* self, const LinearAlloc& alloc) {
       if (alloc.ContainsUnsafe(it->second)) {
         method_headers.insert(OatQuickMethodHeader::FromCodePointer(it->first));
         VLOG(jit) << "JIT removed " << it->second->PrettyMethod() << ": " << it->first;
+        method_types_.erase(it->second);
         it = method_code_map_.erase(it);
         zombie_code_.erase(it->first);
         processed_zombie_code_.erase(it->first);
@@ -767,6 +811,24 @@ bool JitCodeCache::Commit(Thread* self,
       } else {
         ScopedDebugDisallowReadBarriers sddrb(self);
         method_code_map_.Put(code_ptr, method);
+
+        auto root_method_types = std::vector<mirror::MethodType*>();
+        ObjPtr<mirror::Class> method_type_class =
+            WellKnownClasses::java_lang_invoke_MethodType.Get<kWithoutReadBarrier>();
+
+        for (auto root : roots) {
+          ObjPtr<mirror::Class> klass = root->GetClass<kDefaultVerifyFlags, kWithoutReadBarrier>();
+          if (klass == method_type_class ||
+              klass == ReadBarrier::IsMarked(method_type_class.Ptr()) ||
+              ReadBarrier::IsMarked(klass.Ptr()) == method_type_class) {
+            ObjPtr<mirror::MethodType> mt = ObjPtr<mirror::MethodType>::DownCast(root.Get());
+            root_method_types.emplace_back(mt.Ptr());
+          }
+        }
+
+        if (!root_method_types.empty()) {
+          method_types_.Put(method, root_method_types);
+        }
       }
       if (compilation_kind == CompilationKind::kOsr) {
         ScopedDebugDisallowReadBarriers sddrb(self);
@@ -868,6 +930,7 @@ bool JitCodeCache::RemoveMethodLocked(ArtMethod* method, bool release_memory) {
         }
         VLOG(jit) << "JIT removed " << it->second->PrettyMethod() << ": " << it->first;
         it = method_code_map_.erase(it);
+        method_types_.erase(method);
       } else {
         ++it;
       }
@@ -916,6 +979,11 @@ void JitCodeCache::MoveObsoleteMethod(ArtMethod* old_method, ArtMethod* new_meth
       it.second = new_method;
     }
   }
+  auto node = method_types_.extract(old_method);
+  if (!node.empty()) {
+    node.key() = new_method;
+  }
+  
   // Update osr_code_map_ to point to the new method.
   auto code_map = osr_code_map_.find(old_method);
   if (code_map != osr_code_map_.end()) {
@@ -1121,6 +1189,8 @@ void JitCodeCache::RemoveUnmarkedCode(Thread* self) {
     } else {
       OatQuickMethodHeader* header = OatQuickMethodHeader::FromCodePointer(code_ptr);
       method_headers.insert(header);
+      auto method = method_code_map_.Get(header->GetCode());
+      method_types_.erase(method);
       method_code_map_.erase(header->GetCode());
       VLOG(jit) << "JIT removed " << *it;
       it = processed_zombie_code_.erase(it);
