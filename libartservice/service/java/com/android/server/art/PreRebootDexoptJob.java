@@ -147,9 +147,31 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         return scheduleLocked();
     }
 
+    /**
+     * Same as above, but starts the job immediately, instead of going through the job scheduler.
+     *
+     * @return The future of the job, or null if Pre-reboot Dexopt is not enabled.
+     */
+    @Nullable
+    public synchronized CompletableFuture<Void> onUpdateReadyStartNow(@Nullable String otaSlot) {
+        cancelAllLocked();
+        resetLocked();
+        updateOtaSlotLocked(otaSlot);
+        if (!isEnabled()) {
+            return null;
+        }
+        mInjector.getStatsReporter().recordJobScheduled(false /* isAsync */);
+        return startLocked();
+    }
+
     public synchronized void test() {
         cancelAllLocked();
         mInjector.getPreRebootDriver().test();
+    }
+
+    /** @see #cancelOneLocked */
+    public synchronized void cancelOne(@NonNull CompletableFuture<Void> job) {
+        cancelOneLocked(job);
     }
 
     @VisibleForTesting
@@ -208,7 +230,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
         if (result == JobScheduler.RESULT_SUCCESS) {
             AsLog.i("Pre-reboot Dexopt Job scheduled");
-            mInjector.getStatsReporter().recordJobScheduled();
+            mInjector.getStatsReporter().recordJobScheduled(true /* isAsync */);
             mJobSchedulerTicket = ticket;
             return ArtFlags.SCHEDULE_SUCCESS;
         } else {
@@ -337,6 +359,10 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
             return false;
         }
         return true;
+    }
+
+    public boolean isAsyncForOta() {
+        return SystemProperties.getBoolean("dalvik.vm.pr_dexopt_async_for_ota", false /* def */);
     }
 
     @GuardedBy("this")
