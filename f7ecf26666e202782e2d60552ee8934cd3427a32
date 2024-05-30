@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4dfc3df7_ae52908c",
+        "filename": "compiler/optimizing/load_store_elimination.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 2601,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-05-30T09:03:21Z",
+      "side": 1,
+      "message": "I was playing with my own tests and I triggered this CHECK() with\n\n    public static int $noinline$X(int value) {\n        static_byte \u003d (byte) value;\n        // Irrelevant code but needed to make LSE use loop Phi placeholders.\n        for (int q \u003d 1; q \u003c 12; q++) {\n            static_int \u003d 24;\n        }\n        static_int \u003d static_byte;\n        static_char \u003d (char) static_int;\n        static_int \u003d static_char;\n        return static_int;\n    }\n\nwhile trying to construct a case that needs two conversions (Int32-\u003eInt8-\u003eUint16).\n\nAnd I\u0027m also starting to think about loop phi placeholders that are fed with converted values of the same placeholder. The following also fails this check:\n\n    public static int $noinline$Y(int value, boolean cond) {\n        static_int \u003d value;\n        for (int q \u003d 1; q \u003c 12; q++) {\n            if (cond) {\n                static_byte \u003d (byte) static_int;\n                static_int \u003d static_byte;\n            }\n        }\n        return static_int;\n    }",
+      "range": {
+        "startLine": 2598,
+        "startChar": 10,
+        "endLine": 2601,
+        "endChar": 46
+      },
+      "revId": "f7ecf26666e202782e2d60552ee8934cd3427a32",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
