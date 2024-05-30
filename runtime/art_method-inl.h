@@ -31,6 +31,8 @@
 #include "dex/signature.h"
 #include "gc_root-inl.h"
 #include "imtable-inl.h"
+#include "jit/jit.h"
+#include "jit/jit_code_cache-inl.h"
 #include "jit/jit_options.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"

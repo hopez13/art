@@ -1883,6 +1883,11 @@ void Jit::VisitRoots(RootVisitor* visitor) {
   if (thread_pool_ != nullptr) {
     thread_pool_->VisitRoots(visitor);
   }
+
+  // MethodType-s are weakly interned, but a MethodType can be referenced from JIT-ted code. Visiing
+  // JitCodeCache to treat such MethodType-s as strongly reachable.
+  UnbufferedRootVisitor root_visitor(visitor, RootInfo(kRootStickyClass));
+  code_cache_->VisitRootTables(root_visitor);
 }
 
 void JitThreadPool::VisitRoots(RootVisitor* visitor) {
