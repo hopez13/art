@@ -238,6 +238,21 @@ public class PreRebootDexoptJobTest {
     }
 
     @Test
+    public void testSyncStart() throws Exception {
+        //
+    }
+
+    @Test
+    public void testSyncStartNotEnabled() throws Exception {
+        //
+    }
+
+    @Test
+    public void testSyncCancel() throws Exception {
+        //
+    }
+
+    @Test
     public void testUpdateOtaSlotOtaThenMainline() {
         mPreRebootDexoptJob.onUpdateReady("_b" /* otaSlot */);
         mPreRebootDexoptJob.onUpdateReady(null /* otaSlot */);
@@ -373,5 +388,10 @@ public class PreRebootDexoptJobTest {
 
         // The job scheduler starts the new job. This request should succeed.
         assertThat(mPreRebootDexoptJob.onStartJob(mJobService, mJobParameters)).isTrue();
+    }
+
+    @Test
+    public void testRace3() throws Exception {
+        //
     }
 }
