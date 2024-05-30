@@ -633,15 +633,18 @@ class HGraphVisualizerPrinter final : public HGraphDelegateVisitor {
     StartAttributeStream("kind") << instruction->GetOpKind();
   }
 
-  void VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) override {
-    StartAttributeStream("kind") << instruction->GetOpKind();
-  }
-
   void VisitDataProcWithShifterOp(HDataProcWithShifterOp* instruction) override {
     StartAttributeStream("kind") << instruction->GetInstrKind() << "+" << instruction->GetOpKind();
     if (HDataProcWithShifterOp::IsShiftOp(instruction->GetOpKind())) {
       StartAttributeStream("shift") << instruction->GetShiftAmount();
     }
+  }
+#endif
+
+#if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64) || \
+    defined(ART_ENABLE_CODEGEN_riscv64)
+  void VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) override {
+    StartAttributeStream("kind") << instruction->GetOpKind();
   }
 #endif
 

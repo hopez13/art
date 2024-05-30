@@ -238,6 +238,7 @@ art_cc_defaults {
                 "optimizing/code_generator_riscv64.cc",
                 "optimizing/critical_native_abi_fixup_riscv64.cc",
                 "optimizing/instruction_simplifier_riscv64.cc",
+                "optimizing/instruction_simplifier_shared.cc",
                 "optimizing/intrinsics_riscv64.cc",
                 "utils/riscv64/assembler_riscv64.cc",
                 "utils/riscv64/jni_macro_assembler_riscv64.cc",

@@ -8561,6 +8561,16 @@ bool InstructionCodeGeneratorX86_64::CpuHasAvx2FeatureFlag() {
   return codegen_->GetInstructionSetFeatures().HasAVX2();
 }
 
+void LocationsBuilderX86_64::VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) {
+  UNUSED(instruction);
+  LOG(FATAL) << "Unimplemented";
+}
+
+void InstructionCodeGeneratorX86_64::VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) {
+  UNUSED(instruction);
+  LOG(FATAL) << "Unimplemented";
+}
+
 #undef __
 
 }  // namespace x86_64
