@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aacd0f25_770b9327",
+        "filename": "artd/artd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-30T14:58:35Z",
+      "side": 1,
+      "message": "Move the scope for this entirely into the odrefresh block on lines 1791-1796?",
+      "range": {
+        "startLine": 1760,
+        "startChar": 2,
+        "endLine": 1760,
+        "endChar": 56
+      },
+      "revId": "bbc8d7789a3fdf8567a9c9ffbd6c5d29c22b56df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6253cd71_b5fc0e03",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootGlobalInjector.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-30T14:58:35Z",
+      "side": 1,
+      "message": "Wasn\u0027t this to explain why we call `getArtd` without using the return value for anything? That\u0027s no longer the case, I think.",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 52
+      },
+      "revId": "bbc8d7789a3fdf8567a9c9ffbd6c5d29c22b56df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
