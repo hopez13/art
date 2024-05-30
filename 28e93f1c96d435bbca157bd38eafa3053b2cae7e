@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b9a9e265_c07a046b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-30T12:36:51Z",
+      "side": 1,
+      "message": "You don\u0027t need these lines since you abandoned the original CL.",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 13,
+        "endChar": 52
+      },
+      "revId": "28e93f1c96d435bbca157bd38eafa3053b2cae7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "865f2ab5_412d7070",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 202,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-30T12:36:51Z",
+      "side": 1,
+      "message": "This condition can match things that are not exactly \"CMC\" but have the \"CMC\" prefix, such as \"CMC2\", which might be undesirable.\n\nSince arguments in `/proc/self/cmdline` are separated by null bytes (\u0027\\0\u0027), I would take the whole string truncated at the next \u0027\\0\u0027 for comparison, something like:\n\n`if (strcmp(argv.c_str() + pos + 5, \"CMC\") \u003d\u003d 0)`\n\nHowever, the code before this change does prefix matching too, so this change doesn\u0027t regress anything. I\u0027m okay to submit it as is.",
+      "range": {
+        "startLine": 202,
+        "startChar": 8,
+        "endLine": 202,
+        "endChar": 40
+      },
+      "revId": "28e93f1c96d435bbca157bd38eafa3053b2cae7e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
