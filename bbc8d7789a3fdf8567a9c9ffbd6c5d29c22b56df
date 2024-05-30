@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a2c7ff68_09198843",
+        "filename": "artd/artd.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1760,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-30T15:16:38Z",
+      "side": 1,
+      "message": "The benefit of having the variable here is that we can fail early when the cancellation signal is missing. However, it probably doesn\u0027t matter much because missing cancellation signal should never happen. Moving this into the odrefresh block makes the code cleaner. Done.",
+      "parentUuid": "aacd0f25_770b9327",
+      "range": {
+        "startLine": 1760,
+        "startChar": 2,
+        "endLine": 1760,
+        "endChar": 56
+      },
+      "revId": "bbc8d7789a3fdf8567a9c9ffbd6c5d29c22b56df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6253cd71_b5fc0e03",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-30T14:58:35Z",
       "side": 1,
       "message": "Wasn\u0027t this to explain why we call `getArtd` without using the return value for anything? That\u0027s no longer the case, I think.",
+      "range": {
+        "startLine": 61,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 52
+      },
+      "revId": "bbc8d7789a3fdf8567a9c9ffbd6c5d29c22b56df",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2a9ed34_1469c783",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootGlobalInjector.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-30T15:16:38Z",
+      "side": 1,
+      "message": "It\u0027s still the case. The return value only indicates whether it\u0027s cancelled or not, while we still throw on failure. Updated the comment to clarify this.",
+      "parentUuid": "6253cd71_b5fc0e03",
       "range": {
         "startLine": 61,
         "startChar": 8,
