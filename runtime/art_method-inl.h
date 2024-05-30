@@ -31,6 +31,8 @@
 #include "dex/signature.h"
 #include "gc_root-inl.h"
 #include "imtable-inl.h"
+#include "jit/jit.h"
+#include "jit/jit_code_cache-inl.h"
 #include "jit/jit_options.h"
 #include "mirror/class-inl.h"
 #include "mirror/dex_cache-inl.h"
@@ -618,6 +620,13 @@ void ArtMethod::VisitRoots(RootVisitorType& visitor, PointerSize pointer_size) {
         interface_method->VisitRoots<kReadBarrierOption, kVisitProxyMethod>(visitor, pointer_size);
       }
     }
+  }
+
+  // MethodType-s are weakly interned, but a MethodType can be referenced from JIT-ted code. Visiing
+  // JitCodeCache to treat them as strongly reachable while corresponding ArtMethod is alive.
+  Runtime* runtime = Runtime::Current();
+  if (runtime->GetJit() != nullptr) {
+    runtime->GetJit()->GetCodeCache()->VisitRootTables(this, visitor);
   }
 }
 
