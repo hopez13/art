@@ -54,6 +54,23 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "79cd3af4_63d4f7f1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-05-31T18:15:17Z",
+      "side": 1,
+      "message": "We will want this for all 32+64 bit targets so the behavior matches mainline for host tools. We would only want to disable this on 32-bit targets. Checking presubmit for now.",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb1cec_4f8d30b6",
         "filename": "build/art.go",
         "patchSetId": 2
