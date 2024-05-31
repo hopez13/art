@@ -477,25 +477,6 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     };
   }
 
-  auto GetPrintBcondOpposite() {
-    return [=]([[maybe_unused]] const std::string& cond,
-               const std::string& opposite_cond,
-               const std::string& args,
-               const std::string& target) {
-      return "b" + opposite_cond + args + ", " + target + "\n";
-    };
-  }
-
-  auto GetPrintBcondAndJ(const std::string& skip_label) {
-    return [=](const std::string& cond,
-               [[maybe_unused]] const std::string& opposite_cond,
-               const std::string& args,
-               const std::string& target) {
-      return "b" + cond + args + ", " + skip_label + "f\n" + "j " + target + "\n" + skip_label +
-             ":\n";
-    };
-  }
-
   auto GetPrintBcondOppositeAndJ(const std::string& skip_label) {
     return [=]([[maybe_unused]] const std::string& cond,
                const std::string& opposite_cond,
@@ -619,15 +600,17 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
   void TestBcondA0RegForward(const std::string& test_name,
                              void (Riscv64Assembler::*f)(XRegister, XRegister, Riscv64Label*, bool),
                              size_t nops_size,
-                             const std::string& target_label,
                              PrintBcond&& print_bcond,
+                             const std::string& cond,
+                             const std::string& opposite_cond,
+                             const std::string& target_label,
                              XRegister reg,
                              bool is_bare = false) {
     std::string expected;
     Riscv64Label label;
     (GetAssembler()->*f)(A0, reg, &label, is_bare);
     std::string args = " a0, " + GetRegisterName(reg);
-    expected += print_bcond("eq", "ne", args, target_label + "f");
+    expected += print_bcond(cond, opposite_cond, args, target_label + "f");
     expected += EmitNops(nops_size);
     __ Bind(&label);
     expected += target_label + ":\n";
@@ -639,8 +622,10 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
       const std::string& test_name,
       void (Riscv64Assembler::*f)(XRegister, XRegister, Riscv64Label*, bool),
       size_t nops_size,
-      const std::string& target_label,
       PrintBcond&& print_bcond,
+      const std::string& cond,
+      const std::string& opposite_cond,
+      const std::string& target_label,
       XRegister reg,
       bool is_bare = false) {
     std::string expected;
@@ -650,7 +635,7 @@ class AssemblerRISCV64Test : public AssemblerTest<Riscv64Assembler,
     expected += EmitNops(nops_size);
     (GetAssembler()->*f)(A0, reg, &label, is_bare);
     std::string args = " a0, " + GetRegisterName(reg);
-    expected += print_bcond("eq", "ne", args, target_label + "b");
+    expected += print_bcond(cond, opposite_cond, args, target_label + "b");
     DriverStr(expected, test_name);
   }
 
@@ -8557,93 +8542,339 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9Forward) {
   TestBcondA0RegForward("BeqA0ZeroMaxOffset9Forward",
                         &Riscv64Assembler::Beq,
                         MaxOffset9ForwardDistance() - /*C.BEQZ*/ 2u,
-                        "1",
                         GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9ForwardBare) {
+  TestBcondA0RegForward("BeqA0ZeroMaxOffset9ForwardBare",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset9ForwardDistance() - /*C.BEQZ*/ 2u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
+                        Zero,
+                        /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset9Forward) {
+  TestBcondA0RegForward("BneA0ZeroMaxOffset9Forward",
+                        &Riscv64Assembler::Bne,
+                        MaxOffset9ForwardDistance() - /*C.BNEZ*/ 2u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
+                        "1",
+                        Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset9ForwardBare) {
+  TestBcondA0RegForward("BneA0ZeroMaxOffset9ForwardBare",
+                        &Riscv64Assembler::Bne,
+                        MaxOffset9ForwardDistance() - /*C.BNEZ*/ 2u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
+                        "1",
+                        Zero,
+                        /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9Backward) {
+  TestBcondA0RegBackward("BeqA0ZeroMaxOffset9Backward",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset9BackwardDistance(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
+                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9BackwardBare) {
+  TestBcondA0RegBackward("BeqA0ZeroMaxOffset9BackwardBare",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset9BackwardDistance(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
+                         Zero,
+                         /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset9Backward) {
+  TestBcondA0RegBackward("BneA0ZeroMaxOffset9Backward",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset9BackwardDistance(),
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
+                         Zero,
+                         /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset9BackwardBare) {
+  TestBcondA0RegBackward("BneA0ZeroMaxOffset9BackwardBare",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset9BackwardDistance(),
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
+                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroOverMaxOffset9Forward) {
+  TestBcondA0RegForward("BeqA0ZeroOverMaxOffset9Forward",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset9ForwardDistance() - /*C.BEQZ*/ 2u + /*Exceed max*/ 2u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
+                        Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroOverMaxOffset9Forward) {
+  TestBcondA0RegForward("BneA0ZeroOverMaxOffset9Forward",
+                        &Riscv64Assembler::Bne,
+                        MaxOffset9ForwardDistance() - /*C.BNEZ*/ 2u + /*Exceed max*/ 2u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
+                        "1",
+                        Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroOverMaxOffset9Backward) {
+  TestBcondA0RegBackward("BeqA0ZeroOverMaxOffset9Backward",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset9BackwardDistance() + /*Exceed max*/ 2u,
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
+                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroOverMaxOffset9Backward) {
+  TestBcondA0RegBackward("BneA0ZeroOverMaxOffset9Backward",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset9BackwardDistance() + /*Exceed max*/ 2u,
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
+                         Zero);
 }
 
 TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13Forward) {
   TestBcondA0RegForward("BeqA0ZeroMaxOffset13Forward",
                         &Riscv64Assembler::Beq,
                         MaxOffset13ForwardDistance() - /*C.BEQZ*/ 2u,
-                        "1",
                         GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
                         Zero);
 }
 
-TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset9ForwardOpposite) {
-  TestBcondA0RegForward("BeqA0ZeroMaxOffset9ForwardOpposite",
-                        &Riscv64Assembler::Bne,
-                        MaxOffset9ForwardDistance() - /*C.BNEZ*/ 2u,
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13Forward_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BeqA0ZeroMaxOffset13Forward_WithoutC",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
                         "1",
-                        GetPrintBcondOpposite(),
                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13ForwardBare_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BeqA0ZeroMaxOffset13ForwardBare_WithoutC",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
+                        Zero,
+                        /*is_bare=*/ true);
 }
 
 TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13Forward) {
   TestBcondA0RegForward("BneA0ZeroMaxOffset13Forward",
                         &Riscv64Assembler::Bne,
-                        MaxOffset13ForwardDistance() - /*C.BbeZ*/ 2u,
+                        MaxOffset13ForwardDistance() - /*C.BNEZ*/ 2u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
                         "1",
-                        GetPrintBcondOpposite(),
                         Zero);
 }
 
-TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Forward) {
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13Forward_WithoutC) {
   ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BneA0ZeroMaxOffset13Forward_WithoutC",
+                        &Riscv64Assembler::Bne,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BNE*/ 4u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
+                        "1",
+                        Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13ForwardBare_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BneA0ZeroMaxOffset13ForwardBare_WithoutC",
+                        &Riscv64Assembler::Bne,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BNE*/ 4u,
+                        GetPrintBcond(),
+                        "ne",
+                        "eq",
+                        "1",
+                        Zero,
+                        /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Forward) {
   TestBcondA0RegForward("BeqA0A1MaxOffset13Forward",
                         &Riscv64Assembler::Beq,
-                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
-                        "1",
+                        MaxOffset13ForwardDistance() - /*BEQ*/ 4u,
                         GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
+                        A1);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Forward_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BeqA0A1MaxOffset13Forward_WithoutC",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
                         A1);
 }
 
 TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13ForwardBare) {
-  ScopedCSuppression scs(this);
   TestBcondA0RegForward("BeqA0A1MaxOffset13ForwardBare",
                         &Riscv64Assembler::Beq,
-                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
-                        "1",
+                        MaxOffset13ForwardDistance() - /*BEQ*/ 4u,
                         GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
                         A1,
                         /*is_bare=*/true);
 }
 
-TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9Backward) {
-  TestBcondA0RegBackward("BeqA0ZeroMaxOffset9Backward",
-                         &Riscv64Assembler::Beq,
-                         MaxOffset9BackwardDistance() - /*C.BEQZ*/ 2u,
-                         "1",
-                         GetPrintBcond(),
-                         Zero);
+TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13ForwardBare_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegForward("BeqA0A1MaxOffset13ForwardBare_WithoutC",
+                        &Riscv64Assembler::Beq,
+                        MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u,
+                        GetPrintBcond(),
+                        "eq",
+                        "ne",
+                        "1",
+                        A1,
+                        /*is_bare=*/true);
 }
 
 TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13Backward) {
   TestBcondA0RegBackward("BeqA0ZeroMaxOffset13Backward",
                          &Riscv64Assembler::Beq,
-                         MaxOffset13ForwardDistance() - /*BEQ*/ 4u,
-                         "1",
+                         MaxOffset13BackwardDistance(),
                          GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
                          Zero);
 }
 
-TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset9BackwardOpposite) {
-  TestBcondA0RegBackward("BeqA0ZeroMaxOffset9BackwardOpposite",
-                         &Riscv64Assembler::Bne,
-                         MaxOffset9BackwardDistance() - /*C.BNEZ*/ 2u,
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13Backward_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegBackward("BeqA0ZeroMaxOffset13Backward_WithoutC",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset13BackwardDistance_WithoutC(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
                          "1",
-                         GetPrintBcondOpposite(),
                          Zero);
 }
 
-TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13BackwardOpposite) {
-  TestBcondA0RegBackward("BeqA0ZeroMaxOffset13BackwardOpposite",
-                         &Riscv64Assembler::Bne,
-                         MaxOffset13ForwardDistance() - /*BNE*/ 4u,
+TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset13BackwardBare_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegBackward("BeqA0ZeroMaxOffset13BackwardBare_WithoutC",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset13BackwardDistance_WithoutC(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
                          "1",
-                         GetPrintBcondOpposite(),
+                         Zero,
+                         /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13Backward) {
+  TestBcondA0RegBackward("BneA0ZeroMaxOffset13Backward",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset13BackwardDistance(),
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
                          Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13Backward_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegBackward("BneA0ZeroMaxOffset13Backward_WithoutC",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset13BackwardDistance_WithoutC(),
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
+                         Zero);
+}
+
+TEST_F(AssemblerRISCV64Test, BneA0ZeroMaxOffset13BackwardBare_WithoutC) {
+  ScopedCSuppression scs(this);
+  TestBcondA0RegBackward("BneA0ZeroMaxOffset13BackwardBare_WithoutC",
+                         &Riscv64Assembler::Bne,
+                         MaxOffset13BackwardDistance_WithoutC(),
+                         GetPrintBcond(),
+                         "ne",
+                         "eq",
+                         "1",
+                         Zero,
+                         /*is_bare=*/ true);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Backward) {
+  TestBcondA0RegBackward("BeqA0A1MaxOffset13Forward",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset13BackwardDistance(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
+                         A1);
 }
 
 TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Backward_WithoutC) {
@@ -8651,9 +8882,23 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13Backward_WithoutC) {
   TestBcondA0RegBackward("BeqA0A1MaxOffset13Forward_WithoutC",
                          &Riscv64Assembler::Beq,
                          MaxOffset13BackwardDistance_WithoutC(),
-                         "1",
                          GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
                          A1);
+}
+
+TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13BackwardBare) {
+  TestBcondA0RegBackward("BeqA0A1MaxOffset13ForwardBare",
+                         &Riscv64Assembler::Beq,
+                         MaxOffset13BackwardDistance(),
+                         GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
+                         A1,
+                         /*is_bare=*/true);
 }
 
 TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13BackwardBare_WithoutC) {
@@ -8661,37 +8906,25 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset13BackwardBare_WithoutC) {
   TestBcondA0RegBackward("BeqA0A1MaxOffset13ForwardBare_WithoutC",
                          &Riscv64Assembler::Beq,
                          MaxOffset13BackwardDistance_WithoutC(),
-                         "1",
                          GetPrintBcond(),
+                         "eq",
+                         "ne",
+                         "1",
                          A1,
                          /*is_bare=*/true);
 }
 
-TEST_F(AssemblerRISCV64Test, BeqA0ZeroOverMaxOffset9Forward) {
-  TestBcondA0RegForward("BeqA0ZeroOverMaxOffset9Forward",
-                        &Riscv64Assembler::Beq,
-                        MaxOffset9ForwardDistance() - /*C.BEQZ*/ 2u + /*Exceed max*/ 2u,
-                        "1",
-                        GetPrintBcond(),
-                        Zero);
-}
-
-TEST_F(AssemblerRISCV64Test, BeqA0ZeroOverMaxOffset9Backward) {
-  TestBcondA0RegBackward("BeqA0ZeroOverMaxOffset9Backward",
-                         &Riscv64Assembler::Beq,
-                         MaxOffset9BackwardDistance() - /*C.BEQZ*/ 2u + /*Exceed max*/ 2u,
-                         "1",
-                         GetPrintBcond(),
-                         Zero);
-}
+// TODO: Continue test cleanup here.
 
 TEST_F(AssemblerRISCV64Test, BeqA0A1OverMaxOffset13Forward_WithoutC) {
   ScopedCSuppression scs(this);
   TestBcondA0RegForward("BeqA0A1OverMaxOffset13Forward_WithoutC",
                         &Riscv64Assembler::Beq,
                         MaxOffset13ForwardDistance_WithoutC() - /*BEQ*/ 4u + /*Exceed max*/ 4u,
-                        "1",
                         GetPrintBcondOppositeAndJ("2"),
+                        "eq",
+                        "ne",
+                        "1",
                         A1);
 }
 
@@ -8700,8 +8933,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1OverMaxOffset13Backward_WithoutC) {
   TestBcondA0RegBackward("BeqA0A1OverMaxOffset13Forward_WithoutC",
                          &Riscv64Assembler::Beq,
                          MaxOffset13BackwardDistance_WithoutC() + /*Exceed max*/ 4u,
-                         "1",
                          GetPrintBcondOppositeAndJ("2"),
+                         "eq",
+                         "ne",
+                         "1",
                          A1);
 }
 
@@ -8710,8 +8945,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset21Forward_WithoutC) {
   TestBcondA0RegForward("BeqA0A1MaxOffset21Forward_WithoutC",
                         &Riscv64Assembler::Beq,
                         MaxOffset21ForwardDistance_WithoutC() - /*J*/ 4u,
-                        "1",
                         GetPrintBcondOppositeAndJ("2"),
+                        "eq",
+                        "ne",
+                        "1",
                         A1);
 }
 
@@ -8720,8 +8957,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1MaxOffset21Backward_WithoutC) {
   TestBcondA0RegBackward("BeqA0A1MaxOffset21Backward_WithoutC",
                          &Riscv64Assembler::Beq,
                          MaxOffset21BackwardDistance_WithoutC() - /*BNE*/ 4u,
-                         "1",
                          GetPrintBcondOppositeAndJ("2"),
+                         "eq",
+                         "ne",
+                         "1",
                          A1);
 }
 
@@ -8729,8 +8968,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset21Backward) {
   TestBcondA0RegBackward("BeqA0ZeroMaxOffset21Backward",
                          &Riscv64Assembler::Beq,
                          MaxOffset21BackwardDistance() - /*BNE*/ 4u,
-                         "1",
                          GetPrintBcondOppositeAndJ("2"),
+                         "eq",
+                         "ne",
+                         "1",
                          Zero);
 }
 
@@ -8738,8 +8979,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset21BackwardNe) {
   TestBcondA0RegBackward("BeqA0ZeroMaxOffset21BackwardNe",
                          &Riscv64Assembler::Bne,
                          MaxOffset21BackwardDistance() - /*BNE*/ 4u,
+                         GetPrintBcondOppositeAndJ("2"),
+                         "ne",
+                         "eq",
                          "1",
-                         GetPrintBcondAndJ("2"),
                          Zero);
 }
 
@@ -8748,8 +8991,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1OverMaxOffset21Forward_WithoutC) {
   TestBcondA0RegForward("BeqA0A1OverMaxOffset21Forward_WithoutC",
                         &Riscv64Assembler::Beq,
                         MaxOffset21ForwardDistance_WithoutC() - /*J*/ 4u + /*Exceed max*/ 4u,
-                        "1",
                         GetPrintBcondOppositeAndTail("2", "3"),
+                        "eq",
+                        "ne",
+                        "1",
                         A1);
 }
 
@@ -8758,8 +9003,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0A1OverMaxOffset21Backward_WithoutC) {
   TestBcondA0RegBackward("BeqA0A1OverMaxOffset21Backward_WithoutC",
                          &Riscv64Assembler::Beq,
                          MaxOffset21BackwardDistance_WithoutC() - /*BNE*/ 4u + /*Exceed max*/ 4u,
-                         "1",
                          GetPrintBcondOppositeAndTail("2", "3"),
+                         "eq",
+                         "ne",
+                         "1",
                          A1);
 }
 
@@ -8767,8 +9014,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset21Forward) {
   TestBcondA0RegForward("BeqA0ZeroMaxOffset21Forward",
                         &Riscv64Assembler::Beq,
                         MaxOffset21ForwardDistance() - /*J*/ 4u,
-                        "1",
                         GetPrintBcondOppositeAndJ("2"),
+                        "eq",
+                        "ne",
+                        "1",
                         Zero);
 }
 
@@ -8776,8 +9025,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset21ForwardNe) {
   TestBcondA0RegForward("BeqA0ZeroMaxOffset21ForwardNe",
                         &Riscv64Assembler::Bne,
                         MaxOffset21ForwardDistance() - /*J*/ 4u,
+                        GetPrintBcondOppositeAndJ("2"),
+                        "ne",
+                        "eq",
                         "1",
-                        GetPrintBcondAndJ("2"),
                         Zero);
 }
 
@@ -8785,8 +9036,10 @@ TEST_F(AssemblerRISCV64Test, BeqA0ZeroMaxOffset21ForwardNeNotCompressable) {
   TestBcondA0RegForward("BeqA0ZeroMaxOffset21ForwardNeNotCompressable",
                         &Riscv64Assembler::Bne,
                         MaxOffset21ForwardDistance() - /*BNE*/ 50u,
+                        GetPrintBcondOppositeAndJ("2"),
+                        "ne",
+                        "eq",
                         "1",
-                        GetPrintBcondAndJ("2"),
                         A2);
 }
 

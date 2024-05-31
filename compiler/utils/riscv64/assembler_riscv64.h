@@ -2103,12 +2103,12 @@ class Riscv64Assembler final : public Assembler {
     Type type_;      // Current type of the branch.
     Type old_type_;  // Initial type of the branch.
 
+    bool compression_allowed_;
+
     // Id of the next branch bound to the same label in singly-linked zero-terminated list
     // NOTE: encoded the same way as a position in a linked Label (id + sizeof(void*))
     // Label itself is used to hold the 'head' of this list
     uint32_t next_branch_id_;
-
-    bool compression_allowed_;
   };
 
   // Branch and literal fixup.

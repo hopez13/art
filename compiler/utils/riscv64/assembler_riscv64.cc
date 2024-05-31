@@ -6743,8 +6743,8 @@ Riscv64Assembler::Branch::Branch(
       rhs_reg_(Zero),
       freg_(kNoFRegister),
       condition_(kUncond),
-      next_branch_id_(0u),
-      compression_allowed_(compression_allowed) {
+      compression_allowed_(compression_allowed),
+      next_branch_id_(0u) {
   InitializeType((rd != Zero ?
                       (is_bare ? kBareCall : kCall) :
                       (is_bare ? (compression_allowed ? kBareUncondCBranch : kBareUncondBranch) :
@@ -6765,16 +6765,13 @@ Riscv64Assembler::Branch::Branch(uint32_t location,
       rhs_reg_(rhs_reg),
       freg_(kNoFRegister),
       condition_(condition),
+      compression_allowed_(compression_allowed && IsCompressableCondition()),
       next_branch_id_(0u) {
   DCHECK_NE(condition, kUncond);
   DCHECK(!IsNop(condition, lhs_reg, rhs_reg));
   DCHECK(!IsUncond(condition, lhs_reg, rhs_reg));
-  if (!IsCompressableCondition()) {
-    compression_allowed = false;
-  }
-  compression_allowed_ = compression_allowed;
-  InitializeType(is_bare ? (compression_allowed ? kBareCondCBranch : kBareCondBranch) :
-                           (compression_allowed ? kCondCBranch : kCondBranch));
+  InitializeType(is_bare ? (compression_allowed_ ? kBareCondCBranch : kBareCondBranch) :
+                           (compression_allowed_ ? kCondCBranch : kCondBranch));
 }
 
 Riscv64Assembler::Branch::Branch(uint32_t location,
@@ -6788,8 +6785,8 @@ Riscv64Assembler::Branch::Branch(uint32_t location,
       rhs_reg_(Zero),
       freg_(kNoFRegister),
       condition_(kUncond),
-      next_branch_id_(0u),
-      compression_allowed_(false) {
+      compression_allowed_(false),
+      next_branch_id_(0u) {
   CHECK_NE(rd , Zero);
   InitializeType(label_or_literal_type);
 }
@@ -6805,8 +6802,8 @@ Riscv64Assembler::Branch::Branch(uint32_t location,
       rhs_reg_(Zero),
       freg_(rd),
       condition_(kUncond),
-      next_branch_id_(0u),
-      compression_allowed_(false) {
+      compression_allowed_(false),
+      next_branch_id_(0u) {
   InitializeType(literal_type);
 }
 
