@@ -30,6 +30,7 @@
 #include "nativehelper/JNIHelp.h"
 #include "nativehelper/utils.h"
 #include "runtime.h"
+#include "tools/tools.h"
 
 namespace art {
 namespace service {
@@ -147,6 +148,16 @@ extern "C" JNIEXPORT void JNICALL Java_com_android_server_art_ArtJni_setProperty
                          "Failed to set property '%s' to '%s'",
                          key.c_str(),
                          value.c_str());
+  }
+}
+
+extern "C" JNIEXPORT void JNICALL
+Java_com_android_server_art_ArtJni_ensureNoProcessInDirNative(JNIEnv* env, jobject, jstring j_dir) {
+  std::string dir(GET_UTF_OR_RETURN_VOID(env, j_dir));
+  if (Result<void> result =
+          tools::EnsureNoProcessInDir(dir, /*timeout_ms=*/5000, /*try_kill=*/true);
+      !result.ok()) {
+    jniThrowException(env, "java/io/IOException", result.error().message().c_str());
   }
 }
 
