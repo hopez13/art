@@ -1,0 +1,65 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "953dfb5b_10903374",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-05-31T13:10:11Z",
+      "side": 1,
+      "message": "Is that still relevant? Looks like we should instead call `WakeUpSaver` when waiting for the startup to be finished.",
+      "range": {
+        "startLine": 139,
+        "startChar": 48,
+        "endLine": 139,
+        "endChar": 77
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d5dfcc6b_1d6bd987",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 136,
+                "startChar": 0,
+                "endLine": 137,
+                "endChar": 0
+              },
+              "replacement": "  if (!Runtime::Current()-\u003eGetStartupCompleted()) {\n"
+            },
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 138,
+                "startChar": 0,
+                "endLine": 150,
+                "endChar": 0
+              },
+              "replacement": "    period_condition_.Wait(self);\n  } else {\n    FetchAndCacheResolvedClassesAndMethods(/*startup\u003d*/ true);\n"
+            },
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 151,
+                "startChar": 0,
+                "endLine": 153,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "02ff9d70fa1b65dbc59bb8ff5ce2bc699e85cbd2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
