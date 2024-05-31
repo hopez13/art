@@ -80,6 +80,9 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     /** The slot that contains the OTA update, "_a" or "_b", or null for a Mainline update. */
     @GuardedBy("this") @Nullable private String mOtaSlot = null;
 
+    /** Whether to map/unmap snapshots. Only applicable to an OTA update. */
+    @GuardedBy("this") private boolean mMapSnapshotsForOta = false;
+
     // Mutations to the global state of Pre-reboot Dexopt, including mounts, staged files, and
     // stats, should only be done when there is no job running and the `this` lock is held, or by
     // the job.
@@ -127,7 +130,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     @Override
     public synchronized boolean onStopJob(@NonNull JobParameters params) {
         if (mJobSchedulerRunningJob != null) {
-            cancelOneLocked(mJobSchedulerRunningJob);
+            cancelOneLocked(mJobSchedulerRunningJob, false /* expectInterrupt */);
             mJobSchedulerRunningJob = null;
         }
         // "true" means to execute again with the default retry policy.
@@ -144,12 +147,38 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         cancelAllLocked();
         resetLocked();
         updateOtaSlotLocked(otaSlot);
+        mMapSnapshotsForOta = true;
         return scheduleLocked();
+    }
+
+    /**
+     * Same as above, but starts the job immediately, instead of going through the job scheduler.
+     *
+     * @return The future of the job, or null if Pre-reboot Dexopt is not enabled.
+     */
+    @Nullable
+    public synchronized CompletableFuture<Void> onUpdateReadyStartNow(@Nullable String otaSlot) {
+        cancelAllLocked();
+        resetLocked();
+        updateOtaSlotLocked(otaSlot);
+        // Don't map snapshots when running synchronously. `update_engine` maps snapshots for us.
+        mMapSnapshotsForOta = false;
+        if (!isEnabled()) {
+            return null;
+        }
+        mInjector.getStatsReporter().recordJobScheduled(false /* isAsync */);
+        return startLocked();
     }
 
     public synchronized void test() {
         cancelAllLocked();
         mInjector.getPreRebootDriver().test();
+    }
+
+    /** @see #cancelOneLocked */
+    public synchronized void cancelOne(
+            @NonNull CompletableFuture<Void> job, boolean expectInterrupt) {
+        cancelOneLocked(job, expectInterrupt);
     }
 
     @VisibleForTesting
@@ -208,7 +237,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
         if (result == JobScheduler.RESULT_SUCCESS) {
             AsLog.i("Pre-reboot Dexopt Job scheduled");
-            mInjector.getStatsReporter().recordJobScheduled();
+            mInjector.getStatsReporter().recordJobScheduled(true /* isAsync */);
             mJobSchedulerTicket = ticket;
             return ArtFlags.SCHEDULE_SUCCESS;
         } else {
@@ -245,11 +274,12 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
         Utils.check(mRunningJob == null);
 
         String otaSlot = mOtaSlot;
+        boolean mapSnapshotsForOta = mMapSnapshotsForOta;
         var cancellationSignal = mCancellationSignal = new CancellationSignal();
         mRunningJob = new CompletableFuture().runAsync(() -> {
             markHasStarted(true);
             try {
-                mInjector.getPreRebootDriver().run(otaSlot, cancellationSignal);
+                mInjector.getPreRebootDriver().run(otaSlot, mapSnapshotsForOta, cancellationSignal);
             } catch (RuntimeException e) {
                 AsLog.e("Fatal error", e);
             } finally {
@@ -269,9 +299,12 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
      *
      * When this method exits, it's guaranteed that the given job is not running, but other jobs
      * might be running.
+     *
+     * @param expectInterrupt if true, this method returns immediately when the thread is
+     *         interrupted, with no guarantee on the job state
      */
     @GuardedBy("this")
-    private void cancelOneLocked(@NonNull CompletableFuture<Void> job) {
+    private void cancelOneLocked(@NonNull CompletableFuture<Void> job, boolean expectInterrupt) {
         while (mRunningJob == job) {
             if (!mCancellationSignal.isCanceled()) {
                 mCancellationSignal.cancel();
@@ -280,6 +313,9 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
             try {
                 this.wait();
             } catch (InterruptedException e) {
+                if (expectInterrupt) {
+                    return;
+                }
                 AsLog.wtf("Interrupted", e);
             }
         }
@@ -337,6 +373,10 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
             return false;
         }
         return true;
+    }
+
+    public boolean isAsyncForOta() {
+        return SystemProperties.getBoolean("dalvik.vm.pr_dexopt_async_for_ota", false /* def */);
     }
 
     @GuardedBy("this")
