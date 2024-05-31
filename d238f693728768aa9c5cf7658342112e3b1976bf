@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ae3b98a_44965554",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-31T14:37:57Z",
+      "side": 1,
+      "message": "I think the current pattern is better.\n\n1. As [the comment on `GlobalInjector`](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/GlobalInjector.java;l\u003d34-35;drc\u003dfe6509ad165fd32d4ac5f5986de1b8934c397cbb) suggested, it\u0027s an interface for getting different behaviors depending on whether the code is running for Pre-reboot Dexopt or not. Adding things irrelevant to Pre-reboot makes readers easily get lost if they want to find out the behavior difference.\n2. The global injector instance is a static field, and it can be set only once. We may run into problems when we try to use different global injector instances for different tests.\n3. In some cases, mocking internal things can be useful, though somehow antipattern. For example, when testing `ArtManagerLocal.dexoptPackages`, it\u0027s useful to mock `DexoptHelper`. In this way, we can focus on testing which packages are dexopted. Otherwise, because `ArtManagerLocal.dexoptPackages` calls into `DexoptHelper`, which calls into `PrimaryDexopter`/`SecondaryDexopter`, which calls into `UserManager`, `Artd`, `StorageManager`, and `PackageManagerLocal`, we\u0027ll have to mock all those external dependencies, adding up to tens of methods, making the test complicated and easy to lose focus. Therefore, we\u0027ll likely keep the local injectors.\n4. Because we have to keep the local injectors, if we use the global injector in tests as well, we\u0027ll have to construct two injectors in tests, and that\u0027s a bit of a hassle.",
+      "parentUuid": "4c29e6a0_2dd0456f",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e595c6_ccda2cdd",
