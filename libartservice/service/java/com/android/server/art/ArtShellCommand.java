@@ -60,11 +60,15 @@ import com.android.server.pm.pkg.PackageState;
 import libcore.io.Streams;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.nio.ByteBuffer;
+import java.nio.channels.ClosedByInterruptException;
+import java.nio.channels.FileChannel;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -675,21 +679,65 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
             return 1;
         }
 
-        int code = mArtManagerLocal.getPreRebootDexoptJob().onUpdateReady(otaSlot);
+        PreRebootDexoptJob job = mArtManagerLocal.getPreRebootDexoptJob();
 
-        switch (code) {
-            case ArtFlags.SCHEDULE_SUCCESS:
-                pw.println("Job scheduled");
-                return 0;
-            case ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP:
+        if (job.isAsyncForOta()) {
+            int code = job.onUpdateReady(otaSlot);
+
+            switch (code) {
+                case ArtFlags.SCHEDULE_SUCCESS:
+                    pw.println("Job scheduled");
+                    return 0;
+                case ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP:
+                    pw.println("Job disabled by system property");
+                    return 1;
+                case ArtFlags.SCHEDULE_JOB_SCHEDULER_FAILURE:
+                    pw.println("Failed to schedule job");
+                    return 1;
+                default:
+                    // Can't happen.
+                    throw new IllegalStateException("Unknown result code: " + code);
+            }
+        } else {
+            CompletableFuture<Void> future = job.onUpdateReadyStartNow(otaSlot);
+            if (future == null) {
                 pw.println("Job disabled by system property");
                 return 1;
-            case ArtFlags.SCHEDULE_JOB_SCHEDULER_FAILURE:
-                pw.println("Failed to schedule job");
-                return 1;
-            default:
-                // Can't happen.
-                throw new IllegalStateException("Unknown result code: " + code);
+            }
+
+            var readThread = new Thread(() -> {
+                try (var in = new FileInputStream(getInFileDescriptor())) {
+                    ByteBuffer buffer = ByteBuffer.allocate(128 /* capacity */);
+                    FileChannel channel = in.getChannel();
+                    while (channel.read(buffer) >= 0) {
+                        buffer.clear();
+                    }
+                    // Broken pipe.
+                    job.cancelOne(future);
+                } catch (ClosedByInterruptException e) {
+                    // Job finished normally.
+                } catch (IOException e) {
+                    AsLog.e("Unexpected exception", e);
+                    job.cancelOne(future);
+                } catch (RuntimeException e) {
+                    AsLog.wtf("Unexpected exception", e);
+                    job.cancelOne(future);
+                }
+            });
+            readThread.start();
+
+            try {
+                Utils.getFuture(future);
+            } finally {
+                readThread.interrupt();
+                try {
+                    readThread.join();
+                } catch (InterruptedException e) {
+                    AsLog.wtf("Interrupted", e);
+                }
+            }
+
+            return 0;
         }
     }
 
