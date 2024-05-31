@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "d861287f_97811ba9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-05-31T13:54:23Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d1ff1f96_e61786f8",
+      "range": {
+        "startLine": 9,
+        "startChar": 3,
+        "endLine": 9,
+        "endChar": 7
+      },
+      "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "2cfbe16d_026de27d",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -78,6 +102,30 @@
           ]
         }
       ],
+      "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "812bb198_760757a7",
+        "filename": "test/odsign/test-src/com/android/tests/odsign/CompOsTestUtils.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 1060831
+      },
+      "writtenOn": "2024-05-31T13:54:23Z",
+      "side": 1,
+      "message": "Yes, that\u0027s much neater. Done.",
+      "parentUuid": "cbffda84_f3518346",
+      "range": {
+        "startLine": 123,
+        "startChar": 42,
+        "endLine": 123,
+        "endChar": 73
+      },
       "revId": "c96afcd48e6c5607ab95c2e23096093dc564bd27",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
