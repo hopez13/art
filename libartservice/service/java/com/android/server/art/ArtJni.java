@@ -25,6 +25,8 @@ import androidx.annotation.RequiresApi;
 
 import dalvik.system.VMRuntime;
 
+import java.io.IOException;
+
 /**
  * JNI methods for ART Service with wrappers.
  *
@@ -129,10 +131,27 @@ public class ArtJni {
         return null;
     }
 
+    /**
+     *
+     *
+     * @throws IOException if the operation fails.
+     */
+    public static Void ensureNoProcessInDir(@NonNull String dir) throws IOException {
+        if (GlobalInjector.getInstance().isPreReboot()) {
+            // We don't need this for Pre-reboot Dexopt.
+            throw new UnsupportedOperationException();
+        }
+        ensureNoProcessInDirNative(dir);
+        // Return a placeholder value to make this method easier to mock. There is no good way to
+        // mock a method that is both void and static, due to the poor design of Mockito API.
+        return null;
+    }
+
     @Nullable private static native String validateDexPathNative(@NonNull String dexPath);
     @Nullable
     private static native String validateClassLoaderContextNative(
             @NonNull String dexPath, @NonNull String classLoaderContext);
     @NonNull private static native String getGarbageCollectorNative();
     private static native void setPropertyNative(@NonNull String key, @NonNull String value);
+    private static native void ensureNoProcessInDirNative(@NonNull String dir) throws IOException;
 }
