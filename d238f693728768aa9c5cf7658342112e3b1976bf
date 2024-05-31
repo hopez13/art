@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "4c29e6a0_2dd0456f",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-05-31T14:01:05Z",
+      "side": 1,
+      "message": "As I recall, it was just that at the time we didn\u0027t have any immediate reason to use the global injector for testing, but that may change. This seems like one reason.\n\nMy thinking is that if we can use a global injector to mock external things then we wouldn\u0027t need injectors like this just to pass down mocks. Going that way and start to use the global injector for more things, like the PackageManager instance etc, it may be possible to clean up quite a few of these injectors that separate internal parts from each other (which as we\u0027ve discussed offline, I consider a bit of an antipattern).\n\nThat\u0027d be a refactoring that\u0027s out of scope here, but I asked the question to see if it\u0027s a feasible option for this particular case.",
+      "parentUuid": "36bc769f_867aef8f",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c1e595c6_ccda2cdd",
         "filename": "libartservice/service/javatests/com/android/server/art/prereboot/PreRebootStatsReporterTest.java",
         "patchSetId": 21
