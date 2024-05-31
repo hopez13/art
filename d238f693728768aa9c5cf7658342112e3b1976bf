@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36bc769f_867aef8f",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-31T13:41:32Z",
+      "side": 1,
+      "message": "I think the conclusion of that discussion was that the global injector is only for production and the local injector is for testing?",
+      "parentUuid": "793fcf9f_8cbb39aa",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e595c6_ccda2cdd",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-05-31T13:15:16Z",
       "side": 1,
       "message": "Suggest separating the \"runs\" a bit better so it\u0027s easier to see where one stops and the next starts. E.g. a comment that summarises the type of run would be nice, and/or using one block for each (that way you don\u0027t need to suffix the session variables either).",
+      "range": {
+        "startLine": 127,
+        "startChar": 8,
+        "endLine": 127,
+        "endChar": 36
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c76f525_c6d0e24a",
+        "filename": "libartservice/service/javatests/com/android/server/art/prereboot/PreRebootStatsReporterTest.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-05-31T13:41:32Z",
+      "side": 1,
+      "message": "Added blocks.",
+      "parentUuid": "c1e595c6_ccda2cdd",
       "range": {
         "startLine": 127,
         "startChar": 8,
