@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d8601300_7a83db58",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-02T05:44:58Z",
+      "side": 1,
+      "message": "delete",
+      "range": {
+        "startLine": 21,
+        "startChar": 9,
+        "endLine": 21,
+        "endChar": 12
+      },
+      "revId": "091c46e9a4d1715ea2c049719365e0f7c17228fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "79f705ae_55cf2ca6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-02T05:44:58Z",
+      "side": 1,
+      "message": "This curently seems hard to follow. Not sure that\u0027s fixable, but I\u0027ll start with a couple of questions.",
+      "revId": "091c46e9a4d1715ea2c049719365e0f7c17228fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "43340261_dc1defd1",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 849,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-02T05:44:58Z",
+      "side": 1,
+      "message": "compacting",
+      "range": {
+        "startLine": 849,
+        "startChar": 10,
+        "endLine": 849,
+        "endChar": 19
+      },
+      "revId": "091c46e9a4d1715ea2c049719365e0f7c17228fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd4d355a_39fe5057",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 851,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-02T05:44:58Z",
+      "side": 1,
+      "message": "Could you more clearly define what the counters represent? Could we say that the zeroth counter represents the number of mutators still working on uffd pages which started before compaction was finished, and the other counter represents those that started after compaction is finished? But the counters don\u0027t start at zero, so this should say something about what that represents.\n\nIs there a reason to use a two-element array with an index here? Or does it make more sense to have a pointer to the current one, so that we can give the two counters more informative names than 0 and 1?",
+      "range": {
+        "startLine": 850,
+        "startChar": 1,
+        "endLine": 851,
+        "endChar": 39
+      },
+      "revId": "091c46e9a4d1715ea2c049719365e0f7c17228fd",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
