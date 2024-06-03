@@ -101,6 +101,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e837116b_3c737e05",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1719,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T10:27:56Z",
+      "side": 0,
+      "message": "No, it\u0027s already been set as warm given it\u0027s in the JIT cache.",
+      "parentUuid": "a23e5ce1_0befa8e4",
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b0aa25c2_845e64c8",
@@ -114,6 +132,24 @@
       "writtenOn": "2024-06-03T10:24:41Z",
       "side": 0,
       "message": "Should we still mark as warm?\n```\nmethod-\u003eSetPreviouslyWarm();\n```",
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eef533b4_5babef30",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1752,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T10:27:56Z",
+      "side": 0,
+      "message": "Ditto about being in the JIT cache and already been marked as warm.",
+      "parentUuid": "b0aa25c2_845e64c8",
       "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
