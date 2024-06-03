@@ -16,6 +16,93 @@
       "message": "PTAL. Thanks!",
       "revId": "29fca76956aacabd483b1fbd3bb93689d5b02a90",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4c2d8a73_85ff9d2f",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 737,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:34:59Z",
+      "side": 1,
+      "message": "`a` ?",
+      "range": {
+        "startLine": 737,
+        "startChar": 36,
+        "endLine": 737,
+        "endChar": 39
+      },
+      "revId": "29fca76956aacabd483b1fbd3bb93689d5b02a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9539a625_a18c5d63",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1412,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:34:59Z",
+      "side": 1,
+      "message": "Move this to line 1395 and drop the check line 1391?",
+      "range": {
+        "startLine": 1409,
+        "startChar": 0,
+        "endLine": 1412,
+        "endChar": 7
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d35d0226_add4d926",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/trace.cc",
+              "range": {
+                "startLine": 1409,
+                "startChar": 0,
+                "endLine": 1410,
+                "endChar": 0
+              },
+              "replacement": "      if (finish_tracing_.load()) {\n        break;\n      }\n\n"
+            }
+          ]
+        }
+      ],
+      "revId": "29fca76956aacabd483b1fbd3bb93689d5b02a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9db1ad1d_c6bee2c9",
+        "filename": "runtime/trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 224,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:34:59Z",
+      "side": 1,
+      "message": "`waits for`",
+      "range": {
+        "startLine": 224,
+        "startChar": 37,
+        "endLine": 224,
+        "endChar": 43
+      },
+      "revId": "29fca76956aacabd483b1fbd3bb93689d5b02a90",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
