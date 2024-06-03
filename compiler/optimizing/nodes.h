@@ -1644,8 +1644,17 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(VecPredSetAll, VecPredSetOperation)                                 \
   M(VecPredWhile, VecPredSetOperation)                                  \
   M(VecPredToBoolean, VecOperation)                                     \
-  M(VecCondition, VecPredSetOperation)                                  \
-  M(VecPredNot, VecPredSetOperation)                                    \
+  M(VecEqual, VecCondition)                                             \
+  M(VecNotEqual, VecCondition)                                          \
+  M(VecLessThan, VecCondition)                                          \
+  M(VecLessThanOrEqual, VecCondition)                                   \
+  M(VecGreaterThan, VecCondition)                                       \
+  M(VecGreaterThanOrEqual, VecCondition)                                \
+  M(VecBelow, VecCondition)                                             \
+  M(VecBelowOrEqual, VecCondition)                                      \
+  M(VecAbove, VecCondition)                                             \
+  M(VecAboveOrEqual, VecCondition)                                      \
+  M(VecPredNot, VecPredSetOperation)
 
 #define FOR_EACH_CONCRETE_INSTRUCTION_COMMON(M)                         \
   FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(M)                        \
@@ -1713,7 +1722,8 @@ class HLoopInformationOutwardIterator : public ValueObject {
   M(VecUnaryOperation, VecOperation)                                    \
   M(VecBinaryOperation, VecOperation)                                   \
   M(VecMemoryOperation, VecOperation)                                   \
-  M(VecPredSetOperation, VecOperation)
+  M(VecPredSetOperation, VecOperation)                                  \
+  M(VecCondition, VecPredSetOperation)
 
 #define FOR_EACH_INSTRUCTION(M)                                         \
   FOR_EACH_CONCRETE_INSTRUCTION(M)                                      \

@@ -2396,6 +2396,11 @@ HInstruction* HLoopOptimization::ReduceAndExtractIfNeeded(HInstruction* instruct
   }                                                            \
   break;
 
+#define GENERATE_PRED_VEC(x)                              \
+  DCHECK_EQ(synthesis_mode_, LoopSynthesisMode::kVector); \
+  vector = (x);                                           \
+  break;
+
 HInstruction* HLoopOptimization::GenerateVecOp(HInstruction* org,
                                                HInstruction* opa,
                                                HInstruction* opb,
@@ -2469,13 +2474,46 @@ HInstruction* HLoopOptimization::GenerateVecOp(HInstruction* org,
       GENERATE_VEC(
         new (global_allocator_) HVecAbs(global_allocator_, opa, type, vector_length_, dex_pc),
         new (global_allocator_) HAbs(org_type, opa, dex_pc));
-    case HInstruction::kEqual: {
-        // Special case.
-        DCHECK_EQ(synthesis_mode_, LoopSynthesisMode::kVector);
-        vector = new (global_allocator_)
-            HVecCondition(global_allocator_, opa, opb, type, vector_length_, dex_pc);
-      }
-      break;
+    case HInstruction::kEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kNotEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecNotEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kLessThan:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecLessThan(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kLessThanOrEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecLessThanOrEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kGreaterThan:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecGreaterThan(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kGreaterThanOrEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecGreaterThanOrEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kBelow:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecBelow(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kBelowOrEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecBelowOrEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kAbove:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecAbove(global_allocator_, opa, opb, type, vector_length_, dex_pc));
+    case HInstruction::kAboveOrEqual:
+      GENERATE_PRED_VEC(
+        new (global_allocator_)
+        HVecAboveOrEqual(global_allocator_, opa, opb, type, vector_length_, dex_pc));
     default:
       break;
   }  // switch
@@ -2733,8 +2771,7 @@ bool HLoopOptimization::VectorizeIfCondition(LoopNode* node,
     return false;
   }
 
-  if (!if_input->IsEqual()) {
-    // TODO: Support other condition types.
+  if (!if_input->IsCondition()) {
     return false;
   }
 
