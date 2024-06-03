@@ -18,6 +18,23 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0a62a886_0308e34a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:26:58Z",
+      "side": 1,
+      "message": "Thanks Mythri.",
+      "revId": "b1a8b08617d291f30ed3ee8282da443bff517c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5fd4c7f_038df708",
@@ -55,6 +72,30 @@
           ]
         }
       ],
+      "revId": "b1a8b08617d291f30ed3ee8282da443bff517c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d5835d06_9c0d523b",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:26:58Z",
+      "side": 1,
+      "message": "I feel like `deprecated` is more relevant as \"it used to looked at, but not anymore\". `not supported` feels like we introduced a flag we haven\u0027t implemented yet.",
+      "parentUuid": "b5fd4c7f_038df708",
+      "range": {
+        "startLine": 835,
+        "startChar": 65,
+        "endLine": 835,
+        "endChar": 75
+      },
       "revId": "b1a8b08617d291f30ed3ee8282da443bff517c22",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }

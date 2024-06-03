@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ff1ee1ae_b82410f6",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:26:58Z",
+      "side": 0,
+      "message": "That\u0027s right, the counter is already reset when scheduling for JITting, so we don\u0027t need to do it anywhere else.",
+      "parentUuid": "5d8f8002_c88d77ff",
+      "range": {
+        "startLine": 730,
+        "startChar": 47,
+        "endLine": 730,
+        "endChar": 99
+      },
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c4bcf874_8c4ddef3",
@@ -55,6 +79,30 @@
       "writtenOn": "2024-06-03T08:08:21Z",
       "side": 0,
       "message": "I think this is the only use of CounterHasReached, maybe also delete the ``CounterHasReached`` from ArtMethod.",
+      "range": {
+        "startLine": 625,
+        "startChar": 15,
+        "endLine": 625,
+        "endChar": 32
+      },
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0cfc4f70_97df3b46",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-03T09:26:58Z",
+      "side": 0,
+      "message": "Done",
+      "parentUuid": "c4bcf874_8c4ddef3",
       "range": {
         "startLine": 625,
         "startChar": 15,
