@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d8f8002_c88d77ff",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 730,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-03T08:08:21Z",
+      "side": 0,
+      "message": "Update the comment? \n\nJust to verify my understanding, we don\u0027t need to clear the counter here, because we already reset the counter in nterp, so we are still updating the counter and will re-jit it if it gets hot right?",
+      "range": {
+        "startLine": 730,
+        "startChar": 47,
+        "endLine": 730,
+        "endChar": 99
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ce28577d_a4af0362",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/jit_code_cache.cc",
+              "range": {
+                "startLine": 719,
+                "startChar": 0,
+                "endLine": 720,
+                "endChar": 0
+              },
+              "replacement": "          // Simply discard the compiled code.\n          // The counter will be cleared in the interpreter, so it may be recompiled later.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4bcf874_8c4ddef3",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 625,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-03T08:08:21Z",
+      "side": 0,
+      "message": "I think this is the only use of CounterHasReached, maybe also delete the ``CounterHasReached`` from ArtMethod.",
+      "range": {
+        "startLine": 625,
+        "startChar": 15,
+        "endLine": 625,
+        "endChar": 32
+      },
+      "revId": "30e749b750f45f411d130b43d4221331c7c9d5fe",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

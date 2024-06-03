@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "30c5e922_5c72d59e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-03T08:08:21Z",
+      "side": 1,
+      "message": "Thanks! lgtm.",
+      "revId": "b1a8b08617d291f30ed3ee8282da443bff517c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5fd4c7f_038df708",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 835,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-03T08:08:21Z",
+      "side": 1,
+      "message": "maybe not supported instead of deprecated?",
+      "range": {
+        "startLine": 835,
+        "startChar": 65,
+        "endLine": 835,
+        "endChar": 75
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "df0a966e_b5d92dc2",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "cmdline/cmdline_types.h",
+              "range": {
+                "startLine": 835,
+                "startChar": 0,
+                "endLine": 836,
+                "endChar": 0
+              },
+              "replacement": "      LOG(WARNING) \u003c\u003c \"-Xps-hot-startup-method-samples option is not supported\";\n"
+            }
+          ]
+        }
+      ],
+      "revId": "b1a8b08617d291f30ed3ee8282da443bff517c22",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
