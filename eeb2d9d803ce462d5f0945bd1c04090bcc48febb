@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "2ea188d4_067988cd",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-04T16:19:50Z",
+      "side": 1,
+      "message": "Deferring this decision until I understand \"single-threaded\" below. This seems like an odd place for this call, so I\u0027m afraid this was intentional. This all seems very tricky, since we presumably can\u0027t tolerate a re-inflation in the interim?",
+      "parentUuid": "064140f8_110889d1",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5d8ea3_4e1e1a35",
         "filename": "runtime/monitor.cc",
         "patchSetId": 2
@@ -66,6 +84,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "49c9eb32_a4f3f103",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-04T16:19:50Z",
+      "side": 1,
+      "message": "What does \"single-threaded\" mean here? All the heap-related daemons are gone? Were no started?",
+      "parentUuid": "8cf6079f_a2c18b0e",
+      "range": {
+        "startLine": 169,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 88
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a2cf7cd_bccc766d",
         "filename": "runtime/monitor_inflation.md",
         "patchSetId": 2
@@ -77,6 +119,30 @@
       "writtenOn": "2024-05-29T06:56:52Z",
       "side": 1,
       "message": "Where does `ImageWriter` destroy the `MonitorList`? (The `dex2oat` process shall shut down and destroy it without allowing any mutator threads to resume, but I don\u0027t see any explicit destruction.)",
+      "range": {
+        "startLine": 70,
+        "startChar": 65,
+        "endLine": 70,
+        "endChar": 92
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbb622da_69acb748",
+        "filename": "runtime/monitor_inflation.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-04T16:19:50Z",
+      "side": 1,
+      "message": "I\u0027ll change it to `invalidate` and add a comment. It seems to deflate monitors without removing them from the list. See MonitorDeflateVisitor and related code. I wonder whether this is intentional.",
+      "parentUuid": "4a2cf7cd_bccc766d",
       "range": {
         "startLine": 70,
         "startChar": 65,
