@@ -1,0 +1,274 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3a2b918e_3d0c61ca",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Spello: \"reimplements\"",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a967b12a_367b247a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Thanks, this looks much better than the executor approach, although I still wonder if it can be simplified further.\n\nGiven the comments here I haven\u0027t yet done a detailed review of the tests.",
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f7f4d83_980b0d7b",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Worth documenting the contract that the object\u0027s monitor is notified whenever this is set to null (or perhaps changed - see other comment later).",
+      "range": {
+        "startLine": 71,
+        "startChar": 65,
+        "endLine": 71,
+        "endChar": 76
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5009fdfc_668b314c",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Do we really need to support one job in `mRunningJob` and a different one here? If not, it\u0027d be better to restrict it by having just one, and encode whether it\u0027s job scheduler started or not some other way. That way it\u0027s easier to ascertain the invariant that there\u0027s only a single job running at any one time, regardless how it\u0027s started. At least I hope that\u0027s the case, or else the invariant on line 85 is wrong.\n\nBut I also wonder if we really need to differentiate job scheduler started jobs from other ones. There\u0027s the `jobFinished` call on line 115, but it\u0027s already elegantly solved by being added only for JobScheduler-started jobs.",
+      "range": {
+        "startLine": 75,
+        "startChar": 65,
+        "endLine": 75,
+        "endChar": 88
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "68a36068_9433a827",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "What happens if a job is scheduled and then system_server restarts? We\u0027d like the scheduled job to be run by JobScheduler, because I suspect we won\u0027t get another call to the `on-ota-staged` command after the restart. Iow, this needs to be initialised for the already scheduled job at startup, by getting the ticket from a `JobScheduler.getPendingJob` call.\n\nBut taking it one step further, why do we need this state at all if `getPendingJob` can return it? When can it be different from the job that\u0027s scheduled or executing by JobScheduler? I guess that translates to: What\u0027s the race mentioned on line 100?",
+      "range": {
+        "startLine": 78,
+        "startChar": 48,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d810ccdc_01d8d779",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Nit: Add \"itself\"?",
+      "range": {
+        "startLine": 85,
+        "startChar": 14,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3067e33a_0f33fd04",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 159,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Oh, the built-in lock is a condition variable! Weird. I had no idea.",
+      "range": {
+        "startLine": 159,
+        "startChar": 16,
+        "endLine": 159,
+        "endChar": 27
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b64557_3ef8239f",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Well, there can only be one other job running, right? So \"another job\"?",
+      "range": {
+        "startLine": 270,
+        "startChar": 86,
+        "endLine": 270,
+        "endChar": 96
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3b657f1b_00d6e190",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "To lessen the impression that there can be several jobs running, I suggest renaming this one to `cancelGivenLocked` and the other one below to `cancelAnyLocked`.",
+      "range": {
+        "startLine": 274,
+        "startChar": 17,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cda3aa92_84f31257",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "There\u0027s the assignment on line 249 that looks like it could affect this condition but it isn\u0027t notified. Now, `job` cannot possibly be the value assigned there, but if the contract for the notification is \"when `mRunningJob` changes value\", less thought is required to validate this condition, and it only requires a notification after that assignment. So I suggest adding that, for simplicity.",
+      "range": {
+        "startLine": 275,
+        "startChar": 15,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "efefae34_61a85655",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "\"any running job\"?",
+      "range": {
+        "startLine": 289,
+        "startChar": 15,
+        "endLine": 289,
+        "endChar": 23
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8c1eda7b_16637d35",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T20:19:43Z",
+      "side": 1,
+      "message": "Spello; delete.",
+      "range": {
+        "startLine": 292,
+        "startChar": 52,
+        "endLine": 292,
+        "endChar": 55
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
