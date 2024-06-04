@@ -1,0 +1,361 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b34bfb28_f42b4932",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "You switched to synchronous mode for some or all of these tests?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 44
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c1e30d4a_d5c73043",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "There\u0027s a gap in testing of the map/unmap parts. In particular it\u0027d be nice to check that `tearDown` dtrt depending on this flag to `setUp`. But it\u0027d require mocking both the system property handling and the mounts and unmounts, so maybe for another time.",
+      "range": {
+        "startLine": 106,
+        "startChar": 89,
+        "endLine": 106,
+        "endChar": 94
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45fbdd3_31364e86",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 689,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Print some command output on successful/interrupted synchronous runs too?",
+      "range": {
+        "startLine": 689,
+        "startChar": 20,
+        "endLine": 689,
+        "endChar": 30
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4b7f4f0_432349f8",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 708,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Please add a comment to explain why this is done in a separate thread. (I was hoping there\u0027d be a way to wait for both the future and I/O events on the pipe at once, but I couldn\u0027t find anything (and the AI couldn\u0027t either).)",
+      "range": {
+        "startLine": 708,
+        "startChar": 29,
+        "endLine": 708,
+        "endChar": 39
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7511f767_7762af5b",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 722,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Combine catches?",
+      "range": {
+        "startLine": 719,
+        "startChar": 0,
+        "endLine": 722,
+        "endChar": 46
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "63ca554e_93556cae",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+              "range": {
+                "startLine": 719,
+                "startChar": 0,
+                "endLine": 723,
+                "endChar": 0
+              },
+              "replacement": "                } catch (IOException | RuntimeException e) {\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a396229_2791a338",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 736,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "The `interrupt` call itself won\u0027t cause this exception in `join`?",
+      "range": {
+        "startLine": 736,
+        "startChar": 20,
+        "endLine": 736,
+        "endChar": 48
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd83bfc_6d6e20fa",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 928,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Please update.",
+      "range": {
+        "startLine": 927,
+        "startChar": 0,
+        "endLine": 928,
+        "endChar": 51
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "340c4315_cbaa4ca3",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 207,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Is it intentional that this is skipped? From a higher level perspective it may still be considered \"background\" even when it\u0027s synchronous. I guess it depends on the reasons why an OEM sets it.",
+      "range": {
+        "startLine": 207,
+        "startChar": 12,
+        "endLine": 207,
+        "endChar": 87
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d06e02e_888a3f4c",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "For a while it looked buggy to me that this didn\u0027t take the `mapSnapshotsForOta` flag as well, so worth a comment.",
+      "range": {
+        "startLine": 106,
+        "startChar": 12,
+        "endLine": 106,
+        "endChar": 43
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1d936745_3ba7eaff",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "`jobLatencyMs` can become -1 for other reasons too. Is it worth a special value for this case, like -2?",
+      "range": {
+        "startLine": 84,
+        "startChar": 47,
+        "endLine": 84,
+        "endChar": 76
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24b60c1a_b69f82b9",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 263,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Nit: Suggest moving both the async and sync start tests together, and dito for the cancellation tests. In particular the latter have quite a bit of code dup, so it\u0027s helpful to keep them close together.",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 263,
+        "endChar": 5
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4aa9ac19_915a585b",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "This isn\u0027t called in the sync case, right?",
+      "range": {
+        "startLine": 281,
+        "startChar": 23,
+        "endLine": 281,
+        "endChar": 32
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4690d840_0cfcb2b5",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 425,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Good thinking.",
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6beabf57_7ccbfca1",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 453,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "Please explain why this cannot be the new job having exited.",
+      "range": {
+        "startLine": 452,
+        "startChar": 0,
+        "endLine": 453,
+        "endChar": 52
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9d49f21_86507878",
+        "filename": "libartservice/service/javatests/com/android/server/art/PreRebootDexoptJobTest.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 455,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T16:40:44Z",
+      "side": 1,
+      "message": "`onStopJob`? Or am I missing something?",
+      "range": {
+        "startLine": 455,
+        "startChar": 16,
+        "endLine": 455,
+        "endChar": 26
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
