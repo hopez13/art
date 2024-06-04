@@ -1,0 +1,153 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1affe9f_dcb8ef7c",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "Are you certain this is the case? It e.g. means assuming `dex2oat` won\u0027t ever exec anything, doesn\u0027t it? Not that it invalidates this approach, but some discussion somewhere (perhaps in `PreRebootDriver.tearDown`) on the uncertainty would seem in order.",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 148,
+        "endChar": 24
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81f85775_2f3054a9",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "Before it logged. Why not anymore?",
+      "range": {
+        "startLine": 139,
+        "startChar": 23,
+        "endLine": 139,
+        "endChar": 34
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "691c47de_d53595ff",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "This runs apexd in the chroot. Do another round with `ensureNoProcessInDir`?",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "85c2088a_87236cbf",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "Didn\u0027t we conclude that the executor job grows linearly and hence there\u0027s no safe max timeout?",
+      "range": {
+        "startLine": 119,
+        "startChar": 50,
+        "endLine": 119,
+        "endChar": 51
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3506bb4_fce8a1e5",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "BloatBuster says libarttools.so grows by 14+ KiB per architecture. Is that reasonable just for `EnsureNoProcessInDir` itself, or is it pulling in something through static linking?",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "02951eb3_7765b5e9",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "Why not just -1? Or at least negation instead of bit flip?",
+      "range": {
+        "startLine": 286,
+        "startChar": 22,
+        "endLine": 286,
+        "endChar": 32
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ff75529_e7cf4b45",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-04T22:21:32Z",
+      "side": 1,
+      "message": "While I appreciate the effort of testing this, I\u0027m somewhat concerned both for flakiness and test cost (wall clock time is arguably the most precious resource in tests). 100 ms may seem plenty, but test systems can be severely loaded or blocked at times.\n\nLooks possible to remove time from the tests by mocking `TimeMillis` and `poll` (by inserting another wakeup fd into the pollfd array to simulate timeouts). It\u0027d require a bit more work though.\n\nAs it stands I\u0027m on the fence regarding these tests. Maybe an approach is to run them for now while the code is fresh, but skip them later (and allow them to be enabled again if the code is changed).",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
