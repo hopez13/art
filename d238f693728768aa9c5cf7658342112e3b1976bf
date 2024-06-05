@@ -120,6 +120,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f8383520_ec4a340b",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T15:07:25Z",
+      "side": 1,
+      "message": "If the suggestion is to make this injectable with a separate class, I\u0027m totally fine with it, and I agree that we can potentially include more things to that class. I just feel wrong to use `GlobalInjector` for testing purpose. The current `GlobalInjector` class is for getting different behaviors depending on whether the code is running for Pre-reboot Dexopt or not. Maybe \"GlobalInjector\" is not the best name because the word \"injector\" makes readers think that it\u0027s for testing purpose, while it\u0027s not. \"GlobalState\" or something like that might be better (https://en.wikipedia.org/wiki/State_pattern).\n\nI put a note about adding a global class for testing purpose. It requires quite a lot of refactoring, so I\u0027m not doing it in this CL. I\u0027ll come back to it after we have finalized V. For now, let\u0027s move on.",
+      "parentUuid": "78c3cef2_fa2a4847",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e595c6_ccda2cdd",
