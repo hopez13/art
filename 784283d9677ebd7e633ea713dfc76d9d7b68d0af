@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5eb2a2fe_c058831b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 9
+      },
+      "lineNbr": 14,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3a2b918e_3d0c61ca",
+      "range": {
+        "startLine": 14,
+        "startChar": 43,
+        "endLine": 14,
+        "endChar": 54
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "a967b12a_367b247a",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 9
@@ -37,6 +61,24 @@
       "writtenOn": "2024-06-04T20:19:43Z",
       "side": 1,
       "message": "Thanks, this looks much better than the executor approach, although I still wonder if it can be simplified further.\n\nGiven the comments here I haven\u0027t yet done a detailed review of the tests.",
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8a5a5f71_3442d878",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 9
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "I should thank you for suggesting this approach! When I was implementing the synchronous job, I realized that your approach is much better!",
+      "parentUuid": "a967b12a_367b247a",
       "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -54,6 +96,30 @@
       "writtenOn": "2024-06-04T20:19:43Z",
       "side": 1,
       "message": "Worth documenting the contract that the object\u0027s monitor is notified whenever this is set to null (or perhaps changed - see other comment later).",
+      "range": {
+        "startLine": 71,
+        "startChar": 65,
+        "endLine": 71,
+        "endChar": 76
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "78950f4e_d2e28a94",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1f7f4d83_980b0d7b",
       "range": {
         "startLine": 71,
         "startChar": 65,
@@ -87,6 +153,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e13a2911_6004ed64",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "\u003e Do we really need to support one job in `mRunningJob` and a different one here?\n\nYes. As the comment says, `mJobSchedulerRunningJob` refers to the job that is running **from the job scheduler\u0027s perspective**, which is not necessarily the same as `mRunningJob`. For example, when an old job started by the job scheduler is preempted by a new synchronous job, `mRunningJob` refers to the new synchronous job, while `mJobSchedulerRunningJob` still refers to the old job until `jobFinished` is called.\n\n\u003e But I also wonder if we really need to differentiate job scheduler started jobs from other ones.\n\nYes, we do. See the situation described in `PreRebootDexoptJobTest.testRace3` in aosp/3107579.",
+      "parentUuid": "5009fdfc_668b314c",
+      "range": {
+        "startLine": 75,
+        "startChar": 65,
+        "endLine": 75,
+        "endChar": 88
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "68a36068_9433a827",
@@ -110,6 +200,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "90331c7f_672b5a08",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "\u003e What happens if a job is scheduled and then system_server restarts?\n\nJobs are stored in memory in system_server (https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/apex/jobscheduler/service/java/com/android/server/job/JobStore.java;l\u003d94;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16), unless they are configured to be persisted (https://developer.android.com/reference/android/app/job/JobInfo.Builder#setPersisted(boolean)), in which case they will to written to disk (https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/apex/jobscheduler/service/java/com/android/server/job/JobStore.java;l\u003d292-295;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16).\n\nWe didn\u0027t configure our job to be persisted, so if system_server restarts, our previous pending job will be gone.\n\n\u003e But taking it one step further, why do we need this state at all if `getPendingJob` can return it?\n\nI think you are right. We can just query `getPendingJob`.\n\n\u003e When can it be different from the job that\u0027s scheduled or executing by JobScheduler?\n\nSee `PreRebootDexoptJobTest.testRace2`.",
+      "parentUuid": "68a36068_9433a827",
+      "range": {
+        "startLine": 78,
+        "startChar": 48,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d810ccdc_01d8d779",
@@ -123,6 +237,30 @@
       "writtenOn": "2024-06-04T20:19:43Z",
       "side": 1,
       "message": "Nit: Add \"itself\"?",
+      "range": {
+        "startLine": 85,
+        "startChar": 14,
+        "endLine": 85,
+        "endChar": 15
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e2bcedac_dc2ae262",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d810ccdc_01d8d779",
       "range": {
         "startLine": 85,
         "startChar": 14,
@@ -179,6 +317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8ffb18e_632dad70",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 270,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "24b64557_3ef8239f",
+      "range": {
+        "startLine": 270,
+        "startChar": 86,
+        "endLine": 270,
+        "endChar": 96
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3b657f1b_00d6e190",
@@ -192,6 +354,30 @@
       "writtenOn": "2024-06-04T20:19:43Z",
       "side": 1,
       "message": "To lessen the impression that there can be several jobs running, I suggest renaming this one to `cancelGivenLocked` and the other one below to `cancelAnyLocked`.",
+      "range": {
+        "startLine": 274,
+        "startChar": 17,
+        "endLine": 274,
+        "endChar": 32
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f16a4003_07f0deb1",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 274,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3b657f1b_00d6e190",
       "range": {
         "startLine": 274,
         "startChar": 17,
@@ -225,6 +411,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd1eab78_fb2bf233",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 275,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done. Good thought!",
+      "parentUuid": "cda3aa92_84f31257",
+      "range": {
+        "startLine": 275,
+        "startChar": 15,
+        "endLine": 275,
+        "endChar": 33
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "efefae34_61a85655",
@@ -248,6 +458,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4fe964f2_a7b93680",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 289,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efefae34_61a85655",
+      "range": {
+        "startLine": 289,
+        "startChar": 15,
+        "endLine": 289,
+        "endChar": 23
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c1eda7b_16637d35",
@@ -261,6 +495,30 @@
       "writtenOn": "2024-06-04T20:19:43Z",
       "side": 1,
       "message": "Spello; delete.",
+      "range": {
+        "startLine": 292,
+        "startChar": 52,
+        "endLine": 292,
+        "endChar": 55
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b7bee19a_e9eeda18",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 292,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-05T13:14:30Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8c1eda7b_16637d35",
       "range": {
         "startLine": 292,
         "startChar": 52,
