@@ -94,17 +94,17 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 	if len(ctx.Config().SanitizeDevice()) > 0 || len(ctx.Config().SanitizeHost()) > 0 {
 		cflags = append(cflags,
 			"-DART_STACK_OVERFLOW_GAP_arm=16384",
-			"-DART_STACK_OVERFLOW_GAP_arm64=16384",
+			"-DART_STACK_OVERFLOW_GAP_arm64=65536",
 			"-DART_STACK_OVERFLOW_GAP_riscv64=16384",
 			"-DART_STACK_OVERFLOW_GAP_x86=16384",
-			"-DART_STACK_OVERFLOW_GAP_x86_64=20480")
+			"-DART_STACK_OVERFLOW_GAP_x86_64=65536")
 	} else {
 		cflags = append(cflags,
 			"-DART_STACK_OVERFLOW_GAP_arm=8192",
-			"-DART_STACK_OVERFLOW_GAP_arm64=8192",
+			"-DART_STACK_OVERFLOW_GAP_arm64=32768",
 			"-DART_STACK_OVERFLOW_GAP_riscv64=8192",
 			"-DART_STACK_OVERFLOW_GAP_x86=8192",
-			"-DART_STACK_OVERFLOW_GAP_x86_64=8192")
+			"-DART_STACK_OVERFLOW_GAP_x86_64=32768")
 	}
 
 	if ctx.Config().NoBionicPageSizeMacro() {
