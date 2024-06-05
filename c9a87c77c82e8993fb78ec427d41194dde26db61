@@ -34,6 +34,24 @@
       "parentUuid": "3c170fed_fadd74fc",
       "revId": "c9a87c77c82e8993fb78ec427d41194dde26db61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61a3ff1d_7c15a544",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2024-06-05T02:53:04Z",
+      "side": 1,
+      "message": "I also added a `TODO` in Android.bp:\n// TODO: Remove veridex_zip and appcompat.sh after migrating\n//    GtsUnofficialApisUsageTestCases and GtsNetUnofficialApisUsageTestCases to use appcompat.",
+      "parentUuid": "65cd4f63_70414a44",
+      "revId": "c9a87c77c82e8993fb78ec427d41194dde26db61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
