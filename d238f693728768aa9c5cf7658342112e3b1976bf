@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "78c3cef2_fa2a4847",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T14:42:27Z",
+      "side": 1,
+      "message": "I think I can poke holes in all those arguments except #3. That\u0027s a valid point in the general case, and when it comes that I agree a local injector is better, and it\u0027s particularly true for testing error conditions, races, etc. But it doesn\u0027t mean that pattern has to apply everywhere.\n\nSo in the case with `ArtdRefCache` here it\u0027s just a helper class and one can just as well mock the artd instance instead. (It\u0027s not unlikely one would need to do that anyway, if it\u0027s not covered by higher level mocks, and if it is then it\u0027s incredibly easy to mock.)\n\nThis comment was primarily about this particular case, not changing the approach to injectors as a whole (we can discuss that too, but then there\u0027s the question whether it\u0027s worth the work to refactor it, and I doubt that). So I\u0027m still unconvinced this particular injector is at the right level and it looks like it\u0027d be better solved by a global injector, perhaps a separate one if it feels ugly to put it in the existing one. But in any case it\u0027s not important enough to block on.",
+      "parentUuid": "3ae3b98a_44965554",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e595c6_ccda2cdd",
