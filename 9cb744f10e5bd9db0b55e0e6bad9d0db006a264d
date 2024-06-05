@@ -71,6 +71,59 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ad01abe_def0f511",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-05T19:56:02Z",
+      "side": 1,
+      "message": "Hi. http://r.android.com/3109067 resolved the testing issue that led me to re-open this change. I still believe you, the Art team should accept this - if not for any other reason, if a target does not have this option, when mainline modules are built from source, they will be tested with Art without this option, but then the mainline module would have this option. So, this change unifies testing with production in more cases.\n\nPlease accept this change, for your own advantage, or if you do not want it, abandon it for me. Thank you!",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b2a7c267_ba518d71",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-05T19:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f66bf7e_204acd02",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "512eb90a_d8fda03e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-05T19:56:02Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "79cd3af4_63d4f7f1",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb1cec_4f8d30b6",
         "filename": "build/art.go",
         "patchSetId": 2
@@ -154,6 +207,30 @@
       "side": 1,
       "message": "That is good to know, although I guess we still have the population difference just in terms of the incoming bugs.\n\nSo, we could set PRODUCT_ART_PAGE_SIZE_AGNOSTIC (maybe temporarily), but if we aren\u0027t going to set it on specific devices, it can also remain coupled.\n\nHowever, this bug also didn\u0027t fix the x86-abi art_oatdump_test failure - so there\u0027s no real rush splitting it up, and we can wait for others to weigh in.",
       "parentUuid": "4a2e0cfb_67238c29",
+      "range": {
+        "startLine": 116,
+        "startChar": 43,
+        "endLine": 116,
+        "endChar": 64
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b872dbc_e17fab2d",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 116,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-05T19:56:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "2504f7b7_9862bc45",
       "range": {
         "startLine": 116,
         "startChar": 43,
