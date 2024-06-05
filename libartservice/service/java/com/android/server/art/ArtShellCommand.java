@@ -679,65 +679,12 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
             return 1;
         }
 
-        PreRebootDexoptJob job = mArtManagerLocal.getPreRebootDexoptJob();
-
-        if (job.isAsyncForOta()) {
-            int code = job.onUpdateReady(otaSlot);
-
-            switch (code) {
-                case ArtFlags.SCHEDULE_SUCCESS:
-                    pw.println("Job scheduled");
-                    return 0;
-                case ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP:
-                    pw.println("Job disabled by system property");
-                    return 1;
-                case ArtFlags.SCHEDULE_JOB_SCHEDULER_FAILURE:
-                    pw.println("Failed to schedule job");
-                    return 1;
-                default:
-                    // Can't happen.
-                    throw new IllegalStateException("Unknown result code: " + code);
-            }
+        if (mArtManagerLocal.getPreRebootDexoptJob().isAsyncForOta()) {
+            return handleSchedulePrDexoptJob(pw, otaSlot);
         } else {
-            CompletableFuture<Void> future = job.onUpdateReadyStartNow(otaSlot);
-            if (future == null) {
-                pw.println("Job disabled by system property");
-                return 1;
-            }
-
-            var readThread = new Thread(() -> {
-                try (var in = new FileInputStream(getInFileDescriptor())) {
-                    ByteBuffer buffer = ByteBuffer.allocate(128 /* capacity */);
-                    FileChannel channel = in.getChannel();
-                    while (channel.read(buffer) >= 0) {
-                        buffer.clear();
-                    }
-                    // Broken pipe.
-                    job.cancelGiven(future, true /* expectInterrupt */);
-                } catch (ClosedByInterruptException e) {
-                    // Job finished normally.
-                } catch (IOException e) {
-                    AsLog.e("Unexpected exception", e);
-                    job.cancelGiven(future, true /* expectInterrupt */);
-                } catch (RuntimeException e) {
-                    AsLog.wtf("Unexpected exception", e);
-                    job.cancelGiven(future, true /* expectInterrupt */);
-                }
-            });
-            readThread.start();
-
-            try {
-                Utils.getFuture(future);
-            } finally {
-                readThread.interrupt();
-                try {
-                    readThread.join();
-                } catch (InterruptedException e) {
-                    AsLog.wtf("Interrupted", e);
-                }
-            }
-
-            return 0;
+            // Don't map snapshots when running synchronously. `update_engine` maps snapshots for
+            // us.
+            return handleRunPrDexoptJob(pw, otaSlot, false /* mapSnapshotsForOta */);
         }
     }
 
@@ -747,30 +694,135 @@ public final class ArtShellCommand extends BasicShellCommandHandler {
             return 1;
         }
 
-        boolean isTest = false;
+        String mode = null;
+        String otaSlot = null;
 
-        String opt = getNextOption();
-        if ("--test".equals(opt)) {
-            isTest = true;
-        } else if (opt != null) {
-            pw.println("Error: Unknown option: " + opt);
-            return 1;
-        }
-
-        if (isTest) {
-            try {
-                mArtManagerLocal.getPreRebootDexoptJob().test();
-                pw.println("Success");
-                return 0;
-            } catch (Exception e) {
-                pw.println("Failure");
-                e.printStackTrace(pw);
-                return 2; // "1" is for general errors. Use "2" for the test failure.
+        String opt;
+        while ((opt = getNextOption()) != null) {
+            switch (opt) {
+                case "--slot":
+                    otaSlot = getNextArgRequired();
+                    break;
+                case "--test":
+                case "--run":
+                case "--schedule":
+                case "--cancel":
+                    // Only take the first mode flag, to be consistent with the `bg-dexopt-job`
+                    // command.
+                    mode = mode == null ? opt : mode;
+                    break;
+                default:
+                    pw.println("Error: Unknown option: " + opt);
+                    return 1;
             }
         }
 
-        pw.println("Error: No option specified");
-        return 1;
+        if (mode == null) {
+            pw.println("Error: No mode specified");
+            return 1;
+        }
+
+        switch (mode) {
+            case "--test":
+                return handleTestPrDexoptJob(pw);
+            case "--run":
+                return handleRunPrDexoptJob(pw, otaSlot, true /* mapSnapshotsForOta */);
+            case "--schedule":
+                return handleSchedulePrDexoptJob(pw, otaSlot);
+            case "--cancel":
+                return handleCancelPrDexoptJob(pw);
+            default:
+                // Can't happen.
+                throw new IllegalStateException("Unknown mode: " + mode);
+        }
+    }
+
+    private int handleTestPrDexoptJob(@NonNull PrintWriter pw) {
+        try {
+            mArtManagerLocal.getPreRebootDexoptJob().test();
+            pw.println("Success");
+            return 0;
+        } catch (Exception e) {
+            pw.println("Failure");
+            e.printStackTrace(pw);
+            return 2; // "1" is for general errors. Use "2" for the test failure.
+        }
+    }
+
+    private int handleRunPrDexoptJob(
+            @NonNull PrintWriter pw, @Nullable String otaSlot, boolean mapSnapshotsForOta) {
+        PreRebootDexoptJob job = mArtManagerLocal.getPreRebootDexoptJob();
+
+        CompletableFuture<Void> future = job.onUpdateReadyStartNow(otaSlot, mapSnapshotsForOta);
+        if (future == null) {
+            pw.println("Job disabled by system property");
+            return 1;
+        }
+
+        var readThread = new Thread(() -> {
+            try (var in = new FileInputStream(getInFileDescriptor())) {
+                ByteBuffer buffer = ByteBuffer.allocate(128 /* capacity */);
+                FileChannel channel = in.getChannel();
+                while (channel.read(buffer) >= 0) {
+                    buffer.clear();
+                }
+                // Broken pipe.
+                job.cancelGiven(future, true /* expectInterrupt */);
+            } catch (ClosedByInterruptException e) {
+                // Job finished normally.
+            } catch (IOException e) {
+                AsLog.e("Unexpected exception", e);
+                job.cancelGiven(future, true /* expectInterrupt */);
+            } catch (RuntimeException e) {
+                AsLog.wtf("Unexpected exception", e);
+                job.cancelGiven(future, true /* expectInterrupt */);
+            }
+        });
+        readThread.start();
+        pw.println("Job running...  To cancel it, press Ctrl+C or run 'pm art pr-dexopt-job "
+                + "--cancel' in a separate shell.");
+        pw.flush();
+
+        try {
+            Utils.getFuture(future);
+            pw.println("Job finished. See logs for details");
+        } catch (RuntimeException e) {
+            pw.println("Job encountered a fatal error");
+            e.printStackTrace(pw);
+        } finally {
+            readThread.interrupt();
+            try {
+                readThread.join();
+            } catch (InterruptedException e) {
+                AsLog.wtf("Interrupted", e);
+            }
+        }
+
+        return 0;
+    }
+
+    private int handleSchedulePrDexoptJob(@NonNull PrintWriter pw, @Nullable String otaSlot) {
+        int code = mArtManagerLocal.getPreRebootDexoptJob().onUpdateReady(otaSlot);
+        switch (code) {
+            case ArtFlags.SCHEDULE_SUCCESS:
+                pw.println("Pre-reboot Dexopt job scheduled");
+                return 0;
+            case ArtFlags.SCHEDULE_DISABLED_BY_SYSPROP:
+                pw.println("Pre-reboot Dexopt job disabled by system property");
+                return 1;
+            case ArtFlags.SCHEDULE_JOB_SCHEDULER_FAILURE:
+                pw.println("Failed to schedule Pre-reboot Dexopt job");
+                return 1;
+            default:
+                // Can't happen.
+                throw new IllegalStateException("Unknown result code: " + code);
+        }
+    }
+
+    private int handleCancelPrDexoptJob(@NonNull PrintWriter pw) {
+        mArtManagerLocal.getPreRebootDexoptJob().cancelAny();
+        pw.println("Pre-reboot Dexopt job cancelled");
+        return 0;
     }
 
     @Override
