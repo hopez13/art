@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "88cdcf6b_fd404b16",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 16
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:46:17Z",
+      "side": 1,
+      "message": "Worth mentioning.",
+      "parentUuid": "6cfe870b_b47c0635",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 20,
+        "endChar": 44
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "c1e30d4a_d5c73043",
@@ -455,6 +479,30 @@
       "side": 1,
       "message": "`jobLatencyMs` can only be -1 in two cases:\n\n1. The job is asynchronous but is not started yet.\n2. The job is synchronous.\n\nIn the first case, `status` must be `STATUS_SCHEDULED`, while in the second case, `status` must be something other than `STATUS_SCHEDULED` because `status` is overwritten with `STATUS_STARTED` right after this call. Therefore, we have enough information to distinguish these two cases.",
       "parentUuid": "1d936745_3ba7eaff",
+      "range": {
+        "startLine": 84,
+        "startChar": 47,
+        "endLine": 84,
+        "endChar": 76
+      },
+      "revId": "e0e9b1a18e382b3723265ce5fb569d224ab0958b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "90232aaa_d90093f7",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:46:17Z",
+      "side": 1,
+      "message": "Ok. There\u0027s also the aspect of making the info more readily available without having to deduce things from combinations of fields. That can make it easier to digest the data without (or with less complex) custom PLX queries. But I don\u0027t have a strong opinion on this particular case.",
+      "parentUuid": "dbe1f108_e8ab7839",
       "range": {
         "startLine": 84,
         "startChar": 47,
