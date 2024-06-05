@@ -1,0 +1,532 @@
+From 62d1d449b0235323615113f9af1ebe27fced1a56 Mon Sep 17 00:00:00 2001
+From: Nicolas Geoffray <ngeoffray@google.com>
+Date: Tue, 28 May 2024 15:10:32 +0100
+Subject: [PATCH] Rewrite how we identify hot methods.
+
+Use the kAccPreviouslyWarm as soon as a method gets scheduled for
+JITting. The profile saver now only uses that flag.
+
+For benefiting simplicity, deprecate the -Xps-hot-startup-method-samples
+flag (unused in the code base).
+
+Test: second run after speed-profile contains less JITting
+Bug: 333614471
+Bug: 333701031
+Change-Id: I2b846026f7d74d20ea761421b857db3834b3011c
+---
+
+diff --git a/cmdline/cmdline_parser_test.cc b/cmdline/cmdline_parser_test.cc
+index 93218bf..bfb36ae 100644
+--- a/cmdline/cmdline_parser_test.cc
++++ b/cmdline/cmdline_parser_test.cc
+@@ -38,7 +38,6 @@
+     return lhs.enabled_ == rhs.enabled_ &&
+         lhs.min_save_period_ms_ == rhs.min_save_period_ms_ &&
+         lhs.save_resolved_classes_delay_ms_ == rhs.save_resolved_classes_delay_ms_ &&
+-        lhs.hot_startup_method_samples_ == rhs.hot_startup_method_samples_ &&
+         lhs.min_methods_to_save_ == rhs.min_methods_to_save_ &&
+         lhs.min_classes_to_save_ == rhs.min_classes_to_save_ &&
+         lhs.min_notification_before_wake_ == rhs.min_notification_before_wake_ &&
+@@ -487,19 +486,18 @@
+ * -Xps-*
+ */
+ TEST_F(CmdlineParserTest, ProfileSaverOptions) {
+-  ProfileSaverOptions opt = ProfileSaverOptions(true, 1, 2, 3, 4, 5, 6, 7, 8, 9, "abc", true);
++  ProfileSaverOptions opt = ProfileSaverOptions(true, 1, 2, 3, 4, 5, 6, 7, 8, "abc", true);
+ 
+   EXPECT_SINGLE_PARSE_VALUE(opt,
+                             "-Xjitsaveprofilinginfo "
+                             "-Xps-min-save-period-ms:1 "
+                             "-Xps-min-first-save-ms:2 "
+                             "-Xps-save-resolved-classes-delay-ms:3 "
+-                            "-Xps-hot-startup-method-samples:4 "
+-                            "-Xps-min-methods-to-save:5 "
+-                            "-Xps-min-classes-to-save:6 "
+-                            "-Xps-min-notification-before-wake:7 "
+-                            "-Xps-max-notification-before-wake:8 "
+-                            "-Xps-inline-cache-threshold:9 "
++                            "-Xps-min-methods-to-save:4 "
++                            "-Xps-min-classes-to-save:5 "
++                            "-Xps-min-notification-before-wake:6 "
++                            "-Xps-max-notification-before-wake:7 "
++                            "-Xps-inline-cache-threshold:8 "
+                             "-Xps-profile-path:abc "
+                             "-Xps-profile-boot-class-path",
+                             M::ProfileSaverOpts);
+diff --git a/cmdline/cmdline_types.h b/cmdline/cmdline_types.h
+index 7cacfde..34c1b0f 100644
+--- a/cmdline/cmdline_types.h
++++ b/cmdline/cmdline_types.h
+@@ -832,10 +832,8 @@
+              type_parser.Parse(suffix));
+     }
+     if (android::base::StartsWith(option, "hot-startup-method-samples:")) {
+-      CmdlineType<unsigned int> type_parser;
+-      return ParseInto(existing,
+-             &ProfileSaverOptions::hot_startup_method_samples_,
+-             type_parser.Parse(suffix));
++      LOG(WARNING) << "-Xps-hot-startup-method-samples option is deprecated";
++      return Result::SuccessNoValue();
+     }
+     if (android::base::StartsWith(option, "min-methods-to-save:")) {
+       CmdlineType<unsigned int> type_parser;
+diff --git a/compiler/jit/jit_compiler.cc b/compiler/jit/jit_compiler.cc
+index 051368c..4b2f8d2 100644
+--- a/compiler/jit/jit_compiler.cc
++++ b/compiler/jit/jit_compiler.cc
+@@ -178,7 +178,8 @@
+     Thread* self, JitMemoryRegion* region, ArtMethod* method, CompilationKind compilation_kind) {
+   SCOPED_TRACE << "JIT compiling "
+                << method->PrettyMethod()
+-               << " (kind=" << compilation_kind << ")";
++               << " (kind=" << compilation_kind << ")"
++               << " from " << method->GetDexFile()->GetLocation();
+ 
+   DCHECK(!method->IsProxyMethod());
+   DCHECK(method->GetDeclaringClass()->IsResolved());
+diff --git a/compiler/optimizing/nodes.h b/compiler/optimizing/nodes.h
+index 33ffc07..89369f5 100644
+--- a/compiler/optimizing/nodes.h
++++ b/compiler/optimizing/nodes.h
+@@ -143,6 +143,8 @@
+   kAnalysisSuccess,
+ };
+ 
++std::ostream& operator<<(std::ostream& os, GraphAnalysisResult ga);
++
+ template <typename T>
+ static inline typename std::make_unsigned<T>::type MakeUnsigned(T x) {
+   return static_cast<typename std::make_unsigned<T>::type>(x);
+diff --git a/compiler/optimizing/optimizing_compiler.cc b/compiler/optimizing/optimizing_compiler.cc
+index 45d534a..3f73459 100644
+--- a/compiler/optimizing/optimizing_compiler.cc
++++ b/compiler/optimizing/optimizing_compiler.cc
+@@ -30,6 +30,7 @@
+ #include "base/macros.h"
+ #include "base/mutex.h"
+ #include "base/scoped_arena_allocator.h"
++#include "base/systrace.h"
+ #include "base/timing_logger.h"
+ #include "builder.h"
+ #include "code_generator.h"
+@@ -781,6 +782,7 @@
+   }
+ 
+   if (Compiler::IsPathologicalCase(*code_item, method_idx, dex_file)) {
++    SCOPED_TRACE << "Not compiling because of pathological case";
+     MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kNotCompiledPathological);
+     return nullptr;
+   }
+@@ -791,6 +793,7 @@
+   if ((compiler_options.GetCompilerFilter() == CompilerFilter::kSpace)
+       && (CodeItemInstructionAccessor(dex_file, code_item).InsnsSizeInCodeUnits() >
+           kSpaceFilterOptimizingThreshold)) {
++    SCOPED_TRACE << "Not compiling because of space filter";
+     MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kNotCompiledSpaceFilter);
+     return nullptr;
+   }
+@@ -865,6 +868,7 @@
+                           compilation_stats_.get());
+     GraphAnalysisResult result = builder.BuildGraph();
+     if (result != kAnalysisSuccess) {
++      SCOPED_TRACE << "Not compiling because of " << result;
+       switch (result) {
+         case kAnalysisSkipped: {
+           MaybeRecordStat(compilation_stats_.get(),
+@@ -927,6 +931,7 @@
+     // However, we may have run out of memory trying to create it, so in this
+     // case just abort the compilation.
+     if (graph->GetProfilingInfo() == nullptr) {
++      SCOPED_TRACE << "Not compiling because of out of memory";
+       MaybeRecordStat(compilation_stats_.get(), MethodCompilationStat::kJitOutOfMemoryForCommit);
+       return nullptr;
+     }
+@@ -938,6 +943,7 @@
+                     compilation_stats_.get());
+ 
+   if (UNLIKELY(codegen->GetFrameSize() > codegen->GetMaximumFrameSize())) {
++    SCOPED_TRACE << "Not compiling because of stack frame too large";
+     LOG(WARNING) << "Stack frame size is " << codegen->GetFrameSize()
+                  << " which is larger than the maximum of " << codegen->GetMaximumFrameSize()
+                  << " bytes. Method: " << graph->PrettyMethod();
+diff --git a/runtime/art_method-inl.h b/runtime/art_method-inl.h
+index b2711d9..d87040a 100644
+--- a/runtime/art_method-inl.h
++++ b/runtime/art_method-inl.h
+@@ -777,13 +777,6 @@
+   return hotness_count_ == 0;
+ }
+ 
+-inline bool ArtMethod::CounterHasReached(uint16_t samples, uint16_t threshold) {
+-  DCHECK(!IsAbstract());
+-  DCHECK_EQ(threshold, Runtime::Current()->GetJITOptions()->GetWarmupThreshold());
+-  DCHECK_LE(samples, threshold);
+-  return hotness_count_ <= (threshold - samples);
+-}
+-
+ inline uint16_t ArtMethod::GetCounter() {
+   DCHECK(!IsAbstract());
+   return hotness_count_;
+diff --git a/runtime/art_method.h b/runtime/art_method.h
+index bf1b463..492b77c 100644
+--- a/runtime/art_method.h
++++ b/runtime/art_method.h
+@@ -989,7 +989,6 @@
+   ALWAYS_INLINE void UpdateCounter(int32_t new_samples);
+   ALWAYS_INLINE void SetHotCounter();
+   ALWAYS_INLINE bool CounterIsHot();
+-  ALWAYS_INLINE bool CounterHasReached(uint16_t samples, uint16_t threshold);
+   ALWAYS_INLINE uint16_t GetCounter();
+   ALWAYS_INLINE bool CounterHasChanged(uint16_t threshold);
+ 
+diff --git a/runtime/interpreter/mterp/nterp.cc b/runtime/interpreter/mterp/nterp.cc
+index d8ce2bc..64f04d6 100644
+--- a/runtime/interpreter/mterp/nterp.cc
++++ b/runtime/interpreter/mterp/nterp.cc
+@@ -693,7 +693,10 @@
+     DCHECK_EQ(Thread::Current()->GetSharedMethodHotness(), 0u);
+     Thread::Current()->ResetSharedMethodHotness();
+   } else {
++    // Move the counter to the initial threshold in case we have to re-JIT it.
+     method->ResetCounter(runtime->GetJITOptions()->GetWarmupThreshold());
++    // Mark the method as warm for the profile saver.
++    method->SetPreviouslyWarm();
+   }
+   jit::Jit* jit = runtime->GetJit();
+   if (jit != nullptr && jit->UseJitCompilation()) {
+diff --git a/runtime/jit/jit_code_cache.cc b/runtime/jit/jit_code_cache.cc
+index e6db981..8c453f4 100644
+--- a/runtime/jit/jit_code_cache.cc
++++ b/runtime/jit/jit_code_cache.cc
+@@ -649,17 +649,6 @@
+   }
+ }
+ 
+-static void ClearMethodCounter(ArtMethod* method, bool was_warm)
+-    REQUIRES_SHARED(Locks::mutator_lock_) {
+-  if (was_warm) {
+-    method->SetPreviouslyWarm();
+-  }
+-  method->ResetCounter(Runtime::Current()->GetJITOptions()->GetWarmupThreshold());
+-  // We add one sample so that the profile knows that the method was executed at least once.
+-  // This is required for layout purposes.
+-  method->UpdateCounter(/* new_samples= */ 1);
+-}
+-
+ bool JitCodeCache::Commit(Thread* self,
+                           JitMemoryRegion* region,
+                           ArtMethod* method,
+@@ -727,10 +716,9 @@
+       bool single_impl_still_valid = true;
+       for (ArtMethod* single_impl : cha_single_implementation_list) {
+         if (!single_impl->HasSingleImplementation()) {
+-          // Simply discard the compiled code. Clear the counter so that it may be recompiled later.
++          // Simply discard the compiled code.
+           // Hopefully the class hierarchy will be more stable when compilation is retried.
+           single_impl_still_valid = false;
+-          ClearMethodCounter(method, /*was_warm=*/ false);
+           break;
+         }
+       }
+@@ -825,7 +813,6 @@
+     return false;
+   }
+ 
+-  ClearMethodCounter(method, /* was_warm= */ false);
+   Runtime::Current()->GetInstrumentation()->InitializeMethodsCode(method, /*aot_code=*/ nullptr);
+   VLOG(jit)
+       << "JIT removed (osr=" << std::boolalpha << osr << std::noboolalpha << ") "
+@@ -1247,15 +1234,6 @@
+   info->AddInvokeInfo(dex_pc, cls.Ptr());
+ }
+ 
+-void JitCodeCache::ResetHotnessCounter(ArtMethod* method, Thread* self) {
+-  ScopedDebugDisallowReadBarriers sddrb(self);
+-  MutexLock mu(self, *Locks::jit_lock_);
+-  auto it = profiling_infos_.find(method);
+-  DCHECK(it != profiling_infos_.end());
+-  it->second->ResetCounter();
+-}
+-
+-
+ void JitCodeCache::DoCollection(Thread* self) {
+   ScopedTrace trace(__FUNCTION__);
+ 
+@@ -1606,8 +1584,6 @@
+       VLOG(jit) << "Not compiling "
+                 << method->PrettyMethod()
+                 << " because it has the resolution stub";
+-      // Give it a new chance to be hot.
+-      ClearMethodCounter(method, /*was_warm=*/ false);
+       return false;
+     }
+   }
+@@ -1708,15 +1684,12 @@
+         OatQuickMethodHeader::FromCodePointer(data.GetCode());
+     for (ArtMethod* method : data.GetMethods()) {
+       if (method->GetEntryPointFromQuickCompiledCode() == method_header->GetEntryPoint()) {
+-        ClearMethodCounter(method, /*was_warm=*/true);
+         instr->InitializeMethodsCode(method, /*aot_code=*/ nullptr);
+       }
+     }
+   }
+   for (const auto& entry : method_code_map_) {
+     ArtMethod* meth = entry.second;
+-    // We were compiled, so we must be warm.
+-    ClearMethodCounter(meth, /*was_warm=*/true);
+     if (UNLIKELY(meth->IsObsolete())) {
+       linker->SetEntryPointsForObsoleteMethod(meth);
+     } else {
+@@ -1749,7 +1722,6 @@
+     // The entrypoint is the one to invalidate, so we just update it to the interpreter entry point
+     // and clear the counter to get the method Jitted again.
+     Runtime::Current()->GetInstrumentation()->InitializeMethodsCode(method, /*aot_code=*/ nullptr);
+-    ClearMethodCounter(method, /*was_warm=*/ true);
+   } else {
+     Thread* self = Thread::Current();
+     ScopedDebugDisallowReadBarriers sddrb(self);
+diff --git a/runtime/jit/jit_code_cache.h b/runtime/jit/jit_code_cache.h
+index 7de29d4..3dd5712 100644
+--- a/runtime/jit/jit_code_cache.h
++++ b/runtime/jit/jit_code_cache.h
+@@ -414,7 +414,6 @@
+   }
+ 
+   ProfilingInfo* GetProfilingInfo(ArtMethod* method, Thread* self);
+-  void ResetHotnessCounter(ArtMethod* method, Thread* self);
+   void MaybeUpdateInlineCache(ArtMethod* method,
+                               uint32_t dex_pc,
+                               ObjPtr<mirror::Class> cls,
+diff --git a/runtime/jit/profile_saver.cc b/runtime/jit/profile_saver.cc
+index abf01f5..3506faa 100644
+--- a/runtime/jit/profile_saver.cc
++++ b/runtime/jit/profile_saver.cc
+@@ -335,7 +335,6 @@
+       REQUIRES_SHARED(Locks::mutator_lock_)
+       : startup_(startup),
+         profile_boot_class_path_(options.GetProfileBootClassPath()),
+-        hot_method_sample_threshold_(CalculateHotMethodSampleThreshold(startup, options)),
+         extra_flags_(GetExtraMethodHotnessFlags(options)),
+         annotation_(annotation),
+         arena_stack_(Runtime::Current()->GetArenaPool()),
+@@ -358,10 +357,6 @@
+   void CollectClasses(Thread* self) REQUIRES_SHARED(Locks::mutator_lock_);
+   void UpdateProfile(const std::set<std::string>& locations, ProfileCompilationInfo* profile_info);
+ 
+-  uint32_t GetHotMethodSampleThreshold() const {
+-    return hot_method_sample_threshold_;
+-  }
+-
+   size_t GetNumberOfHotMethods() const {
+     return number_of_hot_methods_;
+   }
+@@ -409,19 +404,6 @@
+ 
+   using DexFileRecordsMap = ScopedArenaHashMap<const DexFile*, DexFileRecords*>;
+ 
+-  static uint32_t CalculateHotMethodSampleThreshold(bool startup,
+-                                                    const ProfileSaverOptions& options) {
+-    Runtime* runtime = Runtime::Current();
+-    if (startup) {
+-      const bool is_low_ram = runtime->GetHeap()->IsLowMemoryMode();
+-      return options.GetHotStartupMethodSamples(is_low_ram);
+-    } else if (runtime->GetJit() != nullptr) {
+-      return runtime->GetJit()->WarmMethodThreshold();
+-    } else {
+-      return std::numeric_limits<uint32_t>::max();
+-    }
+-  }
+-
+   ALWAYS_INLINE static bool ShouldCollectClasses(bool startup) {
+     // We only record classes for the startup case. This may change in the future.
+     return startup;
+@@ -434,7 +416,6 @@
+ 
+   const bool startup_;
+   const bool profile_boot_class_path_;
+-  const uint32_t hot_method_sample_threshold_;
+   const uint32_t extra_flags_;
+   const ProfileCompilationInfo::ProfileSampleAnnotation annotation_;
+   ArenaStack arena_stack_;
+@@ -609,7 +590,6 @@
+                                                              ProfileCompilationInfo* profile_info) {
+   // Move members to local variables to allow the compiler to optimize this properly.
+   const bool startup = startup_;
+-  const uint32_t hot_method_sample_threshold = hot_method_sample_threshold_;
+   const uint32_t base_flags =
+       (startup ? Hotness::kFlagStartup : Hotness::kFlagPostStartup) | extra_flags_;
+ 
+@@ -619,10 +599,9 @@
+ 
+   uint16_t initial_value = Runtime::Current()->GetJITOptions()->GetWarmupThreshold();
+   auto get_method_flags = [&](ArtMethod& method) {
+-    // Mark methods as hot if they have more than hot_method_sample_threshold
+-    // samples. This means they will get compiled by the compiler driver.
+-    if (method.PreviouslyWarm() ||
+-        method.CounterHasReached(hot_method_sample_threshold, initial_value)) {
++    // Mark methods as hot if they are marked as such (warm for the runtime
++    // means hot for the profile).
++    if (method.PreviouslyWarm()) {
+       ++number_of_hot_methods;
+       return enum_cast<ProfileCompilationInfo::MethodHotness::Flag>(base_flags | Hotness::kFlagHot);
+     } else if (method.CounterHasChanged(initial_value)) {
+@@ -750,7 +729,6 @@
+     profiler_pthread = profiler_pthread_;
+   }
+ 
+-  uint32_t hot_method_sample_threshold = 0u;
+   size_t number_of_hot_methods = 0u;
+   size_t number_of_sampled_methods = 0u;
+   {
+@@ -765,7 +743,6 @@
+ 
+     ScopedObjectAccess soa(self);
+     GetClassesAndMethodsHelper helper(startup, options_, GetProfileSampleAnnotation());
+-    hot_method_sample_threshold = helper.GetHotMethodSampleThreshold();
+     helper.CollectClasses(self);
+ 
+     // Release the mutator lock. We shall need to re-acquire the lock for a moment to
+@@ -800,8 +777,7 @@
+   }
+   VLOG(profiler) << "Profile saver recorded " << number_of_hot_methods
+                  << " hot methods and " << number_of_sampled_methods
+-                 << " sampled methods with threshold " << hot_method_sample_threshold
+-                 << " in " << PrettyDuration(NanoTime() - start_time);
++                 << " sampled methods in " << PrettyDuration(NanoTime() - start_time);
+ }
+ 
+ bool ProfileSaver::ProcessProfilingInfo(
+diff --git a/runtime/jit/profile_saver_options.h b/runtime/jit/profile_saver_options.h
+index f6d928f..ed2f00f 100644
+--- a/runtime/jit/profile_saver_options.h
++++ b/runtime/jit/profile_saver_options.h
+@@ -26,14 +26,10 @@
+   // period is not configured.
+   static constexpr uint32_t kMinFirstSaveMsNotSet = 0;
+   static constexpr uint32_t kSaveResolvedClassesDelayMs = 5 * 1000;  // 5 seconds
+-  // Minimum number of JIT samples during launch to mark a method as hot in the profile.
+-  static constexpr uint32_t kHotStartupMethodSamples = 1;
+-  static constexpr uint32_t kHotStartupMethodSamplesLowRam = 256;
+   static constexpr uint32_t kMinMethodsToSave = 10;
+   static constexpr uint32_t kMinClassesToSave = 10;
+   static constexpr uint32_t kMinNotificationBeforeWake = 10;
+   static constexpr uint32_t kMaxNotificationBeforeWake = 50;
+-  static constexpr uint32_t kHotStartupMethodSamplesNotSet = std::numeric_limits<uint32_t>::max();
+   static constexpr uint16_t kInlineCacheThreshold = 4000;
+ 
+   ProfileSaverOptions() :
+@@ -41,7 +37,6 @@
+     min_save_period_ms_(kMinSavePeriodMs),
+     min_first_save_ms_(kMinFirstSaveMsNotSet),
+     save_resolved_classes_delay_ms_(kSaveResolvedClassesDelayMs),
+-    hot_startup_method_samples_(kHotStartupMethodSamplesNotSet),
+     min_methods_to_save_(kMinMethodsToSave),
+     min_classes_to_save_(kMinClassesToSave),
+     min_notification_before_wake_(kMinNotificationBeforeWake),
+@@ -57,7 +52,6 @@
+       uint32_t min_save_period_ms,
+       uint32_t min_first_save_ms,
+       uint32_t save_resolved_classes_delay_ms,
+-      uint32_t hot_startup_method_samples,
+       uint32_t min_methods_to_save,
+       uint32_t min_classes_to_save,
+       uint32_t min_notification_before_wake,
+@@ -71,7 +65,6 @@
+     min_save_period_ms_(min_save_period_ms),
+     min_first_save_ms_(min_first_save_ms),
+     save_resolved_classes_delay_ms_(save_resolved_classes_delay_ms),
+-    hot_startup_method_samples_(hot_startup_method_samples),
+     min_methods_to_save_(min_methods_to_save),
+     min_classes_to_save_(min_classes_to_save),
+     min_notification_before_wake_(min_notification_before_wake),
+@@ -98,13 +91,6 @@
+   uint32_t GetSaveResolvedClassesDelayMs() const {
+     return save_resolved_classes_delay_ms_;
+   }
+-  uint32_t GetHotStartupMethodSamples(bool is_low_ram) const {
+-    uint32_t ret = hot_startup_method_samples_;
+-    if (ret == kHotStartupMethodSamplesNotSet) {
+-      ret = is_low_ram ? kHotStartupMethodSamplesLowRam : kHotStartupMethodSamples;
+-    }
+-    return ret;
+-  }
+   uint32_t GetMinMethodsToSave() const {
+     return min_methods_to_save_;
+   }
+@@ -141,7 +127,6 @@
+         << ", min_save_period_ms_" << pso.min_save_period_ms_
+         << ", min_first_save_ms_" << pso.min_first_save_ms_
+         << ", save_resolved_classes_delay_ms_" << pso.save_resolved_classes_delay_ms_
+-        << ", hot_startup_method_samples_" << pso.hot_startup_method_samples_
+         << ", min_methods_to_save_" << pso.min_methods_to_save_
+         << ", min_classes_to_save_" << pso.min_classes_to_save_
+         << ", min_notification_before_wake_" << pso.min_notification_before_wake_
+@@ -157,9 +142,6 @@
+   uint32_t min_save_period_ms_;
+   uint32_t min_first_save_ms_;
+   uint32_t save_resolved_classes_delay_ms_;
+-  // Do not access hot_startup_method_samples_ directly for reading since it may be set to the
+-  // placeholder default.
+-  uint32_t hot_startup_method_samples_;
+   uint32_t min_methods_to_save_;
+   uint32_t min_classes_to_save_;
+   uint32_t min_notification_before_wake_;
+diff --git a/runtime/jit/profiling_info.h b/runtime/jit/profiling_info.h
+index ae59d0a..a32b712 100644
+--- a/runtime/jit/profiling_info.h
++++ b/runtime/jit/profiling_info.h
+@@ -171,14 +171,6 @@
+     return MemberOffset(OFFSETOF_MEMBER(ProfilingInfo, baseline_hotness_count_));
+   }
+ 
+-  void ResetCounter() {
+-    baseline_hotness_count_ = GetOptimizeThreshold();
+-  }
+-
+-  bool CounterHasChanged() const {
+-    return baseline_hotness_count_ != GetOptimizeThreshold();
+-  }
+-
+   uint16_t GetBaselineHotnessCount() const {
+     return baseline_hotness_count_;
+   }
+diff --git a/test/2230-profile-save-hotness/run.py b/test/2230-profile-save-hotness/run.py
+index 526b841..e2f4473 100644
+--- a/test/2230-profile-save-hotness/run.py
++++ b/test/2230-profile-save-hotness/run.py
+@@ -16,10 +16,11 @@
+ def run(ctx, args):
+   ctx.default_run(
+       args,
++      # Profiling is only done on interpreted and JITted code.
+       Xcompiler_option=[
+-          "--count-hotness-in-compiled-code", "--compiler-filter=speed"
++          "--compiler-filter=verify"
+       ],
+       runtime_option=[
+-          "-Xps-profile-aot-code", "-Xjitsaveprofilinginfo", "-Xusejit:true"
++          "-Xjitsaveprofilinginfo", "-Xusejit:true"
+       ],
+   )
+diff --git a/test/2230-profile-save-hotness/src-art/Main.java b/test/2230-profile-save-hotness/src-art/Main.java
+index c9132e6..06e89b2 100644
+--- a/test/2230-profile-save-hotness/src-art/Main.java
++++ b/test/2230-profile-save-hotness/src-art/Main.java
+@@ -47,7 +47,7 @@
+           new String[] {codePath},
+           VMRuntime.CODE_PATH_TYPE_PRIMARY_APK);
+ 
+-      // Test that the profile saves an app method with a profiling info.
++      // Test that the profile saves an app method that gets JITted.
+       $noinline$hotnessCountWithLoop(100000);
+       ensureProfileProcessing();
+       Method appMethod = Main.class.getDeclaredMethod(methodName);
+@@ -72,7 +72,7 @@
+     }
+   }
+ 
+-  // Checks if the profiles saver has the method as hot/warm.
++  // Checks if the profile saver has the method as hot/warm.
+   public static native boolean presentInProfile(String profile, Method method);
+   // Ensures the profile saver does its usual processing.
+   public static native void ensureProfileProcessing();
