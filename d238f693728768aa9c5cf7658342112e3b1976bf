@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "070c0d01_7339f2ce",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootStatsReporter.java",
+        "patchSetId": 21
+      },
+      "lineNbr": 319,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:23:56Z",
+      "side": 1,
+      "message": "\u003e Maybe \"GlobalInjector\" is not the best name because the word \"injector\" makes readers think that it\u0027s for testing purpose, while it\u0027s not. \"GlobalState\" or something like that might be better\n\nI see. Yes, that could help.\n\n\u003e It requires quite a lot of refactoring, so I\u0027m not doing it in this CL. I\u0027ll come back to it after we have finalized V. For now, let\u0027s move on.\n\nOk. To be clear, I\u0027m not asking for a refactor of all the existing tests, just that it\u0027d be nice to avoid adding more injectors like this. I\u0027d hope it\u0027d be possible to use a global injector for new things.",
+      "parentUuid": "f8383520_ec4a340b",
+      "range": {
+        "startLine": 319,
+        "startChar": 19,
+        "endLine": 319,
+        "endChar": 55
+      },
+      "revId": "d238f693728768aa9c5cf7658342112e3b1976bf",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c1e595c6_ccda2cdd",
