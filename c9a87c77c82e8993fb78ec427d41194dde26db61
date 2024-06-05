@@ -16,6 +16,24 @@
       "message": "Do we still run appcompat.sh as part of the build?",
       "revId": "c9a87c77c82e8993fb78ec427d41194dde26db61",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65cd4f63_70414a44",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1307893
+      },
+      "writtenOn": "2024-06-05T01:05:32Z",
+      "side": 1,
+      "message": "No, we do not use `appcompat.sh` during the build process. (See aosp/3106579).\nHowever, `GtsUnofficialApisUsageTestCases` and `GtsNetUnofficialApisUsageTestCases` still use it.  \n\nAfter modify these 2 tests, we can remove `appcompat.sh` and `veridex_zip`.",
+      "parentUuid": "3c170fed_fadd74fc",
+      "revId": "c9a87c77c82e8993fb78ec427d41194dde26db61",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
