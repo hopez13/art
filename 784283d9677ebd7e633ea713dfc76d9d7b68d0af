@@ -248,6 +248,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7aec38ad_d0925e56",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 9
+      },
+      "lineNbr": 78,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:17:24Z",
+      "side": 1,
+      "message": "\u003e We didn\u0027t configure our job to be persisted\n\nThe docs says persistent jobs stay across reboots. We don\u0027t want that, but a system_server restart is a different matter. However it figures that JobScheduler wouldn\u0027t bother to treat them separately. I guess we could consider making it persistent, but it\u0027d need a check so that it doesn\u0027t do anything after the reboot. It\u0027s probably not worth the effort for that corner case.\n\n\u003e See PreRebootDexoptJobTest.testRace2.\n\nHmm, that looks like a race that affects any JobScheduler job that can get rescheduled. It\u0027s a bit odd to deal with it ad-hoc like this, and I doubt it\u0027s worthwhile. But very well then.",
+      "parentUuid": "90331c7f_672b5a08",
+      "range": {
+        "startLine": 78,
+        "startChar": 48,
+        "endLine": 78,
+        "endChar": 67
+      },
+      "revId": "784283d9677ebd7e633ea713dfc76d9d7b68d0af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d810ccdc_01d8d779",

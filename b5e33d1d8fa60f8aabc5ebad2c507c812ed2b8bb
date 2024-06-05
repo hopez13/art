@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "001a8f58_236644cb",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:17:24Z",
+      "side": 1,
+      "message": "When would this be false? Can it be replaced with a `Utils.check`?",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "b5e33d1d8fa60f8aabc5ebad2c507c812ed2b8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "acefcaec_7bcdc15d",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 235,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-05T16:17:24Z",
+      "side": 1,
+      "message": "`onJobFinishedLocked`?",
+      "range": {
+        "startLine": 235,
+        "startChar": 67,
+        "endLine": 235,
+        "endChar": 80
+      },
+      "revId": "b5e33d1d8fa60f8aabc5ebad2c507c812ed2b8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
