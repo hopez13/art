@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "daeb546a_f13d6bd5",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T16:34:00Z",
+      "side": 1,
+      "message": "This is easy to misinterpret. \"has pre-reboot\" instead?",
+      "range": {
+        "startLine": 76,
+        "startChar": 65,
+        "endLine": 76,
+        "endChar": 69
+      },
+      "revId": "6b1522f36ff42cf2c1143dc1f5c211eb6c7ea795",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
