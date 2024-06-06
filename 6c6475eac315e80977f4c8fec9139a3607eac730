@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "90aa6fff_5ec208d5",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T14:45:10Z",
+      "side": 1,
+      "message": "I see, thanks.\n\n\u003e artd in turn waits on the killed child processes to exit. Therefore, all the children of artd are taken care of.\n\nThat\u0027s a reasonable assumption to make here, but it\u0027s one well worth documenting, so future us knows where the responsibility lies.",
+      "parentUuid": "09e31547_95018250",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 148,
+        "endChar": 24
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "81f85775_2f3054a9",
         "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
         "patchSetId": 8
@@ -142,6 +166,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d734b74d_8b67471d",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T14:45:10Z",
+      "side": 1,
+      "message": "I don\u0027t expect apexd to leave processes behind in normal operation, but I don\u0027t assume it cannot happen if something goes wrong. If a goal here is to do whatever we can to ensure that the snapshot get unmapped then another round of reaping seems like a reasonable precaution. As you say, if things work there\u0027s nothing to check so it\u0027ll return quickly.\n\nBut if you say that\u0027s not a goal then fine. Afterall we cannot solve the robust unmapping problem here anyway, so it\u0027d be no more than a best-effort kludge.",
+      "parentUuid": "c8f63cad_c18bea0c",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85c2088a_87236cbf",
@@ -189,6 +237,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21af84fc_ca8289a5",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T14:45:10Z",
+      "side": 1,
+      "message": "Aha, I think I understood that differently. But good!",
+      "parentUuid": "2386e157_e78bfbd4",
+      "range": {
+        "startLine": 119,
+        "startChar": 50,
+        "endLine": 119,
+        "endChar": 51
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "e3506bb4_fce8a1e5",
@@ -220,6 +292,24 @@
       "side": 1,
       "message": "I think it must be pulling in something through static linking. We can investigate it later.",
       "parentUuid": "e3506bb4_fce8a1e5",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52a91c29_7a413dc0",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T14:45:10Z",
+      "side": 1,
+      "message": "Maybe file a ticket to track that?",
+      "parentUuid": "190cc88a_85a594c8",
       "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -302,6 +392,24 @@
       "side": 1,
       "message": "Thank you for bringing this up. Regarding the time cost, 100ms is not too much. Gtest test cases are run in parallel in different processes (with different `scratch_dir_`s), so the time cost does not accumulate. Regarding flakiness, I stressed the CPU with multiple `yes(1)` processes on a device and ran `atest art_standalone_libarttools_tests --iterations 100`. I didn\u0027t observe any flakiness.\n\nMocking some functions could work, but it not only requires a bit more work, but also reduces the test fidelity. Because `EnsureNoProcessInDir` involves quite some interactions with the Linux system, I want to make sure that it actually works, not just works on paper with some assumptions on how the system behaves.",
       "parentUuid": "9ff75529_e7cf4b45",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e813d6d4_d2df9a2d",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T14:45:10Z",
+      "side": 1,
+      "message": "100 ms is veritable ages in CPU time, and such sleeps in a multitude of tests add up quickly.\n\nOtoh 100 ms isn\u0027t much at all when it comes to loaded test systems, and I include host runs in that too. There are all sorts of reasons why a process may freeze for seconds even, it just doesn\u0027t happen very often. So sorry to say I\u0027m not at all swayed by your flakiness testing.\n\nBottom line, correlating execution progress with wall clock time is actually a surprisingly terrible approximation.\n\n\u003e Gtest test cases are run in parallel in different processes\n\nDon\u0027t you need `isolated: true` for that? That may be a good idea to add here. (Leaving unresolved for this point only.)\n\n\u003e I want to make sure that it actually works, not just works on paper with some assumptions on how the system behaves.\n\nI only meant mocking away wall clock time, not processes or anything else.\n\nBut as I said, I don\u0027t think it\u0027s reasonable to fix that now. I still think the best way forward here is to submit these but have at the back of mind that they ought to be disabled in a few months or so.",
+      "parentUuid": "daddc475_f3c778c3",
       "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
