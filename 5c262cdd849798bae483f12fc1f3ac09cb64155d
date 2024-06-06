@@ -22,6 +22,30 @@
       },
       "revId": "5c262cdd849798bae483f12fc1f3ac09cb64155d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75f203d7_787eabe1",
+        "filename": "test/default_run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1975620
+      },
+      "writtenOn": "2024-06-06T13:46:15Z",
+      "side": 1,
+      "message": "Hi Mythri, that makes sense. The ideal case I suppose would be to test all `--instruction-set-variant` values that are used in production, and ensure that each test gets mapped to an appropriate device for the specific variant. That would mean that the ART tests cover all the production-enabled isa-features.\n\nHowever that sounded like relatively significant static effort, hence I was thinking that we would get \u0027closer\u0027 to (but perhaps not exactly match) the real production-enabled isa-features via the runtime detection. The responsibility would then be on ensuring the target devices are representative, and that no \u0027additional\u0027 features are detected on those devices that wouldn\u0027t be enabled via the equivalent variant for the device. This could potentially be a lower cost effort.\n\nNote on sve specifically, I think while the runtime detection may find it, it is guarded by enablement so the feature would be effectively ignored even if it\u0027s found. I\u0027m not sure if there are others like this where there is a feature that ART is aware of, that would have an \u0027intentional\u0027 mismatch between its enablement-if-available and enablement-in-variant, but just wanted to let you know!\n\nAnyway, your suggestion sounds good. I raised the CL as somewhat of a suggestion as I\u0027ve had it floating around locally for a while. I\u0027m more than happy to leave it until there is more time to further consider the ART testing isa-features. Thanks for commenting!",
+      "parentUuid": "737ffbc5_dfcff96f",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 68
+      },
+      "revId": "5c262cdd849798bae483f12fc1f3ac09cb64155d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
