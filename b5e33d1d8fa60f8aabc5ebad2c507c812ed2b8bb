@@ -96,6 +96,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e77c85b1_3d785236",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T17:01:48Z",
+      "side": 1,
+      "message": "You are right! After moving the call into the future, we no longer need to avoid the `jobFinished` call because we never start a new job before we make the `jobFinished` call for the old job, so this if condition is moot. I\u0027ll send out a separate CL to replace it with `Utils.check`.",
+      "parentUuid": "7ae42282_6ca34ee5",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "b5e33d1d8fa60f8aabc5ebad2c507c812ed2b8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "acefcaec_7bcdc15d",
