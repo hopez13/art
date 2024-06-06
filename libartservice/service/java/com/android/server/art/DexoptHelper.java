@@ -141,7 +141,14 @@ public class DexoptHelper {
                 PackageState pkgState = pkgStates.get(i);
                 CancellationSignal childCancellationSignal = childCancellationSignals.get(i);
                 futures.add(CompletableFuture.supplyAsync(() -> {
-                    return dexoptPackage(pkgState, params, childCancellationSignal);
+                    try {
+                        return dexoptPackage(pkgState, params, childCancellationSignal);
+                    } catch (RuntimeException e) {
+                        AsLog.wtf("Unexpected package-level exception during dexopt", e);
+                        return PackageDexoptResult.create(pkgState.getPackageName(),
+                                new ArrayList<>() /* dexContainerFileDexoptResults */,
+                                DexoptResult.DEXOPT_FAILED);
+                    }
                 }, dexoptExecutor));
             }
 
