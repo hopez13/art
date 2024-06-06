@@ -34,6 +34,24 @@
       "parentUuid": "c06b488c_4150abdd",
       "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e373c7d7_2e714164",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-06-06T19:59:51Z",
+      "side": 1,
+      "message": "i asked rprichard the same question, and he said \"C++20 makes a bunch of libc++ functions constexpr, so maybe that could affect inlining decisions?\".",
+      "parentUuid": "9752ac7f_33513025",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
