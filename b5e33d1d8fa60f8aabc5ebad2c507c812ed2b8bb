@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7ae42282_6ca34ee5",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T12:36:21Z",
+      "side": 1,
+      "message": "Btw, providing I\u0027m not mistaken, I gather we [don\u0027t need](https://cs.android.com/android/_/android/platform/art/+/7650ceddfacb5c22b5e6f54458ae70f59eee5151:libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java;l\u003d91-93;drc\u003d4f037d83d0c6a21208290af55bc8a2185f7f19d2) any complex logic to avoid the `jobFinished` call when cancelling in `onStopJob`. But a `Utils.check` on `mIsRunningJobKnownByJobScheduler` would be nice for clarity.",
+      "parentUuid": "ec3217b2_93975af8",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "b5e33d1d8fa60f8aabc5ebad2c507c812ed2b8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acefcaec_7bcdc15d",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 11
