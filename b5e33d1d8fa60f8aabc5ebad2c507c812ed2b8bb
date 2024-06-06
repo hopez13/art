@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ec3217b2_93975af8",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 11
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T09:53:52Z",
+      "side": 1,
+      "message": "Afaics it does a blocking cancel and then sets the flag false, and if a non-JobScheduler job has replaced it in `mRunningJob` then that blocking cancel has just been done earlier. So how does that happen?",
+      "parentUuid": "52759b31_01750fce",
+      "range": {
+        "startLine": 108,
+        "startChar": 16,
+        "endLine": 108,
+        "endChar": 48
+      },
+      "revId": "b5e33d1d8fa60f8aabc5ebad2c507c812ed2b8bb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "acefcaec_7bcdc15d",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 11
