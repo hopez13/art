@@ -70,6 +70,24 @@
       "parentUuid": "e373c7d7_2e714164",
       "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0056ed2d_1773d113",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1229339
+      },
+      "writtenOn": "2024-06-06T23:08:03Z",
+      "side": 1,
+      "message": "The constexpr-ness wouldn\u0027t vary by architecture. I believe inlining relies on heuristics in Clang, so maybe that could vary by architecture?",
+      "parentUuid": "fc45402c_c16fdec9",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
