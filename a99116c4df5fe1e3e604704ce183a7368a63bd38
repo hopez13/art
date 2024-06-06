@@ -22,6 +22,30 @@
       },
       "revId": "a99116c4df5fe1e3e604704ce183a7368a63bd38",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "725f0da5_f6d89960",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 107,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T16:32:30Z",
+      "side": 1,
+      "message": "Good catch. Maybe the lowercase variant is better, but we have used the capitalized variant everywhere else, so the ship has sailed.",
+      "parentUuid": "9b13321e_9c5811f1",
+      "range": {
+        "startLine": 107,
+        "startChar": 35,
+        "endLine": 107,
+        "endChar": 52
+      },
+      "revId": "a99116c4df5fe1e3e604704ce183a7368a63bd38",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
