@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9a6b8e14_7aeac0d4",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T16:00:49Z",
+      "side": 1,
+      "message": "Added a comment in `PreRebootDriver.tearDown`.",
+      "parentUuid": "90aa6fff_5ec208d5",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 148,
+        "endChar": 24
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81f85775_2f3054a9",
@@ -180,6 +204,30 @@
       "side": 1,
       "message": "I don\u0027t expect apexd to leave processes behind in normal operation, but I don\u0027t assume it cannot happen if something goes wrong. If a goal here is to do whatever we can to ensure that the snapshot get unmapped then another round of reaping seems like a reasonable precaution. As you say, if things work there\u0027s nothing to check so it\u0027ll return quickly.\n\nBut if you say that\u0027s not a goal then fine. Afterall we cannot solve the robust unmapping problem here anyway, so it\u0027d be no more than a best-effort kludge.",
       "parentUuid": "c8f63cad_c18bea0c",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8e4710f5_157b1881",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T16:00:49Z",
+      "side": 1,
+      "message": "Ack. The goal here is not to ensure successful unmapping. That will be addressed separately, after discussions with the OTA team. If apexd fails, unmapping won\u0027t succeed anyway because there are leftover loop devices, so `ensureNoProcessInDir` won\u0027t help. The goal here is not to ensure successful teardown.",
+      "parentUuid": "d734b74d_8b67471d",
       "range": {
         "startLine": 167,
         "startChar": 8,
@@ -314,6 +362,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9360858a_06e4f596",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T16:00:49Z",
+      "side": 1,
+      "message": "Created b/345462161.",
+      "parentUuid": "52a91c29_7a413dc0",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02951eb3_7765b5e9",
@@ -410,6 +476,24 @@
       "side": 1,
       "message": "100 ms is veritable ages in CPU time, and such sleeps in a multitude of tests add up quickly.\n\nOtoh 100 ms isn\u0027t much at all when it comes to loaded test systems, and I include host runs in that too. There are all sorts of reasons why a process may freeze for seconds even, it just doesn\u0027t happen very often. So sorry to say I\u0027m not at all swayed by your flakiness testing.\n\nBottom line, correlating execution progress with wall clock time is actually a surprisingly terrible approximation.\n\n\u003e Gtest test cases are run in parallel in different processes\n\nDon\u0027t you need `isolated: true` for that? That may be a good idea to add here. (Leaving unresolved for this point only.)\n\n\u003e I want to make sure that it actually works, not just works on paper with some assumptions on how the system behaves.\n\nI only meant mocking away wall clock time, not processes or anything else.\n\nBut as I said, I don\u0027t think it\u0027s reasonable to fix that now. I still think the best way forward here is to submit these but have at the back of mind that they ought to be disabled in a few months or so.",
       "parentUuid": "daddc475_f3c778c3",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d84bc463_1ca04a33",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T16:00:49Z",
+      "side": 1,
+      "message": "Discussed offline regarding relying on wall clock time.\n\nRegarding parallelism, I did an experiment locally. It turned out that test cases do run in parallel on device even without `isolated: true`, so I\u0027d skip this option for now.",
+      "parentUuid": "e813d6d4_d2df9a2d",
       "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
