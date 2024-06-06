@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "09e31547_95018250",
+        "filename": "libartservice/service/java/com/android/server/art/ArtJni.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 148,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "I expect no process other than `artd` to be running when `PreRebootDriver.tearDown` is called. At that point, `runFromChroot` has returned, so all the previous `artd` calls, which involve other processes, have ended (completed, failed, or cancelled) and there is no more new call.\n\nUpon job cancellation, `runFromChroot` doesn\u0027t return immediately. The job cancellation only triggers a cancellation signal, which makes `artd` kill the running child processes. `runFromChroot` still blocks on whatever it\u0027s doing. If it\u0027s waiting on an `artd` call, it still keeps waiting until the call returns. `artd` in turn waits on the killed child processes to exit. Therefore, all the children of `artd` are taken care of.\n\nAdmittedly, children of `artd` can also have their children, and that can cause problems. In fact, I did see a problem with `odrefresh`: it spawns `dex2oat`, but `dex2oat` are not killed when `odrefresh` is killed (this will be discussed in details later). However, I regard this as an implementation issue. It doesn\u0027t invalidate my expectation that no process other than `artd` should be running when `PreRebootDriver.tearDown` is called, if things are implemented correctly. Iow, this assumption should hold with no uncertainty if things are implemented correctly.\n\nAppendix:\n\nIt turned out that aosp/3105758 doesn\u0027t work. I\u0027ll revert that CL (with an explanation of why it doesn\u0027t work) and find an alternative. For instance, we can use `cgroups(7)`: we can have artd call [`createProcessGroup`](https://cs.android.com/android/platform/superproject/main/+/main:system/core/libprocessgroup/include/processgroup/processgroup.h;l\u003d83;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16) when starting a child process and call [`killProcessGroup`](https://cs.android.com/android/platform/superproject/main/+/main:system/core/libprocessgroup/include/processgroup/processgroup.h;l\u003d71;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16) to kill the whole process subtree. This is much more ideal than using process groups because cgroups form a hierarchy. This approach looks promising because it\u0027s exactly what the service manager is using to kill the whole process subtree of `artd` when it stops `artd` (btw, this is what gave me the illusion that aosp/3105758 worked when I wrote it).",
+      "parentUuid": "d1affe9f_dcb8ef7c",
+      "range": {
+        "startLine": 147,
+        "startChar": 36,
+        "endLine": 148,
+        "endChar": 24
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "81f85775_2f3054a9",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-04T22:21:32Z",
       "side": 1,
       "message": "Before it logged. Why not anymore?",
+      "range": {
+        "startLine": 139,
+        "startChar": 23,
+        "endLine": 139,
+        "endChar": 34
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54568ace_9ff79480",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 139,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "We only reach here when `setUp` throws. In this case, the one who looks at this test should focus on the `setUp` failure. Once they have fixed the `setUp` failure, they will see the `tearDown` failure thrown by line 133 (if any).\n\nThe logging was an side effect of how things were previously implemented, while I don\u0027t think we must have it here.",
+      "parentUuid": "81f85775_2f3054a9",
       "range": {
         "startLine": 139,
         "startChar": 23,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f63cad_c18bea0c",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootDriver.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 167,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "Normally, the entire dir is gone after the `tearDown` call, so there is nothing to check.\n\nEven if `tearDown` fails, it still [waits for apexd to exit](https://cs.android.com/android/platform/superproject/main/+/main:art/dexopt_chroot_setup/dexopt_chroot_setup.cc;l\u003d498;drc\u003d6965550d8eb85ac39b4474746caa6a8501cddceb) before it returns.\n\nUnless you assume that apexd spawns some other processes and leaves them behind when it exits, there should be no process running in chroot after the `tearDown` call. In fact, apexd doesn\u0027t spawn any other process. If it did spawn some other processes and leave them behind, the `tearDown` implementation would be fundamentally wrong because it unmounts mount points as soon as apexd exits, which wouldn\u0027t succeed, so we would get a much bigger problem than whether to do `ensureNoProcessInDir` here or not.\n\nTaking a step back, the goal of doing `ensureNoProcessInDir` is to ensure a successful teardown, so there is no point to do `ensureNoProcessInDir` after the teardown, no matter it succeeds or not.",
+      "parentUuid": "691c47de_d53595ff",
+      "range": {
+        "startLine": 167,
+        "startChar": 8,
+        "endLine": 167,
+        "endChar": 52
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "85c2088a_87236cbf",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-06-04T22:21:32Z",
       "side": 1,
       "message": "Didn\u0027t we conclude that the executor job grows linearly and hence there\u0027s no safe max timeout?",
+      "range": {
+        "startLine": 119,
+        "startChar": 50,
+        "endLine": 119,
+        "endChar": 51
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2386e157_e78bfbd4",
+        "filename": "libartservice/service/java/com/android/server/art/prereboot/PreRebootManager.java",
+        "patchSetId": 8
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "We had the discussion before aosp/3093903. At that time, the concern was that we won\u0027t be able to tear down the chroot if we are running threads referencing the dex code. Now, since we have moved the dex code to the memory, this `awaitTermination` is just a nice-to-have thing: it allows the GC triggered by `tearDown()` to GC the in-memory dex code, and therefore saves some memory. If it times out, a later GC run (no matter who triggers it) will still be able to GC the dex code after the threads eventually terminates.",
+      "parentUuid": "85c2088a_87236cbf",
       "range": {
         "startLine": 119,
         "startChar": 50,
@@ -110,6 +206,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "190cc88a_85a594c8",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "I think it must be pulling in something through static linking. We can investigate it later.",
+      "parentUuid": "e3506bb4_fce8a1e5",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "02951eb3_7765b5e9",
@@ -133,6 +247,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "58903fca_428e54bb",
+        "filename": "libarttools/tools.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "Good question. This is suggested by `poll(2)`:\n\n\u003e (This provides an easy way of ignoring a file descriptor for a single poll() call: simply set the fd field to its bitwise complement.)\n\nI have no idea why. Initially, I thought it\u0027s either more efficient or reduces code size, but since you brought this up, I experimented with Compiler Explorer and found that assigning -1 is better. On arm64, the bit flip translates to [4 instructions](https://godbolt.org/z/b97deeK3x), while assigning -1 translates to only [3 instructions](https://godbolt.org/z/fa9bvv3M4), and the former is apparently less efficient because it involves an additional memory load. On x86_64, the bit flip does save some code size because it translates to [a shorter instruction](https://godbolt.org/z/dbW3Yds9r) while assigning -1 translates to [a longer instruction](https://godbolt.org/z/b1jzTqeTG), but the former is less efficient because of the same reason.\n\nAnyway, I think it\u0027s less obvious with the bit flip that the intention is to make fd negative. Changed it to assigning -1.",
+      "parentUuid": "02951eb3_7765b5e9",
+      "range": {
+        "startLine": 286,
+        "startChar": 22,
+        "endLine": 286,
+        "endChar": 32
+      },
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9ff75529_e7cf4b45",
@@ -146,6 +284,24 @@
       "writtenOn": "2024-06-04T22:21:32Z",
       "side": 1,
       "message": "While I appreciate the effort of testing this, I\u0027m somewhat concerned both for flakiness and test cost (wall clock time is arguably the most precious resource in tests). 100 ms may seem plenty, but test systems can be severely loaded or blocked at times.\n\nLooks possible to remove time from the tests by mocking `TimeMillis` and `poll` (by inserting another wakeup fd into the pollfd array to simulate timeouts). It\u0027d require a bit more work though.\n\nAs it stands I\u0027m on the fence regarding these tests. Maybe an approach is to run them for now while the code is fresh, but skip them later (and allow them to be enabled again if the code is changed).",
+      "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "daddc475_f3c778c3",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 205,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-06T09:43:58Z",
+      "side": 1,
+      "message": "Thank you for bringing this up. Regarding the time cost, 100ms is not too much. Gtest test cases are run in parallel in different processes (with different `scratch_dir_`s), so the time cost does not accumulate. Regarding flakiness, I stressed the CPU with multiple `yes(1)` processes on a device and ran `atest art_standalone_libarttools_tests --iterations 100`. I didn\u0027t observe any flakiness.\n\nMocking some functions could work, but it not only requires a bit more work, but also reduces the test fidelity. Because `EnsureNoProcessInDir` involves quite some interactions with the Linux system, I want to make sure that it actually works, not just works on paper with some assumptions on how the system behaves.",
+      "parentUuid": "9ff75529_e7cf4b45",
       "revId": "6c6475eac315e80977f4c8fec9139a3607eac730",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
