@@ -30,6 +30,7 @@ import android.os.Build;
 import android.os.CancellationSignal;
 import android.os.RemoteException;
 import android.os.WorkSource;
+import android.util.Pair;
 
 import androidx.annotation.RequiresApi;
 
@@ -122,7 +123,8 @@ public class DexoptHelper {
         long identityToken = Binder.clearCallingIdentity();
 
         try {
-            List<CompletableFuture<PackageDexoptResult>> futures = new ArrayList<>();
+            List<Pair<PackageState, CompletableFuture<PackageDexoptResult>>> futures =
+                    new ArrayList<>();
 
             // Child threads will set their own listeners on the cancellation signal, so we must
             // create a separate cancellation signal for each of them so that the listeners don't
@@ -140,9 +142,9 @@ public class DexoptHelper {
             for (int i = 0; i < pkgStates.size(); i++) {
                 PackageState pkgState = pkgStates.get(i);
                 CancellationSignal childCancellationSignal = childCancellationSignals.get(i);
-                futures.add(CompletableFuture.supplyAsync(() -> {
+                futures.add(Pair.create(pkgState, CompletableFuture.supplyAsync(() -> {
                     return dexoptPackage(pkgState, params, childCancellationSignal);
-                }, dexoptExecutor));
+                }, dexoptExecutor)));
             }
 
             if (progressCallback != null) {
@@ -151,19 +153,33 @@ public class DexoptHelper {
                             0 /* current */, futures.size(), null /* packageDexoptResult */));
                 }, progressCallbackExecutor);
                 AtomicInteger current = new AtomicInteger(0);
-                for (CompletableFuture<PackageDexoptResult> future : futures) {
-                    future.thenAcceptAsync(result -> {
-                              progressCallback.accept(OperationProgress.create(
-                                      current.incrementAndGet(), futures.size(), result));
-                          }, progressCallbackExecutor).exceptionally(t -> {
-                        AsLog.e("Failed to update progress", t);
-                        return null;
-                    });
+                for (Pair<PackageState, CompletableFuture<PackageDexoptResult>> pair : futures) {
+                    pair.second
+                            .thenAcceptAsync(
+                                    result
+                                    -> {
+                                        progressCallback.accept(OperationProgress.create(
+                                                current.incrementAndGet(), futures.size(), result));
+                                    },
+                                    progressCallbackExecutor)
+                            .exceptionally(t -> {
+                                AsLog.e("Failed to update progress", t);
+                                return null;
+                            });
                 }
             }
 
-            List<PackageDexoptResult> results =
-                    futures.stream().map(Utils::getFuture).collect(Collectors.toList());
+            List<PackageDexoptResult> results = new ArrayList<>();
+            for (Pair<PackageState, CompletableFuture<PackageDexoptResult>> pair : futures) {
+                try {
+                    results.add(Utils.getFuture(pair.second));
+                } catch (RuntimeException e) {
+                    AsLog.wtf("Unexpected package-level exception during dexopt", e);
+                    results.add(PackageDexoptResult.create(pair.first.getPackageName(),
+                            new ArrayList<>() /* dexContainerFileDexoptResults */,
+                            DexoptResult.DEXOPT_FAILED));
+                }
+            }
 
             var result =
                     DexoptResult.create(params.getCompilerFilter(), params.getReason(), results);
