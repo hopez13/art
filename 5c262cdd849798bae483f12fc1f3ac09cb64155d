@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "737ffbc5_dfcff96f",
+        "filename": "test/default_run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-06T10:14:38Z",
+      "side": 1,
+      "message": "AFAIU, we have two ways of detecting the capabilities, one is instruction-set-variant [1] and the other is instruction-set-features [2]. When instruction-set-features is set to ``runtime`` HwCapabilities are used to determine the supported features. \n\nIn production the value of instruction-set-variant and instruction-set-features are read from system properties (``dalvik.vm.isa.arm64.variant`` and ``dalvik.vm.isa.arm64.features``) [3, 4]. For the models I checked the variant is set correctly and we use default for instruction-set-features. So we don\u0027t use HwCapabilities to discover the instruction set features.\n\nI spoke to Nicolas about this and one of the reasons we detect features using variant instead of runtime capabilities is so we can enable optimizations that use these features only on devices that are well tested. \n\nSo setting this to \"runtime\" could be slightly different from the production code, especially with respect to SVE support. We just set the sve support to false in the variant, but maybe some newer devices (Pixel 8 maybe has SVE support?) have sve support which might generate different code.\n\nIt will be nice to change this to runtime and start testing (SVE and other optimizations) on newer devices that support it. Though I think we need to hold off this change for a few months (maybe until September) to avoid any breakages late in the release cycle.\n\n+Jiakai and Roland if they have any other comments.\n\n[1]https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/arch/arm64/instruction_set_features_arm64.cc;l\u003d46;\n[2]https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/arch/instruction_set_features.cc;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16;l\u003d227\n[3]https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/core/jni/AndroidRuntime.cpp;l\u003d976?\n[4]https://cs.android.com/android/platform/superproject/main/+/main:art/odrefresh/odrefresh.cc;l\u003d464",
+      "range": {
+        "startLine": 75,
+        "startChar": 2,
+        "endLine": 75,
+        "endChar": 68
+      },
+      "revId": "5c262cdd849798bae483f12fc1f3ac09cb64155d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
