@@ -16,6 +16,24 @@
       "message": "The BloatBuster findings are weird, so I started another presubmit.",
       "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9752ac7f_33513025",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-06T19:56:18Z",
+      "side": 1,
+      "message": "The BloatBuster findings weren\u0027t a fluke. Here are the largest bloats:\n\n```\nlib/libart.so: +48.8 KiB, +0.5%\nlib/libartbase.so: +10.8 KiB, +3.0%\nlib64/libartbase.so: +16.0 KiB, +4.5%\nlib64/libdexfile.so: +16.1 KiB, +6.6%\n```\n\nCurious that some libs only grow for one ISA but not the other. Is this expected from changing `cpp_std`?",
+      "parentUuid": "c06b488c_4150abdd",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
