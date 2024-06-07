@@ -804,12 +804,12 @@ void Thread::InstallImplicitProtection() {
 #endif
       // Keep space uninitialized as it can overflow the stack otherwise (should Clang actually
       // auto-initialize this local variable).
-      volatile char space[gPageSize - (kAsanMultiplier * 256)] __attribute__((uninitialized));
+      volatile char space[kMinPageSize - (kAsanMultiplier * 256)] __attribute__((uninitialized));
       [[maybe_unused]] char sink = space[zero];
       // Remove tag from the pointer. Nop in non-hwasan builds.
       uintptr_t addr = reinterpret_cast<uintptr_t>(
           __hwasan_tag_pointer != nullptr ? __hwasan_tag_pointer(space, 0) : space);
-      if (addr >= target + gPageSize) {
+      if (addr >= target + kMinPageSize) {
         Touch(target);
       }
       zero *= 2;  // Try to avoid tail recursion.
