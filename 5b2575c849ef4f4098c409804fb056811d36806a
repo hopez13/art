@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "80b4211f_7dba0a57",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-07T14:32:26Z",
+      "side": 1,
+      "message": "Side note: These arch dirs are now only used for `bin/art/\u003carch\u003e` in the testing APEX, so this isn\u0027t particularly important anymore.",
+      "range": {
+        "startLine": 285,
+        "startChar": 0,
+        "endLine": 286,
+        "endChar": 70
+      },
+      "revId": "5b2575c849ef4f4098c409804fb056811d36806a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
