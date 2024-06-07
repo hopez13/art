@@ -45,6 +45,30 @@
       },
       "revId": "5b2575c849ef4f4098c409804fb056811d36806a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd78abbf_733e2118",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-07T14:51:50Z",
+      "side": 1,
+      "message": "Yeah, there are plenty of things in this script that could use a facelift. I fixed the inconsistent string quotes, but the rest I think I\u0027ll leave as an exercise for some other time. (I only changed the indentation here.)",
+      "parentUuid": "49339a10_dd3b59f6",
+      "range": {
+        "startLine": 291,
+        "startChar": 14,
+        "endLine": 291,
+        "endChar": 36
+      },
+      "revId": "5b2575c849ef4f4098c409804fb056811d36806a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
