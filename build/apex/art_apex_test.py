@@ -290,14 +290,19 @@ class Checker:
       found, _ = self.is_dir(dir)
       if found:
         dirs.append(dir)
+    if multilib == MULTILIB_BOTH:
+      dirs_64bit = fnmatch.filter(dirs, '*64*')
+      if not dirs_64bit:
+        self.fail('64-bit arch directories missing in %s', path)
+      if not (dirs - dirs_64bit):
+        self.fail('32-bit arch directories missing in %s', path)
+    else:
+      if not dirs:
+        self.fail('Arch directories missing in %s', path)
     return dirs
 
   def check_art_test_executable(self, filename, multilib=None):
-    dirs = self.arch_dirs_for_path(ART_TEST_DIR, multilib)
-    if not dirs:
-      self.fail('Directories for ART test binary missing: %s', filename)
-      return
-    for dir in dirs:
+    for dir in self.arch_dirs_for_path(ART_TEST_DIR, multilib):
       test_path = '%s/%s' % (dir, filename)
       self._expected_file_globs.add(test_path)
       file_obj = self._provider.get(test_path)
@@ -307,11 +312,7 @@ class Checker:
         self.fail('%s is not executable', test_path)
 
   def check_art_test_data(self, filename):
-    dirs = self.arch_dirs_for_path(ART_TEST_DIR)
-    if not dirs:
-      self.fail('Directories for ART test data missing: %s', filename)
-      return
-    for dir in dirs:
+    for dir in self.arch_dirs_for_path(ART_TEST_DIR):
       if not self.check_file('%s/%s' % (dir, filename)):
         return
 
@@ -326,12 +327,6 @@ class Checker:
       self._expected_file_globs.add(lib64_path)
     if not lib_is_file and not lib64_is_file:
       self.fail('Library missing: %s', filename)
-
-  def check_dexpreopt(self, basename):
-    dirs = self.arch_dirs_for_path('javalib')
-    for dir in dirs:
-      for ext in ['art', 'oat', 'vdex']:
-        self.check_file('%s/%s.%s' % (dir, basename, ext))
 
   def check_java_library(self, basename):
     return self.check_file('javalib/%s.jar' % basename)
@@ -579,15 +574,6 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
 
-    # Check dexpreopt files for libcore bootclasspath jars.
-    self._checker.check_dexpreopt('boot')
-    self._checker.check_dexpreopt('boot-apache-xml')
-    self._checker.check_dexpreopt('boot-bouncycastle')
-    self._checker.check_dexpreopt('boot-core-libart')
-    self._checker.check_dexpreopt('boot-okhttp')
-    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK'):
-      # In coverage builds the ART boot image includes jacoco.
-      self._checker.check_dexpreopt('boot-jacocoagent')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
