@@ -285,19 +285,22 @@ class Checker:
     # TODO(b/123602136): Pass build target information to this script and fix
     # all places where this function in used (or similar workarounds).
     dirs = []
-    for arch in self.possible_archs(multilib):
-      dir = '%s/%s' % (path, arch)
-      found, _ = self.is_dir(dir)
-      if found:
-        dirs.append(dir)
+    for archs_per_bitness in self.possible_archs_per_bitness(multilib):
+      found_dir = False
+      for arch in archs_per_bitness:
+        dir = '%s/%s' % (path, arch)
+        found, _ = self.is_dir(dir)
+        if found:
+          found_dir = True
+          dirs.append(dir)
+      # At least one arch directory per bitness must exist.
+      if not found_dir:
+        self.fail('Arch directories missing in %s - expected at least one of %s',
+                  path, ', '.join(archs_per_bitness))
     return dirs
 
   def check_art_test_executable(self, filename, multilib=None):
-    dirs = self.arch_dirs_for_path(ART_TEST_DIR, multilib)
-    if not dirs:
-      self.fail('Directories for ART test binary missing: %s', filename)
-      return
-    for dir in dirs:
+    for dir in self.arch_dirs_for_path(ART_TEST_DIR, multilib):
       test_path = '%s/%s' % (dir, filename)
       self._expected_file_globs.add(test_path)
       file_obj = self._provider.get(test_path)
@@ -307,11 +310,7 @@ class Checker:
         self.fail('%s is not executable', test_path)
 
   def check_art_test_data(self, filename):
-    dirs = self.arch_dirs_for_path(ART_TEST_DIR)
-    if not dirs:
-      self.fail('Directories for ART test data missing: %s', filename)
-      return
-    for dir in dirs:
+    for dir in self.arch_dirs_for_path(ART_TEST_DIR):
       if not self.check_file('%s/%s' % (dir, filename)):
         return
 
@@ -327,12 +326,6 @@ class Checker:
     if not lib_is_file and not lib64_is_file:
       self.fail('Library missing: %s', filename)
 
-  def check_dexpreopt(self, basename):
-    dirs = self.arch_dirs_for_path('javalib')
-    for dir in dirs:
-      for ext in ['art', 'oat', 'vdex']:
-        self.check_file('%s/%s.%s' % (dir, basename, ext))
-
   def check_java_library(self, basename):
     return self.check_file('javalib/%s.jar' % basename)
 
@@ -340,8 +333,9 @@ class Checker:
     self._expected_file_globs.add(path_glob)
 
   def check_optional_art_test_executable(self, filename):
-    for arch in self.possible_archs():
-      self.ignore_path('%s/%s/%s' % (ART_TEST_DIR, arch, filename))
+    for archs_per_bitness in self.possible_archs_per_bitness():
+      for arch in archs_per_bitness:
+        self.ignore_path('%s/%s/%s' % (ART_TEST_DIR, arch, filename))
 
   def check_no_superfluous_files(self):
     def recurse(dir_path):
@@ -384,8 +378,8 @@ class Checker:
     """Check lib64/basename.so, or lib/basename.so on 32 bit only."""
     raise NotImplementedError
 
-  def possible_archs(self, multilib=None):
-    """Returns names of possible archs."""
+  def possible_archs_per_bitness(self, multilib=None):
+    """Returns a list of lists of possible architectures per bitness."""
     raise NotImplementedError
 
 class Arch32Checker(Checker):
@@ -412,8 +406,8 @@ class Arch32Checker(Checker):
   def check_prefer64_library(self, basename):
     self.check_native_library(basename)
 
-  def possible_archs(self, multilib=None):
-    return ARCHS_32
+  def possible_archs_per_bitness(self, multilib=None):
+    return [ARCHS_32]
 
 class Arch64Checker(Checker):
   def __init__(self, provider):
@@ -439,8 +433,8 @@ class Arch64Checker(Checker):
   def check_prefer64_library(self, basename):
     self.check_native_library(basename)
 
-  def possible_archs(self, multilib=None):
-    return ARCHS_64
+  def possible_archs_per_bitness(self, multilib=None):
+    return [ARCHS_64]
 
 
 class MultilibChecker(Checker):
@@ -470,13 +464,13 @@ class MultilibChecker(Checker):
   def check_prefer64_library(self, basename):
     self.check_file('lib64/%s.so' % basename)
 
-  def possible_archs(self, multilib=None):
+  def possible_archs_per_bitness(self, multilib=None):
     if multilib is None or multilib == MULTILIB_BOTH:
-      return ARCHS_32 + ARCHS_64
+      return [ARCHS_32, ARCHS_64]
     if multilib == MULTILIB_FIRST or multilib == MULTILIB_64:
-      return ARCHS_64
+      return [ARCHS_64]
     elif multilib == MULTILIB_32:
-      return ARCHS_32
+      return [ARCHS_32]
     self.fail('Unrecognized multilib option "%s"', multilib)
 
 
@@ -580,15 +574,6 @@ class ReleaseChecker:
     self._checker.check_optional_native_library('libclang_rt.hwasan*')
     self._checker.check_optional_native_library('libclang_rt.ubsan*')
 
-    # Check dexpreopt files for libcore bootclasspath jars.
-    self._checker.check_dexpreopt('boot')
-    self._checker.check_dexpreopt('boot-apache-xml')
-    self._checker.check_dexpreopt('boot-bouncycastle')
-    self._checker.check_dexpreopt('boot-core-libart')
-    self._checker.check_dexpreopt('boot-okhttp')
-    if isEnvTrue('EMMA_INSTRUMENT_FRAMEWORK'):
-      # In coverage builds the ART boot image includes jacoco.
-      self._checker.check_dexpreopt('boot-jacocoagent')
 
 class ReleaseTargetChecker:
   def __init__(self, checker):
