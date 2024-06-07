@@ -239,6 +239,29 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27353ad_b30f7288",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-07T15:33:40Z",
+      "side": 1,
+      "message": "I\u0027m still leaving for someone else more familiar with the page agnostic work (e.g. @lokeshgidra@google.com who reviewed https://r.android.com/2860348) to comment on whether this should be hardcoded or not.\n\nBut provided that\u0027s fine, can you please move this setting to `art_defaults` in art/build/Android.bp? Since it doesn\u0027t have any conditional logic anymore it doesn\u0027t need to be squirreled away in here. The explanatory comment I suggest retaining in the CL description.",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 54
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
