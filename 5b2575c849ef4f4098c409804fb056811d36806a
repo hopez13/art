@@ -22,6 +22,29 @@
       },
       "revId": "5b2575c849ef4f4098c409804fb056811d36806a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49339a10_dd3b59f6",
+        "filename": "build/apex/art_apex_test.py",
+        "patchSetId": 3
+      },
+      "lineNbr": 291,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-07T14:44:26Z",
+      "side": 1,
+      "message": "Potential refactoring (ideally as a separate CL): Use an f-string (here and elsewhere).",
+      "range": {
+        "startLine": 291,
+        "startChar": 14,
+        "endLine": 291,
+        "endChar": 36
+      },
+      "revId": "5b2575c849ef4f4098c409804fb056811d36806a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
