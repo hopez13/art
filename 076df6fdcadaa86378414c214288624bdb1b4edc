@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bc5b7687_2d452e2c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-07T14:44:15Z",
+      "side": 1,
+      "message": "[Sorry for the delay.]\n\nI find it confusing to have defaults in subdirs that need to use paths adapted to other locations. Maybe that\u0027s possible to solve with file groups, but before going into the details I\u0027d like to start with the motivation for this change. What\u0027s the problem with these two static libs?",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "076df6fdcadaa86378414c214288624bdb1b4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "99ca5088_d2a1db73",
+        "filename": "Android.bp",
+        "patchSetId": 8
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-07T14:44:15Z",
+      "side": 1,
+      "message": "If we\u0027re going to this approach then I\u0027d like to see all the global stuff in build/Android.bp getting moved here, so that we don\u0027t get a split between this file and that one which doesn\u0027t make sense. That\u0027s better off in a separate CL though, so not marking as blocked.",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 71
+      },
+      "revId": "076df6fdcadaa86378414c214288624bdb1b4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
