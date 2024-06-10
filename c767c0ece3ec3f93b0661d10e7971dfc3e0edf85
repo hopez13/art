@@ -16,6 +16,23 @@
       "message": "Mythri, Islam, PTAL at 1..2.",
       "revId": "c767c0ece3ec3f93b0661d10e7971dfc3e0edf85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff349d3_d7fc797e",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-10T08:53:33Z",
+      "side": 1,
+      "message": "Sorry I missed it, do we need actually patch-2? since the Startup-methods are usually marked as Startup+Hot?",
+      "revId": "c767c0ece3ec3f93b0661d10e7971dfc3e0edf85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
