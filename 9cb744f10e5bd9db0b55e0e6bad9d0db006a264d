@@ -124,6 +124,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8c2f431c_6d21e86c",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1988540
+      },
+      "writtenOn": "2024-06-10T16:54:37Z",
+      "side": 1,
+      "message": "nit: Closing brace",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 115,
+        "endChar": 42
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "e0055170_b5121d0b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "build/art.go",
+              "range": {
+                "startLine": 114,
+                "startChar": 0,
+                "endLine": 116,
+                "endChar": 0
+              },
+              "replacement": "\t// shares tests between targets, and tests built with this option will only\n\t// work on devices with this option).\n"
+            }
+          ]
+        }
+      ],
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "8fbb1cec_4f8d30b6",
         "filename": "build/art.go",
         "patchSetId": 2
