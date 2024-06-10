@@ -124,6 +124,29 @@
       "parentUuid": "5ba0ee55_1684fdfc",
       "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90ebe2fc_758725a8",
+        "filename": "libartbase/base/bit_struct_detail.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T13:22:10Z",
+      "side": 1,
+      "message": "I just learned that C++20 added feature testing macros. It is really disappointing that you can use C++20 and yet, you cannot rely on the presence of these fundamental features.\n\nBut https://en.cppreference.com/w/cpp/feature_test says that the feature macros are predefined and there does not seem to be a word about these macros being optional. I\u0027m confused.",
+      "range": {
+        "startLine": 92,
+        "startChar": 4,
+        "endLine": 92,
+        "endChar": 43
+      },
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
