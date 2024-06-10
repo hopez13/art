@@ -164,6 +164,41 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "83457f8a_d4be042a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T14:40:45Z",
+      "side": 1,
+      "message": "\u003e we switched the whole platform months ago.\n\nOk, and did you see such size increases for them? I agree that ~0.5% (although up to 6% for some specific libs) isn\u0027t anything that\u0027d block this, but it\u0027d be interesting to know if it\u0027s a generic cost or if ART is special in some way.",
+      "parentUuid": "7a164cd2_814c183b",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "52a1c837_a040ad2a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T14:40:45Z",
+      "side": 1,
+      "message": "+rpl, FYI on the BloatBuster override.",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90ebe2fc_758725a8",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 3
