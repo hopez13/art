@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2023cf23_3255b283",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-10T10:57:38Z",
+      "side": 1,
+      "message": "Actually, the test is also failing on target. Presumably because the device doesn\u0027t have the syscall?",
+      "revId": "6943830417e80fbf6bbd277d7d97e44a98c22ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
