@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "2d1f0d5d_e54dbf9c",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-06-10T20:38:42Z",
+      "side": 1,
+      "message": "Initially I planned to hide more symbols that come from static lib dependencies of libart-compiler. But I couldn\u0027t repro the file size savings lately, because those symbols were not present in libart.so anyway (either something changed since then or the measurements were erroneous to begin with).\n\nNow the only practical value of this change is to simplify the way libart is built. I think it saves some headache by avoiding all of the debug/release/for-test intermediate dependencies. Including more libraries into libart.so should be easier too.\n\nThough, I don\u0027t insist on merging this CL if you think it\u0027s not worth it.",
+      "parentUuid": "bc5b7687_2d452e2c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "076df6fdcadaa86378414c214288624bdb1b4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "99ca5088_d2a1db73",
