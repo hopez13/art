@@ -16,6 +16,24 @@
       "message": "Actually, the test is also failing on target. Presumably because the device doesn\u0027t have the syscall?",
       "revId": "6943830417e80fbf6bbd277d7d97e44a98c22ced",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2a836cb4_ff173719",
+        "filename": "libarttools/tools_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-10T12:12:25Z",
+      "side": 1,
+      "message": "Ah, actually, host is fine because Lokesh has updated the kernel. The test only fails on target because the testing devices have a very old kernel. In production, Pre-reboot Dexopt is for V+, and devices with such a platform are on new kernels. In the past, we used pidfd_open in installd on T (https://source.corp.google.com/h/googleplex-android/platform/superproject/base/+/tm-dev:frameworks/native/cmds/installd/utils.cpp;l\u003d1185;drc\u003dfd918caf415b3cc6991ed23f9a04db7eafda23fa), and no one complained about it, so we are fine.",
+      "parentUuid": "2023cf23_3255b283",
+      "revId": "6943830417e80fbf6bbd277d7d97e44a98c22ced",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
