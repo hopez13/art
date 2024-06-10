@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3063c0f9_418f770e",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T07:11:07Z",
+      "side": 1,
+      "message": "After the GC in `ImageWriter::PrepareImageAddressSpace()`, there shall be no managed heap allocations and GC daemons shall be parked. See also the use of `ScopedDebugDisallowReadBarriers` and the associated comment in that function.",
+      "parentUuid": "2ea188d4_067988cd",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5d8ea3_4e1e1a35",
         "filename": "runtime/monitor.cc",
         "patchSetId": 2
@@ -108,6 +126,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6762874_02327b55",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T07:11:07Z",
+      "side": 1,
+      "message": "GC daemons should be idle and parked. See the use of `ScopedDebugDisallowReadBarriers` in `ImageWriter::PrepareImageAddressSpace()`.",
+      "parentUuid": "49c9eb32_a4f3f103",
+      "range": {
+        "startLine": 169,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 88
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4a2cf7cd_bccc766d",
         "filename": "runtime/monitor_inflation.md",
         "patchSetId": 2
@@ -143,6 +185,30 @@
       "side": 1,
       "message": "I\u0027ll change it to `invalidate` and add a comment. It seems to deflate monitors without removing them from the list. See MonitorDeflateVisitor and related code. I wonder whether this is intentional.",
       "parentUuid": "4a2cf7cd_bccc766d",
+      "range": {
+        "startLine": 70,
+        "startChar": 65,
+        "endLine": 70,
+        "endChar": 92
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2222979d_45f38ca8",
+        "filename": "runtime/monitor_inflation.md",
+        "patchSetId": 2
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T07:11:07Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "cbb622da_69acb748",
       "range": {
         "startLine": 70,
         "startChar": 65,
