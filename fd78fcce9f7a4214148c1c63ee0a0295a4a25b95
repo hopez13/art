@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0f46dc32_30269d53",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-10T21:08:59Z",
+      "side": 1,
+      "message": "Thanks for the suggestion. However, after this analysis described on the CL description, I think we have sufficient understanding of why changing this behavior is fine.\n\nOr, look at it from another angle:\n\nThe default value can only affect Zygote, odrefresh, artd, and dexopt_chroot_setup in production code.\n\n- For odrefresh, we need `new_process_group\u003dfalse` anyway no matter the default.\n- For artd, we need `new_process_group\u003dtrue` anyway no matter the default.\n- For dexopt_chroot_setup, it\u0027s new code, so there won\u0027t be a regression no matter the default.\n\nThe only place where the change of the default would possibly introduce a regression, if any, is Zygote. For Zygote, the use case is to call dex2oat to create an in-memory boot image, so we are confident that we don\u0027t need dex2oat to be in a separate process group.\n\nTherefore, changing the default is low-risk.",
+      "parentUuid": "abf75850_e1db3d58",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "fd78fcce9f7a4214148c1c63ee0a0295a4a25b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f602482_2dc2ae7d",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-10T20:39:10Z",
       "side": 1,
       "message": "Worth a comment here too.",
+      "range": {
+        "startLine": 1724,
+        "startChar": 36,
+        "endLine": 1724,
+        "endChar": 62
+      },
+      "revId": "fd78fcce9f7a4214148c1c63ee0a0295a4a25b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "593353a6_7120a93e",
+        "filename": "artd/artd.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1724,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-10T21:08:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4f602482_2dc2ae7d",
       "range": {
         "startLine": 1724,
         "startChar": 36,
