@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0083a58_e126ffb8",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 711,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T15:47:37Z",
+      "side": 1,
+      "message": "Can\u0027t it be an error? It\u0027s after all a different command, so I don\u0027t see why we need to be lenient just because `bg-dexopt-job` is.",
+      "range": {
+        "startLine": 710,
+        "startChar": 23,
+        "endLine": 711,
+        "endChar": 31
+      },
+      "revId": "4daf5d8b4d5d8ecc9594a4a89a0b38221085ba63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0774f8ae_4cdaff42",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 729,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T15:47:37Z",
+      "side": 1,
+      "message": "If a shell user doesn\u0027t have access to `snapshotctl`, then will this fail too?",
+      "range": {
+        "startLine": 729,
+        "startChar": 57,
+        "endLine": 729,
+        "endChar": 61
+      },
+      "revId": "4daf5d8b4d5d8ecc9594a4a89a0b38221085ba63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "97b8d1c2_396b81cd",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 786,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T15:47:37Z",
+      "side": 1,
+      "message": "Nit: Can this line be broken before the command, or will clang-format change it back?",
+      "range": {
+        "startLine": 786,
+        "startChar": 69,
+        "endLine": 786,
+        "endChar": 70
+      },
+      "revId": "4daf5d8b4d5d8ecc9594a4a89a0b38221085ba63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1778f57a_5f6981ba",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1010,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T15:47:37Z",
+      "side": 1,
+      "message": "I read this as that the preemption would happen when the job starts, but it actually happens when it\u0027s scheduled. I suggest \"This command immediately preempts\" to make it completely clear.",
+      "range": {
+        "startLine": 1010,
+        "startChar": 57,
+        "endLine": 1010,
+        "endChar": 97
+      },
+      "revId": "4daf5d8b4d5d8ecc9594a4a89a0b38221085ba63",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
