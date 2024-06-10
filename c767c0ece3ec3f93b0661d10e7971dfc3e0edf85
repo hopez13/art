@@ -51,6 +51,24 @@
       "parentUuid": "7ff349d3_d7fc797e",
       "revId": "c767c0ece3ec3f93b0661d10e7971dfc3e0edf85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1857c7e3_a706e1a4",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 606,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-10T09:00:21Z",
+      "side": 1,
+      "message": "Makes sense. Shall we add a note to the description that after this change the Startup methods won\u0027t be marked as Hot for the dumped profile as before?",
+      "parentUuid": "a1f68b6e_b6d7e6fd",
+      "revId": "c767c0ece3ec3f93b0661d10e7971dfc3e0edf85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
