@@ -1,5 +1,109 @@
 {
-  "comments": [],
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f78ae72f_a297c9c1",
+        "filename": "runtime/mirror/class.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1463,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:09:19Z",
+      "side": 1,
+      "message": "You should use `GetDeclaredMethodsSlice()` here and you can `DCHECK(!m.IsCopied())`.",
+      "range": {
+        "startLine": 1463,
+        "startChar": 17,
+        "endLine": 1463,
+        "endChar": 27
+      },
+      "revId": "29b36217f4d6bba21ebd4b72486a7282ae3b14ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ba43b6b2_c0c76e5b",
+        "filename": "test/857-default-access/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:09:19Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "29b36217f4d6bba21ebd4b72486a7282ae3b14ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "622902ef_4522d01c",
+        "filename": "test/857-default-access/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:09:19Z",
+      "side": 1,
+      "message": "Remove blank line?",
+      "revId": "29b36217f4d6bba21ebd4b72486a7282ae3b14ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ba55348_95504eab",
+        "filename": "test/857-default-access/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:09:19Z",
+      "side": 1,
+      "message": "Rename to `expected` and remove the `// Expected.` comment below.",
+      "range": {
+        "startLine": 29,
+        "startChar": 32,
+        "endLine": 29,
+        "endChar": 35
+      },
+      "revId": "29b36217f4d6bba21ebd4b72486a7282ae3b14ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "127ddbf2_bbdb2a31",
+        "filename": "test/857-default-access/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:09:19Z",
+      "side": 1,
+      "message": "Move inside the try-block. (And remove `return` from catch-block.)",
+      "range": {
+        "startLine": 33,
+        "startChar": 4,
+        "endLine": 33,
+        "endChar": 51
+      },
+      "revId": "29b36217f4d6bba21ebd4b72486a7282ae3b14ab",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ],
   "submitRequirementResults": [
     {
       "submitRequirement": {
