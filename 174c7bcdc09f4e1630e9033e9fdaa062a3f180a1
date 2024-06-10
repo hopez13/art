@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dd96e92a_f83d3fcf",
+        "filename": "libartservice/service/java/com/android/server/art/ArtShellCommand.java",
+        "patchSetId": 17
+      },
+      "lineNbr": 1016,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T17:16:29Z",
+      "side": 1,
+      "message": "Readers may not be sure if \"this command\" includes the scheduled job or not, so I think it\u0027s worth adding \"immediately\" to dispel any doubt.",
+      "range": {
+        "startLine": 1016,
+        "startChar": 69,
+        "endLine": 1016,
+        "endChar": 70
+      },
+      "revId": "174c7bcdc09f4e1630e9033e9fdaa062a3f180a1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
