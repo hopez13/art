@@ -72,6 +72,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c06c5f6c_1ad8ec88",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-10T08:54:39Z",
+      "side": 1,
+      "message": "Ah yes, the test of this CL was throwing `IllegalAccess` at runtime when it shouldn\u0027t.",
+      "parentUuid": "1723f9d6_41de6bfe",
+      "range": {
+        "startLine": 1172,
+        "startChar": 7,
+        "endLine": 1172,
+        "endChar": 44
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3ec5fd9_8f1ca537",
@@ -145,6 +169,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a22b3712_81abc452",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-10T08:54:39Z",
+      "side": 1,
+      "message": "This is in the comment above (`... of the static type of the receiver`).",
+      "parentUuid": "92f2f8a3_fda090a4",
+      "range": {
+        "startLine": 1176,
+        "startChar": 20,
+        "endLine": 1176,
+        "endChar": 92
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3b6f064_99402728",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -204,6 +252,30 @@
       "side": 1,
       "message": "I\u0027m fine with keeping this generic as long as that\u0027s a deliberate choice. The performance difference should be insignificant.\n\nThe `IsInterface()` in `Class::IsAssignableFrom()` should always return false for access to protected members because interfaces have no protected members. The `src-\u003eIsArrayClass()` should always return false because arrays have no methods and therefore no code for which we could check this access. (The `IsPrimitive()` in `IsObjectClass()` should also return false because primitive classes do not have any code.)",
       "parentUuid": "1b954193_7364e143",
+      "range": {
+        "startLine": 1181,
+        "startChar": 8,
+        "endLine": 1181,
+        "endChar": 41
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9144b6ed_6634495a",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-10T08:54:39Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "ce7cbb90_d5ad7337",
       "range": {
         "startLine": 1181,
         "startChar": 8,
