@@ -46,6 +46,30 @@
       },
       "revId": "7a17035f31250438aca046c76d95e7aadce02145",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa4381eb_56774786",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T16:35:33Z",
+      "side": 1,
+      "message": "Ah, missed that it\u0027s in a topic. Thanks for cleaning this up!\n\n(I note we still link libz statically in a bunch of tests and so on. I wonder why. Anyway, that\u0027s out of scope here.)",
+      "parentUuid": "367bd27c_d19ee858",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 55
+      },
+      "revId": "7a17035f31250438aca046c76d95e7aadce02145",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
