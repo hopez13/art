@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a44195b2_2575508d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-10T17:26:26Z",
+      "side": 1,
+      "message": "These shards are getting more semantically diverse so arguably aren\u0027t really shards anymore (in the sense \"partitioned into arbitrary subsets\"). I do note the \"quick and easy\" below, so probably not in this CL, but how hard would it be to rename this one to a better name, like `mts-art-gtests`? Is that the \"restructuring\" mentioned below?",
+      "range": {
+        "startLine": 7,
+        "startChar": 55,
+        "endLine": 7,
+        "endChar": 63
+      },
+      "revId": "3eb5275c21013b755cc0c703a662fa818ae161b0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
