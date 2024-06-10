@@ -116,6 +116,30 @@
       },
       "revId": "fd78fcce9f7a4214148c1c63ee0a0295a4a25b95",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "204978e3_96b02565",
+        "filename": "runtime/exec_utils.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-10T21:10:10Z",
+      "side": 1,
+      "message": "As discussed on the ticket, I do plan to restrict the sepolicy to catch this, but I\u0027ll do it later, and I\u0027ll keep the bug open to track it.",
+      "parentUuid": "a8e712cb_2ac11966",
+      "range": {
+        "startLine": 100,
+        "startChar": 5,
+        "endLine": 100,
+        "endChar": 99
+      },
+      "revId": "fd78fcce9f7a4214148c1c63ee0a0295a4a25b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
