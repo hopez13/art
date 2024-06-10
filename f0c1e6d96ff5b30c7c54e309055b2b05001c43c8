@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1723f9d6_41de6bfe",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1172,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:48:18Z",
+      "side": 1,
+      "message": "Are you confusing this with your other change? There\u0027s no `src2/` in the new test in this CL.\n\nBut, reading the test again, I don\u0027t see why the `interface I` should be considered responsible for the implementation of `String[]`, so why does `javac` allow this? Or does `javac` permit some access in default methods, just in case that this shall be OK in some implementing classes and throw IAE in others? That would make sense for non-array argument types but not for array classes which cannot be subclassed and cannot implement `I` themselves.",
+      "parentUuid": "76f561db_8360e117",
+      "range": {
+        "startLine": 1172,
+        "startChar": 7,
+        "endLine": 1172,
+        "endChar": 44
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b3ec5fd9_8f1ca537",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -97,6 +121,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "92f2f8a3_fda090a4",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1176,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:48:18Z",
+      "side": 1,
+      "message": "Not resolved. This depends on the receiver type and the comment should be changed to reflect that instead of suggesting a blank restriction. You may also mention that this function actually does not have the necessary context to distinguish between the allowed and prohibited cases.\n\nThere\u0027s also a typo here, `s/not ne/not be/`.",
+      "parentUuid": "f6de1f8b_6ec11715",
+      "range": {
+        "startLine": 1176,
+        "startChar": 20,
+        "endLine": 1176,
+        "endChar": 92
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "c3b6f064_99402728",
         "filename": "runtime/mirror/class-inl.h",
         "patchSetId": 2
@@ -132,6 +180,30 @@
       "side": 1,
       "message": "Which parts are dead code? I\u0027d rather keep this generic and not special case (the previous code was special casing, hence the crash).",
       "parentUuid": "c3b6f064_99402728",
+      "range": {
+        "startLine": 1181,
+        "startChar": 8,
+        "endLine": 1181,
+        "endChar": 41
+      },
+      "revId": "f0c1e6d96ff5b30c7c54e309055b2b05001c43c8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ce7cbb90_d5ad7337",
+        "filename": "runtime/mirror/class-inl.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 1181,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-10T08:48:18Z",
+      "side": 1,
+      "message": "I\u0027m fine with keeping this generic as long as that\u0027s a deliberate choice. The performance difference should be insignificant.\n\nThe `IsInterface()` in `Class::IsAssignableFrom()` should always return false for access to protected members because interfaces have no protected members. The `src-\u003eIsArrayClass()` should always return false because arrays have no methods and therefore no code for which we could check this access. (The `IsPrimitive()` in `IsObjectClass()` should also return false because primitive classes do not have any code.)",
+      "parentUuid": "1b954193_7364e143",
       "range": {
         "startLine": 1181,
         "startChar": 8,
