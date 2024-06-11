@@ -16,6 +16,23 @@
       "message": "I have verified that this CL is compatible with Pimara\u0027s recent CL https://android-review.git.corp.google.com/c/platform/art/+/3124154. (go/abtd/git_master-art-host:asan https://android-build.corp.google.com/builds/abtd/run/L47800030004486677)",
       "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f928b62_b419c014",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-06-11T23:06:16Z",
+      "side": 1,
+      "message": "I think the presubmit errors are unrelated. Other reviewers seem to be running into the test-mapping-art-mainline-presubmit test failures, possibly caused by b/346510164\n\nBypassing presubmit since I had a PV+2 vote previously",
+      "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
