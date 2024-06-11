@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f1863d70_23203a01",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-11T12:18:57Z",
+      "side": 1,
+      "message": "I did read the argument that this is supposedly safe, and I agree it looks fine in the production code calls. However there are many calls from tests, which even though they\u0027re just tests can cause a bother if they start getting flaky.\n\nAnyway, what I was asking about was what it\u0027d take to solve it the other way around. It doesn\u0027t seem to be that many calls to change for that, so personally I\u0027d do that to not have to worry about the tests, and then do the change that affects them separately (because I entirely agree the default ought to be to skip that `setpgid` call). But up to you.",
+      "parentUuid": "0f46dc32_30269d53",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 48,
+        "endChar": 42
+      },
+      "revId": "fd78fcce9f7a4214148c1c63ee0a0295a4a25b95",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4f602482_2dc2ae7d",
