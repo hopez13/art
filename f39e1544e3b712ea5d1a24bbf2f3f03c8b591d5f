@@ -1,0 +1,313 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e8171c_352d95dc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Typos: Use `integral` and `arithmetic`. The latter is also in the test folder name. Please rename.",
+      "range": {
+        "startLine": 7,
+        "startChar": 26,
+        "endLine": 7,
+        "endChar": 46
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1f1695ce_c00d2c7a",
+        "filename": "test/2275-integral-unsigned-arithmethic/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Please remove this file. We are re-generating these files in separate commits after tests have been committed for some time.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "642563f7_29f9a8b7",
+        "filename": "test/2275-integral-unsigned-arithmethic/info.txt",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "`Tests for unsigned integral arithmethic implementation.`",
+      "range": {
+        "startLine": 1,
+        "startChar": 0,
+        "endLine": 1,
+        "endChar": 64
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "609b4b16_4d79b172",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "`2024`",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b4056b52_5f9f047f",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "I\u0027d prefer to have `void assertEquals(int, int)` and `void assertEquals(long, long)` in this file, instead of pulling in extra files. (Those extra files are currently missing copyright headers and Lint has some other objections as well.)",
+      "range": {
+        "startLine": 17,
+        "startChar": 23,
+        "endLine": 17,
+        "endChar": 29
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2a2107f_bab9147e",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "typo",
+      "range": {
+        "startLine": 39,
+        "startChar": 41,
+        "endLine": 39,
+        "endChar": 48
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "61718e4e_8f56ba0c",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Missing `L` suffixes - calls the wrong overload.\n\nMaybe we should rename the compare methods to `$noinline$cmpUnsignedInt` and `$noinline$cmpUnsignedLong` to make sure we don\u0027t test the wrong method.",
+      "range": {
+        "startLine": 60,
+        "startChar": 47,
+        "endLine": 61,
+        "endChar": 52
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5925494b_b40b343e",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Missing `L` suffixes - but this time calling the right method after implicit conversions.",
+      "range": {
+        "startLine": 86,
+        "startChar": 45,
+        "endLine": 87,
+        "endChar": 50
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "58147ab3_5c3a9c10",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 124,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Rename to `$noinline$divideUnsignedInt` and `$noinline$divideUnsignedLong` instead of overloading?",
+      "range": {
+        "startLine": 124,
+        "startChar": 21,
+        "endLine": 124,
+        "endChar": 46
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5372eb08_bdfba0fc",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 236,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "763ba3a3_d636a7ee",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Rename to `$noinline$remainderUnsignedInt` and `$noinline$remainderUnsignedLong` instead of overloading.",
+      "range": {
+        "startLine": 246,
+        "startChar": 21,
+        "endLine": 246,
+        "endChar": 49
+      },
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a7c0e20c_f859d368",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 265,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "978c04fa_6e69217d",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 273,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "79e80258_409dc073",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 297,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aa0dca22_5ede4e24",
+        "filename": "test/2275-integral-unsigned-arithmethic/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 330,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:39:59Z",
+      "side": 1,
+      "message": "Line too long.",
+      "revId": "f39e1544e3b712ea5d1a24bbf2f3f03c8b591d5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
