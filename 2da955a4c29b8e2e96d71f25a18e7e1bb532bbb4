@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a276cf2d_9ea02430",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-11T10:04:29Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2a2487b1_d4a41f47",
+      "range": {
+        "startLine": 598,
+        "startChar": 57,
+        "endLine": 598,
+        "endChar": 62
+      },
+      "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f28234b8_e45f1f7c",
@@ -109,6 +133,24 @@
       "side": 1,
       "message": "If you don\u0027t mind I could add reference to `image.cc` to comment",
       "parentUuid": "c4f6497d_032e7552",
+      "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "39ba47d2_cde1a55c",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-11T10:04:29Z",
+      "side": 1,
+      "message": "Decided to add in each commit for consistency",
+      "parentUuid": "39641d1e_c4969daf",
       "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
