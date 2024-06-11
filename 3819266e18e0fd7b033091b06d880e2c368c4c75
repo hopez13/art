@@ -33,6 +33,253 @@
       "message": "LGTM",
       "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60af702a_78e8c9c7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Partial review.",
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "20ce01fd_51de4f4d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 419,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Can `dst` be a YMM register if AVX2 is not supported? If not, we could replace this with\n\n    if (dst.IsYMM()) {\n      CHECK(CpuHasAVX2FeatureFlag());\n\nAnd given the `DCHECK()` in `vmovaps()`, we could even drop the AVX2 check completely.",
+      "range": {
+        "startLine": 419,
+        "startChar": 2,
+        "endLine": 419,
+        "endChar": 47
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ad590b80_2cdb93a2",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 513,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Should we have `vmovq` for the 64-bit moves?",
+      "range": {
+        "startLine": 512,
+        "startChar": 2,
+        "endLine": 513,
+        "endChar": 61
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5e39f733_8542a599",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 820,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Incorrect copy-pasted comment?",
+      "range": {
+        "startLine": 820,
+        "startChar": 2,
+        "endLine": 820,
+        "endChar": 35
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b6b7e7aa_a6054a3d",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1263,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Naming style: `vex_pp`, `is_vex_3byte`, `opcode`, `is_commutative`.",
+      "range": {
+        "startLine": 1260,
+        "startChar": 30,
+        "endLine": 1263,
+        "endChar": 48
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c179775_ade18961",
+        "filename": "compiler/utils/x86_64/assembler_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 1274,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "`opcode`, `operand_byte`",
+      "range": {
+        "startLine": 1273,
+        "startChar": 29,
+        "endLine": 1274,
+        "endChar": 48
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf1c71f0_680ec5b4",
+        "filename": "compiler/utils/x86_64/constants_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 56,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Remove `explicit` from constructors that have two parameters (and no default args).",
+      "range": {
+        "startLine": 56,
+        "startChar": 2,
+        "endLine": 56,
+        "endChar": 10
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1acff7e8_30377a6b",
+        "filename": "compiler/utils/x86_64/constants_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Style: `vec_len` (or `vector_length`).\n\nShould we `DCHECK()` that the vector length is valid? Is 16 valid and should we use it to differentiate from plain 64-bit FP register uses?",
+      "range": {
+        "startLine": 57,
+        "startChar": 47,
+        "endLine": 57,
+        "endChar": 53
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71604567_d22c11d8",
+        "filename": "compiler/utils/x86_64/constants_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "There is no support for `zmm` in assembler, so you should not add that here. (Notably, you\u0027re not printing `zmm` in the `operator\u003c\u003c(std::ostream\u0026, const XmmRegister\u0026)`.)",
+      "range": {
+        "startLine": 74,
+        "startChar": 2,
+        "endLine": 76,
+        "endChar": 3
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f83bcbcd_615ccc40",
+        "filename": "compiler/utils/x86_64/constants_x86_64.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 80,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Style: `vec_len_`. (Or `vector_length_`.)",
+      "range": {
+        "startLine": 80,
+        "startChar": 9,
+        "endLine": 80,
+        "endChar": 16
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f4218c2e_567b555b",
+        "filename": "disassembler/disassembler_x86.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 25,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T15:05:33Z",
+      "side": 1,
+      "message": "Style: `kMaxInstructionLength`.",
+      "range": {
+        "startLine": 25,
+        "startChar": 25,
+        "endLine": 25,
+        "endChar": 47
+      },
+      "revId": "3819266e18e0fd7b033091b06d880e2c368c4c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
