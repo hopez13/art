@@ -56,6 +56,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "07ef5fe2_c64a2718",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-11T15:48:54Z",
+      "side": 1,
+      "message": "So what prevents the ReferenceQueueDaemon or FinalizerDaemon from waking up after this and running Java code concurrently? I don\u0027t even see any code that tries to wait for them? Or do we not have them here?",
+      "parentUuid": "3063c0f9_418f770e",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5d8ea3_4e1e1a35",
         "filename": "runtime/monitor.cc",
         "patchSetId": 2
