@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e897ab79_79d77833",
+        "filename": "test/845-data-image/run.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-11T19:03:47Z",
+      "side": 0,
+      "message": "This CL effectively reverts the test part of https://r.android.com/2430740 (although this trick to force a new image probably hasn\u0027t worked since https://r.android.com/2736873). @ngeoffray@google.com any suggestions on how we can achieve this some other way?",
+      "range": {
+        "startLine": 25,
+        "startChar": 0,
+        "endLine": 26,
+        "endChar": 31
+      },
+      "revId": "30ce01a308013bd3db03f0b572cbb3b9642e2bc6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
