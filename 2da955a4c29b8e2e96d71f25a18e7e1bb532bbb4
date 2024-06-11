@@ -57,6 +57,24 @@
       "parentUuid": "f28234b8_e45f1f7c",
       "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e6ac2dd3_82aebc68",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T08:29:36Z",
+      "side": 1,
+      "message": "`runtime/oat/image.cc`\n\n    // Last change: Add JniStubMethodsSection.\n    const uint8_t ImageHeader::kImageVersion[] \u003d { \u00271\u0027, \u00271\u0027, \u00270\u0027, \u0027\\0\u0027 };",
+      "parentUuid": "5f3deff9_288bab67",
+      "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
