@@ -16,6 +16,23 @@
       "message": "With `libart-dexlayout.so` removed the module shrinks with about 370 KiB per architecture.",
       "revId": "4ea4a6d3480179319ecebd22a0c07548f8f07da8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "33ce7985_b313bac5",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-11T11:41:18Z",
+      "side": 1,
+      "message": "Submitting now to get as much soak as possible. Up to this CL is what we need to get most of the size reduction in the module.",
+      "revId": "4ea4a6d3480179319ecebd22a0c07548f8f07da8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
