@@ -48,6 +48,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "67ff0ad9_64457ded",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 8
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-11T12:47:35Z",
+      "side": 1,
+      "message": "\u003e I think it saves some headache by avoiding all of the debug/release/for-test intermediate dependencies.\n\nThat\u0027s a good point. However, those intermediate deps are consistent with the approach elsewhere which people are used to, while this adds a new approach for a few components and it arguably has some weirdness of its own. If we could completely replace the -d library splits and the `*_static_defaults` then it\u0027d be a more compelling win, but as it is this reduces the consistency across the different components. So overall I prefer to keep it as-is, even though I agree this gets rid of some unpleasant boilerplate.\n\nBtw, regarding the -d libs, there\u0027s b/234351700 about removing them altogether. The conclusion there is that there\u0027s no blocker, but it\u0027s quite a bit of work and not anywhere near the top of my to-do list. I\u0027d also like to take a closer look at the `*_static_defaults` - there are e.g. approaches to avoid static linking for tests now, so they may not be necessary to keep either. So my long-term vision is to have just one library, either static or dynamic, for each component.",
+      "parentUuid": "2d1f0d5d_e54dbf9c",
+      "range": {
+        "startLine": 11,
+        "startChar": 0,
+        "endLine": 11,
+        "endChar": 63
+      },
+      "revId": "076df6fdcadaa86378414c214288624bdb1b4edc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "99ca5088_d2a1db73",
