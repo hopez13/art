@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2a2487b1_d4a41f47",
+        "filename": "compiler/optimizing/intrinsics_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 598,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:53:17Z",
+      "side": 1,
+      "message": "Style: `is_div`.",
+      "range": {
+        "startLine": 598,
+        "startChar": 57,
+        "endLine": 598,
+        "endChar": 62
+      },
+      "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f28234b8_e45f1f7c",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 140,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-11T07:53:17Z",
+      "side": 1,
+      "message": "Please increment the image version. See comment in lines 39-40 in this file. (I find that reasoning badly phrased - we need to update the intrinsic ids encoded in `ArtMethod`\u0027s access flags.)",
+      "revId": "2da955a4c29b8e2e96d71f25a18e7e1bb532bbb4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
