@@ -147,16 +147,15 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     /**
      * Same as above, but starts the job immediately, instead of going through the job scheduler.
      *
-     * @param mapSnapshotsForOta whether to map/unmap snapshots. Only applicable to an OTA update.
      * @return The future of the job, or null if Pre-reboot Dexopt is not enabled.
      */
     @Nullable
-    public synchronized CompletableFuture<Void> onUpdateReadyStartNow(
-            @Nullable String otaSlot, boolean mapSnapshotsForOta) {
+    public synchronized CompletableFuture<Void> onUpdateReadyStartNow(@Nullable String otaSlot) {
         cancelAnyLocked();
         resetLocked();
         updateOtaSlotLocked(otaSlot);
-        mMapSnapshotsForOta = mapSnapshotsForOta;
+        // Don't map snapshots when running synchronously. `update_engine` maps snapshots for us.
+        mMapSnapshotsForOta = false;
         if (!isEnabled()) {
             return null;
         }
@@ -173,11 +172,6 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     public synchronized void cancelGiven(
             @NonNull CompletableFuture<Void> job, boolean expectInterrupt) {
         cancelGivenLocked(job, expectInterrupt);
-    }
-
-    /** @see #cancelAnyLocked */
-    public synchronized void cancelAny() {
-        cancelAnyLocked();
     }
 
     @VisibleForTesting
