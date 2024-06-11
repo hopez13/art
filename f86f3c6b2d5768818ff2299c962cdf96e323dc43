@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0d45d313_5b34da55",
+        "filename": "compiler/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 241,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-06-11T19:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "39677249_db180e76",
+      "range": {
+        "startLine": 241,
+        "startChar": 16,
+        "endLine": 241,
+        "endChar": 61
+      },
+      "revId": "f86f3c6b2d5768818ff2299c962cdf96e323dc43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "275ba131_c79f6c8a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-11T13:42:34Z",
       "side": 1,
       "message": "Use `[[maybe_unused]]` on the argument instead. (Same below and for x86-64.)",
+      "range": {
+        "startLine": 9306,
+        "startChar": 2,
+        "endLine": 9306,
+        "endChar": 22
+      },
+      "revId": "f86f3c6b2d5768818ff2299c962cdf96e323dc43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45fb3040_94de1899",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 9306,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-06-11T19:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "275ba131_c79f6c8a",
       "range": {
         "startLine": 9306,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "07977ceb_41801f4c",
+        "filename": "compiler/optimizing/graph_visualizer.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 645,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-06-11T19:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "faf9ced5_d1f0cbed",
+      "range": {
+        "startLine": 644,
+        "startChar": 0,
+        "endLine": 645,
+        "endChar": 39
+      },
+      "revId": "f86f3c6b2d5768818ff2299c962cdf96e323dc43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2b2f28fa_02e36bfa",
@@ -93,6 +165,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "849da6bd_937a0a82",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 1656,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-06-11T19:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2b2f28fa_02e36bfa",
+      "range": {
+        "startLine": 1656,
+        "startChar": 4,
+        "endLine": 1656,
+        "endChar": 40
+      },
+      "revId": "f86f3c6b2d5768818ff2299c962cdf96e323dc43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "876f6dea_10a6a2dc",
@@ -106,6 +202,30 @@
       "writtenOn": "2024-06-11T13:42:34Z",
       "side": 1,
       "message": "ditto",
+      "range": {
+        "startLine": 8489,
+        "startChar": 4,
+        "endLine": 8489,
+        "endChar": 39
+      },
+      "revId": "f86f3c6b2d5768818ff2299c962cdf96e323dc43",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06e9134f_44c46cc8",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 8489,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-06-11T19:04:31Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "876f6dea_10a6a2dc",
       "range": {
         "startLine": 8489,
         "startChar": 4,
