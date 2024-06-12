@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "22cdedc8_10b371e2",
+        "filename": "Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 40,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-12T13:12:18Z",
+      "side": 1,
+      "message": "I wonder if we can move this to `build/core/tasks/art.mk` too. It looks like a workaround to get rid of stale oat files. I\u0027m not sure we still need it once we have fully migrated to Sandboxed Soong implementation.",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 40,
+        "endChar": 1
+      },
+      "revId": "cd8fe579c4952f90e9db4bc71b8c1322493be1d7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
