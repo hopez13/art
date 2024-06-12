@@ -51,6 +51,24 @@
       "parentUuid": "95ede836_8bb3a921",
       "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7a402fcd_0dca6551",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-06-12T16:32:25Z",
+      "side": 1,
+      "message": "Hmm, good point. Since there are no build errors in go/git_master-art-host, does this mean that `libz` is an unused dep for users of `art_libunwindstack_static_defaults` like `signal_dumper`?",
+      "parentUuid": "14a6948c_b645154e",
+      "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
