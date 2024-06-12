@@ -69,6 +69,24 @@
       "parentUuid": "14a6948c_b645154e",
       "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "5849071b_8b1212c8",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-12T16:37:15Z",
+      "side": 1,
+      "message": "Doesn\u0027t libunwindstack itself use it? If it doesn\u0027t then we shouldn\u0027t need the shared_lib dep [in there](https://cs.android.com/android/platform/superproject/main/+/main:system/unwinding/libunwindstack/Android.bp;l\u003d138;drc\u003d0207dae4744ae12d4029925dd2c596f13e553428) at all, should we?\n\nMy interpretation is rather that libz gets pulled in from somewhere else, but I haven\u0027t double checked all the dependencies.",
+      "parentUuid": "7a402fcd_0dca6551",
+      "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
