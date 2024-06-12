@@ -33,6 +33,24 @@
       "message": "I think the presubmit errors are unrelated. Other reviewers seem to be running into the test-mapping-art-mainline-presubmit test failures, possibly caused by b/346510164\n\nBypassing presubmit since I had a PV+2 vote previously",
       "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "14a6948c_b645154e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-12T12:16:28Z",
+      "side": 1,
+      "message": "Ok. But where is it getting libz from now? I suspect the reason there\u0027s no CI breakage is that it gets pulled in incidentally by an unrelated dependency. libunwindstack [still depends](https://cs.android.com/android/platform/superproject/main/+/main:system/unwinding/libunwindstack/Android.bp;l\u003d138;drc\u003d0207dae4744ae12d4029925dd2c596f13e553428) on libz, and the `whole_static_libs` dependency doesn\u0027t propagate that, so I think https://r.android.com/3124154 should be reverted now that this is in. I\u0027ve created https://r.android.com/3127993.",
+      "parentUuid": "95ede836_8bb3a921",
+      "revId": "c5489de0313ad02602a128d4de01ef6ad5b91ae8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
