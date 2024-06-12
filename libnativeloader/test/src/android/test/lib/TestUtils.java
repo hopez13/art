@@ -43,6 +43,10 @@ public final class TestUtils {
         return dir + "/" + libDirName + "/lib" + libName + ".so";
     }
 
+    public static boolean hasSystemExt() {
+        return new File("/system_ext").isDirectory();
+    }
+
     // True if we have to skip testing public libraries in the product
     // partition, which got supported in T.
     public static boolean skipPublicProductLibTests() {

@@ -73,7 +73,7 @@ java_library {
     srcs: ["src/android/test/systemsharedlib/SystemSharedLib.java"],
 }
 
-// Test fixture that represents a shared library in /system_ext/framework.
+// Test fixture that represents a shared library in /system_ext/framework, if /system_ext exists.
 java_library {
     name: "libnativeloader_system_ext_shared_lib",
     sdk_version: "31",

@@ -16,12 +16,27 @@
 
 package android.test.systemextsharedlib;
 
+import java.io.File;
+
+// This shared lib gets installed in /system if /system_ext doesn't exist.
+// That's only to support the imports in the test apps, but it shouldn't be used
+// in that case.
 public final class SystemExtSharedLib {
     public static void loadLibrary(String name) {
+        if (!hasSystemExt()) {
+            throw new RuntimeException("Should not be called when /system_ext doesn't exist.");
+        }
         System.loadLibrary(name);
     }
 
     public static void load(String path) {
+        if (!hasSystemExt()) {
+            throw new RuntimeException("Should not be called when /system_ext doesn't exist.");
+        }
         System.load(path);
+    }
+
+    private static boolean hasSystemExt() {
+        return new File("/system_ext").isDirectory();
     }
 }

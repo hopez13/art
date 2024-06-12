@@ -19,6 +19,8 @@ package android.test.hostside;
 import static com.google.common.truth.Truth.assertThat;
 import static com.google.common.truth.Truth.assertWithMessage;
 
+import static org.junit.Assume.assumeTrue;
+
 import com.android.compatibility.common.tradefed.build.CompatibilityBuildHelper;
 import com.android.tradefed.build.IBuildInfo;
 import com.android.tradefed.device.DeviceNotAvailableException;
@@ -73,8 +75,16 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
         }
         ctx.pushSharedLib(
                 "/system", "android.test.systemsharedlib", "libnativeloader_system_shared_lib.jar");
-        ctx.pushSharedLib("/system_ext", "android.test.systemextsharedlib",
-                "libnativeloader_system_ext_shared_lib.jar");
+        if (ctx.mHasSystemExt) {
+            ctx.pushSharedLib("/system_ext", "android.test.systemextsharedlib",
+                    "libnativeloader_system_ext_shared_lib.jar");
+        } else {
+            // If /system_ext doesn't exist we push this test library to /system
+            // instead, just to be able to import it into the test apps
+            // regardless. They'll run no tests with this library in that case.
+            ctx.pushSharedLib("/system", "android.test.systemextsharedlib",
+                    "libnativeloader_system_ext_shared_lib.jar");
+        }
         ctx.pushSharedLib("/product", "android.test.productsharedlib",
                 "libnativeloader_product_shared_lib.jar");
         ctx.pushSharedLib(
@@ -92,7 +102,9 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
         ctx.pushApk("loadlibrarytest_system_app", "/system/app");
 
         // For testSystemExtApp
-        ctx.pushApk("loadlibrarytest_system_ext_app", "/system_ext/app");
+        if (ctx.mHasSystemExt) {
+            ctx.pushApk("loadlibrarytest_system_ext_app", "/system_ext/app");
+        }
 
         // For testProductApp
         ctx.pushApk("loadlibrarytest_product_app", "/product/app");
@@ -122,39 +134,46 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
     @Test
     public void testSystemPrivApp() throws Exception {
+        DeviceContext ctx = new DeviceContext(getTestInformation());
         // There's currently no difference in the tests between /system/priv-app and /system/app, so
         // let's reuse the same one.
-        runTests("android.test.app.system_priv", "android.test.app.SystemAppTest");
+        runTests(ctx, "android.test.app.system_priv", "android.test.app.SystemAppTest");
     }
 
     @Test
     public void testSystemApp() throws Exception {
-        runTests("android.test.app.system", "android.test.app.SystemAppTest");
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        runTests(ctx, "android.test.app.system", "android.test.app.SystemAppTest");
     }
 
     @Test
     public void testSystemExtApp() throws Exception {
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        assumeTrue(ctx.mHasSystemExt);
         // /system_ext should behave the same as /system, so run the same test class there.
-        runTests("android.test.app.system_ext", "android.test.app.SystemAppTest");
+        runTests(ctx, "android.test.app.system_ext", "android.test.app.SystemAppTest");
     }
 
     @Test
     public void testProductApp() throws Exception {
-        runTests("android.test.app.product", "android.test.app.ProductAppTest");
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        runTests(ctx, "android.test.app.product", "android.test.app.ProductAppTest");
     }
 
     @Test
     public void testVendorApp() throws Exception {
-        runTests("android.test.app.vendor", "android.test.app.VendorAppTest");
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        runTests(ctx, "android.test.app.vendor", "android.test.app.VendorAppTest");
     }
 
     @Test
     public void testDataApp() throws Exception {
-        runTests("android.test.app.data", "android.test.app.DataAppTest");
+        DeviceContext ctx = new DeviceContext(getTestInformation());
+        runTests(ctx, "android.test.app.data", "android.test.app.DataAppTest");
     }
 
-    private void runTests(String pkgName, String testClassName) throws Exception {
-        DeviceContext ctx = new DeviceContext(getTestInformation());
+    private void runTests(DeviceContext ctx, String pkgName, String testClassName)
+            throws Exception {
         var options = new DeviceTestRunOptions(pkgName)
                               .setTestClassName(testClassName)
                               .addInstrumentationArg("libDirName", ctx.libDirName());
@@ -180,11 +199,17 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
 
         // Adds the given path, or its topmost nonexisting parent directory, to the list of paths to
         // clean up.
-        void addPath(String devicePath) throws DeviceNotAvailableException {
+        void addPath(String devicePath) throws Exception {
             File path = new File(devicePath);
             while (true) {
                 File parentPath = path.getParentFile();
-                if (parentPath == null || mDevice.doesFileExist(parentPath.toString())) {
+                if (parentPath == null) {
+                    // Require the top level directory to exist, so that we
+                    // don't effectively "create" partitions that don't.
+                    throw new Exception(
+                            "Top level directory " + path.toString() + " does not exist.");
+                }
+                if (mDevice.doesFileExist(parentPath.toString())) {
                     break;
                 }
                 path = parentPath;
@@ -211,13 +236,15 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
         ITestDevice mDevice;
         CompatibilityBuildHelper mBuildHelper;
         CleanupPaths mCleanup;
+        boolean mHasSystemExt;
         private String mTestArch;
 
-        DeviceContext(TestInformation testInfo) {
+        DeviceContext(TestInformation testInfo) throws DeviceNotAvailableException {
             mContext = testInfo.getContext();
             mDevice = testInfo.getDevice();
             mBuildHelper = new CompatibilityBuildHelper(testInfo.getBuildInfo());
             mCleanup = new CleanupPaths(mDevice);
+            mHasSystemExt = mDevice.doesFileExist("/system_ext");
         }
 
         public void close() throws DeviceNotAvailableException { mCleanup.cleanup(); }
@@ -237,7 +264,7 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
                 mPublicLibs.add(destName);
             }
 
-            void pushPublicLibrariesFile(String path) throws DeviceNotAvailableException {
+            void pushPublicLibrariesFile(String path) throws Exception {
                 pushString(mPublicLibs.stream().collect(Collectors.joining("\n")) + "\n", path);
             }
         }
@@ -330,7 +357,7 @@ public class LibnativeloaderTest extends BaseHostJUnit4Test {
         // Pushes the given file contents to the device at the given destination path. destPath is
         // assumed to have no risk of overlapping with existing files, and is deleted in tearDown(),
         // along with any directory levels that had to be created.
-        void pushString(String fileContents, String destPath) throws DeviceNotAvailableException {
+        void pushString(String fileContents, String destPath) throws Exception {
             mCleanup.addPath(destPath);
             assertThat(mDevice.pushString(fileContents, destPath)).isTrue();
         }
