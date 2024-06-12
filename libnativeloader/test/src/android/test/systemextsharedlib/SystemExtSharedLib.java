@@ -16,6 +16,9 @@
 
 package android.test.systemextsharedlib;
 
+// This shared lib gets installed in /system if /system_ext doesn't exist.
+// That's only to support the imports in the test apps, but it shouldn't be used
+// in that case.
 public final class SystemExtSharedLib {
     public static void loadLibrary(String name) {
         System.loadLibrary(name);

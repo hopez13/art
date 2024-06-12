@@ -38,7 +38,9 @@ public class SystemAppTest extends AppTestCommon {
     @Test
     public void testPrivateLibsExist() {
         TestUtils.testPrivateLibsExist("/system", "system_private");
-        TestUtils.testPrivateLibsExist("/system_ext", "systemext_private");
+        if (TestUtils.hasSystemExt()) {
+            TestUtils.testPrivateLibsExist("/system_ext", "systemext_private");
+        }
     }
 
     @Test
@@ -58,7 +60,9 @@ public class SystemAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibraries() {
         System.loadLibrary("system_private1");
-        System.loadLibrary("systemext_private1");
+        if (TestUtils.hasSystemExt()) {
+            System.loadLibrary("systemext_private1");
+        }
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(() -> System.loadLibrary("product_private1"));
         }
@@ -76,7 +80,9 @@ public class SystemAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibrariesViaSystemSharedLib() {
         SystemSharedLib.loadLibrary("system_private2");
-        SystemSharedLib.loadLibrary("systemext_private2");
+        if (TestUtils.hasSystemExt()) {
+            SystemSharedLib.loadLibrary("systemext_private2");
+        }
 
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
@@ -88,6 +94,9 @@ public class SystemAppTest extends AppTestCommon {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemExtSharedLib() {
+        if (!TestUtils.hasSystemExt()) {
+            return;
+        }
         SystemExtSharedLib.loadLibrary("system_private3");
         SystemExtSharedLib.loadLibrary("systemext_private3");
 
@@ -105,7 +114,9 @@ public class SystemAppTest extends AppTestCommon {
         // See AppTestCommon.isSharedSystemApp() for an explanation of these
         // behaviours.
         ProductSharedLib.loadLibrary("system_private4");
-        ProductSharedLib.loadLibrary("systemext_private4");
+        if (TestUtils.hasSystemExt()) {
+            ProductSharedLib.loadLibrary("systemext_private4");
+        }
 
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
@@ -120,7 +131,9 @@ public class SystemAppTest extends AppTestCommon {
         // See AppTestCommon.isSharedSystemApp() for an explanation of these
         // behaviours.
         VendorSharedLib.loadLibrary("system_private5");
-        VendorSharedLib.loadLibrary("systemext_private5");
+        if (TestUtils.hasSystemExt()) {
+            VendorSharedLib.loadLibrary("systemext_private5");
+        }
 
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
@@ -141,7 +154,9 @@ public class SystemAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibrariesWithAbsolutePaths() {
         System.load(TestUtils.libPath("/system", "system_private6"));
-        System.load(TestUtils.libPath("/system_ext", "systemext_private6"));
+        if (TestUtils.hasSystemExt()) {
+            System.load(TestUtils.libPath("/system_ext", "systemext_private6"));
+        }
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
                     () -> System.load(TestUtils.libPath("/product", "product_private6")));

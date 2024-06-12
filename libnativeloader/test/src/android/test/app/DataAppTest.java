@@ -50,7 +50,9 @@ public class DataAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibraries() {
         TestUtils.assertLibraryInaccessible(() -> System.loadLibrary("system_private1"));
-        TestUtils.assertLibraryInaccessible(() -> System.loadLibrary("systemext_private1"));
+        if (TestUtils.hasSystemExt()) {
+            TestUtils.assertLibraryInaccessible(() -> System.loadLibrary("systemext_private1"));
+        }
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(() -> System.loadLibrary("product_private1"));
         }
@@ -72,12 +74,16 @@ public class DataAppTest extends AppTestCommon {
             // loadLibrary0 in Runtime.java searches the system libs and converts
             // them to absolute paths.
             SystemSharedLib.loadLibrary("system_private2");
-            SystemSharedLib.loadLibrary("systemext_private2");
+            if (TestUtils.hasSystemExt()) {
+                SystemSharedLib.loadLibrary("systemext_private2");
+            }
         } else {
             TestUtils.assertLibraryInaccessible(
                     () -> { SystemSharedLib.loadLibrary("system_private2"); });
-            TestUtils.assertLibraryInaccessible(
-                    () -> { SystemSharedLib.loadLibrary("systemext_private2"); });
+            if (TestUtils.hasSystemExt()) {
+                TestUtils.assertLibraryInaccessible(
+                        () -> { SystemSharedLib.loadLibrary("systemext_private2"); });
+            }
         }
 
         if (!TestUtils.skipPublicProductLibTests()) {
@@ -90,6 +96,9 @@ public class DataAppTest extends AppTestCommon {
 
     @Test
     public void testLoadPrivateLibrariesViaSystemExtSharedLib() {
+        if (!TestUtils.hasSystemExt()) {
+            return;
+        }
         if (TestUtils.canLoadPrivateLibsFromSamePartition()) {
             // TODO(b/186729817): These loads work because the findLibrary call in
             // loadLibrary0 in Runtime.java searches the system libs and converts
@@ -115,8 +124,10 @@ public class DataAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibrariesViaProductSharedLib() {
         TestUtils.assertLibraryInaccessible(() -> ProductSharedLib.loadLibrary("system_private4"));
-        TestUtils.assertLibraryInaccessible(
-                () -> ProductSharedLib.loadLibrary("systemext_private4"));
+        if (TestUtils.hasSystemExt()) {
+            TestUtils.assertLibraryInaccessible(
+                    () -> ProductSharedLib.loadLibrary("systemext_private4"));
+        }
 
         if (!TestUtils.skipPublicProductLibTests()) {
             ProductSharedLib.loadLibrary("product_private4");
@@ -128,8 +139,10 @@ public class DataAppTest extends AppTestCommon {
     @Test
     public void testLoadPrivateLibrariesViaVendorSharedLib() {
         TestUtils.assertLibraryInaccessible(() -> VendorSharedLib.loadLibrary("system_private5"));
-        TestUtils.assertLibraryInaccessible(
-                () -> VendorSharedLib.loadLibrary("systemext_private5"));
+        if (TestUtils.hasSystemExt()) {
+            TestUtils.assertLibraryInaccessible(
+                    () -> VendorSharedLib.loadLibrary("systemext_private5"));
+        }
 
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
@@ -151,8 +164,10 @@ public class DataAppTest extends AppTestCommon {
     public void testLoadPrivateLibrariesWithAbsolutePaths() {
         TestUtils.assertLibraryInaccessible(
                 () -> System.load(TestUtils.libPath("/system", "system_private6")));
-        TestUtils.assertLibraryInaccessible(
-                () -> System.load(TestUtils.libPath("/system_ext", "systemext_private6")));
+        if (TestUtils.hasSystemExt()) {
+            TestUtils.assertLibraryInaccessible(
+                    () -> System.load(TestUtils.libPath("/system_ext", "systemext_private6")));
+        }
         if (!TestUtils.skipPublicProductLibTests()) {
             TestUtils.assertLibraryInaccessible(
                     () -> System.load(TestUtils.libPath("/product", "product_private6")));
