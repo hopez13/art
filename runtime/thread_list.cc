@@ -554,57 +554,61 @@ void ThreadList::FlipThreadRoots(Closure* thread_flip_visitor,
   const uint64_t suspend_start_time = NanoTime();
   VLOG(threads) << "Suspending all for thread flip";
   SuspendAllInternal(self);
-  if (pause_listener != nullptr) {
-    pause_listener->StartPause();
-  }
-
-  // Run the flip callback for the collector.
-  Locks::mutator_lock_->ExclusiveLock(self);
-  suspend_all_histogram_.AdjustAndAddValue(NanoTime() - suspend_start_time);
-  flip_callback->Run(self);
 
   std::vector<Thread*> flipping_threads;  // All suspended threads. Includes us.
   int thread_count;
   // Flipping threads might exit between the time we resume them and try to run the flip function.
   // Track that in a parallel vector.
   std::unique_ptr<ThreadExitFlag[]> exit_flags;
+
   {
-    TimingLogger::ScopedTiming split2("ResumeRunnableThreads", collector->GetTimings());
-    MutexLock mu(self, *Locks::thread_list_lock_);
-    MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
-    thread_count = list_.size();
-    exit_flags.reset(new ThreadExitFlag[thread_count]);
-    flipping_threads.resize(thread_count, nullptr);
-    int i = 1;
-    for (Thread* thread : list_) {
-      // Set the flip function for all threads because once we start resuming any threads,
-      // they may need to run the flip function on behalf of other threads, even this one.
-      DCHECK(thread == self || thread->IsSuspended());
-      thread->SetFlipFunction(thread_flip_visitor);
-      // Put ourselves first, so other threads are more likely to have finished before we get
-      // there.
-      int thread_index = thread == self ? 0 : i++;
-      flipping_threads[thread_index] = thread;
-      thread->NotifyOnThreadExit(&exit_flags[thread_index]);
+    TimingLogger::ScopedTiming t("FlipThreadSuspension", collector->GetTimings());
+    if (pause_listener != nullptr) {
+      pause_listener->StartPause();
     }
-    DCHECK(i == thread_count);
-  }
 
-  if (pause_listener != nullptr) {
-    pause_listener->EndPause();
-  }
-  // Any new threads created after this will be created by threads that already ran their flip
-  // functions. In the normal GC use case in which the flip function converts all local references
-  // to to-space references, these newly created threads will also see only to-space references.
+    // Run the flip callback for the collector.
+    Locks::mutator_lock_->ExclusiveLock(self);
+    suspend_all_histogram_.AdjustAndAddValue(NanoTime() - suspend_start_time);
+    flip_callback->Run(self);
 
-  // Resume threads, making sure that we do not release suspend_count_lock_ until we've reacquired
-  // the mutator_lock_ in shared mode, and decremented suspend_all_count_.  This avoids a
-  // concurrent SuspendAll, and ensures that newly started threads see a correct value of
-  // suspend_all_count.
-  {
-    MutexLock mu(self, *Locks::thread_list_lock_);
-    Locks::thread_suspend_count_lock_->Lock(self);
-    ResumeAllInternal(self);
+    {
+      MutexLock mu(self, *Locks::thread_list_lock_);
+      MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
+      thread_count = list_.size();
+      exit_flags.reset(new ThreadExitFlag[thread_count]);
+      flipping_threads.resize(thread_count, nullptr);
+      int i = 1;
+      for (Thread* thread : list_) {
+        // Set the flip function for all threads because once we start resuming any threads,
+        // they may need to run the flip function on behalf of other threads, even this one.
+        DCHECK(thread == self || thread->IsSuspended());
+        thread->SetFlipFunction(thread_flip_visitor);
+        // Put ourselves first, so other threads are more likely to have finished before we get
+        // there.
+        int thread_index = thread == self ? 0 : i++;
+        flipping_threads[thread_index] = thread;
+        thread->NotifyOnThreadExit(&exit_flags[thread_index]);
+      }
+      DCHECK(i == thread_count);
+    }
+
+    if (pause_listener != nullptr) {
+      pause_listener->EndPause();
+    }
+    // Any new threads created after this will be created by threads that already ran their flip
+    // functions. In the normal GC use case in which the flip function converts all local references
+    // to to-space references, these newly created threads will also see only to-space references.
+
+    // Resume threads, making sure that we do not release suspend_count_lock_ until we've reacquired
+    // the mutator_lock_ in shared mode, and decremented suspend_all_count_.  This avoids a
+    // concurrent SuspendAll, and ensures that newly started threads see a correct value of
+    // suspend_all_count.
+    {
+      MutexLock mu(self, *Locks::thread_list_lock_);
+      Locks::thread_suspend_count_lock_->Lock(self);
+      ResumeAllInternal(self);
+    }
   }
 
   collector->RegisterPause(NanoTime() - suspend_start_time);
@@ -955,6 +959,7 @@ void ThreadList::ResumeAll() {
   }
   MutexLock mu(self, *Locks::thread_list_lock_);
   MutexLock mu2(self, *Locks::thread_suspend_count_lock_);
+  ATraceEnd();  // Matching "Mutator threads suspended ..." in SuspendAll.
   ResumeAllInternal(self);
 }
 
@@ -966,8 +971,6 @@ void ThreadList::ResumeAllInternal(Thread* self) {
   } else {
     VLOG(threads) << "Thread[null] ResumeAll starting";
   }
-
-  ATraceEnd();
 
   ScopedTrace trace("Resuming mutator threads");
 
