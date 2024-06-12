@@ -217,6 +217,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d28a1906_2b8ab6d7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-12T15:09:45Z",
+      "side": 1,
+      "message": "I `objdump`ed arm64 `libart.so` without (\"before\") and with (\"after\") this CL, found the first function that started at a different offset and looked at the disassembly of the function before that. There were some minor differences in spilling, but the first significant difference was that the\n\n      bl [...] \u003c_ZNKSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE5rfindEcm@plt\u003e\n\nfrom \"before\" was actually inlined in \"after\". If we\u0027re inlining more of `std::string` functions with c++20, the code size growth is not surprising, even if it\u0027s the rarely used `rfind(char)`.\n\nI think we should just accept this and submit.",
+      "parentUuid": "45d98dc4_6ca9d27a",
+      "revId": "f5b2978f7349f0715dcf6d0baad02593a847a3eb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "90ebe2fc_758725a8",
         "filename": "libartbase/base/bit_struct_detail.h",
         "patchSetId": 3
