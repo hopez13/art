@@ -17,15 +17,15 @@
 #ifndef ART_RUNTIME_SCOPED_THREAD_STATE_CHANGE_INL_H_
 #define ART_RUNTIME_SCOPED_THREAD_STATE_CHANGE_INL_H_
 
-#include "scoped_thread_state_change.h"
-
 #include <android-base/logging.h>
+#include <sys/resource.h>
 
 #include "base/casts.h"
 #include "base/mutex.h"
 #include "jni/jni_env_ext-inl.h"
 #include "obj_ptr-inl.h"
 #include "runtime.h"
+#include "scoped_thread_state_change.h"
 #include "thread-inl.h"
 
 namespace art HIDDEN {
@@ -116,6 +116,36 @@ inline ScopedObjectAccessUnchecked::ScopedObjectAccessUnchecked(Thread* self)
 inline ScopedObjectAccess::ScopedObjectAccess(JNIEnv* env) : ScopedObjectAccessUnchecked(env) {}
 inline ScopedObjectAccess::ScopedObjectAccess(Thread* self) : ScopedObjectAccessUnchecked(self) {}
 inline ScopedObjectAccess::~ScopedObjectAccess() {}
+
+inline void ScopedPriorityObjectAccess::SetOldPriority() {
+  old_priority_ = getpriority(PRIO_PROCESS, 0);
+  if (old_priority_ > 0) {
+    // Reduce nicenesss to zero, increasing our priority.
+    // Should succeed on Android; will probably fail elsewhere.
+    int ret = setpriority(PRIO_PROCESS, 0, 0);
+    if (ret == 0) {
+      return;
+    }
+  }
+  // Error cases and niceness <= 0 end up here.
+  old_priority_ = kPriorityNotSet;
+}
+
+inline ScopedPriorityObjectAccess::ScopedPriorityObjectAccess(JNIEnv* env)
+    : ScopedObjectAccess(env) {
+  SetOldPriority();
+}
+inline ScopedPriorityObjectAccess::ScopedPriorityObjectAccess(Thread* self)
+    : ScopedObjectAccess(self) {
+  SetOldPriority();
+}
+inline ScopedPriorityObjectAccess::~ScopedPriorityObjectAccess() {
+  if (old_priority_ != kPriorityNotSet) {
+    int ret = setpriority(PRIO_PROCESS, 0, old_priority_);
+    // Increasing our niceness should always work, especially since decreasing it did.
+    CHECK_EQ(ret, 0) << strerror(errno);
+  }
+}
 
 inline ScopedThreadSuspension::ScopedThreadSuspension(Thread* self, ThreadState suspended_state)
     : self_(self), suspended_state_(suspended_state) {

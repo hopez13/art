@@ -192,6 +192,36 @@ class ScopedObjectAccess : public ScopedObjectAccessUnchecked {
   DISALLOW_COPY_AND_ASSIGN(ScopedObjectAccess);
 };
 
+// A version of ScopedObjectAccess that ensures that our thread priority, while Runnable, is no
+// lower than normal.  This helps to avoid situations in which we are Runnable for extended
+// periods and not checking for suspend requests, but may not actually make progress due to low
+// priority. Only use as a last resort for longer-running code sections.  Adds a few microseconds
+// overhead.
+// Just sets kernel niceness; may not interact correctly with Java calls that touch thread
+// priority. (If the code makes Java calls, it probably doesn't need this anyway.)
+// Avoid wherever possible by not staying Runnable for long without checking for
+// suspension requests.
+// This overrides the caller's choice if thread priority. But not doing this effectively
+// dramatically reduces the priority of a thread trying to suspend us, also overriding its choice,
+// possibly to much worse effect.
+class ScopedPriorityObjectAccess : public ScopedObjectAccess {
+ public:
+  ALWAYS_INLINE explicit ScopedPriorityObjectAccess(JNIEnv* env)
+      REQUIRES(!Locks::thread_suspend_count_lock_) SHARED_LOCK_FUNCTION(Locks::mutator_lock_);
+
+  ALWAYS_INLINE explicit ScopedPriorityObjectAccess(Thread* self)
+      REQUIRES(!Locks::thread_suspend_count_lock_) SHARED_LOCK_FUNCTION(Locks::mutator_lock_);
+
+  // Base class will release share of lock. Invoked after this destructor.
+  ~ScopedPriorityObjectAccess() UNLOCK_FUNCTION(Locks::mutator_lock_) ALWAYS_INLINE;
+
+ private:
+  static constexpr int kPriorityNotSet = -100;
+  int old_priority_;
+  void SetOldPriority();
+  DISALLOW_COPY_AND_ASSIGN(ScopedPriorityObjectAccess);
+};
+
 // Annotalysis helper for going to a suspended state from runnable.
 class ScopedThreadSuspension : public ValueObject {
  public:
