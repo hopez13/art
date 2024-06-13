@@ -103,11 +103,13 @@ gensrcs {
 
 cc_defaults {
     name: "libart-dex2oat_static_base_defaults",
+    defaults: [
+        "art_liblog_static_defaults",
+        "art_libz_static_defaults",
+    ],
     whole_static_libs: [
         "libbase",
-        "liblog",
         "liblz4",
-        "libz",
     ],
     static_libs: [
         // Cannot use whole_static_libs for libcrypto_for_art since it's a

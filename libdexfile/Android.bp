@@ -124,10 +124,12 @@ cc_defaults {
 
 cc_defaults {
     name: "libdexfile_static_base_defaults",
+    defaults: [
+        "art_liblog_static_defaults",
+        "art_libz_static_defaults",
+    ],
     whole_static_libs: [
         "libbase",
-        "liblog",
-        "libz",
         "libziparchive",
     ],
 }
