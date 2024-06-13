@@ -615,6 +615,8 @@ static bool RegisterMemBarrierForClassInitialization() {
 ClassLinker::ClassLinker(InternTable* intern_table, bool fast_class_not_found_exceptions)
     : boot_class_table_(new ClassTable()),
       failed_dex_cache_class_lookups_(0),
+      num_walk_super_classes_(0),
+      num_fast_visit_refs_(0),
       class_roots_(nullptr),
       find_array_class_cache_next_victim_(0),
       init_done_(false),
@@ -2696,6 +2698,10 @@ ClassLinker::~ClassLinker() {
         std::addressof(running_visibly_initialized_callbacks_.front()));
     running_visibly_initialized_callbacks_.pop_front();
   }
+  LOG(INFO) << __FUNCTION__ << " OptStat#WalkSuperClasses: "
+            << num_walk_super_classes_.load(std::memory_order_relaxed)
+            << " OptStat#FastVisitRefsClasses: "
+            << num_fast_visit_refs_.load(std::memory_order_relaxed);
 }
 
 void ClassLinker::PrepareToDeleteClassLoader(Thread* self,
@@ -9893,6 +9899,9 @@ void ClassLinker::CreateReferenceInstanceOffsets(Handle<mirror::Class> klass) {
                                         sizeof(mirror::HeapReference<mirror::Object>));
         uint32_t start_bit = (start_offset - mirror::kObjectHeaderSize) /
             sizeof(mirror::HeapReference<mirror::Object>);
+        start_bit + num_reference_fields > 30 ?
+            num_walk_super_classes_.fetch_add(1, std::memory_order_relaxed) :
+            num_fast_visit_refs_.fetch_add(1, std::memory_order_relaxed);
         if (start_bit + num_reference_fields > 32) {
           reference_offsets = mirror::Class::kClassWalkSuper;
         } else {
