@@ -74,6 +74,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c6c27228_e320fafe",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-13T09:29:34Z",
+      "side": 1,
+      "message": "I see `Runtime::StartDaemonThreads()` being called from `Runtime::Start()` and `dex2oat` never calls `Runtime::Start()`, so I assume those daemons do not even exist here.",
+      "parentUuid": "07ef5fe2_c64a2718",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3e5d8ea3_4e1e1a35",
         "filename": "runtime/monitor.cc",
         "patchSetId": 2
