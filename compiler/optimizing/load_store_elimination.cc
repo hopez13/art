@@ -24,6 +24,7 @@
 #include "base/arena_allocator.h"
 #include "base/arena_bit_vector.h"
 #include "base/array_ref.h"
+#include "base/bit_utils_iterator.h"
 #include "base/bit_vector-inl.h"
 #include "base/bit_vector.h"
 #include "base/globals.h"
@@ -304,8 +305,11 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     struct NeedsNonLoopPhiMarker {
       PhiPlaceholder phi_;
     };
-    struct NeedsLoopPhiMarker {
+    struct NeedsPlainLoopPhiMarker {
       PhiPlaceholder phi_;
+    };
+    struct NeedsConvertedLoopPhiMarker {
+      HInstruction* load_;  // Load from a narrower location than the loop phi it needs.
     };
 
     static constexpr Value Invalid() {
@@ -335,7 +339,11 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     }
 
     static constexpr Value ForLoopPhiPlaceholder(PhiPlaceholder phi_placeholder) {
-      return Value(NeedsLoopPhiMarker{phi_placeholder});
+      return Value(NeedsPlainLoopPhiMarker{phi_placeholder});
+    }
+
+    static constexpr Value ForConvertedLoopPhiPlaceholder(HInstruction* load) {
+      return Value(NeedsConvertedLoopPhiMarker{load});
     }
 
     static constexpr Value ForPhiPlaceholder(PhiPlaceholder phi_placeholder, bool needs_loop_phi) {
@@ -370,8 +378,16 @@ class LSEVisitor final : private HGraphDelegateVisitor {
       return std::holds_alternative<NeedsNonLoopPhiMarker>(value_);
     }
 
+    bool NeedsPlainLoopPhi() const {
+      return std::holds_alternative<NeedsPlainLoopPhiMarker>(value_);
+    }
+
+    bool NeedsConvertedLoopPhi() const {
+      return std::holds_alternative<NeedsConvertedLoopPhiMarker>(value_);
+    }
+
     bool NeedsLoopPhi() const {
-      return std::holds_alternative<NeedsLoopPhiMarker>(value_);
+      return NeedsPlainLoopPhi() || NeedsConvertedLoopPhi();
     }
 
     bool NeedsPhi() const {
@@ -384,17 +400,22 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     }
 
     PhiPlaceholder GetPhiPlaceholder() const {
-      DCHECK(NeedsPhi());
       if (NeedsNonLoopPhi()) {
         return std::get<NeedsNonLoopPhiMarker>(value_).phi_;
       } else {
-        return std::get<NeedsLoopPhiMarker>(value_).phi_;
+        DCHECK(NeedsPlainLoopPhi());
+        return std::get<NeedsPlainLoopPhiMarker>(value_).phi_;
       }
     }
 
     size_t GetHeapLocation() const {
       DCHECK(NeedsPhi()) << this;
       return GetPhiPlaceholder().GetHeapLocation();
+    }
+
+    HInstruction* GetLoopPhiConversionLoad() const {
+      DCHECK(NeedsConvertedLoopPhi());
+      return std::get<NeedsConvertedLoopPhiMarker>(value_).load_;
     }
 
     constexpr bool ExactEquals(Value other) const;
@@ -414,7 +435,8 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     using ValueHolder = std::variant<ValuelessType,
                                      HInstruction*,
                                      NeedsNonLoopPhiMarker,
-                                     NeedsLoopPhiMarker>;
+                                     NeedsPlainLoopPhiMarker,
+                                     NeedsConvertedLoopPhiMarker>;
     constexpr ValuelessType GetValuelessType() const {
       return std::get<ValuelessType>(value_);
     }
@@ -428,10 +450,29 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     static_assert(std::is_move_assignable<PhiPlaceholder>::value);
   };
 
-  friend constexpr bool operator==(const Value::NeedsLoopPhiMarker& p1,
-                                   const Value::NeedsLoopPhiMarker& p2);
+  friend constexpr bool operator==(const Value::NeedsPlainLoopPhiMarker& p1,
+                                   const Value::NeedsPlainLoopPhiMarker& p2);
+  friend constexpr bool operator==(const Value::NeedsConvertedLoopPhiMarker& p1,
+                                   const Value::NeedsConvertedLoopPhiMarker& p2);
   friend constexpr bool operator==(const Value::NeedsNonLoopPhiMarker& p1,
                                    const Value::NeedsNonLoopPhiMarker& p2);
+
+  // TODO: Collecting type conversions in `uint32_t` is efficient but ugly.
+  Value SkipTypeConversions(Value value, /*input*/ uint32_t* type_conversions = nullptr) const {
+    while (value.NeedsConvertedLoopPhi()) {
+      HInstruction* conversion_load = value.GetLoopPhiConversionLoad();
+      DCHECK(!conversion_load->IsVecLoad());
+      if (type_conversions != nullptr) {
+        static_assert(enum_cast<>(DataType::Type::kLast) < BitSizeOf<uint32_t>());
+        *type_conversions |= 1u << enum_cast<>(conversion_load->GetType());
+      }
+      ValueRecord* prev_record = loads_requiring_loop_phi_[conversion_load->GetId()];
+      DCHECK(prev_record != nullptr);
+      DCHECK(prev_record->value.NeedsLoopPhi());
+      value = prev_record->value;
+    }
+    return value;
+  }
 
   // Get Phi placeholder index for access to `phi_placeholder_replacements_`
   // and "visited" bit vectors during depth-first searches.
@@ -446,7 +487,7 @@ class LSEVisitor final : private HGraphDelegateVisitor {
   }
 
   size_t PhiPlaceholderIndex(Value phi_placeholder) const {
-    return PhiPlaceholderIndex(phi_placeholder.GetPhiPlaceholder());
+    return PhiPlaceholderIndex(SkipTypeConversions(phi_placeholder).GetPhiPlaceholder());
   }
 
   bool IsEscapingObject(ReferenceInfo* info) { return !info->IsSingletonAndRemovable(); }
@@ -467,7 +508,14 @@ class LSEVisitor final : private HGraphDelegateVisitor {
 
   Value Replacement(Value value) const {
     DCHECK(value.NeedsPhi()) << value << " phase: " << current_phase_;
-    Value replacement = phi_placeholder_replacements_[PhiPlaceholderIndex(value)];
+    Value replacement;
+    if (value.NeedsConvertedLoopPhi()) {
+      HInstruction* substitute = FindSubstitute(replacement.GetLoopPhiConversionLoad());
+      // TODO: Check if this is correct for all callers.
+      replacement = (substitute != nullptr) ? Value::ForInstruction(substitute) : Value::Unknown();
+    } else {
+      replacement = phi_placeholder_replacements_[PhiPlaceholderIndex(value)];
+    }
     DCHECK(replacement.IsUnknown() || replacement.IsInstruction());
     DCHECK(replacement.IsUnknown() ||
            FindSubstitute(replacement.GetInstruction()) == replacement.GetInstruction());
@@ -490,6 +538,66 @@ class LSEVisitor final : private HGraphDelegateVisitor {
     Value stored_by;
   };
 
+  // Caculate the value stored in location `idx` for a loop Phi placeholder-dependent `load`.
+  Value StoredValueForLoopPhiPlaceholderDependentLoad(size_t idx, HInstruction* load) const {
+    DCHECK(IsLoad(load));
+    DCHECK_LT(static_cast<size_t>(load->GetId()), loads_requiring_loop_phi_.size());
+    DCHECK(loads_requiring_loop_phi_[load->GetId()] != nullptr);
+    Value loaded_value = loads_requiring_loop_phi_[load->GetId()]->value;
+    DCHECK(loaded_value.NeedsLoopPhi());
+    DataType::Type load_type = load->GetType();
+    size_t load_size = DataType::Size(load_type);
+    size_t store_size = DataType::Size(heap_location_collector_.GetHeapLocation(idx)->GetType());
+
+    if (kIsDebugBuild && load->IsVecLoad()) {
+      // For vector operations, the load type is always `Float64` and therefore the store size is
+      // never higher and we do not record any conversions below. This is OK because we currently
+      // do not vectorize any loops with widening operations.
+      CHECK_EQ(load_size, DataType::Size(DataType::Type::kFloat64));
+      CHECK_LE(store_size, load_size);
+      CHECK(!loaded_value.NeedsConvertedLoopPhi());
+    } else if (kIsDebugBuild) {
+      // There are no implicit conversions between 64-bit types and smaller types.
+      // We shall not record any conversions for 64-bit types.
+      CHECK_EQ(load_size == DataType::Size(DataType::Type::kInt64),
+               store_size == DataType::Size(DataType::Type::kInt64));
+      CHECK_IMPLIES(load_size == DataType::Size(DataType::Type::kInt64),
+                    !loaded_value.NeedsConvertedLoopPhi());
+    }
+    // The `loaded_value` can record a conversion only if the `load` was from
+    // a wider field than the previous converting load.
+    DCHECK_IMPLIES(loaded_value.NeedsConvertedLoopPhi(),
+                   load_size > DataType::Size(loaded_value.GetLoopPhiConversionLoad()->GetType()));
+
+    Value value = loaded_value;
+    if (load_size < store_size) {
+      // Add a type conversion to a narrow type unless it's an implicit conversion
+      // from an already converted value.
+      if (loaded_value.NeedsConvertedLoopPhi() &&
+          DataType::IsTypeConversionImplicit(loaded_value.GetLoopPhiConversionLoad()->GetType(),
+                                             load_type)) {
+        DCHECK(value.Equals(loaded_value));
+      } else {
+        value = Value::ForConvertedLoopPhiPlaceholder(load);
+      }
+    } else {
+      // Remove conversions to types at least as wide as the field we're storing to.
+      // We record only conversions that define sign-/zero-extension bits to store.
+      while (value.NeedsConvertedLoopPhi() &&
+             DataType::Size(value.GetLoopPhiConversionLoad()->GetType()) >= store_size) {
+        HInstruction* conversion_load = value.GetLoopPhiConversionLoad();
+        ValueRecord* prev_record =
+            loads_requiring_loop_phi_[value.GetLoopPhiConversionLoad()->GetId()];
+        DCHECK(prev_record != nullptr);
+        value = prev_record->value;
+        DCHECK(value.NeedsLoopPhi());
+      }
+    }
+
+    DCHECK_EQ(PhiPlaceholderIndex(loaded_value), PhiPlaceholderIndex(value));
+    return value;
+  }
+
   HTypeConversion* FindOrAddTypeConversionIfNecessary(HInstruction* instruction,
                                                       HInstruction* value,
                                                       DataType::Type expected_type) {
@@ -501,6 +609,10 @@ class LSEVisitor final : private HGraphDelegateVisitor {
         IsZeroBitPattern(value)) {
       return nullptr;
     }
+
+    // All vector instructions report their type as `Float64`, so the conversion is implicit.
+    // This is OK because we currently do not vectorize any loops with widening operations.
+    DCHECK(!instruction->IsVecLoad());
 
     // Check if there is already a suitable TypeConversion we can reuse.
     for (const HUseListNode<HInstruction*>& use : value->GetUses()) {
@@ -1207,9 +1319,14 @@ constexpr bool operator==(const LSEVisitor::PhiPlaceholder& p1,
   return p1.Equals(p2);
 }
 
-constexpr bool operator==(const LSEVisitor::Value::NeedsLoopPhiMarker& p1,
-                          const LSEVisitor::Value::NeedsLoopPhiMarker& p2) {
+constexpr bool operator==(const LSEVisitor::Value::NeedsPlainLoopPhiMarker& p1,
+                          const LSEVisitor::Value::NeedsPlainLoopPhiMarker& p2) {
   return p1.phi_ == p2.phi_;
+}
+
+constexpr bool operator==(const LSEVisitor::Value::NeedsConvertedLoopPhiMarker& p1,
+                          const LSEVisitor::Value::NeedsConvertedLoopPhiMarker& p2) {
+  return p1.load_ == p2.load_;
 }
 
 constexpr bool operator==(const LSEVisitor::Value::NeedsNonLoopPhiMarker& p1,
@@ -1253,9 +1370,12 @@ std::ostream& LSEVisitor::Value::Dump(std::ostream& os) const {
   } else if (IsInstruction()) {
     return os << "Instruction[id: " << GetInstruction()->GetId()
               << ", block: " << GetInstruction()->GetBlock()->GetBlockId() << "]";
-  } else if (NeedsLoopPhi()) {
-    return os << "NeedsLoopPhi[block: " << GetPhiPlaceholder().GetBlockId()
+  } else if (NeedsPlainLoopPhi()) {
+    return os << "NeedsPlainLoopPhi[block: " << GetPhiPlaceholder().GetBlockId()
               << ", heap_loc: " << GetPhiPlaceholder().GetHeapLocation() << "]";
+  } else if (NeedsConvertedLoopPhi()) {
+    return os << "NeedsConvertedLoopPhi[id: " << GetLoopPhiConversionLoad()->GetId()
+              << ", block: " << GetLoopPhiConversionLoad()->GetBlock()->GetBlockId() << "]";
   } else {
     return os << "NeedsNonLoopPhi[block: " << GetPhiPlaceholder().GetBlockId()
               << ", heap_loc: " << GetPhiPlaceholder().GetHeapLocation() << "]";
@@ -1544,6 +1664,9 @@ void LSEVisitor::MaterializeNonLoopPhis(PhiPlaceholder phi_placeholder, DataType
 
 void LSEVisitor::VisitGetLocation(HInstruction* instruction, size_t idx) {
   DCHECK_NE(idx, HeapLocationCollector::kHeapLocationNotFound);
+  DCHECK_EQ(DataType::Size(heap_location_collector_.GetHeapLocation(idx)->GetType()),
+            DataType::Size(instruction->IsVecLoad() ? instruction->AsVecLoad()->GetPackedType()
+                                                    : instruction->GetType()));
   uint32_t block_id = instruction->GetBlock()->GetBlockId();
   ScopedArenaVector<ValueRecord>& heap_values = heap_values_for_[block_id];
   ValueRecord& record = heap_values[idx];
@@ -1593,13 +1716,26 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
   if (instruction->IsFieldAccess()) {
     RecordFieldInfo(&instruction->GetFieldInfo(), idx);
   }
-  // value may already have a substitute.
+  // The `value` may already have a substitute.
   value = FindSubstitute(value);
   HBasicBlock* block = instruction->GetBlock();
   ScopedArenaVector<ValueRecord>& heap_values = heap_values_for_[block->GetBlockId()];
   ValueRecord& record = heap_values[idx];
   DCHECK_IMPLIES(record.value.IsInstruction(),
                  FindSubstitute(record.value.GetInstruction()) == record.value.GetInstruction());
+
+  // Calculate the new `Value` to store to the `record`.
+  Value new_value = Value::ForInstruction(value);
+  // Note that the `value` can be a newly created `Phi` with an id that falls outside
+  // the allocated `loads_requiring_loop_phi_` range.
+  DCHECK_IMPLIES(IsLoad(value) && !loads_requiring_loop_phi_.empty(),
+                 static_cast<size_t>(value->GetId()) < loads_requiring_loop_phi_.size());
+  if (static_cast<size_t>(value->GetId()) < loads_requiring_loop_phi_.size() &&
+      loads_requiring_loop_phi_[value->GetId()] != nullptr) {
+    // Propapate the Phi placeholder or appropriate converting load to the record.
+    new_value = StoredValueForLoopPhiPlaceholderDependentLoad(idx, value);
+    DCHECK(new_value.NeedsLoopPhi());
+  }
 
   if (record.value.Equals(value)) {
     // Store into the heap location with the same value.
@@ -1633,18 +1769,7 @@ void LSEVisitor::VisitSetLocation(HInstruction* instruction, size_t idx, HInstru
   }
 
   // Update the record.
-  // Note that the `value` can be a newly created `Phi` with an id that falls outside
-  // the allocated `loads_requiring_loop_phi_` range.
-  DCHECK_IMPLIES(IsLoad(value) && !loads_requiring_loop_phi_.empty(),
-                 static_cast<size_t>(value->GetId()) < loads_requiring_loop_phi_.size());
-  if (static_cast<size_t>(value->GetId()) < loads_requiring_loop_phi_.size() &&
-      loads_requiring_loop_phi_[value->GetId()] != nullptr) {
-    // Propapate the Phi placeholder to the record.
-    record.value = loads_requiring_loop_phi_[value->GetId()]->value;
-    DCHECK(record.value.NeedsLoopPhi());
-  } else {
-    record.value = Value::ForInstruction(value);
-  }
+  record.value = new_value;
   // Track the store in the value record. If the value is loaded or needed after
   // return/deoptimization later, this store isn't really redundant.
   record.stored_by = Value::ForInstruction(instruction);
@@ -1716,6 +1841,18 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithDefault(
                          kArenaAllocLSE);
   ScopedArenaVector<PhiPlaceholder> work_queue(allocator.Adapter(kArenaAllocLSE));
 
+  auto maybe_add_to_work_queue = [&](Value predecessor_value) {
+    DCHECK(predecessor_value.NeedsPhi());
+    // Skip over type conversions (these are unnecessary for the default value).
+    PhiPlaceholder predecessor_phi_placeholder =
+        SkipTypeConversions(predecessor_value).GetPhiPlaceholder();
+    // Visit the predecessor Phi placeholder if it's not visited yet.
+    if (!visited.IsBitSet(PhiPlaceholderIndex(predecessor_phi_placeholder))) {
+      visited.SetBit(PhiPlaceholderIndex(predecessor_phi_placeholder));
+      work_queue.push_back(predecessor_phi_placeholder);
+    }
+  };
+
   // Use depth first search to check if any non-Phi input is unknown.
   const ArenaVector<HBasicBlock*>& blocks = GetGraph()->GetBlocks();
   size_t num_heap_locations = heap_location_collector_.GetNumberOfHeapLocations();
@@ -1730,11 +1867,7 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithDefault(
     for (HBasicBlock* predecessor : block->GetPredecessors()) {
       Value value = ReplacementOrValue(heap_values_for_[predecessor->GetBlockId()][idx].value);
       if (value.NeedsPhi()) {
-        // Visit the predecessor Phi placeholder if it's not visited yet.
-        if (!visited.IsBitSet(PhiPlaceholderIndex(value))) {
-          visited.SetBit(PhiPlaceholderIndex(value));
-          work_queue.push_back(value.GetPhiPlaceholder());
-        }
+        maybe_add_to_work_queue(value);
       } else if (!value.Equals(Value::Default())) {
         return false;  // Report failure.
       }
@@ -1765,11 +1898,7 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithDefault(
           }
           Value value = ReplacementOrValue(record.value);
           if (value.NeedsPhi()) {
-            // Visit the predecessor Phi placeholder if it's not visited yet.
-            if (!visited.IsBitSet(PhiPlaceholderIndex(value))) {
-              visited.SetBit(PhiPlaceholderIndex(value));
-              work_queue.push_back(value.GetPhiPlaceholder());
-            }
+            maybe_add_to_work_queue(value);
           } else if (!value.Equals(Value::Default())) {
             return false;  // Report failure.
           }
@@ -1805,6 +1934,9 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithSingleInput(
                          kArenaAllocLSE);
   ScopedArenaVector<PhiPlaceholder> work_queue(allocator.Adapter(kArenaAllocLSE));
 
+  static_assert(enum_cast<>(DataType::Type::kLast) < BitSizeOf<uint32_t>());
+  uint32_t type_conversions = 0u;  // Bits indexed by `DataType::Type`.
+
   // Use depth first search to check if any non-Phi input is unknown.
   HInstruction* replacement = nullptr;
   const ArenaVector<HBasicBlock*>& blocks = GetGraph()->GetBlocks();
@@ -1819,6 +1951,8 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithSingleInput(
     for (HBasicBlock* predecessor : current_block->GetPredecessors()) {
       Value value = ReplacementOrValue(heap_values_for_[predecessor->GetBlockId()][idx].value);
       if (value.NeedsPhi()) {
+        // Skip type conversions but record them for checking later.
+        value = SkipTypeConversions(value, &type_conversions);
         // Visit the predecessor Phi placeholder if it's not visited yet.
         if (!visited.IsBitSet(PhiPlaceholderIndex(value))) {
           visited.SetBit(PhiPlaceholderIndex(value));
@@ -1840,8 +1974,27 @@ bool LSEVisitor::TryReplacingLoopPhiPlaceholderWithSingleInput(
     // would invalidate the heap location in `VisitSetLocation()`.
   }
 
-  // Record replacement and report success.
+  // Check that there are no type conversions that would change the stored value.
   DCHECK(replacement != nullptr);
+  if (replacement->IsIntConstant()) {
+    int32_t value = replacement->AsIntConstant()->GetValue();
+    for (uint32_t raw_type : LowToHighBits(type_conversions)) {
+      DataType::Type type = enum_cast<DataType::Type>(raw_type);
+      if (!DataType::IsTypeConversionImplicit(value, type)) {
+        return false;
+      }
+    }
+  } else {
+    DataType::Type replacement_type = replacement->GetType();
+    for (uint32_t raw_type : LowToHighBits(type_conversions)) {
+      DataType::Type type = enum_cast<DataType::Type>(raw_type);
+      if (!DataType::IsTypeConversionImplicit(replacement_type, type)) {
+        return false;
+      }
+    }
+  }
+
+  // Record replacement and report success.
   for (uint32_t phi_placeholder_index : visited.Indexes()) {
     DCHECK(phi_placeholder_replacements_[phi_placeholder_index].IsInvalid());
     PhiPlaceholder curr = GetPhiPlaceholderAt(phi_placeholder_index);
@@ -2011,7 +2164,8 @@ bool LSEVisitor::MaterializeLoopPhis(ArrayRef<const size_t> phi_placeholder_inde
       HInstruction* phi = phi_it.Current();
       DCHECK_EQ(phi->InputCount(), predecessors.size());
       ArrayRef<HUserRecord<HInstruction*>> phi_inputs = phi->GetInputRecords();
-      auto cmp = [=](const HUserRecord<HInstruction*>& lhs, HBasicBlock* rhs) {
+      auto cmp = [&](const HUserRecord<HInstruction*>& lhs, HBasicBlock* rhs) {
+        // TODO: Check for necessary type conversions.
         Value value = ReplacementOrValue(heap_values_for_[rhs->GetBlockId()][idx].value);
         if (value.NeedsPhi()) {
           DCHECK(value.GetPhiPlaceholder() == phi_placeholder);
@@ -2052,6 +2206,7 @@ bool LSEVisitor::MaterializeLoopPhis(ArrayRef<const size_t> phi_placeholder_inde
         << "type=" << type << " vs phi-type=" << phi->GetType();
     for (size_t i = 0, size = block->GetPredecessors().size(); i != size; ++i) {
       HBasicBlock* predecessor = block->GetPredecessors()[i];
+      // TODO: Materialize necessary type conversions.
       Value value = ReplacementOrValue(heap_values_for_[predecessor->GetBlockId()][idx].value);
       HInstruction* input = value.IsDefault() ? GetDefaultValue(type) : value.GetInstruction();
       DCHECK_NE(input->GetType(), DataType::Type::kVoid);
@@ -2322,9 +2477,10 @@ void LSEVisitor::ProcessLoopPhiWithUnknownInput(PhiPlaceholder loop_phi_with_unk
         // at the end of the block.
         Value replacement = ReplacementOrValue(record->value);
         if (replacement.NeedsLoopPhi()) {
-          // No replacement yet, use the Phi placeholder from the load.
+          // No replacement yet. Use the Phi placeholder or an appropriate converting load.
           DCHECK(record->value.NeedsLoopPhi());
-          local_heap_values[idx] = record->value;
+          local_heap_values[idx] = StoredValueForLoopPhiPlaceholderDependentLoad(idx, stored_value);
+          DCHECK(local_heap_values[idx].NeedsLoopPhi());
         } else {
           // If the load fetched a known value, use it, otherwise use the load.
           local_heap_values[idx] = Value::ForInstruction(
@@ -2425,6 +2581,7 @@ void LSEVisitor::ProcessLoadsRequiringLoopPhis() {
            record->value.IsInstruction() ||
            record->value.NeedsLoopPhi());
     if (record->value.NeedsLoopPhi()) {
+      // TODO: Do we need some special handling for converting loads here?
       record->value = Replacement(record->value);
       HInstruction* heap_value = record->value.GetInstruction();
       AddRemovedLoad(load, heap_value);
