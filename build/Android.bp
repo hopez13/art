@@ -318,6 +318,42 @@ art_debug_defaults {
     },
 }
 
+// Add a dependency on libz, as shared_libs where it's in the NDK, whole_static_libs otherwise.
+cc_defaults {
+    name: "art_libz_static_defaults",
+    target: {
+        android: {
+            shared_libs: ["libz"],
+        },
+        not_windows: {
+            // libz is typically available on linux hosts, but link it
+            // statically to make the Soong modules more composable. If it's a
+            // shared_libs here it'll have to be repeated e.g. for the dex2oat
+            // binary, because it's not propagated from libdex2oat_static.
+            whole_static_libs: ["libz"],
+        },
+        windows: {
+            whole_static_libs: ["libz"],
+        },
+    },
+}
+
+// Add a dependency on liblog, as shared_libs where it's in the NDK, whole_static_libs otherwise.
+cc_defaults {
+    name: "art_liblog_static_defaults",
+    target: {
+        android: {
+            shared_libs: ["liblog"],
+        },
+        not_windows: {
+            whole_static_libs: ["liblog"],
+        },
+        windows: {
+            whole_static_libs: ["liblog"],
+        },
+    },
+}
+
 // A version of conscrypt only for enabling the "-hostdex" version to test ART on host.
 java_library {
     // We need our own name to not clash with the conscrypt library.
