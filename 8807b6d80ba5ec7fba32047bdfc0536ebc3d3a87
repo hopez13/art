@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a87fe2db_69481d32",
+        "filename": "libnativeloader/test/src/android/test/app/DataAppTest.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 101,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-13T11:56:01Z",
+      "side": 1,
+      "message": "I found that the runner here doesn\u0027t catch `AssumptionViolatedException`, so not using `assumeTrue`.",
+      "range": {
+        "startLine": 99,
+        "startChar": 0,
+        "endLine": 101,
+        "endChar": 9
+      },
+      "revId": "8807b6d80ba5ec7fba32047bdfc0536ebc3d3a87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
