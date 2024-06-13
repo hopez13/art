@@ -1452,6 +1452,9 @@ class EXPORT ClassLinker {
   // the classes into the class_table_ to avoid dex cache based searches.
   Atomic<uint32_t> failed_dex_cache_class_lookups_;
 
+  Atomic<uint32_t> num_walk_super_classes_;
+  Atomic<uint32_t> num_fast_visit_refs_;
+
   // Well known mirror::Class roots.
   GcRoot<mirror::ObjectArray<mirror::Class>> class_roots_;
 
