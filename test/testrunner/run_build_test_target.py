@@ -75,6 +75,10 @@ os.environ.update(custom_env)
 # always run installclean first remove any old installed files from previous builds.
 # this does not remove intermediate files, so it still avoids recompilation.
 clean_command = 'build/soong/soong_ui.bash --make-mode installclean'
+# Temporarily disable incremental builds to address build failures
+# (b/347022619).
+# TODO(b/347022619): Re-enable incremental builds when the issue is fixed.
+clean_command = 'build/soong/soong_ui.bash --make-mode clean'
 if env.DIST_DIR:
   clean_command += ' dist'
 sys.stdout.write(str(clean_command) + '\n')
