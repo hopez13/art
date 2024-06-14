@@ -22,6 +22,30 @@
       },
       "revId": "039948377e000f1f8483a6c708e738189f7c0c75",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "577e0de2_905cb750",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 209,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-14T15:08:30Z",
+      "side": 1,
+      "message": "Since everything else uses just u or nothing, I\u0027ll do the same. I wasn\u0027t quite sure when this generated type errors rather than converting. I think on our platforms ul has the right type, though that\u0027s certainly not guaranteed.",
+      "parentUuid": "24f7e6a9_f878827d",
+      "range": {
+        "startLine": 209,
+        "startChar": 21,
+        "endLine": 209,
+        "endChar": 24
+      },
+      "revId": "039948377e000f1f8483a6c708e738189f7c0c75",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
