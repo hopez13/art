@@ -327,17 +327,15 @@ art_cc_defaults {
 art_cc_defaults {
     name: "art_gtest_defaults",
     defaults: [
-        "art_test_defaults",
-        "art_gtest_common_defaults",
+        "art_test_defaults", // Must be first to make the -Wno-* overrides work.
         "art_debug_defaults",
+        "art_gtest_common_defaults",
+        "libartd-gtest_static_defaults",
     ],
     test_suites: ["art-host-tests"],
     test_options: {
         test_suite_tag: ["art-host-gtest"],
     },
-    static_libs: [
-        "libartd-gtest",
-    ],
     // Reduce test executable size by disabling automatic export of static lib symbols.
     // Don't use --exclude-libs=ALL, because it breaks tests under ASAN by hiding __asan* symbols.
     ldflags: [
@@ -354,6 +352,7 @@ art_cc_defaults {
         // (including the Release ART APEX).
         "art_standalone_test_defaults",
         "art_gtest_common_defaults",
+        "libart-gtest_static_defaults",
     ],
     test_suites: [
         "general-tests",
@@ -371,9 +370,6 @@ art_cc_defaults {
             suffix: "64",
         },
     },
-    static_libs: [
-        "libart-gtest",
-    ],
     version_script: ":art-standalone-gtest-version",
 }
 
@@ -417,7 +413,7 @@ art_cc_defaults {
 }
 
 // Properties common to `libart-gtest` and `libartd-gtest`.
-art_cc_defaults {
+cc_defaults {
     name: "libart-gtest-common",
     defaults: [
         "art_defaults",
@@ -426,10 +422,15 @@ art_cc_defaults {
     srcs: [
         "common/gtest_main.cc",
     ],
+    header_libs: [
+        "libart_headers",
+        "libnativehelper_header_only",
+    ],
     whole_static_libs: [
         "libgtest_isolated",
     ],
-    shared_libs: [
+    shared_libs: [ // Since we're building static libs we're only using the headers from these.
+        "libdexfile",
         "liblog",
     ],
     target: {
@@ -445,15 +446,26 @@ art_cc_defaults {
     },
 }
 
-art_cc_library_static {
+cc_library_static {
     name: "libart-gtest",
     defaults: [
         "libart-gtest-common",
     ],
+}
+
+cc_defaults {
+    name: "libart-gtest_static_defaults",
+    defaults: [
+        "libart-compiler-gtest_static_defaults",
+        "libart-runtime-gtest_static_defaults",
+        "libartbase-art-gtest_static_defaults",
+        "libdexfile_static_defaults",
+    ],
     whole_static_libs: [
-        "libart-compiler-gtest",
-        "libart-runtime-gtest",
-        "libartbase-art-gtest",
+        "libart-gtest",
+    ],
+    shared_libs: [
+        "liblog",
     ],
 }
 
@@ -463,10 +475,21 @@ art_cc_library_static {
         "art_debug_defaults",
         "libart-gtest-common",
     ],
+}
+
+cc_defaults {
+    name: "libartd-gtest_static_defaults",
+    defaults: [
+        "libartbased-art-gtest_static_defaults",
+        "libartd-compiler-gtest_static_defaults",
+        "libartd-runtime-gtest_static_defaults",
+        "libdexfiled_static_defaults",
+    ],
     whole_static_libs: [
-        "libartd-compiler-gtest",
-        "libartd-runtime-gtest",
-        "libartbased-art-gtest",
+        "libartd-gtest",
+    ],
+    shared_libs: [
+        "liblog",
     ],
 }
 
