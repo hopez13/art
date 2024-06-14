@@ -127,11 +127,11 @@ Result<void> Unmount(const std::string& target) {
   if (umount2(target.c_str(), UMOUNT_NOFOLLOW) == 0) {
     return {};
   }
-  LOG(WARNING) << ART_FORMAT(
-      "Failed to umount2 '{}': {}. Retrying with MNT_DETACH", target, strerror(errno));
-  if (umount2(target.c_str(), UMOUNT_NOFOLLOW | MNT_DETACH) == 0) {
-    return {};
-  }
+  // LOG(WARNING) << ART_FORMAT(
+  //     "Failed to umount2 '{}': {}. Retrying with MNT_DETACH", target, strerror(errno));
+  // if (umount2(target.c_str(), UMOUNT_NOFOLLOW | MNT_DETACH) == 0) {
+  //   return {};
+  // }
   return ErrnoErrorf("Failed to umount2 '{}'", target);
 }
 
