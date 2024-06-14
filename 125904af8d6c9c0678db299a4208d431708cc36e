@@ -16,6 +16,24 @@
       "message": "Nicolas correctly pointed out that it is problematic to change the native priority, behind the programmer\u0027s back, even by the thread itself. Another thread may try to change the priority while we are in the middle of a ScopedPriorityObjectAccess, in which case we would lose the update from the other thread. If the thread in question normally never changed its own priority, this would not involve any races of any kind, and should work.\n\nHere\u0027s an outline of my current best idea for dealing with this. I\u0027m not sure whether this is good enough. This is based on the observation that currently both ART and the RI keep a copy of the current java thread priority in Thread instances, and Thread.getPriority() returns that.\n\n1) Acquire a lock around Thread.setPriority() to ensure that the Java and native priorities are always in sync. This is currently not done in either ART or the RI, but I would argue that\u0027s an existing bug. This is probably not a huge overhead, since the setpriority system call already takes around 2 usecs on host.\n\n2) Add a hidden, possibly just native, method that restores the thread priority to the Java priority. It acquires the same lock.\n\n3) Have ScopedPriorityAccess set the native, not Java, priority on entry, as it does now, but have it restore the Java priority, if necessary, on exit. It would rely on the priority it saw on entry only to tell whether this is needed at all.\n\nI think this would accommodate concurrent Java calls to Thread.setPriority(). It would clearly not accommodate, and more proactively ignore, concurrent calls to Posix setpriority() from native calls in other threads. But I don\u0027t think those were ever fully functional anyway, since they currently cause Thread.getPriority() to return the wrong answer. Posix setpriority() calls affecting only native code would continue to work fine.\n\nWDYT?",
       "revId": "125904af8d6c9c0678db299a4208d431708cc36e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50f42ad1_31d270e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-14T10:27:30Z",
+      "side": 1,
+      "message": "I think we could live with that. You could also accomodate a call to Posix setprority during the work done under `ScopedPriorityAccess` by not restoring the priority if it has changed. Though this doesn\u0027t resolve the race between fetching and setting the priority.",
+      "parentUuid": "812b06f0_040ab63d",
+      "revId": "125904af8d6c9c0678db299a4208d431708cc36e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
