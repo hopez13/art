@@ -20,13 +20,15 @@
 #include <list>
 #include <vector>
 
-#include <jni.h>
-
+#include "android-base/logging.h"
 #include "arch/instruction_set.h"
 #include "arch/instruction_set_features.h"
 #include "base/macros.h"
 #include "common_runtime_test.h"
 #include "compiler.h"
+#include "driver/compiled_code_storage.h"
+#include "jni.h"
+#include "linker/linker_patch.h"
 #include "oat/oat_file.h"
 
 namespace art HIDDEN {
@@ -84,7 +86,66 @@ class EXPORT CommonCompilerTestImpl {
  protected:
   virtual ClassLinker* GetClassLinker() = 0;
   virtual Runtime* GetRuntime() = 0;
-  class OneCompiledMethodStorage;
+
+  class OneCompiledMethodStorage final : public CompiledCodeStorage {
+   public:
+    OneCompiledMethodStorage() {}
+    ~OneCompiledMethodStorage() {}
+
+    CompiledMethod* CreateCompiledMethod(InstructionSet instruction_set,
+                                         ArrayRef<const uint8_t> code,
+                                         ArrayRef<const uint8_t> stack_map,
+                                         [[maybe_unused]] ArrayRef<const uint8_t> cfi,
+                                         ArrayRef<const linker::LinkerPatch> patches,
+                                         [[maybe_unused]] bool is_intrinsic) override {
+      // Supports only one method at a time.
+      CHECK_EQ(instruction_set_, InstructionSet::kNone);
+      CHECK_NE(instruction_set, InstructionSet::kNone);
+      instruction_set_ = instruction_set;
+      CHECK(code_.empty());
+      CHECK(!code.empty());
+      code_.assign(code.begin(), code.end());
+      CHECK(stack_map_.empty());
+      CHECK(!stack_map.empty());
+      stack_map_.assign(stack_map.begin(), stack_map.end());
+      CHECK(patches.empty()) << "Linker patches are unsupported for compiler gtests.";
+      return reinterpret_cast<CompiledMethod*>(this);
+    }
+
+    ArrayRef<const uint8_t> GetThunkCode(
+        [[maybe_unused]] const linker::LinkerPatch& patch,
+        [[maybe_unused]] /*out*/ std::string* debug_name) override {
+      LOG(FATAL) << "Unsupported.";
+      UNREACHABLE();
+    }
+
+    void SetThunkCode([[maybe_unused]] const linker::LinkerPatch& patch,
+                      [[maybe_unused]] ArrayRef<const uint8_t> code,
+                      [[maybe_unused]] const std::string& debug_name) override {
+      LOG(FATAL) << "Unsupported.";
+      UNREACHABLE();
+    }
+
+    InstructionSet GetInstructionSet() const {
+      CHECK_NE(instruction_set_, InstructionSet::kNone);
+      return instruction_set_;
+    }
+
+    ArrayRef<const uint8_t> GetCode() const {
+      CHECK(!code_.empty());
+      return ArrayRef<const uint8_t>(code_);
+    }
+
+    ArrayRef<const uint8_t> GetStackMap() const {
+      CHECK(!stack_map_.empty());
+      return ArrayRef<const uint8_t>(stack_map_);
+    }
+
+   private:
+    InstructionSet instruction_set_ = InstructionSet::kNone;
+    std::vector<uint8_t> code_;
+    std::vector<uint8_t> stack_map_;
+  };
 
  private:
   class CodeAndMetadata;

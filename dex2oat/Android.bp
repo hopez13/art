@@ -455,9 +455,10 @@ art_cc_defaults {
         "linker/arm64/relative_patcher_arm64_test.cc",
     ],
     srcs: [
+        "common_compiler_driver_test.cc",
+        "dex2oat_image_test.cc",
         "dex2oat_test.cc",
         "dex2oat_vdex_test.cc",
-        "dex2oat_image_test.cc",
         "driver/compiled_method_storage_test.cc",
         "driver/compiler_driver_test.cc",
         "linker/code_info_table_deduper_test.cc",
@@ -467,8 +468,8 @@ art_cc_defaults {
         "linker/index_bss_mapping_encoder_test.cc",
         "linker/multi_oat_relative_patcher_test.cc",
         "linker/oat_writer_test.cc",
-        "verifier_deps_test.cc",
         "utils/swap_space_test.cc",
+        "verifier_deps_test.cc",
     ],
     target: {
         host: {
