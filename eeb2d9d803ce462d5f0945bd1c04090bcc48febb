@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dcbd8d7d_69291668",
+        "filename": "dex2oat/linker/image_writer.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 2574,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-14T00:58:24Z",
+      "side": 1,
+      "message": "Added an assertion here to that effect. And it seems to pass.\n\nAs far as the original question is concerned, the monitor memory is not in the Java heap, so it presumably doesn\u0027t matter. The only issue is if the Java object was otherwise garbage and retained only by the pointer from the monitor. That seems unlikely?",
+      "parentUuid": "c6c27228_e320fafe",
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3e5d8ea3_4e1e1a35",
@@ -103,6 +121,30 @@
       "writtenOn": "2024-05-29T06:56:52Z",
       "side": 1,
       "message": "If you move the deflation to `ImageWriter::PrepareImageAddressSpace()`, update this comment and add assertion.",
+      "range": {
+        "startLine": 997,
+        "startChar": 40,
+        "endLine": 998,
+        "endChar": 24
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "36ebfb6d_c0274d40",
+        "filename": "runtime/monitor.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 998,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-14T00:58:24Z",
+      "side": 1,
+      "message": "Leaving this for now. With the single-threaded assertion in place, I think this is much more convincing as is.",
+      "parentUuid": "3e5d8ea3_4e1e1a35",
       "range": {
         "startLine": 997,
         "startChar": 40,
@@ -174,6 +216,30 @@
       "side": 1,
       "message": "GC daemons should be idle and parked. See the use of `ScopedDebugDisallowReadBarriers` in `ImageWriter::PrepareImageAddressSpace()`.",
       "parentUuid": "49c9eb32_a4f3f103",
+      "range": {
+        "startLine": 169,
+        "startChar": 27,
+        "endLine": 170,
+        "endChar": 88
+      },
+      "revId": "eeb2d9d803ce462d5f0945bd1c04090bcc48febb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "806af780_4c73e6d9",
+        "filename": "runtime/monitor.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 170,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-14T00:58:24Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c6762874_02327b55",
       "range": {
         "startLine": 169,
         "startChar": 27,
