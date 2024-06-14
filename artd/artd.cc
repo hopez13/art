@@ -1210,8 +1210,7 @@ ScopedAStatus ArtdCancellationSignal::cancel() {
   std::lock_guard<std::mutex> lock(mu_);
   is_cancelled_ = true;
   for (pid_t pid : pids_) {
-    // Kill the whole process group.
-    int res = kill_(-pid, SIGKILL);
+    int res = kill_(pid, SIGKILL);
     DCHECK_EQ(res, 0);
   }
   return ScopedAStatus::ok();
@@ -1230,7 +1229,7 @@ ExecCallbacks ArtdCancellationSignal::CreateExecCallbacks() {
             pids_.insert(pid);
             // Handle cancellation signals sent before the process starts.
             if (is_cancelled_) {
-              int res = kill_(-pid, SIGKILL);
+              int res = kill_(pid, SIGKILL);
               DCHECK_EQ(res, 0);
             }
           },
@@ -1720,10 +1719,8 @@ Result<int> Artd::ExecAndReturnCode(const std::vector<std::string>& args,
                                     const ExecCallbacks& callbacks,
                                     ProcessStat* stat) const {
   std::string error_msg;
-  // Create a new process group so that we can kill the process subtree at once by killing the
-  // process group.
-  ExecResult result = exec_utils_->ExecAndReturnResult(
-      args, timeout_sec, callbacks, /*new_process_group=*/true, stat, &error_msg);
+  ExecResult result =
+      exec_utils_->ExecAndReturnResult(args, timeout_sec, callbacks, stat, &error_msg);
   if (result.status != ExecResult::kExited) {
     return Error() << error_msg;
   }
