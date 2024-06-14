@@ -1249,6 +1249,37 @@ void InstructionCodeGeneratorARM64Sve::GenerateIntegerComparison(const PRegister
   }
 }
 
+void InstructionCodeGeneratorARM64Sve::GenerateFloatingPointComparison(
+    const PRegisterWithLaneSize& pd,
+    const PRegisterZ& pg,
+    const ZRegister& zn,
+    const ZRegister& zm,
+    IfCondition cond) {
+  switch (cond) {
+    case kCondEQ:
+      __ Fcmeq(pd, pg, zn, zm);
+      break;
+    case kCondNE:
+      __ Fcmne(pd, pg, zn, zm);
+      break;
+    case kCondLT:
+      __ Fcmlt(pd, pg, zn, zm);
+      break;
+    case kCondLE:
+      __ Fcmle(pd, pg, zn, zm);
+      break;
+    case kCondGT:
+      __ Fcmgt(pd, pg, zn, zm);
+      break;
+    case kCondGE:
+      __ Fcmge(pd, pg, zn, zm);
+      break;
+    default:
+      LOG(FATAL) << "Condition not supported.";
+      break;
+  }
+}
+
 void LocationsBuilderARM64Sve::HandleVecCondition(HVecCondition* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   locations->SetInAt(0, Location::RequiresFpuRegister());
@@ -1270,8 +1301,8 @@ void InstructionCodeGeneratorARM64Sve::HandleVecCondition(HVecCondition* instruc
             HVecOperation::ToSignedType(b->GetPackedType()));
   ValidateVectorLength(instruction);
 
-  // TODO: Support other types, e.g: boolean, float and double.
   switch (instruction->GetPackedType()) {
+    case DataType::Type::kBool:
     case DataType::Type::kUint8:
     case DataType::Type::kInt8:
       GenerateIntegerComparison(output_p_reg.VnB(),
@@ -1288,6 +1319,7 @@ void InstructionCodeGeneratorARM64Sve::HandleVecCondition(HVecCondition* instruc
                                 right.VnH(),
                                 instruction->GetCondition());
       break;
+    case DataType::Type::kUint32:
     case DataType::Type::kInt32:
       GenerateIntegerComparison(output_p_reg.VnS(),
                                 p_reg,
@@ -1295,12 +1327,27 @@ void InstructionCodeGeneratorARM64Sve::HandleVecCondition(HVecCondition* instruc
                                 right.VnS(),
                                 instruction->GetCondition());
       break;
+    case DataType::Type::kUint64:
     case DataType::Type::kInt64:
       GenerateIntegerComparison(output_p_reg.VnD(),
                                 p_reg,
                                 left.VnD(),
                                 right.VnD(),
                                 instruction->GetCondition());
+      break;
+    case DataType::Type::kFloat32:
+      GenerateFloatingPointComparison(output_p_reg.VnS(),
+                                      p_reg,
+                                      left.VnS(),
+                                      right.VnS(),
+                                      instruction->GetCondition());
+      break;
+    case DataType::Type::kFloat64:
+      GenerateFloatingPointComparison(output_p_reg.VnD(),
+                                      p_reg,
+                                      left.VnD(),
+                                      right.VnD(),
+                                      instruction->GetCondition());
       break;
     default:
       LOG(FATAL) << "Unsupported SIMD type: " << instruction->GetPackedType();

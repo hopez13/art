@@ -2058,8 +2058,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
                              kNoSignedHAdd |
                              kNoUnsignedHAdd |
                              kNoUnroundedHAdd |
-                             kNoSAD |
-                             kNoIfCond;
+                             kNoSAD;
             return TrySetVectorLength(type, vector_length);
           case DataType::Type::kUint8:
           case DataType::Type::kInt8:
@@ -2083,13 +2082,13 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
             *restrictions |= kNoDiv | kNoSAD;
             return TrySetVectorLength(type, vector_length);
           case DataType::Type::kInt64:
-            *restrictions |= kNoDiv | kNoSAD | kNoIfCond;
+            *restrictions |= kNoDiv | kNoSAD;
             return TrySetVectorLength(type, vector_length);
           case DataType::Type::kFloat32:
-            *restrictions |= kNoReduction | kNoIfCond;
+            *restrictions |= kNoReduction;
             return TrySetVectorLength(type, vector_length);
           case DataType::Type::kFloat64:
-            *restrictions |= kNoReduction | kNoIfCond;
+            *restrictions |= kNoReduction;
             return TrySetVectorLength(type, vector_length);
           default:
             break;
@@ -2780,28 +2779,23 @@ bool HLoopOptimization::VectorizeIfCondition(LoopNode* node,
   HInstruction* opb = cond->InputAt(1);
   DataType::Type type = GetNarrowerType(opa, opb);
 
-  if (!DataType::IsIntegralType(type)) {
-    return false;
-  }
-
   bool is_unsigned = false;
   HInstruction* opa_promoted = opa;
   HInstruction* opb_promoted = opb;
-  bool is_int_case = DataType::Type::kInt32 == opa->GetType() &&
-                     DataType::Type::kInt32 == opb->GetType();
 
-  // Condition arguments should be either both int32 or consistently extended signed/unsigned
-  // narrower operands.
-  if (!is_int_case &&
-      !IsNarrowerOperands(opa, opb, type, &opa_promoted, &opb_promoted, &is_unsigned)) {
-    return false;
-  }
-  type = HVecOperation::ToProperType(type, is_unsigned);
+  // If the operands types are different, try to narrow them to the same type.
+  if (opa->GetType() != opb->GetType()) {
+    if (!IsNarrowerOperands(opa, opb, type, &opa_promoted, &opb_promoted, &is_unsigned)) {
+      return false;
+    }
 
-  // For narrow types, explicit type conversion may have been
-  // optimized way, so set the no hi bits restriction here.
-  if (DataType::Size(type) <= 2) {
-    restrictions |= kNoHiBits;
+    // For narrow types, explicit type conversion may have been
+    // optimized away, so set the no hi bits restriction here.
+    if (DataType::Size(type) <= 2) {
+      restrictions |= kNoHiBits;
+    }
+
+    type = HVecOperation::ToProperType(type, is_unsigned);
   }
 
   if (!TrySetVectorType(type, &restrictions) ||

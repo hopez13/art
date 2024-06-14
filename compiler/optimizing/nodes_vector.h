@@ -1487,6 +1487,8 @@ class HVecCondition : public HVecPredSetOperation {
     DCHECK(!left->IsVecPredSetOperation());
     DCHECK(right->IsVecOperation());
     DCHECK(!right->IsVecPredSetOperation());
+    DCHECK(HasConsistentPackedTypes(left, packed_type));
+    DCHECK(HasConsistentPackedTypes(right, packed_type));
     SetRawInputAt(0, left);
     SetRawInputAt(1, right);
   }
