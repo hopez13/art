@@ -303,6 +303,30 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4e512273_05991599",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-15T02:51:34Z",
+      "side": 1,
+      "message": "(okay with moving it, but a million things you know)\n\nb/343776520 - we may need this for 32-bit devices?",
+      "parentUuid": "c27353ad_b30f7288",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 54
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
