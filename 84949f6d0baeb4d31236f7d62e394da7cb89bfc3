@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dec0d747_830b5832",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-17T14:29:21Z",
+      "side": 1,
+      "message": "I randomly looks at some static defaults, and my impression is that those static defaults are supposed to use `whole_static_libs`. If we can\u0027t use `whole_static_libs` for `libcrypto_for_art`, maybe it\u0027s not a good idea to keep it here?",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 15
+      },
+      "revId": "84949f6d0baeb4d31236f7d62e394da7cb89bfc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
