@@ -16,8 +16,6 @@
 
 #include "instruction_simplifier_riscv64.h"
 
-#include "instruction_simplifier.h"
-
 namespace art HIDDEN {
 
 namespace riscv64 {
@@ -85,30 +83,6 @@ class InstructionSimplifierRiscv64Visitor final : public HGraphVisitor {
       return;
     } else if (right->IsShl() && TryReplaceShiftAddWithOneInstruction(right->AsShl(), add)) {
       return;
-    }
-  }
-
-  void VisitAnd(HAnd* inst) override {
-    if (TryMergeNegatedInput(inst)) {
-      RecordSimplification();
-    }
-  }
-
-  void VisitOr(HOr* inst) override {
-    if (TryMergeNegatedInput(inst)) {
-      RecordSimplification();
-    }
-  }
-
-  void VisitSub(HSub* inst) override {
-    if (TryMergeWithAnd(inst)) {
-      RecordSimplification();
-    }
-  }
-
-  void VisitXor(HXor* inst) override {
-    if (TryMergeNegatedInput(inst)) {
-      RecordSimplification();
     }
   }
 

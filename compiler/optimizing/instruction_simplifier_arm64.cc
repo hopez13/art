@@ -17,7 +17,6 @@
 #include "instruction_simplifier_arm64.h"
 
 #include "common_arm64.h"
-#include "instruction_simplifier.h"
 #include "instruction_simplifier_shared.h"
 #include "mirror/array-inl.h"
 #include "mirror/string.h"

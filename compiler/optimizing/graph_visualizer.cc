@@ -628,12 +628,12 @@ class HGraphVisualizerPrinter final : public HGraphDelegateVisitor {
                                     DataType::ToSigned(arg_type));
   }
 
-  void VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) override {
+#if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
+  void VisitMultiplyAccumulate(HMultiplyAccumulate* instruction) override {
     StartAttributeStream("kind") << instruction->GetOpKind();
   }
 
-#if defined(ART_ENABLE_CODEGEN_arm) || defined(ART_ENABLE_CODEGEN_arm64)
-  void VisitMultiplyAccumulate(HMultiplyAccumulate* instruction) override {
+  void VisitBitwiseNegatedRight(HBitwiseNegatedRight* instruction) override {
     StartAttributeStream("kind") << instruction->GetOpKind();
   }
 
