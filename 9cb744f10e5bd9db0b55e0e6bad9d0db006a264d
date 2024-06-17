@@ -122,6 +122,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0c1b291d_71874f8c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-17T17:28:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "7ad01abe_def0f511",
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8c2f431c_6d21e86c",
@@ -159,6 +177,30 @@
           ]
         }
       ],
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bae3f05b_f2d98eaa",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 115,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-17T17:28:32Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "8c2f431c_6d21e86c",
+      "range": {
+        "startLine": 115,
+        "startChar": 41,
+        "endLine": 115,
+        "endChar": 42
+      },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
