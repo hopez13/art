@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f82ce02a_582c67e7",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 472,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-17T16:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b639edac_8d89aaf7",
+      "range": {
+        "startLine": 472,
+        "startChar": 11,
+        "endLine": 472,
+        "endChar": 16
+      },
+      "revId": "f84c581a42e676b23c0ab4f9779f0b2acb648ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac7ffad0_ef7a3736",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-17T15:52:59Z",
       "side": 1,
       "message": "Should this be `/*C.BEQZ*/ 2u,`?",
+      "range": {
+        "startLine": 8917,
+        "startChar": 52,
+        "endLine": 8917,
+        "endChar": 63
+      },
+      "revId": "f84c581a42e676b23c0ab4f9779f0b2acb648ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ed97189a_dbc38266",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-17T16:58:59Z",
+      "side": 1,
+      "message": "No, `c.beqz` has a much smaller range (9 bits). This is testing the maximum 13-bit offset where we need to use the 32-bit instruction.",
+      "parentUuid": "ac7ffad0_ef7a3736",
       "range": {
         "startLine": 8917,
         "startChar": 52,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8ead353_04742d2b",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8932,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-17T16:58:59Z",
+      "side": 1,
+      "message": "ditto",
+      "parentUuid": "b799c39d_9c5a1f77",
+      "range": {
+        "startLine": 8932,
+        "startChar": 52,
+        "endLine": 8932,
+        "endChar": 63
+      },
+      "revId": "f84c581a42e676b23c0ab4f9779f0b2acb648ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "34b17af5_d5025f0c",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-06-17T15:52:59Z",
       "side": 1,
       "message": "`Backward`? Same for the next three methods",
+      "range": {
+        "startLine": 8996,
+        "startChar": 41,
+        "endLine": 8996,
+        "endChar": 48
+      },
+      "revId": "f84c581a42e676b23c0ab4f9779f0b2acb648ff2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aad2c4b0_eee8b7df",
+        "filename": "compiler/utils/riscv64/assembler_riscv64_test.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 8996,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-17T16:58:59Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "34b17af5_d5025f0c",
       "range": {
         "startLine": 8996,
         "startChar": 41,
