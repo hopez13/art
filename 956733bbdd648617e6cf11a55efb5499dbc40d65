@@ -52,6 +52,24 @@
       "parentUuid": "c4115584_31f8f3a2",
       "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ab31bdb_4a9a3e1a",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-17T15:47:11Z",
+      "side": 1,
+      "message": "Very well, if it can be submitted within this week I\u0027m ok with letting it block this CL chain. Presubmits show it needs some more work though.",
+      "parentUuid": "84a76912_56417ddd",
+      "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
