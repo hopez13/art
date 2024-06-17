@@ -997,6 +997,12 @@ bool Thread::Init(ThreadList* thread_list, JavaVMExt* java_vm, JNIEnvExt* jni_en
     }
   }
 
+  if (kAlwaysOnProfile && kEnableProfile) {
+    // && (tls32_.thin_lock_thread_id == ThreadList::kMainThreadId)) {
+    tlsPtr_.method_trace_buffer = trace_buffer;
+    tlsPtr_.method_trace_buffer_index = trace_buffer + (kPerThreadBufSize - 1);
+  }
+
   ScopedTrace trace3("ThreadList::Register");
   thread_list->Register(this);
   return true;
@@ -2658,7 +2664,11 @@ void Thread::Destroy(bool should_run_callbacks) {
     Runtime::Current()->GetHeap()->RevokeThreadLocalBuffers(this);
 
     if (UNLIKELY(self->GetMethodTraceBuffer() != nullptr)) {
-      Trace::FlushThreadBuffer(self);
+      if (kEnableProfile) {
+        self->SetMethodTraceBuffer(nullptr);
+      } else {
+        Trace::FlushThreadBuffer(self);
+      }
     }
   }
   // Mark-stack revocation must be performed at the very end. No
