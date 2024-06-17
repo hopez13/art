@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0a7bfc14_a2d29e9e",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-17T14:25:50Z",
+      "side": 1,
+      "message": "It seems I have missed some significant issues with this test when reviewing the external contribution. \n\nSince this test is using the `Compiler`, it should be in `compiler/`, not in `runtime/`.\n\nHow are we even allowed to `#include` files from `compiler/` here? Did we get something wrong when we started linking `libart-compiler` into `libart`? I thought files in `runtime/` can #include only `compiler/export/` where we have just one file, namely `jit_create.h`.",
+      "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
