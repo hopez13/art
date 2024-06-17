@@ -92,11 +92,6 @@ static const uint16_t kEntryHeaderSizeV2 = 12;
 static const uint16_t kTraceVersionSingleClockV2 = 4;
 static const uint16_t kTraceVersionDualClockV2 = 5;
 
-static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
-// Size of per-thread buffer size. The value is chosen arbitrarily. This value
-// should be greater than kMinBufSize.
-static constexpr size_t kPerThreadBufSize = 512 * 1024;
-static_assert(kPerThreadBufSize > kMinBufSize);
 // On average we need 12 bytes for encoding an entry. We typically use two
 // entries in per-thread buffer, the scaling factor is 6.
 static constexpr size_t kScalingFactorEncodedEntries = 6;
