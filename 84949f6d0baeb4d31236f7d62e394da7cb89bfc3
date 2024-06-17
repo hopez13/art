@@ -22,6 +22,30 @@
       },
       "revId": "84949f6d0baeb4d31236f7d62e394da7cb89bfc3",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "dbe62da9_0328ed44",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 2
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-17T15:49:20Z",
+      "side": 1,
+      "message": "It\u0027s not necessary to use `whole_static_libs` in `*_static_defaults`. In fact, it muddles the waters because it kind-of-but-not-quite works for using them in static libraries, which is a problem I\u0027m trying to address with https://r.android.com/3134276 further down this chain. For the sake of composability I\u0027d like to fix them so that `*_static_defaults` always* get propagated into the closest binary or shared lib, where both shared and static dependencies can be captured properly.\n\n*) Except when they can\u0027t, like in the `libdex2oat(d)_static` libraries below, which unfortunately are necessary special cases. If it weren\u0027t for them I\u0027d actually like to change all `whole_static_libs` to `static_libs` instead.\n\nIn any case, this dependency should be the one to use for `art_dex2oat_tests` and `art_standalone_dex2oat_tests`. With https://r.android.com/3134276 that will really work and the [duplicated kludges](https://cs.android.com/android/platform/superproject/main/+/main:art/dex2oat/Android.bp;l\u003d499-500;drc\u003d663eb13beff99ddf4bf1f0c4be70a8b045ef5e07) in `art_dex2oat_tests_defaults` can be cleaned up (which I actually missed up until now, so thanks for poking at it).",
+      "parentUuid": "dec0d747_830b5832",
+      "range": {
+        "startLine": 98,
+        "startChar": 4,
+        "endLine": 98,
+        "endChar": 15
+      },
+      "revId": "84949f6d0baeb4d31236f7d62e394da7cb89bfc3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
