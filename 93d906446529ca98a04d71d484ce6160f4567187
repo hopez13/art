@@ -1,0 +1,62 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7641223b_968a768e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-17T11:04:17Z",
+      "side": 1,
+      "message": "PTAL. Thanks!",
+      "revId": "93d906446529ca98a04d71d484ce6160f4567187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "292773d5_dd8b4e1f",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-17T11:04:17Z",
+      "side": 1,
+      "message": "I think this would fix the crashes, but adding logs anyway just in case this doesn\u0027t fix it. I will monitor it for a few weeks and delete the debugging code if this gets fixed.",
+      "range": {
+        "startLine": 1011,
+        "startChar": 2,
+        "endLine": 1011,
+        "endChar": 38
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5525a7e3_5eed9e41",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/trace.cc",
+              "range": {
+                "startLine": 1011,
+                "startChar": 0,
+                "endLine": 1012,
+                "endChar": 0
+              },
+              "replacement": "  if (self-\u003eGetMethodTraceBuffer() !\u003d nullptr) {\n    self-\u003eSetMethodTraceBuffer(nullptr);\n  }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "93d906446529ca98a04d71d484ce6160f4567187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
