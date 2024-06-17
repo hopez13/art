@@ -16,6 +16,24 @@
       "message": "It seems I have missed some significant issues with this test when reviewing the external contribution. \n\nSince this test is using the `Compiler`, it should be in `compiler/`, not in `runtime/`.\n\nHow are we even allowed to `#include` files from `compiler/` here? Did we get something wrong when we started linking `libart-compiler` into `libart`? I thought files in `runtime/` can #include only `compiler/export/` where we have just one file, namely `jit_create.h`.",
       "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c4115584_31f8f3a2",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-17T14:56:32Z",
+      "side": 1,
+      "message": "It\u0027s due to [this `export_include_dirs` line](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/Android.bp;l\u003d282;drc\u003d3939bde62a7ede383962b336ba797dbd599c5648) - it makes every library that depends on any of the three libart-compiler variants to get `-Iart/compiler`.\n\nI tried to change it to just `include_dirs` locally, but that caused a lot of include errors in `art/dex2oat`, where it\u0027s presumably fine to include compiler headers. So addressing that would need to introduce a compiler header library for dex2oat (but not runtime) to use.\n\nThat\u0027s out of scope of what I\u0027m working on here, so can we go with this as a temporary fix and then address it separately?",
+      "parentUuid": "0a7bfc14_a2d29e9e",
+      "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
