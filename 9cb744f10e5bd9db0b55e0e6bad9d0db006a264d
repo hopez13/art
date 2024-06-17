@@ -327,6 +327,30 @@
       },
       "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b2e20a2_be9f38d4",
+        "filename": "build/art.go",
+        "patchSetId": 2
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 1120458
+      },
+      "writtenOn": "2024-06-17T17:28:15Z",
+      "side": 1,
+      "message": "can follow-up if you insist (or rip out the 4k support) - sorry - let\u0027s see if this fixes b/343776520.",
+      "parentUuid": "4e512273_05991599",
+      "range": {
+        "startLine": 117,
+        "startChar": 1,
+        "endLine": 117,
+        "endChar": 54
+      },
+      "revId": "9cb744f10e5bd9db0b55e0e6bad9d0db006a264d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ],
   "submitRequirementResults": [
