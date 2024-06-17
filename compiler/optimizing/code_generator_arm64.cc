@@ -1056,6 +1056,66 @@ void CodeGeneratorARM64::EmitJumpTables() {
 }
 
 void CodeGeneratorARM64::Finalize() {
+#if (INLINE_CODE == 0)
+  size_t trace_buffer_index_addr =
+    Thread::TraceBufferCurrPtrOffset<kArm64PointerSize>().SizeValue();
+  // TODO(mythria): Implement this using slow paths.
+  if (record_trace_entry_end.IsBound()) {
+    // ThreadOffset64 entrypoint_offset = GetThreadOffset<kArm64PointerSize>(kQuickRecordEntryTraceEvent);
+    CHECK(!record_trace_entry.IsBound());
+    Register index = ip1.X();
+    Register addr = ip0.X();
+    vixl::aarch64::Label update_entry;
+    __ Bind(&record_trace_entry);
+    __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+    __ Cmp(index, addr);
+    __ B(gt, &update_entry);
+    __ ComputeAddress(index, MemOperand(addr, (kPerThreadBufSize - 1) << TIMES_8));
+    __ Bind(&update_entry);
+    __ Str(kArtMethodRegister, MemOperand(index, -8, PostIndex));
+    __ Str(index, MemOperand(tr, Thread::TraceBufferCurrPtrOffset<kArm64PointerSize>().SizeValue()));
+    /*if (HasEmptyFrame()) {
+      __ Mov(x9, lr);
+      __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+      __ Blr(lr);
+      __ Mov(lr, x9);
+    } else {
+      __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+      __ Blr(lr);
+    }*/
+    __ B(&record_trace_entry_end);
+  }
+
+  if (record_trace_exit_end.IsBound()) {
+    // ThreadOffset64 entrypoint_offset = GetThreadOffset<kArm64PointerSize>(kQuickRecordExitTraceEvent);
+    __ Bind(&record_trace_exit);
+    vixl::aarch64::Label update_entry;
+    Register index = ip1.X();
+    Register addr = ip0.X();
+    __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+    __ Cmp(index, addr);
+    __ B(gt, &update_entry);
+    __ ComputeAddress(index, MemOperand(addr, (kPerThreadBufSize - 1) << TIMES_8));
+    __ Bind(&update_entry);
+    Register ts = addr;
+    // __ Mrs(ts, (SystemRegister)SYS_CNTVCT_EL0);
+    // __ Orr(ts, ts, Operand(1));
+    __ Mov(ts, Operand(1));
+    __ Str(ts, MemOperand(index, -8, PostIndex));
+    __ Str(index, MemOperand(tr, Thread::TraceBufferCurrPtrOffset<kArm64PointerSize>().SizeValue()));
+    /*if (HasEmptyFrame()) {
+      __ Mov(x9, lr);
+      __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+      __ Blr(lr);
+      __ Mov(lr, x9);
+    } else {
+      __ Ldr(lr, MemOperand(tr, entrypoint_offset.Int32Value()));
+      __ Blr(lr);
+    }*/
+    __ B(&record_trace_exit_end);
+  }
+#endif
+
   EmitJumpTables();
 
   // Emit JIT baker read barrier slow paths.
@@ -1328,6 +1388,60 @@ void CodeGeneratorARM64::MaybeIncrementHotness(HSuspendCheck* suspend_check, boo
   }
 }
 
+#if (INLINE_CODE == 1)
+void CodeGeneratorARM64::RecordTraceEvent(bool method_entry) {
+  if (!kAlwaysOnProfile) {
+    return;
+  }
+
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register index = temps.AcquireX();
+  Register addr = temps.AcquireX();
+  size_t trace_buffer_index_addr =
+    Thread::TraceBufferIndexOffset<kArm64PointerSize>().SizeValue();
+  vixl::aarch64::Label done, update_entry;
+  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  __ Cbz(addr, &done);
+  __ Ldr(index, MemOperand(tr, trace_buffer_index_addr));
+  __ Cmp(index, addr);
+  __ B(gt, &update_entry);
+  __ ComputeAddress(index, MemOperand(addr, (kPerThreadBufSize - 1) << TIMES_8));
+  __ Bind(&update_entry);
+  if (method_entry) {
+    __ Str(kArtMethodRegister, MemOperand(index, -8, PostIndex));
+  } else {
+    Register ts = addr;
+    __ Mrs(ts, (SystemRegister)SYS_CNTVCT_EL0);
+    __ Orr(ts, ts, Operand(1));
+    __ Str(ts, MemOperand(index, -8, PostIndex));
+  }
+  __ Str(index, MemOperand(tr, Thread::TraceBufferIndexOffset<kArm64PointerSize>().SizeValue()));
+  __ Bind(&done);
+}
+#else
+void CodeGeneratorARM64::RecordTraceEvent(bool method_entry) {
+  if (!kAlwaysOnProfile) {
+    return;
+  }
+
+  MacroAssembler* masm = GetVIXLAssembler();
+  UseScratchRegisterScope temps(masm);
+  Register addr = temps.AcquireX();
+  __ Ldr(addr, MemOperand(tr, Thread::TraceBufferPtrOffset<kArm64PointerSize>().SizeValue()));
+  if (method_entry) {
+    CHECK(!record_trace_entry_end.IsBound());
+    __ Cbnz(addr, &record_trace_entry);
+    __ Bind(&record_trace_entry_end);
+  } else {
+    __ Cbnz(addr, &record_trace_exit);
+    if (!record_trace_exit_end.IsBound()) {
+      __ Bind(&record_trace_exit_end);
+    }
+  }
+}
+#endif
+
 void CodeGeneratorARM64::GenerateFrameEntry() {
   MacroAssembler* masm = GetVIXLAssembler();
 
@@ -1443,6 +1557,8 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
       Register wzr = Register(VIXLRegCodeFromART(WZR), kWRegSize);
       __ Str(wzr, MemOperand(sp, GetStackOffsetOfShouldDeoptimizeFlag()));
     }
+
+    RecordTraceEvent(true);
   }
   MaybeIncrementHotness(/* suspend_check= */ nullptr, /* is_frame_entry= */ true);
   MaybeGenerateMarkingRegisterCheck(/* code= */ __LINE__);
@@ -1451,6 +1567,7 @@ void CodeGeneratorARM64::GenerateFrameEntry() {
 void CodeGeneratorARM64::GenerateFrameExit() {
   GetAssembler()->cfi().RememberState();
   if (!HasEmptyFrame()) {
+    RecordTraceEvent(false);
     int32_t frame_size = dchecked_integral_cast<int32_t>(GetFrameSize());
     uint32_t core_spills_offset = frame_size - GetCoreSpillSize();
     CPURegList preserved_core_registers = GetFramePreservedCoreRegisters();
@@ -1478,6 +1595,7 @@ void CodeGeneratorARM64::GenerateFrameExit() {
     GetAssembler()->cfi().AdjustCFAOffset(-frame_size);
   }
   __ Ret();
+
   GetAssembler()->cfi().RestoreState();
   GetAssembler()->cfi().DefCFAOffset(GetFrameSize());
 }
