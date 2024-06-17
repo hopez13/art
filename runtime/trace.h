@@ -53,6 +53,12 @@ struct MethodTraceRecord;
 
 using DexIndexBitSet = std::bitset<65536>;
 
+static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
+// Size of per-thread buffer size. The value is chosen arbitrarily. This value
+// should be greater than kMinBufSize.
+static constexpr size_t kPerThreadBufSize = (2048 + 1);
+static_assert(kPerThreadBufSize > kMinBufSize);
+
 enum TracingMode {
   kTracingInactive,
   kMethodTracingActive,  // Trace activity synchronous with method progress.
@@ -93,6 +99,9 @@ std::ostream& operator<<(std::ostream& os, TracingMode rhs);
 // 32 bits of microseconds is 70 minutes.
 //
 // All values are stored in little-endian order.
+
+static constexpr bool kAlwaysOnProfile = true;
+static constexpr bool kEnableProfile = false;
 
 enum TraceAction {
     kTraceMethodEnter = 0x00,       // method entry
