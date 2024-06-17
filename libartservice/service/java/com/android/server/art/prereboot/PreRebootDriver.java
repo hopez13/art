@@ -134,27 +134,17 @@ public class PreRebootDriver {
     }
 
     public void test() {
-        boolean teardownAttempted = false;
         try {
             setUp(null /* otaSlot */, false /* mapSnapshotsForOta */);
             // Ideally, we should try dexopting some packages here. However, it's not trivial to
             // pass a package list into chroot. Besides, we need to generate boot images even if we
             // dexopt only one package, and that can easily make the test fail the CTS quality
             // requirement on test duration (<30s).
-            teardownAttempted = true;
-            tearDown();
+            // tearDown();
         } catch (SystemRequirementException e) {
             throw new AssertionError("System requirement check failed", e);
-        } catch (RemoteException | IOException e) {
+        } catch (RemoteException e) {
             throw new AssertionError("Unexpected exception", e);
-        } finally {
-            if (!teardownAttempted) {
-                try {
-                    tearDown();
-                } catch (RemoteException | IOException | RuntimeException e) {
-                    // Do nothing.
-                }
-            }
         }
     }
 

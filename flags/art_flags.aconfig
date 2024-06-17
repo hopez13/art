@@ -1,0 +1,11 @@
+package: "com.android.art.flags"
+container: "com.android.art"
+
+flag {
+  name: "enable_foo"
+  namespace: "art_mainline"
+  description: "This is a test flag"
+  bug: ""  # Put your bug number here.
+  is_fixed_read_only: true
+}
+
