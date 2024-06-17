@@ -92,11 +92,6 @@ static const uint16_t kEntryHeaderSizeV2 = 12;
 static const uint16_t kTraceVersionSingleClockV2 = 4;
 static const uint16_t kTraceVersionDualClockV2 = 5;
 
-static constexpr size_t kMinBufSize = 18U;  // Trace header is up to 18B.
-// Size of per-thread buffer size. The value is chosen arbitrarily. This value
-// should be greater than kMinBufSize.
-static constexpr size_t kPerThreadBufSize = 512 * 1024;
-static_assert(kPerThreadBufSize > kMinBufSize);
 // On average we need 12 bytes for encoding an entry. We typically use two
 // entries in per-thread buffer, the scaling factor is 6.
 static constexpr size_t kScalingFactorEncodedEntries = 6;
@@ -1913,6 +1908,8 @@ void Trace::LogMethodTraceEvent(Thread* thread,
   uintptr_t* current_entry = *current_entry_ptr;
   // Ensure we always use the non-obsolete version of the method so that entry/exit events have the
   // same pointer value.
+  int new_entry_index = *curr_index_ptr - method_trace_buffer;
+  new_entry_index -= required_entries;
   method = method->GetNonObsoleteMethod();
   current_entry[entry_index++] = reinterpret_cast<uintptr_t>(method) | action;
   if (UseThreadCpuClock(clock_source_)) {
