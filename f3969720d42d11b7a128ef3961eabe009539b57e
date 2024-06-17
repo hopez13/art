@@ -16,6 +16,24 @@
       "message": "Discussed offline. This directory always exists.",
       "revId": "f3969720d42d11b7a128ef3961eabe009539b57e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "743ba96b_913111db",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-17T13:25:06Z",
+      "side": 1,
+      "message": "What matters is if /system_ext gets added to classloader paths or not. It comes from the `java.library.path` property which gets set [at runtime in libcore](https://cs.android.com/android/platform/superproject/main/+/main:libcore/ojluni/src/main/native/System.c;l\u003d209-224;drc\u003da09e0fb8d276c7f56d28472cce972274ad27c822). I hope I won\u0027t need to add an app to query it as part of the pre-reboot preparations, but I need to check a device without a (working) system_ext to see how it behaves.",
+      "parentUuid": "022d893b_a5f06d29",
+      "revId": "f3969720d42d11b7a128ef3961eabe009539b57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
