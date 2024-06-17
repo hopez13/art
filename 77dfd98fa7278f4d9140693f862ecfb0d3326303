@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d046f322_9cce6f39",
+        "filename": "cmdline/cmdline_types.h",
+        "patchSetId": 18
+      },
+      "lineNbr": 828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-17T08:51:50Z",
+      "side": 0,
+      "message": "This might still be used on devices in production. Please keep the command line argument, but print a warning (like on line 835)",
+      "range": {
+        "startLine": 828,
+        "startChar": 0,
+        "endLine": 828,
+        "endChar": 64
+      },
+      "revId": "77dfd98fa7278f4d9140693f862ecfb0d3326303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ad0c057_3555c1cf",
+        "filename": "runtime/parsed_options.cc",
+        "patchSetId": 18
+      },
+      "lineNbr": 310,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-17T08:51:50Z",
+      "side": 0,
+      "message": "Keep this as it may be used in production devices.",
+      "range": {
+        "startLine": 310,
+        "startChar": 0,
+        "endLine": 310,
+        "endChar": 57
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "1ce9896e_587a2278",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/parsed_options.cc",
+              "range": {
+                "startLine": 310,
+                "startChar": 0,
+                "endLine": 310,
+                "endChar": 0
+              },
+              "replacement": "               \"-Xps-hot-startup-method-samples:_\",\n"
+            }
+          ]
+        }
+      ],
+      "revId": "77dfd98fa7278f4d9140693f862ecfb0d3326303",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
