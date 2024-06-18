@@ -20,6 +20,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "5f9bf674_57076f46",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 267,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-18T09:09:22Z",
+      "side": 1,
+      "message": "Add `GUARDED_BY` ?",
+      "range": {
+        "startLine": 266,
+        "startChar": 0,
+        "endLine": 267,
+        "endChar": 31
+      },
+      "revId": "93d906446529ca98a04d71d484ce6160f4567187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "292773d5_dd8b4e1f",
         "filename": "runtime/trace.cc",
         "patchSetId": 1
@@ -55,6 +78,30 @@
           ]
         }
       ],
+      "revId": "93d906446529ca98a04d71d484ce6160f4567187",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bab99f3d_16e83ca2",
+        "filename": "runtime/trace.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1011,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-18T09:09:22Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "292773d5_dd8b4e1f",
+      "range": {
+        "startLine": 1011,
+        "startChar": 2,
+        "endLine": 1011,
+        "endChar": 38
+      },
       "revId": "93d906446529ca98a04d71d484ce6160f4567187",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
