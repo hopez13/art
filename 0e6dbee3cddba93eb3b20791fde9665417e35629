@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2df1f1a1_0f2134b4",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6957,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-18T14:23:43Z",
+      "side": 1,
+      "message": "Are we missing the `old_type \u003d\u003d kCondCBranch` case? Or is that implicit with `compression_allowed_ \u0026\u0026 IsCompressableCondition()`?",
+      "range": {
+        "startLine": 6954,
+        "startChar": 0,
+        "endLine": 6957,
+        "endChar": 0
+      },
+      "revId": "0e6dbee3cddba93eb3b20791fde9665417e35629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
