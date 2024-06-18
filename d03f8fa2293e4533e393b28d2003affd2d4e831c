@@ -22,6 +22,30 @@
       },
       "revId": "d03f8fa2293e4533e393b28d2003affd2d4e831c",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "42ff4804_b5e39d91",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 4
+      },
+      "lineNbr": 281,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-18T13:07:02Z",
+      "side": 1,
+      "message": "Yes, I could not include `libnativebridge-tests` into ART MTS as-is (see the [failed presubmit checks on an earlier patch set](https://android-review.git.corp.google.com/c/platform/test/mts/+/3119793/3?checksPatchset\u003d2\u0026tab\u003dchecks), namely [`mts/mts_unit_tests`](https://android-build.corp.google.com/test_investigate/?blocking\u003dblocking\u0026invocationId\u003dI70500010287678485\u0026status\u003dnone\u0026testResultId\u003dTR35229342478574955)), so I decided to defer that task (and record it in b/347717488), in order to submit this stack of CLs first.",
+      "parentUuid": "4de0d810_31bc3cbb",
+      "range": {
+        "startLine": 281,
+        "startChar": 13,
+        "endLine": 281,
+        "endChar": 26
+      },
+      "revId": "d03f8fa2293e4533e393b28d2003affd2d4e831c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
