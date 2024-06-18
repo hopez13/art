@@ -34,6 +34,24 @@
       "parentUuid": "022d893b_a5f06d29",
       "revId": "f3969720d42d11b7a128ef3961eabe009539b57e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "40448e13_49f1002d",
+        "filename": "libnativeloader/test/src/android/test/hostside/LibnativeloaderTest.java",
+        "patchSetId": 2
+      },
+      "lineNbr": 247,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-18T18:02:22Z",
+      "side": 1,
+      "message": "After some local testing on mokey I now realise that most of system_ext exists (in terms of linker config and java.library.path etc) even there, but it\u0027s in /system/system_ext. The problem was that a regex didn\u0027t recognise that location. Proper fix in https://r.android.com/3136374 - I don\u0027t think we need this to handle total absence of system_ext.",
+      "parentUuid": "743ba96b_913111db",
+      "revId": "f3969720d42d11b7a128ef3961eabe009539b57e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
