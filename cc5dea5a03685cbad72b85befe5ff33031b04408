@@ -70,6 +70,30 @@
       },
       "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0831a39_3291f009",
+        "filename": "test/2271-profile-inline-cache/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-18T14:18:43Z",
+      "side": 1,
+      "message": "I think we do, since we [check](https://source.corp.google.com/h/android/platform/superproject/main/+/main:art/test/2271-profile-inline-cache/src/Main.java;l\u003d170;drc\u003dd5137445c0d4067406cb3e38aade5507ff2fcd16) if the method has inline cache in the saved profile",
+      "parentUuid": "220d4485_85dc556b",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
