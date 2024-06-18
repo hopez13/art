@@ -16,6 +16,145 @@
       "message": "Sorry for the delay. I\u0027m looking at this CL now. Could you please bear with me for a while? Thanks.",
       "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f0a8a1e8_71c34b80",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-06-18T11:51:41Z",
+      "side": 1,
+      "message": "Please update the 4th paragraph in the change description to reflect that `dalvik.vm.ps-min-first-save-ms` is compared with the startup time, not GetMinSavePeriodMs",
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cce5f30_f690bb59",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-06-18T11:51:41Z",
+      "side": 1,
+      "message": "Please add a comment why the while() is necessary (due to JIT notifications also happening on the same lock.",
+      "fixSuggestions": [
+        {
+          "fixId": "a57ec3dc_284a6298",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 131,
+                "startChar": 0,
+                "endLine": 131,
+                "endChar": 0
+              },
+              "replacement": "    // Wait for startup to complete.\n    // Note that we may be woken up by JIT notifications.\n    // We need to wait for startup to complete to make sure we have\n    // the resolved classes and methods.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3040d0d3_9309c22a",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 142,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-06-18T11:51:41Z",
+      "side": 1,
+      "message": "Needs a better variable name, as it\u0027s not necessarily early.",
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5a0225d6_8543e206",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 173,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-06-18T11:51:41Z",
+      "side": 1,
+      "message": "GetMinFirstSaveMs should be compared with the thread start time, not just after startup.",
+      "fixSuggestions": [
+        {
+          "fixId": "b56fc884_2eee5612",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 173,
+                "startChar": 0,
+                "endLine": 175,
+                "endChar": 0
+              },
+              "replacement": "    uint64_t min_save_period_ns \u003d MsToNs(options_.GetMinSavePeriodMs());\n    if (force_early_first_save) {\n      min_save_period_ns \u003d std::min(min_save_period_ns, MsToNs(options_.GetMinFirstSaveMs()));\n    }\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a91ac669_654e0727",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 199,
+      "author": {
+        "id": 1951215
+      },
+      "writtenOn": "2024-06-18T11:51:41Z",
+      "side": 1,
+      "message": "I think this must be false now, as \"We just did it\" is not correct anymore.",
+      "fixSuggestions": [
+        {
+          "fixId": "40bc89f7_b46c8cc5",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 199,
+                "startChar": 0,
+                "endLine": 200,
+                "endChar": 0
+              },
+              "replacement": "        /*skip_class_and_method_fetching\u003d*/ false,\n"
+            }
+          ]
+        }
+      ],
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
