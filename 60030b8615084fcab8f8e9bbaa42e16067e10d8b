@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2b15d6cf_41c62e80",
+        "filename": "test/107-int-math2/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 900,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-18T11:00:08Z",
+      "side": 1,
+      "message": "The test isn\u0027t artificially lowering any heap limits as far as I can see. So I am a bit surprised this would cause out of memory. The test doesn\u0027t seem to be stressing any memory usage too right? Maybe I am missing something here.",
+      "range": {
+        "startLine": 899,
+        "startChar": 11,
+        "endLine": 900,
+        "endChar": 16
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "a02f2a76_30c75e37",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/107-int-math2/src/Main.java",
+              "range": {
+                "startLine": 899,
+                "startChar": 0,
+                "endLine": 901,
+                "endChar": 0
+              },
+              "replacement": "        // Force class initialization of core classes to prevent running out of memory during\n        // the test.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "60030b8615084fcab8f8e9bbaa42e16067e10d8b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
