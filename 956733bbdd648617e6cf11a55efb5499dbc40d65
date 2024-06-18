@@ -88,6 +88,24 @@
       "parentUuid": "5ab31bdb_4a9a3e1a",
       "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d1bd25c_f7c727c3",
+        "filename": "runtime/oat/jni_stub_hash_map_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-18T15:20:02Z",
+      "side": 1,
+      "message": "Can confirm that I no longer need this for my CL chain. Abandoning.",
+      "parentUuid": "e509a584_1da8d3a3",
+      "revId": "956733bbdd648617e6cf11a55efb5499dbc40d65",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
