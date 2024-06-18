@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "946319e4_4de8357b",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 6
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-18T17:58:15Z",
+      "side": 0,
+      "message": "FYI, PS1 has the minimal fix necessary to address the issue, it\u0027s just an adjustment of this regex. Later patchsets also move the regex and adds some unit tests.",
+      "range": {
+        "startLine": 58,
+        "startChar": 5,
+        "endLine": 58,
+        "endChar": 60
+      },
+      "revId": "dfd94db62268a15be3b5ce765b832f9e1a29ffe7",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
