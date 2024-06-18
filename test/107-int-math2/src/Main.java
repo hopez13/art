@@ -896,6 +896,10 @@ class Main extends IntMathBase {
     }
 
     public static void main(String[] args) {
+        // Force class initialization of core classes to prevent running out of memory during the
+        // test.
+        Object.class.getClassLoader().getResource("unused");
+
         boolean failure = false;
         int res;
         long lres;
