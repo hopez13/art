@@ -55,7 +55,7 @@ using ::android::base::Result;
 using ::android::nativeloader::LibraryNamespaces;
 
 const std::regex kPartitionNativeLibPathRegex(
-    "/(system(_ext)?|(system/)?(vendor|product))/lib(64)?/.*");
+    "/(system|(system/)?(system_ext|vendor|product))/lib(64)?/.*");
 
 // NATIVELOADER_DEFAULT_NAMESPACE_LIBS is an environment variable that can be
 // used to list extra libraries (separated by ":") that libnativeloader will
