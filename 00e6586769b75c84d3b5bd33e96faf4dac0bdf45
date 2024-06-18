@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f7bfbb9d_7dc83139",
+        "filename": "dex2oat/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 397,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-18T18:31:17Z",
+      "side": 0,
+      "message": "I was curious why this particular file is part of `libart(d)-dex2oat-gtest` rather than `art_dex2oat_tests_defaults`, and as far as I can tell it\u0027s just an historic quirk as a result of https://r.android.com/919054 and https://r.android.com/1749282. So it\u0027s not due to any technical reason.",
+      "range": {
+        "startLine": 397,
+        "startChar": 8,
+        "endLine": 397,
+        "endChar": 41
+      },
+      "revId": "00e6586769b75c84d3b5bd33e96faf4dac0bdf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
