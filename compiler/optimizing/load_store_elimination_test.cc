@@ -91,18 +91,20 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
   }
 
   // Create instructions shared among tests.
-  void CreateEntryBlockInstructions() {
+  void CreateInitBlockInstructions() {
     HInstruction* c1 = graph_->GetIntConstant(1);
     HInstruction* c4 = graph_->GetIntConstant(4);
     i_add1_ = new (GetAllocator()) HAdd(DataType::Type::kInt32, i_, c1);
     i_add4_ = new (GetAllocator()) HAdd(DataType::Type::kInt32, i_, c4);
-    entry_block_->AddInstruction(i_add1_);
-    entry_block_->AddInstruction(i_add4_);
-    entry_block_->AddInstruction(new (GetAllocator()) HGoto());
+    init_block_->AddInstruction(i_add1_);
+    init_block_->AddInstruction(i_add4_);
+    init_block_->AddInstruction(new (GetAllocator()) HGoto());
   }
 
   // Create the major CFG used by tests:
   //    entry
+  //      |
+  //    init
   //      |
   //  pre_header
   //      |
@@ -116,7 +118,7 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
     pre_header_ = AddNewBlock();
     loop_ = AddNewBlock();
 
-    entry_block_->ReplaceSuccessor(return_block_, pre_header_);
+    init_block_->ReplaceSuccessor(return_block_, pre_header_);
     pre_header_->AddSuccessor(loop_);
     loop_->AddSuccessor(loop_);
     loop_->AddSuccessor(return_block_);
@@ -124,8 +126,6 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
     HInstruction* c0 = graph_->GetIntConstant(0);
     HInstruction* c1 = graph_->GetIntConstant(1);
     HInstruction* c128 = graph_->GetIntConstant(128);
-
-    CreateEntryBlockInstructions();
 
     // pre_header block
     //   phi = 0;
@@ -165,13 +165,12 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
   // Return: the basic blocks forming the CFG in the following order {upper, left, right, down}.
   std::tuple<HBasicBlock*, HBasicBlock*, HBasicBlock*, HBasicBlock*> CreateDiamondShapedCFG() {
     InitGraphAndParameters();
-    CreateEntryBlockInstructions();
 
     HBasicBlock* upper = AddNewBlock();
     HBasicBlock* left = AddNewBlock();
     HBasicBlock* right = AddNewBlock();
 
-    entry_block_->ReplaceSuccessor(return_block_, upper);
+    init_block_->ReplaceSuccessor(return_block_, upper);
     upper->AddSuccessor(left);
     upper->AddSuccessor(right);
     left->AddSuccessor(return_block_);
@@ -318,8 +317,14 @@ class LoadStoreEliminationTestBase : public SuperTest, public OptimizingUnitTest
     AddParameter(new (GetAllocator()) HParameterValue(
         graph_->GetDexFile(), dex::TypeIndex(1), 2, DataType::Type::kInt32));
     j_ = parameters_.back();
+    entry_block_->AddInstruction(new (GetAllocator()) HGoto());
+
+    init_block_ = AddNewBlock();
+    init_block_->InsertBetween(entry_block_, return_block_);
+    CreateInitBlockInstructions();
   }
 
+  HBasicBlock* init_block_;
   HBasicBlock* pre_header_;
   HBasicBlock* loop_;
 
@@ -343,7 +348,7 @@ class LoadStoreEliminationSIMDTest : public LoadStoreEliminationTest,
  public:
   void CreateTestControlFlowGraph() {
     LoadStoreEliminationTest::CreateTestControlFlowGraph();
-    predicate_ = IsPredicatedSIMD() ? AddPredicate(entry_block_) : nullptr;
+    predicate_ = IsPredicatedSIMD() ? AddPredicate(init_block_) : nullptr;
     SetHasSIMD();
   }
 
@@ -413,10 +418,10 @@ TEST_P(LoadStoreEliminationSIMDTest, VecLoadStoreWithDifferentPredicates) {
   // LSE pass currently doesn't check equivalence of different predicate
   // instructions.
   HInstruction* vstore1 =
-      AddVecStore(entry_block_, array_, i_, /*vdata=*/nullptr, AddPredicate(entry_block_));
-  HInstruction* vload = AddVecLoad(entry_block_, array_, i_, AddPredicate(entry_block_));
+      AddVecStore(init_block_, array_, i_, /*vdata=*/nullptr, AddPredicate(init_block_));
+  HInstruction* vload = AddVecLoad(init_block_, array_, i_, AddPredicate(init_block_));
   HInstruction* vstore2 = AddVecStore(
-      entry_block_, array_, i_, vstore1->AsVecStore()->GetValue(), AddPredicate(entry_block_));
+      init_block_, array_, i_, vstore1->AsVecStore()->GetValue(), AddPredicate(init_block_));
 
   PerformLSE();
 
@@ -435,9 +440,9 @@ TEST_P(LoadStoreEliminationSIMDTest, VecLoadStoreWithSamePredicates) {
   // pred: a[i,i+1,i+2,i+3] = data
   // pred: ... = a[i,i+1,i+2,i+3]   <--- Remove.
   // pred: a[i,i+1,i+2,i+3] = data  <--- Remove.
-  HInstruction* vstore1 = AddVecStore(entry_block_, array_, i_);
-  HInstruction* vload = AddVecLoad(entry_block_, array_, i_);
-  HInstruction* vstore2 = AddVecStore(entry_block_, array_, i_, vstore1->AsVecStore()->GetValue());
+  HInstruction* vstore1 = AddVecStore(init_block_, array_, i_);
+  HInstruction* vload = AddVecLoad(init_block_, array_, i_);
+  HInstruction* vstore2 = AddVecStore(init_block_, array_, i_, vstore1->AsVecStore()->GetValue());
 
   PerformLSE();
 
@@ -458,12 +463,12 @@ TEST_F(LoadStoreEliminationTest, ArrayGetSetElimination) {
   // array[1] = 1;  <--- Remove, since it stores same value.
   // array[i] = 3;  <--- MAY alias.
   // array[1] = 1;  <--- Cannot remove, even if it stores the same value.
-  AddArraySet(entry_block_, array_, c1, c1);
-  HInstruction* load1 = AddArrayGet(entry_block_, array_, c1);
-  HInstruction* load2 = AddArrayGet(entry_block_, array_, c2);
-  HInstruction* store1 = AddArraySet(entry_block_, array_, c1, c1);
-  AddArraySet(entry_block_, array_, i_, c3);
-  HInstruction* store2 = AddArraySet(entry_block_, array_, c1, c1);
+  AddArraySet(init_block_, array_, c1, c1);
+  HInstruction* load1 = AddArrayGet(init_block_, array_, c1);
+  HInstruction* load2 = AddArrayGet(init_block_, array_, c2);
+  HInstruction* store1 = AddArraySet(init_block_, array_, c1, c1);
+  AddArraySet(init_block_, array_, i_, c3);
+  HInstruction* store2 = AddArraySet(init_block_, array_, c1, c1);
 
   PerformLSE();
 
@@ -484,10 +489,10 @@ TEST_F(LoadStoreEliminationTest, SameHeapValue1) {
   // array[2] = 1;
   // array[1] = 1;  <--- Can remove.
   // array[1] = 2;  <--- Can NOT remove.
-  AddArraySet(entry_block_, array_, c1, c1);
-  AddArraySet(entry_block_, array_, c2, c1);
-  HInstruction* store1 = AddArraySet(entry_block_, array_, c1, c1);
-  HInstruction* store2 = AddArraySet(entry_block_, array_, c1, c2);
+  AddArraySet(init_block_, array_, c1, c1);
+  AddArraySet(init_block_, array_, c2, c1);
+  HInstruction* store1 = AddArraySet(init_block_, array_, c1, c1);
+  HInstruction* store2 = AddArraySet(init_block_, array_, c1, c2);
 
   PerformLSE();
 
@@ -503,9 +508,9 @@ TEST_P(LoadStoreEliminationSIMDTest, SameHeapValue2) {
   // VecStore array[i...] = vdata;
   // VecStore array[j...] = vdata;  <--- MAY ALIAS.
   // VecStore array[i...] = vdata;  <--- Cannot Remove, even if it's same value.
-  AddVecStore(entry_block_, array_, i_);
-  AddVecStore(entry_block_, array_, j_);
-  HInstruction* vstore = AddVecStore(entry_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_);
+  AddVecStore(init_block_, array_, j_);
+  HInstruction* vstore = AddVecStore(init_block_, array_, i_);
 
   PerformLSE();
 
@@ -518,9 +523,9 @@ TEST_P(LoadStoreEliminationSIMDTest, SameHeapValue3) {
   // VecStore array[i...] = vdata;
   // VecStore array[i+1...] = vdata;  <--- MAY alias due to partial overlap.
   // VecStore array[i...] = vdata;    <--- Cannot remove, even if it's same value.
-  AddVecStore(entry_block_, array_, i_);
-  AddVecStore(entry_block_, array_, i_add1_);
-  HInstruction* vstore = AddVecStore(entry_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_add1_);
+  HInstruction* vstore = AddVecStore(init_block_, array_, i_);
 
   PerformLSE();
 
@@ -537,10 +542,10 @@ TEST_P(LoadStoreEliminationSIMDTest, OverlappingLoadStore) {
   // .. = a[i];                <-- Remove.
   // a[i,i+1,i+2,i+3] = data;  <-- PARTIAL OVERLAP !
   // .. = a[i];                <-- Cannot remove.
-  AddArraySet(entry_block_, array_, i_, c1);
-  HInstruction* load1 = AddArrayGet(entry_block_, array_, i_);
-  AddVecStore(entry_block_, array_, i_);
-  HInstruction* load2 = AddArrayGet(entry_block_, array_, i_);
+  AddArraySet(init_block_, array_, i_, c1);
+  HInstruction* load1 = AddArrayGet(init_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_);
+  HInstruction* load2 = AddArrayGet(init_block_, array_, i_);
 
   // Test LSE handling vector load/store partial overlap.
   // a[i,i+1,i+2,i+3] = data;
@@ -550,21 +555,21 @@ TEST_P(LoadStoreEliminationSIMDTest, OverlappingLoadStore) {
   // a[i+1,i+2,i+3,i+4] = data;  <-- PARTIAL OVERLAP !
   // .. = a[i,i+1,i+2,i+3];
   // .. = a[i+4,i+5,i+6,i+7];
-  AddVecStore(entry_block_, array_, i_);
-  AddVecStore(entry_block_, array_, i_add4_);
-  HInstruction* vload1 = AddVecLoad(entry_block_, array_, i_);
-  HInstruction* vload2 = AddVecLoad(entry_block_, array_, i_add4_);
-  AddVecStore(entry_block_, array_, i_add1_);
-  HInstruction* vload3 = AddVecLoad(entry_block_, array_, i_);
-  HInstruction* vload4 = AddVecLoad(entry_block_, array_, i_add4_);
+  AddVecStore(init_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_add4_);
+  HInstruction* vload1 = AddVecLoad(init_block_, array_, i_);
+  HInstruction* vload2 = AddVecLoad(init_block_, array_, i_add4_);
+  AddVecStore(init_block_, array_, i_add1_);
+  HInstruction* vload3 = AddVecLoad(init_block_, array_, i_);
+  HInstruction* vload4 = AddVecLoad(init_block_, array_, i_add4_);
 
   // Test LSE handling vector LSE when there is array store in between.
   // a[i,i+1,i+2,i+3] = data;
   // a[i+1] = 1;                 <-- PARTIAL OVERLAP !
   // .. = a[i,i+1,i+2,i+3];
-  AddVecStore(entry_block_, array_, i_);
-  AddArraySet(entry_block_, array_, i_, c1);
-  HInstruction* vload5 = AddVecLoad(entry_block_, array_, i_);
+  AddVecStore(init_block_, array_, i_);
+  AddArraySet(init_block_, array_, i_, c1);
+  HInstruction* vload5 = AddVecLoad(init_block_, array_, i_);
 
   PerformLSE();
 
@@ -824,7 +829,7 @@ TEST_F(LoadStoreEliminationTest, StoreAfterLoopWithSideEffects) {
   // loop:
   //   b[i] = array[i]
   // array[0] = 2
-  HInstruction* store1 = AddArraySet(entry_block_, array_, c0, c2);
+  HInstruction* store1 = AddArraySet(init_block_, array_, c0, c2);
 
   HInstruction* array_b = new (GetAllocator()) HNewArray(c0, c128, 0, 0);
   pre_header_->InsertInstructionBefore(array_b, pre_header_->GetLastInstruction());
