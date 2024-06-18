@@ -22,6 +22,30 @@
       },
       "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bf4d44a1_14a44c40",
+        "filename": "test/2271-profile-inline-cache/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-18T14:06:30Z",
+      "side": 1,
+      "message": "So calling `registerAppInfo` at top will [start](https://cs.android.com/android/platform/superproject/+/main:art/runtime/runtime.cc;l\u003d2791) the profile saver thread",
+      "parentUuid": "f01da4c7_7a371dd2",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
