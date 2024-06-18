@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f01da4c7_7a371dd2",
+        "filename": "test/2271-profile-inline-cache/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-18T13:38:18Z",
+      "side": 1,
+      "message": "For my education, why do we need this call? We call `ensureProfileProcessing` in the test to force save the profile, so I think we don\u0027t rely on the profile saver thread at all?",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
