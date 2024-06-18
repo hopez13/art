@@ -46,6 +46,30 @@
       },
       "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "220d4485_85dc556b",
+        "filename": "test/2271-profile-inline-cache/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-18T14:14:36Z",
+      "side": 1,
+      "message": "Yes, I know. The process starts the profile saver thread, but we don\u0027t rely on it in this test, do we?",
+      "parentUuid": "bf4d44a1_14a44c40",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
