@@ -71,6 +71,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "dc274857_c98a5c93",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-06-18T11:55:35Z",
+      "side": 1,
+      "message": "Thank you very much for the suggestion! I will fix it.",
+      "parentUuid": "4796e082_412cb24b",
+      "range": {
+        "startLine": 529,
+        "startChar": 15,
+        "endLine": 529,
+        "endChar": 20
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "28d94598_fd85efde",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 1
@@ -94,6 +118,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0859a6b0_1c25545e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-06-18T11:55:35Z",
+      "side": 1,
+      "message": "Sorry, this comment is outdated. By default all vector loads and stores are predicated by the same `HVecPredWhile` instruction, but it is also possible to change it and pass manually created predicate to `AddVecStore`/`AddVecLoad` like in `VecLoadStoreWithDifferentPredicates`. I will fix comment.",
+      "parentUuid": "28d94598_fd85efde",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 0
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6d3a11fd_3f20e49e",
         "filename": "compiler/optimizing/load_store_elimination_test.cc",
         "patchSetId": 1
@@ -105,6 +153,30 @@
       "writtenOn": "2024-06-18T08:53:46Z",
       "side": 1,
       "message": "Same comment as above, predicates wouldn\u0027t be in the entry block for a real graph.",
+      "range": {
+        "startLine": 346,
+        "startChar": 51,
+        "endLine": 346,
+        "endChar": 63
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ef9c3a5b_912289a3",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-06-18T11:55:35Z",
+      "side": 1,
+      "message": "Yes, but the problem is that existing tests add instructions that can be predicated to the entry block so the predicate also should be there. Although I think we can fix them and build following graph in `CreateTestControlFlowGraph`:\n\n       entry\n         |\n        body\n         |\n     pre_header\n         |\n       loop[]\n         |\n      return\n         |\n        exit\n\ninstead of\n\n       entry\n         |\n     pre_header\n         |\n       loop[]\n         |\n      return\n         |\n        exit\n      \nMaybe it is worth to do in a separate CL. What do you think?",
+      "parentUuid": "6d3a11fd_3f20e49e",
       "range": {
         "startLine": 346,
         "startChar": 51,
