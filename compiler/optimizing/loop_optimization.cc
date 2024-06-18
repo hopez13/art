@@ -1624,13 +1624,17 @@ void HLoopOptimization::GenerateNewLoopPredicated(LoopNode* node,
   DataType::Type induc_type = lo->GetType();
   HPhi* phi = InitializeForNewLoop(new_preheader, lo);
 
+  DataType::Type packed_type =
+      DataType::SignedIntegralTypeFromSize(GetVectorSizeInBytes() / vector_length_);
+  DCHECK_EQ(DataType::Size(packed_type) * vector_length_, GetVectorSizeInBytes());
+
   // Generate loop exit check.
   HVecPredWhile* pred_while =
       new (global_allocator_) HVecPredWhile(global_allocator_,
                                             phi,
                                             hi,
                                             HVecPredWhile::CondKind::kLO,
-                                            DataType::Type::kInt32,
+                                            packed_type,
                                             vector_length_,
                                             0u);
 
@@ -1638,7 +1642,7 @@ void HLoopOptimization::GenerateNewLoopPredicated(LoopNode* node,
       new (global_allocator_) HVecPredToBoolean(global_allocator_,
                                                 pred_while,
                                                 HVecPredToBoolean::PCondKind::kNFirst,
-                                                DataType::Type::kInt32,
+                                                packed_type,
                                                 vector_length_,
                                                 0u);
 

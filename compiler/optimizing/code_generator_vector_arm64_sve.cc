@@ -1473,20 +1473,26 @@ void InstructionCodeGeneratorARM64::SveVisitVecPredWhile(HVecPredWhile* instruct
   Register left = InputRegisterAt(instruction, 0);
   Register right = InputRegisterAt(instruction, 1);
   const PRegister output_p_reg = GetVecPredSetFixedOutPReg(instruction);
+  ValidateVectorLength(instruction);
 
-  DCHECK_EQ(codegen_->GetPredicatedSIMDRegisterWidth() % instruction->GetVectorLength(), 0u);
-
-  switch (codegen_->GetPredicatedSIMDRegisterWidth() / instruction->GetVectorLength()) {
-    case 1u:
+  switch (instruction->GetPackedType()) {
+    case DataType::Type::kBool:
+    case DataType::Type::kUint8:
+    case DataType::Type::kInt8:
       __ Whilelo(output_p_reg.VnB(), left, right);
       break;
-    case 2u:
+    case DataType::Type::kUint16:
+    case DataType::Type::kInt16:
       __ Whilelo(output_p_reg.VnH(), left, right);
       break;
-    case 4u:
+    case DataType::Type::kUint32:
+    case DataType::Type::kInt32:
+    case DataType::Type::kFloat32:
       __ Whilelo(output_p_reg.VnS(), left, right);
       break;
-    case 8u:
+    case DataType::Type::kUint64:
+    case DataType::Type::kInt64:
+    case DataType::Type::kFloat64:
       __ Whilelo(output_p_reg.VnD(), left, right);
       break;
     default:
