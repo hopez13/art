@@ -22,6 +22,30 @@
       },
       "revId": "0e6dbee3cddba93eb3b20791fde9665417e35629",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "89034f4b_2334ce80",
+        "filename": "compiler/utils/riscv64/assembler_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 6957,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-18T14:33:24Z",
+      "side": 1,
+      "message": "I think that part was unnecessary because the `compression_allowed_ \u0026\u0026 IsCompressableCondition()` should carry all the information we need.\n\n(As a matter of fact, `old_type \u003d\u003d kCondCBranch` implies `compression_allowed_ \u0026\u0026 IsCompressableCondition()` but I don\u0027t think we need to add a `DCHECK_IMPLIES()` here. Half of it is in line 6936 anyway.)",
+      "parentUuid": "2df1f1a1_0f2134b4",
+      "range": {
+        "startLine": 6954,
+        "startChar": 0,
+        "endLine": 6957,
+        "endChar": 0
+      },
+      "revId": "0e6dbee3cddba93eb3b20791fde9665417e35629",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
