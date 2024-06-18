@@ -16,6 +16,103 @@
       "message": "Hi! Please take a look at this patch. Thank you!",
       "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4796e082_412cb24b",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-18T08:53:46Z",
+      "side": 1,
+      "message": "nit: You are using the entry block to add instructions like stores and loads. This would never happen in real life and we would have a entry/exit/body (e.g. like `ArrayIndexAliasingTest` does)\n\nThis can be fine to keep as-is since other tests are doing it, but it would look cleaner with extra basic blocks.",
+      "range": {
+        "startLine": 529,
+        "startChar": 15,
+        "endLine": 529,
+        "endChar": 20
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2eb25672_7a31718f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "compiler/optimizing/load_store_analysis_test.cc",
+              "range": {
+                "startLine": 529,
+                "startChar": 0,
+                "endLine": 532,
+                "endChar": 0
+              },
+              "replacement": "  AdjacencyListGraph blks(SetupFromAdjacencyList(\"entry\", \"exit\", {{\"entry\", \"body\"}, {\"body\", \"exit\"}}));\n  HBasicBlock* body \u003d blks.Get(\"body\");\n"
+            },
+            {
+              "path": "compiler/optimizing/load_store_analysis_test.cc",
+              "range": {
+                "startLine": 605,
+                "startChar": 0,
+                "endLine": 612,
+                "endChar": 0
+              },
+              "replacement": "  body-\u003eAddInstruction(array);\n  body-\u003eAddInstruction(pred1);\n  body-\u003eAddInstruction(pred2);\n  body-\u003eAddInstruction(vstore);\n  body-\u003eAddInstruction(pred_vstore1);\n  body-\u003eAddInstruction(pred_vstore2);\n  body-\u003eAddInstruction(pred_vload);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "28d94598_fd85efde",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-18T08:53:46Z",
+      "side": 1,
+      "message": "This is not enforced, right? e.g. `VecLoadStoreWithSamePredicates`\n\nIs this a suggestion to make interesting test cases?",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 0
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d3a11fd_3f20e49e",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-18T08:53:46Z",
+      "side": 1,
+      "message": "Same comment as above, predicates wouldn\u0027t be in the entry block for a real graph.",
+      "range": {
+        "startLine": 346,
+        "startChar": 51,
+        "endLine": 346,
+        "endChar": 63
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
