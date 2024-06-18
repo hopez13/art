@@ -94,6 +94,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleBoolean(boolean[], boolean[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int8
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-FI:
@@ -109,6 +110,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleByte(byte[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int8
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-ELSE:
@@ -128,6 +130,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleUByte(byte[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int8
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-ELSE:
@@ -146,6 +149,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleShort(short[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int16
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-ELSE:
@@ -165,6 +169,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleChar(char[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int16
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-ELSE:
@@ -184,6 +189,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleInt(int[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int32
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-ELSE:
@@ -203,6 +209,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleLong(long[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int64
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-FI:
@@ -218,6 +225,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleFloat(float[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int32
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-FI:
@@ -233,6 +241,7 @@ public class Main {
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleDouble(double[]) loop_optimization (after)
   /// CHECK-IF:     hasIsaFeature("sve2")
   //
+  ///     CHECK-DAG: VecPredWhile packed_type:Int64
   ///     CHECK-DAG: VecLoad
   //
   /// CHECK-FI:
