@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5c71a45_7a4da13a",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5798,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-18T09:36:36Z",
+      "side": 1,
+      "message": "nit: add `vixl32::Condition::` to `lt` and `gt`. Similar for other archs",
+      "range": {
+        "startLine": 5797,
+        "startChar": 0,
+        "endLine": 5798,
+        "endChar": 38
+      },
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
