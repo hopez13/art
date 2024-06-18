@@ -22,6 +22,40 @@
       },
       "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "06405bb4_f4fe515b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4569,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-18T09:49:23Z",
+      "side": 1,
+      "message": "You do not propagate this in `InstructionSimplifierVisitor::VisitCondition()` when folding `HCompare` to the `HCondition`, so I\u0027d say this CL currently breaks that optimization and can produce incorrect results.",
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "051a24a4_befce013",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-18T09:49:23Z",
+      "side": 1,
+      "message": "Do we actually need these as intrinsics? The code is simple enough that we could just optimize it in the instruction simplifier (assuming it gets inlined).",
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
