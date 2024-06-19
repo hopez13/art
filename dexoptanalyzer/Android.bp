@@ -85,7 +85,7 @@ art_cc_binary {
 art_cc_defaults {
     name: "art_dexoptanalyzer_tests_defaults",
     defaults: [
-        "art_libunwindstack_static_defaults", // Must be statically linked in standalone tests
+        //"art_libunwindstack_static_defaults", // Must be statically linked in standalone tests FIXME
     ],
     data: [
         ":art-gtest-jars-LinkageTest",

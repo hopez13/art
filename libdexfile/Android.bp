@@ -289,7 +289,7 @@ art_cc_library {
 art_cc_defaults {
     name: "art_libdexfile_tests_defaults",
     defaults: [
-        "art_libunwindstack_static_defaults", // Must be statically linked in standalone tests
+        // "art_libunwindstack_static_defaults", // Must be statically linked in standalone tests
     ],
     tidy_timeout_srcs: [
         "dex/dex_file_verifier_test.cc",
