@@ -35,7 +35,7 @@ public class SimdSadLong {
   /// CHECK-START-ARM64: long SimdSadLong.sadLong2Long(long[], long[]) loop_optimization (after)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<ConsL:j\d+>>  LongConstant 0                 loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
   ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -106,7 +106,7 @@ public class SimdSadLong {
   /// CHECK-START-ARM64: long SimdSadLong.sadLong2LongAlt2(long[], long[]) loop_optimization (after)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<ConsL:j\d+>>  LongConstant 0                 loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
   ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -152,7 +152,7 @@ public class SimdSadLong {
   /// CHECK-START-ARM64: long SimdSadLong.sadLong2LongAt1(long[], long[]) loop_optimization (after)
   /// CHECK-DAG: <<Cons0:i\d+>>  IntConstant 0                  loop:none
   /// CHECK-DAG: <<ConsL:j\d+>>  LongConstant 1                 loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
   ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]

@@ -54,8 +54,11 @@ static void SetVIXLCPUFeaturesFromART(vixl::aarch64::MacroAssembler* vixl_masm_,
   if (art_features->HasLSE()) {
     features->Combine(vixl::CPUFeatures::kAtomics);
   }
-  if (art_features->HasSVE()) {
+  if (art_features->HasSVE2()) {
+    // As SVE2 is a superset of SVE we need to set both features here because
+    // in vixl these are independent from each other.
     features->Combine(vixl::CPUFeatures::kSVE);
+    features->Combine(vixl::CPUFeatures::kSVE2);
   }
 }
 

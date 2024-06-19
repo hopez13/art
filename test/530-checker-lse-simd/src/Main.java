@@ -152,7 +152,7 @@ public class Main {
   /// CHECK:        Goto loop:{{B\d+}}
 
   /// CHECK-START-ARM64: double[] Main.$noinline$test04(int) load_store_elimination (after)
-  /// CHECK-IF:     not (hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
+  /// CHECK-IF:     not (hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
   //
   //      In the NEON case there is a post-loop which prevents the store to be removed.
   ///     CHECK:        VecStore
@@ -197,7 +197,7 @@ public class Main {
   /// CHECK:        Goto loop:{{B\d+}}
 
   /// CHECK-START-ARM64: double[] Main.$noinline$test05(int) load_store_elimination (after)
-  /// CHECK-IF:     not (hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
+  /// CHECK-IF:     not (hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true')
   //
   //      In the NEON case there is a post-loop which prevents the store to be removed.
   ///     CHECK:        VecStore

@@ -32,6 +32,7 @@
 
 #include "base/array_ref.h"
 #include "base/globals.h"
+#include "base/logging.h"
 #include "base/stl_util.h"
 
 #include <cpu_features_macros.h>
@@ -129,7 +130,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
       "cortex-x3",
   };
 
-  static const char* arm64_variants_with_sve[] = {
+  static const char* arm64_variants_with_sve2[] = {
       "cortex-a510",
       "cortex-a710",
       "cortex-a715",
@@ -159,9 +160,9 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
                                         arraysize(arm64_variants_with_dotprod),
                                         variant);
 
-  bool has_sve = FindVariantInArray(arm64_variants_with_sve,
-                                    arraysize(arm64_variants_with_sve),
-                                    variant);
+  bool has_sve2 = FindVariantInArray(arm64_variants_with_sve2,
+                                     arraysize(arm64_variants_with_sve2),
+                                     variant);
 
   if (!needs_a53_835769_fix) {
     // Check to see if this is an expected variant. `other_arm64_known_variants` contains the
@@ -205,7 +206,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromVariant(
                                                                 has_lse,
                                                                 has_fp16,
                                                                 has_dotprod,
-                                                                has_sve));
+                                                                has_sve2));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::IntersectWithHwcap() const {
@@ -217,7 +218,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::IntersectWithHwcap() const {
       has_lse_ && hwcaps->has_lse_,
       has_fp16_ && hwcaps->has_fp16_,
       has_dotprod_ && hwcaps->has_dotprod_,
-      has_sve_ && hwcaps->has_sve_));
+      has_sve2_ && hwcaps->has_sve2_));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromBitmap(uint32_t bitmap) {
@@ -226,14 +227,14 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromBitmap(uint32_t bitmap) 
   bool has_lse = (bitmap & kLSEBitField) != 0;
   bool has_fp16 = (bitmap & kFP16BitField) != 0;
   bool has_dotprod = (bitmap & kDotProdBitField) != 0;
-  bool has_sve = (bitmap & kSVEBitField) != 0;
+  bool has_sve2 = (bitmap & kSVE2BitField) != 0;
   return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(is_a53,
                                                                 is_a53,
                                                                 has_crc,
                                                                 has_lse,
                                                                 has_fp16,
                                                                 has_dotprod,
-                                                                has_sve));
+                                                                has_sve2));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCppDefines() {
@@ -246,7 +247,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCppDefines() {
   bool has_lse = false;
   bool has_fp16 = false;
   bool has_dotprod = false;
-  bool has_sve = false;
+  bool has_sve2 = false;
 
 #if defined (__ARM_FEATURE_CRC32)
   has_crc = true;
@@ -265,8 +266,8 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCppDefines() {
   has_dotprod = true;
 #endif
 
-#if defined (__ARM_FEATURE_SVE)
-  has_sve = true;
+#if defined (__ARM_FEATURE_SVE2)
+  has_sve2 = true;
 #endif
 
   return Arm64FeaturesUniquePtr(new Arm64InstructionSetFeatures(needs_a53_835769_fix,
@@ -275,7 +276,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCppDefines() {
                                                                 has_lse,
                                                                 has_fp16,
                                                                 has_dotprod,
-                                                                has_sve));
+                                                                has_sve2));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCpuInfo() {
@@ -306,7 +307,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
   bool has_lse = false;
   bool has_fp16 = false;
   bool has_dotprod = false;
-  bool has_sve = false;
+  bool has_sve2 = false;
 
 #if defined(ART_TARGET_ANDROID) && defined(__aarch64__)
   uint64_t hwcaps = getauxval(AT_HWCAP);
@@ -314,8 +315,10 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
   has_lse = hwcaps & HWCAP_ATOMICS ? true : false;
   has_fp16 = hwcaps & HWCAP_FPHP ? true : false;
   has_dotprod = hwcaps & HWCAP_ASIMDDP ? true : false;
-  has_sve = hwcaps & HWCAP_SVE ? true : false;
-  if (has_sve) {
+  uint64_t hwcaps2 = getauxval(AT_HWCAP2);
+  has_sve2 = hwcaps2 & HWCAP2_SVE2 ? true : false;
+  DCHECK_IMPLIES(has_sve2, hwcaps & HWCAP_SVE);
+  if (has_sve2) {
     // Check device only supports a constant SVE vector length equal to kArm64SVEVectorLength.
     CHECK_EQ(SVE_VL_MIN * kBitsPerByte, kArm64SVEVectorLength) << "Unexpected minimal SVE VL";
     CHECK_EQ(SetToMaximumSVEVectorLength(), kArm64SVEVectorLength) << "Unexpected maximum SVE VL";
@@ -328,7 +331,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromHwcap() {
                                                                 has_lse,
                                                                 has_fp16,
                                                                 has_dotprod,
-                                                                has_sve));
+                                                                has_sve2));
 }
 
 Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromAssembly() {
@@ -345,7 +348,7 @@ Arm64FeaturesUniquePtr Arm64InstructionSetFeatures::FromCpuFeatures() {
                                                                 features.atomics,
                                                                 features.fphp,
                                                                 features.asimddp,
-                                                                features.sve));
+                                                                features.sve2));
 #else
   UNIMPLEMENTED(WARNING);
   return FromCppDefines();
@@ -363,7 +366,7 @@ bool Arm64InstructionSetFeatures::Equals(const InstructionSetFeatures* other) co
       has_lse_ == other_as_arm64->has_lse_ &&
       has_fp16_ == other_as_arm64->has_fp16_ &&
       has_dotprod_ == other_as_arm64->has_dotprod_ &&
-      has_sve_ == other_as_arm64->has_sve_;
+      has_sve2_ == other_as_arm64->has_sve2_;
 }
 
 bool Arm64InstructionSetFeatures::HasAtLeast(const InstructionSetFeatures* other) const {
@@ -378,7 +381,7 @@ bool Arm64InstructionSetFeatures::HasAtLeast(const InstructionSetFeatures* other
       && (has_lse_ || !other_as_arm64->has_lse_)
       && (has_fp16_ || !other_as_arm64->has_fp16_)
       && (has_dotprod_ || !other_as_arm64->has_dotprod_)
-      && (has_sve_ || !other_as_arm64->has_sve_);
+      && (has_sve2_ || !other_as_arm64->has_sve2_);
 }
 
 uint32_t Arm64InstructionSetFeatures::AsBitmap() const {
@@ -387,7 +390,7 @@ uint32_t Arm64InstructionSetFeatures::AsBitmap() const {
       | (has_lse_ ? kLSEBitField: 0)
       | (has_fp16_ ? kFP16BitField: 0)
       | (has_dotprod_ ? kDotProdBitField : 0)
-      | (has_sve_ && kArm64AllowSVE ? kSVEBitField : 0);
+      | (has_sve2_ && kArm64AllowSVE ? kSVE2BitField : 0);
 }
 
 std::string Arm64InstructionSetFeatures::GetFeatureString() const {
@@ -420,10 +423,10 @@ std::string Arm64InstructionSetFeatures::GetFeatureString() const {
   // Report not just that the SVE feature is present, but that it is both
   // present and enabled in ART. It is important because other components
   // like tools/checker rely on this information.
-  if (has_sve_ && kArm64AllowSVE) {
-    result += ",sve";
+  if (has_sve2_ && kArm64AllowSVE) {
+    result += ",sve2";
   } else {
-    result += ",-sve";
+    result += ",-sve2";
   }
   return result;
 }
@@ -449,7 +452,7 @@ Arm64InstructionSetFeatures::AddFeaturesFromSplitString(
   bool has_lse = has_lse_;
   bool has_fp16 = has_fp16_;
   bool has_dotprod = has_dotprod_;
-  bool has_sve = has_sve_;
+  bool has_sve2 = has_sve2_;
   for (const std::string& feature : features) {
     DCHECK_EQ(android::base::Trim(feature), feature)
         << "Feature name is not trimmed: '" << feature << "'";
@@ -473,10 +476,10 @@ Arm64InstructionSetFeatures::AddFeaturesFromSplitString(
       has_dotprod = true;
     } else if (feature == "-dotprod") {
       has_dotprod = false;
-    } else if (feature == "sve") {
-      has_sve = true;
-    } else if (feature == "-sve") {
-      has_sve = false;
+    } else if (feature == "sve2") {
+      has_sve2 = true;
+    } else if (feature == "-sve2") {
+      has_sve2 = false;
     } else if (feature == "armv8.1-a") {
       has_crc = true;
       has_lse = true;
@@ -505,7 +508,7 @@ Arm64InstructionSetFeatures::AddFeaturesFromSplitString(
                                       has_lse,
                                       has_fp16,
                                       has_dotprod,
-                                      has_sve));
+                                      has_sve2));
 }
 
 std::unique_ptr<const InstructionSetFeatures>
@@ -519,7 +522,7 @@ Arm64InstructionSetFeatures::AddRuntimeDetectedFeatures(
                                       arm64_features->has_lse_,
                                       arm64_features->has_fp16_,
                                       arm64_features->has_dotprod_,
-                                      arm64_features->has_sve_));
+                                      arm64_features->has_sve2_));
 }
 
 }  // namespace art

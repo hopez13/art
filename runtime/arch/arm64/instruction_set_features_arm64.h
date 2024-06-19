@@ -101,8 +101,8 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
     return has_dotprod_;
   }
 
-  bool HasSVE() const {
-    return kArm64AllowSVE && has_sve_;
+  bool HasSVE2() const {
+    return kArm64AllowSVE && has_sve2_;
   }
 
   size_t GetSVEVectorLength() const {
@@ -127,7 +127,7 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
                               bool has_lse,
                               bool has_fp16,
                               bool has_dotprod,
-                              bool has_sve)
+                              bool has_sve2)
       : InstructionSetFeatures(),
         fix_cortex_a53_835769_(needs_a53_835769_fix),
         fix_cortex_a53_843419_(needs_a53_843419_fix),
@@ -135,7 +135,7 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
         has_lse_(has_lse),
         has_fp16_(has_fp16),
         has_dotprod_(has_dotprod),
-        has_sve_(has_sve) {
+        has_sve2_(has_sve2) {
   }
 
   // Bitmap positions for encoding features as a bitmap.
@@ -145,7 +145,7 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
     kLSEBitField = 1 << 2,
     kFP16BitField = 1 << 3,
     kDotProdBitField = 1 << 4,
-    kSVEBitField = 1 << 5,
+    kSVE2BitField = 1 << 5,
   };
 
   const bool fix_cortex_a53_835769_;
@@ -154,7 +154,7 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
   const bool has_lse_;      // ARMv8.1 Large System Extensions.
   const bool has_fp16_;     // ARMv8.2 FP16 extensions.
   const bool has_dotprod_;  // optional in ARMv8.2, mandatory in ARMv8.4.
-  const bool has_sve_;      // optional in ARMv8.2.
+  const bool has_sve2_;     // optional in ARMv9.0.
 
   DISALLOW_COPY_AND_ASSIGN(Arm64InstructionSetFeatures);
 };
