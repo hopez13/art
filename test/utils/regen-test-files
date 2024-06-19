@@ -213,6 +213,8 @@ known_failing_tests = frozenset([
   "966-default-conflict",
   # These tests need native code.
   "993-breakpoints-non-debuggable",
+  # 2029-contended-monitors: Dependency on `libarttest`. Same use as 837-deopt.
+  "2029-contended-monitors",
   "2243-single-step-default",
   "2262-miranda-methods",
   "2262-default-conflict-methods",
