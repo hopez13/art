@@ -2060,7 +2060,7 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
     case InstructionSet::kArm64:
       if (GetVectorizationMode() == VectorizationMode::kPredicated) {
         // SVE vectorization.
-        CHECK(features->AsArm64InstructionSetFeatures()->HasSVE());
+        CHECK(features->AsArm64InstructionSetFeatures()->HasSVE2());
         size_t vector_length = GetVectorSizeInBytes() / DataType::Size(type);
         DCHECK_EQ(GetVectorSizeInBytes() % DataType::Size(type), 0u);
         switch (type) {

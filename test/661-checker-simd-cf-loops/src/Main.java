@@ -45,7 +45,7 @@ public class Main {
   public static final float MAGIC_FLOAT_ADD_CONST = 99.0f;
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$FullDiamond(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: <<C0:i\d+>>      IntConstant 0                                         loop:none
   ///     CHECK-DAG: <<C4:i\d+>>      IntConstant 4                                         loop:none
@@ -92,7 +92,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleBoolean(boolean[], boolean[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -107,7 +107,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleByte(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -126,7 +126,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleUByte(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -144,7 +144,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleShort(short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -163,7 +163,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleChar(char[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -182,7 +182,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleInt(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -201,7 +201,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleLong(long[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -216,7 +216,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleFloat(float[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -231,7 +231,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleDouble(double[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -246,7 +246,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$DifferentTypes(byte[], short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -266,7 +266,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$ByteConv(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -285,7 +285,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$UByteAndWrongConst(byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -301,7 +301,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$ByteNoHiBits(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -322,7 +322,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleEqual(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -339,7 +339,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleNotEqual(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -356,7 +356,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleLessThan(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -373,7 +373,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleLessThanOrEqual(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -390,7 +390,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleGreaterThan(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -407,7 +407,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SimpleGreaterThanOrEqual(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -428,7 +428,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$Select(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -446,7 +446,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$Phi(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -467,7 +467,7 @@ public class Main {
   // TODO: when Phis are supported, test dotprod and sad idioms.
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$Reduction(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -486,7 +486,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: int Main.$compile$noinline$ReductionBackEdge(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-DAG: VecLoad
   //
@@ -515,7 +515,7 @@ public class Main {
   public static final int STENCIL_ARRAY_SIZE = 130;
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$stencilAlike(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -536,7 +536,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$NotDiamondCf(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -555,7 +555,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$BrokenInduction(int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -575,7 +575,7 @@ public class Main {
   //
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$SingleBoolean(int[], boolean) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -591,7 +591,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$InstanceOf(int[], java.lang.Object) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK-NOT: VecLoad
   //
@@ -636,7 +636,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
   //
   ///     CHECK-DAG: <<C0:i\d+>>       IntConstant 0                             loop:none
   ///     CHECK-DAG: <<C1:i\d+>>       IntConstant 1                             loop:none
@@ -667,7 +667,7 @@ public class Main {
   /// CHECK-FI:
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) disassembly (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK:       SuspendCheckSlowPathARM64
   ///     CHECK:         str z<<RegNo:\d+>>, [{{x\d+}}]
@@ -676,7 +676,7 @@ public class Main {
   /// CHECK-FI:
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusTrad(int[], int[]) disassembly (after)
-  /// CHECK-IF:     hasIsaFeature("sve")
+  /// CHECK-IF:     hasIsaFeature("sve2")
   //
   ///     CHECK:       SuspendCheckSlowPathARM64
   ///     CHECK-NOT:     {{str|stur|}} q{{\d+}}, [sp, #{{\d+}}]
@@ -698,7 +698,7 @@ public class Main {
   }
 
   /// CHECK-START-ARM64: void Main.$compile$noinline$MixedModePredPlusUnrolledTrad(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') != 'true'
   //
   ///     CHECK-DAG: <<C0:i\d+>>       IntConstant 0                       loop:none
   ///     CHECK-DAG: <<C1:i\d+>>       IntConstant 1                       loop:none

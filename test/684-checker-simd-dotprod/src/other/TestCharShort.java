@@ -37,7 +37,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdSimple(short[], short[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -84,7 +84,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplex(short[], short[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -130,7 +130,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdSimpleUnsigned(char[], char[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -177,7 +177,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplexUnsigned(char[], char[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -227,7 +227,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplexUnsignedCastToSigned(char[], char[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -277,7 +277,7 @@ public class TestCharShort {
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdComplexSignedCastToUnsigned(short[], short[]) loop_optimization (after)
   /// CHECK-DAG: <<Const0:i\d+>>  IntConstant 0                                         loop:none
   /// CHECK-DAG: <<Const1:i\d+>>  IntConstant 1                                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -310,7 +310,7 @@ public class TestCharShort {
   }
 
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdSignedToInt(short[], short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -330,7 +330,7 @@ public class TestCharShort {
   }
 
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdParamSigned(int, short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -350,7 +350,7 @@ public class TestCharShort {
   }
 
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdParamUnsigned(int, char[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -381,7 +381,7 @@ public class TestCharShort {
   }
 
   /// CHECK-START-{ARM64}: int other.TestCharShort.testDotProdSignedToChar(short[], short[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      16-bit DotProd is not supported for SVE.
   ///     CHECK-NOT:                  VecDotProd [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]

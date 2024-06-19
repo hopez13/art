@@ -1027,7 +1027,7 @@ CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
 }
 
 bool CodeGeneratorARM64::SupportsPredicatedSIMD() const {
-  return GetInstructionSetFeatures().HasSVE();
+  return GetInstructionSetFeatures().HasSVE2();
 }
 
 size_t CodeGeneratorARM64::GetTraditionalSIMDRegisterWidth() const {

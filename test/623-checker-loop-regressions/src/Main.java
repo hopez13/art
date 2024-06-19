@@ -290,7 +290,7 @@ public class Main {
   /// CHECK-NOT: VecLoad
   //
   /// CHECK-START-ARM64: void Main.string2Bytes(char[], java.lang.String) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      TODO: Support CharAt for SVE.
   ///     CHECK-NOT: VecLoad [{{l\d+}},{{i\d+}},{{j\d+}}]
@@ -314,7 +314,7 @@ public class Main {
   /// CHECK-NOT: VecLoad
 
   /// CHECK-START-ARM64: void Main.$noinline$stringToShorts(short[], java.lang.String) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      TODO: Support CharAt for SVE.
   ///     CHECK-NOT: VecLoad [{{l\d+}},{{i\d+}},{{j\d+}}]
@@ -368,7 +368,7 @@ public class Main {
   //
   /// CHECK-START-ARM64: void Main.oneBoth(short[], char[]) loop_optimization (after)
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                             loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   ///     CHECK-DAG: <<Repl:d\d+>>  VecReplicateScalar [<<One>>,{{j\d+}}]               loop:none
   ///     CHECK-DAG: <<LoopP:j\d+>> VecPredWhile                                        loop:<<Loop:B\d+>> outer_loop:none
@@ -423,7 +423,7 @@ public class Main {
   //
   /// CHECK-START-ARM64: void Main.typeConv(byte[], byte[]) loop_optimization (after)
   /// CHECK-DAG: <<One:i\d+>>  IntConstant 1                         loop:none
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   ///     CHECK-DAG: <<Repl:d\d+>>  VecReplicateScalar [<<One>>,{{j\d+}}]           loop:none
   ///     CHECK-DAG: <<LoopP:j\d+>> VecPredWhile                                    loop:<<Loop1:B\d+>> outer_loop:none
@@ -765,7 +765,7 @@ public class Main {
   /// CHECK-DAG:       VecStore
   //
   /// CHECK-START-ARM64: int Main.testSADAndSet(int[], int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -793,7 +793,7 @@ public class Main {
   /// CHECK-DAG:       VecSADAccumulate
   //
   /// CHECK-START-ARM64: int Main.testSADAndSAD(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -860,7 +860,7 @@ public class Main {
   /// CHECK-DAG:       VecSADAccumulate
   //
   /// CHECK-START-ARM64: int Main.testSADAndSADExtraAbs0(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -894,7 +894,7 @@ public class Main {
   /// CHECK-DAG:       VecSADAccumulate
   //
   /// CHECK-START-ARM64: int Main.testSADAndSADExtraAbs1(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -923,7 +923,7 @@ public class Main {
   // Idioms common sub-expression bug: SAD and DotProd combined.
   //
   /// CHECK-START-ARM64: int Main.testSADAndDotProdCombined0(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -951,7 +951,7 @@ public class Main {
 
   // Idioms common sub-expression bug: SAD and DotProd combined (reversed order).
   /// CHECK-START-ARM64: int Main.testSADAndDotProdCombined1(byte[], byte[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
   ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
@@ -985,7 +985,7 @@ public class Main {
   // Based on void android.util.Spline$MonotoneCubicSpline.<init>(float[], float[]).
   //
   /// CHECK-START-ARM64: void Main.$noinline$testExternalSetForLoopWithDisambiguation(int[], int[]) loop_optimization (after)
-  /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
+  /// CHECK-IF:     hasIsaFeature("sve2") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   ///     CHECK-DAG: <<Pred:j\d+>>    VecPredSetAll                          loop:none
   ///     CHECK-DAG:                  VecReplicateScalar [{{i\d+}},<<Pred>>] loop:none

@@ -106,12 +106,12 @@ class CodegenArm64Test : public OptimizingUnitTest {
 
     std::string features;
     if (kArm64AllowSVE) {
-      // If runtime isa is not Arm64 we can enable sve feature because in this case simulator
+      // If runtime isa is not Arm64 we can enable sve2 feature because in this case simulator
       // is used to execute generated code. Otherwise we need to check runtime capabilities.
-      features = "sve";
+      features = "sve2";
       if (kRuntimeISA == InstructionSet::kArm64) {
         Arm64FeaturesUniquePtr runtime_features = Arm64InstructionSetFeatures::FromHwcap();
-        if (!runtime_features->HasSVE()) {
+        if (!runtime_features->HasSVE2()) {
           features = "";
         }
       }
