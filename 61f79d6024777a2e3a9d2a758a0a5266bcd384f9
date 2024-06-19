@@ -16,6 +16,144 @@
       "message": "I think CL is ready for review. Can you please take a look? Thanks!",
       "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "550ecd16_c7ffb141",
+        "filename": "runtime/art_method-inl.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 624,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "Add a comment why you\u0027re also going through the JIT.",
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86a97e5a_bf124ee9",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "Don\u0027t we expect all entries here to be marked?",
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f8650671_23b5811f",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 777,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "Add a comment what is happening here.",
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f4e0fa6_b017359d",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 944,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "add a comment what happens here.",
+      "range": {
+        "startLine": 938,
+        "startChar": 0,
+        "endLine": 944,
+        "endChar": 3
+      },
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "10bfb297_14a5f137",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1153,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "You\u0027re doing this in `RemoveMethodsIn`. Mabye just mention that we could also look at clearing them here, but we\u0027re not bothering?",
+      "range": {
+        "startLine": 1152,
+        "startChar": 54,
+        "endLine": 1153,
+        "endChar": 19
+      },
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7285b415_a0535b86",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-19T16:45:54Z",
+      "side": 1,
+      "message": "Why a multimap and not a std::map\u003cArtMethod, std::set\u003c...\u003e\u003e ?",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 15
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5c4f3ab5_0dc38ca7",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/jit_code_cache.h",
+              "range": {
+                "startLine": 558,
+                "startChar": 0,
+                "endLine": 559,
+                "endChar": 0
+              },
+              "replacement": "  std::unordered_map\u003cArtMethod*, GcRoot\u003cmirror::MethodType\u003e\u003e method_types_ GUARDED_BY(Locks::jit_lock_);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
