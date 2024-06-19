@@ -1,0 +1,68 @@
+# Copyright (C) 2024 The Android Open Source Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+package: "com.android.art.flags"
+container: "com.android.art"
+
+# Generic flags that target upcoming Mainline trains. These may be used for any
+# feature where the ramp schedule fits, and the feature may target the
+# respective train or any later one. TBD: Link to a page with ramp schedules.
+
+flag {
+  name: "target_m2024_09"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2024-09."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "target_m2024_10"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2024-10."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "target_m2024_11"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2024-11."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "target_m2024_12"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2024-12."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "target_m2025_01"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2025-01."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
+
+flag {
+  name: "target_m2025_02"
+  namespace: "art_mainline"
+  description: "Flag ramped to target M-2025-02."
+  bug: "123456789"
+  is_fixed_read_only: true
+}
