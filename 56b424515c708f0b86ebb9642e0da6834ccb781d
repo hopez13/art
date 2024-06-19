@@ -93,6 +93,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4ef0735a_757a39cd",
+        "filename": "compiler/optimizing/load_store_analysis_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 529,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-06-19T13:58:23Z",
+      "side": 1,
+      "message": "Done.",
+      "parentUuid": "dc274857_c98a5c93",
+      "range": {
+        "startLine": 529,
+        "startChar": 15,
+        "endLine": 529,
+        "endChar": 20
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "28d94598_fd85efde",
@@ -130,6 +154,30 @@
       "side": 1,
       "message": "Sorry, this comment is outdated. By default all vector loads and stores are predicated by the same `HVecPredWhile` instruction, but it is also possible to change it and pass manually created predicate to `AddVecStore`/`AddVecLoad` like in `VecLoadStoreWithDifferentPredicates`. I will fix comment.",
       "parentUuid": "28d94598_fd85efde",
+      "range": {
+        "startLine": 339,
+        "startChar": 0,
+        "endLine": 341,
+        "endChar": 0
+      },
+      "revId": "56b424515c708f0b86ebb9642e0da6834ccb781d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "52acfc44_d57f71e7",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 341,
+      "author": {
+        "id": 3050003
+      },
+      "writtenOn": "2024-06-19T13:58:23Z",
+      "side": 1,
+      "message": "Updated comment.",
+      "parentUuid": "0859a6b0_1c25545e",
       "range": {
         "startLine": 339,
         "startChar": 0,
