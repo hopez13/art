@@ -16,6 +16,24 @@
       "message": "Hi Chris, I think this one is the next in the chain. Do you want to rebase this before I take another look? We cannot run presubmit checks without rebasing too.",
       "revId": "3cf90885b215c06431a906780be506b0029540b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "25379ad5_967c5f1a",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-06-20T14:45:39Z",
+      "side": 1,
+      "message": "Yes this is the next one. For patches in this chain I\u0027d ideally like to get a single code approval (CR +2) before rebasing as it should allow me to fix issues earlier by retesting the whole chain of patches on the simulator.",
+      "parentUuid": "d32dc579_d80c792f",
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
