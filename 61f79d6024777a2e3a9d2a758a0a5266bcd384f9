@@ -90,6 +90,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "0ed5ec1c_b6e5f3a1",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-20T12:07:59Z",
+      "side": 1,
+      "message": "Sure, but the objects should be live given the ArtMethod was live. So similar to line 437, I think you can DCHECK that `new_method_type` is no null.",
+      "parentUuid": "b858c9fc_a6a55b35",
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f8650671_23b5811f",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 7
@@ -272,6 +290,30 @@
       "side": 1,
       "message": "It seems that `GcRoot` is not comparable. Am I doing something wrong?",
       "parentUuid": "7285b415_a0535b86",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 15
+      },
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17102542_c4d7f571",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-20T12:07:59Z",
+      "side": 1,
+      "message": "What error do you get?",
+      "parentUuid": "6aa5a4f7_b2336565",
       "range": {
         "startLine": 558,
         "startChar": 7,
