@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b927fe82_0285ee74",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-06-20T17:23:42Z",
+      "side": 1,
+      "message": "I would recommend just fixing the one lint issue in that test and removing the baseline instead of this.\n\nIt can be fixed by raising the min_sdk_version to 34 or by checking `Build.VERSION.SDK_INT` before using `isOptimized()`.",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
