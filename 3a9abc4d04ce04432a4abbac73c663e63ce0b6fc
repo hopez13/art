@@ -42,6 +42,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "81478b21_e328112b",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-20T12:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "720080ae_4cffe3af",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "revId": "3a9abc4d04ce04432a4abbac73c663e63ce0b6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "080d2cce_1f586bbd",
@@ -55,6 +79,30 @@
       "writtenOn": "2024-06-20T12:10:30Z",
       "side": 1,
       "message": "nit: fits on one line",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 85,
+        "endChar": 47
+      },
+      "revId": "3a9abc4d04ce04432a4abbac73c663e63ce0b6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "22315205_fd82394b",
+        "filename": "runtime/jit/profile_saver.h",
+        "patchSetId": 24
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-20T12:59:44Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "080d2cce_1f586bbd",
       "range": {
         "startLine": 83,
         "startChar": 0,
