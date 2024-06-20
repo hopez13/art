@@ -71,6 +71,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "66b04b11_ebd85176",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-20T10:50:12Z",
+      "side": 1,
+      "message": "Yes, it is. I don\u0027t know if the `ScopedAssertNoThreadSuspension` constructor took a `Thread*` argument in the past but now it was just implicitly converted to `true` which is the default anyway.",
+      "parentUuid": "82dd82c7_d3c92300",
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9e4f71e7_c2cb9233",
@@ -102,6 +120,24 @@
           ]
         }
       ],
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "eb96a14a_84fd6571",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-20T10:50:12Z",
+      "side": 1,
+      "message": "The `DCheckNoTransactionCheckAllowed()` is not inline, so I\u0027d prefer to keep this to avoid relying on link-time optimization. We\u0027re using this pattern in several other places.",
+      "parentUuid": "9e4f71e7_c2cb9233",
       "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
