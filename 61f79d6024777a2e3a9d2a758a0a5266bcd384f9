@@ -106,6 +106,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7d6d130b_3250f9c3",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-20T12:30:29Z",
+      "side": 1,
+      "message": "Got it, done.",
+      "parentUuid": "0ed5ec1c_b6e5f3a1",
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f8650671_23b5811f",
@@ -314,6 +332,30 @@
       "side": 1,
       "message": "What error do you get?",
       "parentUuid": "6aa5a4f7_b2336565",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 15
+      },
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d818cb_48af7fca",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-20T12:30:29Z",
+      "side": 1,
+      "message": "I changed its type to `SafeMap\u003cArtMethod*, std::set\u003cGcRoot\u003cmirror::MethodType\u003e\u003e\u003e` and updated `JitCodeCache::Commit` part into \n```\n        auto mt_roots \u003d std::set\u003cGcRoot\u003cmirror::MethodType\u003e\u003e();\n        \n        for (auto root : roots) {\n          ObjPtr\u003cmirror::Class\u003e klass \u003d root-\u003eGetClass\u003ckDefaultVerifyFlags, kWithoutReadBarrier\u003e();\n          if (klass \u003d\u003d method_type_class ||\n              klass \u003d\u003d ReadBarrier::IsMarked(method_type_class.Ptr()) ||\n              ReadBarrier::IsMarked(klass.Ptr()) \u003d\u003d method_type_class) {\n            ObjPtr\u003cmirror::MethodType\u003e mt \u003d ObjPtr\u003cmirror::MethodType\u003e::DownCast(root.Get());\n            mt_roots.insert(GcRoot(mt));\n          }\n        }\n\n        method_types_.find(method)-\u003esecond.insert(mt_roots.begin(), mt_roots.end());\n```\n\nAnd in this case error I get is\n```\ne/libartd-runtime/linux_glibc_x86_64_static/ca20aeb40531de8f5d4d80e90f476059/obj/art/runtime/jit/jit_code_cache.o art/runtime/jit/jit_code_cache.cc\nIn file included from art/runtime/jit/jit_code_cache.cc:17:\nIn file included from art/runtime/jit/jit_code_cache.h:22:\nIn file included from prebuilts/clang/host/linux-x86/clang-r522817/include/c++/v1/memory:939:\nIn file included from prebuilts/clang/host/linux-x86/clang-r522817/include/c++/v1/__memory/shared_ptr.h:19:\nprebuilts/clang/host/linux-x86/clang-r522817/include/c++/v1/__functional/operations.h:358:16: error: invalid operands to binary expression (\u0027const art::GcRoot\u003cart::mirror::MethodType\u003e\u0027 and \u0027const art::GcRoot\u003cart::mirror::MethodType\u003e\u0027)\n```\n\nFull logs: gpaste/6211559403814912",
+      "parentUuid": "17102542_c4d7f571",
       "range": {
         "startLine": 558,
         "startChar": 7,
