@@ -412,6 +412,30 @@
       },
       "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe93a640_ffedfaf5",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-20T14:03:46Z",
+      "side": 1,
+      "message": "Can you try with plain pointers for now?",
+      "parentUuid": "678824b8_7c2feeb0",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 15
+      },
+      "revId": "61f79d6024777a2e3a9d2a758a0a5266bcd384f9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
