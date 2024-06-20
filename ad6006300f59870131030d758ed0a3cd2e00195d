@@ -34,6 +34,76 @@
       "parentUuid": "62076528_2098b2fa",
       "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06f94b88_d62c1518",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-20T10:29:23Z",
+      "side": 1,
+      "message": "I don\u0027t have a strong opinion either way. `last_no_thread_suspension_cause` already existed and is used only for debugging too.",
+      "parentUuid": "d0a8a8d2_b4c3ea6b",
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "82dd82c7_d3c92300",
+        "filename": "dex2oat/linker/oat_writer.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 2361,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-20T10:29:23Z",
+      "side": 1,
+      "message": "Is this a drive-by change?",
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e4f71e7_c2cb9233",
+        "filename": "runtime/runtime.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 634,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-20T10:29:23Z",
+      "side": 1,
+      "message": "nit: this is not needed since `DCheckNoTransactionCheckAllowed` already does that (and it is implied by the name)",
+      "fixSuggestions": [
+        {
+          "fixId": "a5b64761_ea683f41",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/runtime.h",
+              "range": {
+                "startLine": 634,
+                "startChar": 0,
+                "endLine": 637,
+                "endChar": 0
+              },
+              "replacement": "    DCheckNoTransactionCheckAllowed();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
