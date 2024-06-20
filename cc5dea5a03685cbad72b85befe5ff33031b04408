@@ -94,6 +94,30 @@
       },
       "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bd58e330_8caa8bc6",
+        "filename": "test/2271-profile-inline-cache/src/Main.java",
+        "patchSetId": 22
+      },
+      "lineNbr": 53,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-20T09:22:56Z",
+      "side": 1,
+      "message": "I think you are right, we can avoid the extra call to `notifyStartupCompleted` by making sure to not sleep again if the thread is shutting down.",
+      "parentUuid": "b0831a39_3291f009",
+      "range": {
+        "startLine": 51,
+        "startChar": 0,
+        "endLine": 53,
+        "endChar": 43
+      },
+      "revId": "cc5dea5a03685cbad72b85befe5ff33031b04408",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

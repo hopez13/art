@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1c06022d_1a203375",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 21
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1965996
+      },
+      "writtenOn": "2024-06-20T09:22:56Z",
+      "side": 1,
+      "message": "No, except that it might wait more time to dump the profile due to the JIT notification waiting time. If `dalvik.vm.ps-min-first-save-ms` is less than the startup time we used to wait (and still) on startup completion.",
+      "parentUuid": "37e9c7c5_43c71eb4",
+      "revId": "cbbd74ad346c9beb678ec69ad24a51a3b4080c08",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6cce5f30_f690bb59",
