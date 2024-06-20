@@ -3,6 +3,47 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "720080ae_4cffe3af",
+        "filename": "runtime/jit/profile_saver.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 130,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-20T12:55:30Z",
+      "side": 1,
+      "message": "Nit: Remove the braces. It was for the wait_lock_, but we moved it.",
+      "range": {
+        "startLine": 130,
+        "startChar": 2,
+        "endLine": 130,
+        "endChar": 3
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c070ce20_83bf1cea",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jit/profile_saver.cc",
+              "range": {
+                "startLine": 130,
+                "startChar": 0,
+                "endLine": 140,
+                "endChar": 0
+              },
+              "replacement": "  // Wait for startup to complete with a timeout at StartupCompletedTask.\n  // Note that we may be woken up by JIT notifications.\n  // We need to wait for startup to complete to make sure we have\n  // the resolved classes and methods.\n  while (!Runtime::Current()-\u003eGetStartupCompleted() \u0026\u0026 !ShuttingDown(self)) {\n    MutexLock mu(self, wait_lock_);\n    // Make sure to sleep again until startup is completed.\n    period_condition_.Wait(self);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3a9abc4d04ce04432a4abbac73c663e63ce0b6fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "080d2cce_1f586bbd",
         "filename": "runtime/jit/profile_saver.h",
         "patchSetId": 24
