@@ -16,6 +16,24 @@
       "message": "Not a big fan of adding an entry in the thread structure just for debugging. I\u0027ll let Santiago also take a look and give feedback.",
       "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0a8a8d2_b4c3ea6b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-20T06:42:20Z",
+      "side": 1,
+      "message": "Well, we could also just remove the `ScopedAssertNoNewTransactionRecords` with no replacement at all. I\u0027m not a big fan of adding another virtual function to `ClassLinker` just to keep this debugging assertion working while I move the `AotClassLinker` to `dex2oat/`.",
+      "parentUuid": "62076528_2098b2fa",
+      "revId": "ad6006300f59870131030d758ed0a3cd2e00195d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
