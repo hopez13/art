@@ -34,6 +34,24 @@
       "parentUuid": "d32dc579_d80c792f",
       "revId": "3cf90885b215c06431a906780be506b0029540b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cc740a7_5ceef8fe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-21T08:09:44Z",
+      "side": 1,
+      "message": "I am not sure I follow the single code approval. You still want to land these changes individually right? Or do you want to land the changes from this CL until the first \"Macroise\" symbol access together? Even in that case, I think you would have to rebase those 6 changes so you could land them. Also depending on how involved the rebase was sometimes the review tool drops the CR + 2.",
+      "parentUuid": "25379ad5_967c5f1a",
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
