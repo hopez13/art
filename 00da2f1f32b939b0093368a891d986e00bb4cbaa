@@ -16,6 +16,46 @@
       "message": "Thanks Cole and Martin.",
       "revId": "00da2f1f32b939b0093368a891d986e00bb4cbaa",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "47c6d305_49cceeee",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-21T16:59:44Z",
+      "side": 1,
+      "message": "Since this is a somewhat generic helper function I suggest giving it a brief doc comment.",
+      "revId": "00da2f1f32b939b0093368a891d986e00bb4cbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc9be1a_3cf26874",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-21T16:59:44Z",
+      "side": 1,
+      "message": "Nit: Why not just remove this backslash and the next empty line?",
+      "range": {
+        "startLine": 499,
+        "startChar": 15,
+        "endLine": 499,
+        "endChar": 16
+      },
+      "revId": "00da2f1f32b939b0093368a891d986e00bb4cbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
