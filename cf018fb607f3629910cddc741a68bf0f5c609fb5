@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e32ee6f4_952714e5",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 1887,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-21T12:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "7c3e8ec1_f4f21e55",
+      "range": {
+        "startLine": 1887,
+        "startChar": 93,
+        "endLine": 1887,
+        "endChar": 100
+      },
+      "revId": "cf018fb607f3629910cddc741a68bf0f5c609fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da774618_da113bf6",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-21T10:48:10Z",
       "side": 1,
       "message": "-\u003e The MethodType have been visited during VisitConcurrentRoots, so they must be live.",
+      "range": {
+        "startLine": 451,
+        "startChar": 11,
+        "endLine": 451,
+        "endChar": 91
+      },
+      "revId": "cf018fb607f3629910cddc741a68bf0f5c609fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8d18bb01_bc2e785c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 11
+      },
+      "lineNbr": 451,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-21T12:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da774618_da113bf6",
       "range": {
         "startLine": 451,
         "startChar": 11,
@@ -83,6 +131,54 @@
       "writtenOn": "2024-06-21T10:48:10Z",
       "side": 1,
       "message": "std::vector",
+      "range": {
+        "startLine": 558,
+        "startChar": 29,
+        "endLine": 558,
+        "endChar": 55
+      },
+      "revId": "cf018fb607f3629910cddc741a68bf0f5c609fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "31e3fc56_38aabca0",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-21T12:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ed078591_a868be64",
+      "range": {
+        "startLine": 558,
+        "startChar": 7,
+        "endLine": 558,
+        "endChar": 15
+      },
+      "revId": "cf018fb607f3629910cddc741a68bf0f5c609fb5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "54f44fee_21cb32a8",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 11
+      },
+      "lineNbr": 558,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-21T12:22:06Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "94600023_b9224d2f",
       "range": {
         "startLine": 558,
         "startChar": 29,
