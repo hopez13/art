@@ -16,6 +16,98 @@
       "message": "Thanks!",
       "revId": "0c8791dee66c10a708819750717d994034e916d4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71cc2022_e434c857",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-21T21:43:40Z",
+      "side": 1,
+      "message": "General comment: I think we should avoid introducing a new lock level for each of these. Each lock level costs us 8 bytes in the thread structure, plus time overhead in debug builds. IMO, we currently have way too many lock levels.\n\nI suspect this is never held concurrently with kCHALock, so the two could be merged?\n\nI started doing this in (unsubmitted) https://android-review.googlesource.com/c/platform/art/+/2726506/6/runtime/base/locks.cc",
+      "range": {
+        "startLine": 321,
+        "startChar": 3,
+        "endLine": 323,
+        "endChar": 96
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "419992d2_948da1eb",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-21T21:43:40Z",
+      "side": 1,
+      "message": "Is there an issue with mutual exclusion on these? We now only hold a reader lock here, right? I don\u0027t understand the context sufficiently.",
+      "range": {
+        "startLine": 443,
+        "startChar": 12,
+        "endLine": 443,
+        "endChar": 20
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "86c67520_9a52d422",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-21T21:43:40Z",
+      "side": 1,
+      "message": "Why does \"Reader\" suffice for writing the maps?",
+      "range": {
+        "startLine": 907,
+        "startChar": 4,
+        "endLine": 907,
+        "endChar": 10
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "35a34f85_1bfd4c66",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-06-21T21:43:40Z",
+      "side": 1,
+      "message": "Deleting the mutator_lock_ requirement here is a drive-by cleanup? That\u0027s fine, but I want to make sure I\u0027m not missing something.",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 41
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
