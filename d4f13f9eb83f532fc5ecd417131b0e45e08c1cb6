@@ -16,6 +16,47 @@
       "message": "I would recommend just fixing the one lint issue in that test and removing the baseline instead of this.\n\nIt can be fixed by raising the min_sdk_version to 34 or by checking `Build.VERSION.SDK_INT` before using `isOptimized()`.",
       "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6003beb3_f25cf8d9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-21T12:33:21Z",
+      "side": 1,
+      "message": "I suspect the reason Roland did this was to unblock the regen in the child CLs without having to revert hunks in them manually. It\u0027s easy to miss as long as we have this special case, so even as a temporary measure this may be warranted.\n\nOf course it\u0027d be better to fix the linter issue. I see the API is actually in the ART module itself so the linter error is a false alarm, and it seems likely we\u0027ll hit it again when we test more of our own APIs. Is it possible to teach the linter that certain packages are in the same module and hence should be exempt from SDK version checks?",
+      "parentUuid": "b927fe82_0285ee74",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6d775868_4fa6cdd6",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-21T12:33:21Z",
+      "side": 1,
+      "message": "What about passing in this whole block, so the argument can be used as a generic way to add properties?",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 13
+      },
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
