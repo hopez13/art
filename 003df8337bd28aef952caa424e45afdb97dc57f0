@@ -22,6 +22,30 @@
       },
       "revId": "003df8337bd28aef952caa424e45afdb97dc57f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "cfb9092b_1b196504",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-21T13:12:36Z",
+      "side": 1,
+      "message": "Missing is relative here: we\u0027re now defining hotness at startup differently (increasing the threshold essentially). In effect, this will still have methods be AOT compiled, and we should get less JIT activity during startup.",
+      "parentUuid": "342cc930_a3c6c56b",
+      "range": {
+        "startLine": 122,
+        "startChar": 32,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "003df8337bd28aef952caa424e45afdb97dc57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
