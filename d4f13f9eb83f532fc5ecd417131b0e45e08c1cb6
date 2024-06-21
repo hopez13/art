@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6fb3bb2e_e276df25",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-06-21T18:12:04Z",
+      "side": 1,
+      "message": "\u003e I see the API is actually in the ART module itself so the linter error is a false alarm, and it seems likely we\u0027ll hit it again when we test more of our own APIs. Is it possible to teach the linter that certain packages are in the same module and hence should be exempt from SDK version checks?\n\nWhat makes you think that it\u0027s a false alarm? The test is a regular `java_test` / `java_library`, there\u0027s nothing that inherently couples it to a specific version of ART. Presumably you\u0027re only actually running against a version of ART that was built from the same source tree, but if that\u0027s the case, why is `min_sdk_version` low? (31)",
+      "parentUuid": "dc754066_9d1c0d3a",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
