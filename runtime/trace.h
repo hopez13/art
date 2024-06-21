@@ -172,6 +172,8 @@ class TraceWriter {
   uintptr_t* PrepareBufferForNewEntries(Thread* thread) REQUIRES_SHARED(Locks::mutator_lock_)
       REQUIRES(!trace_writer_lock_);
 
+  std::string CreateSummary(int flags) REQUIRES(!trace_writer_lock_)
+      REQUIRES_SHARED(Locks::mutator_lock_);
   // Flushes all per-thread buffer and also write a summary entry.
   void FinishTracing(int flags, bool flush_entries) REQUIRES(!trace_writer_lock_)
       REQUIRES_SHARED(Locks::mutator_lock_);
