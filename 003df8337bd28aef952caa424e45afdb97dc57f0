@@ -46,6 +46,30 @@
       },
       "revId": "003df8337bd28aef952caa424e45afdb97dc57f0",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5c32f55_c7644818",
+        "filename": "runtime/interpreter/mterp/nterp.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 122,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-21T13:51:59Z",
+      "side": 1,
+      "message": "Yes, my question was since we are effectively increasing the threshold, we would AOT fewer methods (those that didn\u0027t hit the new higher threshold). So though this decreases JITing for cases where we are still collecting the profile, in a more common case where we have stable profiles we might regress startup right.\n\nMy main question is, should we optimize for less JIT activity during startup given that once we have a good profile we shouldn\u0027t be JITing. If getting a stable profile isn\u0027t feasible because of too much variation in the startup scenarios then  we would need to. I assumed that during startup the profiles should stabilize pretty quickly and we shouldn\u0027t be JITing much at the startup.",
+      "parentUuid": "cfb9092b_1b196504",
+      "range": {
+        "startLine": 122,
+        "startChar": 32,
+        "endLine": 122,
+        "endChar": 64
+      },
+      "revId": "003df8337bd28aef952caa424e45afdb97dc57f0",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
