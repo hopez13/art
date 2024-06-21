@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "dc754066_9d1c0d3a",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-21T16:39:49Z",
+      "side": 1,
+      "message": "\u003e I suspect the reason Roland did this was to unblock the regen in the child CLs without having to revert hunks in them manually. It\u0027s easy to miss as long as we have this special case, so even as a temporary measure this may be warranted.\n\nExactly. This change is orthogonal to the linter issue, which can be addressed separately.",
+      "parentUuid": "6003beb3_f25cf8d9",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
@@ -49,6 +67,30 @@
       "writtenOn": "2024-06-21T12:33:21Z",
       "side": 1,
       "message": "What about passing in this whole block, so the argument can be used as a generic way to add properties?",
+      "range": {
+        "startLine": 518,
+        "startChar": 0,
+        "endLine": 521,
+        "endChar": 13
+      },
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "754046fc_5148a01d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 521,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-21T16:39:49Z",
+      "side": 1,
+      "message": "I amended this in PS2; let me know what you think.",
+      "parentUuid": "6d775868_4fa6cdd6",
       "range": {
         "startLine": 518,
         "startChar": 0,
