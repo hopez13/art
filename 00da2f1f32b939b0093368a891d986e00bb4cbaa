@@ -35,6 +35,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "46447921_bea5d10f",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 496,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-21T17:26:34Z",
+      "side": 1,
+      "message": "Sure; done in PS3.",
+      "parentUuid": "47c6d305_49cceeee",
+      "revId": "00da2f1f32b939b0093368a891d986e00bb4cbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3dc9be1a_3cf26874",
@@ -48,6 +66,30 @@
       "writtenOn": "2024-06-21T16:59:44Z",
       "side": 1,
       "message": "Nit: Why not just remove this backslash and the next empty line?",
+      "range": {
+        "startLine": 499,
+        "startChar": 15,
+        "endLine": 499,
+        "endChar": 16
+      },
+      "revId": "00da2f1f32b939b0093368a891d986e00bb4cbaa",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74dfae61_d596c477",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 2
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-06-21T17:26:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3dc9be1a_3cf26874",
       "range": {
         "startLine": 499,
         "startChar": 15,
