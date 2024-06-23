@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "84ad057e_b60529e4",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-23T23:10:05Z",
+      "side": 1,
+      "message": "Exactly, the tests generally assume they\u0027re tested against the module in the very same build (the exception is CTS).\n\n\u003e if that\u0027s the case, why is min_sdk_version low? (31)\n\nART is a Mainline module, so it and its tests must work on any platform that it\u0027s updatable on, which means SDK level 31.",
+      "parentUuid": "6fb3bb2e_e276df25",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
