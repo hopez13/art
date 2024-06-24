@@ -150,6 +150,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "3c7d691d_f43d09cd",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-24T11:49:45Z",
+      "side": 1,
+      "message": "Actually, `root` is a `Handle\u003c\u003e` and therefore it shall not hold a from-space reference here - references in `HandleScope`s are updated in the thread root flip function. So, this comment is moot, right?\n\nMaybe the `auto root` should be changed to `Handle\u003cmirror::Object\u003e root` to make this easier to see.",
+      "parentUuid": "f5444277_45d8cf95",
+      "range": {
+        "startLine": 788,
+        "startChar": 81,
+        "endLine": 788,
+        "endChar": 91
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dc6e95d_b16fc0e0",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 14
