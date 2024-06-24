@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a3963cdc_050c3142",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-24T10:08:05Z",
+      "side": 1,
+      "message": "Ah that\u0027s the catch why we didn\u0027t do this in the first place! Sorry Almaz, I forgot MethodType holds classes and therefore would prevent class unloading.",
+      "parentUuid": "6b409d91_145e1f87",
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d17c3217_5f44d2c4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 14
