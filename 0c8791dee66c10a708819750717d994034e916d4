@@ -41,6 +41,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "158dc08d_733085db",
+        "filename": "runtime/base/locks.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 323,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-24T13:22:39Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71cc2022_e434c857",
+      "range": {
+        "startLine": 321,
+        "startChar": 3,
+        "endLine": 323,
+        "endChar": 96
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "419992d2_948da1eb",
@@ -54,6 +78,30 @@
       "writtenOn": "2024-06-21T21:43:40Z",
       "side": 1,
       "message": "Is there an issue with mutual exclusion on these? We now only hold a reader lock here, right? I don\u0027t understand the context sufficiently.",
+      "range": {
+        "startLine": 443,
+        "startChar": 12,
+        "endLine": 443,
+        "endChar": 20
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d2369d77_f176f0e0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-24T13:22:39Z",
+      "side": 1,
+      "message": "Yes that\u0027s ok, only this place updates the entry. The reader lock is so that no one changes `method_code_map_`.",
+      "parentUuid": "419992d2_948da1eb",
       "range": {
         "startLine": 443,
         "startChar": 12,
@@ -87,6 +135,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5b629180_4aa7db6c",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-24T13:22:39Z",
+      "side": 1,
+      "message": "This is an in-place update of a entry in `method_code_map_`. That\u0027s ok here, we only want to protect from insertion/deletion in `method_code_map_`.",
+      "parentUuid": "86c67520_9a52d422",
+      "range": {
+        "startLine": 907,
+        "startChar": 4,
+        "endLine": 907,
+        "endChar": 10
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35a34f85_1bfd4c66",
@@ -100,6 +172,30 @@
       "writtenOn": "2024-06-21T21:43:40Z",
       "side": 1,
       "message": "Deleting the mutator_lock_ requirement here is a drive-by cleanup? That\u0027s fine, but I want to make sure I\u0027m not missing something.",
+      "range": {
+        "startLine": 434,
+        "startChar": 6,
+        "endLine": 434,
+        "endChar": 41
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c2957139_f16a90f8",
+        "filename": "runtime/jit/jit_code_cache.h",
+        "patchSetId": 4
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-24T13:22:39Z",
+      "side": 1,
+      "message": "Thanks for catching this. It should be safe to keep the requirement (as it should be always called with the mutator lock, even though we\u0027re not accessing the heap).",
+      "parentUuid": "35a34f85_1bfd4c66",
       "range": {
         "startLine": 434,
         "startChar": 6,
