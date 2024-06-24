@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6e65895a_6f5ebffb",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-24T14:00:27Z",
+      "side": 1,
+      "message": "FYI there\u0027s also an unresolved comment by Vladimir",
+      "revId": "d79441104fbd42245a4e21e1efba4c76a6157fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a8766b6f_3f191c98",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1809,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-24T14:00:27Z",
+      "side": 1,
+      "message": "HCondition*",
+      "range": {
+        "startLine": 1809,
+        "startChar": 67,
+        "endLine": 1809,
+        "endChar": 81
+      },
+      "revId": "d79441104fbd42245a4e21e1efba4c76a6157fc5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
