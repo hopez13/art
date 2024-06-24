@@ -98,6 +98,24 @@
       "message": "Do we actually need these as intrinsics? The code is simple enough that we could just optimize it in the instruction simplifier (assuming it gets inlined).",
       "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a8653845_5a287c0a",
+        "filename": "runtime/intrinsics_list.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-24T14:58:26Z",
+      "side": 1,
+      "message": "Add simplification",
+      "parentUuid": "051a24a4_befce013",
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
