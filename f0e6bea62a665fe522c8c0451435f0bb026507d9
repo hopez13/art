@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c6eaa4f9_65107dd5",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 5
+      },
+      "lineNbr": 5798,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-24T12:44:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5c71a45_7a4da13a",
+      "range": {
+        "startLine": 5797,
+        "startChar": 0,
+        "endLine": 5798,
+        "endChar": 38
+      },
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "06405bb4_f4fe515b",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-06-18T09:49:23Z",
       "side": 1,
       "message": "You do not propagate this in `InstructionSimplifierVisitor::VisitCondition()` when folding `HCompare` to the `HCondition`, so I\u0027d say this CL currently breaks that optimization and can produce incorrect results.",
+      "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e606826d_7a543f77",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 4569,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-24T12:44:11Z",
+      "side": 1,
+      "message": "Support in this simplifier, add bunch of test cases",
+      "parentUuid": "06405bb4_f4fe515b",
       "revId": "f0e6bea62a665fe522c8c0451435f0bb026507d9",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
