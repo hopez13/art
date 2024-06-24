@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "de5ac68c_2f22c318",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-24T16:07:22Z",
+      "side": 1,
+      "message": "Oh, we rely on the fact that everything we need is in the headers. I see. Maybe it will be clearer if we put the flag lib in `header_libs` instead of `static_libs`, but I\u0027m fine with either way.",
+      "parentUuid": "f19b42a5_81247f39",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e22b404_ba339c77",
