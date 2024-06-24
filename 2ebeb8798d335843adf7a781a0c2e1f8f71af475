@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "887e6aa2_f2437d50",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-24T17:03:28Z",
+      "side": 1,
+      "message": "It would, yes, but since the aconfig Soong module is a static lib it has to be imported with `static_libs`. `header_libs` only works with `cc_library_headers`.",
+      "parentUuid": "de5ac68c_2f22c318",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e22b404_ba339c77",
