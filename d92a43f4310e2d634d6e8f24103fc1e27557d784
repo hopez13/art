@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "6b409d91_145e1f87",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-24T09:48:58Z",
+      "side": 1,
+      "message": "It came after offline discussion. I will bring previous approach back, thanks.",
+      "parentUuid": "e1caa062_fe9115c2",
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "d17c3217_5f44d2c4",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 14
@@ -31,6 +49,30 @@
       "writtenOn": "2024-06-24T07:25:48Z",
       "side": 1,
       "message": "Why not simply\n\n    std::vector\u003cGcRoot\u003cmirror::MethodType\u003e\u003e method_types_in_roots;",
+      "range": {
+        "startLine": 781,
+        "startChar": 8,
+        "endLine": 781,
+        "endChar": 79
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d123ff40_2e938cef",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-24T09:48:58Z",
+      "side": 1,
+      "message": "Will do in a follow-up CL.",
+      "parentUuid": "d17c3217_5f44d2c4",
       "range": {
         "startLine": 781,
         "startChar": 8,
@@ -66,6 +108,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f5444277_45d8cf95",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-24T09:48:58Z",
+      "side": 1,
+      "message": "Or visit them in `SweepRootTables`?",
+      "parentUuid": "cbf3deee_9d193d0b",
+      "range": {
+        "startLine": 788,
+        "startChar": 81,
+        "endLine": 788,
+        "endChar": 91
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3dc6e95d_b16fc0e0",
         "filename": "runtime/jit/jit_code_cache.cc",
         "patchSetId": 14
@@ -77,6 +143,30 @@
       "writtenOn": "2024-06-24T07:25:48Z",
       "side": 1,
       "message": "`std::move()`",
+      "range": {
+        "startLine": 794,
+        "startChar": 42,
+        "endLine": 794,
+        "endChar": 63
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "59cfdece_05a13c0e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-06-24T09:48:58Z",
+      "side": 1,
+      "message": "Will do in a follow-up CL.",
+      "parentUuid": "3dc6e95d_b16fc0e0",
       "range": {
         "startLine": 794,
         "startChar": 42,
