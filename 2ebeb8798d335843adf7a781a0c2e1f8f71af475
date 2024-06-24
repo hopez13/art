@@ -1,0 +1,38 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fd6de49a_60fff740",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-24T14:15:03Z",
+      "side": 1,
+      "message": "The changes in build/flags look fine. How to use the flags needs to be discussed more. The fact that we can\u0027t use flags on host is a blocker. Besides, we should also consider linking flag lib into libart in addition to just libartbase. I suggest to submit this CL without the change to `libartbase/Android.bp`",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2e22b404_ba339c77",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-24T14:15:03Z",
+      "side": 1,
+      "message": "We can\u0027t use it on host? This is very concerning because we have host dex2oat that must match ART on device. I don\u0027t think we can start to use flags until we address this problem.",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
