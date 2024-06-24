@@ -1,0 +1,90 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e1caa062_fe9115c2",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-24T07:25:48Z",
+      "side": 1,
+      "message": "What prompted the change between PS9 and PS10 to visit all `MethodType`s unconditionally, instead of visiting only those of live methods?\n\nThis means that a managed heap GC shall never unload a class loader that has a JITted method using a `MethodType` referencing a class loaded by the same class loader. (A JIT GC would have to collect that JITted code first.)",
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d17c3217_5f44d2c4",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 781,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-24T07:25:48Z",
+      "side": 1,
+      "message": "Why not simply\n\n    std::vector\u003cGcRoot\u003cmirror::MethodType\u003e\u003e method_types_in_roots;",
+      "range": {
+        "startLine": 781,
+        "startChar": 8,
+        "endLine": 781,
+        "endChar": 79
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cbf3deee_9d193d0b",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-24T07:25:48Z",
+      "side": 1,
+      "message": "Should we check `ReadBarrier::IsMarked()` and store that if different and not null?",
+      "range": {
+        "startLine": 788,
+        "startChar": 81,
+        "endLine": 788,
+        "endChar": 91
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3dc6e95d_b16fc0e0",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 794,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-24T07:25:48Z",
+      "side": 1,
+      "message": "`std::move()`",
+      "range": {
+        "startLine": 794,
+        "startChar": 42,
+        "endLine": 794,
+        "endChar": 63
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
