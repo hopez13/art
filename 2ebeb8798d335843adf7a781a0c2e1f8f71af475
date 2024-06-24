@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "96ad8b23_dfdbf873",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-24T14:46:34Z",
+      "side": 1,
+      "message": "I\u0027m not sure static_libs work transitively. AFAIK, static_libs are pruned at link time.",
+      "parentUuid": "55ac5acc_6db8f4d6",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2e22b404_ba339c77",
         "filename": "libartbase/Android.bp",
         "patchSetId": 5
