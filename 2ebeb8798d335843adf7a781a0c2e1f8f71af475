@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ac5acc_6db8f4d6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 5
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-24T14:43:23Z",
+      "side": 1,
+      "message": "\u003e The fact that we can\u0027t use flags on host is a blocker.\n\nSee other thread.\n\n\u003e Besides, we should also consider linking flag lib into libart in addition to just libartbase.\n\n`libart` already depends on `libartbase` (via `libart-runtime`), so I think that should work already.",
+      "parentUuid": "fd6de49a_60fff740",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2e22b404_ba339c77",
@@ -31,6 +49,24 @@
       "writtenOn": "2024-06-24T14:15:03Z",
       "side": 1,
       "message": "We can\u0027t use it on host? This is very concerning because we have host dex2oat that must match ART on device. I don\u0027t think we can start to use flags until we address this problem.",
+      "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb9a1e55_19e47b89",
+        "filename": "libartbase/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-24T14:43:23Z",
+      "side": 1,
+      "message": "We can use it on host. I just missed it, thanks for pointing it out. (Not supported on Windows though, but we can probably live with that, at least initially.)",
+      "parentUuid": "2e22b404_ba339c77",
       "revId": "2ebeb8798d335843adf7a781a0c2e1f8f71af475",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
