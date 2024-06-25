@@ -52,6 +52,24 @@
       "parentUuid": "25379ad5_967c5f1a",
       "revId": "3cf90885b215c06431a906780be506b0029540b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "056b4b59_1eb73c9d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-06-25T11:15:52Z",
+      "side": 1,
+      "message": "Sorry for the confusion, my plan was as follows:\n\n1. Go through normal code review iteration until a code approval for a single patch.\n2. Rebase that individual change.\n3. Go through normal code review iteration to get 2 code reviews, presubmit, etc... passing\n4. Patch can be merged individually.\n5. Repeat 1-4 for later patches in the chain.\n\nThe reason for receiving a CR before rebasing is because I want to minimise the amount of changes done after the rebase as I can\u0027t (easily) test these changes with the later (non-rebased) patches. Note: we have a \"known-good\" pinned manifest which we are using to develop and test the simulator on. For example, I now can\u0027t easily test some of the latest changes to [the rework exception delivery patch](https://android-review.googlesource.com/c/platform/art/+/2680017/8), on the simulator, now that it\u0027s been rebased.\n\nI am aware that there will be changes made after rebase that may change later patches and would remove the CR+2 but the earlier I can make changes the more confidence we can have that the design of the patch is correct and will hopefully require fewer fixes in the future.\n\nI hope that makes sense and explains some of our reasoning in how these patches are being developed.",
+      "parentUuid": "7cc740a7_5ceef8fe",
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
