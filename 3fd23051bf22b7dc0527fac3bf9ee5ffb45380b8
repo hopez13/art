@@ -16,6 +16,41 @@
       "message": "PTAL. Thanks!",
       "revId": "3fd23051bf22b7dc0527fac3bf9ee5ffb45380b8",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ab2c396_a695dcd0",
+        "filename": "runtime/trace.h",
+        "patchSetId": 2
+      },
+      "lineNbr": 175,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-06-25T13:00:55Z",
+      "side": 1,
+      "message": "nit: add a high-level comment.",
+      "fixSuggestions": [
+        {
+          "fixId": "42575ce1_5fd3a782",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/trace.h",
+              "range": {
+                "startLine": 175,
+                "startChar": 0,
+                "endLine": 175,
+                "endChar": 0
+              },
+              "replacement": "  // Creates a summary of the trace. This is used to dump the summary at the end of tracing.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3fd23051bf22b7dc0527fac3bf9ee5ffb45380b8",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
