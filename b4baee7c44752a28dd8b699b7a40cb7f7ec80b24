@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6cf8ca3c_d2e117cc",
+        "filename": "runtime/noop_compiler_callbacks.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-06-25T14:33:54Z",
+      "side": 1,
+      "message": "drive-by comment: Why are changes in this file needed? Is it because some symbols e.g. `TransactionWriteConstraint` are now hidden in `ClassLinker` so we have to override the methods in `PermissiveClassLinker`?",
+      "revId": "b4baee7c44752a28dd8b699b7a40cb7f7ec80b24",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
