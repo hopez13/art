@@ -90,6 +90,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a4ef9ed_4a70c524",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-06-26T23:24:20Z",
+      "side": 1,
+      "message": "I see. I guess the problem is that the test is just a regular java_test with no way of communicating to the build system that it\u0027s tied to a much newer version of art than min_sdk_version would imply. I\u0027m not sure what would be a good solution for that; we\u0027d probably have to do something like make a wholistic \"test bundle\" that includes both the tests and the code under test.",
+      "parentUuid": "84ad057e_b60529e4",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
