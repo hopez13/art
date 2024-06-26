@@ -105,7 +105,7 @@ elif [[ $action = boot ]]; then
     cd "$ART_TEST_VM_DIR"
     if [[ "$TARGET_ARCH" = "riscv64" ]]; then
         (qemu-system-riscv64 \
-            -m 16G \
+            -m 8G \
             -smp 8 \
             -M virt \
             -nographic \
@@ -133,7 +133,7 @@ elif [[ $action = boot ]]; then
 
     elif [[ "$TARGET_ARCH" = "arm64" ]]; then
         (qemu-system-aarch64 \
-            -m 16G \
+            -m 8G \
             -smp 8 \
             -cpu cortex-a710,sve=on \
             -M virt \
