@@ -1,0 +1,313 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "38c4dd71_9c49c07e",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5801,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Maybe add a comment that `greater_cond` is not needed below.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b3fa0b40_70249c72",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5811,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Remove comment? I don\u0027t think the old comment previously added any value and now it\u0027s become misleading.",
+      "range": {
+        "startLine": 5811,
+        "startChar": 56,
+        "endLine": 5811,
+        "endChar": 74
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98a5d28c_a265e206",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5819,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Maybe change to \"High part\"? (As for the x86 codegen.)",
+      "range": {
+        "startLine": 5819,
+        "startChar": 67,
+        "endLine": 5819,
+        "endChar": 72
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c546829e_482a09b0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5825,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Maybe add a comment that `greater_cond` is not needed below.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50450dab_a94ae373",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5338,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Maybe add a comment that `greater_cond` is not needed below.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8af0cc1f_6f72d5c7",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5386,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Maybe add a comment that `greater_cond` is not needed below.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b5e6bf0f_136083f8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "I\u0027d prefer `Create...()`. (And renaming the old `GetOppositeConditionSwapOps()`.)",
+      "range": {
+        "startLine": 1810,
+        "startChar": 19,
+        "endLine": 1810,
+        "endChar": 39
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f34c96ae_3accb128",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "If both are unsigned, the simplification shall create wrong code.\n\nFor example\n\n    c \u003d Compare(x, y, Uint32)\n    b \u003d BelowOrEqual(c, 0)\n\nshall be transformed to\n\n    b \u003d BelowOrEqual(x, y)\n\nbut the `b` should be true only if `x \u003d\u003d y`.\n\nNote that such cases can be constructed by chaining simplifications. Maybe something like\n\n    boolean $inline$BelowOrEqual(x, y) {\n        return Integer.compare(x + 0x80000000, y + 0x80000000) \u003c\u003d 0;\n    }\n    boolean $noinline$test(x, y) {\n        int cmp \u003d Integer.compare(x + 0x80000000, y + 0x80000000);\n        return $inline$BelowOrEqual(cmp, 0);\n    }\n\n(Some cases, such as `Below(x, 0)`, can be optimized by the constant folding pass. But chaining simplifications in instruction simplifier can surface these cases without the constant folding pass getting a chance to optimize them away.)\n\nI think the existing simplification for merging `HCompare` to unsigned comparisons is already broken but we\u0027re creating unsigned comparisons only for some cases (BCE) where it may be impossible to create comparisons with 0.",
+      "range": {
+        "startLine": 1891,
+        "startChar": 6,
+        "endLine": 1891,
+        "endChar": 94
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8db0c16e_04dcc718",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Unnecessary. We unconditionally record the simplification below.",
+      "range": {
+        "startLine": 1896,
+        "startChar": 4,
+        "endLine": 1896,
+        "endChar": 27
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cdabc66d_55671ff3",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Note: We could recognize the same pattern with `Xor` instead of `Add`.",
+      "range": {
+        "startLine": 1917,
+        "startChar": 18,
+        "endLine": 1917,
+        "endChar": 21
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "772f2190_5430eaf0",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1972,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "`Create...()`.",
+      "range": {
+        "startLine": 1972,
+        "startChar": 17,
+        "endLine": 1972,
+        "endChar": 35
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6376f7c2_a6a6b778",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "We could likewise turn unsigned compare into a signed one.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07889187_0929b3db",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Should we create a new instruction? Or should we reuse the old one and just change the comparison type and replace inputs?",
+      "range": {
+        "startLine": 2010,
+        "startChar": 6,
+        "endLine": 2010,
+        "endChar": 24
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1cb7deaf_6fa2866b",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4590,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Style: Move this after the `static_assert(kNumberOfComparePackedBits \u003c\u003d ...)` below.",
+      "range": {
+        "startLine": 4589,
+        "startChar": 2,
+        "endLine": 4590,
+        "endChar": 79
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7112c60_68cdd730",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-06-26T12:54:56Z",
+      "side": 1,
+      "message": "Unrelated to this change?",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
