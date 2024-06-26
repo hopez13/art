@@ -247,19 +247,15 @@ $$(gtest_build_rule) : $$(gtest_exe) $$(gtest_deps)
 
 
 .PHONY: $$(gtest_rule)
-$$(gtest_rule): $$(gtest_output)
 
-# Re-run the tests, even if nothing changed. Until the build system has a dedicated "no cache"
-# option, claim to write a file that is never produced.
-$$(gtest_output): .KATI_IMPLICIT_OUTPUTS := $$(gtest_output)-nocache
 # Limit concurrent runs. Each test itself is already highly parallel (and thus memory hungry).
-$$(gtest_output): .KATI_NINJA_POOL := highmem_pool
-$$(gtest_output): NAME := $$(gtest_rule)
+$$(gtest_rule): .KATI_NINJA_POOL := highmem_pool
+$$(gtest_rule): NAME := $$(gtest_rule)
 ifeq (,$(SANITIZE_HOST))
-$$(gtest_output): $$(gtest_exe) $$(gtest_deps)
+$$(gtest_rule): $$(gtest_exe) $$(gtest_deps)
 	$(hide) ($$(call ART_TEST_SKIP,$$(NAME)) && \
 		timeout --foreground -k 120s 2400s $(HOST_OUT_EXECUTABLES)/signal_dumper -s 15 \
-			$$< --gtest_output=xml:$$@ && \
+			$$< --gtest_output=xml:$$(NAME) && \
 		$$(call ART_TEST_PASSED,$$(NAME))) || $$(call ART_TEST_FAILED,$$(NAME))
 else
 # Note: envsetup currently exports ASAN_OPTIONS=detect_leaks=0 to suppress leak detection, as some
@@ -269,11 +265,11 @@ else
 # (with the x86-64 ABI, as this allows symbolization of both x86 and x86-64). We don't do this in
 # general as it loses all the color output, and we have our own symbolization step when not running
 # under ASAN.
-$$(gtest_output): $$(gtest_exe) $$(gtest_deps)
+$$(gtest_rule): $$(gtest_exe) $$(gtest_deps)
 	$(hide) ($$(call ART_TEST_SKIP,$$(NAME)) && set -o pipefail && \
 		ASAN_OPTIONS=detect_leaks=1 timeout --foreground -k 180s 3600s \
 			$(HOST_OUT_EXECUTABLES)/signal_dumper -s 15 \
-				$$< --gtest_output=xml:$$@ 2>&1 | tee $$<.tmp.out >&2 && \
+				$$< --gtest_output=xml:$$(NAME) 2>&1 | tee $$<.tmp.out >&2 && \
 		{ $$(call ART_TEST_PASSED,$$(NAME)) ; rm $$<.tmp.out ; }) || \
 		( grep -q AddressSanitizer $$<.tmp.out && export ANDROID_BUILD_TOP=`pwd` && \
 			{ echo "ABI: 'x86_64'" | cat - $$<.tmp.out | development/scripts/stack | tail -n 3000 ; } ; \
@@ -290,7 +286,6 @@ endif
   # Clear locally defined variables.
   gtest_deps :=
   gtest_exe :=
-  gtest_output :=
   gtest_rule :=
   gtest_suffix :=
 endef  # define-art-gtest-rule-host
