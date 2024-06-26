@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "91deb3b2_6e867578",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-06-26T23:31:21Z",
+      "side": 0,
+      "message": "If we want to ensure it always re-runs, we can just make this all be under the `gtest_rule` phony rule, and not declare `gtest_output` as an output at all.",
+      "revId": "99f7cae71cea35238176d8cb28d940abdfa824e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
