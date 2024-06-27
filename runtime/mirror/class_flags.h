@@ -61,6 +61,17 @@ static constexpr uint32_t kClassFlagPhantomReference   = 0x00000400;
 // Class is a record class. See doc at java.lang.Class#isRecord().
 static constexpr uint32_t kClassFlagRecord             = 0x00000800;
 
+// Class is a primitive array class.
+static constexpr uint32_t kClassFlagPrimitiveArray = 0x00001000;
+
+// Class needs overflow ref-offset bitmap.
+static constexpr uint32_t kClassFlagOverflowRefOffsetBitmap = 0x00002000;
+
+// NOTE: The most significant 2 bits are used to store the component size shift
+// for arrays (both primitive and object). See Primitive::ComponentSizeShift()
+// for size shift of different types.
+static constexpr uint32_t kArrayComponentSizeShiftShift = 30;
+
 // Combination of flags to figure out if the class is either the weak/soft/phantom/finalizer
 // reference class.
 static constexpr uint32_t kClassFlagReference =
