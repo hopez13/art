@@ -34,6 +34,24 @@
       "parentUuid": "91deb3b2_6e867578",
       "revId": "99f7cae71cea35238176d8cb28d940abdfa824e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b6399aee_c3376156",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1535516
+      },
+      "writtenOn": "2024-06-27T17:10:12Z",
+      "side": 0,
+      "message": "Ah, I see. Maybe you could do it by making a rule that touches a file, making gtest_output depend on that file, and then also touching it inside of the gtest_output build. Though this is also fine.",
+      "parentUuid": "34feb722_23e8279f",
+      "revId": "99f7cae71cea35238176d8cb28d940abdfa824e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
