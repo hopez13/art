@@ -88,6 +88,156 @@
       "parentUuid": "056b4b59_1eb73c9d",
       "revId": "3cf90885b215c06431a906780be506b0029540b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c43fe99b_305f144c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "Thanks Chris! Just a few clarifications and minor comments.\n\nOne question not directly related to the CL. When we implement simulator stack should we have to update GC to be also aware of this stack to scan and update any references?",
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4927bedd_883c3413",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "Maybe we don\u0027t need this?",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2b40ce63_19020d6b",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/common_throws.h",
+              "range": {
+                "startLine": 24,
+                "startChar": 0,
+                "endLine": 25,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebb0b753_70d98718",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "Is this TODO to add some kind of DCHECK / CHECK to make sure we are not on simulated stack? As far as I understand this code, this is used to check we aren\u0027t double updating roots on stack on debug builds. I was wondering if we should also handle simulator stacks here. I don\u0027t understand how GC handles on-stack references fully so maybe I am missing something too.",
+      "range": {
+        "startLine": 2828,
+        "startChar": 24,
+        "endLine": 2829,
+        "endChar": 28
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d2ee38d9_448f053f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "native stack has overflowed / native stack overflows",
+      "range": {
+        "startLine": 1494,
+        "startChar": 5,
+        "endLine": 1494,
+        "endChar": 31
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "75bd9d7e_cf7313ea",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "A quick question, when we implement simulator stack we would use a different set of begin stack_begin and stack_end is it? I think we still want to detect simulator overflow and native stack overflow differently right?",
+      "range": {
+        "startLine": 544,
+        "startChar": 24,
+        "endLine": 544,
+        "endChar": 59
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d1e82b21_f955c600",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-06-27T10:44:04Z",
+      "side": 1,
+      "message": "I am sorry, I know I asked to drop template on this but I was wondering if we should reintroduce the template or change the name to IsRawObjOnQuickStack to avoid confusion and using the wrong one. Sorry for going back and forth on this. I am fine with either using templates or name change.",
+      "range": {
+        "startLine": 1203,
+        "startChar": 7,
+        "endLine": 1203,
+        "endChar": 22
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
