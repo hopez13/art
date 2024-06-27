@@ -715,7 +715,6 @@ void MarkCompact::InitializePhase() {
   black_allocations_begin_ = bump_pointer_space_->Limit();
   CHECK_EQ(moving_space_begin_, bump_pointer_space_->Begin());
   moving_space_end_ = bump_pointer_space_->Limit();
-  walk_super_class_cache_ = nullptr;
   // TODO: Would it suffice to read it once in the constructor, which is called
   // in zygote process?
   pointer_size_ = Runtime::Current()->GetClassLinker()->GetImagePointerSize();
@@ -1392,16 +1391,14 @@ void MarkCompact::CompactPage(mirror::Object* obj,
     }
     obj_size = RoundUp(obj_size, kAlignment);
     DCHECK_GT(obj_size, offset_within_obj)
-        << "obj:" << obj
-        << " class:"
-        << obj->GetClass<kDefaultVerifyFlags, kWithFromSpaceBarrier>()
+        << "obj:" << obj << " class:" << obj->GetClass<kDefaultVerifyFlags, kWithFromSpaceBarrier>()
         << " to_addr:" << to_ref
         << " black-allocation-begin:" << reinterpret_cast<void*>(black_allocations_begin_)
         << " post-compact-end:" << reinterpret_cast<void*>(post_compact_end_)
-        << " offset:" << offset * kAlignment
-        << " class-after-obj-iter:"
-        << (class_after_obj_iter_ != class_after_obj_ordered_map_.rend() ?
-            class_after_obj_iter_->first.AsMirrorPtr() : nullptr)
+        << " offset:" << offset * kAlignment << " class-after-obj-iter:"
+        << (class_after_obj_iter_ != class_after_obj_map_.rend() ?
+                class_after_obj_iter_->first.AsMirrorPtr() :
+                nullptr)
         << " last-reclaimed-page:" << reinterpret_cast<void*>(last_reclaimed_page_)
         << " last-checked-reclaim-page-idx:" << last_checked_reclaim_page_idx_
         << " offset-of-last-idx:"
@@ -1456,16 +1453,15 @@ void MarkCompact::CompactPage(mirror::Object* obj,
     obj_size = RoundUp(obj_size, kAlignment);
     DCHECK_GT(obj_size, 0u)
         << "from_addr:" << obj
-        << " from-space-class:"
-        << obj->GetClass<kDefaultVerifyFlags, kWithFromSpaceBarrier>()
+        << " from-space-class:" << obj->GetClass<kDefaultVerifyFlags, kWithFromSpaceBarrier>()
         << " to_addr:" << ref
         << " black-allocation-begin:" << reinterpret_cast<void*>(black_allocations_begin_)
         << " post-compact-end:" << reinterpret_cast<void*>(post_compact_end_)
-        << " offset:" << offset * kAlignment
-        << " bytes_done:" << bytes_done
+        << " offset:" << offset * kAlignment << " bytes_done:" << bytes_done
         << " class-after-obj-iter:"
-        << (class_after_obj_iter_ != class_after_obj_ordered_map_.rend() ?
-            class_after_obj_iter_->first.AsMirrorPtr() : nullptr)
+        << (class_after_obj_iter_ != class_after_obj_map_.rend() ?
+                class_after_obj_iter_->first.AsMirrorPtr() :
+                nullptr)
         << " last-reclaimed-page:" << reinterpret_cast<void*>(last_reclaimed_page_)
         << " last-checked-reclaim-page-idx:" << last_checked_reclaim_page_idx_
         << " offset-of-last-idx:"
@@ -1932,7 +1928,7 @@ bool MarkCompact::FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_i
   DCHECK_ALIGNED_PARAM(reclaim_begin, gPageSize);
   DCHECK_ALIGNED_PARAM(last_reclaimed_page_, gPageSize);
   // Check if the 'class_after_obj_map_' map allows pages to be freed.
-  for (; class_after_obj_iter_ != class_after_obj_ordered_map_.rend(); class_after_obj_iter_++) {
+  for (; class_after_obj_iter_ != class_after_obj_map_.rend(); class_after_obj_iter_++) {
     mirror::Object* klass = class_after_obj_iter_->first.AsMirrorPtr();
     mirror::Class* from_klass = static_cast<mirror::Class*>(GetFromSpaceAddr(klass));
     // Check with class' end to ensure that, if required, the entire class survives.
@@ -1940,10 +1936,7 @@ bool MarkCompact::FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_i
     DCHECK_LE(klass_end, last_reclaimed_page_);
     if (reinterpret_cast<uint8_t*>(klass_end) >= reclaim_begin) {
       // Found a class which is in the reclaim range.
-      uint8_t* obj_addr = reinterpret_cast<uint8_t*>(class_after_obj_iter_->second.AsMirrorPtr());
-      // NOTE: Don't assert that obj is of 'klass' type as klass could instead
-      // be its super-class.
-      if (obj_addr < idx_addr) {
+      if (reinterpret_cast<uint8_t*>(class_after_obj_iter_->second.AsMirrorPtr()) < idx_addr) {
         // Its lowest-address object is not compacted yet. Reclaim starting from
         // the end of this class.
         reclaim_begin = AlignUp(klass_end, gPageSize);
@@ -1993,29 +1986,6 @@ bool MarkCompact::FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_i
   return all_mapped;
 }
 
-void MarkCompact::UpdateClassAfterObjMap() {
-  CHECK(class_after_obj_ordered_map_.empty());
-  for (const auto& pair : class_after_obj_hash_map_) {
-    auto super_class_iter = super_class_after_class_hash_map_.find(pair.first);
-    ObjReference key = super_class_iter != super_class_after_class_hash_map_.end()
-                       ? super_class_iter->second
-                       : pair.first;
-    if (std::less<mirror::Object*>{}(pair.second.AsMirrorPtr(), key.AsMirrorPtr()) &&
-        HasAddress(key.AsMirrorPtr())) {
-      auto [ret_iter, success] = class_after_obj_ordered_map_.try_emplace(key, pair.second);
-      // It could fail only if the class 'key' has objects of its own, which are lower in
-      // address order, as well of some of its derived class. In this case
-      // choose the lowest address object.
-      if (!success &&
-          std::less<mirror::Object*>{}(pair.second.AsMirrorPtr(), ret_iter->second.AsMirrorPtr())) {
-        ret_iter->second = pair.second;
-      }
-    }
-  }
-  class_after_obj_hash_map_.clear();
-  super_class_after_class_hash_map_.clear();
-}
-
 template <int kMode>
 void MarkCompact::CompactMovingSpace(uint8_t* page) {
   // For every page we have a starting object, which may have started in some
@@ -2036,13 +2006,12 @@ void MarkCompact::CompactMovingSpace(uint8_t* page) {
 
   DCHECK(IsAlignedParam(pre_compact_page, gPageSize));
 
-  UpdateClassAfterObjMap();
   // These variables are maintained by FreeFromSpacePages().
   last_reclaimed_page_ = pre_compact_page;
   last_reclaimable_page_ = last_reclaimed_page_;
   cur_reclaimable_page_ = last_reclaimed_page_;
   last_checked_reclaim_page_idx_ = idx;
-  class_after_obj_iter_ = class_after_obj_ordered_map_.rbegin();
+  class_after_obj_iter_ = class_after_obj_map_.rbegin();
   // Allocated-black pages
   mirror::Object* next_page_first_obj = nullptr;
   while (idx > moving_first_objs_count_) {
@@ -4149,7 +4118,7 @@ void MarkCompact::FinishPhase() {
       updated_roots_->clear();
     }
   }
-  class_after_obj_ordered_map_.clear();
+  class_after_obj_map_.clear();
   linear_alloc_arenas_.clear();
   {
     ReaderMutexLock mu(thread_running_gc_, *Locks::mutator_lock_);
