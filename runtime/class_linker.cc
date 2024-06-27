@@ -2823,9 +2823,13 @@ void ClassLinker::FinishArrayClassSetup(ObjPtr<mirror::Class> array_class) {
   array_class->SetVTable(java_lang_Object->GetVTable());
   array_class->SetPrimitiveType(Primitive::kPrimNot);
   ObjPtr<mirror::Class> component_type = array_class->GetComponentType();
-  array_class->SetClassFlags(component_type->IsPrimitive()
-                                 ? mirror::kClassFlagNoReferenceFields
-                                 : mirror::kClassFlagObjectArray);
+  DCHECK_LT(component_type->GetPrimitiveTypeSizeShift(), 4u);
+  uint32_t class_flags = component_type->GetPrimitiveTypeSizeShift()
+                         << mirror::kArrayComponentSizeShiftShift;
+  class_flags |= component_type->IsPrimitive() ?
+                     (mirror::kClassFlagNoReferenceFields | mirror::kClassFlagPrimitiveArray) :
+                     mirror::kClassFlagObjectArray;
+  array_class->SetClassFlags(class_flags);
   array_class->SetClassLoader(component_type->GetClassLoader());
   array_class->SetStatusForPrimitiveOrArray(ClassStatus::kLoaded);
   array_class->PopulateEmbeddedVTable(image_pointer_size_);
@@ -3680,14 +3684,8 @@ uint32_t ClassLinker::SizeOfClassWithoutEmbeddedTables(const DexFile& dex_file,
         UNREACHABLE();
     }
   }
-  return mirror::Class::ComputeClassSize(false,
-                                         0,
-                                         num_8,
-                                         num_16,
-                                         num_32,
-                                         num_64,
-                                         num_ref,
-                                         image_pointer_size_);
+  return mirror::Class::ComputeClassSize(
+      false, 0, num_8, num_16, num_32, num_64, num_ref, 0, image_pointer_size_);
 }
 
 void ClassLinker::FixupStaticTrampolines(Thread* self, ObjPtr<mirror::Class> klass) {
@@ -6329,7 +6327,8 @@ bool ClassLinker::LinkClass(Thread* self,
   if (!LinkStaticFields(self, klass, &class_size)) {
     return false;
   }
-  CreateReferenceInstanceOffsets(klass);
+  class_size =
+      mirror::Class::AdjustClassSizeForReferenceOffsetBitmapDuringLinking(klass.Get(), class_size);
   CHECK_EQ(ClassStatus::kLoaded, klass->GetStatus());
 
   ImTable* imt = nullptr;
@@ -6371,6 +6370,7 @@ bool ClassLinker::LinkClass(Thread* self,
 
     if (klass->ShouldHaveEmbeddedVTable()) {
       klass->PopulateEmbeddedVTable(image_pointer_size_);
+      klass->PopulateReferenceOffsetBitmap();
     }
     if (klass->ShouldHaveImt()) {
       klass->SetImt(imt, image_pointer_size_);
@@ -9874,35 +9874,6 @@ bool ClassLinker::VerifyRecordClass(Handle<mirror::Class> klass, ObjPtr<mirror::
   // Set kClassFlagRecord.
   klass->SetRecordClass();
   return true;
-}
-
-//  Set the bitmap of reference instance field offsets.
-void ClassLinker::CreateReferenceInstanceOffsets(Handle<mirror::Class> klass) {
-  uint32_t reference_offsets = 0;
-  ObjPtr<mirror::Class> super_class = klass->GetSuperClass();
-  // Leave the reference offsets as 0 for mirror::Object (the class field is handled specially).
-  if (super_class != nullptr) {
-    reference_offsets = super_class->GetReferenceInstanceOffsets();
-    // Compute reference offsets unless our superclass overflowed.
-    if (reference_offsets != mirror::Class::kClassWalkSuper) {
-      size_t num_reference_fields = klass->NumReferenceInstanceFieldsDuringLinking();
-      if (num_reference_fields != 0u) {
-        // All of the fields that contain object references are guaranteed be grouped in memory
-        // starting at an appropriately aligned address after super class object data.
-        uint32_t start_offset = RoundUp(super_class->GetObjectSize(),
-                                        sizeof(mirror::HeapReference<mirror::Object>));
-        uint32_t start_bit = (start_offset - mirror::kObjectHeaderSize) /
-            sizeof(mirror::HeapReference<mirror::Object>);
-        if (start_bit + num_reference_fields > 32) {
-          reference_offsets = mirror::Class::kClassWalkSuper;
-        } else {
-          reference_offsets |= (0xffffffffu << start_bit) &
-                               (0xffffffffu >> (32 - (start_bit + num_reference_fields)));
-        }
-      }
-    }
-  }
-  klass->SetReferenceInstanceOffsets(reference_offsets);
 }
 
 ObjPtr<mirror::String> ClassLinker::DoResolveString(dex::StringIndex string_idx,
