@@ -16,6 +16,24 @@
       "message": "If we want to ensure it always re-runs, we can just make this all be under the `gtest_rule` phony rule, and not declare `gtest_output` as an output at all.",
       "revId": "99f7cae71cea35238176d8cb28d940abdfa824e6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "34feb722_23e8279f",
+        "filename": "build/Android.gtest.mk",
+        "patchSetId": 2
+      },
+      "lineNbr": 254,
+      "author": {
+        "id": 1878380
+      },
+      "writtenOn": "2024-06-27T01:51:09Z",
+      "side": 0,
+      "message": "That is a good idea. I tried this in patchset#3, and I think it works great on regular builds.\n\nBut I think this might run into issues in dist builds because we dist `gtest_output` in line 207. So we might run into issues like such after we run installclean\n```\n$ m dist test-art-host-gtest-art_libdexfile_external_tests32\nFAILED: ninja: \u0027out/host/linux-x86/obj/PACKAGING/art-host-gtest_intermediates/art_libdexfile_external_tests32.xml\u0027, needed by \u0027out/dist/gtest/art_libdexfile_external_tests32\u0027, missing and no known rule to make it\n\n```\n\nI have updated the CL to the previous implementation.",
+      "parentUuid": "91deb3b2_6e867578",
+      "revId": "99f7cae71cea35238176d8cb28d940abdfa824e6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
