@@ -25,14 +25,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-
-import com.google.common.collect.ListMultimap;
-import com.google.common.collect.ArrayListMultimap;
+import java.util.stream.Collectors;
+import com.google.common.collect.TreeMultimap;
 
 /**
  * A java object that has `android.graphics.Bitmap` as its base class.
  */
-public class AhatBitmapInstance extends AhatClassInstance {
+public class AhatBitmapInstance extends AhatClassInstance implements Comparable<AhatBitmapInstance> {
 
   private BitmapInfo mBitmapInfo = null;
 
@@ -51,6 +50,13 @@ public class AhatBitmapInstance extends AhatClassInstance {
   }
 
   /**
+   * simple order for all bitmap instances on TreeMultimap
+   */
+  public int compareTo(AhatBitmapInstance other) {
+    return (int)(other.getId() - this.getId());
+  }
+
+  /**
    * Parsed information for bitmap contents dumped in the heapdump
    */
   public static class BitmapDumpData {
@@ -60,14 +66,14 @@ public class AhatBitmapInstance extends AhatClassInstance {
     private int format;
     private Map<Long, byte[]> buffers;
     private Set<Long> referenced;
-    private ListMultimap<BitmapInfo, AhatBitmapInstance> instances;
+    private TreeMultimap<BitmapInfo, AhatBitmapInstance> instances;
 
     BitmapDumpData(int count, int format) {
       this.count = count;
       this.format = format;
       this.buffers = new HashMap<Long, byte[]>(count);
       this.referenced = new HashSet<Long>(count);
-      this.instances = ArrayListMultimap.create();
+      this.instances = TreeMultimap.create();
     }
   };
 
@@ -174,27 +180,17 @@ public class AhatBitmapInstance extends AhatClassInstance {
    * @param bitmapDumpData parsed bitmap dump data
    * @return A list of duplicated bitmaps (the same duplication stored in a sub-list)
    */
-  public static List<List<AhatBitmapInstance>> findDuplicates(BitmapDumpData bitmapDumpData) {
+  public static List<AhatBitmapInstance[]> findDuplicates(BitmapDumpData bitmapDumpData) {
     if (bitmapDumpData != null) {
-      List<List<AhatBitmapInstance>> result = new ArrayList<>();
-      for (BitmapInfo info : bitmapDumpData.instances.keySet()) {
-        List<AhatBitmapInstance> list = bitmapDumpData.instances.get(info);
-        if (list != null && list.size() > 1) {
-          result.add(list);
-        }
-      }
-      // sort by size in descend order
-      if (result.size() > 1) {
-        result.sort((List<AhatBitmapInstance> l1, List<AhatBitmapInstance> l2) -> {
-          return l2.get(0).getSize().compareTo(l1.get(0).getSize());
-        });
-      }
-      return result;
+      return bitmapDumpData.instances.keySet().stream()
+          .filter(k -> bitmapDumpData.instances.get(k).size() > 1)
+          .map(k -> bitmapDumpData.instances.get(k).toArray(new AhatBitmapInstance[0]))
+          .collect(Collectors.toList());
     }
     return null;
   }
 
-  private static class BitmapInfo {
+  private static class BitmapInfo implements Comparable<BitmapInfo> {
     private final int width;
     private final int height;
     private final int format;
@@ -212,6 +208,23 @@ public class AhatBitmapInstance extends AhatClassInstance {
     @Override
     public int hashCode() {
       return Objects.hash(width, height, format, bufferHash);
+    }
+
+    @Override
+    public int compareTo(BitmapInfo other) {
+      if (other == this) {
+        return 0;
+      }
+      if (other.width * other.height != this.width * this.height) {
+        return other.width * other.height - this.width * this.height;
+      }
+      if (other.format != this.format) {
+        return other.format - this.format;
+      }
+      if (other.bufferHash != this.bufferHash) {
+        return other.bufferHash - this.bufferHash;
+      }
+      return 0;
     }
 
     @Override

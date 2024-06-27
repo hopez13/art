@@ -83,14 +83,14 @@ class OverviewHandler implements AhatHandler {
   }
 
   private void printDuplicateBitmaps(Doc doc) {
-    List<List<AhatBitmapInstance>> duplicates = mSnapshot.findDuplicateBitmaps();
+    List<AhatBitmapInstance[]> duplicates = mSnapshot.findDuplicateBitmaps();
     if (duplicates != null && duplicates.size() > 0) {
       SizeTable.table(doc, mSnapshot.isDiffed(),
           new Column("Heap"),
           new Column("Duplicated Bitmaps"));
       Size totalSize = Size.ZERO;
       Size totalBase = Size.ZERO;
-      for (List<AhatBitmapInstance> list : duplicates) {
+      for (AhatBitmapInstance[] list : duplicates) {
         for (AhatBitmapInstance inst : list) {
           AhatInstance base = inst.getBaseline();
           SizeTable.row(doc, inst.getSize(), base.getSize(),

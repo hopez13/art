@@ -213,7 +213,12 @@ public class AhatSnapshot implements Diffable<AhatSnapshot> {
     return false;
   }
 
-  public List<List<AhatBitmapInstance>> findDuplicateBitmaps() {
+  /**
+   * Returns duplicated bitmaps in this snapshot
+   *
+   * @return list of duplicated bitmaps
+   */
+  public List<AhatBitmapInstance[]> findDuplicateBitmaps() {
     return AhatBitmapInstance.findDuplicates(mBitmapDumpData);
   }
 }
