@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "71f1ae61_d12ddcc2",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5801,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "38c4dd71_9c49c07e",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b3fa0b40_70249c72",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "Remove comment? I don\u0027t think the old comment previously added any value and now it\u0027s become misleading.",
+      "range": {
+        "startLine": 5811,
+        "startChar": 56,
+        "endLine": 5811,
+        "endChar": 74
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "152c580f_6dcaadb1",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5811,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b3fa0b40_70249c72",
       "range": {
         "startLine": 5811,
         "startChar": 56,
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "21ea8dc1_56f7f2e9",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5819,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "98a5d28c_a265e206",
+      "range": {
+        "startLine": 5819,
+        "startChar": 67,
+        "endLine": 5819,
+        "endChar": 72
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c546829e_482a09b0",
@@ -77,6 +143,24 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "Maybe add a comment that `greater_cond` is not needed below.",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "49ddbeb3_531d0bc0",
+        "filename": "compiler/optimizing/code_generator_arm_vixl.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5825,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c546829e_482a09b0",
       "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -98,6 +182,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f268f9d1_53bf46ba",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5338,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "50450dab_a94ae373",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8af0cc1f_6f72d5c7",
@@ -115,6 +217,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1fedf68f_14d00e83",
+        "filename": "compiler/optimizing/code_generator_x86.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 5386,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8af0cc1f_6f72d5c7",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b5e6bf0f_136083f8",
@@ -128,6 +248,30 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "I\u0027d prefer `Create...()`. (And renaming the old `GetOppositeConditionSwapOps()`.)",
+      "range": {
+        "startLine": 1810,
+        "startChar": 19,
+        "endLine": 1810,
+        "endChar": 39
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2c98971f_022b7052",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1810,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b5e6bf0f_136083f8",
       "range": {
         "startLine": 1810,
         "startChar": 19,
@@ -161,6 +305,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4e78b8c_72e18480",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1891,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f34c96ae_3accb128",
+      "range": {
+        "startLine": 1891,
+        "startChar": 6,
+        "endLine": 1891,
+        "endChar": 94
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8db0c16e_04dcc718",
@@ -174,6 +342,30 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "Unnecessary. We unconditionally record the simplification below.",
+      "range": {
+        "startLine": 1896,
+        "startChar": 4,
+        "endLine": 1896,
+        "endChar": 27
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5de204_b50451a8",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1896,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8db0c16e_04dcc718",
       "range": {
         "startLine": 1896,
         "startChar": 4,
@@ -207,6 +399,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "53d4fc81_863bd127",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1917,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cdabc66d_55671ff3",
+      "range": {
+        "startLine": 1917,
+        "startChar": 18,
+        "endLine": 1917,
+        "endChar": 21
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "772f2190_5430eaf0",
@@ -220,6 +436,30 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "`Create...()`.",
+      "range": {
+        "startLine": 1972,
+        "startChar": 17,
+        "endLine": 1972,
+        "endChar": 35
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ec676262_c1f6c314",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1972,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "772f2190_5430eaf0",
       "range": {
         "startLine": 1972,
         "startChar": 17,
@@ -247,6 +487,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "99db8fef_ede50e21",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1990,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6376f7c2_a6a6b778",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "07889187_0929b3db",
@@ -260,6 +518,30 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "Should we create a new instruction? Or should we reuse the old one and just change the comparison type and replace inputs?",
+      "range": {
+        "startLine": 2010,
+        "startChar": 6,
+        "endLine": 2010,
+        "endChar": 24
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d3e54460_6b9ddfbb",
+        "filename": "compiler/optimizing/instruction_simplifier.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2010,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07889187_0929b3db",
       "range": {
         "startLine": 2010,
         "startChar": 6,
@@ -293,6 +575,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6daaf98_56fa89b7",
+        "filename": "compiler/optimizing/nodes.h",
+        "patchSetId": 7
+      },
+      "lineNbr": 4590,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1cb7deaf_6fa2866b",
+      "range": {
+        "startLine": 4589,
+        "startChar": 2,
+        "endLine": 4590,
+        "endChar": 79
+      },
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7112c60_68cdd730",
@@ -306,6 +612,24 @@
       "writtenOn": "2024-06-26T12:54:56Z",
       "side": 1,
       "message": "Unrelated to this change?",
+      "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9841759a_a47f5242",
+        "filename": "test/generate-boot-image/generate-boot-image.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 128,
+      "author": {
+        "id": 3190653
+      },
+      "writtenOn": "2024-06-27T14:00:25Z",
+      "side": 1,
+      "message": "old patchset",
+      "parentUuid": "f7112c60_68cdd730",
       "revId": "5937a3eb70e7491ac856a596384e13096ac1da51",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
