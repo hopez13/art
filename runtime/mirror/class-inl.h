@@ -657,7 +657,7 @@ inline MemberOffset Class::GetFirstReferenceStaticFieldOffset(PointerSize pointe
   if (ShouldHaveEmbeddedVTable<kVerifyFlags>()) {
     // Static fields come after the embedded tables.
     base = Class::ComputeClassSize(
-        true, GetEmbeddedVTableLength<kVerifyFlags>(), 0, 0, 0, 0, 0, pointer_size);
+        true, GetEmbeddedVTableLength<kVerifyFlags>(), 0, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
 }
@@ -668,8 +668,8 @@ inline MemberOffset Class::GetFirstReferenceStaticFieldOffsetDuringLinking(
   uint32_t base = sizeof(Class);  // Static fields come after the class.
   if (ShouldHaveEmbeddedVTable()) {
     // Static fields come after the embedded tables.
-    base = Class::ComputeClassSize(true, GetVTableDuringLinking()->GetLength(),
-                                           0, 0, 0, 0, 0, pointer_size);
+    base = Class::ComputeClassSize(
+        true, GetVTableDuringLinking()->GetLength(), 0, 0, 0, 0, 0, 0, pointer_size);
   }
   return MemberOffset(base);
 }
@@ -757,6 +757,40 @@ inline size_t Class::GetPrimitiveTypeSizeShift() {
   return size_shift;
 }
 
+inline size_t Class::AdjustClassSizeForReferenceOffsetBitmapDuringLinking(ObjPtr<Class> klass,
+                                                                          size_t class_size) {
+  if (klass->IsInstantiable()) {
+    // Find the first class with non-zero instance field count and its super-class'
+    // object-size together will tell us the required size.
+    for (; klass != nullptr; klass = klass->GetSuperClass()) {
+      size_t num_reference_fields = klass->NumReferenceInstanceFieldsDuringLinking();
+      if (num_reference_fields != 0) {
+        ObjPtr<Class> super = klass->GetSuperClass();
+        // Leave it for mirror::Object (the class field is handled specially).
+        if (super != nullptr) {
+          // All of the fields that contain object references are guaranteed to be grouped in
+          // memory starting at an appropriately aligned address after super class object data.
+          uint32_t start_offset =
+              RoundUp(super->GetObjectSize(), sizeof(mirror::HeapReference<mirror::Object>));
+          uint32_t start_bit = (start_offset - mirror::kObjectHeaderSize) /
+                               sizeof(mirror::HeapReference<mirror::Object>);
+          if (start_bit + num_reference_fields > 31) {
+            // Alignment that maybe required at the end of static fields smaller than 32-bit.
+            class_size = RoundUp(class_size, sizeof(uint32_t));
+            uint32_t num_overflow_bitmap_words = RoundUp(start_bit + num_reference_fields, 32) / 32;
+            klass->SetField32<false>(OFFSET_OF_OBJECT_MEMBER(Class, reference_instance_offsets_),
+                                     num_overflow_bitmap_words);
+            // 32-bit words required for the overflow bitmap.
+            class_size += num_overflow_bitmap_words * sizeof(uint32_t);
+          }
+        }
+        break;
+      }
+    }
+  }
+  return class_size;
+}
+
 inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
                                         uint32_t num_vtable_entries,
                                         uint32_t num_8bit_static_fields,
@@ -764,6 +798,7 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
                                         uint32_t num_32bit_static_fields,
                                         uint32_t num_64bit_static_fields,
                                         uint32_t num_ref_static_fields,
+                                        uint32_t num_ref_bitmap_entries,
                                         PointerSize pointer_size) {
   // Space used by java.lang.Class and its instance fields.
   uint32_t size = sizeof(Class);
@@ -799,6 +834,12 @@ inline uint32_t Class::ComputeClassSize(bool has_embedded_vtable,
   // Space used for primitive static fields.
   size += num_8bit_static_fields * sizeof(uint8_t) + num_16bit_static_fields * sizeof(uint16_t) +
       num_32bit_static_fields * sizeof(uint32_t) + num_64bit_static_fields * sizeof(uint64_t);
+
+  // Space used by reference-offset bitmap.
+  if (num_ref_bitmap_entries > 0) {
+    size = RoundUp(size, sizeof(uint32_t));
+    size += num_ref_bitmap_entries * sizeof(uint32_t);
+  }
   return size;
 }
 
