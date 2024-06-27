@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bd0ea5b6_517f1f9d",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-27T18:56:59Z",
+      "side": 1,
+      "message": "Move this to the top level, seeing as it doesn\u0027t use anything from the class nor takes a `self` argument?\n\nAlso, since it\u0027s no longer inside `MtsTestShard`, its name ought to reflect a bit better what kind of file it generates.",
+      "range": {
+        "startLine": 821,
+        "startChar": 6,
+        "endLine": 821,
+        "endChar": 24
+      },
+      "revId": "e04f586c0ed0d45a09d3bf052f034d691c4c9f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d35849a7_e6348fee",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 838,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-27T18:56:59Z",
+      "side": 1,
+      "message": "I realise this is just moved code, but consider inlining this function and `append_module_controller_configuration` below, since they\u0027re only called from one location, and there are other very similar loops here that don\u0027t use functions this way.",
+      "range": {
+        "startLine": 838,
+        "startChar": 4,
+        "endLine": 838,
+        "endChar": 38
+      },
+      "revId": "e04f586c0ed0d45a09d3bf052f034d691c4c9f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4ee10f2e_7d86af78",
+        "filename": "test/utils/regen-test-files",
+        "patchSetId": 1
+      },
+      "lineNbr": 1084,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-27T18:56:59Z",
+      "side": 1,
+      "message": "Nit: Please use named arguments.",
+      "range": {
+        "startLine": 1084,
+        "startChar": 33,
+        "endLine": 1084,
+        "endChar": 100
+      },
+      "revId": "e04f586c0ed0d45a09d3bf052f034d691c4c9f4b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
