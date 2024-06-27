@@ -72,11 +72,9 @@ class MANAGED ClassLoader : public Object {
   // Null class loader is handled by ClassLinker::VisitClassRoots.
   template <bool kVisitClasses,
             VerifyObjectFlags kVerifyFlags = kDefaultVerifyFlags,
-            ReadBarrierOption kReadBarrierOption = kWithReadBarrier,
             typename Visitor>
   void VisitReferences(ObjPtr<Class> klass, const Visitor& visitor)
-      REQUIRES_SHARED(Locks::mutator_lock_)
-      REQUIRES(!Locks::classlinker_classes_lock_);
+      REQUIRES_SHARED(Locks::mutator_lock_) REQUIRES(!Locks::classlinker_classes_lock_);
 
   // Field order required by test "ValidateFieldOrderOfJavaCppUnionClasses".
   HeapReference<String> name_;
