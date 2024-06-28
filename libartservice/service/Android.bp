@@ -94,6 +94,7 @@ java_defaults {
         "sdk_module-lib_current_framework-connectivity",
     ],
     static_libs: [
+        "art-aconfig-flags-java-lib",
         "art-statslog-art-java",
         "artd-aidl-java",
         "dexopt_chroot_setup-aidl-java",
@@ -104,6 +105,9 @@ java_defaults {
     ],
     plugins: [
         "auto_value_plugin",
+    ],
+    aconfig_declarations: [
+        "art-aconfig-flags",
     ],
 }
 
@@ -128,7 +132,10 @@ java_sdk_library {
         "service-art-defaults",
         "framework-system-server-module-optimize-defaults",
     ],
-    permitted_packages: ["com.android.server.art"],
+    permitted_packages: [
+        "com.android.art",
+        "com.android.server.art",
+    ],
     dex_preopt: {
         profile: "art-profile",
     },
