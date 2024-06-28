@@ -67,6 +67,30 @@
       ],
       "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ed173bf6_c6f52c94",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-06-28T18:11:00Z",
+      "side": 1,
+      "message": "My problem here was TreeMultimap.get(key) returns a NavigableSet, and it seems .toArray() is the one that I could use to convert the values into a [], and that works. The other thing is - I wasn\u0027t able to find a proper/easy way to convert [] to a List further (tried Arrays.asList() but it gives me a list of single element of that array), and Collectors.toList() seems to complain about it.",
+      "parentUuid": "1bee98c2_379f9f46",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
