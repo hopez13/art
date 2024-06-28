@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1f8cf174_260718f1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-06-28T18:56:05Z",
+      "side": 1,
+      "message": "Should this be tested with the simulator as well?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fa60d667_f2602dab",
         "filename": "build/SoongConfig.bp",
         "patchSetId": 5
@@ -19,6 +42,29 @@
         "startChar": 0,
         "endLine": 111,
         "endChar": 1
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c576c46_82c02d27",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-06-28T18:56:05Z",
+      "side": 1,
+      "message": "I would also explicitly say something like \"so both the entrypoints for host arch (x86_64) and target arch (arm64) are arm64\", otherwise it may be confusing (and hard to spot on the first glance).\n\nActually... why do we need arm64 section here? Isn\u0027t the only setting that should be overridden the host x86_64 one where the simulator runs? Or do we intend to run on arm64 host?",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 32
       },
       "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
