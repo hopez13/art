@@ -1,0 +1,68 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7e915ecb_a0dc57bc",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-06-28T19:35:43Z",
+      "side": 1,
+      "message": "Is there any way to test that we\u0027ve got `kRuntimeQuickCodeISA` in all the right places, and we did not by accident put `kRuntimeISA` somewhere (and this won\u0027t happen in the future)?",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "f1f8fb477864f4e33a37777f8f6a343342f2e030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b4fa424_5b9e6f95",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-06-28T19:35:43Z",
+      "side": 1,
+      "message": "Can you expand the comment to explicitly mention the case when this differs from runtime ISA, and the reason why it differs?\n\nWhat I\u0027m concerned about is that we may have a clear understanding now of why simulator uses arm64 entrypoints when running on x86 host, but for someone who sees this for the first time with no idea about the simulator it may be not so clear.\n\nI think we should have at least one detailed comment about this cross-arch simulator behavior somewhere in the ART source code. (do we already?) This may not be the best place for it, so feel free to it where you see fit.",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 71
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "96fad3b9_98fc1663",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "libartbase/arch/instruction_set.h",
+              "range": {
+                "startLine": 58,
+                "startChar": 0,
+                "endLine": 59,
+                "endChar": 0
+              },
+              "replacement": "// will be used for the quick context, quick stack frame and quick ABI. This may differ from\n// kRuntimeISA in the case of a JIT-on-x86-64 runtime, where the runtime is x86-64 but the JIT\n// generates ARM code.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f1f8fb477864f4e33a37777f8f6a343342f2e030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
