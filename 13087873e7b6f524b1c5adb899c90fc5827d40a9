@@ -1,6 +1,23 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "a2214410_17cf6816",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-28T11:48:18Z",
+      "side": 1,
+      "message": "You need something like aosp/3139415.",
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bfd904d9_91ee7170",
@@ -14,6 +31,30 @@
       "writtenOn": "2024-06-28T10:53:17Z",
       "side": 1,
       "message": "I am not sure if we should change the package name of the flags, or permit \"com.android.art\" in the service-art. Any opinions?",
+      "range": {
+        "startLine": 136,
+        "startChar": 8,
+        "endLine": 136,
+        "endChar": 26
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c24b1c69_6dab3b06",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 136,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-28T11:48:18Z",
+      "side": 1,
+      "message": "Permitting \"com.android.art\" looks reasonable to me.",
+      "parentUuid": "bfd904d9_91ee7170",
       "range": {
         "startLine": 136,
         "startChar": 8,
