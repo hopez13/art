@@ -55,6 +55,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "e82db568_de5b448c",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-06-28T14:03:28Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8f527c3f_9ba0787c",
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "b3c1f13b_45ea89b0",
         "filename": "build/flags/Android.bp",
         "patchSetId": 1
@@ -89,6 +107,30 @@
       "writtenOn": "2024-06-28T13:44:51Z",
       "side": 1,
       "message": "Iiuc this is for stubs, which we presumably generate for `service-art`. Isn\u0027t it enough to have this there?\n\nAnd btw why and when do the stubs depend on the flags? If the flags are internal they shouldn\u0027t have to, right?",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 6
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df3dd0a2_d4564d9b",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-06-28T14:03:28Z",
+      "side": 1,
+      "message": "I am not 100% sure, but https://r.android.com/2903227 has more info. It\u0027s used in module sdk snapshots, and hidden API processing for @FlaggedApi IIUC. I can remove it if flags are used internally only.",
+      "parentUuid": "f4dd22e6_6be7e4c6",
       "range": {
         "startLine": 109,
         "startChar": 0,
