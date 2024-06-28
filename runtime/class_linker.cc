@@ -5103,6 +5103,36 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
   }
 
   UpdateClassAfterVerification(klass, image_pointer_size_, verifier_failure);
+
+  if (!klass->IsErroneous() && verifier_failure != verifier::FailureKind::kHardFailure) {
+    ObjPtr<mirror::IfTable> iftable = klass->GetIfTable();
+    for (int32_t i = 0, iftable_count = iftable->Count(); i < iftable_count; ++i) {
+      if (verifier_failure == verifier::FailureKind::kHardFailure) {
+        break;
+      }
+      ObjPtr<mirror::Class> iface = iftable->GetInterface(i);
+      if (iface->DescriptorEquals("Ljava/util/SequencedCollection;")) {
+        ObjPtr<mirror::PointerArray> methods = iftable->GetMethodArrayOrNull(i);
+        if (methods == nullptr) {
+          continue;
+        }
+        size_t methods_count = iftable->GetMethodArrayCount(i);
+        for (size_t j = 0; j < methods_count; ++j) {
+          ArtMethod* method = methods->GetElementPtrSize<ArtMethod*>(j, image_pointer_size_);
+          if (method->IsDefaultConflicting()) {
+            LOG(FATAL_WITHOUT_ABORT)
+                << "Verification failed on class " << klass->PrettyDescriptor()
+                << " because of conflicting method: " << ArtMethod::PrettyMethod(method).c_str();
+            ThrowVerifyError(
+                klass.Get(), "conflicting method: %s", ArtMethod::PrettyMethod(method).c_str());
+            verifier_failure = verifier::FailureKind::kHardFailure;
+            break;
+          }
+        }
+      }
+    }
+  }
+
   return verifier_failure;
 }
 
