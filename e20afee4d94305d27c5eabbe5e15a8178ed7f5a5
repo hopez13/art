@@ -16,6 +16,24 @@
       "message": "Hi Martin, I removed the wrong P/H flag read. PTAL again. Thanks.",
       "revId": "e20afee4d94305d27c5eabbe5e15a8178ed7f5a5",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5d6b6cab_db338b1b",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 4
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-06-28T16:54:38Z",
+      "side": 1,
+      "message": "I don\u0027t see any P/H flag read getting changed in PS1. The removal of the P/H flag in PS4 looks a bit of a separate cleanup to me that ideally should go into its own CL. But nevermind - just mention it in the description, perhaps?",
+      "parentUuid": "0329df39_143c1829",
+      "revId": "e20afee4d94305d27c5eabbe5e15a8178ed7f5a5",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
