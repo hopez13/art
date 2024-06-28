@@ -16,6 +16,57 @@
       "message": "Hey Pete, this is to address the feedback you had last time for using treeMultimap to identify duplicated bitmaps. Let me know if this is in the right direction. +Sorin to help as well.",
       "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1bee98c2_379f9f46",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1863710
+      },
+      "writtenOn": "2024-06-28T06:53:02Z",
+      "side": 1,
+      "message": "Do you need to convert this to `AhatBitmapInstance[]`. Could you not collect to list?",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "456dfa02_9381759d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+              "range": {
+                "startLine": 183,
+                "startChar": 0,
+                "endLine": 184,
+                "endChar": 0
+              },
+              "replacement": "  public static List\u003cList\u003cAhatBitmapInstance\u003e\u003e findDuplicates(BitmapDumpData bitmapDumpData) {\n"
+            },
+            {
+              "path": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+              "range": {
+                "startLine": 187,
+                "startChar": 0,
+                "endLine": 188,
+                "endChar": 0
+              },
+              "replacement": "          .map(k -\u003e bitmapDumpData.instances.get(k).stream().collect(Collectors.toList()))\n"
+            }
+          ]
+        }
+      ],
+      "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
