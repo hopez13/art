@@ -3,6 +3,29 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "c8926fd8_d5132640",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-06-28T19:04:06Z",
+      "side": 1,
+      "message": "This is probably a question for Jiakai: are we always using dex2oatd for building boot images, not dex2oat/dex2oatd based on some precondition? I imagine the release version would be faster.",
+      "range": {
+        "startLine": 407,
+        "startChar": 83,
+        "endLine": 407,
+        "endChar": 91
+      },
+      "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "7f3d08de_0492cc1c",
         "filename": "tools/buildbot-build.sh",
         "patchSetId": 5
