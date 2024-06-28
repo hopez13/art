@@ -285,6 +285,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "34a1c3c2_c0da215a",
+        "filename": "libartservice/service/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-06-28T14:57:13Z",
+      "side": 1,
+      "message": "We need this sooner or later, unless we never add any new APIs. Adding it earlier is beneficial as it as be covered by continuous build, so that we don\u0027t get surprise when we starts to use @FlaggedApi.\n\n+1 for moving this to `service-art`.",
+      "parentUuid": "ff7b94b5_5c74a28a",
+      "range": {
+        "startLine": 109,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 6
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "bfd904d9_91ee7170",
