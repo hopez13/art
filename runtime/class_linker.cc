@@ -5103,6 +5103,86 @@ verifier::FailureKind ClassLinker::VerifyClass(Thread* self,
   }
 
   UpdateClassAfterVerification(klass, image_pointer_size_, verifier_failure);
+
+  if (!klass->IsErroneous() && verifier_failure != verifier::FailureKind::kHardFailure) {
+    ObjPtr<mirror::IfTable> iftable = klass->GetIfTable();
+    int32_t iftable_count = iftable->Count();
+    for (int32_t i = 0; i < iftable_count; ++i) {
+      if (verifier_failure == verifier::FailureKind::kHardFailure) {
+        break;
+      }
+      ObjPtr<mirror::Class> iface = iftable->GetInterface(i);
+      if (iface->DescriptorEquals("Ljava/util/SequencedCollection;")) {
+        ObjPtr<mirror::PointerArray> methods = iftable->GetMethodArrayOrNull(i);
+        if (methods == nullptr) {
+          continue;
+        }
+        size_t methods_count = iftable->GetMethodArrayCount(i);
+        for (size_t j = 0; j < methods_count; ++j) {
+          ArtMethod* method = methods->GetElementPtrSize<ArtMethod*>(j, image_pointer_size_);
+          if (method->IsDefaultConflicting()) {
+            std::string non_libcore_classes_str;
+            std::string libcore_classes_str;
+            // Look for the other default methods this has conflicts with. There must be at least
+            // another one.
+            // It makes the algorithmic runtime O(methods ^ 2) in the worst case,
+            // but this is only needed for printing debugging messages when a incompatible class
+            // is found.
+            for (int32_t k = 0; k < iftable_count; ++k) {
+              ObjPtr<mirror::Class> other_iface = iftable->GetInterface(k);
+              ObjPtr<mirror::PointerArray> other_methods = iftable->GetMethodArrayOrNull(k);
+              if (other_methods == nullptr ||
+                  other_iface->DescriptorEquals("Ljava/util/SequencedCollection;")) {
+                continue;
+              }
+              size_t other_methods_count = iftable->GetMethodArrayCount(k);
+              for (size_t m = 0; m < other_methods_count; ++m) {
+                ArtMethod* other_method =
+                    other_methods->GetElementPtrSize<ArtMethod*>(m, image_pointer_size_);
+                if (other_method->IsDefaultConflicting() &&
+                    method->HasSameNameAndSignature(other_method)) {
+                  if (!other_iface->IsProxyClass()) {
+                    std::string_view desc = other_iface->GetDescriptorView();
+                    if (desc.starts_with("Ljava/")) {
+                      libcore_classes_str += desc;
+                      libcore_classes_str += " ";
+                    } else {
+                      non_libcore_classes_str += desc;
+                      non_libcore_classes_str += " ";
+                    }
+                  }
+                }
+              }
+            }
+            if (non_libcore_classes_str.empty()) {
+              // Print log and keeps going. This is generally okay, because we expect no call sites
+              // in app / libcore calls the 6 default methods and reversed() method in
+              // SequencedCollection, unless the app is built with SDK 35. If the app is compiled
+              // with SDK 35, javac produces a build-time error for conflicting default methods.
+              // We should check if libcore has no such call sites if app is compiled with SDK 34
+              // or below.
+              LOG(FATAL_WITHOUT_ABORT)
+                  << "SequencedCollection has conflict methods on class "
+                  << klass->PrettyDescriptor()
+                  << " because of conflicting method: " << ArtMethod::PrettyMethod(method).c_str()
+                  << " with libcore's interfaces " << libcore_classes_str;
+            } else {
+              LOG(FATAL_WITHOUT_ABORT)
+                  << "Verification failed on class " << klass->PrettyDescriptor()
+                  << " because of conflicting method: " << ArtMethod::PrettyMethod(method).c_str()
+                  << " with interfaces " << non_libcore_classes_str << " and libcore's interfaces "
+                  << libcore_classes_str;
+              ThrowVerifyError(
+                  klass.Get(), "conflicting method: %s", ArtMethod::PrettyMethod(method).c_str());
+              verifier_failure = verifier::FailureKind::kHardFailure;
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+
   return verifier_failure;
 }
 
