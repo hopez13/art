@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e53a07f_ed38905a",
+        "filename": "Android.mk",
+        "patchSetId": 5
+      },
+      "lineNbr": 407,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-01T16:09:45Z",
+      "side": 1,
+      "message": "We always use dex2oatd on build host, to surface issues (if any) earlier. The time cost is not too much of a concern because it\u0027s fast enough on build host.",
+      "parentUuid": "c8926fd8_d5132640",
+      "range": {
+        "startLine": 407,
+        "startChar": 83,
+        "endLine": 407,
+        "endChar": 91
+      },
+      "revId": "f14eab03658cb7db01e559c346b356c1f866f94b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "7f3d08de_0492cc1c",
