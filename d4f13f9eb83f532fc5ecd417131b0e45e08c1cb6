@@ -108,6 +108,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "288b70ec_acab4c85",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-01T13:32:37Z",
+      "side": 1,
+      "message": "I reckon the division is the same as the \"containers\" used for TS flag export etc. A solution that leverages that abstraction would be ideal, but if it requires a significant engineering effort then a way to just pass a package exclusion list to the linter may be good enough.",
+      "parentUuid": "3a4ef9ed_4a70c524",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
