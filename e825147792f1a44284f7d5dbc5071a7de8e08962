@@ -115,6 +115,30 @@
       },
       "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8c971815_f7fcbdbc",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1334152
+      },
+      "writtenOn": "2024-07-01T09:09:18Z",
+      "side": 1,
+      "message": "FWIW you can probably do something like\n```\n.map(k -\u003e new ArrayList\u003c\u003e(bitmapDumpData.instances.get(k))\n```\nbut up to you 😊",
+      "parentUuid": "6e862457_ecfb5756",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
