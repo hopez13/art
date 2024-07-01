@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7970df9d_500e9941",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-01T23:43:42Z",
+      "side": 1,
+      "message": "Pete and Sorin, I\u0027ve updated the CL to use what Pete suggested, so that we don\u0027t need to change the List\u003cAhatBitmapInstance\u003e to AhatBitmapInstance[], this would give us minimum change. Please help review again. Also, the test should be working and I\u0027ll keep watching presubmit. 🙏",
+      "revId": "15c4f408b6a779ae88e294bea00cf726bbf8e23c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

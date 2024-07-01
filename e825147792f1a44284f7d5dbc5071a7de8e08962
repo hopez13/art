@@ -156,6 +156,30 @@
       },
       "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82faf677_a39ec06f",
+        "filename": "tools/ahat/src/main/com/android/ahat/heapdump/AhatBitmapInstance.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-01T23:43:42Z",
+      "side": 1,
+      "message": "Pete, I liked your version, and it worked. This would allow minimum change. I\u0027ve updated my CL, please help review again.",
+      "parentUuid": "8c971815_f7fcbdbc",
+      "range": {
+        "startLine": 183,
+        "startChar": 21,
+        "endLine": 183,
+        "endChar": 41
+      },
+      "revId": "e825147792f1a44284f7d5dbc5071a7de8e08962",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
