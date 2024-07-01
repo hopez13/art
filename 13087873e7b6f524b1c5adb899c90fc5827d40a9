@@ -334,6 +334,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6e84b19_abc91c90",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-01T15:37:55Z",
+      "side": 1,
+      "message": "I don\u0027t see a contradiction either. `min_sdk_version` and `sdk_version` together form a range of SDK levels that the library targets. They should be seen as two ends of the range, rather than something contradicting each other.",
+      "parentUuid": "9b633a49_b19e0f44",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dd22e6_6be7e4c6",
