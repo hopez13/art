@@ -406,6 +406,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce8c8dbd_6d5a0fa4",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-01T18:21:42Z",
+      "side": 1,
+      "message": "Looks like we are not on the same page regarding the build time check. TL;DR, the build time check is reassuring.\n\n`@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)` tells the build system that the annotated class/method uses V APIs and **is only used on V** (I guess that\u0027s the part that you are missing). Any usage of the annotated class/method must be guarded with `if (SdkLevel.atLeastV())`. With `min_sdk_version: \"31\"`, if you remove `if (SdkLevel.atLeastV())` (e.g., from [here](https://cs.android.com/android/platform/superproject/main/+/main:art/libartservice/service/java/com/android/server/art/ArtShellCommand.java;l\u003d653-656;drc\u003d472401dc65ead4dbfc3b2b87e167026057d5cd23), you\u0027ll get a build failure.",
+      "parentUuid": "007b4012_b60ee481",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dd22e6_6be7e4c6",
