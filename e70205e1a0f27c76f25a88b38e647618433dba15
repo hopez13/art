@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66c51aaf_c36c75bb",
+        "filename": "runtime/arch/arm64/asm_support_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 502,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-07-01T08:23:29Z",
+      "side": 1,
+      "message": "Here and below the spacing between macro name and first arg looks a bit weird: previously it was aligned but now it looks like an arbitrary number of space characters. I\u0027d just put one space after the macro name.",
+      "range": {
+        "startLine": 502,
+        "startChar": 0,
+        "endLine": 502,
+        "endChar": 33
+      },
+      "revId": "e70205e1a0f27c76f25a88b38e647618433dba15",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
