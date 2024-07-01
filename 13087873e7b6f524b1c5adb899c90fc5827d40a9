@@ -312,6 +312,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "9b633a49_b19e0f44",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-07-01T13:44:51Z",
+      "side": 1,
+      "message": "Ah, sorry. Actually, after removing min_sdk_version from `art-aconfig-flags-java-lib`, `m com.android.art` is built successfully on my local machine. The name of min_sdk_version is confusing. But what is contradiction here? I wonder why the contradiction only applies to this library, but not the others.\n\nIIUC, it\u0027s safer to have min_sdk_version: \"31\" here, because it tells that the build system that it\u0027s designed to run on Android 12 devices, e.g. the API guard that Jiakai mentioned.",
+      "parentUuid": "ac3518ec_5507022e",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4dd22e6_6be7e4c6",
         "filename": "libartservice/service/Android.bp",
         "patchSetId": 1
