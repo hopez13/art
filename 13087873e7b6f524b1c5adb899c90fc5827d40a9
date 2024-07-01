@@ -382,6 +382,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "007b4012_b60ee481",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-01T18:14:55Z",
+      "side": 1,
+      "message": "Yes, given the runtime API guards use case there\u0027s no contradiction, but instead it means we presumably get some unnecessary runtime restrictions with min_sdk_version (I\u0027ll get to that in a bit).\n\nI played around a bit with Jiakai\u0027s example, and I found that I could readily delete the runtime checks and build the module, both with and without the `min_sdk_version: \"31\"` line in service-art-defaults (tried both a platform build and an unbundled one with banchan, in a full AOSP tree). With the min_sdk_version property, shouldn\u0027t there be a build failure due to the `@RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)` annotation on `ArtManagerLocal.getPreRebootDexoptJob` when the runtime check is missing?\n\nThis isn\u0027t reassuring. (It reminds me of the nullability annotations, which in my experience aren\u0027t properly checked either, at least not in local builds.) Do you know how/where API guards are checked against API annotations and min_sdk_version?\n\nIt also makes me doubt that Victor\u0027s test without min_sdk_version here was significant.\n\nWhat I was hoping to achieve is to make only core APIs are accessible, but at their current version so they can be accessed without runtime API checks. If min_sdk_version enables runtime checks then we could at some point be forced to add some on the core API\u0027s, which would be unnecessary. But given what I\u0027ve seen that doesn\u0027t appear to be the case, and I\u0027m not sure what min_sdk_version does (besides apparently providing a false sense of safety).\n\nIn any case, for this CL we better keep min_sdk_version.",
+      "parentUuid": "9b633a49_b19e0f44",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dd22e6_6be7e4c6",
