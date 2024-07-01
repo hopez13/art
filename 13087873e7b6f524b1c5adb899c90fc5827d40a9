@@ -288,6 +288,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ac3518ec_5507022e",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-01T13:16:46Z",
+      "side": 1,
+      "message": "\u003e Consider adding \u0027min_sdk_version: \"31\"\u0027 to \"art-aconfig-flags-lib\"\n\nThat\u0027s the native library above, I don\u0027t think it works without min_sdk_version there. What about this one?",
+      "parentUuid": "070615a1_a6832460",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4dd22e6_6be7e4c6",
         "filename": "libartservice/service/Android.bp",
         "patchSetId": 1
