@@ -240,6 +240,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "1741b289_ec446562",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-01T12:54:51Z",
+      "side": 1,
+      "message": "Because if this library only depends on core APIs, and those are \"current\", then there wouldn\u0027t be any other APIs that would need to be pinned to \"31\", would there?\n\nThat may be different for service-art-defaults. I see it uses \"system_server_current\" and I don\u0027t if system_server is a superset of the core APIs.\n\nAnyway, the way I understand it there\u0027s inherently a contradiction between \"current\" and \"31\". I\u0027m sure there\u0027s a disambiguation rule, but it\u0027s more clear to not have to rely on it if we don\u0027t have to.\n\nSo does it work without min_sdk_version here? (I can very well imagine it doesn\u0027t due to the logic around this in Soong, but it\u0027s worth a try.)",
+      "parentUuid": "a6ecc59a_692b3ef3",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4dd22e6_6be7e4c6",
         "filename": "libartservice/service/Android.bp",
         "patchSetId": 1
