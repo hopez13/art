@@ -161,6 +161,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "b27f877b_2c536e0e",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-01T22:59:23Z",
+      "side": 1,
+      "message": "So jit_mutator_lock_ protects the structure and the keys of the map, but not the values? But can\u0027t the values be concurrently replaced and read? So do we still have a data race on those?\n\nI\u0027m concerned both about potential C++ miscompilation and memory ordering. If these can happen concurrently, is there any guarantee that if we see an updated entry, the ArtMethod is visible?",
+      "parentUuid": "5b629180_4aa7db6c",
+      "range": {
+        "startLine": 907,
+        "startChar": 4,
+        "endLine": 907,
+        "endChar": 10
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "35a34f85_1bfd4c66",
         "filename": "runtime/jit/jit_code_cache.h",
         "patchSetId": 4
