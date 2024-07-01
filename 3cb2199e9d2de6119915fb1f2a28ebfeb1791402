@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e7dce5cd_ee428e24",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-07-01T08:06:37Z",
+      "side": 1,
+      "message": "entrypoints? (I think it\u0027s best to deabbreviate it.)",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "3cb2199e9d2de6119915fb1f2a28ebfeb1791402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a03afb7a_6527f7ff",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1550939
+      },
+      "writtenOn": "2024-07-01T08:06:37Z",
+      "side": 1,
+      "message": "You need this because you need both x86 and arm64 context for simulator, right? If so, please include this in commit message.\n\nHow does it affect code size, not what multiple specializations are compiled into one binary (previously there was one per arch)? Is it acceptable? If not, we could guard template specializations with arch-check macros to generate context for one arch in the non-simulator case and for two arches in the simulator case. Anyway, please include binary size stats in commit message.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "3cb2199e9d2de6119915fb1f2a28ebfeb1791402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
