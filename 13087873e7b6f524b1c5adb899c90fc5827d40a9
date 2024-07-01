@@ -144,6 +144,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8a3a26fb_988ef5f6",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-07-01T10:07:39Z",
+      "side": 1,
+      "message": "Sorry for replying late. \n\nIf my information is up-to-date, core_current is roughly equals to public + @CorePlatformApi + @SystemApi(MODULE_LIBRARIES) provided by libcore / ART + Conscrypt + ICU. \n\nGenerally, platform\u0027s frameworks is built against \"core_current\" to avoid building against the libcore/ART implementation directly, and thus \"core_current\" avoids the dependency on frameworks.",
+      "parentUuid": "7a9c177c_40540666",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4dd22e6_6be7e4c6",
         "filename": "libartservice/service/Android.bp",
         "patchSetId": 1
