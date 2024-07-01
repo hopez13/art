@@ -358,6 +358,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "16429702_c340383d",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-07-01T16:48:39Z",
+      "side": 1,
+      "message": "FYI. I got minSdkVersion error if I put a libcore\u0027s `java_aconfig_library` into the bootclasspath. For some reasons, the requirement isn\u0027t enforced for `service-art ` which is part of the system server class path, but the requirement for mainline updatability should be similiar. \n```\nFAILED: out/soong/build.aosp_cf_x86_64_phone.ninja\ncd \"$(dirname \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 BUILDER\u003d\"$PWD/$(basename \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 cd / \u0026\u0026 env -i  \"$BUILDER\"     --top \"$TOP\"     --soong_out \"out/soong\"     --out \"out\"     --soong_variables out/soong/soong.aosp_cf_x86_64_phone.variables -o out/soong/build.aosp_cf_x86_64_phone.ninja --globListDir aosp_cf_x86_64_phone --globFile out/soong/globs-aosp_cf_x86_64_phone.ninja -l out/.module_paths/Android.bp.list --available_env out/soong/soong.environment.available --used_env out/soong/soong.environment.used.aosp_cf_x86_64_phone.build Android.bp\nerror: libcore/JavaLibrary.bp:1067:1: module \"libcore-aconfig-flags-lib\" variant \"android_common_apex31\": should support min_sdk_version(31) for \"com.android.art\": newer SDK((no version)).\n\nDependency path: com.android.art{os:android,arch:common,apex:com.android.art}\n           via tag apex.dependencyTag{\"bootclasspathFragment\"}\n    -\u003e art-bootclasspath-fragment{os:android,arch:common,apex:apex31}\n           via tag java.bootclasspathFragmentContentDependencyTag: {}\n    -\u003e core-libart{os:android,arch:common,apex:apex31}\n           via tag java.dependencyTag: { name:staticlib runtimeLinked:false toolchain:false static:true installable:false}\n    -\u003e libcore-aconfig-flags-lib{os:android,arch:common,apex:apex31}\n\nConsider adding \u0027min_sdk_version: \"31\"\u0027 to \"libcore-aconfig-flags-lib\"\n```",
+      "parentUuid": "d6e84b19_abc91c90",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dd22e6_6be7e4c6",
