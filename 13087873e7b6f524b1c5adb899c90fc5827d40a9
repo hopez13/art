@@ -192,6 +192,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a6ecc59a_692b3ef3",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1047684
+      },
+      "writtenOn": "2024-07-01T12:26:42Z",
+      "side": 1,
+      "message": "Yes. we also offer \"core_platform\" sdk_version to provide slightly more APIs that I can\u0027t remember the details. \n\n\u003e Still, the \"current\" part seems at odds with min_sdk_version. Is it possible to leave out min_sdk_version below?\n\nWhy is odd? service-art-defaults is also using sdk_version: \"..._current\" and min_sdk_version: \"31\".",
+      "parentUuid": "16f6c882_251d32e6",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f4dd22e6_6be7e4c6",
         "filename": "libartservice/service/Android.bp",
         "patchSetId": 1
