@@ -430,6 +430,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "483b20ee_8b7fb776",
+        "filename": "build/flags/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 43,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-01T18:28:47Z",
+      "side": 1,
+      "message": "Here\u0027s my understanding of the build system\u0027s behavior (tested with local experiments):\n\n`min_sdk_version` and `sdk_version` form a range. Let\u0027s say `min_sdk_version` is `a` and `sdk_version` is `b`.\n\nThe build system checks all APIs usages:\n\n- If the API was introduced by SDK `\u003c\u003d a`: OK\n- If the API was introduced by SDK `\u003e a` and `\u003c\u003d b`: OK only if guarded by `if (SdkLevel....)` or annotated with `@RequiresApi(Build.VERSION_CODES....)`\n- If the API was introduced by SDK `\u003e b`: No way",
+      "parentUuid": "ce8c8dbd_6d5a0fa4",
+      "range": {
+        "startLine": 43,
+        "startChar": 4,
+        "endLine": 43,
+        "endChar": 32
+      },
+      "revId": "13087873e7b6f524b1c5adb899c90fc5827d40a9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f4dd22e6_6be7e4c6",
