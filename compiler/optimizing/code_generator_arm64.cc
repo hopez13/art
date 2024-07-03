@@ -1001,10 +1001,8 @@ CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
                     ArrayRef<const bool>(detail::kIsIntrinsicUnimplemented)),
       block_labels_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
       jump_tables_(graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)),
-      location_builder_neon_(graph, this),
-      instruction_visitor_neon_(graph, this),
-      location_builder_sve_(graph, this),
-      instruction_visitor_sve_(graph, this),
+      location_builder_(graph, this),
+      instruction_visitor_(graph, this),
       move_resolver_(graph->GetAllocator(), this),
       assembler_(graph->GetAllocator(),
                  compiler_options.GetInstructionSetFeatures()->AsArm64InstructionSetFeatures()),
@@ -1026,25 +1024,18 @@ CodeGeneratorARM64::CodeGeneratorARM64(HGraph* graph,
                                          graph->GetAllocator()->Adapter(kArenaAllocCodeGenerator)) {
   // Save the link register (containing the return address) to mimic Quick.
   AddAllocatedRegister(LocationFrom(lr));
-
-  bool use_sve = ShouldUseSVE();
-  if (use_sve) {
-    location_builder_ = &location_builder_sve_;
-    instruction_visitor_ = &instruction_visitor_sve_;
-  } else {
-    location_builder_ = &location_builder_neon_;
-    instruction_visitor_ = &instruction_visitor_neon_;
-  }
 }
 
-bool CodeGeneratorARM64::ShouldUseSVE() const {
+bool CodeGeneratorARM64::SupportsPredicatedSIMD() const {
   return GetInstructionSetFeatures().HasSVE();
 }
 
-size_t CodeGeneratorARM64::GetSIMDRegisterWidth() const {
-  return SupportsPredicatedSIMD()
-      ? GetInstructionSetFeatures().GetSVEVectorLength() / kBitsPerByte
-      : vixl::aarch64::kQRegSizeInBytes;
+size_t CodeGeneratorARM64::GetTraditionalSIMDRegisterWidth() const {
+  return vixl::aarch64::kQRegSizeInBytes;
+}
+
+size_t CodeGeneratorARM64::GetPredicatedSIMDRegisterWidth() const {
+  return GetInstructionSetFeatures().GetSVEVectorLength() / kBitsPerByte;
 }
 
 #define __ GetVIXLAssembler()->
@@ -1161,8 +1152,8 @@ void ParallelMoveResolverARM64::FinishEmitNativeCode() {
 Location ParallelMoveResolverARM64::AllocateScratchLocationFor(Location::Kind kind) {
   DCHECK(kind == Location::kRegister || kind == Location::kFpuRegister
          || kind == Location::kStackSlot || kind == Location::kDoubleStackSlot
-         || kind == Location::kSIMDStackSlot);
-  kind = (kind == Location::kFpuRegister || kind == Location::kSIMDStackSlot)
+         || Location::IsSIMDStackSlot(kind));
+  kind = (kind == Location::kFpuRegister || Location::IsSIMDStackSlot(kind))
       ? Location::kFpuRegister
       : Location::kRegister;
   Location scratch = GetScratchLocation(kind);

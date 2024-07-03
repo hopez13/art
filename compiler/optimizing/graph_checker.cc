@@ -1510,18 +1510,24 @@ void GraphChecker::VisitVecOperation(HVecOperation* instruction) {
   if (codegen_ == nullptr) {
     return;
   }
-
-  if (!codegen_->SupportsPredicatedSIMD() && instruction->IsPredicated()) {
+  if (IsPredicatedSIMDVecOperation(instruction) &&
+      (!codegen_->SupportsPredicatedSIMD() || !GetGraph()->HasPredicatedSIMD())) {
     AddError(StringPrintf(
              "%s %d must not be predicated.",
              instruction->DebugName(),
              instruction->GetId()));
   }
+}
 
-  if (codegen_->SupportsPredicatedSIMD() &&
-      (instruction->MustBePredicatedInPredicatedSIMDMode() != instruction->IsPredicated())) {
+void GraphChecker::VisitVecPredSetOperation(HVecPredSetOperation* instruction) {
+  VisitInstruction(instruction);
+  if (codegen_ == nullptr) {
+    return;
+  }
+
+  if (!codegen_->SupportsPredicatedSIMD() || !GetGraph()->HasPredicatedSIMD()) {
     AddError(StringPrintf(
-             "%s %d predication mode is incorrect; see HVecOperation::MustBePredicated.",
+             "%s %d is not supported in non-predicated mode.",
              instruction->DebugName(),
              instruction->GetId()));
   }

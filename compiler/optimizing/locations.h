@@ -70,13 +70,20 @@ class Location : public ValueObject {
     // We do not use the value 9 because it conflicts with kLocationConstantMask.
     kDoNotUse9 = 9,
 
-    kSIMDStackSlot = 10,  // 128bit stack slot. TODO: generalize with encoded #bytes?
+    kSIMDStackSlot128 = 10,  // 128bit stack slot; used for SIMD.
+
+    kSIMDStackSlot256 = 11,  // 256bit stack slot; used for SIMD.
+
+    kSIMDStackSlot512 = 12,  // 512bit stack slot; used for SIMD.
+
+    // We do not use the value 13 because it conflicts with kLocationConstantMask.
+    kDoNotUse13 = 13,
 
     // Unallocated location represents a location that is not fixed and can be
     // allocated by a register allocator.  Each unallocated location has
     // a policy that specifies what kind of location is suitable. Payload
     // contains register allocation policy.
-    kUnallocated = 11,
+    kUnallocated = 14,
   };
 
   constexpr Location() : ValueObject(), value_(kInvalid) {
@@ -85,7 +92,9 @@ class Location : public ValueObject {
     static_assert((kUnallocated & kLocationConstantMask) != kConstant, "TagError");
     static_assert((kStackSlot & kLocationConstantMask) != kConstant, "TagError");
     static_assert((kDoubleStackSlot & kLocationConstantMask) != kConstant, "TagError");
-    static_assert((kSIMDStackSlot & kLocationConstantMask) != kConstant, "TagError");
+    static_assert((kSIMDStackSlot128 & kLocationConstantMask) != kConstant, "TagError");
+    static_assert((kSIMDStackSlot256 & kLocationConstantMask) != kConstant, "TagError");
+    static_assert((kSIMDStackSlot512 & kLocationConstantMask) != kConstant, "TagError");
     static_assert((kRegister & kLocationConstantMask) != kConstant, "TagError");
     static_assert((kFpuRegister & kLocationConstantMask) != kConstant, "TagError");
     static_assert((kRegisterPair & kLocationConstantMask) != kConstant, "TagError");
@@ -274,16 +283,37 @@ class Location : public ValueObject {
     return GetKind() == kDoubleStackSlot;
   }
 
-  static Location SIMDStackSlot(intptr_t stack_index) {
+  // Returns a SIMD location type, based on number of spill slots needed to represent the value.
+  static Location::Kind GetSIMDStackSlotKind(size_t num_of_slots) {
+    switch (num_of_slots) {
+      case 4:
+        return kSIMDStackSlot128;
+      case 8:
+        return kSIMDStackSlot256;
+      case 16:
+        return kSIMDStackSlot512;
+      default:
+        LOG(FATAL) << "Unsupported SIMD stack slot size";
+        UNREACHABLE();
+    }
+  }
+
+  static Location SIMDStackSlot(intptr_t stack_index, size_t num_of_slots) {
     uintptr_t payload = EncodeStackIndex(stack_index);
-    Location loc(kSIMDStackSlot, payload);
+    Location loc(GetSIMDStackSlotKind(num_of_slots), payload);
     // Ensure that sign is preserved.
     DCHECK_EQ(loc.GetStackIndex(), stack_index);
     return loc;
   }
 
+  static bool IsSIMDStackSlot(Kind kind) {
+    return kind == kSIMDStackSlot128 ||
+           kind == kSIMDStackSlot256 ||
+           kind == kSIMDStackSlot512;
+  }
+
   bool IsSIMDStackSlot() const {
-    return GetKind() == kSIMDStackSlot;
+    return IsSIMDStackSlot(GetKind());;
   }
 
   static Location StackSlotByNumOfSlots(size_t num_of_slots, int spill_slot) {
@@ -294,8 +324,8 @@ class Location : public ValueObject {
       case 2u:
         return Location::DoubleStackSlot(spill_slot);
       default:
-        // Assume all other stack slot sizes correspond to SIMD slot size.
-        return Location::SIMDStackSlot(spill_slot);
+        // Assume all other stack slot sizes correspond to SIMD slots.
+        return Location::SIMDStackSlot(spill_slot, num_of_slots);
     }
   }
 
@@ -348,7 +378,9 @@ class Location : public ValueObject {
       case kRegister: return "R";
       case kStackSlot: return "S";
       case kDoubleStackSlot: return "DS";
-      case kSIMDStackSlot: return "SIMD";
+      case kSIMDStackSlot128: return "SIMD128";
+      case kSIMDStackSlot256: return "SIMD256";
+      case kSIMDStackSlot512: return "SIMD512";
       case kUnallocated: return "U";
       case kConstant: return "C";
       case kFpuRegister: return "F";
@@ -356,6 +388,7 @@ class Location : public ValueObject {
       case kFpuRegisterPair: return "FP";
       case kDoNotUse5:  // fall-through
       case kDoNotUse9:
+      case kDoNotUse13:
         LOG(FATAL) << "Should not use this location kind";
     }
     UNREACHABLE();

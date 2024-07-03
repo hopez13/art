@@ -512,7 +512,8 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
                                      const char* name)
     : HOptimization(graph, name, stats),
       compiler_options_(&codegen.GetCompilerOptions()),
-      simd_register_size_(codegen.GetSIMDRegisterWidth()),
+      simd_register_size_(codegen.SupportsPredicatedSIMD() ?
+          codegen.GetPredicatedSIMDRegisterWidth() : codegen.GetTraditionalSIMDRegisterWidth()),
       induction_range_(induction_analysis),
       loop_allocator_(nullptr),
       global_allocator_(graph_->GetAllocator()),

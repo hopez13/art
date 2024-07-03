@@ -306,8 +306,12 @@ void RegisterAllocationResolver::ConnectSiblings(LiveInterval* interval) {
     size_t num_of_slots = interval->NumberOfSpillSlotsNeeded();
     loc = Location::StackSlotByNumOfSlots(num_of_slots, interval->GetParent()->GetSpillSlot());
 
-    CHECK_IMPLIES(loc.IsSIMDStackSlot(),
-                  (codegen_->GetSIMDRegisterWidth() / kVRegSize == num_of_slots))
+    // SIMD slot size corresponds to either traditional or predicated SIMD register size.
+    CHECK_IMPLIES(loc.IsSIMDStackSlot() && !IsPredicatedSIMDVecOperation(interval->GetDefinedBy()),
+                  (codegen_->GetTraditionalSIMDRegisterWidth() / kVRegSize == num_of_slots))
+        << "Unexpected number of spill slots";
+    CHECK_IMPLIES(loc.IsSIMDStackSlot() && IsPredicatedSIMDVecOperation(interval->GetDefinedBy()),
+                  (codegen_->GetPredicatedSIMDRegisterWidth() / kVRegSize == num_of_slots))
         << "Unexpected number of spill slots";
     InsertMoveAfter(interval->GetDefinedBy(), interval->ToLocation(), loc);
   }
@@ -468,8 +472,9 @@ void RegisterAllocationResolver::ConnectSplitSiblings(LiveInterval* interval,
       DCHECK(defined_by->IsCurrentMethod());
       size_t num_of_slots = parent->NumberOfSpillSlotsNeeded();
       location_source = Location::StackSlotByNumOfSlots(num_of_slots, parent->GetSpillSlot());
+      // Check against traditional SIMD register width because HCurrentMethod cannot be predicated.
       CHECK_IMPLIES(location_source.IsSIMDStackSlot(),
-                    (codegen_->GetSIMDRegisterWidth() == num_of_slots * kVRegSize))
+                    (codegen_->GetTraditionalSIMDRegisterWidth() == num_of_slots * kVRegSize))
           << "Unexpected number of spill slots";
     }
   } else {

@@ -83,6 +83,7 @@ class GraphChecker final : public HGraphDelegateVisitor {
   void VisitTypeConversion(HTypeConversion* instruction) override;
 
   void VisitVecOperation(HVecOperation* instruction) override;
+  void VisitVecPredSetOperation(HVecPredSetOperation* instruction) override;
 
   void CheckTypeCheckBitstringInput(HTypeCheckInstruction* check,
                                     size_t input_pos,

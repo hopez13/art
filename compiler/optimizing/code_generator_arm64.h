@@ -333,17 +333,100 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
   Arm64Assembler* GetAssembler() const { return assembler_; }
   vixl::aarch64::MacroAssembler* GetVIXLAssembler() { return GetAssembler()->GetVIXLAssembler(); }
 
-  // SIMD helpers.
-  virtual Location AllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope) = 0;
-  virtual void FreeSIMDScratchLocation(Location loc,
-                                       vixl::aarch64::UseScratchRegisterScope* scope)  = 0;
-  virtual void LoadSIMDRegFromStack(Location destination, Location source) = 0;
-  virtual void MoveSIMDRegToSIMDReg(Location destination, Location source) = 0;
-  virtual void MoveToSIMDStackSlot(Location destination, Location source) = 0;
-  virtual void SaveLiveRegistersHelper(LocationSummary* locations,
-                                       int64_t spill_offset) = 0;
-  virtual void RestoreLiveRegistersHelper(LocationSummary* locations,
-                                          int64_t spill_offset) = 0;
+  // ParallelMove helpers for SIMD values.
+  //
+  // The backend implements two versions of parallel move helpers for SIMD values - SVE and NEON;
+  // a specific one will be chosen based on the actual value/spill slot size.
+  //
+  // Key points:
+  // - Register allocator knows exactly what the size of the spill slot should be.
+  // - When we access that, we need to use a load/store with the precise data size.
+  // - Different sized SIMD values could reuse the same registers, but slots are individual and
+  //   won't be shared.
+  // - For moving between locations we should always be conservative.
+  // - For stack slots locations, we know the actual size of values.
+  // - We only move SIMD values between stack slots that have the same size.
+  // - We always use NEON instructions to load from/store to 128-bit stack slots even if they
+  //   correspond to SVE values. This is safe to do because SVE registers extend NEON ones so
+  //   128-bit z<N> register is a equvalent to q<N>.
+
+  static bool IsNeonStackSlot(Location location) {
+    return location.GetKind() == Location::Kind::kSIMDStackSlot128;
+  }
+
+  static bool IsSveStackSlot(Location location) {
+    Location::Kind kind = location.GetKind();
+    return kind == Location::Kind::kSIMDStackSlot256 ||
+           kind == Location::Kind::kSIMDStackSlot512;
+  }
+
+  void LoadSIMDRegFromStack(Location destination, Location source) {
+    if (IsSveStackSlot(source)) {
+      SveLoadSIMDRegFromStack(destination, source);
+    } else {
+      DCHECK(IsNeonStackSlot(source));
+      NeonLoadSIMDRegFromStack(destination, source);
+    }
+  }
+
+  void MoveToSIMDStackSlot(Location destination, Location source) {
+    if (IsSveStackSlot(destination)) {
+      DCHECK(!IsNeonStackSlot(source));
+      SveMoveToSIMDStackSlot(destination, source);
+    } else {
+      DCHECK(!IsSveStackSlot(source));
+      DCHECK(IsNeonStackSlot(destination));
+      NeonMoveToSIMDStackSlot(destination, source);
+    }
+  }
+
+  //
+  // Conservative helpers based on graph's having predicated SIMD.
+  //
+
+  Location AllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope) {
+    if (GetGraph()->HasPredicatedSIMD()) {
+      return SveAllocateSIMDScratchLocation(scope);
+    } else {
+      return NeonAllocateSIMDScratchLocation(scope);
+    }
+  }
+
+  void FreeSIMDScratchLocation(Location loc,
+                               vixl::aarch64::UseScratchRegisterScope* scope) {
+    if (GetGraph()->HasPredicatedSIMD()) {
+      SveFreeSIMDScratchLocation(loc, scope);
+    } else {
+      NeonFreeSIMDScratchLocation(loc, scope);
+    }
+  }
+
+  void MoveSIMDRegToSIMDReg(Location destination, Location source) {
+    if (GetGraph()->HasPredicatedSIMD()) {
+      SveMoveSIMDRegToSIMDReg(destination, source);
+    } else {
+      NeonMoveSIMDRegToSIMDReg(destination, source);
+    }
+  }
+
+  // The save-all helpers can't account for the size of individual values and thus need to be
+  // conservative - so will choose the widest size.
+
+  void SaveLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) {
+    if (GetGraph()->HasPredicatedSIMD()) {
+      SveSaveLiveRegistersHelper(locations, spill_offset);
+    } else {
+      NeonSaveLiveRegistersHelper(locations, spill_offset);
+    }
+  }
+
+  void RestoreLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) {
+    if (GetGraph()->HasPredicatedSIMD()) {
+      SveRestoreLiveRegistersHelper(locations, spill_offset);
+    } else {
+      NeonRestoreLiveRegistersHelper(locations, spill_offset);
+    }
+  }
 
  protected:
   void GenerateClassInitializationCheck(SlowPathCodeARM64* slow_path,
@@ -442,102 +525,54 @@ class InstructionCodeGeneratorARM64 : public InstructionCodeGenerator {
       bool is_string_char_at,
       /*out*/ vixl::aarch64::Register* scratch);
 
-  Arm64Assembler* const assembler_;
-  CodeGeneratorARM64* const codegen_;
+  //
+  // SIMD helpers.
+  //
 
-  DISALLOW_COPY_AND_ASSIGN(InstructionCodeGeneratorARM64);
-};
+#define DECLARE_VISIT_INSTRUCTION_NEON(name, super) \
+  void NeonVisit##name(H##name* instr);
 
-class LocationsBuilderARM64 : public HGraphVisitor {
- public:
-  LocationsBuilderARM64(HGraph* graph, CodeGeneratorARM64* codegen)
-      : HGraphVisitor(graph), codegen_(codegen) {}
+#define DECLARE_VISIT_INSTRUCTION_SVE(name, super) \
+  void SveVisit##name(H##name* instr);
 
-#define DECLARE_VISIT_INSTRUCTION(name, super) \
-  void Visit##name(H##name* instr) override;
-
-  FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(DECLARE_VISIT_INSTRUCTION)
-  FOR_EACH_CONCRETE_INSTRUCTION_ARM64(DECLARE_VISIT_INSTRUCTION)
-  FOR_EACH_CONCRETE_INSTRUCTION_SHARED(DECLARE_VISIT_INSTRUCTION)
-
-#undef DECLARE_VISIT_INSTRUCTION
-
-  void VisitInstruction(HInstruction* instruction) override {
-    LOG(FATAL) << "Unreachable instruction " << instruction->DebugName()
-               << " (id " << instruction->GetId() << ")";
+  // The backend implements two versions of visitors for vector operations - SVE and NEON;
+  // a specific one will be chosen based on whether the instruction is predicated.
+#define DECLARE_VISIT_INSTRUCTION_VECTOR(name, super)                          \
+  void Visit##name(H##name* instr) override {                                  \
+    if (IsPredicatedSIMDVecOperation(instr)) {                                 \
+      SveVisit##name(instr);                                                   \
+    } else {                                                                   \
+      NeonVisit##name(instr);                                                  \
+    }                                                                          \
   }
 
- protected:
-  void HandleBinaryOp(HBinaryOperation* instr);
-  void HandleFieldSet(HInstruction* instruction);
-  void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
-  void HandleInvoke(HInvoke* instr);
-  void HandleCondition(HCondition* instruction);
-  void HandleShift(HBinaryOperation* instr);
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_NEON)
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_SVE)
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_VECTOR)
 
-  CodeGeneratorARM64* const codegen_;
-  InvokeDexCallingConventionVisitorARM64 parameter_visitor_;
+#undef DECLARE_VISIT_INSTRUCTION_NEON
+#undef DECLARE_VISIT_INSTRUCTION_SVE
+#undef DECLARE_VISIT_INSTRUCTION_VECTOR
 
-  DISALLOW_COPY_AND_ASSIGN(LocationsBuilderARM64);
-};
+  // Neon ParallelMove helpers.
+  Location NeonAllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope);
+  void NeonFreeSIMDScratchLocation(Location loc,
+                                   vixl::aarch64::UseScratchRegisterScope* scope);
+  void NeonLoadSIMDRegFromStack(Location destination, Location source);
+  void NeonMoveSIMDRegToSIMDReg(Location destination, Location source);
+  void NeonMoveToSIMDStackSlot(Location destination, Location source);
+  void NeonSaveLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset);
+  void NeonRestoreLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset);
 
-class InstructionCodeGeneratorARM64Neon : public InstructionCodeGeneratorARM64 {
- public:
-  InstructionCodeGeneratorARM64Neon(HGraph* graph, CodeGeneratorARM64* codegen) :
-      InstructionCodeGeneratorARM64(graph, codegen) {}
-
-#define DECLARE_VISIT_INSTRUCTION(name, super) \
-  void Visit##name(H##name* instr) override;
-
-  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION)
-
-#undef DECLARE_VISIT_INSTRUCTION
-
-  Location AllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope) override;
-  void FreeSIMDScratchLocation(Location loc,
-                               vixl::aarch64::UseScratchRegisterScope* scope) override;
-  void LoadSIMDRegFromStack(Location destination, Location source) override;
-  void MoveSIMDRegToSIMDReg(Location destination, Location source) override;
-  void MoveToSIMDStackSlot(Location destination, Location source) override;
-  void SaveLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) override;
-  void RestoreLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) override;
-};
-
-class LocationsBuilderARM64Neon : public LocationsBuilderARM64 {
- public:
-  LocationsBuilderARM64Neon(HGraph* graph, CodeGeneratorARM64* codegen) :
-      LocationsBuilderARM64(graph, codegen) {}
-
-#define DECLARE_VISIT_INSTRUCTION(name, super) \
-  void Visit##name(H##name* instr) override;
-
-  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION)
-
-#undef DECLARE_VISIT_INSTRUCTION
-};
-
-class InstructionCodeGeneratorARM64Sve : public InstructionCodeGeneratorARM64 {
- public:
-  InstructionCodeGeneratorARM64Sve(HGraph* graph, CodeGeneratorARM64* codegen) :
-      InstructionCodeGeneratorARM64(graph, codegen) {}
-
-#define DECLARE_VISIT_INSTRUCTION(name, super) \
-  void Visit##name(H##name* instr) override;
-
-  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION)
-
-#undef DECLARE_VISIT_INSTRUCTION
-
-  Location AllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope) override;
-  void FreeSIMDScratchLocation(Location loc,
-                               vixl::aarch64::UseScratchRegisterScope* scope) override;
-  void LoadSIMDRegFromStack(Location destination, Location source) override;
-  void MoveSIMDRegToSIMDReg(Location destination, Location source) override;
-  void MoveToSIMDStackSlot(Location destination, Location source) override;
-  void SaveLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) override;
-  void RestoreLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset) override;
-
- private:
+  // SVE ParallelMove helpers.
+  Location SveAllocateSIMDScratchLocation(vixl::aarch64::UseScratchRegisterScope* scope);
+  void SveFreeSIMDScratchLocation(Location loc,
+                                  vixl::aarch64::UseScratchRegisterScope* scope);
+  void SveLoadSIMDRegFromStack(Location destination, Location source);
+  void SveMoveSIMDRegToSIMDReg(Location destination, Location source);
+  void SveMoveToSIMDStackSlot(Location destination, Location source);
+  void SveSaveLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset);
+  void SveRestoreLiveRegistersHelper(LocationSummary* locations, int64_t spill_offset);
   // Validate that instruction vector length and packed type are compliant with the SIMD
   // register size (full SIMD register is used).
   void ValidateVectorLength(HVecOperation* instr) const;
@@ -569,33 +604,82 @@ class InstructionCodeGeneratorARM64Sve : public InstructionCodeGeneratorARM64 {
     }
   }
 
-  // Generate a comparison instruction based on the IfCondition.
-  void GenerateIntegerComparison(const vixl::aarch64::PRegisterWithLaneSize& pd,
-                                 const vixl::aarch64::PRegisterZ& pg,
-                                 const vixl::aarch64::ZRegister& zn,
-                                 const vixl::aarch64::ZRegister& zm,
-                                 IfCondition cond);
-  void GenerateFloatingPointComparison(const vixl::aarch64::PRegisterWithLaneSize& pd,
-                                       const vixl::aarch64::PRegisterZ& pg,
-                                       const vixl::aarch64::ZRegister& zn,
-                                       const vixl::aarch64::ZRegister& zm,
-                                       IfCondition cond);
-  void HandleVecCondition(HVecCondition* instruction);
+  // Generate a SVE comparison instruction based on the IfCondition.
+  void SveGenerateIntegerComparison(const vixl::aarch64::PRegisterWithLaneSize& pd,
+                                    const vixl::aarch64::PRegisterZ& pg,
+                                    const vixl::aarch64::ZRegister& zn,
+                                    const vixl::aarch64::ZRegister& zm,
+                                    IfCondition cond);
+  void SveGenerateFloatingPointComparison(const vixl::aarch64::PRegisterWithLaneSize& pd,
+                                          const vixl::aarch64::PRegisterZ& pg,
+                                          const vixl::aarch64::ZRegister& zn,
+                                          const vixl::aarch64::ZRegister& zm,
+                                          IfCondition cond);
+  void SveHandleVecCondition(HVecCondition* instruction);
+
+  Arm64Assembler* const assembler_;
+  CodeGeneratorARM64* const codegen_;
+
+  DISALLOW_COPY_AND_ASSIGN(InstructionCodeGeneratorARM64);
 };
 
-class LocationsBuilderARM64Sve : public LocationsBuilderARM64 {
+class LocationsBuilderARM64 : public HGraphVisitor {
  public:
-  LocationsBuilderARM64Sve(HGraph* graph, CodeGeneratorARM64* codegen) :
-      LocationsBuilderARM64(graph, codegen) {}
+  LocationsBuilderARM64(HGraph* graph, CodeGeneratorARM64* codegen)
+      : HGraphVisitor(graph), codegen_(codegen) {}
 
 #define DECLARE_VISIT_INSTRUCTION(name, super) \
   void Visit##name(H##name* instr) override;
 
-  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION)
+  FOR_EACH_CONCRETE_INSTRUCTION_SCALAR_COMMON(DECLARE_VISIT_INSTRUCTION)
+  FOR_EACH_CONCRETE_INSTRUCTION_ARM64(DECLARE_VISIT_INSTRUCTION)
+  FOR_EACH_CONCRETE_INSTRUCTION_SHARED(DECLARE_VISIT_INSTRUCTION)
 
 #undef DECLARE_VISIT_INSTRUCTION
+
+  void VisitInstruction(HInstruction* instruction) override {
+    LOG(FATAL) << "Unreachable instruction " << instruction->DebugName()
+               << " (id " << instruction->GetId() << ")";
+  }
+
  protected:
-  void HandleVecCondition(HVecCondition* instruction);
+#define DECLARE_VISIT_INSTRUCTION_NEON(name, super) \
+  void NeonVisit##name(H##name* instr);
+
+#define DECLARE_VISIT_INSTRUCTION_SVE(name, super) \
+  void SveVisit##name(H##name* instr);
+
+  // The backend implements two versions of visitors for vector operations - SVE and NEON;
+  // a specific one will be chosen based on whether the instruction is predicated.
+#define DECLARE_VISIT_INSTRUCTION_VECTOR(name, super)                          \
+  void Visit##name(H##name* instr) override {                                  \
+    if (IsPredicatedSIMDVecOperation(instr)) {                                 \
+      SveVisit##name(instr);                                                   \
+    } else {                                                                   \
+      NeonVisit##name(instr);                                                  \
+    }                                                                          \
+  }
+
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_NEON)
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_SVE)
+  FOR_EACH_CONCRETE_INSTRUCTION_VECTOR_COMMON(DECLARE_VISIT_INSTRUCTION_VECTOR)
+
+#undef DECLARE_VISIT_INSTRUCTION_NEON
+#undef DECLARE_VISIT_INSTRUCTION_SVE
+#undef DECLARE_VISIT_INSTRUCTION_VECTOR
+
+  void HandleBinaryOp(HBinaryOperation* instr);
+  void HandleFieldSet(HInstruction* instruction);
+  void HandleFieldGet(HInstruction* instruction, const FieldInfo& field_info);
+  void HandleInvoke(HInvoke* instr);
+  void HandleCondition(HCondition* instruction);
+  void HandleShift(HBinaryOperation* instr);
+  void SveHandleVecCondition(HVecCondition* instruction);
+
+  CodeGeneratorARM64* const codegen_;
+  InvokeDexCallingConventionVisitorARM64 parameter_visitor_;
+
+  DISALLOW_COPY_AND_ASSIGN(LocationsBuilderARM64);
 };
 
 class ParallelMoveResolverARM64 : public ParallelMoveResolverNoSwap {
@@ -646,11 +730,11 @@ class CodeGeneratorARM64 : public CodeGenerator {
     return kArm64WordSize;
   }
 
-  bool SupportsPredicatedSIMD() const override { return ShouldUseSVE(); }
+  bool SupportsPredicatedSIMD() const override;
 
   size_t GetSlowPathFPWidth() const override {
     return GetGraph()->HasSIMD()
-        ? GetSIMDRegisterWidth()
+        ? GetSIMDRegisterWidthFromGraph()
         : vixl::aarch64::kDRegSizeInBytes;
   }
 
@@ -658,7 +742,16 @@ class CodeGeneratorARM64 : public CodeGenerator {
     return vixl::aarch64::kDRegSizeInBytes;
   }
 
-  size_t GetSIMDRegisterWidth() const override;
+  size_t GetTraditionalSIMDRegisterWidth() const override;
+  size_t GetPredicatedSIMDRegisterWidth() const override;
+
+  // On arm64 SVE registers are no smaller than NEON ones so if any predicated nodes are present
+  // in the graph then conservatively choose the larger register size even for NEON nodes.
+  size_t GetSIMDRegisterWidthFromGraph() const override {
+    return GetGraph()->HasPredicatedSIMD() ?
+           GetPredicatedSIMDRegisterWidth() :
+           GetTraditionalSIMDRegisterWidth();
+  }
 
   uintptr_t GetAddressOf(HBasicBlock* block) override {
     vixl::aarch64::Label* block_entry_label = GetLabelOf(block);
@@ -666,9 +759,9 @@ class CodeGeneratorARM64 : public CodeGenerator {
     return block_entry_label->GetLocation();
   }
 
-  HGraphVisitor* GetLocationBuilder() override { return location_builder_; }
+  HGraphVisitor* GetLocationBuilder() override { return &location_builder_; }
   InstructionCodeGeneratorARM64* GetInstructionCodeGeneratorArm64() {
-    return instruction_visitor_;
+    return &instruction_visitor_;
   }
   HGraphVisitor* GetInstructionVisitor() override { return GetInstructionCodeGeneratorArm64(); }
   Arm64Assembler* GetAssembler() override { return &assembler_; }
@@ -1150,22 +1243,14 @@ class CodeGeneratorARM64 : public CodeGenerator {
   static void EmitPcRelativeLinkerPatches(const ArenaDeque<PcRelativePatchInfo>& infos,
                                           ArenaVector<linker::LinkerPatch>* linker_patches);
 
-  // Returns whether SVE features are supported and should be used.
-  bool ShouldUseSVE() const;
-
   // Labels for each block that will be compiled.
   // We use a deque so that the `vixl::aarch64::Label` objects do not move in memory.
   ArenaDeque<vixl::aarch64::Label> block_labels_;  // Indexed by block id.
   vixl::aarch64::Label frame_entry_label_;
   ArenaVector<std::unique_ptr<JumpTableARM64>> jump_tables_;
 
-  LocationsBuilderARM64Neon location_builder_neon_;
-  InstructionCodeGeneratorARM64Neon instruction_visitor_neon_;
-  LocationsBuilderARM64Sve location_builder_sve_;
-  InstructionCodeGeneratorARM64Sve instruction_visitor_sve_;
-
-  LocationsBuilderARM64* location_builder_;
-  InstructionCodeGeneratorARM64* instruction_visitor_;
+  LocationsBuilderARM64 location_builder_;
+  InstructionCodeGeneratorARM64 instruction_visitor_;
   ParallelMoveResolverARM64 move_resolver_;
   Arm64Assembler assembler_;
 

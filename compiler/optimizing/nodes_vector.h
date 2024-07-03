@@ -117,6 +117,11 @@ class HVecOperation : public HVariableInputSizeInstruction {
     return true;
   }
 
+  // Returns whether the vec op can be used only in predicated SIMD context.
+  virtual bool IsPredicatedModeExclusive() const {
+    return false;
+  }
+
   bool IsPredicated() const {
     return GetPredicationKind() != PredicationKind::kNotPredicated;
   }
@@ -1279,6 +1284,9 @@ class HVecPredSetOperation : public HVecOperation {
 
   bool CanBeMoved() const override { return true; }
 
+  // Only used in predicated vectorization mode.
+  bool IsPredicatedModeExclusive() const override { return true; }
+
   DECLARE_ABSTRACT_INSTRUCTION(VecPredSetOperation);
 
  protected:
@@ -1442,6 +1450,9 @@ class HVecPredToBoolean final : public HVecOperation {
   // which must not be predicated.
   // TODO: Remove the constraint.
   bool MustBePredicatedInPredicatedSIMDMode() override { return false; }
+
+  // Only used in predicated vectorization mode.
+  bool IsPredicatedModeExclusive() const override { return true; }
 
   PCondKind GetPCondKind() const {
     return GetPackedField<CondKindField>();
@@ -1749,6 +1760,17 @@ class HVecPredNot final : public HVecPredSetOperation {
  protected:
   DEFAULT_COPY_CONSTRUCTOR(VecPredNot);
 };
+
+// Returns whether the instruction is a vec op, which was produced by predicated
+// vectorizer: is exclusive to predicated mode or has a governing predicate.
+inline bool IsPredicatedSIMDVecOperation(HInstruction* instr) {
+  DCHECK(instr != nullptr);
+  if (!instr->IsVecOperation()) {
+    return false;
+  }
+  HVecOperation* vec_instr = instr->AsVecOperation();
+  return vec_instr->IsPredicated() || vec_instr->IsPredicatedModeExclusive();
+}
 
 }  // namespace art
 

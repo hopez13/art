@@ -787,8 +787,9 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverB34760542) {
   codegen.Finalize();
 }
 
-// Check that ParallelMoveResolver works fine for ARM64 for both cases when SIMD is on and off.
-TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
+// Check that ParallelMoveResolver works fine for ARM64 for both cases when SIMD is on and off -
+// for traditional SIMD.
+TEST_F(CodegenTest, ARM64ParallelMoveResolverTraditionalSIMD) {
   std::unique_ptr<CompilerOptions> compiler_options =
       CommonCompilerTest::CreateCompilerOptions(InstructionSet::kArm64, "default");
   HGraph* graph = CreateGraph();
@@ -796,15 +797,16 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
 
   codegen.Initialize();
 
-  graph->SetHasTraditionalSIMD(true);
-  for (int i = 0; i < 2; i++) {
+  constexpr size_t kSIMDSlotSizeInStackSlots = vixl::aarch64::kQRegSizeInBytes / kVRegSize;
+
+  auto add_and_resolve_moves = [&]() {
     HParallelMove* move = new (graph->GetAllocator()) HParallelMove(graph->GetAllocator());
-    move->AddMove(Location::SIMDStackSlot(0),
-                  Location::SIMDStackSlot(257),
+    move->AddMove(Location::SIMDStackSlot(0, kSIMDSlotSizeInStackSlots),
+                  Location::SIMDStackSlot(257, kSIMDSlotSizeInStackSlots),
                   DataType::Type::kFloat64,
                   nullptr);
-    move->AddMove(Location::SIMDStackSlot(257),
-                  Location::SIMDStackSlot(0),
+    move->AddMove(Location::SIMDStackSlot(257, kSIMDSlotSizeInStackSlots),
+                  Location::SIMDStackSlot(0, kSIMDSlotSizeInStackSlots),
                   DataType::Type::kFloat64,
                   nullptr);
     move->AddMove(Location::FpuRegisterLocation(0),
@@ -816,10 +818,15 @@ TEST_F(CodegenTest, ARM64ParallelMoveResolverSIMD) {
                   DataType::Type::kFloat64,
                   nullptr);
     codegen.GetMoveResolver()->EmitNativeCode(move);
-    graph->SetHasTraditionalSIMD(false);
-  }
+  };
 
-  codegen.Finalize();
+  graph->SetHasTraditionalSIMD(true);
+  add_and_resolve_moves();
+
+  graph->SetHasTraditionalSIMD(false);
+  add_and_resolve_moves();
+
+  ASSERT_NO_FATAL_FAILURE(codegen.Finalize());
 }
 
 // Check that ART ISA Features are propagated to VIXL for arm64 (using cortex-a75 as example).

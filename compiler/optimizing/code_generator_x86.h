@@ -444,7 +444,7 @@ class CodeGeneratorX86 : public CodeGenerator {
 
   size_t GetSlowPathFPWidth() const override {
     return GetGraph()->HasSIMD()
-        ? GetSIMDRegisterWidth()
+        ? GetTraditionalSIMDRegisterWidth()
         : 2 * kX86WordSize;  //  8 bytes == 2 words for each spill
   }
 
@@ -452,8 +452,18 @@ class CodeGeneratorX86 : public CodeGenerator {
     return 2 * kX86WordSize;
   }
 
-  size_t GetSIMDRegisterWidth() const override {
+  size_t GetTraditionalSIMDRegisterWidth() const override {
     return 4 * kX86WordSize;
+  }
+
+  size_t GetPredicatedSIMDRegisterWidth() const override {
+    // Predicated SIMD codegen is not supported for x86.
+    return 0;
+  }
+
+  size_t GetSIMDRegisterWidthFromGraph() const override {
+    DCHECK(!GetGraph()->HasPredicatedSIMD());
+    return GetTraditionalSIMDRegisterWidth();
   }
 
   HGraphVisitor* GetLocationBuilder() override {

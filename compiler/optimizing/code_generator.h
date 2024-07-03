@@ -241,8 +241,24 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   // Get FP register width required to be preserved by the target ABI.
   virtual size_t GetCalleePreservedFPWidth() const  = 0;
 
-  // Get the size of the target SIMD register in bytes.
-  virtual size_t GetSIMDRegisterWidth() const = 0;
+  //
+  // The three methods below return the size of the target SIMD register in bytes
+  // or 0 if a corresponding type of SIMD isn't supported.
+  //
+
+  // Register size in traditional fixed vector length SIMD.
+  //
+  // Example: NEON register on AArch64.
+  virtual size_t GetTraditionalSIMDRegisterWidth() const = 0;
+
+  // Register size in predicated vector length agnostic SIMD (if the ISA supports it).
+  //
+  // Example: SVE register on AArch64.
+  virtual size_t GetPredicatedSIMDRegisterWidth() const = 0;
+
+  // Register size based on the SIMD mode of the graph.
+  virtual size_t GetSIMDRegisterWidthFromGraph() const = 0;
+
   virtual uintptr_t GetAddressOf(HBasicBlock* block) = 0;
   void InitializeCodeGeneration(size_t number_of_spill_slots,
                                 size_t maximum_safepoint_spill_size,
