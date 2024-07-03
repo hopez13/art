@@ -74,7 +74,7 @@ static bool ShouldEmitDotProductInstructions(const CodeGeneratorARM64* codegen_)
   return codegen_->GetInstructionSetFeatures().HasDotProd();
 }
 
-void LocationsBuilderARM64Neon::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
+void LocationsBuilderARM64::NeonVisitVecReplicateScalar(HVecReplicateScalar* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   HInstruction* input = instruction->InputAt(0);
   switch (instruction->GetPackedType()) {
@@ -105,7 +105,7 @@ void LocationsBuilderARM64Neon::VisitVecReplicateScalar(HVecReplicateScalar* ins
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecReplicateScalar(HVecReplicateScalar* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecReplicateScalar(HVecReplicateScalar* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   Location src_loc = locations->InAt(0);
   VRegister dst = VRegisterFrom(locations->Out());
@@ -167,7 +167,7 @@ void InstructionCodeGeneratorARM64Neon::VisitVecReplicateScalar(HVecReplicateSca
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecExtractScalar(HVecExtractScalar* instruction) {
+void LocationsBuilderARM64::NeonVisitVecExtractScalar(HVecExtractScalar* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   switch (instruction->GetPackedType()) {
     case DataType::Type::kBool:
@@ -191,7 +191,7 @@ void LocationsBuilderARM64Neon::VisitVecExtractScalar(HVecExtractScalar* instruc
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecExtractScalar(HVecExtractScalar* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecExtractScalar(HVecExtractScalar* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   switch (instruction->GetPackedType()) {
@@ -242,11 +242,11 @@ static void CreateVecUnOpLocations(ArenaAllocator* allocator, HVecUnaryOperation
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecReduce(HVecReduce* instruction) {
+void LocationsBuilderARM64::NeonVisitVecReduce(HVecReduce* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecReduce(HVecReduce* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecReduce(HVecReduce* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   VRegister dst = DRegisterFrom(locations->Out());
@@ -282,11 +282,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecReduce(HVecReduce* instruction) 
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecCnv(HVecCnv* instruction) {
+void LocationsBuilderARM64::NeonVisitVecCnv(HVecCnv* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecCnv(HVecCnv* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecCnv(HVecCnv* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -300,11 +300,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecCnv(HVecCnv* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecNeg(HVecNeg* instruction) {
+void LocationsBuilderARM64::NeonVisitVecNeg(HVecNeg* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecNeg(HVecNeg* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecNeg(HVecNeg* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -341,11 +341,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecNeg(HVecNeg* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecAbs(HVecAbs* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAbs(HVecAbs* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAbs(HVecAbs* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAbs(HVecAbs* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -380,11 +380,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecAbs(HVecAbs* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecNot(HVecNot* instruction) {
+void LocationsBuilderARM64::NeonVisitVecNot(HVecNot* instruction) {
   CreateVecUnOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecNot(HVecNot* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecNot(HVecNot* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister src = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -431,11 +431,11 @@ static void CreateVecBinOpLocations(ArenaAllocator* allocator, HVecBinaryOperati
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecAdd(HVecAdd* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAdd(HVecAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAdd(HVecAdd* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAdd(HVecAdd* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -473,11 +473,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecAdd(HVecAdd* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+void LocationsBuilderARM64::NeonVisitVecSaturationAdd(HVecSaturationAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecSaturationAdd(HVecSaturationAdd* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecSaturationAdd(HVecSaturationAdd* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -505,11 +505,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecSaturationAdd(HVecSaturationAdd*
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecHalvingAdd(HVecHalvingAdd* instruction) {
+void LocationsBuilderARM64::NeonVisitVecHalvingAdd(HVecHalvingAdd* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecHalvingAdd(HVecHalvingAdd* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecHalvingAdd(HVecHalvingAdd* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -545,11 +545,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecHalvingAdd(HVecHalvingAdd* instr
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecSub(HVecSub* instruction) {
+void LocationsBuilderARM64::NeonVisitVecSub(HVecSub* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecSub(HVecSub* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecSub(HVecSub* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -587,11 +587,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecSub(HVecSub* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+void LocationsBuilderARM64::NeonVisitVecSaturationSub(HVecSaturationSub* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecSaturationSub(HVecSaturationSub* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecSaturationSub(HVecSaturationSub* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -619,11 +619,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecSaturationSub(HVecSaturationSub*
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecMul(HVecMul* instruction) {
+void LocationsBuilderARM64::NeonVisitVecMul(HVecMul* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecMul(HVecMul* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecMul(HVecMul* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -657,11 +657,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecMul(HVecMul* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecDiv(HVecDiv* instruction) {
+void LocationsBuilderARM64::NeonVisitVecDiv(HVecDiv* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecDiv(HVecDiv* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecDiv(HVecDiv* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -681,11 +681,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecDiv(HVecDiv* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecMin(HVecMin* instruction) {
+void LocationsBuilderARM64::NeonVisitVecMin(HVecMin* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecMin(HVecMin* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecMin(HVecMin* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -729,11 +729,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecMin(HVecMin* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecMax(HVecMax* instruction) {
+void LocationsBuilderARM64::NeonVisitVecMax(HVecMax* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecMax(HVecMax* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecMax(HVecMax* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -777,12 +777,12 @@ void InstructionCodeGeneratorARM64Neon::VisitVecMax(HVecMax* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecAnd(HVecAnd* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAnd(HVecAnd* instruction) {
   // TODO: Allow constants supported by BIC (vector, immediate).
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAnd(HVecAnd* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAnd(HVecAnd* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -805,20 +805,20 @@ void InstructionCodeGeneratorARM64Neon::VisitVecAnd(HVecAnd* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecAndNot(HVecAndNot* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAndNot(HVecAndNot* instruction) {
   LOG(FATAL) << "Unsupported SIMD instruction " << instruction->GetId();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAndNot(HVecAndNot* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAndNot(HVecAndNot* instruction) {
   // TODO: Use BIC (vector, register).
   LOG(FATAL) << "Unsupported SIMD instruction " << instruction->GetId();
 }
 
-void LocationsBuilderARM64Neon::VisitVecOr(HVecOr* instruction) {
+void LocationsBuilderARM64::NeonVisitVecOr(HVecOr* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecOr(HVecOr* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecOr(HVecOr* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -841,11 +841,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecOr(HVecOr* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecXor(HVecXor* instruction) {
+void LocationsBuilderARM64::NeonVisitVecXor(HVecXor* instruction) {
   CreateVecBinOpLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecXor(HVecXor* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecXor(HVecXor* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister rhs = VRegisterFrom(locations->InAt(1));
@@ -888,11 +888,11 @@ static void CreateVecShiftLocations(ArenaAllocator* allocator, HVecBinaryOperati
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecShl(HVecShl* instruction) {
+void LocationsBuilderARM64::NeonVisitVecShl(HVecShl* instruction) {
   CreateVecShiftLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecShl(HVecShl* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecShl(HVecShl* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -922,11 +922,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecShl(HVecShl* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecShr(HVecShr* instruction) {
+void LocationsBuilderARM64::NeonVisitVecShr(HVecShr* instruction) {
   CreateVecShiftLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecShr(HVecShr* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecShr(HVecShr* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -956,11 +956,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecShr(HVecShr* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecUShr(HVecUShr* instruction) {
+void LocationsBuilderARM64::NeonVisitVecUShr(HVecUShr* instruction) {
   CreateVecShiftLocations(GetGraph()->GetAllocator(), instruction);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecUShr(HVecUShr* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecUShr(HVecUShr* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister lhs = VRegisterFrom(locations->InAt(0));
   VRegister dst = VRegisterFrom(locations->Out());
@@ -990,7 +990,7 @@ void InstructionCodeGeneratorARM64Neon::VisitVecUShr(HVecUShr* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecSetScalars(HVecSetScalars* instruction) {
+void LocationsBuilderARM64::NeonVisitVecSetScalars(HVecSetScalars* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
 
   DCHECK_EQ(1u, instruction->InputCount());  // only one input currently implemented
@@ -1022,7 +1022,7 @@ void LocationsBuilderARM64Neon::VisitVecSetScalars(HVecSetScalars* instruction) 
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecSetScalars(HVecSetScalars* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecSetScalars(HVecSetScalars* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister dst = VRegisterFrom(locations->Out());
 
@@ -1084,14 +1084,15 @@ static void CreateVecAccumLocations(ArenaAllocator* allocator, HVecOperation* in
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instruction) {
+void LocationsBuilderARM64::NeonVisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instruction) {
   CreateVecAccumLocations(GetGraph()->GetAllocator(), instruction);
 }
 
 // Some early revisions of the Cortex-A53 have an erratum (835769) whereby it is possible for a
 // 64-bit scalar multiply-accumulate instruction in AArch64 state to generate an incorrect result.
 // However vector MultiplyAccumulate instruction is not affected.
-void InstructionCodeGeneratorARM64Neon::VisitVecMultiplyAccumulate(HVecMultiplyAccumulate* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecMultiplyAccumulate(
+    HVecMultiplyAccumulate* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister acc = VRegisterFrom(locations->InAt(0));
   VRegister left = VRegisterFrom(locations->InAt(1));
@@ -1132,7 +1133,7 @@ void InstructionCodeGeneratorARM64Neon::VisitVecMultiplyAccumulate(HVecMultiplyA
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecSADAccumulate(HVecSADAccumulate* instruction) {
+void LocationsBuilderARM64::NeonVisitVecSADAccumulate(HVecSADAccumulate* instruction) {
   CreateVecAccumLocations(GetGraph()->GetAllocator(), instruction);
   // Some conversions require temporary registers.
   LocationSummary* locations = instruction->GetLocations();
@@ -1174,7 +1175,7 @@ void LocationsBuilderARM64Neon::VisitVecSADAccumulate(HVecSADAccumulate* instruc
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecSADAccumulate(HVecSADAccumulate* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecSADAccumulate(HVecSADAccumulate* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   VRegister acc = VRegisterFrom(locations->InAt(0));
   VRegister left = VRegisterFrom(locations->InAt(1));
@@ -1314,7 +1315,7 @@ void InstructionCodeGeneratorARM64Neon::VisitVecSADAccumulate(HVecSADAccumulate*
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecDotProd(HVecDotProd* instruction) {
+void LocationsBuilderARM64::NeonVisitVecDotProd(HVecDotProd* instruction) {
   LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
   DCHECK(instruction->GetPackedType() == DataType::Type::kInt32);
   locations->SetInAt(0, Location::RequiresFpuRegister());
@@ -1329,7 +1330,7 @@ void LocationsBuilderARM64Neon::VisitVecDotProd(HVecDotProd* instruction) {
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecDotProd(HVecDotProd* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecDotProd(HVecDotProd* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   DCHECK(locations->InAt(0).Equals(locations->Out()));
   VRegister acc = VRegisterFrom(locations->InAt(0));
@@ -1419,11 +1420,11 @@ static void CreateVecMemLocations(ArenaAllocator* allocator,
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecLoad(HVecLoad* instruction) {
+void LocationsBuilderARM64::NeonVisitVecLoad(HVecLoad* instruction) {
   CreateVecMemLocations(GetGraph()->GetAllocator(), instruction, /*is_load*/ true);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecLoad(HVecLoad* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecLoad(HVecLoad* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   size_t size = DataType::Size(instruction->GetPackedType());
   VRegister reg = VRegisterFrom(locations->Out());
@@ -1479,11 +1480,11 @@ void InstructionCodeGeneratorARM64Neon::VisitVecLoad(HVecLoad* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecStore(HVecStore* instruction) {
+void LocationsBuilderARM64::NeonVisitVecStore(HVecStore* instruction) {
   CreateVecMemLocations(GetGraph()->GetAllocator(), instruction, /*is_load*/ false);
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecStore(HVecStore* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecStore(HVecStore* instruction) {
   LocationSummary* locations = instruction->GetLocations();
   size_t size = DataType::Size(instruction->GetPackedType());
   VRegister reg = VRegisterFrom(locations->InAt(2));
@@ -1511,180 +1512,147 @@ void InstructionCodeGeneratorARM64Neon::VisitVecStore(HVecStore* instruction) {
   }
 }
 
-void LocationsBuilderARM64Neon::VisitVecPredSetAll(HVecPredSetAll* instruction) {
-  LocationSummary* locations = new (GetGraph()->GetAllocator()) LocationSummary(instruction);
-  DCHECK(instruction->InputAt(0)->IsIntConstant());
-  locations->SetInAt(0, Location::NoLocation());
-  locations->SetOut(Location::NoLocation());
-}
-
-void InstructionCodeGeneratorARM64Neon::VisitVecPredSetAll(HVecPredSetAll*) {
-}
-
-void LocationsBuilderARM64Neon::VisitVecPredWhile(HVecPredWhile* instruction) {
+void LocationsBuilderARM64::NeonVisitVecPredSetAll(HVecPredSetAll* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecPredWhile(HVecPredWhile* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecPredSetAll(HVecPredSetAll* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecPredToBoolean(HVecPredToBoolean* instruction) {
+void LocationsBuilderARM64::NeonVisitVecPredWhile(HVecPredWhile* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecPredToBoolean(HVecPredToBoolean* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecPredWhile(HVecPredWhile* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecEqual(HVecEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecPredToBoolean(HVecPredToBoolean* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecEqual(HVecEqual* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecPredToBoolean(HVecPredToBoolean* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecNotEqual(HVecNotEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecEqual(HVecEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecNotEqual(HVecNotEqual* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecEqual(HVecEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecLessThan(HVecLessThan* instruction) {
+void LocationsBuilderARM64::NeonVisitVecNotEqual(HVecNotEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecLessThan(HVecLessThan* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecNotEqual(HVecNotEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecLessThanOrEqual(HVecLessThanOrEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecLessThan(HVecLessThan* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecLessThanOrEqual(HVecLessThanOrEqual* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecLessThan(HVecLessThan* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecGreaterThan(HVecGreaterThan* instruction) {
+void LocationsBuilderARM64::NeonVisitVecLessThanOrEqual(HVecLessThanOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecGreaterThan(HVecGreaterThan* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecLessThanOrEqual(HVecLessThanOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecGreaterThanOrEqual(HVecGreaterThanOrEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecGreaterThan(HVecGreaterThan* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecGreaterThanOrEqual(
+void InstructionCodeGeneratorARM64::NeonVisitVecGreaterThan(HVecGreaterThan* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void LocationsBuilderARM64::NeonVisitVecGreaterThanOrEqual(HVecGreaterThanOrEqual* instruction) {
+  LOG(FATAL) << "No SIMD for " << instruction->GetId();
+}
+
+void InstructionCodeGeneratorARM64::NeonVisitVecGreaterThanOrEqual(
     HVecGreaterThanOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecBelow(HVecBelow* instruction) {
+void LocationsBuilderARM64::NeonVisitVecBelow(HVecBelow* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecBelow(HVecBelow* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecBelow(HVecBelow* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecBelowOrEqual(HVecBelowOrEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecBelowOrEqual(HVecBelowOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecBelowOrEqual(HVecBelowOrEqual* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecBelowOrEqual(HVecBelowOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecAbove(HVecAbove* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAbove(HVecAbove* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAbove(HVecAbove* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAbove(HVecAbove* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecAboveOrEqual(HVecAboveOrEqual* instruction) {
+void LocationsBuilderARM64::NeonVisitVecAboveOrEqual(HVecAboveOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecAboveOrEqual(HVecAboveOrEqual* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecAboveOrEqual(HVecAboveOrEqual* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void LocationsBuilderARM64Neon::VisitVecPredNot(HVecPredNot* instruction) {
+void LocationsBuilderARM64::NeonVisitVecPredNot(HVecPredNot* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-void InstructionCodeGeneratorARM64Neon::VisitVecPredNot(HVecPredNot* instruction) {
+void InstructionCodeGeneratorARM64::NeonVisitVecPredNot(HVecPredNot* instruction) {
   LOG(FATAL) << "No SIMD for " << instruction->GetId();
-  UNREACHABLE();
 }
 
-Location InstructionCodeGeneratorARM64Neon::AllocateSIMDScratchLocation(
+Location InstructionCodeGeneratorARM64::NeonAllocateSIMDScratchLocation(
     vixl::aarch64::UseScratchRegisterScope* scope) {
-  DCHECK_EQ(codegen_->GetSIMDRegisterWidth(), kQRegSizeInBytes);
   return LocationFrom(scope->AcquireVRegisterOfSize(kQRegSize));
 }
 
-void InstructionCodeGeneratorARM64Neon::FreeSIMDScratchLocation(Location loc,
+void InstructionCodeGeneratorARM64::NeonFreeSIMDScratchLocation(Location loc,
     vixl::aarch64::UseScratchRegisterScope* scope) {
-  DCHECK_EQ(codegen_->GetSIMDRegisterWidth(), kQRegSizeInBytes);
   scope->Release(QRegisterFrom(loc));
 }
 
-void InstructionCodeGeneratorARM64Neon::LoadSIMDRegFromStack(Location destination,
+void InstructionCodeGeneratorARM64::NeonLoadSIMDRegFromStack(Location destination,
                                                              Location source) {
-  DCHECK_EQ(codegen_->GetSIMDRegisterWidth(), kQRegSizeInBytes);
   __ Ldr(QRegisterFrom(destination), StackOperandFrom(source));
 }
 
-void InstructionCodeGeneratorARM64Neon::MoveSIMDRegToSIMDReg(Location destination,
+void InstructionCodeGeneratorARM64::NeonMoveSIMDRegToSIMDReg(Location destination,
                                                              Location source) {
-  DCHECK_EQ(codegen_->GetSIMDRegisterWidth(), kQRegSizeInBytes);
   __ Mov(QRegisterFrom(destination), QRegisterFrom(source));
 }
 
-void InstructionCodeGeneratorARM64Neon::MoveToSIMDStackSlot(Location destination,
+void InstructionCodeGeneratorARM64::NeonMoveToSIMDStackSlot(Location destination,
                                                             Location source) {
-  DCHECK(destination.IsSIMDStackSlot());
-  DCHECK_EQ(codegen_->GetSIMDRegisterWidth(), kQRegSizeInBytes);
+  DCHECK(IsNeonStackSlot(destination));
 
   if (source.IsFpuRegister()) {
     __ Str(QRegisterFrom(source), StackOperandFrom(destination));
   } else {
-    DCHECK(source.IsSIMDStackSlot());
+    DCHECK(IsNeonStackSlot(source));
     UseScratchRegisterScope temps(GetVIXLAssembler());
     if (GetVIXLAssembler()->GetScratchVRegisterList()->IsEmpty()) {
       Register temp = temps.AcquireX();
@@ -1714,7 +1682,6 @@ void SaveRestoreLiveRegistersHelperNeonImpl(CodeGeneratorARM64* codegen,
 
   CPURegList core_list = CPURegList(CPURegister::kRegister, kXRegSize, core_spills);
   const unsigned v_reg_size_in_bits = codegen->GetSlowPathFPWidth() * 8;
-  DCHECK_LE(codegen->GetSIMDRegisterWidth(), kQRegSizeInBytes);
   CPURegList fp_list = CPURegList(CPURegister::kVRegister, v_reg_size_in_bits, fp_spills);
 
   MacroAssembler* masm = codegen->GetVIXLAssembler();
@@ -1748,12 +1715,12 @@ void SaveRestoreLiveRegistersHelperNeonImpl(CodeGeneratorARM64* codegen,
   }
 }
 
-void InstructionCodeGeneratorARM64Neon::SaveLiveRegistersHelper(LocationSummary* locations,
+void InstructionCodeGeneratorARM64::NeonSaveLiveRegistersHelper(LocationSummary* locations,
                                                                 int64_t spill_offset) {
   SaveRestoreLiveRegistersHelperNeonImpl</* is_save= */ true>(codegen_, locations, spill_offset);
 }
 
-void InstructionCodeGeneratorARM64Neon::RestoreLiveRegistersHelper(LocationSummary* locations,
+void InstructionCodeGeneratorARM64::NeonRestoreLiveRegistersHelper(LocationSummary* locations,
                                                                    int64_t spill_offset) {
   SaveRestoreLiveRegistersHelperNeonImpl</* is_save= */ false>(codegen_, locations, spill_offset);
 }

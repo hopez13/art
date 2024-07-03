@@ -449,11 +449,21 @@ class CodeGeneratorRISCV64 : public CodeGenerator {
     return kRiscv64FloatRegSizeInBytes;
   };
 
-  size_t GetSIMDRegisterWidth() const override {
+  size_t GetTraditionalSIMDRegisterWidth() const override {
     // TODO(riscv64): Implement SIMD with the Vector extension.
     // Note: HLoopOptimization calls this function even for an ISA without SIMD support.
     return kRiscv64FloatRegSizeInBytes;
-  };
+  }
+
+  size_t GetPredicatedSIMDRegisterWidth() const override {
+    // Predicated SIMD codegen is not supported for riscv64.
+    return 0;
+  }
+
+  size_t GetSIMDRegisterWidthFromGraph() const override {
+    DCHECK(!GetGraph()->HasPredicatedSIMD());
+    return GetTraditionalSIMDRegisterWidth();
+  }
 
   uintptr_t GetAddressOf(HBasicBlock* block) override {
     return assembler_.GetLabelLocation(GetLabelOf(block));
