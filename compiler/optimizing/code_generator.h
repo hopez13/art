@@ -939,8 +939,6 @@ class CodeGenerator : public DeletableArenaObject<kArenaAllocCodeGenerator> {
   art::ArrayRef<const bool> unimplemented_intrinsics_;
 
   friend class OptimizingCFITest;
-  ART_FRIEND_TEST(CodegenTest, ARM64FrameSizeSIMD);
-  ART_FRIEND_TEST(CodegenTest, ARM64FrameSizeNoSIMD);
 
   DISALLOW_COPY_AND_ASSIGN(CodeGenerator);
 };
