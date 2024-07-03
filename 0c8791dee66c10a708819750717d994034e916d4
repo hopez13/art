@@ -183,6 +183,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "36298553_7ed2cc25",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 907,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-03T14:47:15Z",
+      "side": 1,
+      "message": "To be on the safe side, I\u0027ve moved it to a writer lock. We shouldn\u0027t get concurrent updates of this entry (making methods obsolete is a single threaded thing). On the other hand, this isn\u0027t performance sensitive to matter.",
+      "parentUuid": "b27f877b_2c536e0e",
+      "range": {
+        "startLine": 907,
+        "startChar": 4,
+        "endLine": 907,
+        "endChar": 10
+      },
+      "revId": "0c8791dee66c10a708819750717d994034e916d4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35a34f85_1bfd4c66",
