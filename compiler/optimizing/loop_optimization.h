@@ -114,6 +114,19 @@ class HLoopOptimization : public HOptimization {
   };
   friend std::ostream& operator<<(std::ostream& os, const LoopSynthesisMode& fd_logger);
 
+  // Vectorization mode; there are two versions/algorithms:
+  //
+  //  - Predicated: all the vector operations have governing predicates which control
+  //    which individual vector lanes will be active (see HVecPredSetOperation for more details).
+  //    Example: vectorization using AArch64 SVE.
+  //  - Traditional: a regular mode in which all vector operations lanes are unconditionally
+  //    active.
+  //    Example: vectorization using AArch64 NEON.
+  enum class VectorizationMode {
+    kPredicated,
+    kTraditional
+  };
+
   /*
    * Representation of a unit-stride array reference.
    */
@@ -306,13 +319,7 @@ class HLoopOptimization : public HOptimization {
 
   // Try to vectorize the loop, returns whether it was successful.
   //
-  // There are two versions/algorithms:
-  //  - Predicated: all the vector operations have governing predicates which control
-  //    which individual vector lanes will be active (see HVecPredSetOperation for more details).
-  //    Example: vectorization using AArch64 SVE.
-  //  - Traditional: a regular mode in which all vector operations lanes are unconditionally
-  //    active.
-  //    Example: vectoriation using AArch64 NEON.
+  // There are two versions/algorithms, see VectorizationMode.
   bool TryVectorizePredicated(LoopNode* node,
                               HBasicBlock* body,
                               HBasicBlock* exit,
@@ -479,14 +486,17 @@ class HLoopOptimization : public HOptimization {
   void RemoveDeadInstructions(const HInstructionList& list);
   bool CanRemoveCycle();  // Whether the current 'iset_' is removable.
 
-  bool IsInPredicatedVectorizationMode() const { return predicated_vectorization_mode_; }
   void MaybeInsertInVectorExternalSet(HInstruction* instruction);
+
+  VectorizationMode GetVectorizationMode() const { return vectorization_mode_; }
 
   // Compiler options (to query ISA features).
   const CompilerOptions* compiler_options_;
 
-  // Cached target SIMD vector register size in bytes.
-  const size_t simd_register_size_;
+  // Cached codegen info related to SIMD.
+  const bool codegen_supports_predicated_simd_;
+  const size_t traditional_simd_register_size_;
+  const size_t predicated_simd_register_size_;
 
   // Range information based on prior induction variable analysis.
   InductionVarRange induction_range_;
@@ -516,9 +526,6 @@ class HLoopOptimization : public HOptimization {
 
   // Flag that tracks if any simplifications have occurred.
   bool simplified_;
-
-  // Whether to use predicated loop vectorization (e.g. for arm64 SVE target).
-  bool predicated_vectorization_mode_;
 
   // Number of "lanes" for selected packed type.
   uint32_t vector_length_;
@@ -562,6 +569,7 @@ class HLoopOptimization : public HOptimization {
   ScopedArenaSafeMap<HBasicBlock*, BlockPredicateInfo*>* predicate_info_map_;
 
   // Temporary vectorization bookkeeping.
+  VectorizationMode vectorization_mode_;  // predicated or traditional mode.
   LoopSynthesisMode synthesis_mode_;  // synthesis mode
   HBasicBlock* vector_preheader_;  // preheader of the new loop
   HBasicBlock* vector_header_;  // header of the new loop
