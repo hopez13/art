@@ -30,6 +30,7 @@
 #include "base/systrace.h"
 #include "base/unix_file/fd_file.h"
 #include "base/zip_archive.h"
+#include "com_android_art_flags.h"
 #include "compact_dex_file.h"
 #include "dex_file.h"
 #include "dex_file_verifier.h"
@@ -353,6 +354,10 @@ bool DexFileLoader::Open(bool verify,
                          std::string* error_msg,
                          std::vector<std::unique_ptr<const DexFile>>* dex_files) {
   DEXFILE_SCOPED_TRACE(std::string("Open dex file ") + location_);
+
+  if (com::android::art::flags::m2024_09_ramp()) {
+    LOG(INFO) << "m2024_09_ramp is true";
+  }
 
   DCHECK(dex_files != nullptr) << "DexFile::Open: out-param is nullptr";
 
