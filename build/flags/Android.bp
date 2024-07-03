@@ -30,6 +30,11 @@ cc_aconfig_library {
     name: "art-aconfig-flags-lib",
     aconfig_declarations: "art-aconfig-flags",
     host_supported: true,
+    target: {
+        windows: {
+            enabled: true,
+        },
+    },
     min_sdk_version: "31",
     apex_available: [
         "//apex_available:platform",

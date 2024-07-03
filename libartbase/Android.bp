@@ -59,6 +59,14 @@ cc_defaults {
         "base/utils.cc",
         "base/zip_archive.cc",
     ],
+
+    static_libs: [
+        "art-aconfig-flags-lib",
+    ],
+    export_static_lib_headers: [
+        "art-aconfig-flags-lib",
+    ],
+
     target: {
         android: {
             srcs: [
@@ -86,18 +94,6 @@ cc_defaults {
             export_shared_lib_headers: ["libbase"], // ART's macros.h depends on libbase's macros.h.
             export_static_lib_headers: [
                 "libcap",
-            ],
-        },
-        linux: {
-            // TODO(b/350967139): Move art-aconfig-flags-lib to the top level
-            // when aconfig supports darwin and windows. Until then it's harder
-            // to use flags in code that needs to build for them, e.g.
-            // libartbase, libdexfile, and dexdump.
-            static_libs: [
-                "art-aconfig-flags-lib",
-            ],
-            export_static_lib_headers: [
-                "art-aconfig-flags-lib",
             ],
         },
         not_windows: {
