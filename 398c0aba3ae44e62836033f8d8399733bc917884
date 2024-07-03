@@ -16,6 +16,29 @@
       "message": "Hans, PTAL.",
       "revId": "398c0aba3ae44e62836033f8d8399733bc917884",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bb61488b_7cf3c889",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 783,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-03T18:27:43Z",
+      "side": 1,
+      "message": "Don\u0027t we have a similar issue here? Or am I missing another reason this can\u0027t be accessed while we\u0027re updating?",
+      "range": {
+        "startLine": 782,
+        "startChar": 6,
+        "endLine": 783,
+        "endChar": 62
+      },
+      "revId": "398c0aba3ae44e62836033f8d8399733bc917884",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
