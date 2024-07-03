@@ -49,7 +49,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -100,7 +100,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -141,7 +141,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -194,7 +194,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -235,7 +235,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -285,7 +285,7 @@ public class HaddAltChar {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      HalvingAdd idiom is not supported for SVE.
-  ///     CHECK-NOT: VecHalvingAdd
+  ///     CHECK-NOT: VecHalvingAdd [{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //

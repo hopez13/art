@@ -293,7 +293,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      TODO: Support CharAt for SVE.
-  ///     CHECK-NOT: VecLoad
+  ///     CHECK-NOT: VecLoad [{{l\d+}},{{i\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -317,7 +317,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      TODO: Support CharAt for SVE.
-  ///     CHECK-NOT: VecLoad
+  ///     CHECK-NOT: VecLoad [{{l\d+}},{{i\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -768,7 +768,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -796,7 +796,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -863,7 +863,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -897,7 +897,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -926,7 +926,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -954,7 +954,7 @@ public class Main {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      VecSADAccumulate is not supported for SVE.
-  ///     CHECK-NOT:       VecSADAccumulate
+  ///     CHECK-NOT:       VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //

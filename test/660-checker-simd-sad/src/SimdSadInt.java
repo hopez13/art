@@ -44,7 +44,7 @@ public class SimdSadInt {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
-  ///     CHECK-NOT: VecSADAccumulate
+  ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -119,7 +119,7 @@ public class SimdSadInt {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
-  ///     CHECK-NOT: VecSADAccumulate
+  ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -166,7 +166,7 @@ public class SimdSadInt {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
-  ///     CHECK-NOT: VecSADAccumulate
+  ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //
@@ -212,7 +212,7 @@ public class SimdSadInt {
   /// CHECK-IF:     hasIsaFeature("sve") and os.environ.get('ART_FORCE_TRY_PREDICATED_SIMD') == 'true'
   //
   //      SAD idiom is not supported for SVE.
-  ///     CHECK-NOT: VecSADAccumulate
+  ///     CHECK-NOT: VecSADAccumulate [{{d\d+}},{{d\d+}},{{d\d+}},{{j\d+}}]
   //
   /// CHECK-ELSE:
   //

@@ -512,8 +512,9 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
                                      const char* name)
     : HOptimization(graph, name, stats),
       compiler_options_(&codegen.GetCompilerOptions()),
-      simd_register_size_(codegen.SupportsPredicatedSIMD() ?
-          codegen.GetPredicatedSIMDRegisterWidth() : codegen.GetTraditionalSIMDRegisterWidth()),
+      codegen_supports_predicated_simd_(codegen.SupportsPredicatedSIMD()),
+      traditional_simd_register_size_(codegen.GetTraditionalSIMDRegisterWidth()),
+      predicated_simd_register_size_(codegen.GetPredicatedSIMDRegisterWidth()),
       induction_range_(induction_analysis),
       loop_allocator_(nullptr),
       global_allocator_(graph_->GetAllocator()),
@@ -522,7 +523,6 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       iset_(nullptr),
       reductions_(nullptr),
       simplified_(false),
-      predicated_vectorization_mode_(codegen.SupportsPredicatedSIMD()),
       vector_length_(0),
       vector_refs_(nullptr),
       vector_static_peeling_factor_(0),
@@ -533,6 +533,7 @@ HLoopOptimization::HLoopOptimization(HGraph* graph,
       vector_permanent_map_(nullptr),
       vector_external_set_(nullptr),
       predicate_info_map_(nullptr),
+      vectorization_mode_(VectorizationMode::kTraditional),
       synthesis_mode_(LoopSynthesisMode::kSequential),
       vector_preheader_(nullptr),
       vector_header_(nullptr),
@@ -939,10 +940,13 @@ bool HLoopOptimization::TryOptimizeInnerLoopFinite(LoopNode* node) {
     return false;
   }
 
-  if (kForceTryPredicatedSIMD && IsInPredicatedVectorizationMode()) {
-    return TryVectorizePredicated(node, body, exit, main_phi, trip_count);
+  if (kForceTryPredicatedSIMD) {
+    return TryVectorizePredicated(node, body, exit, main_phi, trip_count) ||
+           TryVectorizedTraditional(node, body, exit, main_phi, trip_count);
   } else {
-    return TryVectorizedTraditional(node, body, exit, main_phi, trip_count);
+    // Trying both types could result into the graph having loops vectorized in two modes.
+    return TryVectorizedTraditional(node, body, exit, main_phi, trip_count) ||
+           TryVectorizePredicated(node, body, exit, main_phi, trip_count);
   }
 }
 
@@ -951,7 +955,10 @@ bool HLoopOptimization::TryVectorizePredicated(LoopNode* node,
                                                HBasicBlock* exit,
                                                HPhi* main_phi,
                                                int64_t trip_count) {
-  if (!IsPredicatedLoopControlFlowSupported(node->loop_info) ||
+  vectorization_mode_ = VectorizationMode::kPredicated;
+
+  if (!codegen_supports_predicated_simd_ ||
+      !IsPredicatedLoopControlFlowSupported(node->loop_info) ||
       !ShouldVectorizeCommon(node, main_phi, trip_count)) {
     return false;
   }
@@ -975,6 +982,8 @@ bool HLoopOptimization::TryVectorizedTraditional(LoopNode* node,
                                                  HBasicBlock* exit,
                                                  HPhi* main_phi,
                                                  int64_t trip_count) {
+  vectorization_mode_ = VectorizationMode::kTraditional;
+
   HBasicBlock* header = node->loop_info->GetHeader();
   size_t num_of_blocks = header->GetLoopInformation()->GetBlocks().NumSetBits();
 
@@ -1275,7 +1284,7 @@ bool HLoopOptimization::ShouldVectorizeCommon(LoopNode* node,
   HBasicBlock* header = node->loop_info->GetHeader();
   HBasicBlock* preheader = node->loop_info->GetPreHeader();
 
-  bool enable_alignment_strategies = !IsInPredicatedVectorizationMode();
+  bool enable_alignment_strategies = GetVectorizationMode() != VectorizationMode::kPredicated;
   if (!TrySetSimpleLoopHeader(header, &main_phi) ||
       !CanVectorizeDataFlow(node, header, enable_alignment_strategies) ||
       !IsVectorizationProfitable(trip_count) ||
@@ -1289,7 +1298,7 @@ bool HLoopOptimization::ShouldVectorizeCommon(LoopNode* node,
 void HLoopOptimization::VectorizePredicated(LoopNode* node,
                                             HBasicBlock* block,
                                             HBasicBlock* exit) {
-  DCHECK(IsInPredicatedVectorizationMode());
+  DCHECK(GetVectorizationMode() == VectorizationMode::kPredicated);
 
   vector_external_set_->clear();
 
@@ -1377,7 +1386,7 @@ void HLoopOptimization::VectorizeTraditional(LoopNode* node,
                                              HBasicBlock* block,
                                              HBasicBlock* exit,
                                              int64_t trip_count) {
-  DCHECK(!IsInPredicatedVectorizationMode());
+  DCHECK(GetVectorizationMode() == VectorizationMode::kTraditional);
 
   vector_external_set_->clear();
 
@@ -1610,7 +1619,7 @@ void HLoopOptimization::GenerateNewLoopPredicated(LoopNode* node,
                                                   HInstruction* lo,
                                                   HInstruction* hi,
                                                   HInstruction* step) {
-  DCHECK(IsInPredicatedVectorizationMode());
+  DCHECK(GetVectorizationMode() == VectorizationMode::kPredicated);
   DCHECK(synthesis_mode_ == LoopSynthesisMode::kVector);
   DataType::Type induc_type = lo->GetType();
   HPhi* phi = InitializeForNewLoop(new_preheader, lo);
@@ -2019,7 +2028,8 @@ bool HLoopOptimization::VectorizeUse(LoopNode* node,
 }
 
 uint32_t HLoopOptimization::GetVectorSizeInBytes() {
-  return simd_register_size_;
+  return vectorization_mode_ == VectorizationMode::kPredicated ? predicated_simd_register_size_ :
+                                                                 traditional_simd_register_size_;
 }
 
 bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrictions) {
@@ -2048,11 +2058,11 @@ bool HLoopOptimization::TrySetVectorType(DataType::Type type, uint64_t* restrict
       }
       return false;
     case InstructionSet::kArm64:
-      if (IsInPredicatedVectorizationMode()) {
+      if (GetVectorizationMode() == VectorizationMode::kPredicated) {
         // SVE vectorization.
         CHECK(features->AsArm64InstructionSetFeatures()->HasSVE());
-        size_t vector_length = simd_register_size_ / DataType::Size(type);
-        DCHECK_EQ(simd_register_size_ % DataType::Size(type), 0u);
+        size_t vector_length = GetVectorSizeInBytes() / DataType::Size(type);
+        DCHECK_EQ(GetVectorSizeInBytes() % DataType::Size(type), 0u);
         switch (type) {
           case DataType::Type::kBool:
             *restrictions |= kNoDiv |
@@ -2881,7 +2891,7 @@ bool HLoopOptimization::IsVectorizationProfitable(int64_t trip_count) {
   //       is satisfied; deal with this more carefully later
   uint32_t max_peel = MaxNumberPeeled();
   // Peeling is not supported in predicated mode.
-  DCHECK_IMPLIES(IsInPredicatedVectorizationMode(), max_peel == 0u);
+  DCHECK_IMPLIES(GetVectorizationMode() == VectorizationMode::kPredicated, max_peel == 0u);
   if (vector_length_ == 0) {
     return false;  // nothing found
   } else if (trip_count < 0) {
@@ -3210,7 +3220,7 @@ void HLoopOptimization::InitPredicateInfoMap(LoopNode* node,
 }
 
 void HLoopOptimization::MaybeInsertInVectorExternalSet(HInstruction* instruction) {
-  if (IsInPredicatedVectorizationMode()) {
+  if (GetVectorizationMode() == VectorizationMode::kPredicated) {
     vector_external_set_->insert(instruction);
   }
 }
