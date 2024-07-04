@@ -144,15 +144,9 @@ TEST(Arm64InstructionSetFeaturesTest, Arm64Features) {
     EXPECT_TRUE(features->AsArm64InstructionSetFeatures()->HasLSE());
     EXPECT_TRUE(features->AsArm64InstructionSetFeatures()->HasFP16());
     EXPECT_TRUE(features->AsArm64InstructionSetFeatures()->HasDotProd());
-    if (kArm64AllowSVE) {
-      EXPECT_TRUE(features->AsArm64InstructionSetFeatures()->HasSVE2());
-      EXPECT_EQ(features->AsBitmap(), 62U);
-      EXPECT_STREQ("-a53,crc,lse,fp16,dotprod,sve2", features->GetFeatureString().c_str());
-    } else {
-      EXPECT_FALSE(features->AsArm64InstructionSetFeatures()->HasSVE2());
-      EXPECT_EQ(features->AsBitmap(), 30U);
-      EXPECT_STREQ("-a53,crc,lse,fp16,dotprod,-sve2", features->GetFeatureString().c_str());
-    }
+    EXPECT_TRUE(features->AsArm64InstructionSetFeatures()->HasSVE2());
+    EXPECT_EQ(features->AsBitmap(), 62U);
+    EXPECT_STREQ("-a53,crc,lse,fp16,dotprod,sve2", features->GetFeatureString().c_str());
   }
 }
 

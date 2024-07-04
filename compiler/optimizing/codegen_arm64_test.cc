@@ -105,15 +105,13 @@ class CodegenArm64Test : public OptimizingUnitTest {
     InitGraph();
 
     std::string features;
-    if (kArm64AllowSVE) {
-      // If runtime isa is not Arm64 we can enable sve2 feature because in this case simulator
-      // is used to execute generated code. Otherwise we need to check runtime capabilities.
-      features = "sve2";
-      if (kRuntimeISA == InstructionSet::kArm64) {
-        Arm64FeaturesUniquePtr runtime_features = Arm64InstructionSetFeatures::FromHwcap();
-        if (!runtime_features->HasSVE2()) {
-          features = "";
-        }
+    // If runtime isa is not Arm64 we can enable sve2 feature because in this case simulator
+    // is used to execute generated code. Otherwise we need to check runtime capabilities.
+    features = "sve2";
+    if (kRuntimeISA == InstructionSet::kArm64) {
+      Arm64FeaturesUniquePtr runtime_features = Arm64InstructionSetFeatures::FromHwcap();
+      if (!runtime_features->HasSVE2()) {
+        features = "";
       }
     }
 
@@ -445,10 +443,6 @@ TEST_F(CodegenArm64Test, FrameSizeNoSIMD) {
 
 // Check that ParallelMoveResolver works fine for predicated SIMD mode.
 TEST_F(CodegenArm64Test, ParallelMoveResolverPredicatedSIMD) {
-  if (!kArm64AllowSVE) {
-    GTEST_SKIP() << "Test requires enabled SVE support in codegen";
-  }
-
   constexpr size_t kSVERegisterWidth = 32;
   constexpr size_t kSVESlotSizeInStackSlots = kSVERegisterWidth / kVRegSize;
   constexpr size_t kNEONSlotSizeInStackSlots = vixl::aarch64::kQRegSizeInBytes / kVRegSize;
@@ -671,10 +665,6 @@ TEST_F(CodegenArm64Test, SpillingSIMDValuesTraditionalSIMD) {
 // We define more SVE vector values (VecReplicateScalar nodes) than the number of Z registers.
 // It leads to spilling them on the stack.
 TEST_F(CodegenArm64Test, SpillingSIMDValuesPredicatedSIMD) {
-  if (!kArm64AllowSVE) {
-    GTEST_SKIP() << "Test requires enabled SVE support in codegen";
-  }
-
   constexpr DataType::Type packed_type = DataType::Type::kInt32;
   size_t vector_length = codegen_->GetPredicatedSIMDRegisterWidth() / DataType::Size(packed_type);
   constexpr size_t number_of_vector_values = vixl::aarch64::kNumberOfZRegisters + 1;
@@ -740,10 +730,6 @@ TEST_F(CodegenArm64Test, SpillingSIMDValuesPredicatedSIMD) {
 // and usages (VecAdd nodes) here. It leads to spilling NEON values on the stack, the same for
 // SVE ones.
 TEST_F(CodegenArm64Test, SpillingSIMDValuesMixedSIMD) {
-  if (!kArm64AllowSVE) {
-    GTEST_SKIP() << "Test requires enabled SVE support in codegen";
-  }
-
   constexpr DataType::Type packed_type = DataType::Type::kInt32;
   size_t sve_vector_length =
       codegen_->GetPredicatedSIMDRegisterWidth() / DataType::Size(packed_type);
@@ -873,10 +859,6 @@ TEST_F(CodegenArm64Test, SpillingSIMDValuesInSuspendCheckSlowpathTraditionalSIMD
 // and have a suspend check between their definitions and usages. This suspend check is always true
 // so we always execute its slowpath that saves and restores live fp registers.
 TEST_F(CodegenArm64Test, SpillingSIMDValuesInSuspendCheckSlowpathPredicatedSIMD) {
-  if (!kArm64AllowSVE) {
-    GTEST_SKIP() << "Test requires enabled SVE support in codegen";
-  }
-
   constexpr DataType::Type packed_type = DataType::Type::kInt32;
   size_t vector_length = codegen_->GetPredicatedSIMDRegisterWidth() / DataType::Size(packed_type);
   constexpr size_t number_of_vector_values = vixl::aarch64::kNumberOfZRegisters;
@@ -949,10 +931,6 @@ TEST_F(CodegenArm64Test, SpillingSIMDValuesInSuspendCheckSlowpathPredicatedSIMD)
 // usages. This suspend check is always true so we always execute its slowpath that saves and
 // restores live fp registers
 TEST_F(CodegenArm64Test, SpillingSIMDValuesInSuspendCheckSlowpathMixedSIMD) {
-  if (!kArm64AllowSVE) {
-    GTEST_SKIP() << "Test requires enabled SVE support in codegen";
-  }
-
   constexpr DataType::Type packed_type = DataType::Type::kInt32;
   size_t sve_vector_length =
       codegen_->GetPredicatedSIMDRegisterWidth() / DataType::Size(packed_type);

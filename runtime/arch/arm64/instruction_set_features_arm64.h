@@ -22,9 +22,6 @@
 
 namespace art HIDDEN {
 
-// SVE is currently not enabled.
-static constexpr bool kArm64AllowSVE = false;
-
 class Arm64InstructionSetFeatures;
 using Arm64FeaturesUniquePtr = std::unique_ptr<const Arm64InstructionSetFeatures>;
 
@@ -102,7 +99,7 @@ class Arm64InstructionSetFeatures final : public InstructionSetFeatures {
   }
 
   bool HasSVE2() const {
-    return kArm64AllowSVE && has_sve2_;
+    return has_sve2_;
   }
 
   size_t GetSVEVectorLength() const {
