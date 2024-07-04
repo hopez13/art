@@ -2919,9 +2919,17 @@ class JNI {
       REQUIRES_SHARED(Locks::mutator_lock_) {
 #if defined(ART_TARGET_ANDROID)
     ScopedLocalRef<jobject> jclass_loader(soa.Env(), soa.AddLocalReference<jobject>(class_loader));
+    // FindNativeLoaderNamespaceByClassLoader eventually acquires lock on g_namespaces_mutex
+    // which may cause a deadlock if another thread is waiting for mutator_lock_
+    // for IsSameObject call in libnativeloader's CreateClassLoaderNamespace (which happens
+    // under g_namespace_mutex lock)
+    auto* self = soa.Self();
+    Locks::mutator_lock_->SharedUnlock(self);
     android::NativeLoaderNamespace* ns =
         android::FindNativeLoaderNamespaceByClassLoader(soa.Env(), jclass_loader.get());
-    return ns != nullptr && android::IsNamespaceNativeBridged(ns);
+    bool result = ns != nullptr && android::IsNamespaceNativeBridged(ns);
+    Locks::mutator_lock_->SharedLock(self);
+    return result;
 #else
     UNUSED(soa, class_loader);
     return false;
