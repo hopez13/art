@@ -22,6 +22,30 @@
       },
       "revId": "cbb8e02a47299889928aea95bb9e73a5f63da13a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4990691f_2a48f9e0",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-07-04T13:43:09Z",
+      "side": 1,
+      "message": "soa.AddLocalReference on line 2921 requires mutator lock",
+      "parentUuid": "e3fc32aa_8e821184",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2932,
+        "endChar": 18
+      },
+      "revId": "cbb8e02a47299889928aea95bb9e73a5f63da13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
