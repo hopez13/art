@@ -83,6 +83,8 @@ const NoDestructor<std::string> kOtaSlotFile(std::string(DexoptChrootSetup::PRE_
                                              "/ota_slot");
 const NoDestructor<std::string> kSnapshotMappedFile(
     std::string(DexoptChrootSetup::PRE_REBOOT_DEXOPT_DIR) + "/snapshot_mapped");
+const NoDestructor<std::string> kInitStartedFile(
+    std::string(DexoptChrootSetup::PRE_REBOOT_DEXOPT_DIR) + "/init_started");
 constexpr mode_t kChrootDefaultMode = 0755;
 constexpr std::chrono::milliseconds kSnapshotCtlTimeout = std::chrono::seconds(60);
 
@@ -477,6 +479,14 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
 Result<void> DexoptChrootSetup::InitChroot() const {
   std::optional<std::string> ota_slot = OR_RETURN(LoadOtaSlotFile());
 
+  if (OS::FileExists(kInitStartedFile->c_str())) {
+    return Errorf("init must not be repeatedly called");
+  }
+
+  if (!WriteStringToFile("", *kInitStartedFile)) {
+    return ErrnoErrorf("Failed to write '{}'", *kInitStartedFile);
+  }
+
   // Generate empty linker config to suppress warnings.
   if (!android::base::WriteStringToFile("", PathInChroot("/linkerconfig/ld.config.txt"))) {
     PLOG(WARNING) << "Failed to generate empty linker config to suppress warnings";
@@ -553,6 +563,11 @@ Result<void> DexoptChrootSetup::TearDownChroot() const {
   std::filesystem::remove(*kOtaSlotFile, ec);
   if (ec) {
     return Errorf("Failed to remove file '{}': {}", *kOtaSlotFile, ec.message());
+  }
+
+  std::filesystem::remove(*kInitStartedFile, ec);
+  if (ec) {
+    return Errorf("Failed to remove file '{}': {}", *kInitStartedFile, ec.message());
   }
 
   if (OS::FileExists(kSnapshotMappedFile->c_str())) {
