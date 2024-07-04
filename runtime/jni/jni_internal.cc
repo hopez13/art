@@ -2578,8 +2578,17 @@ class JNI {
           << c->PrettyDescriptor();
       return JNI_OK;
     }
+
+    ScopedLocalRef<jobject> jclass_loader(soa.Env(),
+                                          soa.AddLocalReference<jobject>(c->GetClassLoader()));
+    // FindNativeLoaderNamespaceByClassLoader eventually acquires lock on g_namespaces_mutex
+    // which may cause a deadlock if another thread is waiting for mutator_lock_
+    // for IsSameObject call in libnativeloader's CreateClassLoaderNamespace (which happens
+    // under g_namespace_mutex lock)
+    Locks::mutator_lock_->SharedUnlock(soa.Self());
     bool is_class_loader_namespace_natively_bridged =
-        IsClassLoaderNamespaceNativelyBridged(soa, c->GetClassLoader());
+        IsClassLoaderNamespaceNativelyBridged(soa.Env(), jclass_loader.get());
+    Locks::mutator_lock_->SharedLock(soa.Self());
 
     CHECK_NON_NULL_ARGUMENT_FN_NAME("RegisterNatives", methods, JNI_ERR);
     for (jint i = 0; i < method_count; ++i) {
@@ -2914,16 +2923,13 @@ class JNI {
     return array;
   }
 
-  static bool IsClassLoaderNamespaceNativelyBridged(ScopedObjectAccess& soa,
-                                                    ObjPtr<mirror::ClassLoader> class_loader)
-      REQUIRES_SHARED(Locks::mutator_lock_) {
+  static bool IsClassLoaderNamespaceNativelyBridged(JNIEnv* env, jobject jclass_loader) {
 #if defined(ART_TARGET_ANDROID)
-    ScopedLocalRef<jobject> jclass_loader(soa.Env(), soa.AddLocalReference<jobject>(class_loader));
     android::NativeLoaderNamespace* ns =
-        android::FindNativeLoaderNamespaceByClassLoader(soa.Env(), jclass_loader.get());
+        android::FindNativeLoaderNamespaceByClassLoader(env, jclass_loader);
     return ns != nullptr && android::IsNamespaceNativeBridged(ns);
 #else
-    UNUSED(soa, class_loader);
+    UNUSED(env, jclass_loader);
     return false;
 #endif
   }
