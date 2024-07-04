@@ -178,6 +178,12 @@ TEST_F(DexoptChrootSetupTest, Run) {
       dexopt_chroot_setup_->setUp(/*in_otaSlot=*/std::nullopt, /*in_mapSnapshotsForOta=*/false));
   ASSERT_STATUS_OK(dexopt_chroot_setup_->init());
 
+  // Check that `init` cannot be repetitively called.
+  ndk::ScopedAStatus status = dexopt_chroot_setup_->init();
+  EXPECT_FALSE(status.isOk());
+  EXPECT_EQ(status.getExceptionCode(), EX_ILLEGAL_STATE);
+  EXPECT_STREQ(status.getMessage(), "init must not be repeatedly called");
+
   ASSERT_STATUS_OK(dexopt_chroot_setup_->tearDown());
 
   EXPECT_FALSE(std::filesystem::exists(DexoptChrootSetup::CHROOT_DIR));
