@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bf40e36_388ae7d7",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 486,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-04T15:11:35Z",
+      "side": 1,
+      "message": "It seems a bit heavy-handed to add more persistent state just to catch invalid use of the API. What about checking ld.config.txt instead, which gets created here anyway?",
+      "range": {
+        "startLine": 486,
+        "startChar": 30,
+        "endLine": 486,
+        "endChar": 46
+      },
+      "revId": "4dbbdd21cab6030606af494f6b815d4713ce3905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "69869a4c_4590c906",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup_test.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 181,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-04T15:11:35Z",
+      "side": 1,
+      "message": "Nit: \"repeatedly\" perhaps (also notice a few other occurrences around here)",
+      "range": {
+        "startLine": 181,
+        "startChar": 33,
+        "endLine": 181,
+        "endChar": 45
+      },
+      "revId": "4dbbdd21cab6030606af494f6b815d4713ce3905",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
