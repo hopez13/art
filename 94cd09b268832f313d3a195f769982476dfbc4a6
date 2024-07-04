@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4611be38_3221ca09",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-04T12:40:15Z",
+      "side": 1,
+      "message": "Sounds like something that should be communicated in a suitable location. I don\u0027t know where or by who, though.",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "94cd09b268832f313d3a195f769982476dfbc4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5df818a1_63d84cdd",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-04T12:40:15Z",
+      "side": 1,
+      "message": "Does it make sense to log a warning when we don\u0027t obey this flag?",
+      "range": {
+        "startLine": 432,
+        "startChar": 12,
+        "endLine": 432,
+        "endChar": 33
+      },
+      "revId": "94cd09b268832f313d3a195f769982476dfbc4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
