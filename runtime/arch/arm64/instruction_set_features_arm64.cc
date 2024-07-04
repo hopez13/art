@@ -390,7 +390,7 @@ uint32_t Arm64InstructionSetFeatures::AsBitmap() const {
       | (has_lse_ ? kLSEBitField: 0)
       | (has_fp16_ ? kFP16BitField: 0)
       | (has_dotprod_ ? kDotProdBitField : 0)
-      | (has_sve2_ && kArm64AllowSVE ? kSVE2BitField : 0);
+      | (has_sve2_ ? kSVE2BitField : 0);
 }
 
 std::string Arm64InstructionSetFeatures::GetFeatureString() const {
@@ -420,10 +420,7 @@ std::string Arm64InstructionSetFeatures::GetFeatureString() const {
   } else {
     result += ",-dotprod";
   }
-  // Report not just that the SVE feature is present, but that it is both
-  // present and enabled in ART. It is important because other components
-  // like tools/checker rely on this information.
-  if (has_sve2_ && kArm64AllowSVE) {
+  if (has_sve2_) {
     result += ",sve2";
   } else {
     result += ",-sve2";
