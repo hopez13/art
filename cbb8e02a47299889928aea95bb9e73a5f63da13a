@@ -46,6 +46,30 @@
       },
       "revId": "cbb8e02a47299889928aea95bb9e73a5f63da13a",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c063091_54a41c24",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-04T13:46:33Z",
+      "side": 1,
+      "message": "I suggest staying in JNI land for this instead of passing `ScopedObjectAccess`.",
+      "parentUuid": "4990691f_2a48f9e0",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2932,
+        "endChar": 18
+      },
+      "revId": "cbb8e02a47299889928aea95bb9e73a5f63da13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
