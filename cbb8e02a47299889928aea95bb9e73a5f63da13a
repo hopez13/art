@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e3fc32aa_8e821184",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2932,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-04T13:16:06Z",
+      "side": 1,
+      "message": "Looks like could rewrite the caller of `IsClassLoaderNamespaceNativelyBridged` to not take the mutator lock before calling this method instead?",
+      "range": {
+        "startLine": 2922,
+        "startChar": 0,
+        "endLine": 2932,
+        "endChar": 18
+      },
+      "revId": "cbb8e02a47299889928aea95bb9e73a5f63da13a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
