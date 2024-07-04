@@ -477,6 +477,10 @@ Result<void> DexoptChrootSetup::SetUpChroot(const std::optional<std::string>& ot
 Result<void> DexoptChrootSetup::InitChroot() const {
   std::optional<std::string> ota_slot = OR_RETURN(LoadOtaSlotFile());
 
+  if (OS::FileExists("/linkerconfig/ld.config.txt")) {
+    return Errorf("init must not be repeatedly called");
+  }
+
   // Generate empty linker config to suppress warnings.
   if (!android::base::WriteStringToFile("", PathInChroot("/linkerconfig/ld.config.txt"))) {
     PLOG(WARNING) << "Failed to generate empty linker config to suppress warnings";
