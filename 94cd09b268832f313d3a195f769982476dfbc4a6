@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d569a230_7ee6ea4f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-04T12:51:49Z",
+      "side": 1,
+      "message": "I think it should be written in https://developer.android.com/topic/performance/baselineprofiles/overview by the Android Studio team.",
+      "parentUuid": "4611be38_3221ca09",
+      "range": {
+        "startLine": 13,
+        "startChar": 11,
+        "endLine": 13,
+        "endChar": 55
+      },
+      "revId": "94cd09b268832f313d3a195f769982476dfbc4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5df818a1_63d84cdd",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-04T12:40:15Z",
       "side": 1,
       "message": "Does it make sense to log a warning when we don\u0027t obey this flag?",
+      "range": {
+        "startLine": 432,
+        "startChar": 12,
+        "endLine": 432,
+        "endChar": 33
+      },
+      "revId": "94cd09b268832f313d3a195f769982476dfbc4a6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "82c299d8_ed6d3632",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 432,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-04T12:51:49Z",
+      "side": 1,
+      "message": "This flag is always true unless set explicitly through a dm file (see b/330689353, only used by Play), regardless of whether the embedded profile actually exists or not. If we logged, the log would show up on U devices almost all the time, and it might confuse app developers, so it\u0027s better to avoid that.",
+      "parentUuid": "5df818a1_63d84cdd",
       "range": {
         "startLine": 432,
         "startChar": 12,
