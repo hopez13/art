@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b3758e6_b9957507",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-05T08:42:14Z",
+      "side": 1,
+      "message": "Use `env` instead (otherwise it reads as if the local reference will be deleted after `soa` gets deleted).",
+      "range": {
+        "startLine": 2583,
+        "startChar": 26,
+        "endLine": 2583,
+        "endChar": 30
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8881e056_0b805d64",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/jni/jni_internal.cc",
+              "range": {
+                "startLine": 2583,
+                "startChar": 0,
+                "endLine": 2584,
+                "endChar": 0
+              },
+              "replacement": "      jclass_loader.reset(env-\u003eAddLocalReference\u003cjobject\u003e(c-\u003eGetClassLoader()));\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3de2d9a64be64883c8e95cc9b9ebb5d795877e85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
