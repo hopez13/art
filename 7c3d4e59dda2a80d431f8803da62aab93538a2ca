@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faefe6b6_7b7e3f3f",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-05T13:15:36Z",
+      "side": 1,
+      "message": "nit: line too long (72 column width max)",
+      "revId": "7c3d4e59dda2a80d431f8803da62aab93538a2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c8ecc9c9_7acb8634",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-05T13:15:36Z",
+      "side": 1,
+      "message": "What\u0027s the `+20%`? code size? startup performance?",
+      "range": {
+        "startLine": 19,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 46
+      },
+      "revId": "7c3d4e59dda2a80d431f8803da62aab93538a2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "744b6172_29e4633d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-05T13:15:36Z",
+      "side": 1,
+      "message": "Thanks for the CL! Some comments below",
+      "revId": "7c3d4e59dda2a80d431f8803da62aab93538a2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8863e908_8912a4c7",
+        "filename": "test/458-checker-riscv64-shift-add/src/Main.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 325,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-05T13:15:36Z",
+      "side": 1,
+      "message": "style: not needed, just have the empty `{}`",
+      "fixSuggestions": [
+        {
+          "fixId": "476d369d_8c33ee83",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "test/458-checker-riscv64-shift-add/src/Main.java",
+              "range": {
+                "startLine": 325,
+                "startChar": 0,
+                "endLine": 326,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "7c3d4e59dda2a80d431f8803da62aab93538a2ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

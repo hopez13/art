@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01dbd369_8674a179",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-05T13:15:36Z",
+      "side": 0,
+      "message": "Have you thought about keeping this method but removing lines 60-62, and removing line 71 too?\n\nIf the SHL doesn\u0027t have uses, it will be removed by DCE in a later pass so we don\u0027t have to do it here. This would make it so that the optimizations can be done one-by-one, and we don\u0027t have to go through all of SHL\u0027s uses when there are no ADD insructions that use it.\n\nIf we move forward with this, the `      if (left \u003d\u003d right) {` check that you did is needed and maybe we can do it in `VisitAdd`",
+      "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
