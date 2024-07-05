@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a5a11333_0b170b9e",
+        "filename": "build/apex/dirty-image-objects",
+        "patchSetId": 2
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-07-05T14:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bcf3062a_64250e58",
+      "revId": "eaa0d9a7b9a9f4104657db416e51324f0a0c5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "baa6137d_7853ce1b",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-03T10:20:41Z",
       "side": 1,
       "message": "Lines too long",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 22,
+        "endChar": 127
+      },
+      "revId": "eaa0d9a7b9a9f4104657db416e51324f0a0c5385",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcb8dd30_b13e92d8",
+        "filename": "build/apex/dirty-image-objects",
+        "patchSetId": 2
+      },
+      "lineNbr": 22,
+      "author": {
+        "id": 1963262
+      },
+      "writtenOn": "2024-07-05T14:35:22Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa6137d_7853ce1b",
       "range": {
         "startLine": 21,
         "startChar": 0,
