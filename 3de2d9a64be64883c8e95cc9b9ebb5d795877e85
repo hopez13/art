@@ -40,6 +40,30 @@
       ],
       "revId": "3de2d9a64be64883c8e95cc9b9ebb5d795877e85",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3c5163d9_0e901554",
+        "filename": "runtime/jni/jni_internal.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2583,
+      "author": {
+        "id": 1041673
+      },
+      "writtenOn": "2024-07-05T08:55:55Z",
+      "side": 1,
+      "message": "used soa.Env() to avoid down_casting...",
+      "parentUuid": "6b3758e6_b9957507",
+      "range": {
+        "startLine": 2583,
+        "startChar": 26,
+        "endLine": 2583,
+        "endChar": 30
+      },
+      "revId": "3de2d9a64be64883c8e95cc9b9ebb5d795877e85",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
