@@ -54,6 +54,7 @@ import com.google.auto.value.AutoValue;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -482,6 +483,24 @@ public final class Utils {
         }
     }
 
+    public static boolean pathStartsWith(@NonNull String path, @NonNull String prefix) {
+        check(!prefix.isEmpty() && !path.isEmpty() && prefix.charAt(0) == '/'
+                && path.charAt(0) == '/');
+        int prefixLen = prefix.length();
+        if (prefix.charAt(prefixLen - 1) == '/') {
+            prefixLen--;
+        }
+        if (path.length() < prefixLen) {
+            return false;
+        }
+        for (int i = 0; i < prefixLen; i++) {
+            if (path.charAt(i) != prefix.charAt(i)) {
+                return false;
+            }
+        }
+        return path.length() == prefixLen || path.charAt(prefixLen) == '/';
+    }
+
     @AutoValue
     public abstract static class Abi {
         static @NonNull Abi create(
@@ -499,13 +518,42 @@ public final class Utils {
     }
 
     public static class Tracing implements AutoCloseable {
+        private static Method currentThreadTimeMicro = null;
+
+        static {
+            try {
+                currentThreadTimeMicro = SystemClock.class.getMethod("currentThreadTimeMicro");
+            } catch (Exception e) {
+                AsLog.wtf("currentThreadTimeMicro", e);
+            }
+        }
+
+        private static long totalTimeMicro = 0;
+        private final long startTimeMicro = currentThreadTimeMicro();
+        private final String methodName;
+
         public Tracing(@NonNull String methodName) {
+            this.methodName = methodName;
             Trace.traceBegin(TRACE_TAG_DALVIK, methodName);
         }
 
         @Override
         public void close() {
             Trace.traceEnd(TRACE_TAG_DALVIK);
+            long duration = currentThreadTimeMicro() - startTimeMicro;
+            if (methodName.startsWith("notifyDexContainersLoaded ")) {
+                totalTimeMicro += duration;
+                AsLog.e("jiakaiz " + methodName + " " + duration + " " + totalTimeMicro);
+            }
+        }
+
+        private long currentThreadTimeMicro() {
+            try {
+                return (long) currentThreadTimeMicro.invoke(null);
+            } catch (Exception e) {
+                AsLog.wtf("currentThreadTimeMicro", e);
+                return 0;
+            }
         }
     }
 
