@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4a55cd6d_e2807fd3",
+        "filename": "compiler/optimizing/code_generator_x86_64.h",
+        "patchSetId": 16
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 0,
+      "message": "Keep this line as it affects `MethodHandleInvoke` too",
+      "range": {
+        "startLine": 91,
+        "startChar": 0,
+        "endLine": 91,
+        "endChar": 48
+      },
+      "revId": "67eb034e315164aec2d04099d30237a72dc238c9",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

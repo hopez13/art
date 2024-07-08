@@ -1,0 +1,176 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "452ffdc1_2e6dda5b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4067,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "Can we turn this into a `DCHECK_IMPLIES` or a DCHECK in the `else` case?",
+      "range": {
+        "startLine": 4067,
+        "startChar": 0,
+        "endLine": 4067,
+        "endChar": 55
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f7983c57_a361f195",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4106,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "style: define local variables for the `block` and the `graph` and query them just once",
+      "range": {
+        "startLine": 4106,
+        "startChar": 13,
+        "endLine": 4106,
+        "endChar": 31
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5fa0d198_8f5ff76a",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4111,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "We need this because we do `CreateLoadMethodTypeRuntimeCallLocationSummary` in line 4117. Alternatively we can remove both lines 4111-4120 and do\n\n```\nMoveConstant(Location::RegisterLocation(RAX), load_method_type-\u003eGetProtoIndex().index_);\nCheckEntrypointTypes\u003ckQuickResolveMethodType, void*, uint32_t\u003e();\nInvokeRuntime(kQuickResolveMethodType, load_method_type, load_method_type-\u003eGetDexPc());\n```\n\nIf you do this, please add a comment that this is the result of manually inlining CreateLoadMethodTypeRuntimeCallLocationSummary and GenerateLoadMethodTypeRuntimeCall in this intrinsic",
+      "range": {
+        "startLine": 4111,
+        "startChar": 4,
+        "endLine": 4111,
+        "endChar": 51
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3ae46b38_d03406f9",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4142,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "Can we use one less temporary register? `temp` lifetime seems to end before `vtable_index`\u0027s begins",
+      "range": {
+        "startLine": 4138,
+        "startChar": 0,
+        "endLine": 4142,
+        "endChar": 79
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b934939c_687681cd",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4157,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "Not sure I understand this. No need to check what?",
+      "range": {
+        "startLine": 4157,
+        "startChar": 7,
+        "endLine": 4157,
+        "endChar": 30
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9c48e0c4_1822eaa7",
+        "filename": "test/3000-mh-com/Android.bp",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "FYI this file is not required to submit tests. Roland creates them for new tests on batches",
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d22b11e2_e0deb2f9",
+        "filename": "test/3000-mh-com/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "Please fix this ERROR reported by Copyright header: Missing AOSP copyright header\n\nAnalyzer Description: Validates if source files start with correct copyright header\n\nMissing AOSP copyright header\n\n---\n\nYou can copy it from any other ART test. Make sure it says 2024",
+      "range": {
+        "startLine": 0,
+        "startChar": 0,
+        "endLine": 0,
+        "endChar": 0
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1db6a1f1_92c40ce2",
+        "filename": "test/3000-mh-com/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T15:51:52Z",
+      "side": 1,
+      "message": "Style question: Why `3000` in the test name? People usually grab the latest test and add `1` to it. We are in the low 2000 now so it is quite a jump to 3k",
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
