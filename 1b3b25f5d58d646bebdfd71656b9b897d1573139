@@ -16,6 +16,23 @@
       "message": "Hi!\n\nSorry, I\u0027ve updated this patch\n* I\u0027ve fixed a bug in LoadStoreEliminationSIMDTest that leads to flaky failures in MergePredecessorVecStores test.\n* Now this patch is a part of SVE chain.\n\nPlease take a look! Thank you!",
       "revId": "1b3b25f5d58d646bebdfd71656b9b897d1573139",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "520899c2_d021c044",
+        "filename": "compiler/optimizing/load_store_elimination_test.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T16:23:06Z",
+      "side": 1,
+      "message": "Style: `\u003d nullptr`",
+      "revId": "1b3b25f5d58d646bebdfd71656b9b897d1573139",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
