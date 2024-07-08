@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6b517c1a_323736bf",
+        "filename": "runtime/jit/jit.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 1890,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-07-08T07:01:51Z",
+      "side": 1,
+      "message": "Obsolete, marking as resolved.",
+      "parentUuid": "a3963cdc_050c3142",
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d17c3217_5f44d2c4",
@@ -162,6 +180,30 @@
       "side": 1,
       "message": "Actually, `root` is a `Handle\u003c\u003e` and therefore it shall not hold a from-space reference here - references in `HandleScope`s are updated in the thread root flip function. So, this comment is moot, right?\n\nMaybe the `auto root` should be changed to `Handle\u003cmirror::Object\u003e root` to make this easier to see.",
       "parentUuid": "f5444277_45d8cf95",
+      "range": {
+        "startLine": 788,
+        "startChar": 81,
+        "endLine": 788,
+        "endChar": 91
+      },
+      "revId": "d92a43f4310e2d634d6e8f24103fc1e27557d784",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3b05c6bb_8c9e1847",
+        "filename": "runtime/jit/jit_code_cache.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 788,
+      "author": {
+        "id": 1018108
+      },
+      "writtenOn": "2024-07-08T07:01:51Z",
+      "side": 1,
+      "message": "Obsolete, marking as resolved.",
+      "parentUuid": "3c7d691d_f43d09cd",
       "range": {
         "startLine": 788,
         "startChar": 81,
