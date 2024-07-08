@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ee30df32_0c70dc6b",
+        "filename": "libnativebridge/tests/NativeBridgeTest.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-08T15:31:09Z",
+      "side": 1,
+      "message": "Since the order in this list isn\u0027t relevant to the initialisation order I think it\u0027s more clear to keep the assignments in the constructor body for the members that depend on each other.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 42,
+        "endChar": 52
+      },
+      "revId": "e90973490758ec31b4a8b5d8f00a4168d092e317",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
