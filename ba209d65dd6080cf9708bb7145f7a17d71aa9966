@@ -52,6 +52,24 @@
       "parentUuid": "049406be_16f2b700",
       "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "19c00f0b_88909a13",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-07-08T15:38:37Z",
+      "side": 0,
+      "message": "1. I made it to `VisitShl` like it is made in `InstructionSimplifierArm64`.\n2. As far as I know DCE is not being called in a later pass.",
+      "parentUuid": "01bca547_0de02289",
+      "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
