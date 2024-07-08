@@ -70,6 +70,24 @@
       "parentUuid": "01bca547_0de02289",
       "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ef386a82_c4d32481",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-08T16:10:01Z",
+      "side": 0,
+      "message": "1. Ack, fine to keep as-is then\n2. Ah you are right, this is the arch-specific InstructionSimplifier. We don\u0027t run DCE after this. Maybe we should but that\u0027s a matter of another CL.",
+      "parentUuid": "19c00f0b_88909a13",
+      "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
