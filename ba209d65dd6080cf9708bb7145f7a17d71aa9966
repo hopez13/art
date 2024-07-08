@@ -34,6 +34,24 @@
       "parentUuid": "01dbd369_8674a179",
       "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "01bca547_0de02289",
+        "filename": "compiler/optimizing/instruction_simplifier_riscv64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 44,
+      "author": {
+        "id": 3270422
+      },
+      "writtenOn": "2024-07-08T11:51:50Z",
+      "side": 0,
+      "message": "@solanes@google.com Actually I wrote a comment for your second thought:\n\n```\n// If to replace Add which has 2 the same Shl\u003c1|2|3\u003e inputs with Riscv64ShiftAdd\n// which has this Shl\u003c1|2|3\u003e as an input then any processor will not be able to\n// execute these shifts parallel which is the purpose of the replace below.\n```\nsuch a replacement keeps `Shl` as a data dependency.",
+      "parentUuid": "049406be_16f2b700",
+      "revId": "ba209d65dd6080cf9708bb7145f7a17d71aa9966",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
