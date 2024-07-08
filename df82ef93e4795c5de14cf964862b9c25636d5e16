@@ -242,6 +242,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "67e0ac29_8a2c3b79",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3991,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-08T11:23:45Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "d5a377c8_b9b51041",
+      "range": {
+        "startLine": 3990,
+        "startChar": 4,
+        "endLine": 3991,
+        "endChar": 21
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "90d46db4_9ac1aeae",
@@ -255,6 +279,30 @@
       "writtenOn": "2023-09-07T08:22:06Z",
       "side": 1,
       "message": "This is not a constant, not even for JIT because the class can actually move in jitzygote mode. You would need to restrict the intrinsic to the case where we have a boot image and use `LoadBootImageAddress()` with all the complexity that it adds. But that\u0027s probably moot because of the next comment below.",
+      "range": {
+        "startLine": 3997,
+        "startChar": 4,
+        "endLine": 3998,
+        "endChar": 96
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1e5e08de_929adeb7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 3998,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-08T11:23:45Z",
+      "side": 1,
+      "message": "Removed.",
+      "parentUuid": "90d46db4_9ac1aeae",
       "range": {
         "startLine": 3997,
         "startChar": 4,
@@ -445,6 +493,30 @@
       "side": 1,
       "message": "Not exactly WeakHashMap, but we do have a global map: https://source.corp.google.com/h/android/platform/superproject/main/+/main:libcore/ojluni/src/main/java/java/lang/invoke/MethodType.java;l\u003d199;drc\u003d43a083135917c3b4267e87184ca4aea73dece040",
       "parentUuid": "a9bbd225_212b1be8",
+      "range": {
+        "startLine": 4005,
+        "startChar": 4,
+        "endLine": 4006,
+        "endChar": 45
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aefb6693_a7ed4fb8",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-08T11:23:45Z",
+      "side": 1,
+      "message": "Replaced with comparison of callsite and `MethodHandle`\u0027s type.",
+      "parentUuid": "cfa92738_5117ba9c",
       "range": {
         "startLine": 4005,
         "startChar": 4,
