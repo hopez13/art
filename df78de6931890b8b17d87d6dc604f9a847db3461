@@ -50,6 +50,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d207bd83_9e5a2419",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4067,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-09T12:37:12Z",
+      "side": 1,
+      "message": "Check for the comment. It is saying `If it is not reference, it is not InvokeVirtual`. This is something we are relying on. Can it be turned into a DCHECK?",
+      "parentUuid": "0cdd1ae5_b4f9bab3",
+      "range": {
+        "startLine": 4067,
+        "startChar": 0,
+        "endLine": 4067,
+        "endChar": 55
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7983c57_a361f195",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 16
@@ -144,6 +168,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "d929a6ee_96af9221",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4111,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-09T12:37:12Z",
+      "side": 1,
+      "message": "But the location `LocationSummary` is only used for the `MoveConstant` right?",
+      "parentUuid": "c8efd731_2050c956",
+      "range": {
+        "startLine": 4111,
+        "startChar": 4,
+        "endLine": 4111,
+        "endChar": 51
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ae46b38_d03406f9",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 16
@@ -179,6 +227,30 @@
       "side": 1,
       "message": "Thanks, done.",
       "parentUuid": "3ae46b38_d03406f9",
+      "range": {
+        "startLine": 4138,
+        "startChar": 0,
+        "endLine": 4142,
+        "endChar": 79
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "71d6fe09_6ccf4380",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4142,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-09T12:37:12Z",
+      "side": 1,
+      "message": "Let\u0027s just reuse `temp` so that there\u0027s no implicit clobber of `GetTemp(0)`. If you want, you can add a comment in line 4148 mentioning that\n```\n`temp` now has the value of the vtable index\n```",
+      "parentUuid": "4d72d133_cae0f3da",
       "range": {
         "startLine": 4138,
         "startChar": 0,
@@ -349,6 +421,24 @@
       "side": 1,
       "message": "So I can always add `-t 3000` and not worry that it will run two tests. Renamed now.",
       "parentUuid": "1db6a1f1_92c40ce2",
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "752b176b_82427cde",
+        "filename": "test/3000-mh-com/src/Main.java",
+        "patchSetId": 16
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-09T12:37:12Z",
+      "side": 1,
+      "message": "Ah you can always do `-t 2277-methodhandle-invokeexact` in that case",
+      "parentUuid": "db42d1a0_e5343038",
       "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
