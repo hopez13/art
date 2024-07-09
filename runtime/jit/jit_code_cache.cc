@@ -1259,7 +1259,9 @@ void JitCodeCache::AddZombieCodeInternal(ArtMethod* method, const void* code_ptr
   if (method->IsNative()) {
     zombie_jni_code_.insert(method);
   } else {
-    CHECK(!ContainsElement(zombie_code_, code_ptr));
+    if(ContainsElement(zombie_code_, code_ptr)) {
+       return;
+    }
     zombie_code_.insert(code_ptr);
   }
 
