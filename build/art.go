@@ -126,6 +126,12 @@ func globalFlags(ctx android.LoadHookContext) ([]string, []string) {
 		cflags = append(cflags, "-DUSE_D8_DESUGAR=1")
 	}
 
+	if ctx.Config().IsEnvTrue("ART_ALWAYS_ENABLE_PROFILE_CODE") {
+		// Used to enable light weight profiling from real user devices.
+		cflags = append(cflags, "-DART_ALWAYS_ENABLE_PROFILE_CODE=1")
+		asflags = append(asflags, "-DART_ALWAYS_ENABLE_PROFILE_CODE=1")
+	}
+
 	return cflags, asflags
 }
 

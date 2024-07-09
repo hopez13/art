@@ -136,6 +136,12 @@ static void DefaultInitEntryPoints(JniEntryPoints* jpoints,
   qpoints->SetMethodEntryHook(art_quick_method_entry_hook);
   qpoints->SetMethodExitHook(art_quick_method_exit_hook);
 
+#ifdef ART_ALWAYS_ENABLE_PROFILE_CODE
+  // These are used for on-demand-tracing, currently only supported on arm64 devices.
+  qpoints->SetRecordEntryTraceEvent(nullptr);
+  qpoints->SetRecordExitTraceEvent(nullptr);
+#endif
+
   if (monitor_jni_entry_exit) {
     qpoints->SetJniMethodStart(art_jni_monitored_method_start);
     qpoints->SetJniMethodEnd(art_jni_monitored_method_end);

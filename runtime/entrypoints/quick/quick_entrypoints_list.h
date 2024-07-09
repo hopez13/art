@@ -19,7 +19,7 @@
 
 // All quick entrypoints. Format is name, return type, argument types.
 
-#define QUICK_ENTRYPOINT_LIST(V) \
+#define QUICK_ENTRYPOINT_LIST_COMMON(V) \
   V(AllocArrayResolved, void*, mirror::Class*, int32_t) \
   V(AllocArrayResolved8, void*, mirror::Class*, int32_t) \
   V(AllocArrayResolved16, void*, mirror::Class*, int32_t) \
@@ -209,6 +209,19 @@
 \
   V(MethodEntryHook, void, ArtMethod*, Thread*) \
   V(MethodExitHook, int32_t, Thread*, ArtMethod*, uint64_t*, uint64_t*)
+
+#define QUICK_ENTRYPOINT_LIST_TRACING(V) \
+  V(RecordEntryTraceEvent, void) \
+  V(RecordExitTraceEvent, void)
+
+#ifdef ART_ALWAYS_ENABLE_PROFILE_CODE
+#define QUICK_ENTRYPOINT_LIST(V)  \
+  QUICK_ENTRYPOINT_LIST_COMMON(V) \
+  QUICK_ENTRYPOINT_LIST_TRACING(V)
+#else
+#define QUICK_ENTRYPOINT_LIST(V) \
+  QUICK_ENTRYPOINT_LIST_COMMON(V)
+#endif
 
 #endif  // ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_LIST_H_
 #undef ART_RUNTIME_ENTRYPOINTS_QUICK_QUICK_ENTRYPOINTS_LIST_H_   // #define is only for lint.

@@ -87,6 +87,11 @@ extern "C" void art_quick_compile_optimized(ArtMethod*, Thread*);
 extern "C" void art_quick_method_entry_hook(ArtMethod*, Thread*);
 extern "C" int32_t art_quick_method_exit_hook(Thread*, ArtMethod*, uint64_t*, uint64_t*);
 
+#ifdef ART_ALWAYS_ENABLE_PROFILE_CODE
+extern "C" void art_quick_record_entry_trace_event();
+extern "C" void art_quick_record_exit_trace_event();
+#endif
+
 }  // namespace art
 
 #endif  // ART_RUNTIME_ENTRYPOINTS_RUNTIME_ASM_ENTRYPOINTS_H_
