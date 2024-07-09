@@ -74,6 +74,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8b3cbf8f_b2446c27",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4067,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-09T15:26:09Z",
+      "side": 1,
+      "message": "It can be `InvokeStatic` MethodHandle which takes one `int` (like `MethodHandle` for `Integer::valueOf` might look like). We don\u0027t know what is `MethodHandle`\u0027s type at this point.\n\nI\u0027ve added DCHECK to `IntrinsicCodeGeneratorX86_64::VisitMethodHandleInvokeExact` as we discussed.",
+      "parentUuid": "d207bd83_9e5a2419",
+      "range": {
+        "startLine": 4067,
+        "startChar": 0,
+        "endLine": 4067,
+        "endChar": 55
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7983c57_a361f195",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 16
@@ -192,6 +216,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "046fac7f_386b5d7c",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4111,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-09T15:26:09Z",
+      "side": 1,
+      "message": "`LocationSummary` constructor needs it to be set [1]\n\n[1] https://source.corp.google.com/h/android/platform/superproject/main/+/main:art/compiler/optimizing/locations.cc;l\u003d56;drc\u003dcde6497d286337de2ed21c71c85157e2745b742b",
+      "parentUuid": "d929a6ee_96af9221",
+      "range": {
+        "startLine": 4111,
+        "startChar": 4,
+        "endLine": 4111,
+        "endChar": 51
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "3ae46b38_d03406f9",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 16
@@ -251,6 +299,30 @@
       "side": 1,
       "message": "Let\u0027s just reuse `temp` so that there\u0027s no implicit clobber of `GetTemp(0)`. If you want, you can add a comment in line 4148 mentioning that\n```\n`temp` now has the value of the vtable index\n```",
       "parentUuid": "4d72d133_cae0f3da",
+      "range": {
+        "startLine": 4138,
+        "startChar": 0,
+        "endLine": 4142,
+        "endChar": 79
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "45025caa_39c0d2f0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4142,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-09T15:26:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "71d6fe09_6ccf4380",
       "range": {
         "startLine": 4138,
         "startChar": 0,
