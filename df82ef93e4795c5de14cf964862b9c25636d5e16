@@ -525,6 +525,30 @@
       },
       "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b371e0d1_1ea4fd79",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 14
+      },
+      "lineNbr": 4006,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-10T13:13:00Z",
+      "side": 1,
+      "message": "Would it be possible to add a test for the case that Vladimir mentioned? `the same method handle is used from different dex files`. In test 2237- we have some example on how to set up the test for using multidex",
+      "parentUuid": "aefb6693_a7ed4fb8",
+      "range": {
+        "startLine": 4005,
+        "startChar": 4,
+        "endLine": 4006,
+        "endChar": 45
+      },
+      "revId": "df82ef93e4795c5de14cf964862b9c25636d5e16",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

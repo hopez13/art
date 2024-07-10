@@ -144,6 +144,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5386d277_58360553",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4067,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-10T13:13:00Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "415d4459_41626dd5",
+      "range": {
+        "startLine": 4067,
+        "startChar": 0,
+        "endLine": 4067,
+        "endChar": 55
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f7983c57_a361f195",
@@ -395,6 +419,30 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "71d6fe09_6ccf4380",
+      "range": {
+        "startLine": 4138,
+        "startChar": 0,
+        "endLine": 4142,
+        "endChar": 79
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "376e862f_6e91505b",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4142,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-10T13:13:00Z",
+      "side": 1,
+      "message": "The implicit clobber is still there. By this I mean that there are two `CpuRegister` with `locations-\u003eGetTemp(0)`. Someone might in the future use `temp` and not realize it is implicitly changing the value from `vtable_index`",
+      "parentUuid": "45025caa_39c0d2f0",
       "range": {
         "startLine": 4138,
         "startChar": 0,
