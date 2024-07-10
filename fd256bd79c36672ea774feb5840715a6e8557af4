@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "be764b19_38e29801",
+        "filename": "test/2277-methodhandle-invokeexact/src-multidex/Multi.java",
+        "patchSetId": 26
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T15:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "efa94ea5_d9c24c15",
+      "range": {
+        "startLine": 29,
+        "startChar": 23,
+        "endLine": 29,
+        "endChar": 37
+      },
+      "revId": "fd256bd79c36672ea774feb5840715a6e8557af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "437cef45_7e032980",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-10T15:07:37Z",
       "side": 1,
       "message": "Same here with `$noinline$`",
+      "range": {
+        "startLine": 32,
+        "startChar": 30,
+        "endLine": 32,
+        "endChar": 45
+      },
+      "revId": "fd256bd79c36672ea774feb5840715a6e8557af4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b4c8240a_bce09a55",
+        "filename": "test/2277-methodhandle-invokeexact/src/Main.java",
+        "patchSetId": 26
+      },
+      "lineNbr": 32,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T15:20:12Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "437cef45_7e032980",
       "range": {
         "startLine": 32,
         "startChar": 30,
