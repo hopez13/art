@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0825e574_e23c47c7",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 4068,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T14:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "78f365ca_05499cf8",
+      "range": {
+        "startLine": 4068,
+        "startChar": 12,
+        "endLine": 4068,
+        "endChar": 38
+      },
+      "revId": "711369a2be5cfcee08a9ea94b665abc75f93eee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "8bbbc5a0_82e85d76",
@@ -37,6 +61,24 @@
       "writtenOn": "2024-07-10T13:13:00Z",
       "side": 1,
       "message": "style: `\u0026\u0026` in this line (for example https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/optimizing/code_generator_x86.cc;l\u003d1361-1363;drc\u003db658a268e2e76e429702c2929d24ebbbf909e947)",
+      "revId": "711369a2be5cfcee08a9ea94b665abc75f93eee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "09770d6a_a9429b81",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 4072,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T14:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "8bbbc5a0_82e85d76",
       "revId": "711369a2be5cfcee08a9ea94b665abc75f93eee2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -64,6 +106,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4f29b491_130922db",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 4106,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T14:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "df33f0ee_1582c5d6",
+      "range": {
+        "startLine": 4106,
+        "startChar": 43,
+        "endLine": 4106,
+        "endChar": 51
+      },
+      "revId": "711369a2be5cfcee08a9ea94b665abc75f93eee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "5ee85576_febfca1a",
@@ -77,6 +143,30 @@
       "writtenOn": "2024-07-10T13:13:00Z",
       "side": 1,
       "message": "Can you add a comment explaining why this is needed? We are not planning on adding this instruction but we are using this block to access the graph for its allocator",
+      "range": {
+        "startLine": 4120,
+        "startChar": 2,
+        "endLine": 4120,
+        "endChar": 36
+      },
+      "revId": "711369a2be5cfcee08a9ea94b665abc75f93eee2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f4aba6_e358b400",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 24
+      },
+      "lineNbr": 4120,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T14:48:10Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "5ee85576_febfca1a",
       "range": {
         "startLine": 4120,
         "startChar": 2,
