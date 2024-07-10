@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "37ca1891_758ebce0",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 4094,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-10T08:37:55Z",
+      "side": 1,
+      "message": "Let\u0027s add also `DCHECK_EQ(invoke-\u003eInputAt(1)-\u003eGetType(),  DataType::Type::kReference)`. We can add a comment above both DCHECKS that says something like `The MethodHandle.InvokeExact intrinsic implementation only supports invoking it with no parameters`.",
+      "revId": "78e0e73ee2d7497b6d052706ddf520889d45a241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b45dcdc1_079b7e90",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 4095,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-10T08:37:55Z",
+      "side": 1,
+      "message": "No need to do the `if` when you are doing the DCHECK above.",
+      "range": {
+        "startLine": 4095,
+        "startChar": 0,
+        "endLine": 4095,
+        "endChar": 25
+      },
+      "revId": "78e0e73ee2d7497b6d052706ddf520889d45a241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
