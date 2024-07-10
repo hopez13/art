@@ -122,6 +122,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "415d4459_41626dd5",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 16
+      },
+      "lineNbr": 4067,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T09:18:11Z",
+      "side": 1,
+      "message": "\u003e Would e.g. a static method with an Object parameter satisfy this?\n\nYes, it will.\n\n\u003e You are doing this in staticMethod from class A. Is this intended?\n\nIt is intentional and effectively it checks `__ cmpl(method_handle_kind, Immediate(mirror::MethodHandle::Kind::kInvokeVirtual));`.",
+      "parentUuid": "0eded76c_1b736ee6",
+      "range": {
+        "startLine": 4067,
+        "startChar": 0,
+        "endLine": 4067,
+        "endChar": 55
+      },
+      "revId": "df78de6931890b8b17d87d6dc604f9a847db3461",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "f7983c57_a361f195",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 16

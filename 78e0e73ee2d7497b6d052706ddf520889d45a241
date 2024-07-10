@@ -20,6 +20,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ffb8b77a_fc218d05",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 4094,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T09:18:11Z",
+      "side": 1,
+      "message": "I extracted that into a separate method.",
+      "parentUuid": "37ca1891_758ebce0",
+      "revId": "78e0e73ee2d7497b6d052706ddf520889d45a241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b45dcdc1_079b7e90",
         "filename": "compiler/optimizing/intrinsics_x86_64.cc",
         "patchSetId": 21
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-10T08:37:55Z",
       "side": 1,
       "message": "No need to do the `if` when you are doing the DCHECK above.",
+      "range": {
+        "startLine": 4095,
+        "startChar": 0,
+        "endLine": 4095,
+        "endChar": 25
+      },
+      "revId": "78e0e73ee2d7497b6d052706ddf520889d45a241",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "65ac66b0_89a07a50",
+        "filename": "compiler/optimizing/intrinsics_x86_64.cc",
+        "patchSetId": 21
+      },
+      "lineNbr": 4095,
+      "author": {
+        "id": 1793992
+      },
+      "writtenOn": "2024-07-10T09:18:11Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b45dcdc1_079b7e90",
       "range": {
         "startLine": 4095,
         "startChar": 0,
