@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f3baf418_4daf36d2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-11T16:36:04Z",
+      "side": 1,
+      "message": "I wish I shared your confidence. Except for one small wrinkle I can\u0027t find any observable effects (it\u0027s e.g. clear that `mRunningJob !\u003d null` is no longer synchronised with JobScheduler\u0027s idea of whether a job is running, but it doesn\u0027t seem to matter). However that doesn\u0027t mean I\u0027m convinced there aren\u0027t any.",
+      "range": {
+        "startLine": 13,
+        "startChar": 17,
+        "endLine": 13,
+        "endChar": 32
+      },
+      "revId": "90d256315a479080dfa426b26400d938ef555883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0ee2e512_d7f6da63",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-11T16:36:04Z",
+      "side": 1,
+      "message": "Since this is asynchronous we\u0027ll now get a call to `onStopJob` in this case which it should ignore. It would be nice with a `Utils.check(!mIsRunningJobKnownByJobScheduler)` before this to make it clear that the `if` statement there dtrt, but that\u0027s contingent on having a test for this code branch. Do we have that? (Btw pinged b/321241566 about the broken coverage annotations.)",
+      "range": {
+        "startLine": 127,
+        "startChar": 12,
+        "endLine": 127,
+        "endChar": 19
+      },
+      "revId": "90d256315a479080dfa426b26400d938ef555883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
