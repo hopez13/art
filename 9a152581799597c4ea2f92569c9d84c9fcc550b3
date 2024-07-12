@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2aafac2c_4bdd858c",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1750078
+      },
+      "writtenOn": "2024-07-12T09:49:55Z",
+      "side": 1,
+      "message": "This won\u0027t work, it is too late to make `findLoadedClass` consistent with the other implementation, that is because Cronet in GMSCore is using `findLoadedClass` and the only reason that it is not failing was that because the `findLoadedClass` is flexible with the class naming.\n\nAdding this restrictions will break almost everyone using Cronet.",
+      "revId": "9a152581799597c4ea2f92569c9d84c9fcc550b3",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
