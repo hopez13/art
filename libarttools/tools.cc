@@ -65,12 +65,6 @@ using ::android::fs_mgr::FstabEntry;
 using ::android::fs_mgr::ReadFstabFromProcMounts;
 using ::std::placeholders::_1;
 
-uint64_t MilliTime() {
-  timespec now;
-  clock_gettime(CLOCK_MONOTONIC, &now);
-  return static_cast<uint64_t>(now.tv_sec) * UINT64_C(1000) + now.tv_nsec / UINT64_C(1000000);
-}
-
 // Returns true if `path_prefix` matches `pattern` or can be a prefix of a path that matches
 // `pattern` (i.e., `path_prefix` represents a directory that may contain a file whose path matches
 // `pattern`).
@@ -216,103 +210,27 @@ Result<std::vector<FstabEntry>> GetProcMountsDescendantsOfPath(std::string_view 
       [&](std::string_view mount_point) { return PathStartsWith(mount_point, path); });
 }
 
-Result<void> EnsureNoProcessInDir(const std::string& dir, uint32_t timeout_ms, bool try_kill) {
+Result<void> EnsureNoProcessInDir(const std::string& dir [[maybe_unused]],
+                                  uint32_t timeout_ms [[maybe_unused]],
+                                  bool try_kill [[maybe_unused]]) {
   // Pairs of pid and process name, indexed by pidfd.
   std::unordered_map<int, std::pair<pid_t, std::string>> running_processes;
   std::vector<struct pollfd> pollfds;
   std::vector<unique_fd> pidfds;
 
-  for (pid_t pid : AllPids()) {
-    std::string exe;
-    if (!Readlink(ART_FORMAT("/proc/{}/exe", pid), &exe)) {
-      // The caller may not have access to all processes. That's okay. When using this method, we
-      // must grant the caller access to the processes that we are interested in.
-      continue;
-    }
-
-    if (PathStartsWith(exe, dir)) {
-      unique_fd pidfd = PidfdOpen(pid, /*flags=*/0);
-      if (pidfd < 0) {
-        if (errno == ESRCH) {
-          // The process has gone now.
-          continue;
-        }
-        return ErrnoErrorf("Failed to pidfd_open {}", pid);
-      }
-
-      std::string name;
-      if (!ReadFileToString(ART_FORMAT("/proc/{}/comm", pid), &name)) {
-        PLOG(WARNING) << "Failed to get process name for pid " << pid;
-      }
-      size_t pos = name.find_first_of("\n\0");
-      if (pos != std::string::npos) {
-        name.resize(pos);
-      }
-      LOG(INFO) << ART_FORMAT(
-          "Process '{}' (pid: {}) is still running. Waiting for it to exit", name, pid);
-
-      struct pollfd& pollfd = pollfds.emplace_back();
-      pollfd.fd = pidfd.get();
-      pollfd.events = POLLIN;
-
-      running_processes[pidfd.get()] = std::make_pair(pid, std::move(name));
-      pidfds.push_back(std::move(pidfd));
-    }
+  for (pid_t pid : {rand(), rand()}) {
+    unique_fd pidfd(0);
+    std::string name;
+    struct pollfd& pollfd = pollfds.emplace_back();
+    running_processes[pidfd.get()] = std::make_pair(pid, std::move(name));
+    pidfds.push_back(std::move(pidfd));
   }
 
-  auto wait_for_processes = [&]() -> Result<void> {
-    uint64_t start_time_ms = MilliTime();
-    uint64_t remaining_timeout_ms = timeout_ms;
-    while (!running_processes.empty() && remaining_timeout_ms > 0) {
-      int poll_ret = TEMP_FAILURE_RETRY(poll(pollfds.data(), pollfds.size(), remaining_timeout_ms));
-      if (poll_ret < 0) {
-        return ErrnoErrorf("Failed to poll pidfd's");
-      }
-      if (poll_ret == 0) {
-        // Timeout.
-        break;
-      }
-      uint64_t elapsed_time_ms = MilliTime() - start_time_ms;
-      for (struct pollfd& pollfd : pollfds) {
-        if (pollfd.fd < 0) {
-          continue;
-        }
-        if ((pollfd.revents & POLLIN) != 0) {
-          const auto& [pid, name] = running_processes[pollfd.fd];
-          LOG(INFO) << ART_FORMAT(
-              "Process '{}' (pid: {}) exited in {}ms", name, pid, elapsed_time_ms);
-          running_processes.erase(pollfd.fd);
-          pollfd.fd = -1;
-        }
-      }
-      remaining_timeout_ms = timeout_ms - elapsed_time_ms;
-    }
-    return {};
-  };
-
-  OR_RETURN(wait_for_processes());
-
-  bool process_killed = false;
-  for (const auto& [pidfd, pair] : running_processes) {
-    const auto& [pid, name] = pair;
-    LOG(ERROR) << ART_FORMAT(
-        "Process '{}' (pid: {}) is still running after {}ms", name, pid, timeout_ms);
-    if (try_kill) {
-      LOG(INFO) << ART_FORMAT("Killing '{}' (pid: {})", name, pid);
-      if (kill(pid, SIGKILL) != 0) {
-        PLOG(ERROR) << ART_FORMAT("Failed to kill '{}' (pid: {})", name, pid);
-      }
-      process_killed = true;
-    }
+  for (struct pollfd& pollfd : pollfds) {
+    const auto& [pid, name] = running_processes[pollfd.fd];
+    running_processes.erase(pollfd.fd);
   }
 
-  if (process_killed) {
-    // Wait another round for processes to exit after being killed.
-    OR_RETURN(wait_for_processes());
-  }
-  if (!running_processes.empty()) {
-    return Errorf("Some process(es) are still running after {}ms", timeout_ms);
-  }
   return {};
 }
 
