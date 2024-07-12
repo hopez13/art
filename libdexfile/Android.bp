@@ -275,6 +275,12 @@ art_cc_library {
         // stubs, and libartd depends on this.
         "com.android.art",
     ],
+
+    // libdexfiled.so implements the libdexfile.so API in com.android.art.debug.
+    stubs: {
+        symbol_file: "libdexfile.map.txt",
+        versions: ["1"],
+    },
 }
 
 art_cc_defaults {
