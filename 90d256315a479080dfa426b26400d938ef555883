@@ -45,6 +45,30 @@
       },
       "revId": "90d256315a479080dfa426b26400d938ef555883",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ebed0d35_2581d425",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 127,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-12T09:48:26Z",
+      "side": 1,
+      "message": "Added the check.\n\n\u003e Do we have that?\n\nThis `if` branch is covered by `testRace2`, and the `if` branch there is covered by `testRace3`.",
+      "parentUuid": "0ee2e512_d7f6da63",
+      "range": {
+        "startLine": 127,
+        "startChar": 12,
+        "endLine": 127,
+        "endChar": 19
+      },
+      "revId": "90d256315a479080dfa426b26400d938ef555883",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
