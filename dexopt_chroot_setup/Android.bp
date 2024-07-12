@@ -82,6 +82,7 @@ art_cc_test {
         "libselinux",
     ],
     test_config_template: "art_standalone_dexopt_chroot_setup_tests.xml",
+    compile_multilib: "first",
 }
 
 cc_fuzz {

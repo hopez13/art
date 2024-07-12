@@ -228,6 +228,11 @@ art_cc_defaults {
     static_libs: [
         "libgmock",
     ],
+    target: {
+        android: {
+            compile_multilib: "first",
+        },
+    },
 }
 
 // Version of ART gtest `art_odrefresh_tests` bundled with the ART APEX on target.

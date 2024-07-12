@@ -82,6 +82,11 @@ art_cc_defaults {
         ":art-gtest-jars-Main",
         ":art-gtest-jars-Nested",
     ],
+    target: {
+        android: {
+            compile_multilib: "first",
+        },
+    },
 }
 
 // Version of ART gtest `art_artd_tests` bundled with the ART APEX on target.
