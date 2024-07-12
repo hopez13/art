@@ -52,6 +52,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6d738e04_a5570b1d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 8
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "No problem, it took me quite a while too!\n\nI think presubmit needs to be re-run on both this patch and the [previous one](https://android-review.googlesource.com/c/platform/art/+/3125393/1?usp\u003drelated-change) as the previous runs have expired.",
+      "parentUuid": "631e0d83_96700702",
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "29226f97_33de6327",
@@ -65,6 +83,30 @@
       "writtenOn": "2024-06-19T16:02:46Z",
       "side": 1,
       "message": "We could integrate this code into `art_quick_do_long_jump` to avoid code duplication.\n\nIf we do that, some of the new `CFI_REMEMBER_STATE`/`CFI_RESTORE_STATE_AND_DEF_CFA` pairs shall also become unnecessary (we shall call `art_quick_do_long_jump` before we mess up the stack frame) and can be removed.",
+      "range": {
+        "startLine": 284,
+        "startChar": 0,
+        "endLine": 294,
+        "endChar": 40
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f2f19a40_10d5f71f",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 294,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "I\u0027ve also removed the macro as it was unnecessary when everything was done in `art_quick_do_long_jump`.\n\nI tested removing all `CFI_REMEMBER_STATE`/`CFI_RESTORE_STATE_AND_DEF_CFA` and only CFI directives from `ONE_ARG_SAVE_EVERYTHING_DOWNCALL` could be removed. The rest are needed to save/restore the CFI state before/after control flow which would not be accounted for by the CFI directives in the regular stack `SAVE`/`RESTORE` macros.",
+      "parentUuid": "29226f97_33de6327",
       "range": {
         "startLine": 284,
         "startChar": 0,
@@ -98,6 +140,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "196c44ef_979ba5dc",
+        "filename": "runtime/arch/arm/jni_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 395,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ff4a1b0a_ee72a22a",
+      "range": {
+        "startLine": 395,
+        "startChar": 11,
+        "endLine": 395,
+        "endChar": 12
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6476e4f0_3f987958",
@@ -111,6 +177,30 @@
       "writtenOn": "2024-06-19T16:02:46Z",
       "side": 1,
       "message": "I\u0027d prefer to pop args before the deopt check. (Avoid the ` + /* stack arguments */ 8` below.)",
+      "range": {
+        "startLine": 2470,
+        "startChar": 4,
+        "endLine": 2470,
+        "endChar": 70
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "928d7a77_2d37ea72",
+        "filename": "runtime/arch/arm/quick_entrypoints_arm.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 2470,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6476e4f0_3f987958",
       "range": {
         "startLine": 2470,
         "startChar": 4,
@@ -144,6 +234,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a950d7e0_3a930f71",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 434,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3481e16b_b35af162",
+      "range": {
+        "startLine": 434,
+        "startChar": 11,
+        "endLine": 434,
+        "endChar": 12
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "20b3ac95_d666eec5",
@@ -157,6 +271,30 @@
       "writtenOn": "2024-06-19T16:02:46Z",
       "side": 1,
       "message": "Remove obsolete comment.",
+      "range": {
+        "startLine": 945,
+        "startChar": 57,
+        "endLine": 945,
+        "endChar": 88
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8f68bfa_c1557e4d",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 8
+      },
+      "lineNbr": 945,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "20b3ac95_d666eec5",
       "range": {
         "startLine": 945,
         "startChar": 57,
@@ -190,6 +328,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8af12e86_400101e9",
+        "filename": "runtime/arch/context.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f00f7395_3f07fb61",
+      "range": {
+        "startLine": 98,
+        "startChar": 45,
+        "endLine": 98,
+        "endChar": 61
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "35345c9e_517dbb93",
@@ -203,6 +365,30 @@
       "writtenOn": "2024-06-19T16:02:46Z",
       "side": 1,
       "message": "We should clear the field to avoid double-delete but I\u0027d prefer a much deeper rewrite of the context ownership.",
+      "range": {
+        "startLine": 346,
+        "startChar": 8,
+        "endLine": 346,
+        "endChar": 42
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b8bdbf81_c26112dc",
+        "filename": "runtime/art_method.cc",
+        "patchSetId": 8
+      },
+      "lineNbr": 346,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "35345c9e_517dbb93",
       "range": {
         "startLine": 346,
         "startChar": 8,
@@ -236,6 +422,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b94ab95f_a1791d4e",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 682,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "afb97bcd_009320f7",
+      "range": {
+        "startLine": 682,
+        "startChar": 81,
+        "endLine": 682,
+        "endChar": 87
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "641e777f_a599781a",
@@ -249,6 +459,30 @@
       "writtenOn": "2024-06-19T16:02:46Z",
       "side": 1,
       "message": "Can we remove this field entirely and rewrite the `Context` ownership?\n\nWhen we want to throw/deoptimize, we should construct a new `Context` and hold it with a `std::unique_ptr\u003cContext\u003e` until we\u0027re returning to the stubs - then we `release()` it and let the handwritten assembly use a raw `Context*`. The long jump stub would pass the `Context*` to `artContextCopyForLongJump()` (instead of `Thread* self`) and we would actually delete the context there to avoid unnecessarily keeping it around.",
+      "range": {
+        "startLine": 692,
+        "startChar": 49,
+        "endLine": 692,
+        "endChar": 66
+      },
+      "revId": "d511b0f2073dfe0ed2cbd06651c84cb4971fd89d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5df599f_5e7eaa61",
+        "filename": "runtime/thread.h",
+        "patchSetId": 8
+      },
+      "lineNbr": 692,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-12T15:09:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "641e777f_a599781a",
       "range": {
         "startLine": 692,
         "startChar": 49,
