@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "7b047df0_29813b50",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 26,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-12T21:14:19Z",
+      "side": 1,
+      "message": "Duplicate. Also hard to follow sentence.",
+      "range": {
+        "startLine": 26,
+        "startChar": 42,
+        "endLine": 26,
+        "endChar": 45
+      },
+      "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "4958e8fc_e4c9a5c6",
@@ -31,6 +54,152 @@
       "writtenOn": "2024-07-08T17:20:01Z",
       "side": 1,
       "message": "The Treehugger warning does not appear relevant.",
+      "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d02c666e_fe007300",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 340,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-12T21:14:19Z",
+      "side": 1,
+      "message": "Why is this scoping needed? Seems like can be removed.",
+      "range": {
+        "startLine": 340,
+        "startChar": 1,
+        "endLine": 340,
+        "endChar": 3
+      },
+      "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "436e4ca5_b9b38a38",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 386,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-12T21:14:19Z",
+      "side": 1,
+      "message": "Why not in the above line itself?",
+      "range": {
+        "startLine": 386,
+        "startChar": 0,
+        "endLine": 386,
+        "endChar": 68
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0cc32e96_e2e48e7a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/thread_list.cc",
+              "range": {
+                "startLine": 385,
+                "startChar": 0,
+                "endLine": 387,
+                "endChar": 0
+              },
+              "replacement": "      bool was_runnable \u003d thread-\u003eRequestCheckpoint(checkpoint_function);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "51eafc07_eefe6090",
+        "filename": "runtime/thread_list.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 443,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-12T21:14:19Z",
+      "side": 1,
+      "message": "Didn\u0027t understand how is this possible? If we have incremented the suspend count, how can the thread be runnable after that?\n\nIOW, if the thread is runnable, then how can its suspend-count be incremented that it needs to be decremented in the following line?",
+      "range": {
+        "startLine": 443,
+        "startChar": 11,
+        "endLine": 443,
+        "endChar": 49
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5e61fed9_a70d7157",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/thread_list.cc",
+              "range": {
+                "startLine": 443,
+                "startChar": 0,
+                "endLine": 444,
+                "endChar": 0
+              },
+              "replacement": "        // Thread is unexpectedly runnable again. This can happen if the thread is\n        // runnable, but not yet suspended, and we increment the suspend count.\n        // Undo the suspend request, and retry later.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4656553a_922a966b",
+        "filename": "runtime/thread_list.h",
+        "patchSetId": 1
+      },
+      "lineNbr": 131,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-12T21:14:19Z",
+      "side": 1,
+      "message": "acquired?",
+      "range": {
+        "startLine": 131,
+        "startChar": 47,
+        "endLine": 131,
+        "endChar": 54
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "fac9cc1e_78305993",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/thread_list.h",
+              "range": {
+                "startLine": 131,
+                "startChar": 0,
+                "endLine": 132,
+                "endChar": 0
+              },
+              "replacement": "  // If acquire_muator_lock is true, it may be acquired repeatedly to avoid holding it for an\n"
+            }
+          ]
+        }
+      ],
       "revId": "146e61a5556a88ad7daad09156d2d93bb0db07fb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
