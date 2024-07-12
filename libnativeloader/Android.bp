@@ -193,6 +193,10 @@ art_cc_test {
     test_config_template: ":art-gtests-target-standalone-cts-template",
     test_suites: [
         "cts",
+<<<<<<< HEAD   (5d1c1f [DO NOT MERGE] Add mcts tags)
+=======
+        "mts-art",
+>>>>>>> BRANCH (ebaa56 [RESTRICT AUTOMERGE] Add mcts tags)
         "mcts-art",
     ],
 }
