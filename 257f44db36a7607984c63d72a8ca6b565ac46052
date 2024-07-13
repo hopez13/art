@@ -1,0 +1,73 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "70864531_2ca4e8f7",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-07-13T00:48:26Z",
+      "side": 1,
+      "message": "I guess this todo list item is what I\u0027m asking for too!",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 20
+      },
+      "revId": "257f44db36a7607984c63d72a8ca6b565ac46052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1552741e_68352d6d",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-07-13T00:48:26Z",
+      "side": 1,
+      "message": "I wasn\u0027t aware that there was any functionality to identify duplicates; I thought that these changes just showed the bitmaps. \n\nSuggest rephrasing this to\n```\nAdd support to display bitmaps included in heapdump. \nTo use this functionality, collect the heapdump with \u0027adb shell am dumpheap -b png\u0027.\n```\n\n(Do you think that it matters that we\u0027ll be making this multiple lines?)\n\nAnd, does it need to be `-b png` specifically to work, or should we just say -b ?",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 77
+      },
+      "revId": "257f44db36a7607984c63d72a8ca6b565ac46052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "01f0de9d_473e2e05",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-07-13T00:48:26Z",
+      "side": 1,
+      "message": "There\u0027s a typo in this go link! \n\nBut rather than add the go link to this documentation (where it won\u0027t be visible to the public), I think we should actually remove it. \n\nI think it would be better to add some of the information from that doc to this page or to something on a publicly available page, like maybe in this section of DAC: https://developer.android.com/topic/performance/overview",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "257f44db36a7607984c63d72a8ca6b565ac46052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
