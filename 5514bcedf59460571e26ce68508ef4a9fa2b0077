@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "02d0d36a_9f0f472a",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 1703,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T20:45:31Z",
+      "side": 1,
+      "message": "Sorry missed that, but to get the nice error message, this should be DCHECK_EQ (ok to ignore for now)",
+      "range": {
+        "startLine": 1702,
+        "startChar": 0,
+        "endLine": 1703,
+        "endChar": 41
+      },
+      "revId": "5514bcedf59460571e26ce68508ef4a9fa2b0077",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
