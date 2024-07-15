@@ -1,0 +1,237 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb4427b5_3f74e5fe",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "Make it one line.",
+      "range": {
+        "startLine": 2827,
+        "startChar": 25,
+        "endLine": 2828,
+        "endChar": 66
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "da1d280a_170ce72e",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "On the new line with 4 space indents, and then the `:` on another line as well.",
+      "range": {
+        "startLine": 2829,
+        "startChar": 47,
+        "endLine": 2829,
+        "endChar": 48
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "72f478c7_9fd10c43",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 2828,
+                "startChar": 0,
+                "endLine": 2832,
+                "endChar": 0
+              },
+              "replacement": "                               \u003c\u003c mirror::kArrayComponentSizeShiftShift;\n  class_flags |\u003d component_type-\u003eIsPrimitive()\n                     ? (mirror::kClassFlagNoReferenceFields | mirror::kClassFlagPrimitiveArray)\n                     : mirror::kClassFlagObjectArray;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "25cb6583_3e57a48c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "Add /* parametername */",
+      "range": {
+        "startLine": 3688,
+        "startChar": 6,
+        "endLine": 3688,
+        "endChar": 14
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "5bd91ddf_4a5fb8ab",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/class_linker.cc",
+              "range": {
+                "startLine": 3688,
+                "startChar": 0,
+                "endLine": 3689,
+                "endChar": 0
+              },
+              "replacement": "      /* is_abstract\u003d */ false, /* is_interface\u003d */ 0, num_8, num_16, num_32, num_64, num_ref, /* is_proxy\u003d */ 0, image_pointer_size_);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "81fd343b_94240923",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 3688,
+        "startChar": 56,
+        "endLine": 3688,
+        "endChar": 57
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e91e4f6_7f09b5f6",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "How do we make sure of that? Do we DCHECK it somewhere?",
+      "range": {
+        "startLine": 592,
+        "startChar": 65,
+        "endLine": 592,
+        "endChar": 66
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "8937136d_fd2a2794",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/mirror/class.h",
+              "range": {
+                "startLine": 592,
+                "startChar": 0,
+                "endLine": 592,
+                "endChar": 0
+              },
+              "replacement": "    // The number of static fields in java.lang.Class.\n    uint32_t num_static_fields \u003d 4;\n    // The number of instance fields in java.lang.Class.\n    uint32_t num_instance_fields \u003d 1;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b82efeb2_30ac8026",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "Isn\u0027t that gone now?",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1610,
+        "endChar": 36
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9e3bce58_0479b3a8",
+        "filename": "runtime/mirror/class_flags.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T08:47:49Z",
+      "side": 1,
+      "message": "Looks like this change to array flags could have been in its own CL?",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 61
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "20a80a6e_da172b03",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/mirror/class_flags.h",
+              "range": {
+                "startLine": 70,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
