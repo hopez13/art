@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bdd94432_3b893f13",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-15T18:37:14Z",
+      "side": 1,
+      "message": "`png` can be replaced with `jpg` or `webp` for different format.",
+      "parentUuid": "1552741e_68352d6d",
+      "range": {
+        "startLine": 59,
+        "startChar": 0,
+        "endLine": 59,
+        "endChar": 77
+      },
+      "revId": "257f44db36a7607984c63d72a8ca6b565ac46052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "01f0de9d_473e2e05",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-07-13T00:48:26Z",
       "side": 1,
       "message": "There\u0027s a typo in this go link! \n\nBut rather than add the go link to this documentation (where it won\u0027t be visible to the public), I think we should actually remove it. \n\nI think it would be better to add some of the information from that doc to this page or to something on a publicly available page, like maybe in this section of DAC: https://developer.android.com/topic/performance/overview",
+      "range": {
+        "startLine": 60,
+        "startChar": 4,
+        "endLine": 60,
+        "endChar": 25
+      },
+      "revId": "257f44db36a7607984c63d72a8ca6b565ac46052",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9af91825_5dfbf8f5",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 4
+      },
+      "lineNbr": 60,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-15T18:37:14Z",
+      "side": 1,
+      "message": "Agree.",
+      "parentUuid": "01f0de9d_473e2e05",
       "range": {
         "startLine": 60,
         "startChar": 4,
