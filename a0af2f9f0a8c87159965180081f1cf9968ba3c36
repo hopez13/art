@@ -16,6 +16,40 @@
       "message": "Martin, could you help review this CL again? I updated various things to disable the test on JVM.",
       "revId": "a0af2f9f0a8c87159965180081f1cf9968ba3c36",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cc07a87_84d6744c",
+        "filename": "test/2279-aconfig-flags/build.py",
+        "patchSetId": 5
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-15T11:26:48Z",
+      "side": 1,
+      "message": "Nit: Add \u0027#\u0027, for consistency.",
+      "revId": "a0af2f9f0a8c87159965180081f1cf9968ba3c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c72373d4_55751e4a",
+        "filename": "test/2279-aconfig-flags/test-metadata.json",
+        "patchSetId": 5
+      },
+      "lineNbr": 6,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-15T11:26:48Z",
+      "side": 1,
+      "message": "Nit: Delete extra empty line.",
+      "revId": "a0af2f9f0a8c87159965180081f1cf9968ba3c36",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
