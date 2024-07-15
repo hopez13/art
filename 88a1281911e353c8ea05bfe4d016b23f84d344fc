@@ -16,6 +16,52 @@
       "message": "PTAL. Fix is in PS1..PS4",
       "revId": "88a1281911e353c8ea05bfe4d016b23f84d344fc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9fdd30a3_888e6fd8",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T12:35:52Z",
+      "side": 1,
+      "message": "Make this into two DCHECKs (so if it fails, you get the value of curr_entry.AsRegister)",
+      "range": {
+        "startLine": 1702,
+        "startChar": 2,
+        "endLine": 1702,
+        "endChar": 77
+      },
+      "revId": "88a1281911e353c8ea05bfe4d016b23f84d344fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "09fa427d_5eed0633",
+        "filename": "compiler/optimizing/code_generator_x86_64.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 1702,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-15T12:35:52Z",
+      "side": 1,
+      "message": "Drop parens.",
+      "range": {
+        "startLine": 1702,
+        "startChar": 36,
+        "endLine": 1702,
+        "endChar": 41
+      },
+      "revId": "88a1281911e353c8ea05bfe4d016b23f84d344fc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
