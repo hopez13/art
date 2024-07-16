@@ -47,6 +47,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "9139e97d_13c29e0a",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T16:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5f21726_5178086b",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f86710de_c6d4dfe5",
@@ -60,6 +84,30 @@
       "writtenOn": "2024-07-16T14:57:47Z",
       "side": 1,
       "message": "Doesn\u0027t it work without this? Normal dependencies should be resolved by the build system, so hopefully we can just drop this one and have it pulled in through e.g. artd.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9efd85c2_899ca1b1",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T16:25:45Z",
+      "side": 1,
+      "message": "I created this because the apex didn\u0027t build without it. I guess that was because `com.android.art-defaults-minus-odrefresh` has `compile_multilib: \"both\"`.",
+      "parentUuid": "f86710de_c6d4dfe5",
       "range": {
         "startLine": 68,
         "startChar": 0,
@@ -93,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a051adcc_3d01d720",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T16:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "915f0ea4_eec3e7da",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d4ff3b2f_004a4749",
@@ -116,6 +188,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3cef8448_702b8b41",
+        "filename": "dexopt_chroot_setup/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T16:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d4ff3b2f_004a4749",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 30
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0bfb7150_aefa9855",
@@ -129,6 +225,30 @@
       "writtenOn": "2024-07-16T14:57:47Z",
       "side": 1,
       "message": "And here too - move into `odrefresh-defaults`?",
+      "range": {
+        "startLine": 233,
+        "startChar": 12,
+        "endLine": 233,
+        "endChar": 38
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "829dd4aa_f1c7c23d",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T16:25:45Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0bfb7150_aefa9855",
       "range": {
         "startLine": 233,
         "startChar": 12,
