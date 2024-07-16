@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7f0f16f8_2a53409a",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-07-16T12:47:33Z",
+      "side": 1,
+      "message": "I think this should be `Runtime::Current()-\u003eGetMetrics()` (see https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/runtime.h;l\u003d1570;drc\u003d7b23aad719b9cc4152355b7cf0fa49b040acd6ab).",
+      "range": {
+        "startLine": 540,
+        "startChar": 33,
+        "endLine": 540,
+        "endChar": 45
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "d93fa246_c5ebe4d4",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/native/dalvik_system_VMRuntime.cc",
+              "range": {
+                "startLine": 540,
+                "startChar": 0,
+                "endLine": 541,
+                "endChar": 0
+              },
+              "replacement": "  metrics::ArtMetrics* metrics \u003d Runtime::Current()-\u003eGetMetrics();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "282fabe4097230869452015944aa5b371f65b459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
