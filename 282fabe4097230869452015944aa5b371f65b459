@@ -40,6 +40,30 @@
       ],
       "revId": "282fabe4097230869452015944aa5b371f65b459",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "89d24ad6_e510990a",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 540,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-16T21:12:31Z",
+      "side": 1,
+      "message": "Thanks Stefano, do I understand it wrong if we use `GetMetrics()` here, that inline version will automatically expand to `Runtime::Current()-\u003eGetMetrics()`, given we are in `namespace art`?",
+      "parentUuid": "7f0f16f8_2a53409a",
+      "range": {
+        "startLine": 540,
+        "startChar": 33,
+        "endLine": 540,
+        "endChar": 45
+      },
+      "revId": "282fabe4097230869452015944aa5b371f65b459",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
