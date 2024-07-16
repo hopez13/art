@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4d1b6e5d_0a0906c0",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "My intention is to mention optimizations here, instead of all changes. Changing from `Path` to `String` is just a cleanup. It may help improve the performance a bit, but not noticibly.",
+      "parentUuid": "972ef18b_c64176b7",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0056485f_a4c7c4ec",
@@ -35,6 +53,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "b38b92ce_7c051971",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "What I did was I flashed the latest AP4A build and ran `adb shell pm art dump`. My observations were:\n\n1. There were only a handful of packages (e.g., `com.google.android.gms`) that are **commonly** used by other packages.\n2. There were only ten-ish packages that are **ever** used by other packages.\n\nSee the dump at https://paste.googleplex.com/4735426185396224\n\n(1) was the motivation of this cache. The cache size was arbitrarily decided based on (2).\n\n\u003e Is this cache cleared between startups?\n\nNo, the idea is that most of the apps use the same set of packages.\n\n\u003e If not, doesn\u0027t that test significantly overestimate the effectiveness compared to real app startup usage?\n\nI don\u0027t think so. Based on my observation, most of the apps use the same set of packages, so starting the same app repeatedly is not too different from starting different apps.",
+      "parentUuid": "0056485f_a4c7c4ec",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12154ba5_3b826441",
@@ -48,6 +84,30 @@
       "writtenOn": "2024-07-16T01:16:02Z",
       "side": 1,
       "message": "Nit: A `switch` may be more idiomatic.",
+      "range": {
+        "startLine": 421,
+        "startChar": 16,
+        "endLine": 421,
+        "endChar": 31
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e4f1fd01_fa918291",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "12154ba5_3b826441",
       "range": {
         "startLine": 421,
         "startChar": 16,
@@ -81,6 +141,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "593607f3_1bd8f002",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "289eb075_3e4b7b79",
+      "range": {
+        "startLine": 447,
+        "startChar": 17,
+        "endLine": 447,
+        "endChar": 34
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d39fbe93_f9f0ec67",
@@ -94,6 +178,30 @@
       "writtenOn": "2024-07-16T01:16:02Z",
       "side": 1,
       "message": "Why not return null in this case? The caller doesn\u0027t seem to do anything different anyway.",
+      "range": {
+        "startLine": 449,
+        "startChar": 20,
+        "endLine": 449,
+        "endChar": 51
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "229f7d4f_a03a664b",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "I want to cache the package name in this case.",
+      "parentUuid": "d39fbe93_f9f0ec67",
       "range": {
         "startLine": 449,
         "startChar": 20,
@@ -121,6 +229,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e18d3f16_481f5cf9",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Done.\n\n\u003e (even though I see some sort of caching in the latter)\n\nA new filtered snapshot is created [on every dex load](https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/services/core/java/com/android/server/pm/PackageManagerService.java;l\u003d5607-5609;drc\u003daddf3371abf431b2918ef26fe85514c4e18a8d76), meaning the cache doesn\u0027t matter.",
+      "parentUuid": "b0021449_7a783d69",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3c94d0fc_e515f98f",
@@ -134,6 +260,30 @@
       "writtenOn": "2024-07-16T01:16:02Z",
       "side": 1,
       "message": "This unfiltered snapshot isn\u0027t atomic with the filtered one passed to the caller, is it? Hence one needs to check for cases where the package lists change between them. It\u0027d be simpler to follow the code if we could retrieve the unfiltered snapshot from the filtered one. Is that possible?",
+      "range": {
+        "startLine": 462,
+        "startChar": 24,
+        "endLine": 462,
+        "endChar": 83
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b5d46a2b_107cb504",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Unfortunately, there isn\u0027t a way to retrieve the unfiltered snapshot from the filtered one. In fact, we don\u0027t have to. If a package is in the filtered snapshot but not in the unfiltered snapshot, it means the package got removed, so we don\u0027t need to record it.\n\nAdded a comment.",
+      "parentUuid": "3c94d0fc_e515f98f",
       "range": {
         "startLine": 462,
         "startChar": 24,
@@ -167,6 +317,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d31253d9_55d9b0af",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Created aosp/3176199.",
+      "parentUuid": "17eb8f9b_0b6853df",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "bdaadbc4_1ba498bf",
@@ -180,6 +354,30 @@
       "writtenOn": "2024-07-16T01:16:02Z",
       "side": 1,
       "message": "Side issue, but please suppress this warning.\n\n---\n\nPlease fix this WARNING reported by Error Prone: [AutoValueImmutableFields] AutoValue instances should be deeply immutable. Therefore, we recommend returning ImmutableList instead.",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 55
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7580001c_65425010",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "I changed this to a record so I don\u0027t have to bother. It\u0027s fine as long as we don\u0027t use it as a map key (hence not using its insufficient `hashCode()` and `equals()`).",
+      "parentUuid": "bdaadbc4_1ba498bf",
       "range": {
         "startLine": 1262,
         "startChar": 0,
@@ -213,6 +411,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "40e2141a_171ae6f3",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Yes, it\u0027s fine as long as we don\u0027t use it as a map key (hence not using its insufficient `hashCode()` and `equals()`).",
+      "parentUuid": "2adb2d78_245b72e9",
+      "range": {
+        "startLine": 1286,
+        "startChar": 12,
+        "endLine": 1286,
+        "endChar": 18
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "66f158d5_efe8e713",
@@ -226,6 +448,30 @@
       "writtenOn": "2024-07-16T01:16:02Z",
       "side": 1,
       "message": "Why not use String.startsWith?",
+      "range": {
+        "startLine": 495,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb193754_10c68720",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T12:20:17Z",
+      "side": 1,
+      "message": "Because `prefixLen` may be decremented by line 490.",
+      "parentUuid": "66f158d5_efe8e713",
       "range": {
         "startLine": 495,
         "startChar": 0,
