@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0318d4bf_b46d365c",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "Suggestion: Rename to `kCount` like [JNIKind does](https://cs.android.com/android/platform/superproject/main/+/main:art/compiler/jni/jni_compiler_test.cc;l\u003d78-83;drc\u003ddaf65911a4e8126d10a0d98b9e3bcb363d373a30). This is basically used as a count to initialize the array below with the right amount of elements.",
+      "range": {
+        "startLine": 98,
+        "startChar": 66,
+        "endLine": 98,
+        "endChar": 79
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65697613_e9e86b67",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "style: `AccessFor` is not needed in the name as we will now do e.g. `AccessFor::kClass`",
+      "range": {
+        "startLine": 98,
+        "startChar": 3,
+        "endLine": 98,
+        "endChar": 12
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "725c0af4_06d78634",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 98,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "Style: one per line",
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8141fafa_ca3ce679",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 100,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "style: static constexpr",
+      "range": {
+        "startLine": 100,
+        "startChar": 0,
+        "endLine": 100,
+        "endChar": 5
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5c4e135_871ea99d",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 243,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "style: constexpr",
+      "range": {
+        "startLine": 243,
+        "startChar": 9,
+        "endLine": 243,
+        "endChar": 14
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "57ae5756_aa84818d",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 307,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "style: static constexpr",
+      "range": {
+        "startLine": 307,
+        "startChar": 2,
+        "endLine": 307,
+        "endChar": 7
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9caaef31_293e8dc0",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 308,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-16T14:01:49Z",
+      "side": 1,
+      "message": "Not for this commit but FYI this is brittle. This is 21 because `DECLARED_SYNCHRONIZED` is the longest string but potentially this could change in the future.\n\nNot sure why all of this is not using string/stringstream.",
+      "range": {
+        "startLine": 307,
+        "startChar": 23,
+        "endLine": 308,
+        "endChar": 2
+      },
+      "revId": "68bc015ee9704079f1f23aca7e6de4eb622b1b45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
