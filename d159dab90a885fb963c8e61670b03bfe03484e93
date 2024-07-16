@@ -1,0 +1,239 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "972ef18b_c64176b7",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 4
+      },
+      "lineNbr": 13,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "You also change from `Path` to `String` down in `getLocations`, fwiw.",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0056485f_a4c7c4ec",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "What\u0027s the usage pattern that motivate this cache and its size? In http://b/328673771#comment4 the same app is started repeatedly in a loop. Is this cache cleared between startups? If not, doesn\u0027t that test significantly overestimate the effectiveness compared to real app startup usage?",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "12154ba5_3b826441",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 421,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Nit: A `switch` may be more idiomatic.",
+      "range": {
+        "startLine": 421,
+        "startChar": 16,
+        "endLine": 421,
+        "endChar": 31
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "289eb075_3e4b7b79",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 447,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Overloading the same name is confusing and seems uncalled for here. Please choose a different name for one of these methods.",
+      "range": {
+        "startLine": 447,
+        "startChar": 17,
+        "endLine": 447,
+        "endChar": 34
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d39fbe93_f9f0ec67",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Why not return null in this case? The caller doesn\u0027t seem to do anything different anyway.",
+      "range": {
+        "startLine": 449,
+        "startChar": 20,
+        "endLine": 449,
+        "endChar": 51
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b0021449_7a783d69",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 460,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Please comment that the return value is unfiltered and must be checked whether it\u0027s visible to the calling app.\n\nIt\u0027s also worth a comment why this approach is beneficial. Iterating through the unfiltered snapshot means checking more entries, so apparently `checkForPackage` below is cheaper than `shouldFilterApplication` (even though I see some sort of caching in the latter).",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3c94d0fc_e515f98f",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 462,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "This unfiltered snapshot isn\u0027t atomic with the filtered one passed to the caller, is it? Hence one needs to check for cases where the package lists change between them. It\u0027d be simpler to follow the code if we could retrieve the unfiltered snapshot from the filtered one. Is that possible?",
+      "range": {
+        "startLine": 462,
+        "startChar": 24,
+        "endLine": 462,
+        "endChar": 83
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "17eb8f9b_0b6853df",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 505,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "It\u0027s not obvious that the early shared lib check keeps the same semantics. I suggest moving this bit to a separate CL.",
+      "range": {
+        "startLine": 501,
+        "startChar": 0,
+        "endLine": 505,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "bdaadbc4_1ba498bf",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Side issue, but please suppress this warning.\n\n---\n\nPlease fix this WARNING reported by Error Prone: [AutoValueImmutableFields] AutoValue instances should be deeply immutable. Therefore, we recommend returning ImmutableList instead.",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 55
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2adb2d78_245b72e9",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1286,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "You wanna use this?",
+      "range": {
+        "startLine": 1286,
+        "startChar": 12,
+        "endLine": 1286,
+        "endChar": 18
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "66f158d5_efe8e713",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T01:16:02Z",
+      "side": 1,
+      "message": "Why not use String.startsWith?",
+      "range": {
+        "startLine": 495,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
