@@ -22,6 +22,30 @@
       },
       "revId": "4dc1e1d7063a5fee561560305726221f076523ee",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "64d07679_218fa424",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T23:00:47Z",
+      "side": 1,
+      "message": "1. Storing the dex path in the cache can lead to wrong results in edge cases. For example, a dex path may initially belong to package A but later belong to package B. Although this can almost never happen given how dex files are organized on Android, I\u0027d like to avoid this for the peace of mind.\n2. With the current implementation, when a package loads a secondary dex file X of package GMS, the cache can also benefit another package that loads a secondary dex file Y of package GMS (the same package). Given that GMS usually have many (~10) secondary files, this implementation is beneficial.\n3. The `for` loop is not bad. According to the doc of `LruCache`:\n\n  \u003e Each time a value is accessed, it is moved to the head of a queue.\n  \n  A commonly used package like GMS is probably near the head of the queue. Therefore, when a package loads a secondary dex file of GMS, we\u0027ll return from the for loop within the first few iterations.",
+      "parentUuid": "ea60d158_817b12ea",
+      "range": {
+        "startLine": 488,
+        "startChar": 62,
+        "endLine": 488,
+        "endChar": 69
+      },
+      "revId": "4dc1e1d7063a5fee561560305726221f076523ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }

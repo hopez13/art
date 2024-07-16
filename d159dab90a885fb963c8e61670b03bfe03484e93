@@ -89,6 +89,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "bcf5ced5_79675a48",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T23:00:47Z",
+      "side": 1,
+      "message": "Done.\n\nIncreasing the cache size is not always a win in terms of performance. More entires in the cache means less commonly used packages get priority over packages that are not in the cache during `checkForAllPackages`, which may not be a good thing. I\u0027d like to start with the size of 30 and see.",
+      "parentUuid": "ef37586a_4fe1bbda",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12154ba5_3b826441",
@@ -244,6 +262,30 @@
       "side": 1,
       "message": "Isn\u0027t this after the caching? I can only see one caller for this, on line 414, and it ignores this result type.\n\nThe primary reason why it\u0027s nice is that it\u0027s easier to ascertain that a package doesn\u0027t get past the filtered snapshot check.",
       "parentUuid": "229f7d4f_a03a664b",
+      "range": {
+        "startLine": 449,
+        "startChar": 20,
+        "endLine": 449,
+        "endChar": 51
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e0e6d07_151042d2",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T23:00:47Z",
+      "side": 1,
+      "message": "I see what you mean. Done.",
+      "parentUuid": "6b889db8_22334c29",
       "range": {
         "startLine": 449,
         "startChar": 20,
@@ -454,6 +496,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b8f2ae1_7bec1727",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T23:00:47Z",
+      "side": 1,
+      "message": "I think `@Immutable` looks unnecessary for records because they are immutable by nature.\n\nAccording to https://blogs.oracle.com/javamagazine/post/records-come-to-java:\n\n\u003e The new concept is a record class (usually just called a record). This is an immutable (in the usual “shallow” Java sense) transparent carrier for a fixed set of values known as the record components.",
+      "parentUuid": "340850a7_189b7a0f",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 55
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2adb2d78_245b72e9",
@@ -562,6 +628,30 @@
       "side": 1,
       "message": "I see. It still looks like a net loss until it gets compiled though, but you\u0027re counting on it getting above the JIT threshold soon enough, I presume.",
       "parentUuid": "fb193754_10c68720",
+      "range": {
+        "startLine": 495,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a479974c_8dfc00a0",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-16T23:00:47Z",
+      "side": 1,
+      "message": "Yeah.",
+      "parentUuid": "7528ffea_e7ba0c29",
       "range": {
         "startLine": 495,
         "startChar": 0,
