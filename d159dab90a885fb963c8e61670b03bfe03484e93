@@ -73,6 +73,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "ef37586a_4fe1bbda",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T21:04:45Z",
+      "side": 1,
+      "message": "Sounds reasonable. Please capture that in a comment for future reference.\n\n(I wonder if it\u0027s worth enlarging the cache a bit more, up to 50-100 entries or so. I can imagine some OEM devices have a fair set of their own secondary dex\u0027es beyond GMS, and cache entries are relatively small. But it\u0027s really hard to say without any data, so no strong opinion on that.)",
+      "parentUuid": "b38b92ce_7c051971",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "12154ba5_3b826441",
         "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
         "patchSetId": 4
@@ -202,6 +220,30 @@
       "side": 1,
       "message": "I want to cache the package name in this case.",
       "parentUuid": "d39fbe93_f9f0ec67",
+      "range": {
+        "startLine": 449,
+        "startChar": 20,
+        "endLine": 449,
+        "endChar": 51
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b889db8_22334c29",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 449,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T21:04:45Z",
+      "side": 1,
+      "message": "Isn\u0027t this after the caching? I can only see one caller for this, on line 414, and it ignores this result type.\n\nThe primary reason why it\u0027s nice is that it\u0027s easier to ascertain that a package doesn\u0027t get past the filtered snapshot check.",
+      "parentUuid": "229f7d4f_a03a664b",
       "range": {
         "startLine": 449,
         "startChar": 20,
@@ -390,6 +432,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "340850a7_189b7a0f",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T21:04:45Z",
+      "side": 1,
+      "message": "Aha, ok.\n\nNot that it matters, but it seems to me that the problem with deep immutability is the same. However speaking of that, can\u0027t there be an `@Immutable` annotation on it (and the other one below)?",
+      "parentUuid": "7580001c_65425010",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 55
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2adb2d78_245b72e9",
         "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
         "patchSetId": 4
@@ -472,6 +538,30 @@
       "side": 1,
       "message": "Because `prefixLen` may be decremented by line 490.",
       "parentUuid": "66f158d5_efe8e713",
+      "range": {
+        "startLine": 495,
+        "startChar": 0,
+        "endLine": 499,
+        "endChar": 9
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7528ffea_e7ba0c29",
+        "filename": "libartservice/service/java/com/android/server/art/Utils.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 499,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T21:04:45Z",
+      "side": 1,
+      "message": "I see. It still looks like a net loss until it gets compiled though, but you\u0027re counting on it getting above the JIT threshold soon enough, I presume.",
+      "parentUuid": "fb193754_10c68720",
       "range": {
         "startLine": 495,
         "startChar": 0,

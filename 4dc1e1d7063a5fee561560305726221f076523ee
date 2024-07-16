@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ea60d158_817b12ea",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 5
+      },
+      "lineNbr": 488,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T21:04:45Z",
+      "side": 1,
+      "message": "What about indexing the cache on the dex path to avoid this `for` loop?",
+      "range": {
+        "startLine": 488,
+        "startChar": 62,
+        "endLine": 488,
+        "endChar": 69
+      },
+      "revId": "4dc1e1d7063a5fee561560305726221f076523ee",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
