@@ -1,0 +1,142 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ddcd2a64_5d68f5c1",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "Nice!",
+      "range": {
+        "startLine": 9,
+        "startChar": 0,
+        "endLine": 9,
+        "endChar": 24
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5f21726_5178086b",
+        "filename": "artd/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "This can\u0027t be in `artd_defaults`?",
+      "range": {
+        "startLine": 87,
+        "startChar": 0,
+        "endLine": 87,
+        "endChar": 38
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f86710de_c6d4dfe5",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "Doesn\u0027t it work without this? Normal dependencies should be resolved by the build system, so hopefully we can just drop this one and have it pulled in through e.g. artd.",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 1
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "915f0ea4_eec3e7da",
+        "filename": "build/apex/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 201,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "Iiuc this is effectively equivalent to putting the binaries in `first`. For the sake of clarity, can you please move them into `art_runtime_binaries_first`?",
+      "range": {
+        "startLine": 196,
+        "startChar": 0,
+        "endLine": 201,
+        "endChar": 6
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d4ff3b2f_004a4749",
+        "filename": "dexopt_chroot_setup/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 85,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "Same here - can it move to `dexopt_chroot_setup_defaults`?",
+      "range": {
+        "startLine": 85,
+        "startChar": 4,
+        "endLine": 85,
+        "endChar": 30
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0bfb7150_aefa9855",
+        "filename": "odrefresh/Android.bp",
+        "patchSetId": 1
+      },
+      "lineNbr": 233,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-16T14:57:47Z",
+      "side": 1,
+      "message": "And here too - move into `odrefresh-defaults`?",
+      "range": {
+        "startLine": 233,
+        "startChar": 12,
+        "endLine": 233,
+        "endChar": 38
+      },
+      "revId": "0074f20175e751118c9df509416f5509404b0368",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
