@@ -125,6 +125,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e5ac23e_4859c8fb",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-17T22:38:47Z",
+      "side": 1,
+      "message": "\u003e If you expect a package in the cache to be on average less valuable than one outside it, then there has to be a deterministic pattern where packages are used exactly once and then never again. I don\u0027t see we have any reason to suspect that.\n\nI think you are following very well. My observation from the dump at https://paste.googleplex.com/4735426185396224 is that many packages are indeed used by other packages only once.",
+      "parentUuid": "79fe85c4_865c1164",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12154ba5_3b826441",
