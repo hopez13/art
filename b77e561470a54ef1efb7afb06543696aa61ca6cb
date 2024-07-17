@@ -56,6 +56,30 @@
       },
       "revId": "b77e561470a54ef1efb7afb06543696aa61ca6cb",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0f2c4b4_481b2fbb",
+        "filename": "runtime/arch/arm/asm_support_arm.S",
+        "patchSetId": 9
+      },
+      "lineNbr": 290,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-17T08:35:50Z",
+      "side": 1,
+      "message": "This is done in every call to `art_quick_do_long_jump` as it is always called straight after a C++ entrypoint returned a context (after throwing an exception or deoptimizing). I\u0027ve expanded the comment on `art_quick_do_long_jump` to make it clear that this behaviour is expected and also added a comment on each call to show that the context pointer is passed.",
+      "parentUuid": "f5162d03_55de7481",
+      "range": {
+        "startLine": 290,
+        "startChar": 4,
+        "endLine": 290,
+        "endChar": 29
+      },
+      "revId": "b77e561470a54ef1efb7afb06543696aa61ca6cb",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
