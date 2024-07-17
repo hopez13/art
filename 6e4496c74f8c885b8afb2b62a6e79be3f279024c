@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8eccb78e_5d81fc93",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1272573
+      },
+      "writtenOn": "2024-07-17T05:50:53Z",
+      "side": 1,
+      "message": "I am struggling to test this locally. I can\u0027t build.\n\n```\n$ lunch aosp_cf_x86_64_phone-trunk_staging-eng\naosp-main-with-phones/art/runtime$ mma\n[100% 1/1] analyzing Android.bp files and generating ninja file at out/soong/build.aosp_cf_x86_64_phone.ninja\nFAILED: out/soong/build.aosp_cf_x86_64_phone.ninja\ncd \"$(dirname \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 BUILDER\u003d\"$PWD/$(basename \"out/host/linux-x86/bin/soong_build\")\" \u0026\u0026 cd / \u0026\u0026 env -i  \"$BUILDER\"     --top \"$TOP\"     --soong_out \"out/soong\"     --out \"out\"     --soong_variables out/soong/soong.aosp_cf_x86_64_phone.variables -o out/soong/build.aosp_cf_x86_64_phone.ninja --globListDir aosp_cf_x86_64_phone --globFile out/soong/globs-aosp_cf_x86_64_phone.ninja -l out/.module_paths/Android.bp.list --available_env out/soong/soong.environment.available --used_env out/soong/soong.environment.used.aosp_cf_x86_64_phone.build Android.bp\nerror: packages/modules/Virtualization/apex/Android.bp:23:1: \"com.android.virt\" depends on undefined module \"android_bootloader_crosvm_aarch64\".\n```\n\nI may just rely on the build from the presubmit.",
+      "revId": "6e4496c74f8c885b8afb2b62a6e79be3f279024c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
