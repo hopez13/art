@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "79fe85c4_865c1164",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-17T18:33:51Z",
+      "side": 1,
+      "message": "\u003e less commonly used packages get priority over packages that are not in the cache\n\nNot sure I follow. The packages not in the cache will enter it on first use, after all. If you expect a package in the cache to be on average less valuable than one outside it, then there has to be a deterministic pattern where packages are used exactly once and then never again. I don\u0027t see we have any reason to suspect that.",
+      "parentUuid": "bcf5ced5_79675a48",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12154ba5_3b826441",
@@ -510,6 +528,30 @@
       "side": 1,
       "message": "I think `@Immutable` looks unnecessary for records because they are immutable by nature.\n\nAccording to https://blogs.oracle.com/javamagazine/post/records-come-to-java:\n\n\u003e The new concept is a record class (usually just called a record). This is an immutable (in the usual “shallow” Java sense) transparent carrier for a fixed set of values known as the record components.",
       "parentUuid": "340850a7_189b7a0f",
+      "range": {
+        "startLine": 1262,
+        "startChar": 0,
+        "endLine": 1262,
+        "endChar": 55
+      },
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "8435809e_40b6a59f",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 1262,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-17T18:33:51Z",
+      "side": 1,
+      "message": "Aha, good. (I read [another page](https://docs.oracle.com/en/java/javase/17/language/records.html) with words words words but they still didn\u0027t consider it worth mentioning the basic fact that they\u0027re immutable.)",
+      "parentUuid": "4b8f2ae1_7bec1727",
       "range": {
         "startLine": 1262,
         "startChar": 0,

@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "42e7568f_145fb320",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 483,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-17T18:33:51Z",
+      "side": 1,
+      "message": "Note that the snapshot is ordered from least recent to most recent, so isn\u0027t this iterating over it in the wrong direction?",
+      "range": {
+        "startLine": 483,
+        "startChar": 38,
+        "endLine": 483,
+        "endChar": 60
+      },
+      "revId": "e4aa4ae5785be99f1a097a89738a31095074809a",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
