@@ -68,6 +68,7 @@
         <option name="cleanup" value="true" />
         <option name="append-bitness" value="true" />
         <option name="push-file" key="generate-boot-image" value="/data/local/tmp/art_standalone_runtime_tests/generate-boot-image" />
+        <option name="push" value="fuzzer_corpus.zip->/data/local/tmp/art_standalone_runtime_tests/fuzzer_corpus.zip" />
     </target_preparer>
 
     <target_preparer class="com.android.tradefed.targetprep.RunCommandTargetPreparer">
