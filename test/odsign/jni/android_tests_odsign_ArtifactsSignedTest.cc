@@ -24,6 +24,7 @@
 
 #include <errno.h>
 #include <fcntl.h>
+#include <linux/fs.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
@@ -42,10 +43,26 @@ Java_com_android_tests_odsign_ArtifactsSignedTest_hasFsverityNative(
   }
 
   // Make sure we actually support ATTR_VERITY
-  if ((out.stx_attributes_mask & STATX_ATTR_VERITY) == 0) {
-    ALOGE("STATX_ATTR_VERITY not supported by kernel");
+  if ((out.stx_attributes_mask & STATX_ATTR_VERITY) != 0) {
+    return (out.stx_attributes & STATX_ATTR_VERITY) != 0 ? JNI_TRUE : JNI_FALSE;
+  }
+
+  // STATX_ATTR_VERITY is not supported by kernel for the file path.
+  // In this case, call ioctl(FS_IOC_GETFLAGS) and check FS_VERITY_FL.
+  int fd = open(path.c_str(), O_RDONLY | O_CLOEXEC);
+  if (fd < 0) {
+    ALOGE("failed to open %s", path.c_str());
     return JNI_FALSE;
   }
 
-  return (out.stx_attributes & STATX_ATTR_VERITY) != 0 ? JNI_TRUE : JNI_FALSE;
+  unsigned int flags;
+  int ret = ioctl(fd, FS_IOC_GETFLAGS, &flags);
+  close(fd);
+
+  if (ret < 0) {
+    ALOGE("ioctl(FS_IOC_GETFLAGS) failed at %s", path.c_str());
+    return JNI_FALSE;
+  }
+
+  return (flags & FS_VERITY_FL) != 0 ? JNI_TRUE : JNI_FALSE;
 }
