@@ -14,8 +14,16 @@
  * limitations under the License.
  */
 
-#include "android-base/logging.h"
+#include <algorithm>
+#include <deque>
+#include <map>
+#include <memory>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+#include <vector>
 
+#include "android-base/logging.h"
 #include "base/os.h"
 #include "base/unix_file/fd_file.h"
 #include "elf/elf_builder.h"
@@ -23,14 +31,6 @@
 #include "elf/xz_utils.h"
 #include "stream/file_output_stream.h"
 #include "stream/vector_output_stream.h"
-
-#include <algorithm>
-#include <deque>
-#include <map>
-#include <memory>
-#include <string>
-#include <string_view>
-#include <vector>
 
 namespace art {
 
@@ -65,11 +65,34 @@ static void WriteMinidebugInfo(const std::vector<uint8_t>& input, std::vector<ui
   strtab->Start();
   {
     std::multimap<std::string_view, Elf_Sym> syms;
+    std::unordered_map<uint64_t, std::string_view> function_offsets;
     reader.VisitFunctionSymbols([&](Elf_Sym sym, const char* name) {
       // Exclude non-function or empty symbols.
-      if (ELF32_ST_TYPE(sym.st_info) == STT_FUNC && sym.st_size != 0) {
-        syms.emplace(name, sym);
+      if (ELF32_ST_TYPE(sym.st_info) != STT_FUNC || sym.st_size == 0) {
+        return;
       }
+      // Exclude symbols with the same offset as a previous symbol.
+      if (function_offsets.contains(sym.st_value)) {
+        const std::string_view& previous_name = function_offsets[sym.st_value];
+
+        // Find the previous symbol entry.
+        auto it = syms.find(previous_name);
+        while (it != syms.end() && it->second.st_value != sym.st_value) {
+          ++it;
+        }
+        CHECK(it != syms.end());
+        CHECK(it->second.st_size == sym.st_size);
+
+        // In order to produce the same symbol table every time, choose
+        // the symbol with the shortest name, or the symbol first according
+        // to ascii comparison.
+        if (previous_name.size() < strlen(name) || previous_name.compare(name) <= 0) {
+          return;
+        }
+        syms.erase(it);
+      }
+      function_offsets[sym.st_value] = name;
+      syms.emplace(name, sym);
     });
     reader.VisitDynamicSymbols([&](Elf_Sym sym, const char* name) {
       // Exclude symbols which will be preserved in the dynamic table anyway.
