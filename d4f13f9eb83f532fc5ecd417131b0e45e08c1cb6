@@ -126,6 +126,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d6c8cc12_46ad0a82",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-18T14:47:38Z",
+      "side": 1,
+      "message": "Btw, this isn\u0027t restricted to tests - even in other Java code with older min_sdk_version it\u0027s safe for us to use newer features from the JDK since our module *is* the JDK. It recently popped up in PS7 here: https://r.android.com/c/3165502/7",
+      "parentUuid": "288b70ec_acab4c85",
+      "revId": "d4f13f9eb83f532fc5ecd417131b0e45e08c1cb6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6d775868_4fa6cdd6",
