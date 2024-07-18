@@ -31,6 +31,7 @@
 
 #include "android-base/file.h"
 #include "android-base/macros.h"
+#include <android-base/properties.h>
 #include "android-base/strings.h"
 #include "android-base/thread_annotations.h"
 #include "base/macros.h"
@@ -315,6 +316,21 @@ void* OpenNativeLibrary(JNIEnv* env,
       if (handle.value() != nullptr) {
         return handle.value();
       }
+    }
+
+    // Handle issue b/349878424.
+    static bool bypass_loading_libsobridge =
+        android_get_device_api_level() == 33 &&
+        (android::base::GetProperty("ro.product.build.fingerprint", "").starts_with("Xiaomi") ||
+         android::base::GetProperty("ro.product.build.fingerprint", "").starts_with("Redmi") ||
+         android::base::GetProperty("ro.product.build.fingerprint", "").starts_with("POCO")) &&
+        Os::FileExists("/system/lib64/libsobridge.so");
+
+    if (bypass_loading_libsobridge && strcmp("libsobridge.so", path) == 0) {
+      // Load a different library to pretend the loading was successful. This
+      // allows the device to boot.
+      ALOGD("Loading libbase.so instead of libsobridge.so due to to b/349878424");
+      path = "libbase.so";
     }
 
     // Fall back to the system namespace. This happens for preloaded JNI
