@@ -36,6 +36,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "1df6f5bb_6c690ec6",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2024-07-18T22:33:35Z",
+      "side": 1,
+      "message": "I suspect that what is happening is that there are a number of functions that have the same implementation. So the same function is optimized to one place, but all of the function names are left in the symbol table.\n\nSurprisingly, it happens way more often than I thought. For libart, the number of symbols goes from 17154 to 12340. It saves about 630KB in uncompressed symbol table (but only about 60,000 bytes in the full shared library due to really good compression).\n\nSince the CFI information is the same for all of these function, I didn\u0027t see duplicate information there.\n\nI did create a quick test that all symbols have the same size, but I added a CHECK to make sure it would crash if the size is different.",
+      "parentUuid": "a678f9df_3e051995",
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "202ec3aa_32ae9f5a",
@@ -49,6 +67,24 @@
       "writtenOn": "2024-07-18T21:50:09Z",
       "side": 1,
       "message": "I don\u0027t remember why I made it multimap, but presumably there can be several functions of the same name.  Make sure to delete the correct one.",
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "74bff20f_ab3d9ad3",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2024-07-18T22:33:35Z",
+      "side": 1,
+      "message": "I don\u0027t think it\u0027s likely that there would be multiple symbols with the same name, but it\u0027s possible so I\u0027ve fixed that.",
+      "parentUuid": "202ec3aa_32ae9f5a",
       "revId": "65e0397adea98e785740d90b7440e9c345653150",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
