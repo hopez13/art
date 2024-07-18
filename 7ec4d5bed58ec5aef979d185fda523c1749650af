@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "8b751b7b_831ee630",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T23:06:43Z",
+      "side": 1,
+      "message": "A page-fault is reported as a fault address. Page size doesn\u0027t matter at that point. It\u0027s when mapping the page that the kernel has to make the decision. In case of userfaultfd, when ioctl is called, it only works on normal page size. Whereas, in non-userfaultfd case, the kernel decides on huge-page vs. normal depending on whether a huge-page is available or not.\n\nObviously, the kernel may decide to coalesce the pages later using khugepaged in both cases.\n\nIn this CL\u0027s case, please note that the page-fault is being done *before* uffd registration. So a huge-page may get allocated. And that\u0027s why the alignment is required to make sure, such a huge-page is in the new TLAB area of the moving-space, and not in the `to-be-compacted` range in the beginning of the heap.",
+      "parentUuid": "3da4ec4d_550bf6b9",
+      "revId": "7ec4d5bed58ec5aef979d185fda523c1749650af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f427d87c_fd93d934",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-18T22:48:42Z",
       "side": 1,
       "message": "The comment associated with GetPMDSize says that we know this works on ARM and x86. Is that also true for RISC-V? I guess this makes a wrong value a corectness issue. Was it before?",
+      "range": {
+        "startLine": 3404,
+        "startChar": 30,
+        "endLine": 3404,
+        "endChar": 42
+      },
+      "revId": "7ec4d5bed58ec5aef979d185fda523c1749650af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5c9af848_9f64473c",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3404,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T23:06:43Z",
+      "side": 1,
+      "message": "Looked at the code in the kernel for RISC-V. It\u0027s also same as ARM and x86. I guess it has to be same across all architectures that support THP, as that\u0027s how it fundamentally works: having physical page\u0027s entry in PMD-page rather than PTE-page.",
+      "parentUuid": "f427d87c_fd93d934",
       "range": {
         "startLine": 3404,
         "startChar": 30,
