@@ -1,0 +1,56 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a678f9df_3e051995",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-07-18T21:50:09Z",
+      "side": 1,
+      "message": "Oh. Interesting. Do you know why that happens?  Does it happen often?  Do the symbols at least have same size?  Is there also duplicate CFI information?",
+      "fixSuggestions": [
+        {
+          "fixId": "1538960d_a70e0970",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+              "range": {
+                "startLine": 74,
+                "startChar": 0,
+                "endLine": 75,
+                "endChar": 0
+              },
+              "replacement": "      // Exclude symbols with the same offset as a previous symbol.  This\n      // happens when the same function is defined in multiple translation\n      // units.  The symbol table is sorted by offset, so we can just\n      // exclude the symbols with the same offset as the previous symbol.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "202ec3aa_32ae9f5a",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-07-18T21:50:09Z",
+      "side": 1,
+      "message": "I don\u0027t remember why I made it multimap, but presumably there can be several functions of the same name.  Make sure to delete the correct one.",
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
