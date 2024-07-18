@@ -37,6 +37,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "30a5e000_ad92b411",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-18T15:16:15Z",
+      "side": 1,
+      "message": "\u003e test if /system/lib64/libsobridge.so exists here.\n\nOr, just to avoid worry about possible 32-bit usage, include \"utils.h\" and use `\"/system/\" LIB \"/libsobridge.so\"`.",
+      "parentUuid": "30b26f71_5eae4413",
+      "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "2fc9c364_65b82f14",
         "filename": "libnativeloader/native_loader.cpp",
         "patchSetId": 1
