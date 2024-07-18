@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6e642d8e_6e9984ed",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-18T14:42:30Z",
+      "side": 1,
+      "message": "False positives for us in ART. This problem is discussed a bit on [this CL](https://r.android.com/3141056) but I wonder if we\u0027re in for some yak shaving here. :\\\n\nIn any case, I think you need a lint-baseline.xml like [this](https://cs.android.com/android/platform/superproject/main/+/main:art/test/845-data-image/Android.bp;l\u003d20;drc\u003d5efc53426feb10ea132faad5030f7e38c03499a0) to remove them.\n\n(And btw it looks like there simply was no way to iterate backwards over a `LinkedHashMap` before this abstraction in JDK 21, with less than creating an intermediate array of the entries. Strange.)\n\n---\n\nPlease fix this ERROR reported by Build Warnings: Class requires API level 35 (current min is 34): java.util.SequencedMap [NewApi]\n\nAnalyzer Description: Reports warnings that originate from build.log in the build artifacts.\nOwner: farivar@google.com\n\n    Class requires API level 35 (current min is 34): java.util.SequencedMap [NewApi]\n                        (SequencedMap\u003cString, String\u003e) mRecentDexFilesToPackageNames.snapshot();\n                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\nThis finding was found on https://android-build.googleplex.com/builds/build-details/P77749773/targets/errorprone-trunk_staging, but may also be present on other builds.\n\nThis is a different branch than your cl originated on (it was automerged), and thus might better reflect the state of the code in the git_main branch.",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 92
+      },
+      "revId": "8dac75c75e74b8683db942f9673f5742d7a67565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

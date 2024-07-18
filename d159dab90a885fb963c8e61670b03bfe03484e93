@@ -143,6 +143,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3a84a08b_dd0de59b",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 4
+      },
+      "lineNbr": 125,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-18T14:42:30Z",
+      "side": 1,
+      "message": "Yes it\u0027s expected that there\u0027ll be single use packages at the tail end. That\u0027s not what I meant - rather it\u0027s only if packages are *a priori* known to be single use only that it\u0027d be beneficial to exclude them from the cache, but I don\u0027t think we know that. Or put differently, we\u0027ve no reason to conclude that any particular package won\u0027t be used again just because it\u0027s been used once.",
+      "parentUuid": "2e5ac23e_4859c8fb",
+      "revId": "d159dab90a885fb963c8e61670b03bfe03484e93",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "12154ba5_3b826441",
