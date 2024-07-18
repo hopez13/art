@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "025a0c57_060f333b",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1058860
+      },
+      "writtenOn": "2024-07-18T23:00:31Z",
+      "side": 1,
+      "message": "\u003e I suspect that what is happening is that there are a number of functions that have the same implementation.\n\nWe use ICF when linking (`-Wl,--icf\u003dsafe`) but I am surprised it can trim so many symbols.",
+      "parentUuid": "1df6f5bb_6c690ec6",
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "202ec3aa_32ae9f5a",
