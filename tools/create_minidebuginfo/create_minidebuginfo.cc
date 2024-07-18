@@ -28,9 +28,12 @@
 #include <deque>
 #include <map>
 #include <memory>
+#include <set>
 #include <string>
 #include <string_view>
+#include <unordered_map>
 #include <vector>
+
 
 namespace art {
 
@@ -65,11 +68,18 @@ static void WriteMinidebugInfo(const std::vector<uint8_t>& input, std::vector<ui
   strtab->Start();
   {
     std::multimap<std::string_view, Elf_Sym> syms;
+    std::set<uint64_t> function_offsets;
     reader.VisitFunctionSymbols([&](Elf_Sym sym, const char* name) {
       // Exclude non-function or empty symbols.
-      if (ELF32_ST_TYPE(sym.st_info) == STT_FUNC && sym.st_size != 0) {
-        syms.emplace(name, sym);
+      if (ELF32_ST_TYPE(sym.st_info) != STT_FUNC || sym.st_size == 0) {
+        return;
       }
+      // Exclude symbols with the same offset as a previous symbol.
+      if (function_offsets.contains(sym.st_value)) {
+        return;
+      }
+      function_offsets.insert(sym.st_value);
+      syms.emplace(name, sym);
     });
     reader.VisitDynamicSymbols([&](Elf_Sym sym, const char* name) {
       // Exclude symbols which will be preserved in the dynamic table anyway.
