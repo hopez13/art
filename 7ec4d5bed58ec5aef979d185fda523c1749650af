@@ -1,0 +1,44 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da4ec4d_550bf6b9",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-18T22:48:42Z",
+      "side": 1,
+      "message": "I think I\u0027m missing something fundamental here. If we have huge pages and userfaultfd both enabled on the same range, how is a page fault reported? It\u0027s reported on a normal page, effectively breaking up the huge page? I\u0027m just surprised theis is the only required change/",
+      "revId": "7ec4d5bed58ec5aef979d185fda523c1749650af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f427d87c_fd93d934",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 3404,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-18T22:48:42Z",
+      "side": 1,
+      "message": "The comment associated with GetPMDSize says that we know this works on ARM and x86. Is that also true for RISC-V? I guess this makes a wrong value a corectness issue. Was it before?",
+      "range": {
+        "startLine": 3404,
+        "startChar": 30,
+        "endLine": 3404,
+        "endChar": 42
+      },
+      "revId": "7ec4d5bed58ec5aef979d185fda523c1749650af",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
