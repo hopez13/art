@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5ed63d28_39fd9e1c",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2828,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fb4427b5_3f74e5fe",
+      "range": {
+        "startLine": 2827,
+        "startChar": 25,
+        "endLine": 2828,
+        "endChar": 66
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "da1d280a_170ce72e",
@@ -61,6 +85,30 @@
           ]
         }
       ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "da2a1c86_c4404c98",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "da1d280a_170ce72e",
+      "range": {
+        "startLine": 2829,
+        "startChar": 47,
+        "endLine": 2829,
+        "endChar": 48
+      },
       "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -129,6 +177,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "ce10de6c_376be3e6",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "25cb6583_3e57a48c",
+      "range": {
+        "startLine": 3688,
+        "startChar": 6,
+        "endLine": 3688,
+        "endChar": 14
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3fc89f0c_7ea52bdd",
+        "filename": "runtime/class_linker.cc",
+        "patchSetId": 25
+      },
+      "lineNbr": 3688,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "81fd343b_94240923",
+      "range": {
+        "startLine": 3688,
+        "startChar": 56,
+        "endLine": 3688,
+        "endChar": 57
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6e91e4f6_7f09b5f6",
@@ -172,6 +268,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "31055d81_707e17eb",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 592,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "I think `CheckSystemClass()` calls in `ClassLinker::InitWithoutImage()` does that. Please correct me if I\u0027m wrong.\n\nThe function checks that the class object returned by FindClass() is same as the passed class object, which I think wouldn\u0027t be the case if overflow ref-offset bitmap would be added (in LinkClass()).",
+      "parentUuid": "6e91e4f6_7f09b5f6",
+      "range": {
+        "startLine": 592,
+        "startChar": 65,
+        "endLine": 592,
+        "endChar": 66
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "b82efeb2_30ac8026",
         "filename": "runtime/mirror/class.h",
         "patchSetId": 25
@@ -183,6 +303,30 @@
       "writtenOn": "2024-07-15T08:47:49Z",
       "side": 1,
       "message": "Isn\u0027t that gone now?",
+      "range": {
+        "startLine": 1609,
+        "startChar": 0,
+        "endLine": 1610,
+        "endChar": 36
+      },
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "73e61c90_1b4d9cec",
+        "filename": "runtime/mirror/class.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 1610,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Looks like it\u0027s there. See `ImtPtrOffset()` definition earlier in this file and `ComputeClassSize()` definition in `class-inl.h`",
+      "parentUuid": "b82efeb2_30ac8026",
       "range": {
         "startLine": 1609,
         "startChar": 0,
@@ -230,6 +374,30 @@
           ]
         }
       ],
+      "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "38f2a8f5_6af89f10",
+        "filename": "runtime/mirror/class_flags.h",
+        "patchSetId": 25
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-18T06:47:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9e3bce58_0479b3a8",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 73,
+        "endChar": 61
+      },
       "revId": "5bd44a99a3560675f4f9d674d658581e565121d2",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
