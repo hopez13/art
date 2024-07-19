@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ab5b1d4_3112ca5e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-19T07:02:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "55a7f22d_03c762f3",
+      "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "30b26f71_5eae4413",
@@ -76,6 +94,48 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "d0a9195d_7edde34f",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-19T07:02:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6596d7e1_c24c5f25",
+      "range": {
+        "startLine": 324,
+        "startChar": 84,
+        "endLine": 324,
+        "endChar": 90
+      },
+      "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "62964388_30dd8584",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 324,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-19T07:02:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "30a5e000_ad92b411",
+      "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "2fc9c364_65b82f14",
@@ -89,6 +149,24 @@
       "writtenOn": "2024-07-18T15:00:18Z",
       "side": 1,
       "message": "Please add an `ALOGD` here so we get some tracking if this code path is taken.",
+      "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "020ab56d_bb9cc744",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 1
+      },
+      "lineNbr": 329,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-19T07:02:36Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "2fc9c364_65b82f14",
       "revId": "f425032d7aa92867cdd477b8d1b57857e686f5b4",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
