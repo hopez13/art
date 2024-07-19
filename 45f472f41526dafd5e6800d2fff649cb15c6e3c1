@@ -65,6 +65,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5b50040_3b0f90ad",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-19T13:47:53Z",
+      "side": 1,
+      "message": "\u003e Moved to using stat directly as the FileExists symbol isn\u0027t exported.\n\nIiuc the problem is just that the namespace is `android` here, not `art`. But stat is fine.\n\n\u003e I believe the file is only on lib64.\n\nAs far as we know, yes.",
+      "parentUuid": "b1ef26ba_d6b0ab77",
+      "range": {
+        "startLine": 327,
+        "startChar": 32,
+        "endLine": 327,
+        "endChar": 37
+      },
+      "revId": "45f472f41526dafd5e6800d2fff649cb15c6e3c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ac16984f_c184c853",
