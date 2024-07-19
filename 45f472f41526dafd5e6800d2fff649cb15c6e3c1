@@ -16,6 +16,52 @@
       "message": "Thanks all, PTAL.",
       "revId": "45f472f41526dafd5e6800d2fff649cb15c6e3c1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5334fcac_9f574464",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 327,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-19T10:11:52Z",
+      "side": 1,
+      "message": "Include \"utils.h\" and use `LIB` instead?",
+      "range": {
+        "startLine": 327,
+        "startChar": 32,
+        "endLine": 327,
+        "endChar": 37
+      },
+      "revId": "45f472f41526dafd5e6800d2fff649cb15c6e3c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ac16984f_c184c853",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 2
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-19T10:11:52Z",
+      "side": 1,
+      "message": "Typo: Delete one \"to\".",
+      "range": {
+        "startLine": 332,
+        "startChar": 62,
+        "endLine": 332,
+        "endChar": 67
+      },
+      "revId": "45f472f41526dafd5e6800d2fff649cb15c6e3c1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
