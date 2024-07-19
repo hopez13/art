@@ -530,17 +530,6 @@ class MarkCompact final : public GarbageCollector {
   bool FreeFromSpacePages(size_t cur_page_idx, int mode, size_t end_idx_for_mapping)
       REQUIRES_SHARED(Locks::mutator_lock_);
 
-  // Maps processed pages (from moving space and linear-alloc) for uffd's
-  // minor-fault feature. We try to 'claim' all processed (and unmapped) pages
-  // contiguous to 'to_space_start'.
-  // kFirstPageMapping indicates if the first page is already claimed or not. It
-  // also indicates that the ioctl must succeed in mapping the first page.
-  template <bool kFirstPageMapping>
-  void MapProcessedPages(uint8_t* to_space_start,
-                         Atomic<PageState>* state_arr,
-                         size_t arr_idx,
-                         size_t arr_len) REQUIRES_SHARED(Locks::mutator_lock_);
-
   // Maps moving space pages in [start_idx, arr_len) range. It fetches the page
   // address containing the compacted content from moving_pages_status_ array.
   // 'from_fault' is true when called from userfault (sigbus handler).
@@ -639,7 +628,6 @@ class MarkCompact final : public GarbageCollector {
   // that double updation doesn't happen in the first place.
   std::unique_ptr<std::unordered_set<void*>> updated_roots_ GUARDED_BY(lock_);
   MemMap from_space_map_;
-  MemMap shadow_to_space_map_;
   // Any array of live-bytes in logical chunks of kOffsetChunkSize size
   // in the 'to-be-compacted' space.
   MemMap info_map_;
@@ -860,20 +848,9 @@ class MarkCompact final : public GarbageCollector {
   // Heap::PostForkChildAction() as it's invoked in app startup path. With
   // this, we register the compaction-termination page on the first GC.
   bool uffd_initialized_;
-  // Flag indicating if userfaultfd supports minor-faults. Set appropriately in
-  // CreateUserfaultfd(), where we get this information from the kernel.
-  const bool uffd_minor_fault_supported_;
   // Flag indicating if we should use sigbus signals instead of threads to
   // handle userfaults.
   const bool use_uffd_sigbus_;
-  // For non-zygote processes this flag indicates if the spaces are ready to
-  // start using userfaultfd's minor-fault feature. This initialization involves
-  // starting to use shmem (memfd_create) for the userfaultfd protected spaces.
-  bool minor_fault_initialized_;
-  // Set to true when linear-alloc can start mapping with MAP_SHARED. Set on
-  // non-zygote processes during first GC, which sets up everyting for using
-  // minor-fault from next GC.
-  bool map_linear_alloc_shared_;
   // Clamping statue of `info_map_`. Initialized with 'NotDone'. Once heap is
   // clamped but info_map_ is delayed, we set it to 'Pending'. Once 'info_map_'
   // is also clamped, then we set it to 'Finished'.
