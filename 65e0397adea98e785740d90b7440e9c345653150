@@ -72,6 +72,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7cff1d52_f96a916a",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 4
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1003224
+      },
+      "writtenOn": "2024-07-19T18:14:42Z",
+      "side": 1,
+      "message": "(at least in java, there are a _lot_ of \"do nothing\", \"return null\" or \"return field at small integer offset off `this`\" methods, and -- though i\u0027ve never actually collected data like i did for java -- i\u0027d assume the same is true of c++...)",
+      "parentUuid": "025a0c57_060f333b",
+      "revId": "65e0397adea98e785740d90b7440e9c345653150",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "202ec3aa_32ae9f5a",
