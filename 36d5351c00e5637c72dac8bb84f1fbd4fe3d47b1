@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6a90d2c9_222cea23",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 1363,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-19T14:03:58Z",
+      "side": 1,
+      "message": "Is there a reason for the extra pair of `()`? Same for line 1483 below",
+      "range": {
+        "startLine": 1363,
+        "startChar": 47,
+        "endLine": 1363,
+        "endChar": 48
+      },
+      "revId": "36d5351c00e5637c72dac8bb84f1fbd4fe3d47b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
