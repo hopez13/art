@@ -118,11 +118,16 @@ void CheckNterpAsmConstants() {
 inline void UpdateHotness(ArtMethod* method) REQUIRES_SHARED(Locks::mutator_lock_) {
   // The hotness we will add to a method when we perform a
   // field/method/class/string lookup.
+<<<<<<< PATCH SET (eddeaf Revert "Increase the hotness lookup threshold.")
+  constexpr uint16_t kNterpHotnessLookup = 0xf;
+  method->UpdateCounter(kNterpHotnessLookup);
+=======
   Runtime* runtime = Runtime::Current();
   bool increase_hotness_for_ui = runtime->GetStartupCompleted() &&
       runtime->InJankPerceptibleProcessState() &&
       Thread::Current()->IsJitSensitiveThread();
   method->UpdateCounter(increase_hotness_for_ui ? 0x6ff : 0xf);
+>>>>>>> BASE      (657271 Make ART debug APEX visible to aosp_mainline_modules)
 }
 
 template<typename T>
