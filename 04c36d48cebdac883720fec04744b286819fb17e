@@ -16,6 +16,23 @@
       "message": "I rewrote this slightly because I found a case where there were two symbols with different sizes. I now prefer the larger. I also modified the way check for duplicate symbols in the dynamic section.",
       "revId": "04c36d48cebdac883720fec04744b286819fb17e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2e362e5d_88c3ee14",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 6
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2024-07-19T20:09:09Z",
+      "side": 1,
+      "message": "David, can you take another look. I made more changes that I think should be okay, but want to get your feedback. My one worry is that the offsets in the dynamic symbols do not match the symtab. But I think the old code assumed those were the same too, so I don\u0027t think the new code is out of line.\n\nThanks.",
+      "revId": "04c36d48cebdac883720fec04744b286819fb17e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
