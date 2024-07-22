@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "53d5a42e_80e9303d",
+        "filename": "dexdump/dexdump.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 246,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-22T11:07:55Z",
+      "side": 1,
+      "message": "I think we want this to be `static constexpr const char*` (const and constexpr swapped). Similar example in the codebase https://cs.android.com/android/platform/superproject/main/+/main:art/disassembler/disassembler_riscv64.cc;l\u003d528;drc\u003d68f7caffe7a2e7d728d5447b28cf8c422be46748",
+      "range": {
+        "startLine": 246,
+        "startChar": 2,
+        "endLine": 246,
+        "endChar": 31
+      },
+      "revId": "7d3e296b4f6ccde3fb319c23e2be9bc9f4439b8f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
