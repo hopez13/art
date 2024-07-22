@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f2dc34f4_862af693",
+        "filename": "tools/ahat/README.txt",
+        "patchSetId": 7
+      },
+      "lineNbr": 62,
+      "author": {
+        "id": 1170070
+      },
+      "writtenOn": "2024-07-22T21:28:53Z",
+      "side": 1,
+      "message": "If all formats will work in the ahat viewer, then I think we could just say:\n\n\u003e collect the heapdump with `adb shell am dumpheap -b`",
+      "range": {
+        "startLine": 60,
+        "startChar": 3,
+        "endLine": 62,
+        "endChar": 0
+      },
+      "revId": "f757fbf60c1b7cf5af17116779490718d80afb14",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
