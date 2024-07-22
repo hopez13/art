@@ -80,7 +80,7 @@ class MarkCompact final : public GarbageCollector {
   // InitializePhase(). Therefore, it's safe to update without any memory ordering.
   bool IsCompacting() const { return compacting_; }
 
-  bool IsUsingSigbusFeature() const { return use_uffd_sigbus_; }
+  bool IsUsingSigbusFeature() const { return true; }
 
   // Called by SIGBUS handler. NO_THREAD_SAFETY_ANALYSIS for mutator-lock, which
   // is asserted in the function.
@@ -823,9 +823,6 @@ class MarkCompact final : public GarbageCollector {
   // Heap::PostForkChildAction() as it's invoked in app startup path. With
   // this, we register the compaction-termination page on the first GC.
   bool uffd_initialized_;
-  // Flag indicating if we should use sigbus signals instead of threads to
-  // handle userfaults.
-  const bool use_uffd_sigbus_;
   // Clamping statue of `info_map_`. Initialized with 'NotDone'. Once heap is
   // clamped but info_map_ is delayed, we set it to 'Pending'. Once 'info_map_'
   // is also clamped, then we set it to 'Finished'.
