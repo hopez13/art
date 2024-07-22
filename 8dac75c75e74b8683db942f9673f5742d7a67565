@@ -22,6 +22,30 @@
       },
       "revId": "8dac75c75e74b8683db942f9673f5742d7a67565",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4b587bd9_5f9894a1",
+        "filename": "libartservice/service/java/com/android/server/art/DexUseManagerLocal.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 512,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-22T13:26:48Z",
+      "side": 1,
+      "message": "Added @SuppressLint",
+      "parentUuid": "6e642d8e_6e9984ed",
+      "range": {
+        "startLine": 512,
+        "startChar": 0,
+        "endLine": 512,
+        "endChar": 92
+      },
+      "revId": "8dac75c75e74b8683db942f9673f5742d7a67565",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
