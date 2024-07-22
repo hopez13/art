@@ -33,6 +33,23 @@
       "message": "David, can you take another look. I made more changes that I think should be okay, but want to get your feedback. My one worry is that the offsets in the dynamic symbols do not match the symtab. But I think the old code assumed those were the same too, so I don\u0027t think the new code is out of line.\n\nThanks.",
       "revId": "04c36d48cebdac883720fec04744b286819fb17e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c2127aff_f322c45d",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1065473
+      },
+      "writtenOn": "2024-07-22T23:19:09Z",
+      "side": 1,
+      "message": "Side note, if there are multiple dynamic symbols with same offset and different size, will the unwinder still find PC that is only in some of them (at the end)?",
+      "revId": "04c36d48cebdac883720fec04744b286819fb17e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
