@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "3ffdbdd9_0129ac5e",
+        "filename": "test/art-gtests-target-standalone-non-multilib-template.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-22T18:03:55Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "9b97cbaa_e2d522c1",
+      "range": {
+        "startLine": 2,
+        "startChar": 19,
+        "endLine": 2,
+        "endChar": 23
+      },
+      "revId": "2b960f192edc23042b6cb887ae500ab3bb62b529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "97998837_0c598d7a",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-22T17:31:35Z",
       "side": 1,
       "message": "```suggestion\n\u003cconfiguration description\u003d\"Runs {MODULE} in non-multilib mode.\"\u003e\n```",
+      "range": {
+        "startLine": 17,
+        "startChar": 28,
+        "endLine": 17,
+        "endChar": 42
+      },
+      "revId": "2b960f192edc23042b6cb887ae500ab3bb62b529",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "895ca949_5ead220c",
+        "filename": "test/art-gtests-target-standalone-non-multilib-template.xml",
+        "patchSetId": 1
+      },
+      "lineNbr": 17,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-22T18:03:55Z",
+      "side": 1,
+      "message": "Fix applied.",
+      "parentUuid": "97998837_0c598d7a",
       "range": {
         "startLine": 17,
         "startChar": 28,
