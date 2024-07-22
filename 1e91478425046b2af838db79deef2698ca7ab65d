@@ -22,6 +22,30 @@
       },
       "revId": "1e91478425046b2af838db79deef2698ca7ab65d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2544fad8_13903b59",
+        "filename": "libnativeloader/native_loader.cpp",
+        "patchSetId": 3
+      },
+      "lineNbr": 339,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-22T12:29:07Z",
+      "side": 1,
+      "message": "The `bypass_loading_libsobridge` is a static variable, so we\u0027ll call `ShouldBypassLoadingLibSoBridge` only once. This makes that test cheap compared to the `strcmp`.",
+      "parentUuid": "ab901dc7_46a4969d",
+      "range": {
+        "startLine": 339,
+        "startChar": 8,
+        "endLine": 339,
+        "endChar": 73
+      },
+      "revId": "1e91478425046b2af838db79deef2698ca7ab65d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
