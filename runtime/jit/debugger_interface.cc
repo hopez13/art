@@ -192,14 +192,14 @@ extern "C" {
   void (*__jit_debug_register_code_ptr)() = __jit_debug_register_code;
 
   // The root data structure describing of all JITed methods.
-  JITDescriptor __jit_debug_descriptor GUARDED_BY(g_jit_debug_lock) {};
+  JITDescriptor __jit_debug_descriptor{};
 
   // The following globals mirror the ones above, but are used to register dex files.
   void __attribute__((noinline)) __dex_debug_register_code() {
     __asm__("");
   }
   void (*__dex_debug_register_code_ptr)() = __dex_debug_register_code;
-  JITDescriptor __dex_debug_descriptor GUARDED_BY(g_dex_debug_lock) {};
+  JITDescriptor __dex_debug_descriptor{};
 }
 }  // namespace art
 
