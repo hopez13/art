@@ -5526,6 +5526,84 @@ void IntrinsicCodeGeneratorRISCV64::VisitStringGetCharsNoCheck(HInvoke* invoke) 
   __ Bind(&done);
 }
 
+// 0x3FF0000000000000L = 1.0
+#define ONE_D   0x3FF0000000000000L
+// 0x3F800000 = 1.0f
+#define ONE_S   0x3F800000
+#define FSIGNUM(FLOATSIG, FLOATMV)                                                \
+void MathSignum##FLOATSIG(CodeGeneratorRISCV64* codegen, HInvoke* invoke) {       \
+  LocationSummary* locations = invoke->GetLocations();                            \
+  FRegister in = locations->InAt(0).AsFpuRegister<FRegister>();                   \
+  Riscv64Assembler* assembler = codegen->GetAssembler();                          \
+  ScratchRegisterScope srs(assembler);                                            \
+  XRegister tmp = srs.AllocateXRegister();                                        \
+  FRegister ftmp = srs.AllocateFRegister();                                       \
+  Riscv64Label done;                                                              \
+  __ Li(tmp, ONE_##FLOATSIG);                                                     \
+  __ FMv##FLOATMV(ftmp, tmp);                                                     \
+  __ FClass##FLOATSIG(tmp, in);                                                   \
+  __ Andi(tmp, tmp, kPositiveZero | kNegativeZero | kSignalingNaN | kQuietNaN);   \
+  __ Bnez(tmp, &done);                                                            \
+  __ FSgnj##FLOATSIG(in, ftmp, in);                                               \
+  __ Bind(&done);                                                                 \
+}
+FSIGNUM(S, WX);
+FSIGNUM(D, DX);
+#undef FSIGNUM
+#undef ONE_D
+#undef ONE_S
+
+void IntrinsicLocationsBuilderRISCV64::VisitMathSignumDouble(HInvoke* invoke) {
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+  locations->SetInAt(0, Location::RequiresFpuRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitMathSignumDouble(HInvoke* invoke) {
+  MathSignumD(codegen_, invoke);
+}
+
+void IntrinsicLocationsBuilderRISCV64::VisitMathSignumFloat(HInvoke* invoke) {
+  LocationSummary* locations =
+      new (allocator_) LocationSummary(invoke, LocationSummary::kNoCall, kIntrinsified);
+  locations->SetInAt(0, Location::RequiresFpuRegister());
+  locations->SetOut(Location::SameAsFirstInput());
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitMathSignumFloat(HInvoke* invoke) {
+  MathSignumS(codegen_, invoke);
+}
+
+#define FCOPYSIGN(FLOATSIG)                                                    \
+void MathCopySign##FLOATSIG(CodeGeneratorRISCV64* codegen, HInvoke* invoke) {  \
+  Riscv64Assembler* assembler = codegen->GetAssembler();                       \
+  LocationSummary* locations = invoke->GetLocations();                         \
+  FRegister in0 = locations->InAt(0).AsFpuRegister<FRegister>();               \
+  FRegister in1 = locations->InAt(1).AsFpuRegister<FRegister>();               \
+  FRegister out = locations->Out().AsFpuRegister<FRegister>();                 \
+  __ FSgnj##FLOATSIG(out, in0, in1);                                           \
+}
+FCOPYSIGN(S);
+FCOPYSIGN(D);
+#undef FCOPYSIGN
+
+void IntrinsicLocationsBuilderRISCV64::VisitMathCopySignDouble(HInvoke* invoke) {
+  CreateFPFPToFPCallLocations(allocator_, invoke);
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitMathCopySignDouble(HInvoke* invoke) {
+  MathCopySignD(codegen_, invoke);
+}
+
+void IntrinsicLocationsBuilderRISCV64::VisitMathCopySignFloat(HInvoke* invoke) {
+  CreateFPFPToFPCallLocations(allocator_, invoke);
+}
+
+void IntrinsicCodeGeneratorRISCV64::VisitMathCopySignFloat(HInvoke* invoke) {
+  MathCopySignS(codegen_, invoke);
+}
+
 #define MARK_UNIMPLEMENTED(Name) UNIMPLEMENTED_INTRINSIC(RISCV64, Name)
 UNIMPLEMENTED_INTRINSIC_LIST_RISCV64(MARK_UNIMPLEMENTED);
 #undef MARK_UNIMPLEMENTED
