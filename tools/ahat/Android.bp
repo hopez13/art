@@ -37,6 +37,9 @@ java_binary_host {
     static_libs: [
         "guava",
     ],
+    dist: {
+        targets: ["dist_files"],
+    },
 }
 
 // --- ahat-test-dump.jar --------------
