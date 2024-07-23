@@ -133,6 +133,30 @@
       },
       "revId": "6be8956a1066485b990766045dad18332a2bcf45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2f43c899_2f1afb32",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-23T19:43:14Z",
+      "side": 1,
+      "message": "option 3) we could add a simple MetricsBackend just like in metrics_test.h, and use counter-\u003ereport() method to get the counter value",
+      "parentUuid": "19a9d95b_c6998c3f",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 74
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
