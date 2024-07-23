@@ -1,0 +1,45 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "90bb072c_3fc223d9",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-23T09:09:04Z",
+      "side": 1,
+      "message": "Add a comment here (alternatively, you can remove this method?).",
+      "range": {
+        "startLine": 83,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 52
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "b17cf301_72c8fe7c",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/gc/collector/mark_compact.h",
+              "range": {
+                "startLine": 83,
+                "startChar": 0,
+                "endLine": 83,
+                "endChar": 0
+              },
+              "replacement": "  // Returns true if we are using SIGBUS feature.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "fb6585834ace17cb5ddd5e3a04a5731de51fa40c",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
