@@ -33,6 +33,24 @@
       "message": "I\u0027m probably not the right reviewer for making Value public. I don\u0027t know whether this violates some principle of the original design. Otherwise LGTM.",
       "revId": "6be8956a1066485b990766045dad18332a2bcf45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3e7f696d_e87877a1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1948615
+      },
+      "writtenOn": "2024-07-23T10:02:10Z",
+      "side": 1,
+      "message": "I think the change is acceptable, because it is effectively the only way to retrieve this information at the moment - there are similar counters (e.g., https://cs.android.com/android/platform/superproject/main/+/main:art/runtime/gc/heap.h;l\u003d1675;drc\u003d3796be3b545daae6b9a572b3860fbae2431dd5dc), but they usually don\u0027t distinguish between full heap or young generation collection, which seems to be quite an important distinction here.\n\nUnfortunately this makes the `Value()` method public for all metrics while it would be only needed for one - CCing @rpl@google.com to share his opinion on this.",
+      "parentUuid": "281d99c9_e5c5b6e2",
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
