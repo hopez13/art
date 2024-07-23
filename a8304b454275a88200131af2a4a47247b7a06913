@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54fa5fc1_061b1473",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6f040e9e_c08c9b56",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ddab06ca_abdab7d3",
@@ -31,6 +49,30 @@
       "writtenOn": "2024-07-16T14:29:21Z",
       "side": 1,
       "message": "Not needed in the commit message. It is an implementation detail which is not that important.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 8,
+        "endChar": 44
+      },
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e29fdaae_07b473a3",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "ddab06ca_abdab7d3",
       "range": {
         "startLine": 8,
         "startChar": 0,
@@ -58,6 +100,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e1c00425_fa0764a2",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "58b17287_2b3e03ec",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "31e415ec_1238ccbb",
@@ -71,6 +131,24 @@
       "writtenOn": "2024-07-16T14:29:21Z",
       "side": 1,
       "message": "Would it be possible to add a README to show how to do this? We have other README.md files in the ART repo that are used as tutorials",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "095ea608_fef52239",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 7
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "31e415ec_1238ccbb",
       "revId": "a8304b454275a88200131af2a4a47247b7a06913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -92,6 +170,42 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a0ba7072_65f404a3",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d134812c_acbde80d",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c9f91f06_2526ba0c",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d134812c_acbde80d",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fc0f2aa2_a4b29db9",
@@ -109,6 +223,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5a95ff55_5e3a351a",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc0f2aa2_a4b29db9",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "753f987c_2d75da18",
@@ -122,6 +254,24 @@
       "writtenOn": "2024-07-16T14:29:21Z",
       "side": 1,
       "message": "Add a TODO to try to enable `core-icu4j` too like the conscrypt one",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "9b0e4d51_bd45e89b",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "753f987c_2d75da18",
       "revId": "a8304b454275a88200131af2a4a47247b7a06913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -149,6 +299,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "03b96e3b_d69e477c",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "742bd990_025fd2ee",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "367de72a_6f8e34df",
@@ -166,6 +340,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "effd9af7_5b9900e7",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "367de72a_6f8e34df",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "3d517eaf_f9d56040",
@@ -179,6 +371,30 @@
       "writtenOn": "2024-07-16T14:29:21Z",
       "side": 1,
       "message": "Suggestion: Have only one TODO for the commented out modules mentioning that we would like to enable them in the future",
+      "range": {
+        "startLine": 47,
+        "startChar": 0,
+        "endLine": 52,
+        "endChar": 37
+      },
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8da7cb4_3b636c68",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "3d517eaf_f9d56040",
       "range": {
         "startLine": 47,
         "startChar": 0,
@@ -212,6 +428,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "626a600a_78d2e9f0",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "bf79110d_d5f35373",
+      "range": {
+        "startLine": 58,
+        "startChar": 64,
+        "endLine": 58,
+        "endChar": 69
+      },
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b6eeb87e_8bebef05",
@@ -229,6 +469,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "4a96d07e_0849db84",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 59,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b6eeb87e_8bebef05",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "b2ad4994_a5b3230e",
@@ -242,6 +500,24 @@
       "writtenOn": "2024-07-16T14:29:21Z",
       "side": 1,
       "message": "line too long",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ee7e881c_b2029979",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "b2ad4994_a5b3230e",
       "revId": "a8304b454275a88200131af2a4a47247b7a06913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -277,6 +553,42 @@
           ]
         }
       ],
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "7b444bd6_4b7d0541",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "229b3ca7_bf3220e7",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6dcf68f2_5fcc5245",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 183,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-23T13:27:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "229b3ca7_bf3220e7",
       "revId": "a8304b454275a88200131af2a4a47247b7a06913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
