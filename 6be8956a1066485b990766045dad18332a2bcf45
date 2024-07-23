@@ -20,6 +20,24 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "8eda5510_c7aeaa94",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 3
+      },
+      "lineNbr": 11,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-23T19:36:42Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "b1c70de9_91a5dde7",
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "37c50018_10debe2c",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 3
@@ -83,6 +101,30 @@
       "writtenOn": "2024-07-23T12:39:26Z",
       "side": 1,
       "message": "Can you use `friend` instead of making this method `public` (and adjust the commit message)? I think that\u0027s the pattern we have tried to follow in this file.",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 74
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "19a9d95b_c6998c3f",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-23T19:36:42Z",
+      "side": 1,
+      "message": "That\u0027s a good proposal. However, I did face a few problems here: 1) `friend` requires a class and `dalvik_system_VMRuntime.cc` is a place for JNI calls, and there isn\u0027t really a class, and 2) `class ArtMetrics` itself is a `friend` class of `MetricCounter` so from within ArtMetrics we could access MetricsCounter, and so another option is to introduce something like `ArtMetrics.getValue(...)` but then again I guess that\u0027s less straightforward than exposing `MetricsCounter.Value()` to be public\n\nI understand the encapsulation/visibility concern of exposing Value(), however, is there any strong reason behind this?",
+      "parentUuid": "d12240d0_5181c73a",
       "range": {
         "startLine": 332,
         "startChar": 0,
