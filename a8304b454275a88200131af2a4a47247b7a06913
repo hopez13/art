@@ -208,6 +208,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "fd713837_ec0e5986",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 91,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "There\u0027s some overlap between `libart_verify_classes_fuzzer` and `libart_verify_classes_fuzzerd`. Can you create some defaults similar to `libart_verify_dex_fuzzer-defaults` to deduplicate code?",
+      "parentUuid": "c9f91f06_2526ba0c",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "fc0f2aa2_a4b29db9",
         "filename": "tools/fuzzer/Android.bp",
         "patchSetId": 7
@@ -237,6 +255,24 @@
       "side": 1,
       "message": "Done",
       "parentUuid": "fc0f2aa2_a4b29db9",
+      "revId": "a8304b454275a88200131af2a4a47247b7a06913",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e116e307_0c413f11",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 7
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "I meant that since you\u0027ve done this, you can remove the TODO. Also, the `device_supported: true` is true by default so there\u0027s no need to explicitly set it.",
+      "parentUuid": "5a95ff55_5e3a351a",
       "revId": "a8304b454275a88200131af2a4a47247b7a06913",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },

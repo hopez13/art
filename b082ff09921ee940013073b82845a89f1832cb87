@@ -1,0 +1,480 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "3734499f_dfa75a8a",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "I think these instructions work for non-AOSP too. Maybe rework these sentences to say that for host there\u0027s the possibility of using a smaller AOSP Android manifest (master-art).",
+      "range": {
+        "startLine": 4,
+        "startChar": 60,
+        "endLine": 4,
+        "endChar": 83
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "942ba8e1_7193199f",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "on",
+      "range": {
+        "startLine": 4,
+        "startChar": 8,
+        "endLine": 4,
+        "endChar": 15
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5ff83304_5a771db6",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "on",
+      "range": {
+        "startLine": 5,
+        "startChar": 8,
+        "endLine": 5,
+        "endChar": 11
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aedd6048_10331c40",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "I don\u0027t think you are in this version of the README",
+      "range": {
+        "startLine": 9,
+        "startChar": 41,
+        "endLine": 9,
+        "endChar": 59
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45577249_046657c6",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Style: Newline at the end of the sentence is not needed",
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "1850af27_9eaad24f",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Use present tense i.e. `Set` instead of `We will set`. You can mention that this is done for convenience",
+      "range": {
+        "startLine": 12,
+        "startChar": 0,
+        "endLine": 12,
+        "endChar": 11
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "2c276c15_45fcbcc3",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 19,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Style: titles don\u0027t end in `:`",
+      "range": {
+        "startLine": 19,
+        "startChar": 35,
+        "endLine": 19,
+        "endChar": 36
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "de182519_76d032cb",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Extra line, also lines 54-55 (and more in the file)",
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "cf6a79df_2d6b24b1",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 33,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "You are saying `x86` but then doing `armv8`. Would any valid lunch command work for host?",
+      "range": {
+        "startLine": 31,
+        "startChar": 24,
+        "endLine": 33,
+        "endChar": 11
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "24e7ab33_3a61202b",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 35,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "No need to close and reopen",
+      "range": {
+        "startLine": 34,
+        "startChar": 0,
+        "endLine": 35,
+        "endChar": 3
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "843220c1_bf8536fa",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 51,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "It\u0027s the path to the fuzzer binary, not the folder. Same below (line 98)",
+      "range": {
+        "startLine": 51,
+        "startChar": 33,
+        "endLine": 51,
+        "endChar": 50
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "65c66fd1_ca53aa66",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Maybe add a sentence explaining that the valid flags are defined in https://llvm.org/docs/LibFuzzer.html#options",
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "15a95998_4fe76a50",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Mention this is optional",
+      "range": {
+        "startLine": 52,
+        "startChar": 7,
+        "endLine": 52,
+        "endChar": 38
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "754cab38_78ab01f3",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "This looks similar to the step 3 above. Maybe we can merge these two into `Common steps for host and device`, clarifying that for host you can use any valid lunch target and for device you have to select your target (with the explanation you give in lines 39-43",
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "98f8dfc6_2cbf442c",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Remove. Only needed because of your local setup.",
+      "range": {
+        "startLine": 60,
+        "startChar": 41,
+        "endLine": 63,
+        "endChar": 34
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9d126d11_19033b0c",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "No need to explain this.",
+      "range": {
+        "startLine": 74,
+        "startChar": 0,
+        "endLine": 74,
+        "endChar": 64
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fb5c6e25_ea1341da",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 83,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "No need to close and reopen",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 83,
+        "endChar": 3
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "49ea0a18_d0c42460",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Same as above, we are not doing anything arm64 specific.",
+      "range": {
+        "startLine": 89,
+        "startChar": 16,
+        "endLine": 89,
+        "endChar": 34
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "8ffc821d_61dc4974",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 95,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Is there a reason you added `print_pcs` for the host instructions but not for device ones?",
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96ce29c0_7872fb8a",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 106,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "Suggestion: `a mix of hand-created DEX files, regression tests, and DEX files from our test suite.` This is less-likely to be stale in the future",
+      "range": {
+        "startLine": 104,
+        "startChar": 28,
+        "endLine": 106,
+        "endChar": 29
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dc8e5188_61bb1b38",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 108,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "A crash is not needed for the fuzzer to add it to the corpus. From https://llvm.org/docs/LibFuzzer.html#corpus: `a mutation triggers execution of a previously-uncovered path in the code under test, then that mutation is saved to the corpus for future variations.`",
+      "range": {
+        "startLine": 106,
+        "startChar": 31,
+        "endLine": 108,
+        "endChar": 49
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7c81d7b0_2fa68ba9",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 10
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-23T14:32:43Z",
+      "side": 1,
+      "message": "This command is only for the host version, not the device version. The device version would need a following `adb sync` too.",
+      "range": {
+        "startLine": 110,
+        "startChar": 54,
+        "endLine": 110,
+        "endChar": 61
+      },
+      "revId": "b082ff09921ee940013073b82845a89f1832cb87",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
