@@ -50,6 +50,24 @@
       "message": "Side note, if there are multiple dynamic symbols with same offset and different size, will the unwinder still find PC that is only in some of them (at the end)?",
       "revId": "04c36d48cebdac883720fec04744b286819fb17e",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a6a3e22d_f6968947",
+        "filename": "tools/create_minidebuginfo/create_minidebuginfo.cc",
+        "patchSetId": 6
+      },
+      "lineNbr": 72,
+      "author": {
+        "id": 1019050
+      },
+      "writtenOn": "2024-07-23T04:19:00Z",
+      "side": 1,
+      "message": "Looking at the code, it should work properly. The symbol table will be cached by end symbol offset. So if the offset being examined is in two symbols, it might get a different one depending on if the offset being searched is in multiple symbols, but it will never not return a symbol.",
+      "parentUuid": "c2127aff_f322c45d",
+      "revId": "04c36d48cebdac883720fec04744b286819fb17e",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
