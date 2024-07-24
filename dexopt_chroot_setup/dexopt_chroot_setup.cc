@@ -366,10 +366,10 @@ ScopedAStatus DexoptChrootSetup::init() {
 }
 
 ScopedAStatus DexoptChrootSetup::tearDown() {
-  if (!mu_.try_lock()) {
-    return Fatal("Unexpected concurrent calls");
-  }
-  std::lock_guard<std::mutex> lock(mu_, std::adopt_lock);
+  // Normally, we don't expect concurrent calls, but this method may be called upon system server
+  // restart when another call initiated by the previous system_server instance is still being
+  // processed.
+  std::lock_guard<std::mutex> lock(mu_);
 
   OR_RETURN_NON_FATAL(TearDownChroot());
   return ScopedAStatus::ok();

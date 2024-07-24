@@ -164,7 +164,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
      *         update.
      */
     public synchronized @ScheduleStatus int onUpdateReady(@Nullable String otaSlot) {
-        cancelAnyLocked();
+        cancelAnyLocked(true /* unschedule */);
         resetLocked();
         updateOtaSlotLocked(otaSlot);
         mMapSnapshotsForOta = true;
@@ -180,7 +180,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     @Nullable
     public synchronized CompletableFuture<Void> onUpdateReadyStartNow(
             @Nullable String otaSlot, boolean mapSnapshotsForOta) {
-        cancelAnyLocked();
+        cancelAnyLocked(true /* unschedule */);
         resetLocked();
         updateOtaSlotLocked(otaSlot);
         mMapSnapshotsForOta = mapSnapshotsForOta;
@@ -194,7 +194,7 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     }
 
     public synchronized void test() {
-        cancelAnyLocked();
+        cancelAnyLocked(true /* unschedule */);
         mInjector.getPreRebootDriver().test();
     }
 
@@ -206,7 +206,13 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
 
     /** @see #cancelAnyLocked */
     public synchronized void cancelAny() {
-        cancelAnyLocked();
+        cancelAnyLocked(true /* unschedule */);
+    }
+
+    public synchronized void maybeCleanUpChroot() {
+        // Can't and no need to unschedule because this method is called on system server restart.
+        cancelAnyLocked(false /* unschedule */);
+        mInjector.getPreRebootDriver().maybeCleanUpChroot();
     }
 
     @VisibleForTesting
@@ -356,15 +362,19 @@ public class PreRebootDexoptJob implements ArtServiceJobInterface {
     }
 
     /**
-     * Cancels any running job, prevents the pending job (if any) from being started by the job
-     * scheduler, and waits for the running job to exit. Temporarily releases the lock when waiting
-     * for the job to exit.
+     * Cancels any running job and waits for the running job to exit. Temporarily releases the lock
+     * when waiting for the job to exit.
      *
      * When this method exits, it's guaranteed that no job is running.
+     *
+     * @param unschedule if true, also prevents the pending job (if any) from being started by the
+     *         job scheduler
      */
     @GuardedBy("this")
-    private void cancelAnyLocked() {
-        unscheduleLocked();
+    private void cancelAnyLocked(boolean unschedule) {
+        if (unschedule) {
+            unscheduleLocked();
+        }
         while (mRunningJob != null) {
             if (!mCancellationSignal.isCanceled()) {
                 mCancellationSignal.cancel();

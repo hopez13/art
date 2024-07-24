@@ -55,6 +55,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 /**
  * Drives Pre-reboot Dexopt, through reflection.
@@ -158,6 +160,19 @@ public class PreRebootDriver {
         }
     }
 
+    public void maybeCleanUpChroot() {
+        if (!Files.exists(Paths.get(CHROOT_DIR))) {
+            return;
+        }
+        try {
+            cleanUpChroot();
+        } catch (RemoteException e) {
+            Utils.logArtdException(e);
+        } catch (ServiceSpecificException | IOException e) {
+            AsLog.e("Failed to clean up chroot", e);
+        }
+    }
+
     private void setUp(@Nullable String otaSlot, boolean mapSnapshotsForOta)
             throws RemoteException, SystemRequirementException {
         mInjector.getDexoptChrootSetup().setUp(otaSlot, mapSnapshotsForOta);
@@ -181,6 +196,10 @@ public class PreRebootDriver {
         // At this point, no process other than `artd` is expected to be running. `runFromChroot`
         // blocks on `artd` calls, even upon cancellation, and `artd` in turn waits for child
         // processes to exit, even if they are killed due to the cancellation.
+        cleanUpChroot();
+    }
+
+    private void cleanUpChroot() throws RemoteException, IOException {
         ArtJni.ensureNoProcessInDir(CHROOT_DIR, 5000 /* timeoutMs */);
         mInjector.getDexoptChrootSetup().tearDown();
     }
