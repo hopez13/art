@@ -1,0 +1,105 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "aa5532da_23469fcd",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 7
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-24T23:38:42Z",
+      "side": 1,
+      "message": "A few minor suggestions. Otherwise looks fine.",
+      "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ccc37223_7b82444a",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-24T23:38:42Z",
+      "side": 1,
+      "message": "Isn\u0027t the old DCHECK_EQ still relevant?",
+      "range": {
+        "startLine": 1787,
+        "startChar": 6,
+        "endLine": 1787,
+        "endChar": 47
+      },
+      "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfcd1004_09b87dc3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3558,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-24T23:38:42Z",
+      "side": 1,
+      "message": "Could be factored out into WaitForCompactionCounter(i)?",
+      "range": {
+        "startLine": 3551,
+        "startChar": 2,
+        "endLine": 3558,
+        "endChar": 3
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "2fa38039_8a655a1a",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/gc/collector/mark_compact.cc",
+              "range": {
+                "startLine": 2974,
+                "startChar": 0,
+                "endLine": 2974,
+                "endChar": 0
+              },
+              "replacement": "  void WaitForCompactionDone(uint32_t* counter) {\n    // Wait for SIGBUS handlers already in play.\n    for (uint32_t i \u003d 0; *counter \u003e 0; i++) {\n      BackOff(i);\n      *counter \u003d counter-\u003eload(std::memory_order_acquire);\n      *counter \u0026\u003d ~kSigbusCounterCompactionDoneMask;\n    }\n  }\n\n"
+            },
+            {
+              "path": "runtime/gc/collector/mark_compact.cc",
+              "range": {
+                "startLine": 3526,
+                "startChar": 0,
+                "endLine": 3534,
+                "endChar": 0
+              },
+              "replacement": "  WaitForCompactionDone(\u0026sigbus_in_progress_count_[0]);\n"
+            },
+            {
+              "path": "runtime/gc/collector/mark_compact.cc",
+              "range": {
+                "startLine": 3551,
+                "startChar": 0,
+                "endLine": 3560,
+                "endChar": 0
+              },
+              "replacement": "  WaitForCompactionDone(\u0026sigbus_in_progress_count_[1]);\n"
+            }
+          ]
+        }
+      ],
+      "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}

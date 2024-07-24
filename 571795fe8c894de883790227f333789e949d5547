@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "120c33b3_e0b556f6",
+        "filename": "runtime/gc/collector/mark_compact.h",
+        "patchSetId": 6
+      },
+      "lineNbr": 805,
+      "author": {
+        "id": 1042828
+      },
+      "writtenOn": "2024-07-24T23:38:42Z",
+      "side": 1,
+      "message": "Maybe \"counter 0\" and \"counter 1\"? Seems less awkward.",
+      "range": {
+        "startLine": 805,
+        "startChar": 52,
+        "endLine": 805,
+        "endChar": 63
+      },
+      "revId": "571795fe8c894de883790227f333789e949d5547",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
