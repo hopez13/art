@@ -157,6 +157,53 @@
       },
       "revId": "6be8956a1066485b990766045dad18332a2bcf45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "652f7aac_420c24c6",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-07-24T11:19:34Z",
+      "side": 1,
+      "message": "You can declare (standalone) functions as `friend` too (see https://en.cppreference.com/w/cpp/language/friend).\n\nSomething like this should do the trick:\n\n```\nfriend jlong VMRuntime_getFullGcCount(JNIEnv* env, jclass klass);\n```\n\nLet me know if this doesn\u0027t work.",
+      "parentUuid": "2f43c899_2f1afb32",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 74
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "4f0b9b21_8a2c1e5e",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1052644
+      },
+      "writtenOn": "2024-07-24T11:19:34Z",
+      "side": 1,
+      "message": "Style change:\n\n```suggestion\nstatic jlong VMRuntime_getFullGcCount([[maybe_unused]] JNIEnv* env, [[maybe_unused]] jclass klass) {\n```",
+      "range": {
+        "startLine": 539,
+        "startChar": 38,
+        "endLine": 539,
+        "endChar": 53
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
