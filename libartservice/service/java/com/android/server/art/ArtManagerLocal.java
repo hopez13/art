@@ -159,6 +159,7 @@ public final class ArtManagerLocal {
     @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
     public ArtManagerLocal(@NonNull Context context) {
         mInjector = new Injector(this, context);
+        maybeCleanupChrootAsync();
     }
 
     /** @hide */
@@ -1371,6 +1372,19 @@ public final class ArtManagerLocal {
         } catch (IOException | RemoteException e) {
             throw new SnapshotProfileException(e);
         }
+    }
+
+    private void maybeCleanupChrootAsync() {
+        if (!SdkLevel.isAtLeastV() || !mInjector.getPreRebootDexoptJob().hasStarted()) {
+            return;
+        }
+        // We only get here when there was a system server restart (probably due to a crash). In
+        // this case, it's possible that a previous Pre-reboot Dexopt job didn't end normally and
+        // left over a chroot, so we need to clean it up. If there is really a chroot, we want to
+        // clean it up as soon as possible to unblock update_engine (if there is an OTA), and also,
+        // we don't want the cleanup to block other things, so we use a new thread instead of any
+        // known thread / thread pool.
+        new Thread(() -> { mInjector.getPreRebootDexoptJob().maybeCleanUpChroot(); }).start();
     }
 
     /** @hide */
