@@ -185,6 +185,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "8279ff37_0d4ce4b4",
+        "filename": "libartbase/base/metrics/metrics.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 332,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-24T20:14:24Z",
+      "side": 1,
+      "message": "Simply adding this doesn\u0027t seem to work, and the error is the same as before, that Value() is protected. I suspect there are a few things here:\n\n1. different namespaces, VMRuntime_getFullGcCount() is within `namespace art`\nwhile `class MetricCounter` is included in `metrics_common.cc` so it\u0027s in `namespace art::metrics`\n\n2. visibility/scope across files, `VMRuntime_getFullGcCount()` is defined (as other similar functions as static in `dalvik_system_VMRuntime.cc`, which has visibility local to the file (and likely no external symbol), I\u0027m not sure what that means for a friend reference to this function from another file in a class\n\nPS: I tried to remove static from VMRuntime_getFullGcCount() and add a extern declaration in metrics.h for this function before making it a friend, but ended up having the same error\n\n3. for some reason the subtle `namespace art HIDDEN {...}` for VMRuntime_* that could potentially block the visibility of these functions further from the toolchain perspective?\n\n4. and lastly I have to add `#include \u003cjni.h\u003e` in metrics.h which feels a bit odd, that I guess that\u0027s not a big deal.\n\nOne other thing I could think of is to have a friend function declared in metrics.h directly to access `Value()`, however, I guess that also breaches the intention of data encapsulation.",
+      "parentUuid": "652f7aac_420c24c6",
+      "range": {
+        "startLine": 332,
+        "startChar": 0,
+        "endLine": 332,
+        "endChar": 74
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "4f0b9b21_8a2c1e5e",
         "filename": "runtime/native/dalvik_system_VMRuntime.cc",
         "patchSetId": 3
