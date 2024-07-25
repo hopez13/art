@@ -1,0 +1,159 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7a616efb_81f3e4ac",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 821,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "How about having this be a kConstExpr variable, and then the class here will always be compiled, and it\u0027s its use which will be flagged (clang can then remove this class if the flag is false).",
+      "range": {
+        "startLine": 821,
+        "startChar": 0,
+        "endLine": 821,
+        "endChar": 37
+      },
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c9c04c30_0cea2972",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 844,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "const bool",
+      "range": {
+        "startLine": 844,
+        "startChar": 2,
+        "endLine": 844,
+        "endChar": 6
+      },
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "feacc4db_7a6b8d04",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1321,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "Ditto: remove.",
+      "range": {
+        "startLine": 1321,
+        "startChar": 0,
+        "endLine": 1321,
+        "endChar": 37
+      },
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5471b809_583dfa00",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "Add a `if (kAlwaysEnableProfileCode)`.",
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "627d91c0_a35615f3",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 1505,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "ditto.",
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9ad5e0d4_8953e1dd",
+        "filename": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 197,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "Remove, or replace with `if (kIsAlwaysEnableProfileCode)`",
+      "fixSuggestions": [
+        {
+          "fixId": "4c5acf70_174457ad",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "runtime/arch/arm64/entrypoints_init_arm64.cc",
+              "range": {
+                "startLine": 197,
+                "startChar": 0,
+                "endLine": 198,
+                "endChar": 0
+              },
+              "replacement": "#if ART_ALWAYS_ENABLE_PROFILE_CODE\n"
+            }
+          ]
+        }
+      ],
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ec92c70b_be1cc02f",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 1
+      },
+      "lineNbr": 2494,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T11:07:58Z",
+      "side": 1,
+      "message": "Remove",
+      "revId": "f7d9e9eb42024936c239837969994f5e1a25f36b",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
