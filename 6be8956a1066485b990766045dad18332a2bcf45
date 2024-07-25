@@ -228,6 +228,30 @@
       },
       "revId": "6be8956a1066485b990766045dad18332a2bcf45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "50575844_bab5b8ba",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-25T17:37:25Z",
+      "side": 1,
+      "message": "do we think that we need to change the style for other functions as well?",
+      "parentUuid": "4f0b9b21_8a2c1e5e",
+      "range": {
+        "startLine": 539,
+        "startChar": 38,
+        "endLine": 539,
+        "endChar": 53
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
