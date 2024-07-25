@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "77e52811_8306ea5b",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:24:58Z",
+      "side": 1,
+      "message": "I didn\u0027t originally add this as a test because it fails, but upon rethinking I think it helps to be more explicit with this expectation.\n\nNote: running the simulator doesn\u0027t work until [Stage 1](https://android-review.googlesource.com/c/platform/art/+/2680028/).",
+      "parentUuid": "1f8cf174_260718f1",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 29
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "fa60d667_f2602dab",
@@ -47,6 +71,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a71467d9_ee15fffd",
+        "filename": "build/SoongConfig.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 111,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:24:58Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fa60d667_f2602dab",
+      "range": {
+        "startLine": 104,
+        "startChar": 0,
+        "endLine": 111,
+        "endChar": 1
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "9c576c46_82c02d27",
@@ -60,6 +108,30 @@
       "writtenOn": "2024-06-28T18:56:05Z",
       "side": 1,
       "message": "I would also explicitly say something like \"so both the entrypoints for host arch (x86_64) and target arch (arm64) are arm64\", otherwise it may be confusing (and hard to spot on the first glance).\n\nActually... why do we need arm64 section here? Isn\u0027t the only setting that should be overridden the host x86_64 one where the simulator runs? Or do we intend to run on arm64 host?",
+      "range": {
+        "startLine": 241,
+        "startChar": 0,
+        "endLine": 242,
+        "endChar": 32
+      },
+      "revId": "9d948f04f187722be0e29e2e30fdd12e614885ca",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "155195d8_9b872c51",
+        "filename": "runtime/Android.bp",
+        "patchSetId": 5
+      },
+      "lineNbr": 242,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:24:58Z",
+      "side": 1,
+      "message": "\u003e I would also explicitly say something like [...]\n\nThanks for the suggestion! I\u0027ve added this and hopefully the [next patch](https://android-review.googlesource.com/c/platform/art/+/2680026/5/runtime/Android.bp#258) makes it even clearer that the arm64 versions are used. \n\n\u003e why do we need arm64 section here? Isn\u0027t the only setting that should be\n overridden the host x86_64 one where the simulator runs?\n\nYes this section is needed because we [build the host](https://android-review.googlesource.com/c/platform/art/+/2680028/5/test/README.simulator.md#32)_ (using the x86_64 section with [custom linking](https://android-review.googlesource.com/c/platform/art/+/2680026)_) and [then we build the target](https://android-review.googlesource.com/c/platform/art/+/2680028/5/test/README.simulator.md#31) (using the Arm64 section) which we *don\u0027t* want to custom link as we can compile and link those files as normal for target builds. ART_USE_SIMULATOR is defined for both builds so this rule must specify both arches in use.",
+      "parentUuid": "9c576c46_82c02d27",
       "range": {
         "startLine": 241,
         "startChar": 0,
