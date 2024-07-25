@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5512af5f_b1eddb92",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 7,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:53Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e7dce5cd_ee428e24",
+      "range": {
+        "startLine": 7,
+        "startChar": 5,
+        "endLine": 7,
+        "endChar": 8
+      },
+      "revId": "3cb2199e9d2de6119915fb1f2a28ebfeb1791402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "a03afb7a_6527f7ff",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-01T08:06:37Z",
       "side": 1,
       "message": "You need this because you need both x86 and arm64 context for simulator, right? If so, please include this in commit message.\n\nHow does it affect code size, not what multiple specializations are compiled into one binary (previously there was one per arch)? Is it acceptable? If not, we could guard template specializations with arch-check macros to generate context for one arch in the non-simulator case and for two arches in the simulator case. Anyway, please include binary size stats in commit message.",
+      "range": {
+        "startLine": 8,
+        "startChar": 0,
+        "endLine": 10,
+        "endChar": 53
+      },
+      "revId": "3cb2199e9d2de6119915fb1f2a28ebfeb1791402",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a4952a01_0e41828e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:53Z",
+      "side": 1,
+      "message": "\u003e You need this because you need both x86 and arm64 context for simulator, right?\n\nNo, there will only ever be one context type in use at a time as it is created with `RuntimeContextType` which always uses [`kRuntimeQuickCodeIsa`](https://android-review.googlesource.com/c/platform/art/+/2680019/5/runtime/arch/context-inl.h#54) even on the simulator. This change is done to allow the context type to be configured via this `constexpr` (which will vary depending on if the simulator is enabled or not) instead of relying on the predefined architecture macros.\n\n\u003e How does it affect code size.\n\nThere is no impact to code size because `RuntimeContextType` uses `kRuntimeISA` which is a `constexpr`. This allows the compiler to know that there is only ever one Context in use at a time (as mentioned above) such that it does not include any context code for other arches. I validated this on my system before and after this change by comparing code sizes and checking the objdump output.",
+      "parentUuid": "a03afb7a_6527f7ff",
       "range": {
         "startLine": 8,
         "startChar": 0,
