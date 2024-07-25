@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "5e710c46_d72fd9de",
+        "filename": "runtime/arch/arm/native_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "Done, I\u0027ll stay an optimist for now!",
+      "parentUuid": "6776f9e1_f6410aa2",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "343847bb_c23e1835",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-06-28T19:52:40Z",
       "side": 1,
       "message": "I wonder if there is some formal criterion to distinguish such entrypoints (without arcane knowledge of the ART internals and the simulator as well). If there is one, it should be listed here.\n\nWhat happens if someone adds a new entrypoint and accidentally puts it in the wrong place? Will it break simulator only?",
+      "range": {
+        "startLine": 22,
+        "startChar": 2,
+        "endLine": 24,
+        "endChar": 42
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "df9699dc_2c12c46a",
+        "filename": "runtime/arch/arm/native_entrypoints_arm.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "\u003e I wonder if there is some formal criterion to distinguish such \nentrypoints (without arcane knowledge of the ART internals and the \nsimulator as well). If there is one, it should be listed here.\n\nThis comment was an attempt to formalise the criteria into something that a non-ART developer could use to determine where to place their function. I have expanded this to point at the better definitions of quick/native ABI and given an example to hopefully make this clearer. Do let me know if there\u0027s still something missing.\n\n\u003e What happens if someone adds a new entrypoint and accidentally puts it in the wrong place? Will it break simulator only?\n\nYes, on non-simulator builds this file is linked into libart-runtime the same as quick_entrypoints_*.S so it won\u0027t be affected if a new entrypoint is put in the wrong place.",
+      "parentUuid": "343847bb_c23e1835",
       "range": {
         "startLine": 22,
         "startChar": 2,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6a396874_67b1d43b",
+        "filename": "runtime/arch/arm64/jni_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 71,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "I\u0027ve benchmarked this when calling some critical native methods and the effect is not noticeable on the results. I think this is because this lookup stub should be called only once for each critical native method as it should have been registered by the call to artFindNativeMethodRunnable.",
+      "parentUuid": "29210a14_961bfa0a",
+      "range": {
+        "startLine": 68,
+        "startChar": 0,
+        "endLine": 71,
+        "endChar": 31
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "4105c142_9739d1fb",
@@ -83,6 +155,30 @@
       "writtenOn": "2024-06-28T19:52:40Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b9d49e16_4119ebf4",
+        "filename": "runtime/arch/arm64/native_entrypoints_arm64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "4105c142_9739d1fb",
       "range": {
         "startLine": 2,
         "startChar": 17,
@@ -116,6 +212,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "7175df04_db2d6d98",
+        "filename": "runtime/arch/x86/native_entrypoints_x86.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "cb3343ee_22ef8deb",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f3a4815b_0bd08fdb",
@@ -129,6 +249,30 @@
       "writtenOn": "2024-06-28T19:52:40Z",
       "side": 1,
       "message": "2024",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "d7a9c7fa09af3dac634387d535cbf4da1514da5f",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a37a5b87_cce2e45c",
+        "filename": "runtime/arch/x86_64/native_entrypoints_x86_64.S",
+        "patchSetId": 5
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:33Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f3a4815b_0bd08fdb",
       "range": {
         "startLine": 2,
         "startChar": 17,
