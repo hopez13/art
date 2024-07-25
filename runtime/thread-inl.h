@@ -17,6 +17,8 @@
 #ifndef ART_RUNTIME_THREAD_INL_H_
 #define ART_RUNTIME_THREAD_INL_H_
 
+#include <sched.h>
+
 #include "arch/instruction_set.h"
 #include "base/aborting.h"
 #include "base/casts.h"
@@ -81,6 +83,8 @@ inline void Thread::AllowThreadSuspension() {
 }
 
 inline void Thread::CheckSuspend(bool implicit) {
+  int scheduler = sched_getscheduler(0);
+  CHECK_EQ(scheduler, SCHED_OTHER);
   DCHECK_EQ(Thread::Current(), this);
   while (true) {
     StateAndFlags state_and_flags = GetStateAndFlags(std::memory_order_relaxed);
