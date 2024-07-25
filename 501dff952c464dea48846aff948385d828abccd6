@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "54abc558_94f8f243",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c27d572f_b3dff1f4",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f5f7208b_fae1d9ec",
@@ -37,6 +61,30 @@
       "writtenOn": "2024-07-25T10:35:54Z",
       "side": 1,
       "message": "As I mentioned in the other comment, device_supported is true by default so this is not necessary",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "6583a5bf_21666ece",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f5f7208b_fae1d9ec",
       "range": {
         "startLine": 81,
         "startChar": 0,
@@ -70,6 +118,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "451390ba_fb4fd180",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d31c4b08_1a230430",
+      "range": {
+        "startLine": 36,
+        "startChar": 49,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b3f503a_5dd710ce",
@@ -83,6 +155,24 @@
       "writtenOn": "2024-07-25T10:35:54Z",
       "side": 1,
       "message": "This is assuming a x86_64 host architecture. It is fine to assume that, but add a comment saying so.",
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "946a3458_cec3142c",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6b3f503a_5dd710ce",
       "revId": "501dff952c464dea48846aff948385d828abccd6",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -122,6 +212,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "437cc476_177237e3",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "fc4669fc_c05982a1",
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f98e418b_98ddef00",
@@ -135,6 +243,30 @@
       "writtenOn": "2024-07-25T10:35:54Z",
       "side": 1,
       "message": "Let\u0027s use DEX (uppercase). Same for the other case below.",
+      "range": {
+        "startLine": 88,
+        "startChar": 13,
+        "endLine": 88,
+        "endChar": 16
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "b346614e_5d44014a",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f98e418b_98ddef00",
       "range": {
         "startLine": 88,
         "startChar": 13,
@@ -191,6 +323,54 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "512e0159_1dac1a58",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "9772dfa0_bb5e9244",
+      "range": {
+        "startLine": 93,
+        "startChar": 59,
+        "endLine": 93,
+        "endChar": 66
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "529d1027_d02e0098",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "372ffbce_a5c4ffe9",
+      "range": {
+        "startLine": 93,
+        "startChar": 71,
+        "endLine": 93,
+        "endChar": 78
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "0d62f4b5_a4dc2952",
@@ -208,6 +388,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "f5128049_ead35156",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "0d62f4b5_a4dc2952",
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "aadb8023_5658a7b6",
@@ -221,6 +419,30 @@
       "writtenOn": "2024-07-25T10:35:54Z",
       "side": 1,
       "message": "Same comment about assumming archs as above",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 0
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "41631aee_49248da5",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-25T12:30:00Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "aadb8023_5658a7b6",
       "range": {
         "startLine": 96,
         "startChar": 0,
