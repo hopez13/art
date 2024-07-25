@@ -43,6 +43,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "7e6ac8ee_34e572b0",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 1787,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-25T21:39:35Z",
+      "side": 1,
+      "message": "No it\u0027s not relevant anymore with this CL. Because now it is possible that a thread starts COPY ioctl with, say, 2 pages, and after it has successfully finished the first page, it fails second page with ENOENT. In that case uffd_copy.copy will reflect 4KB.",
+      "parentUuid": "ccc37223_7b82444a",
+      "range": {
+        "startLine": 1787,
+        "startChar": 6,
+        "endLine": 1787,
+        "endChar": 47
+      },
+      "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "dfcd1004_09b87dc3",
         "filename": "runtime/gc/collector/mark_compact.cc",
         "patchSetId": 7
@@ -98,6 +122,30 @@
           ]
         }
       ],
+      "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "ca76fdb7_621f9bd3",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 7
+      },
+      "lineNbr": 3558,
+      "author": {
+        "id": 1258954
+      },
+      "writtenOn": "2024-07-25T21:39:35Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfcd1004_09b87dc3",
+      "range": {
+        "startLine": 3551,
+        "startChar": 2,
+        "endLine": 3558,
+        "endChar": 3
+      },
       "revId": "3fc7a7bfc59d4602b69a8899567a9781513a3c28",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
