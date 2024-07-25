@@ -16,6 +16,376 @@
       "message": "Thanks!",
       "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "06d461e8_03c9ffe6",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 15
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Thanks Ioana! Some minor suggestions. Sorry I haven\u0027t taken a look earlier.",
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "62887d2e_853cb4e7",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Just curious, why aren\u0027t we already doing this? If there\u0027s a blocker maybe we can add it to the comment.",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 31
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c5822b5b_61380e87",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 15
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "device? The example uses husky which is device. If we can build for architecture then please add an example using arm64 / arm32.",
+      "range": {
+        "startLine": 42,
+        "startChar": 63,
+        "endLine": 42,
+        "endChar": 75
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6fdc1012_8c7e4cf9",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "minor nit: typo signalstack",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 78
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "c505d152_c5048c5d",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 34,
+                "startChar": 0,
+                "endLine": 35,
+                "endChar": 0
+              },
+              "replacement": "// Global variable to signal LSAN that we are not leaking by using signalstack.\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "dfd34980_16e0fd09",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "nit: const std::vector",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "6f06ba83_f79262a8",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 39,
+                "startChar": 0,
+                "endLine": 40,
+                "endChar": 0
+              },
+              "replacement": "  const std::vector\u003cstd::string\u003e modules{\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "07408ed0_17762ed8",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Maybe we could also add these to the list of strings above.",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 36
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "4aff1bc8_f229d61f",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 45,
+                "startChar": 0,
+                "endLine": 45,
+                "endChar": 0
+              },
+              "replacement": "      \"core-icu4j\",\n      \"conscrypt\",\n"
+            },
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 47,
+                "startChar": 0,
+                "endLine": 51,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "96057d88_c5598c2d",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "const std::vector",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 26
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "046d7f55_b663bbda",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 73,
+                "startChar": 0,
+                "endLine": 74,
+                "endChar": 0
+              },
+              "replacement": "  const std::vector\u003cstd::string\u003e modules \u003d GetLibCoreModuleNames();\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "23b27910_596538ef",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Maybe we can just inline the method here. That is small enough and I don\u0027t think we are calling the version with modules from anywhere else.",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 40
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "0c848a1f_0fe58d29",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 63,
+                "startChar": 0,
+                "endLine": 64,
+                "endChar": 0
+              },
+              "replacement": "std::vector\u003cstd::string\u003e GetLibCoreDexFileNames() {\n  std::vector\u003cstd::string\u003e modules \u003d GetLibCoreModuleNames();\n"
+            },
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 71,
+                "startChar": 0,
+                "endLine": 76,
+                "endChar": 0
+              },
+              "replacement": ""
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "143c493b_2785f9c5",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Just curious, why is unexpected checksum a warning and not an error? Also maybe just expanding it a bit and say why we want to ignore unexpected checksums might be good.",
+      "range": {
+        "startLine": 93,
+        "startChar": 45,
+        "endLine": 93,
+        "endChar": 81
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ad95d4f6_445cf168",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 93,
+                "startChar": 0,
+                "endLine": 94,
+                "endChar": 0
+              },
+              "replacement": "  // Set logging to error and above to avoid warnings about unexpected checksums. We don\u0027t care\n  // about the checksum as we only care about the DEX file contents, and know that the checksum\n  // would probably be erroneous (i.e. random).\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "83e5f9ff_5073d71b",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-25T15:01:58Z",
+      "side": 1,
+      "message": "Does logging error_msg help here?",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "fixSuggestions": [
+        {
+          "fixId": "ed81951f_f12b29ab",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+              "range": {
+                "startLine": 157,
+                "startChar": 0,
+                "endLine": 157,
+                "endChar": 0
+              },
+              "replacement": "    LOG(ERROR) \u003c\u003c \"DEX file couldn\u0027t be verified: \" \u003c\u003c error_msg;\n"
+            }
+          ]
+        }
+      ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
