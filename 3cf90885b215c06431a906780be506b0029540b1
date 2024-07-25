@@ -107,6 +107,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fb2f29a6_72cd7cc2",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 3
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "The GC does not need to be updated because the managed stack and hence stack walk are updated with the frames from the simulated stack. Because these frames are updated from C++ entrypoints, which we call from the simulator as normal, we don\u0027t need to modify anything to make this work.",
+      "parentUuid": "c43fe99b_305f144c",
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "f97575b6_d611dc38",
@@ -144,6 +162,30 @@
           ]
         }
       ],
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a1076e10_751e084f",
+        "filename": "runtime/common_throws.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 707,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "f97575b6_d611dc38",
+      "range": {
+        "startLine": 707,
+        "startChar": 45,
+        "endLine": 707,
+        "endChar": 50
+      },
       "revId": "3cf90885b215c06431a906780be506b0029540b1",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -189,6 +231,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e7f95bbb_156cb321",
+        "filename": "runtime/common_throws.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "This is needed for the StackType template below and removing it gives a compiler error.",
+      "parentUuid": "4927bedd_883c3413",
+      "range": {
+        "startLine": 24,
+        "startChar": 0,
+        "endLine": 24,
+        "endChar": 19
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebb0b753_70d98718",
@@ -202,6 +268,30 @@
       "writtenOn": "2024-06-27T10:44:04Z",
       "side": 1,
       "message": "Is this TODO to add some kind of DCHECK / CHECK to make sure we are not on simulated stack? As far as I understand this code, this is used to check we aren\u0027t double updating roots on stack on debug builds. I was wondering if we should also handle simulator stacks here. I don\u0027t understand how GC handles on-stack references fully so maybe I am missing something too.",
+      "range": {
+        "startLine": 2828,
+        "startChar": 24,
+        "endLine": 2829,
+        "endChar": 28
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d0fc27a_1738074e",
+        "filename": "runtime/gc/collector/mark_compact.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 2829,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "\u003e Is this TODO to add some kind of DCHECK / CHECK to make sure we are not on simulated stack? \n\nNot quite. This TODO is to revisit and test this code when mark compact is supported by the simulator so that we can determine whether the simulator also needs to be handled here. Currently this code cannot be tested (with the simulator) and so I wanted to retain the existing functionality by operating on the native stack and leaving the simulated stack until it can be properly tested.\n\nDepending on the result of that testing, we might introduce a DCHECK or just properly handle the simulated stack.",
+      "parentUuid": "ebb0b753_70d98718",
       "range": {
         "startLine": 2828,
         "startChar": 24,
@@ -235,6 +325,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "94eca386_961e3e6f",
+        "filename": "runtime/gc/heap.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1494,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d2ee38d9_448f053f",
+      "range": {
+        "startLine": 1494,
+        "startChar": 5,
+        "endLine": 1494,
+        "endChar": 31
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "75bd9d7e_cf7313ea",
@@ -258,6 +372,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "28ef99f5_4fb9ec76",
+        "filename": "runtime/thread-inl.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 544,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "\u003e when we implement simulator stack we would use a different set of begin stack_begin and stack_end is it?\n\nYes, that\u0027s right. The new `sim_stack_*` pointers are introduced in the [stage 1 setup](https://android-review.googlesource.com/c/platform/art/+/2680028/5/runtime/thread.h#2414) where relevant templated getters/setters are introduced to allow for operations (e.g: throwing a stack overflow) to be performed on each stack independently.\n\n\u003e I think we still want to detect simulator overflow and native stack overflow differently right?\n\nYes, in the case of stack overflow we can determine whether we are throwing from a native or quick context and only throw an overflow for that specific stack so we can later determine how to handle the overflow.",
+      "parentUuid": "75bd9d7e_cf7313ea",
+      "range": {
+        "startLine": 544,
+        "startChar": 24,
+        "endLine": 544,
+        "endChar": 59
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "d1e82b21_f955c600",
@@ -271,6 +409,30 @@
       "writtenOn": "2024-06-27T10:44:04Z",
       "side": 1,
       "message": "I am sorry, I know I asked to drop template on this but I was wondering if we should reintroduce the template or change the name to IsRawObjOnQuickStack to avoid confusion and using the wrong one. Sorry for going back and forth on this. I am fine with either using templates or name change.",
+      "range": {
+        "startLine": 1203,
+        "startChar": 7,
+        "endLine": 1203,
+        "endChar": 22
+      },
+      "revId": "3cf90885b215c06431a906780be506b0029540b1",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "55ce6a3a_d0989e4f",
+        "filename": "runtime/thread.h",
+        "patchSetId": 3
+      },
+      "lineNbr": 1203,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T13:15:08Z",
+      "side": 1,
+      "message": "No problem! As this is only used in one place I think a name change would be clearer than reintroducing the template.",
+      "parentUuid": "d1e82b21_f955c600",
       "range": {
         "startLine": 1203,
         "startChar": 7,
