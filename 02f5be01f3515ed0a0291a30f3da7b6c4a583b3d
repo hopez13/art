@@ -16,6 +16,98 @@
       "message": "Thanks! PTAL.",
       "revId": "02f5be01f3515ed0a0291a30f3da7b6c4a583b3d",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fe5c8c52_2f92b818",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 824,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T13:35:52Z",
+      "side": 1,
+      "message": "/* instruction\u003d */",
+      "range": {
+        "startLine": 824,
+        "startChar": 26,
+        "endLine": 824,
+        "endChar": 33
+      },
+      "revId": "02f5be01f3515ed0a0291a30f3da7b6c4a583b3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "a28a2d32_e484e814",
+        "filename": "compiler/optimizing/code_generator_arm64.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 1492,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T13:35:52Z",
+      "side": 1,
+      "message": "nit down to preference and this is up to you: I would usually call the method `MaybeRecordTraceEvent` and have the check in the method instead of in the callers.",
+      "range": {
+        "startLine": 1489,
+        "startChar": 0,
+        "endLine": 1492,
+        "endChar": 0
+      },
+      "revId": "02f5be01f3515ed0a0291a30f3da7b6c4a583b3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "5cae5de2_0e5aae19",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2496,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T13:35:52Z",
+      "side": 1,
+      "message": "Add a comment where this IP0 is from and what it contains.",
+      "range": {
+        "startLine": 2496,
+        "startChar": 14,
+        "endLine": 2496,
+        "endChar": 18
+      },
+      "revId": "02f5be01f3515ed0a0291a30f3da7b6c4a583b3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "faa172d8_d2b8cfe7",
+        "filename": "runtime/arch/arm64/quick_entrypoints_arm64.S",
+        "patchSetId": 3
+      },
+      "lineNbr": 2509,
+      "author": {
+        "id": 1038443
+      },
+      "writtenOn": "2024-07-25T13:35:52Z",
+      "side": 1,
+      "message": "ditto",
+      "range": {
+        "startLine": 2509,
+        "startChar": 14,
+        "endLine": 2509,
+        "endChar": 18
+      },
+      "revId": "02f5be01f3515ed0a0291a30f3da7b6c4a583b3d",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
