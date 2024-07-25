@@ -1,0 +1,234 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c27d572f_b3dff1f4",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 2,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "Keep the older number. We keep the year of when the file was first merged",
+      "range": {
+        "startLine": 2,
+        "startChar": 17,
+        "endLine": 2,
+        "endChar": 21
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f5f7208b_fae1d9ec",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 14
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "As I mentioned in the other comment, device_supported is true by default so this is not necessary",
+      "range": {
+        "startLine": 81,
+        "startChar": 0,
+        "endLine": 81,
+        "endChar": 27
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "d31c4b08_1a230430",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 37,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "This is not correct. For example, you had the armv8 lunch command but for host it built and ran for x86_64. I think we can change the two sentences to:\n\n`For host you can use any valid lunch target for example:`",
+      "range": {
+        "startLine": 36,
+        "startChar": 49,
+        "endLine": 37,
+        "endChar": 34
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6b3f503a_5dd710ce",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "This is assuming a x86_64 host architecture. It is fine to assume that, but add a comment saying so.",
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "fc4669fc_c05982a1",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "Same here, this is assuming arm64 arch",
+      "fixSuggestions": [
+        {
+          "fixId": "55a347c7_7cf53ea9",
+          "description": "prompt_to_edit API",
+          "replacements": [
+            {
+              "path": "tools/fuzzer/README.md",
+              "range": {
+                "startLine": 75,
+                "startChar": 0,
+                "endLine": 76,
+                "endChar": 0
+              },
+              "replacement": "    Any supported architecture can be used. For example, for arm64:\n"
+            }
+          ]
+        }
+      ],
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f98e418b_98ddef00",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 88,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "Let\u0027s use DEX (uppercase). Same for the other case below.",
+      "range": {
+        "startLine": 88,
+        "startChar": 13,
+        "endLine": 88,
+        "endChar": 16
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "372ffbce_a5c4ffe9",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "built",
+      "range": {
+        "startLine": 93,
+        "startChar": 71,
+        "endLine": 93,
+        "endChar": 78
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "9772dfa0_bb5e9244",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "removed",
+      "range": {
+        "startLine": 93,
+        "startChar": 59,
+        "endLine": 93,
+        "endChar": 66
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0d62f4b5_a4dc2952",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 94,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "Extra line",
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "aadb8023_5658a7b6",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 14
+      },
+      "lineNbr": 110,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T10:35:54Z",
+      "side": 1,
+      "message": "Same comment about assumming archs as above",
+      "range": {
+        "startLine": 96,
+        "startChar": 0,
+        "endLine": 110,
+        "endChar": 0
+      },
+      "revId": "501dff952c464dea48846aff948385d828abccd6",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
