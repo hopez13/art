@@ -24,6 +24,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "355b8b8f_789809af",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 5
+      },
+      "lineNbr": 36,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:41Z",
+      "side": 1,
+      "message": "Unfortunately I don\u0027t think there is a way to automate this kind of testing. The problem is that the only difference between the two is in the semantics of native vs quick which is not currently well defined in ART. This makes the process of testing rather manual to perform.\n\nAs `kRuntimeISA \u003d\u003d\u003d kRuntimeQuickCodeISA` when not on the simulator this change will only make a difference to simulator builds and so that can be used to test a lot of this code in an ad-hoc way. Of course if some code is not exercised by the simulator then it won\u0027t be tested until the simulator is enabled to run that code.\n\nIn addition to this testing on the simulator, I have also searched through all uses of kRuntimeISA and applied the change that best suited the semantics of how it was being used. Once I rebase this patch I will do the same search and look through the diff of uses of kRuntimeISA to check that no new or modified uses were missed.",
+      "parentUuid": "7e915ecb_a0dc57bc",
+      "range": {
+        "startLine": 35,
+        "startChar": 0,
+        "endLine": 36,
+        "endChar": 29
+      },
+      "revId": "f1f8fb477864f4e33a37777f8f6a343342f2e030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6b4fa424_5b9e6f95",
@@ -61,6 +85,30 @@
           ]
         }
       ],
+      "revId": "f1f8fb477864f4e33a37777f8f6a343342f2e030",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "60011b6b_6cf49457",
+        "filename": "libartbase/arch/instruction_set.h",
+        "patchSetId": 5
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1989777
+      },
+      "writtenOn": "2024-07-25T12:25:41Z",
+      "side": 1,
+      "message": "Thanks for the suggestion! This should also become clearer in the code as part of https://android-review.googlesource.com/c/platform/art/+/2680028/5/libartbase/arch/instruction_set.h#59",
+      "parentUuid": "6b4fa424_5b9e6f95",
+      "range": {
+        "startLine": 57,
+        "startChar": 1,
+        "endLine": 58,
+        "endChar": 71
+      },
       "revId": "f1f8fb477864f4e33a37777f8f6a343342f2e030",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
