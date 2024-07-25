@@ -386,6 +386,30 @@
       ],
       "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "45db54a4_4e1ead3a",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 156,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-25T15:09:43Z",
+      "side": 1,
+      "message": "The fuzzer will generate DEX files that don\u0027t pass dex file verification. This is not an error on the fuzzer so I\u0027d think the best course of action would be to ignore them and continue iterating. I think that if we print the logging error then the fuzzer logs will be spammed by this message.\n\nAn alternative might be to store them in the corpus, as they might serve as a stepping stone for future DEX files that we are actually interested about. We would need to experiment with that though as we wouldn\u0027t want to bloat the corpus.",
+      "parentUuid": "83e5f9ff_5073d71b",
+      "range": {
+        "startLine": 156,
+        "startChar": 4,
+        "endLine": 156,
+        "endChar": 66
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
