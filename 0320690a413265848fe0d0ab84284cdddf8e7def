@@ -54,6 +54,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "6f5841f8_14dc7093",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T17:35:34Z",
+      "side": 1,
+      "message": "Discussed offline. `init` manages services and identifies services by their names, so it\u0027s unlikely that it supports having two instances of the same service at the same time.",
+      "parentUuid": "a4f85642_8db6f251",
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6413165e_8f033dec",
@@ -125,6 +143,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "684be714_a63f457c",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T17:35:34Z",
+      "side": 1,
+      "message": "Discussed offline. Done.",
+      "parentUuid": "f0ee0e4d_3dd337f9",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc11433_dc139244",
@@ -186,6 +228,30 @@
       "side": 1,
       "message": "Then why not wait with this until we do? Afaics you don\u0027t need to call this method at all and can dispense with the boolean flag. Just add an assertion in `maybeCleanUpChroot` that `mRunningJob` is taken to always be null.",
       "parentUuid": "4165dc2a_203344a5",
+      "range": {
+        "startLine": 378,
+        "startChar": 15,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c8e088c2_a4393ee4",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T17:35:34Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e5a2a9b1_12949caf",
       "range": {
         "startLine": 378,
         "startChar": 15,
