@@ -38,6 +38,24 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "a4f85642_8db6f251",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T15:48:37Z",
+      "side": 1,
+      "message": "\u003e I made a change to tearDown to make it wait for the previous call to be done.\n\nThat relies on the artd process still being intact though, so it\u0027s not a 100% solution. Does `ServiceManager` pick up and \"adopt\" already running service processes when it starts up?\n\n\u003e For anything in chroot, ArtJni.ensureNoProcessInDir in PreRebootDriver.java line 203 does the trick.\n\nI see, thanks.",
+      "parentUuid": "0fa98354_a39b114f",
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "6413165e_8f033dec",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 1
@@ -85,6 +103,30 @@
     {
       "unresolved": true,
       "key": {
+        "uuid": "f0ee0e4d_3dd337f9",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T15:48:37Z",
+      "side": 1,
+      "message": "The limitation is stated in the comment below, and it\u0027s a virtue rather than a liability since it makes the logic more targeted and simpler.\n\nLet\u0027s tackle the situation with later calls if it turns out we need them. I doubt that will happen because those scenarios should already be covered by the existing code paths, so then I\u0027d first be looking at where and why we missed a case and if this really is the correct way to fix it. Or iow, an asynchronous teardown seems to be inherently outside the scope of normal operation so we shouldn\u0027t need it later on.\n\nThere\u0027s a point in not spelling it out in `PreRebootDriver` though, because the sequencing is handled in this class and not there, so I take that part back.",
+      "parentUuid": "2f004fba_5caaef81",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
         "uuid": "ebc11433_dc139244",
         "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
         "patchSetId": 1
@@ -120,6 +162,30 @@
       "side": 1,
       "message": "When we call `maybeCleanUpChroot` post startup (which we don\u0027t today).",
       "parentUuid": "ebc11433_dc139244",
+      "range": {
+        "startLine": 378,
+        "startChar": 15,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "e5a2a9b1_12949caf",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T15:48:37Z",
+      "side": 1,
+      "message": "Then why not wait with this until we do? Afaics you don\u0027t need to call this method at all and can dispense with the boolean flag. Just add an assertion in `maybeCleanUpChroot` that `mRunningJob` is taken to always be null.",
+      "parentUuid": "4165dc2a_203344a5",
       "range": {
         "startLine": 378,
         "startChar": 15,

@@ -16,6 +16,29 @@
       "message": "Thanks for the review! Sorry about bothering you during the vacation!",
       "revId": "32ba0ad973f4cb1d25aa130f559af65edc090881",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "0c3a4c4a_85da7147",
+        "filename": "dexopt_chroot_setup/dexopt_chroot_setup.cc",
+        "patchSetId": 2
+      },
+      "lineNbr": 371,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T15:48:37Z",
+      "side": 1,
+      "message": "It would be somewhat nice to keep the fatal in the normal synchronous cases so we don\u0027t risk hanging teardowns if they happen concurrently due to a bug in those code paths. It could be done by adding a flag like `concurrentTearDown` to enable the blocking lock.",
+      "range": {
+        "startLine": 369,
+        "startChar": 0,
+        "endLine": 371,
+        "endChar": 15
+      },
+      "revId": "32ba0ad973f4cb1d25aa130f559af65edc090881",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
