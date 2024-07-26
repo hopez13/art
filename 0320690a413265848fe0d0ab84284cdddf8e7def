@@ -18,6 +18,24 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "0fa98354_a39b114f",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T11:30:16Z",
+      "side": 1,
+      "message": "\u003e So how does this cancel any processes left behind?\n\nIt depends on which process is left behind.\n- For `dexopt_chroot_setup`, I made a change to `tearDown` to make it wait for the previous call to be done.\n- For anything in chroot, `ArtJni.ensureNoProcessInDir` in PreRebootDriver.java line 203 does the trick.",
+      "parentUuid": "7ff1611f_8d897ccc",
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "6413165e_8f033dec",
@@ -41,6 +59,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2f004fba_5caaef81",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T11:30:16Z",
+      "side": 1,
+      "message": "I don\u0027t think there is any correctness issue with calling this post startup, so I don\u0027t want to add an unnecessary limit to it. Updated the comment to clarify this.",
+      "parentUuid": "6413165e_8f033dec",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "ebc11433_dc139244",
@@ -54,6 +96,30 @@
       "writtenOn": "2024-07-26T11:10:58Z",
       "side": 1,
       "message": "When can `mRunningJob` be non-null in the call chain from `maybeCleanUpChroot`?",
+      "range": {
+        "startLine": 378,
+        "startChar": 15,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "4165dc2a_203344a5",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1884045
+      },
+      "writtenOn": "2024-07-26T11:30:16Z",
+      "side": 1,
+      "message": "When we call `maybeCleanUpChroot` post startup (which we don\u0027t today).",
+      "parentUuid": "ebc11433_dc139244",
       "range": {
         "startLine": 378,
         "startChar": 15,
