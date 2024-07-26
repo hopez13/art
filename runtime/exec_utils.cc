@@ -342,7 +342,7 @@ std::string ExecUtils::GetProcStat(pid_t pid) const {
 
 std::optional<int64_t> ExecUtils::GetUptimeMs(std::string* error_msg) const {
   timespec t;
-  if (clock_gettime(CLOCK_MONOTONIC, &t) != 0) {
+  if (clock_gettime(CLOCK_BOOTTIME, &t) != 0) {
     *error_msg = ART_FORMAT("Failed to get uptime: {}", strerror(errno));
     return std::nullopt;
   }
