@@ -58,6 +58,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "a35c3d91_acd83ee2",
+        "filename": "tools/fuzzer/Android.bp",
+        "patchSetId": 15
+      },
+      "lineNbr": 121,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "The debug version had an error, and it will be added in the future, after this version of class verification fuzzer is merged.",
+      "parentUuid": "62887d2e_853cb4e7",
+      "range": {
+        "startLine": 121,
+        "startChar": 4,
+        "endLine": 121,
+        "endChar": 31
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "c5822b5b_61380e87",
@@ -71,6 +95,30 @@
       "writtenOn": "2024-07-25T15:01:58Z",
       "side": 1,
       "message": "device? The example uses husky which is device. If we can build for architecture then please add an example using arm64 / arm32.",
+      "range": {
+        "startLine": 42,
+        "startChar": 63,
+        "endLine": 42,
+        "endChar": 75
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "903f989e_6b935c50",
+        "filename": "tools/fuzzer/README.md",
+        "patchSetId": 15
+      },
+      "lineNbr": 42,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "c5822b5b_61380e87",
       "range": {
         "startLine": 42,
         "startChar": 63,
@@ -122,6 +170,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "fa106434_70a560c0",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "6fdc1012_8c7e4cf9",
+      "range": {
+        "startLine": 34,
+        "startChar": 67,
+        "endLine": 34,
+        "endChar": 78
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "dfd34980_16e0fd09",
@@ -159,6 +231,30 @@
           ]
         }
       ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "3da8fca9_04b1e08c",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 39,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "dfd34980_16e0fd09",
+      "range": {
+        "startLine": 39,
+        "startChar": 2,
+        "endLine": 39,
+        "endChar": 26
+      },
       "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -214,6 +310,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "2d5795f5_74f7219a",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "07408ed0_17762ed8",
+      "range": {
+        "startLine": 48,
+        "startChar": 2,
+        "endLine": 49,
+        "endChar": 36
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "96057d88_c5598c2d",
@@ -251,6 +371,30 @@
           ]
         }
       ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "d1708f18_c32db7e5",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "96057d88_c5598c2d",
+      "range": {
+        "startLine": 73,
+        "startChar": 2,
+        "endLine": 73,
+        "endChar": 26
+      },
       "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
@@ -306,6 +450,30 @@
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "e9bcc65d_6778be74",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 74,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "23b27910_596538ef",
+      "range": {
+        "startLine": 74,
+        "startChar": 9,
+        "endLine": 74,
+        "endChar": 40
+      },
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "143c493b_2785f9c5",
@@ -343,6 +511,30 @@
           ]
         }
       ],
+      "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "684d3512_0572e34f",
+        "filename": "tools/fuzzer/libart_verify_classes_fuzzer.cc",
+        "patchSetId": 15
+      },
+      "lineNbr": 93,
+      "author": {
+        "id": 3522173
+      },
+      "writtenOn": "2024-07-26T09:56:01Z",
+      "side": 1,
+      "message": "The input that is generated by the fuzzer and treated as a DEX file doesn\u0027t have a valid checksum since the fuzzer can\u0027t create one. If the logging warnings about the checksum are printed then the fuzzer logs will be spammed by them.",
+      "parentUuid": "143c493b_2785f9c5",
+      "range": {
+        "startLine": 93,
+        "startChar": 45,
+        "endLine": 93,
+        "endChar": 81
+      },
       "revId": "d97c48f609d0a5580c3fc3b1c03653c4573f96bc",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     },
