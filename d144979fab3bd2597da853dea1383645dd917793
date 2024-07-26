@@ -1,6 +1,29 @@
 {
   "comments": [
     {
+      "unresolved": true,
+      "key": {
+        "uuid": "d7a90f19_3d0b0d12",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-26T13:14:43Z",
+      "side": 1,
+      "message": "destructor?",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "d144979fab3bd2597da853dea1383645dd917793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
       "unresolved": false,
       "key": {
         "uuid": "52538f83_5eeac4de",
@@ -14,6 +37,23 @@
       "writtenOn": "2024-07-26T13:08:49Z",
       "side": 1,
       "message": "PTAL. Thanks!",
+      "revId": "d144979fab3bd2597da853dea1383645dd917793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "b23cef8c_aaa8c508",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1889741
+      },
+      "writtenOn": "2024-07-26T13:14:43Z",
+      "side": 1,
+      "message": "Alternatively, you can do\n```\nconst std::string debug_info \u003d Trace::GetDebugInformation();\n...\nCHECK_EQ(tlsPtr_.method_trace_buffer, nullptr) \u003c\u003c debug_info;\n```\n\nNot sure if the place where you added the CHECK is the only destruction path",
       "revId": "d144979fab3bd2597da853dea1383645dd917793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
