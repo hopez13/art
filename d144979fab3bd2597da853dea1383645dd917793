@@ -26,6 +26,30 @@
     {
       "unresolved": false,
       "key": {
+        "uuid": "5d5e9771_423b592d",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 10,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-26T13:29:15Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "d7a90f19_3d0b0d12",
+      "range": {
+        "startLine": 10,
+        "startChar": 45,
+        "endLine": 10,
+        "endChar": 56
+      },
+      "revId": "d144979fab3bd2597da853dea1383645dd917793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
         "uuid": "52538f83_5eeac4de",
         "filename": "/PATCHSET_LEVEL",
         "patchSetId": 1
@@ -54,6 +78,24 @@
       "writtenOn": "2024-07-26T13:14:43Z",
       "side": 1,
       "message": "Alternatively, you can do\n```\nconst std::string debug_info \u003d Trace::GetDebugInformation();\n...\nCHECK_EQ(tlsPtr_.method_trace_buffer, nullptr) \u003c\u003c debug_info;\n```\n\nNot sure if the place where you added the CHECK is the only destruction path",
+      "revId": "d144979fab3bd2597da853dea1383645dd917793",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "c731d0b6_04427ebb",
+        "filename": "runtime/thread.cc",
+        "patchSetId": 1
+      },
+      "lineNbr": 2671,
+      "author": {
+        "id": 1894735
+      },
+      "writtenOn": "2024-07-26T13:29:15Z",
+      "side": 1,
+      "message": "That should be the only path where we delete the thread. We could get debug information here, but I was trying to avoid this in the destructor at all. If we still hit this check even with the check in the thread_list, then something is wrong. That\u0027s the only place where we clear the method trace buffer and a bunch of other buffers.",
+      "parentUuid": "b23cef8c_aaa8c508",
       "revId": "d144979fab3bd2597da853dea1383645dd917793",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
