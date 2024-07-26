@@ -276,6 +276,30 @@
       },
       "revId": "6be8956a1066485b990766045dad18332a2bcf45",
       "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c5e9023b_fce5d579",
+        "filename": "runtime/native/dalvik_system_VMRuntime.cc",
+        "patchSetId": 3
+      },
+      "lineNbr": 539,
+      "author": {
+        "id": 1850729
+      },
+      "writtenOn": "2024-07-26T00:12:02Z",
+      "side": 1,
+      "message": "Acknowledged",
+      "parentUuid": "9ed3ec8b_9c1b4ed9",
+      "range": {
+        "startLine": 539,
+        "startChar": 38,
+        "endLine": 539,
+        "endChar": 53
+      },
+      "revId": "6be8956a1066485b990766045dad18332a2bcf45",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
     }
   ]
 }
