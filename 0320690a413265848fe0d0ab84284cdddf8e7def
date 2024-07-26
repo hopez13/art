@@ -1,0 +1,67 @@
+{
+  "comments": [
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "7ff1611f_8d897ccc",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T11:10:58Z",
+      "side": 1,
+      "message": "When system server has restarted we won\u0027t have any state about the ongoing job in it, including `mCancellationSignal`, right? So how does this cancel any processes left behind?\n\nUnless I\u0027ve missed something there, I wonder if a better approach is to send a signal to artd (if it\u0027s running) to take down the running processes and do the teardown.",
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "6413165e_8f033dec",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 212,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T11:10:58Z",
+      "side": 1,
+      "message": "Since this and its counterpart in PreRebootDriver are specifically designed to only be called on startup, it may be worth calling that out in the name.",
+      "range": {
+        "startLine": 212,
+        "startChar": 29,
+        "endLine": 212,
+        "endChar": 47
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "ebc11433_dc139244",
+        "filename": "libartservice/service/java/com/android/server/art/PreRebootDexoptJob.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 378,
+      "author": {
+        "id": 1373864
+      },
+      "writtenOn": "2024-07-26T11:10:58Z",
+      "side": 1,
+      "message": "When can `mRunningJob` be non-null in the call chain from `maybeCleanUpChroot`?",
+      "range": {
+        "startLine": 378,
+        "startChar": 15,
+        "endLine": 378,
+        "endChar": 26
+      },
+      "revId": "0320690a413265848fe0d0ab84284cdddf8e7def",
+      "serverId": "85c56323-6fa9-3386-8a01-6480fb634889"
+    }
+  ]
+}
